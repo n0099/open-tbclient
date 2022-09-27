@@ -103,15 +103,15 @@ public class PersonIntroductionActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0719);
-            this.d = findViewById(R.id.obfuscated_res_0x7f091978);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            this.d = findViewById(R.id.obfuscated_res_0x7f09197a);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0e71));
             ImageView imageView = (ImageView) this.a.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_LEFT, R.layout.obfuscated_res_0x7f0d08f9, (View.OnClickListener) null);
             this.b = imageView;
             imageView.setOnClickListener(this.e);
             SkinManager.setImageResource(this.b, R.drawable.selector_topbar_return_black);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091977);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091979);
             this.c = textView;
             textView.setText(getIntent().getStringExtra("person_introduction"));
         }

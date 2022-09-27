@@ -5,8 +5,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import androidx.annotation.Keep;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,11 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bun.miitmdid.e0;
+import com.bun.miitmdid.f0;
+@Keep
 /* loaded from: classes7.dex */
 public class NubiaIdentityImpl {
     public static /* synthetic */ Interceptable $ic = null;
+    @Keep
     public static final String TAG = "NubiaIdentityImpl";
+    @Keep
     public static Uri uri;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -62,7 +65,7 @@ public class NubiaIdentityImpl {
                 if (i >= 17) {
                     ContentProviderClient acquireContentProviderClient = context.getContentResolver().acquireContentProviderClient(uri);
                     if (acquireContentProviderClient == null) {
-                        e0.d(TAG, "generalMethod: contentResolver is null");
+                        f0.d(TAG, "generalMethod: contentResolver is null");
                         return null;
                     }
                     call = acquireContentProviderClient.call(str, str2, null);
@@ -75,10 +78,10 @@ public class NubiaIdentityImpl {
                     call = context.getContentResolver().call(uri, str, str2, (Bundle) null);
                 }
                 if (call == null) {
-                    e0.d(TAG, "generalMethod: bundle is null");
+                    f0.d(TAG, "generalMethod: bundle is null");
                     return null;
                 } else if (call.getInt("code", -1) == 0) {
-                    e0.c(TAG, "generalMethod: success");
+                    f0.c(TAG, "generalMethod: success");
                     if (cls == Boolean.class) {
                         return Boolean.valueOf(call.getBoolean(str3, false));
                     }
@@ -88,57 +91,26 @@ public class NubiaIdentityImpl {
                     return null;
                 } else {
                     String string = call.getString("message");
-                    e0.d(TAG, "generalMethod: failed:" + string);
+                    f0.d(TAG, "generalMethod: failed:" + string);
                     return null;
                 }
             } catch (Exception e) {
-                e0.d(TAG, "generalMethod: Exception: " + e.getMessage());
+                f0.d(TAG, "generalMethod: Exception: " + e.getMessage());
                 return null;
             }
         }
         return invokeLLLLL.objValue;
     }
 
-    public static String getAAID(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            Object generalMethod = generalMethod(context, "getAAID", str, "id", String.class);
-            return generalMethod == null ? "" : (String) generalMethod;
-        }
-        return (String) invokeLL.objValue;
-    }
+    @Keep
+    public static native String getAAID(Context context, String str);
 
-    public static String getOAID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            Object generalMethod = generalMethod(context, "getOAID", null, "id", String.class);
-            return generalMethod == null ? "" : (String) generalMethod;
-        }
-        return (String) invokeL.objValue;
-    }
+    @Keep
+    public static native String getOAID(Context context);
 
-    public static String getVAID(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
-            Object generalMethod = generalMethod(context, "getVAID", str, "id", String.class);
-            return generalMethod == null ? "" : (String) generalMethod;
-        }
-        return (String) invokeLL.objValue;
-    }
+    @Keep
+    public static native String getVAID(Context context, String str);
 
-    public static boolean isSupported(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            Object generalMethod = generalMethod(context, "isSupport", null, "issupport", Boolean.class);
-            if (generalMethod == null) {
-                return false;
-            }
-            return ((Boolean) generalMethod).booleanValue();
-        }
-        return invokeL.booleanValue;
-    }
+    @Keep
+    public static native boolean isSupported(Context context);
 }

@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
-import com.baidu.tieba.as4;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.ns4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public String title;
     public int unReadCount;
     public int unReadCountExtra;
-    public as4 userExtraData;
+    public ns4 userExtraData;
     public int userType;
 
     public ImMessageCenterShowItemData() {
@@ -221,10 +221,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) ? this.unReadCount : invokeV.intValue;
     }
 
-    public as4 getUserExtraData() {
+    public ns4 getUserExtraData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.userExtraData : (as4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.userExtraData : (ns4) invokeV.objValue;
     }
 
     public int getUserType() {
@@ -434,10 +434,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         }
     }
 
-    public void setUserExtraData(as4 as4Var) {
+    public void setUserExtraData(ns4 ns4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, as4Var) == null) {
-            this.userExtraData = as4Var;
+        if (interceptable == null || interceptable.invokeL(1048633, this, ns4Var) == null) {
+            this.userExtraData = ns4Var;
         }
     }
 

@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
+import com.baidu.tieba.kq7;
+import com.baidu.tieba.l65;
+import com.baidu.tieba.lq7;
+import com.baidu.tieba.m65;
 import com.baidu.tieba.nearby.model.NearbyFriendsModel;
-import com.baidu.tieba.wp7;
-import com.baidu.tieba.xp7;
-import com.baidu.tieba.y55;
-import com.baidu.tieba.z55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wp7 a;
+    public kq7 a;
     public NearbyFriendsModel b;
     public CustomMessageListener c;
     public CustomMessageListener d;
@@ -95,12 +95,12 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
                 return;
             }
-            z55 z55Var = customResponsedMessage.getData() instanceof z55 ? (z55) customResponsedMessage.getData() : null;
-            if (z55Var == null || z55Var.b() != 1) {
+            m65 m65Var = customResponsedMessage.getData() instanceof m65 ? (m65) customResponsedMessage.getData() : null;
+            if (m65Var == null || m65Var.b() != 1) {
                 return;
             }
             NearbyFriendsActivity nearbyFriendsActivity = this.a;
-            new y55(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091670), z55Var).m();
+            new l65(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f091670), m65Var).m();
         }
     }
 
@@ -145,9 +145,9 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0044);
             N0();
-            xp7 xp7Var = new xp7(this);
-            this.a = xp7Var;
-            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(xp7Var, getUniqueId());
+            lq7 lq7Var = new lq7(this);
+            this.a = lq7Var;
+            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(lq7Var, getUniqueId());
             this.b = nearbyFriendsModel;
             nearbyFriendsModel.H(getIntent());
             this.a.o(this.b);

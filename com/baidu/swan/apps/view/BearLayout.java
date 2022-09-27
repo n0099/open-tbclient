@@ -19,8 +19,8 @@ import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.swan.apps.model.SwanAppBearInfo;
 import com.baidu.swan.apps.res.ui.BdBaseImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.vh3;
+import com.baidu.tieba.ii3;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,16 +85,16 @@ public class BearLayout extends LinearLayout {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vh3 a;
+        public final /* synthetic */ ii3 a;
         public final /* synthetic */ SwanAppBearInfo b;
         public final /* synthetic */ BearLayout c;
 
-        public b(BearLayout bearLayout, vh3 vh3Var, SwanAppBearInfo swanAppBearInfo) {
+        public b(BearLayout bearLayout, ii3 ii3Var, SwanAppBearInfo swanAppBearInfo) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bearLayout, vh3Var, swanAppBearInfo};
+                Object[] objArr = {bearLayout, ii3Var, swanAppBearInfo};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -105,7 +105,7 @@ public class BearLayout extends LinearLayout {
                 }
             }
             this.c = bearLayout;
-            this.a = vh3Var;
+            this.a = ii3Var;
             this.b = swanAppBearInfo;
         }
 
@@ -203,7 +203,7 @@ public class BearLayout extends LinearLayout {
                 return;
             }
         }
-        j = ij1.a;
+        j = vj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -300,9 +300,9 @@ public class BearLayout extends LinearLayout {
         }
     }
 
-    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, vh3 vh3Var) {
+    public void k(@NonNull Context context, @NonNull SwanAppBearInfo swanAppBearInfo, ii3 ii3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, swanAppBearInfo, vh3Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, swanAppBearInfo, ii3Var) == null) {
             this.i = context;
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0097, this);
             linearLayout.setOnClickListener(new a(this, swanAppBearInfo));
@@ -317,7 +317,7 @@ public class BearLayout extends LinearLayout {
             this.d = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09036d);
             TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09036e);
             this.e = textView2;
-            textView2.setOnClickListener(new b(this, vh3Var, swanAppBearInfo));
+            textView2.setOnClickListener(new b(this, ii3Var, swanAppBearInfo));
             BdBaseImageView bdBaseImageView = (BdBaseImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090371);
             this.f = bdBaseImageView;
             bdBaseImageView.setVisibility(8);

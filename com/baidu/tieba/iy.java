@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class iy extends ix implements wx<is4>, xx {
+public class iy extends ix implements wx<vs4>, xx {
     public static /* synthetic */ Interceptable $ic;
     public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
@@ -121,24 +121,24 @@ public class iy extends ix implements wx<is4>, xx {
             layoutParams3.rightMargin = f2;
             layoutParams3.bottomMargin = f3;
             i(layoutParams3);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f080933, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f080935, R.color.CAM_X0111);
             this.e.setPadding(f, f, f, f);
             this.e.setLayoutParams(layoutParams3);
         }
         this.f = align;
     }
 
-    public void m(lq4 lq4Var) {
+    public void m(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, lq4Var) == null) || lq4Var == null || lq4Var.getNegFeedBackData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, yq4Var) == null) || yq4Var == null || yq4Var.getNegFeedBackData() == null) {
             return;
         }
-        if (lq4Var.getNegFeedBackData().h() <= 0 && lq4Var.getThreadData() != null) {
-            if (!lq4Var.showCardBottomOpWeight() && !lq4Var.isFromFrs()) {
+        if (yq4Var.getNegFeedBackData().h() <= 0 && yq4Var.getThreadData() != null) {
+            if (!yq4Var.showCardBottomOpWeight() && !yq4Var.isFromFrs()) {
                 l(Align.ALIGN_RIGHT_BOTTOM);
-            } else if (lq4Var.isSupportTop()) {
-                v((!p(lq4Var) || UbsABTestHelper.showNewUI()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds50) : o(R.dimen.tbds64));
-            } else if (lq4Var.isSupportBottom()) {
+            } else if (yq4Var.isSupportTop()) {
+                v((!p(yq4Var) || UbsABTestHelper.showNewUI()) ? UtilHelper.getDimenPixelSize(R.dimen.tbds50) : o(R.dimen.tbds64));
+            } else if (yq4Var.isSupportBottom()) {
                 sy syVar = this.d;
                 if (syVar != null) {
                     syVar.n(this);
@@ -149,7 +149,7 @@ public class iy extends ix implements wx<is4>, xx {
         } else if (this.g) {
             k();
         } else {
-            r(lq4Var);
+            r(yq4Var);
         }
     }
 
@@ -176,32 +176,32 @@ public class iy extends ix implements wx<is4>, xx {
         }
     }
 
-    public final boolean p(lq4 lq4Var) {
+    public final boolean p(yq4 yq4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lq4Var)) == null) ? (lq4Var instanceof k26) && ((k26) lq4Var).n : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yq4Var)) == null) ? (yq4Var instanceof x26) && ((x26) yq4Var).n : invokeL.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: q */
-    public void a(is4 is4Var) {
+    public void a(vs4 vs4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, is4Var) == null) {
-            if (is4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, vs4Var) == null) {
+            if (vs4Var == null) {
                 this.e.setVisibility(8);
                 return;
             }
-            this.e.setData(is4Var);
+            this.e.setData(vs4Var);
             this.e.setFirstRowSingleColumn(true);
             this.e.setVisibility(0);
         }
     }
 
-    public final void r(lq4 lq4Var) {
+    public final void r(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, lq4Var) == null) {
-            if (lq4Var.showCardBottomOpWeight()) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, yq4Var) == null) {
+            if (yq4Var.showCardBottomOpWeight()) {
                 int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds80);
                 int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.tbds88);
                 int dimenPixelSize3 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X005);
@@ -227,7 +227,7 @@ public class iy extends ix implements wx<is4>, xx {
             layoutParams2.rightMargin = f2;
             layoutParams2.topMargin = f3;
             i(layoutParams2);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f080933, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f080935, R.color.CAM_X0111);
             this.e.setPadding(f, f, f, f);
             this.e.setLayoutParams(layoutParams2);
         }

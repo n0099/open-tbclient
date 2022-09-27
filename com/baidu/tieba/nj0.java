@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.utils.LruCache;
+import android.os.Handler;
+import android.os.Looper;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,42 +11,42 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class nj0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final LruCache<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948004245, "Lcom/baidu/tieba/nj0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final Handler a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-573680648, "Lcom/baidu/tieba/nj0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-573680648, "Lcom/baidu/tieba/nj0$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948004245, "Lcom/baidu/tieba/nj0;");
-                return;
-            }
-        }
-        a = new LruCache<>();
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? a.get(str) : (String) invokeL.objValue;
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            a.put(str, str2);
+            a = new Handler(Looper.getMainLooper());
         }
     }
 
-    public static void c(String str) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a.remove(str);
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? Looper.getMainLooper() == Looper.myLooper() : invokeV.booleanValue;
+    }
+
+    public static void b(@Nullable Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, runnable) == null) || runnable == null) {
+            return;
         }
+        a.a.post(runnable);
     }
 }

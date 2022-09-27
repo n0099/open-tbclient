@@ -42,16 +42,16 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.suspended.SuspendedActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a77;
 import com.baidu.tieba.compatible.StatusBarUtil;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.hottopicselect.HotTopicSelectModel;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.vd5;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.ie5;
+import com.baidu.tieba.l77;
+import com.baidu.tieba.m77;
+import com.baidu.tieba.n77;
+import com.baidu.tieba.o77;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.x67;
-import com.baidu.tieba.y67;
-import com.baidu.tieba.z67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class WorkPublishHotTopicSelectActivity extends SuspendedActivity implements vd5, HotTopicSelectModel.c {
+public class WorkPublishHotTopicSelectActivity extends SuspendedActivity implements ie5, HotTopicSelectModel.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AutoChangeLineView A;
@@ -72,12 +72,12 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
     public final ExpandableListView.OnGroupClickListener G;
     public final ExpandableListView.OnChildClickListener H;
     public HotTopicSelectModel k;
-    public final List<z67> l;
+    public final List<n77> l;
     public View m;
     public BdListView n;
     public ExpandableListView o;
-    public a77 p;
-    public x67 q;
+    public o77 p;
+    public l77 q;
     public List<String> r;
     public ViewGroup s;
     public EditText t;
@@ -189,7 +189,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
                 textView.setCompoundDrawablePadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
                 textView.setCompoundDrawables(pureDrawable, null, pureDrawable2, null);
                 String cutChineseAndEnglishWithEmoji = StringHelper.cutChineseAndEnglishWithEmoji(str, 16, StringHelper.STRING_MORE);
-                uu4 d = uu4.d(textView);
+                hv4 d = hv4.d(textView);
                 d.n(R.string.J_X01);
                 d.l(R.dimen.L_X01);
                 d.k(R.color.CAM_X0302);
@@ -299,12 +299,12 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
 
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-            z67 z67Var;
+            n77 n77Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (z67Var = (z67) ListUtils.getItem(this.a.q.d(), i)) == null) {
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) || (n77Var = (n77) ListUtils.getItem(this.a.q.d(), i)) == null) {
                 return;
             }
-            String b = z67Var.b();
+            String b = n77Var.b();
             this.a.B1(b);
             this.a.A1(b, 3);
         }
@@ -376,7 +376,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         @Override // android.widget.ExpandableListView.OnChildClickListener
         public boolean onChildClick(ExpandableListView expandableListView, View view2, int i, int i2, long j) {
             InterceptResult invokeCommon;
-            z67 child;
+            n77 child;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{expandableListView, view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)})) == null) {
                 if (this.a.p == null || (child = this.a.p.getChild(i, i2)) == null) {
@@ -384,7 +384,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
                 }
                 String b = child.b();
                 this.a.B1(b);
-                y67 group = this.a.p.getGroup(i);
+                m77 group = this.a.p.getGroup(i);
                 if (group != null) {
                     this.a.A1(b, group.getType() == 0 ? 1 : 2);
                     return false;
@@ -462,7 +462,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             BdTopToast bdTopToast = new BdTopToast(this.a.getPageContext().getPageActivity());
             bdTopToast.h(false);
             bdTopToast.g(this.a.getString(R.string.obfuscated_res_0x7f0f1460));
-            bdTopToast.i((ViewGroup) this.a.getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091fb7));
+            bdTopToast.i((ViewGroup) this.a.getPageContext().getPageActivity().findViewById(R.id.obfuscated_res_0x7f091fb9));
         }
     }
 
@@ -552,7 +552,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.n.setVisibility(0);
             hideLoadingView(this.s);
             String F1 = F1();
-            z67 E1 = E1(F1);
+            n77 E1 = E1(F1);
             this.l.clear();
             this.l.add(E1);
             this.q.e(F1, this.l);
@@ -571,12 +571,12 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
                 BdTopToast bdTopToast = new BdTopToast(this);
                 bdTopToast.h(false);
                 bdTopToast.g(getString(R.string.obfuscated_res_0x7f0f0382));
-                bdTopToast.i((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fb7));
+                bdTopToast.i((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fb9));
             } else if (this.r.size() >= this.C) {
                 BdTopToast bdTopToast2 = new BdTopToast(this);
                 bdTopToast2.h(false);
                 bdTopToast2.g(getString(R.string.obfuscated_res_0x7f0f1460));
-                bdTopToast2.i((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fb7));
+                bdTopToast2.i((ViewGroup) findViewById(R.id.obfuscated_res_0x7f091fb9));
             } else {
                 this.r.add(str);
                 this.B.setText(String.format("(%d/%d)", Integer.valueOf(this.r.size()), Integer.valueOf(this.C)));
@@ -591,8 +591,8 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.o.setVisibility(0);
             this.n.setVisibility(8);
             this.q.b();
-            a77 a77Var = this.p;
-            if (a77Var != null && !ListUtils.isEmpty(a77Var.f())) {
+            o77 o77Var = this.p;
+            if (o77Var != null && !ListUtils.isEmpty(o77Var.f())) {
                 this.m.setVisibility(0);
                 return;
             }
@@ -609,15 +609,15 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         }
     }
 
-    public final z67 E1(String str) {
+    public final n77 E1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            z67 z67Var = new z67();
-            z67Var.d(str);
-            return z67Var;
+            n77 n77Var = new n77();
+            n77Var.d(str);
+            return n77Var;
         }
-        return (z67) invokeL.objValue;
+        return (n77) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
@@ -649,7 +649,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vd5
+    @Override // com.baidu.tieba.ie5
     public boolean G0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -662,7 +662,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
     public final void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091e09);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091e0b);
             this.t = editText;
             editText.setCompoundDrawablePadding(ej.f(getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f070302));
             this.t.setOnFocusChangeListener(new h(this));
@@ -677,27 +677,27 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.s = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f090ad2);
-            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925bf);
-            this.A = (AutoChangeLineView) findViewById(R.id.obfuscated_res_0x7f0922f9);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09259e);
+            this.z = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0925c1);
+            this.A = (AutoChangeLineView) findViewById(R.id.obfuscated_res_0x7f0922fb);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0925a0);
             this.B = textView;
             textView.setText(String.format("(%d/%d)", Integer.valueOf(this.r.size()), Integer.valueOf(this.C)));
-            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09230d);
+            this.w = (TextView) findViewById(R.id.obfuscated_res_0x7f09230f);
             this.v = (ImageView) findViewById(R.id.obfuscated_res_0x7f090646);
-            this.m = findViewById(R.id.obfuscated_res_0x7f090d9e);
-            this.n = (BdListView) findViewById(R.id.obfuscated_res_0x7f090d94);
+            this.m = findViewById(R.id.obfuscated_res_0x7f090d9d);
+            this.n = (BdListView) findViewById(R.id.obfuscated_res_0x7f090d93);
             this.u = NoDataViewFactory.a(getPageContext().getPageActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f0702bf)), null, null);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
             this.s.addView(this.u, layoutParams);
             this.u.setVisibility(8);
-            x67 x67Var = new x67(getPageContext());
-            this.q = x67Var;
-            this.n.setAdapter((ListAdapter) x67Var);
-            this.o = (ExpandableListView) findViewById(R.id.obfuscated_res_0x7f090d96);
-            a77 a77Var = new a77(getPageContext());
-            this.p = a77Var;
-            this.o.setAdapter(a77Var);
+            l77 l77Var = new l77(getPageContext());
+            this.q = l77Var;
+            this.n.setAdapter((ListAdapter) l77Var);
+            this.o = (ExpandableListView) findViewById(R.id.obfuscated_res_0x7f090d95);
+            o77 o77Var = new o77(getPageContext());
+            this.p = o77Var;
+            this.o.setAdapter(o77Var);
             this.n.setOnItemClickListener(this.F);
             this.o.setOnGroupClickListener(this.G);
             this.o.setOnChildClickListener(this.H);
@@ -709,15 +709,15 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         }
     }
 
-    public final void I1(y67 y67Var, boolean z) {
+    public final void I1(m77 m77Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048587, this, y67Var, z) == null) || y67Var == null || ListUtils.isEmpty(y67Var.b())) {
+        if (!(interceptable == null || interceptable.invokeLZ(1048587, this, m77Var, z) == null) || m77Var == null || ListUtils.isEmpty(m77Var.b())) {
             return;
         }
-        if (TextUtils.isEmpty(y67Var.a())) {
-            y67Var.e(getString(z ? R.string.obfuscated_res_0x7f0f081c : R.string.obfuscated_res_0x7f0f081d));
+        if (TextUtils.isEmpty(m77Var.a())) {
+            m77Var.e(getString(z ? R.string.obfuscated_res_0x7f0f081c : R.string.obfuscated_res_0x7f0f081d));
         }
-        this.p.g(y67Var);
+        this.p.g(m77Var);
     }
 
     public void J1(boolean z) {
@@ -749,7 +749,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public vd5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public ie5 N0(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, linearLayout, navigationBar)) == null) {
@@ -758,7 +758,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d03a0, (ViewGroup) linearLayout, true);
             return this;
         }
-        return (vd5) invokeLL.objValue;
+        return (ie5) invokeLL.objValue;
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
@@ -768,7 +768,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         }
     }
 
-    @Override // com.baidu.tieba.vd5
+    @Override // com.baidu.tieba.ie5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -776,9 +776,9 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void m0(y67 y67Var) {
+    public void m0(m77 m77Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, y67Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, m77Var) == null) {
             this.m.setVisibility(0);
             this.o.setVisibility(8);
             this.n.setVisibility(0);
@@ -786,8 +786,8 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             this.l.clear();
             String F1 = F1();
             this.l.add(E1(F1));
-            if (y67Var != null && y67Var.b() != null) {
-                this.l.addAll(y67Var.b());
+            if (m77Var != null && m77Var.b() != null) {
+                this.l.addAll(m77Var.b());
                 this.q.e(F1, this.l);
                 return;
             }
@@ -795,7 +795,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         }
     }
 
-    @Override // com.baidu.tieba.vd5
+    @Override // com.baidu.tieba.ie5
     public void n(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048595, this, i2) == null) {
@@ -816,11 +816,11 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         if (interceptable == null || interceptable.invokeI(1048597, this, i2) == null) {
             super.onChangeSkinType(i2);
             this.mSkinType = i2;
-            uu4.d(this.y).x(R.color.CAM_X0302);
-            uu4.d(this.B).v(R.color.CAM_X0107);
-            uu4.d(findViewById(R.id.obfuscated_res_0x7f09259d)).v(R.color.CAM_X0105);
-            uu4.d(findViewById(R.id.obfuscated_res_0x7f0925c0)).v(R.color.CAM_X0105);
-            uu4 d2 = uu4.d(this.z);
+            hv4.d(this.y).x(R.color.CAM_X0302);
+            hv4.d(this.B).v(R.color.CAM_X0107);
+            hv4.d(findViewById(R.id.obfuscated_res_0x7f09259f)).v(R.color.CAM_X0105);
+            hv4.d(findViewById(R.id.obfuscated_res_0x7f0925c2)).v(R.color.CAM_X0105);
+            hv4 d2 = hv4.d(this.z);
             d2.n(R.string.J_X07);
             d2.f(R.color.CAM_X0209);
             this.A.setLabelTextColor(SkinManager.getColor(R.color.CAM_X0302));
@@ -829,13 +829,13 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
             if (noDataView != null) {
                 noDataView.f(getPageContext(), i2);
             }
-            x67 x67Var = this.q;
-            if (x67Var != null) {
-                x67Var.notifyDataSetChanged();
+            l77 l77Var = this.q;
+            if (l77Var != null) {
+                l77Var.notifyDataSetChanged();
             }
-            a77 a77Var = this.p;
-            if (a77Var != null) {
-                a77Var.notifyDataSetChanged();
+            o77 o77Var = this.p;
+            if (o77Var != null) {
+                o77Var.notifyDataSetChanged();
             }
             EditText editText = this.t;
             if (editText != null) {
@@ -904,7 +904,7 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
         }
     }
 
-    @Override // com.baidu.tieba.vd5
+    @Override // com.baidu.tieba.ie5
     public boolean s() {
         InterceptResult invokeV;
         ListView listView;
@@ -922,16 +922,16 @@ public class WorkPublishHotTopicSelectActivity extends SuspendedActivity impleme
     }
 
     @Override // com.baidu.tieba.hottopicselect.HotTopicSelectModel.c
-    public void v0(y67 y67Var, y67 y67Var2, y67 y67Var3) {
+    public void v0(m77 m77Var, m77 m77Var2, m77 m77Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048602, this, y67Var, y67Var2, y67Var3) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048602, this, m77Var, m77Var2, m77Var3) == null) {
             this.m.setVisibility(0);
             this.o.setVisibility(0);
             this.n.setVisibility(8);
             hideLoadingView(this.s);
             this.p.c();
-            I1(y67Var, true);
-            I1(y67Var2, false);
+            I1(m77Var, true);
+            I1(m77Var2, false);
             this.p.notifyDataSetChanged();
             int count = this.o.getCount();
             for (int i2 = 0; i2 < count; i2++) {

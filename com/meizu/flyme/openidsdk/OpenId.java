@@ -1,18 +1,22 @@
 package com.meizu.flyme.openidsdk;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public class OpenId {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public int code;
+    @Keep
     public long expiredTime;
+    @Keep
     public String type;
+    @Keep
     public String value;
 
     public OpenId(String str) {
@@ -33,37 +37,18 @@ public class OpenId {
         this.type = str;
     }
 
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.expiredTime > System.currentTimeMillis() : invokeV.booleanValue;
-    }
+    @Keep
+    public native boolean isValid();
 
-    public void setDataExpired() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.expiredTime = 0L;
-        }
-    }
+    @Keep
+    public native void setDataExpired();
 
-    public void updateCode(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.code = i;
-        }
-    }
+    @Keep
+    public native void updateCode(int i);
 
-    public void updateExpiredTime(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.expiredTime = j;
-        }
-    }
+    @Keep
+    public native void updateExpiredTime(long j);
 
-    public void updateValue(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.value = str;
-        }
-    }
+    @Keep
+    public native void updateValue(String str);
 }

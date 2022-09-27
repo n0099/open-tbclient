@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.eh5;
+import com.baidu.tieba.rh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,7 +66,7 @@ public class FrsPraiseView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                eh5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, this.a.f != null ? this.a.f.getTitle() : "", this.a.i));
+                rh5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, this.a.f != null ? this.a.f.getTitle() : "", this.a.i));
             }
         }
     }
@@ -214,9 +214,9 @@ public class FrsPraiseView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             View inflate = View.inflate(this.a, R.layout.obfuscated_res_0x7f0d032d, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b38);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bd3);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bd4);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090b37);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bd2);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090bd3);
             setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.d.setOnClickListener(new c(this));

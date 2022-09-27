@@ -1,54 +1,49 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class rb3 {
+public class rb3 extends lb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AshmemFileDescriptor a;
-    public volatile SwanKV b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948115814, "Lcom/baidu/tieba/rb3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948115814, "Lcom/baidu/tieba/rb3;");
-                return;
+    public rb3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        pb3.f();
     }
 
-    public AshmemFileDescriptor a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (AshmemFileDescriptor) invokeV.objValue;
-    }
-
+    @Override // com.baidu.tieba.lb3
     @NonNull
-    public SwanKV b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (SwanKV) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String z = ta3.z(k33.K().getAppId());
+            return TextUtils.isEmpty(z) ? "" : z;
+        }
+        return (String) invokeV.objValue;
     }
 
-    public void c(@NonNull SwanKV swanKV) {
+    @Override // com.baidu.tieba.pb3
+    public long getMaxSize() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanKV) == null) {
-            this.b = swanKV;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Config.FULL_TRACE_LOG_LIMIT : invokeV.longValue;
     }
 }

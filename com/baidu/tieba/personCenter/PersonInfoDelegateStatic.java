@@ -20,20 +20,20 @@ import com.baidu.tbadk.mainTab.MaintabBottomIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a95;
-import com.baidu.tieba.b95;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.dm8;
-import com.baidu.tieba.e95;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.k95;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.m95;
+import com.baidu.tieba.n95;
+import com.baidu.tieba.o95;
+import com.baidu.tieba.ox4;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
+import com.baidu.tieba.r95;
 import com.baidu.tieba.redpackage.NewUserRedPackageActivity;
 import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tieba.sm8;
 import com.baidu.tieba.tropicgiftbag.UserTropicGiftBagActivity;
-import com.baidu.tieba.x85;
-import com.baidu.tieba.y85;
-import com.baidu.tieba.z85;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +42,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PersonInfoDelegateStatic extends y85 {
+public class PersonInfoDelegateStatic extends l95 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MessageRedDotView c;
@@ -77,14 +77,14 @@ public class PersonInfoDelegateStatic extends y85 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            z85 b;
+            m95 b;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2007002 || customResponsedMessage.getData() == null) {
                 return;
             }
             PersonInfoDelegateStatic personInfoDelegateStatic = new PersonInfoDelegateStatic();
-            ((a95) customResponsedMessage.getData()).a(personInfoDelegateStatic);
-            if (((a95) customResponsedMessage.getData()).getContext() == null || (b = personInfoDelegateStatic.b()) == null) {
+            ((n95) customResponsedMessage.getData()).a(personInfoDelegateStatic);
+            if (((n95) customResponsedMessage.getData()).getContext() == null || (b = personInfoDelegateStatic.b()) == null) {
                 return;
             }
             b.a.setArguments(new Bundle());
@@ -92,7 +92,7 @@ public class PersonInfoDelegateStatic extends y85 {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements b95.a {
+    public class b implements o95.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -115,7 +115,7 @@ public class PersonInfoDelegateStatic extends y85 {
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.b95.a
+        @Override // com.baidu.tieba.o95.a
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -154,8 +154,8 @@ public class PersonInfoDelegateStatic extends y85 {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof x85)) {
-                this.a.d = Boolean.valueOf(((x85) customResponsedMessage.getData()).a);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2007014 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof k95)) {
+                this.a.d = Boolean.valueOf(((k95) customResponsedMessage.getData()).a);
                 if (this.a.d.booleanValue()) {
                     this.a.c.f(0);
                     this.a.c.setVisibility(0);
@@ -164,7 +164,7 @@ public class PersonInfoDelegateStatic extends y85 {
                 }
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (!this.a.d.booleanValue() && TbadkCoreApplication.isLogin() && currentAccountObj.isMemberCloseAdIsOpen()) {
-                    bx4.k().u("member_close_ad_mine_clicked", true);
+                    ox4.k().u("member_close_ad_mine_clicked", true);
                 }
             }
         }
@@ -211,8 +211,8 @@ public class PersonInfoDelegateStatic extends y85 {
     public static void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            dm8.h(303012, ProfileSocketResponseMessage.class, false, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, dm8.a("c/u/user/profile", 303012));
+            sm8.h(303012, ProfileSocketResponseMessage.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PROFILE_HTTP_CMD, sm8.a("c/u/user/profile", 303012));
             tbHttpMessageTask.setIsNeedLogin(false);
             tbHttpMessageTask.setIsNeedTbs(false);
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
@@ -222,36 +222,36 @@ public class PersonInfoDelegateStatic extends y85 {
         }
     }
 
-    @Override // com.baidu.tieba.y85
-    public z85 a() {
+    @Override // com.baidu.tieba.l95
+    public m95 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            z85 z85Var = new z85();
-            z85Var.a = new PersonCenterFragment();
-            z85Var.e = 8;
-            z85Var.b = R.string.mine;
-            z85Var.f = R.raw.lottie_tab_my;
-            z85Var.i = z85.m;
-            z85Var.h = e95.d().c("person");
-            return z85Var;
+            m95 m95Var = new m95();
+            m95Var.a = new PersonCenterFragment();
+            m95Var.e = 8;
+            m95Var.b = R.string.mine;
+            m95Var.f = R.raw.lottie_tab_my;
+            m95Var.i = m95.m;
+            m95Var.h = r95.d().c("person");
+            return m95Var;
         }
-        return (z85) invokeV.objValue;
+        return (m95) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y85
+    @Override // com.baidu.tieba.l95
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            this.b = (MaintabBottomIndicator) b95.e().d(1005, new b(this, context));
+            this.b = (MaintabBottomIndicator) o95.e().d(1005, new b(this, context));
             this.c = new MessageRedDotView(context);
             TbFragmentTabIndicator.a aVar = new TbFragmentTabIndicator.a();
             aVar.f = this.b;
             aVar.c = ej.d(context, 10.0f);
             aVar.a = this.c;
             this.b.b(FileHelper.FILE_CACHE_EMOTION_PACKAGE, aVar);
-            boolean h = bx4.k().h("key_feedback_tip_tab_show", false);
+            boolean h = ox4.k().h("key_feedback_tip_tab_show", false);
             if (!this.d.booleanValue() && !h) {
                 this.c.setVisibility(8);
             } else {
@@ -263,14 +263,14 @@ public class PersonInfoDelegateStatic extends y85 {
         return (TbFragmentTabIndicator) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.y85
+    @Override // com.baidu.tieba.l95
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? MainTabActivityConfig.PERSON_TAB_AVAIBLE : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.y85
+    @Override // com.baidu.tieba.l95
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -281,7 +281,7 @@ public class PersonInfoDelegateStatic extends y85 {
         }
     }
 
-    @Override // com.baidu.tieba.y85
+    @Override // com.baidu.tieba.l95
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {

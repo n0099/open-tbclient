@@ -5,9 +5,9 @@ import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.dc3;
-import com.baidu.tieba.fm2;
-import com.baidu.tieba.ij1;
+import com.baidu.tieba.qc3;
+import com.baidu.tieba.sm2;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        DEBUG = ij1.a;
+        DEBUG = vj1.a;
     }
 
     public SwanJSVersionUpdateEvent() {
@@ -54,7 +54,7 @@ public class SwanJSVersionUpdateEvent {
                 return;
             }
         }
-        SwanCoreVersion g = dc3.g(0);
+        SwanCoreVersion g = qc3.g(0);
         if (g != null) {
             this.mVersionCode = g.swanCoreVersionCode;
             this.mVersionName = g.swanCoreVersionName;
@@ -71,7 +71,7 @@ public class SwanJSVersionUpdateEvent {
             if (swanJSVersionUpdateEvent.mVersionName == null) {
                 return;
             }
-            fm2.N().a(swanJSVersionUpdateEvent);
+            sm2.N().a(swanJSVersionUpdateEvent);
             if (DEBUG) {
                 Log.d(TAG, "send SwanJSVersionUpdateEvent, downVersion:" + j + ", getVersion:" + swanJSVersionUpdateEvent.getVersionName() + "(" + swanJSVersionUpdateEvent.getVersionCode() + SmallTailInfo.EMOTION_SUFFIX);
             }

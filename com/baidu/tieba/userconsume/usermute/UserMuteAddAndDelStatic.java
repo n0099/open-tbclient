@@ -14,8 +14,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.ku8;
 import com.baidu.tieba.pb;
+import com.baidu.tieba.sm8;
 import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
@@ -23,7 +24,6 @@ import com.baidu.tieba.usermute.UserMuteCheckRequestMessage;
 import com.baidu.tieba.usermute.response.UserMuteCheckHttpResponsedMessage;
 import com.baidu.tieba.usermute.response.UserMuteCheckSocketResponsedMessage;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
-import com.baidu.tieba.vt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,13 +43,13 @@ public class UserMuteAddAndDelStatic {
 
         /* renamed from: com.baidu.tieba.userconsume.usermute.UserMuteAddAndDelStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0433a extends HttpMessageListener {
+        public class C0443a extends HttpMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ UserMuteAddAndDelCustomMessage a;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0433a(a aVar, int i, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+            public C0443a(a aVar, int i, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
                 super(i);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -157,13 +157,13 @@ public class UserMuteAddAndDelStatic {
                     return null;
                 }
                 UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = (UserMuteAddAndDelCustomMessage) customMessage;
-                C0433a c0433a = new C0433a(this, CmdConfigHttp.CMD_USER_MUTE_ADD, userMuteAddAndDelCustomMessage);
+                C0443a c0443a = new C0443a(this, CmdConfigHttp.CMD_USER_MUTE_ADD, userMuteAddAndDelCustomMessage);
                 b bVar = new b(this, CmdConfigHttp.CMD_USER_MUTE_DEL, userMuteAddAndDelCustomMessage);
-                c0433a.setSelfListener(true);
-                c0433a.setTag(userMuteAddAndDelCustomMessage.mId);
+                c0443a.setSelfListener(true);
+                c0443a.setTag(userMuteAddAndDelCustomMessage.mId);
                 bVar.setSelfListener(true);
                 bVar.setTag(userMuteAddAndDelCustomMessage.mId);
-                MessageManager.getInstance().registerListener(c0433a);
+                MessageManager.getInstance().registerListener(c0443a);
                 MessageManager.getInstance().registerListener(bVar);
                 return null;
             }
@@ -300,22 +300,22 @@ public class UserMuteAddAndDelStatic {
             public void onMessage(ResponsedMessage<?> responsedMessage) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                    vt8 vt8Var = new vt8();
+                    ku8 ku8Var = new ku8();
                     if (responsedMessage instanceof UserMuteCheckSocketResponsedMessage) {
                         UserMuteCheckSocketResponsedMessage userMuteCheckSocketResponsedMessage = (UserMuteCheckSocketResponsedMessage) responsedMessage;
-                        vt8Var.a = userMuteCheckSocketResponsedMessage.getResult();
-                        vt8Var.c = userMuteCheckSocketResponsedMessage.getError();
-                        vt8Var.b = userMuteCheckSocketResponsedMessage.getErrorString();
-                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001426, vt8Var);
+                        ku8Var.a = userMuteCheckSocketResponsedMessage.getResult();
+                        ku8Var.c = userMuteCheckSocketResponsedMessage.getError();
+                        ku8Var.b = userMuteCheckSocketResponsedMessage.getErrorString();
+                        CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001426, ku8Var);
                         customResponsedMessage.setOrginalMessage(this.a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
                     }
                     if (responsedMessage instanceof UserMuteCheckHttpResponsedMessage) {
                         UserMuteCheckHttpResponsedMessage userMuteCheckHttpResponsedMessage = (UserMuteCheckHttpResponsedMessage) responsedMessage;
-                        vt8Var.a = userMuteCheckHttpResponsedMessage.getResult();
-                        vt8Var.c = userMuteCheckHttpResponsedMessage.getError();
-                        vt8Var.b = userMuteCheckHttpResponsedMessage.getErrorString();
-                        CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001426, vt8Var);
+                        ku8Var.a = userMuteCheckHttpResponsedMessage.getResult();
+                        ku8Var.c = userMuteCheckHttpResponsedMessage.getError();
+                        ku8Var.b = userMuteCheckHttpResponsedMessage.getErrorString();
+                        CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001426, ku8Var);
                         customResponsedMessage2.setOrginalMessage(this.a);
                         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
                     }
@@ -433,8 +433,8 @@ public class UserMuteAddAndDelStatic {
     public static void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            dm8.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
-            dm8.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
+            sm8.f(303040, UserMuteCheckSocketResponsedMessage.class, false);
+            sm8.c(303040, CmdConfigHttp.CMD_USER_MUTE_CHECK, TbConfig.USER_MUTE_CHECK, UserMuteCheckHttpResponsedMessage.class, false, false, true, false);
         }
     }
 

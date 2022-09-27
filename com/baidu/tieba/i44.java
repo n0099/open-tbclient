@@ -1,137 +1,126 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JSExceptionType;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.io2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Object b;
 
-    public i44(String str, Object obj) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, obj};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && k33.K().k() == 1 && !d()) {
+            qw2.p("startup").F(new UbcFlowEvent(str));
+        }
+    }
+
+    public static void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, jSONArray) == null) || jSONArray == null || jSONArray.length() == 0) {
+            return;
+        }
+        HybridUbcFlow p = qw2.p("startup");
+        for (int i = 0; i < jSONArray.length(); i++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                String optString = optJSONObject.optString("id");
+                long optLong = optJSONObject.optLong("timestamp");
+                if (!TextUtils.isEmpty(optString) && optJSONObject.has("timestamp")) {
+                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
+                    ubcFlowEvent.d(UbcFlowEvent.RecordType.UPDATE_RECENT);
+                    ubcFlowEvent.h(optLong);
+                    p.F(ubcFlowEvent);
+                }
             }
         }
-        this.a = str;
-        this.b = obj;
     }
 
-    public static Object a(ia2 ia2Var, String str, String str2, i44 i44Var) {
-        InterceptResult invokeLLLL;
+    public static long c() {
+        InterceptResult invokeV;
+        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, ia2Var, str, str2, i44Var)) == null) {
-            if (i44Var.g()) {
-                return i44Var.d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            l33 M = l33.M();
+            if (M == null || (w = M.w()) == null) {
+                return 0L;
             }
-            String a = f44.a(str, str2, i44Var.e());
-            ia2Var.throwJSException(JSExceptionType.Error, a);
-            return a;
-        }
-        return invokeLLLL.objValue;
-    }
-
-    public static i44 b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? new i44(str, null) : (i44) invokeL.objValue;
-    }
-
-    public static String f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "boolean";
-                case 2:
-                case 3:
-                case 5:
-                    return com.baidu.sapi2.views.logindialog.view.a.k;
-                case 4:
-                default:
-                    return "unknown";
-                case 6:
-                    return "array";
-                case 7:
-                    return EMABTest.TYPE_STRING;
-                case 8:
-                    return "function";
-                case 9:
-                    return "object";
-                case 10:
-                    return "arraybuffer";
-                case 11:
-                    return StringUtil.NULL_STRING;
-                case 12:
-                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+            kg2 Q = w.Q();
+            if (Q instanceof mz3) {
+                return ((mz3) Q).f1();
             }
+            return 0L;
         }
-        return (String) invokeI.objValue;
+        return invokeV.longValue;
     }
 
-    public static Object h() {
+    public static boolean d() {
         InterceptResult invokeV;
+        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new JsObject() : invokeV.objValue;
-    }
-
-    public static i44 i(@Nullable Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) ? new i44(null, obj) : (i44) invokeL.objValue;
-    }
-
-    public String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (g()) {
-                return f44.b(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            l33 M = l33.M();
+            if (M == null || (w = M.w()) == null) {
+                return false;
             }
-            return f44.a(str, str2, e());
+            kg2 Q = w.Q();
+            if (Q instanceof mz3) {
+                return ((mz3) Q).j1();
+            }
+            return false;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public Object d() {
-        InterceptResult invokeV;
+    public static void e(String str, io2.a aVar) {
+        Bundle P;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, aVar) == null) || aVar == null || d() || (P = aVar.P()) == null || P.getLong("page_display_flag_for_statistic") <= 0) {
+            return;
+        }
+        long l = aVar.l("launch_time", 0L);
+        long currentTimeMillis = System.currentTimeMillis();
+        oa3 oa3Var = new oa3();
+        oa3Var.a = ea3.n(aVar.G());
+        oa3Var.f = aVar.H();
+        oa3Var.c = aVar.T();
+        oa3Var.b = "launch";
+        oa3Var.e = "realcancel";
+        oa3Var.q = String.valueOf(currentTimeMillis - l);
+        oa3Var.a("reason", str);
+        oa3Var.a("errorList", c44.c().d());
+        oa3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
+        ea3.onEvent(oa3Var);
+        P.remove("page_display_flag_for_statistic");
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public static void f(io2.a aVar) {
+        Bundle P;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a == null : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, aVar) == null) || aVar == null || !d() || (P = aVar.P()) == null || P.getLong("page_display_flag_for_statistic") <= 0) {
+            return;
+        }
+        long l = aVar.l("launch_time", 0L);
+        long currentTimeMillis = System.currentTimeMillis();
+        oa3 oa3Var = new oa3();
+        oa3Var.a = ea3.n(aVar.G());
+        oa3Var.f = aVar.H();
+        oa3Var.c = aVar.T();
+        oa3Var.b = "launch";
+        oa3Var.e = "realsuccess";
+        oa3Var.r = String.valueOf(currentTimeMillis - l);
+        oa3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
+        ea3.onEvent(oa3Var);
+        P.remove("page_display_flag_for_statistic");
     }
 }

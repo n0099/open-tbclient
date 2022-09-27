@@ -1,13 +1,26 @@
 package com.baidu.tieba;
 
-import java.util.Iterator;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
 public interface ru9 {
-    String d(String str);
+    ru9 a();
+
+    boolean b(String str);
+
+    void c(Framedata framedata);
+
+    String d();
 
     boolean e(String str);
 
-    Iterator<String> g();
+    void f(Framedata framedata) throws InvalidDataException;
 
-    byte[] getContent();
+    String g();
+
+    void h(Framedata framedata) throws InvalidDataException;
+
+    void reset();
+
+    String toString();
 }

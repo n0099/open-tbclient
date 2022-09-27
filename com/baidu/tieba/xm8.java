@@ -6,12 +6,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.LinkInfo;
 /* loaded from: classes6.dex */
 public class xm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    public String a;
 
     public xm8() {
         Interceptable interceptable = $ic;
@@ -27,29 +27,19 @@ public class xm8 {
         }
     }
 
-    public int a() {
+    public void a(LinkInfo linkInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, linkInfo) == null) || linkInfo == null) {
+            return;
+        }
+        String str = linkInfo.desc;
+        String str2 = linkInfo.link;
+        this.a = linkInfo.type;
+    }
+
+    public String getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 }

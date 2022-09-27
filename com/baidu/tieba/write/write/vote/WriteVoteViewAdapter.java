@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.wh5;
+import com.baidu.tieba.ji5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -173,9 +173,9 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09261c);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09261e);
-            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09261d);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09261e);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092620);
+            this.c = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09261f);
         }
     }
 
@@ -244,7 +244,7 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
                     return;
                 }
             }
-            this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f092629);
+            this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09262b);
             this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090edc);
             this.c = new g(writeVoteViewAdapter, this);
             this.a.setOnEditorActionListener(writeVoteViewAdapter.e);
@@ -315,10 +315,10 @@ public class WriteVoteViewAdapter extends RecyclerView.Adapter {
             String replace = obj.replace(" ", "");
             WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
             writeVoteItemData.setId(this.b + 1);
-            if (wh5.d(replace) > 28) {
+            if (ji5.d(replace) > 28) {
                 this.c.a.showToast(String.format(this.c.a.getString(R.string.obfuscated_res_0x7f0f1616), 14));
             }
-            String n = wh5.n(replace, 28);
+            String n = ji5.n(replace, 28);
             if (!n.equals(editable.toString())) {
                 this.a.a.setText(n);
                 this.a.a.setSelection(n.length());

@@ -1,55 +1,220 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.face.data.SingleBarEmotionRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Deprecated
 /* loaded from: classes4.dex */
-public class fd6 implements Cdo {
+public class fd6 extends z55 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public EmotionPackageData a;
+    public final String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947760337, "Lcom/baidu/tieba/fd6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a extends yg<on> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ fd6 b;
+
+        public a(fd6 fd6Var, b bVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fd6Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947760337, "Lcom/baidu/tieba/fd6;");
-                return;
+            this.b = fd6Var;
+            this.a = bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.yg
+        public void onLoaded(on onVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
+                super.onLoaded((a) onVar, str, i);
+                if (onVar != null) {
+                    this.b.r(onVar);
+                    this.b.s(onVar);
+                    if (this.b.u()) {
+                        this.a.a(this.b);
+                    }
+                }
             }
         }
-        b = BdUniqueId.gen();
     }
 
-    public fd6() {
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(fd6 fd6Var);
+    }
+
+    public fd6(pc6 pc6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pc6Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = pc6Var.getGroupId();
+        t(1);
+        q(4);
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.z55
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return null;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public on e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.d() : (on) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public EmotionGroupType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EmotionGroupType.SINGLE_FORUM : (EmotionGroupType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public on n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return null;
+        }
+        return (on) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.z55
+    public on o(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            return null;
+        }
+        return (on) invokeL.objValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? d() != null : invokeV.booleanValue;
+    }
+
+    public boolean v(pc6 pc6Var, b bVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, pc6Var, bVar)) == null) {
+            if (pc6Var instanceof SingleBarEmotionRecommendData) {
+                zg.h().m(((SingleBarEmotionRecommendData) pc6Var).cover, 10, new a(this, bVar), null);
+                if (u()) {
+                    bVar.a(this);
+                    return true;
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

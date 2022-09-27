@@ -1,94 +1,159 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public abstract class jl4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public dl4 a;
-    public volatile long b;
-    public volatile boolean c;
-    public int d;
+public interface jl4 {
 
-    public jl4(dl4 dl4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dl4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public static class a implements jl4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final jl4 a;
+
+        public a(jl4 delegation) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {delegation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(delegation, "delegation");
+            this.a = delegation;
+        }
+
+        @Override // com.baidu.tieba.jl4
+        public String a(String url) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, url)) == null) {
+                Intrinsics.checkNotNullParameter(url, "url");
+                return this.a.a(url);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.jl4
+        public WebResourceResponse b(Uri url) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, url)) == null) {
+                Intrinsics.checkNotNullParameter(url, "url");
+                return this.a.b(url);
+            }
+            return (WebResourceResponse) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.jl4
+        public <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> transform) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webResourceResponse, transform)) == null) {
+                Intrinsics.checkNotNullParameter(transform, "transform");
+                return (Target) this.a.c(webResourceResponse, transform);
+            }
+            return (Target) invokeLL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Inject
+        public se1<jl4> a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            b();
+        }
+
+        public final se1<jl4> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                se1<jl4> se1Var = this.a;
+                if (se1Var == null) {
+                    Intrinsics.throwUninitializedPropertyAccessException("impl");
+                }
+                return se1Var;
+            }
+            return (se1) invokeV.objValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                qe1 b = qe1.b();
+                this.a = b;
+                b.a(new kl4());
             }
         }
-        this.b = 0L;
-        this.c = false;
-        this.d = 0;
-        this.a = dl4Var;
     }
 
-    public synchronized void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            synchronized (this) {
-                this.b += i;
+    /* loaded from: classes4.dex */
+    public static class c extends a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: Illegal instructions before constructor call */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public c(b ioc) {
+            super(r7);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ioc};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((jl4) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            Intrinsics.checkNotNullParameter(ioc, "ioc");
+            jl4 jl4Var = ioc.a().get();
+            Intrinsics.checkNotNullExpressionValue(jl4Var, "ioc.impl.get()");
         }
     }
 
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.longValue;
-    }
+    String a(String str);
 
-    public dl4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (dl4) invokeV.objValue;
-    }
+    WebResourceResponse b(Uri uri);
 
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public synchronized void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            synchronized (this) {
-                this.c = z;
-            }
-        }
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.d = i;
-        }
-    }
+    <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> function1);
 }

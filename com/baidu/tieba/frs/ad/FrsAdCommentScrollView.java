@@ -13,7 +13,7 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gl8;
+import com.baidu.tieba.vl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
     public FrameLayout d;
     public Handler e;
     public ValueAnimator f;
-    public List<gl8> g;
+    public List<vl8> g;
     public int h;
     public Runnable i;
 
@@ -210,7 +210,7 @@ public class FrsAdCommentScrollView extends LinearLayout {
         }
     }
 
-    public void m(List<gl8> list) {
+    public void m(List<vl8> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (ListUtils.getCount(list) <= 1) {
@@ -273,27 +273,27 @@ public class FrsAdCommentScrollView extends LinearLayout {
     }
 
     public final void r() {
-        gl8 gl8Var;
+        vl8 vl8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            gl8 gl8Var2 = (gl8) ListUtils.getItem(this.g, this.h);
+            vl8 vl8Var2 = (vl8) ListUtils.getItem(this.g, this.h);
             if (this.h + 1 >= this.g.size()) {
-                gl8Var = (gl8) ListUtils.getItem(this.g, 0);
+                vl8Var = (vl8) ListUtils.getItem(this.g, 0);
             } else {
-                gl8Var = (gl8) ListUtils.getItem(this.g, this.h + 1);
+                vl8Var = (vl8) ListUtils.getItem(this.g, this.h + 1);
             }
-            if ((this.c.getTag() instanceof TextView) && gl8Var2 != null) {
-                String a2 = gl8Var2.a();
-                if (gl8Var2.b()) {
+            if ((this.c.getTag() instanceof TextView) && vl8Var2 != null) {
+                String a2 = vl8Var2.a();
+                if (vl8Var2.b()) {
                     a2 = getContext().getString(R.string.obfuscated_res_0x7f0f076b, a2);
                 }
                 ((TextView) this.c.getTag()).setText(a2);
             }
-            if (!(this.d.getTag() instanceof TextView) || gl8Var == null) {
+            if (!(this.d.getTag() instanceof TextView) || vl8Var == null) {
                 return;
             }
-            String a3 = gl8Var.a();
-            if (gl8Var.b()) {
+            String a3 = vl8Var.a();
+            if (vl8Var.b()) {
                 a3 = getContext().getString(R.string.obfuscated_res_0x7f0f076b, a3);
             }
             ((TextView) this.d.getTag()).setText(a3);

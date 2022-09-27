@@ -1,9 +1,22 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface ju0 {
-    boolean e(@NonNull ht0 ht0Var);
+public class ju0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    iu0 getInterceptorLayer();
+    public static void a(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) || activity == null) {
+            return;
+        }
+        if (z) {
+            activity.getWindow().addFlags(128);
+        } else {
+            activity.getWindow().clearFlags(128);
+        }
+    }
 }

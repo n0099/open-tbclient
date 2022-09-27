@@ -1,123 +1,81 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.res.Configuration;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class eq8 {
+public class eq8 extends cv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer a;
-    public TimerTask b;
+    public final MainTabActivity d;
 
-    /* loaded from: classes3.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eq8 a;
-
-        /* renamed from: com.baidu.tieba.eq8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class RunnableC0244a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0244a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.b();
-                }
-            }
-        }
-
-        public a(eq8 eq8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eq8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eq8Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gh.a().post(new RunnableC0244a(this));
-            }
-        }
-    }
-
-    public eq8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eq8(MainTabActivity mainTabActivity) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = SpeedStatsUtils.UBC_VALUE_SPLASH;
+        this.a = 0;
+        this.d = mainTabActivity;
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.cv4
+    public boolean b(List<String> list, List<String> list2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a == null) {
-            this.a = new Timer();
-            a aVar = new a(this);
-            this.b = aVar;
-            this.a.schedule(aVar, em5.a() ? 1000L : 2400000L);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
+            return true;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void b() {
+    @Override // com.baidu.tieba.cv4
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Timer timer = this.a;
-            if (timer != null) {
-                timer.cancel();
-                this.a = null;
-            }
-            TimerTask timerTask = this.b;
-            if (timerTask != null) {
-                timerTask.cancel();
-                this.b = null;
-            }
+            dq8.a().e(this.d);
+        }
+    }
+
+    public void d(Configuration configuration) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, configuration) == null) {
+            dq8.a().b(configuration);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            dq8.a().c();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            dq8.a().d();
         }
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
-public interface fe1<T> {
-    void a(ce1<T> ce1Var);
+public interface fe1 {
+    boolean c(String str);
 
-    T get();
+    void handleSchemeDispatchCallback(String str, String str2);
 }

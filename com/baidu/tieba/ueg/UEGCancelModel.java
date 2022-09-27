@@ -9,8 +9,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.BlockPopInfoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dm8;
 import com.baidu.tieba.pb;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,8 +91,8 @@ public class UEGCancelModel extends BdBaseModel {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_UEG_CANCEL, 309615);
-        dm8.h(309615, UEGCancelSocketResponseMessage.class, false, false);
-        dm8.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
+        sm8.h(309615, UEGCancelSocketResponseMessage.class, false, false);
+        sm8.c(309615, CmdConfigHttp.CMD_UEG_CANCEL, "c/f/forum/queryBlockAndAppealInfo", UEGCancelResponsedMessage.class, false, false, true, false);
         registerListener(this.b);
     }
 

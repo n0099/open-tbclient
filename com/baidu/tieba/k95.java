@@ -1,27 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface k95 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
+public class k95 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a();
-
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
+    public k95(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = z;
     }
 
-    k95 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
-
-    void b(int i, ms4 ms4Var, long j);
-
-    void c(@Nullable a aVar);
+    public k95(boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = z;
+    }
 }

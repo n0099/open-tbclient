@@ -1,89 +1,114 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.optimization.quotasaver.QuotaSaver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Pair;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.aop.annotation.DebugTrace;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.console.property.SwanAppPropertyWindow;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.xo2;
 /* loaded from: classes6.dex */
-public final class wo2 implements vo2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final wo2 b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ vo2 a;
+public interface wo2 extends xo2.b {
+    tp1 A(String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948277231, "Lcom/baidu/tieba/wo2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948277231, "Lcom/baidu/tieba/wo2;");
-                return;
-            }
-        }
-        b = new wo2();
-    }
+    View B(String str);
 
-    public wo2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        vo2 e = QuotaSaver.l.c() ? QuotaSaver.l.e() : new uo2();
-        yz1.i("OptSwitcher", "by " + e);
-        Unit unit = Unit.INSTANCE;
-        this.a = e;
-    }
+    String C();
 
-    @Override // com.baidu.tieba.vo2
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.intValue;
-    }
+    l33 D();
 
-    @Override // com.baidu.tieba.vo2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.b() : invokeV.booleanValue;
-    }
+    void E(io2 io2Var, fm2 fm2Var);
 
-    @Override // com.baidu.tieba.vo2
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.c() : invokeV.booleanValue;
-    }
+    zk1 F();
 
-    @Override // com.baidu.tieba.vo2
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.d() : invokeV.booleanValue;
-    }
+    @NonNull
+    ob3 G();
 
-    @Override // com.baidu.tieba.vo2
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.e() : invokeV.booleanValue;
-    }
+    t22 H();
+
+    void I();
+
+    SwanAppPropertyWindow J(Activity activity);
+
+    void K(String str);
+
+    cl1 L();
+
+    SwanCoreVersion M();
+
+    boolean N();
+
+    void O();
+
+    cl1 P();
+
+    void a();
+
+    String b();
+
+    void c();
+
+    void d(io2 io2Var, fm2 fm2Var);
+
+    @NonNull
+    a43 e(String str, SwanAppConfigData swanAppConfigData, String str2);
+
+    void exit();
+
+    @NonNull
+    a43 f(String str);
+
+    String g();
+
+    SwanAppActivity getActivity();
+
+    sp1 i();
+
+    @NonNull
+    a43 j(String str);
+
+    boolean k();
+
+    void l(SwanAppActivity swanAppActivity);
+
+    void m(String str, ld2 ld2Var);
+
+    FullScreenFloatView n(Activity activity);
+
+    void o();
+
+    void p();
+
+    @DebugTrace
+    qp1 q();
+
+    @NonNull
+    Pair<Integer, Integer> r();
+
+    void registerReceiver(Context context);
+
+    SwanAppConfigData s();
+
+    void t(Intent intent);
+
+    void u(ld2 ld2Var);
+
+    void unregisterReceiver(Context context);
+
+    void v();
+
+    void w();
+
+    @NonNull
+    Pair<Integer, Integer> x();
+
+    void y(od2 od2Var, boolean z);
+
+    String z();
 }

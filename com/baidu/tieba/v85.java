@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v85 implements p85 {
+public class v85 extends r85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
 
     public v85() {
         Interceptable interceptable = $ic;
@@ -25,21 +28,36 @@ public class v85 implements p85 {
         }
     }
 
-    @Override // com.baidu.tieba.p85
-    public void a(View view2, View view3, boolean z) {
+    @Override // com.baidu.tieba.r85
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            FrameLayout frameLayout = (FrameLayout) view2;
-            if (z) {
-                frameLayout.addView(view3, 0);
-            } else {
-                frameLayout.addView(view3);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "round_corner" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r85
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
             }
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.width = -2;
-            layoutParams.height = -2;
-            layoutParams.gravity = 17;
-            view3.setLayoutParams(layoutParams);
+            if (this.a <= 0.0f) {
+                return bitmap;
+            }
+            h85.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.getRoundedCornerBitmap(bitmap, this.a, z);
         }
+        return (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.r85
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || str == null) {
+            return;
+        }
+        this.a = dh.d(str, 0.0f);
     }
 }

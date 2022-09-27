@@ -1,86 +1,155 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
 public class ck0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public ak0 k;
+    public final HashMap<String, lk0> a;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ck0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-887677757, "Lcom/baidu/tieba/ck0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-887677757, "Lcom/baidu/tieba/ck0$b;");
+                    return;
+                }
+            }
+            a = new ck0(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947677505, "Lcom/baidu/tieba/ck0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947677505, "Lcom/baidu/tieba/ck0;");
+                return;
+            }
+        }
+        b = TimeUnit.DAYS.toMillis(10L);
+    }
+
+    public /* synthetic */ ck0(a aVar) {
+        this();
+    }
+
+    public static ck0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a : (ck0) invokeV.objValue;
+    }
+
+    @NonNull
+    public HashMap<String, lk0> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (HashMap) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            List<lk0> a2 = dk0.e().a();
+            if (wz0.g(a2)) {
+                return;
+            }
+            int l = wz0.l(a2);
+            for (int i = 0; i != l; i++) {
+                lk0 lk0Var = (lk0) wz0.d(a2, i);
+                if (lk0Var != null) {
+                    if (lk0Var.c == AdDownloadStatus.DOWNLOADING) {
+                        lk0Var.c = AdDownloadStatus.PAUSE;
+                    }
+                    yz0.e(this.a, lk0Var.e(), lk0Var);
+                }
+            }
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            dk0.e().b(this.a);
+        }
+    }
+
+    public void e(@NonNull lk0 lk0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lk0Var) == null) {
+            dk0.e().c(ek0.a(lk0Var));
+        }
+    }
+
+    public void f(@NonNull f01 f01Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, f01Var) == null) {
+            dk0.e().update(f01Var);
+        }
+    }
+
+    public lk0 query(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) ? (lk0) yz0.b(this.a, str) : (lk0) invokeL.objValue;
+    }
+
+    public void update(lk0 lk0Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, lk0Var) == null) || lk0Var == null) {
+            return;
+        }
+        yz0.e(this.a, lk0Var.e(), lk0Var);
+    }
 
     public ck0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @NonNull
-    public static ck0 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject c = kz0.c(str);
-            ck0 ck0Var = new ck0();
-            ck0Var.a = c.optString("als_ext");
-            ck0Var.b = c.optString("cmd");
-            ck0Var.c = c.optString("defer_cmd");
-            ck0Var.d = c.optString("init_text");
-            ck0Var.e = c.optString("opt_icon");
-            ck0Var.f = c.optString("opt_text");
-            ck0Var.g = c.optString("app_icon_url");
-            ck0Var.h = c.optString("app_name");
-            ck0Var.i = c.optString("version_code");
-            ck0Var.j = c.optString(LegoListActivityConfig.AD_ID);
-            return ck0Var;
-        }
-        return (ck0) invokeL.objValue;
-    }
-
-    public static String b(@NonNull ck0 ck0Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ck0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("als_ext", ck0Var.a);
-                jSONObject.put("cmd", ck0Var.b);
-                jSONObject.put("defer_cmd", ck0Var.c);
-                jSONObject.put("init_text", ck0Var.d);
-                jSONObject.put("opt_icon", ck0Var.e);
-                jSONObject.put("opt_text", ck0Var.f);
-                jSONObject.put("app_icon_url", ck0Var.g);
-                jSONObject.put("app_name", ck0Var.h);
-                jSONObject.put("version_code", ck0Var.i);
-                jSONObject.put(LegoListActivityConfig.AD_ID, ck0Var.j);
-            } catch (JSONException unused) {
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeL.objValue;
+        this.a = new HashMap<>();
     }
 }

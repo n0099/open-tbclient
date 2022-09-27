@@ -34,7 +34,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
             long currentTimeMillis = System.currentTimeMillis();
             super.attachBaseContext(context);
             TbadkApplication.sApp = this;
-            fd5.b().t(currentTimeMillis);
+            sd5.b().t(currentTimeMillis);
         }
     }
 
@@ -44,7 +44,7 @@ public class TiebaMainApplication extends TiebaBaseApplication {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.doAfterSuperOnCreate();
             if (PermissionUtil.isAgreePrivacyPolicy()) {
-                fd5.b().F(System.currentTimeMillis());
+                sd5.b().F(System.currentTimeMillis());
             }
         }
     }

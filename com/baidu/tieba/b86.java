@@ -1,27 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.easterEgg.RnSyncResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class b86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EmotionGroupType a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public m55 g;
-    public int h;
-    public int i;
-    public int j;
+    public c86 a;
+    public b b;
+    public HttpMessageListener c;
+
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b86 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(b86 b86Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b86Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b86Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof RnSyncResponseMessage)) {
+                RnSyncResponseMessage rnSyncResponseMessage = (RnSyncResponseMessage) httpResponsedMessage;
+                this.a.a = rnSyncResponseMessage.getData();
+                if (this.a.b != null) {
+                    this.a.b.a(rnSyncResponseMessage.isSuccess(), rnSyncResponseMessage.getData());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a(boolean z, c86 c86Var);
+    }
 
     public b86() {
         Interceptable interceptable = $ic;
@@ -33,143 +75,31 @@ public class b86 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new a(this, CmdConfigHttp.CMD_GET_RN_SYNC);
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public EmotionGroupType c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (EmotionGroupType) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : invokeV.intValue;
-    }
-
-    public m55 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : (m55) invokeV.objValue;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
         }
     }
 
-    public void l(int i) {
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.b = bVar;
         }
     }
 
-    public void m(EmotionGroupType emotionGroupType) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, emotionGroupType) == null) {
-            this.a = emotionGroupType;
-        }
-    }
-
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void u(m55 m55Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, m55Var) == null) {
-            this.g = m55Var;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_GET_RN_SYNC));
         }
     }
 }

@@ -1,106 +1,68 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.ThirdStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sq6 {
+public class sq6 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsFragment m;
+    public FrsActivity n;
 
-    public static void a(StatisticItem statisticItem, String str) {
+    public sq6(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
-            YYLiveUtil.addYyExtData(statisticItem, str);
-        }
-    }
-
-    public static void b(Context context, bm8 bm8Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, context, bm8Var) == null) || bm8Var == null) {
-            return;
-        }
-        TbPageContext<BaseFragmentActivity> tbPageContext = null;
-        if (context instanceof BaseActivity) {
-            tbPageContext = ((BaseActivity) context).getPageContext();
-        } else if (context instanceof BaseFragmentActivity) {
-            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
-        }
-        if (tbPageContext == null) {
-            return;
-        }
-        cm8 cm8Var = bm8Var.f;
-        if (cm8Var != null) {
-            zq5.b(cm8Var.b, cm8Var.c, "1191003700000000", cm8Var.d);
-        } else {
-            if (YYLiveUtil.isYYLiveLink(bm8Var.d)) {
-                str = bm8Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
-            } else {
-                str = bm8Var.d;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
         }
-        ss6.a(tbPageContext, bm8Var.e);
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    public static void c(bm8 bm8Var) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void A() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, bm8Var) == null) || bm8Var == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.n.S0().n0(TbSingleton.getInstance().getFrsResponseData());
+            u();
         }
-        StatisticItem statisticItem = new StatisticItem("c13626");
-        statisticItem.param("fid", bm8Var.g);
-        statisticItem.param("obj_type", bm8Var.f == null ? 1 : 2);
-        statisticItem.param("obj_locate", bm8Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        cm8 cm8Var = bm8Var.f;
-        String str = cm8Var != null ? cm8Var.c : bm8Var.d;
-        cm8 cm8Var2 = bm8Var.f;
-        if (cm8Var2 != null) {
-            String str2 = cm8Var2.a;
-        } else {
-            String str3 = bm8Var.c;
-        }
-        statisticItem.param("obj_name", bm8Var.c);
-        statisticItem.param("obj_param1", bm8Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(bm8Var.i, 1));
     }
 
-    public static void d(bm8 bm8Var) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, bm8Var) == null) || bm8Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrsFragment frsFragment = this.m;
+            return (frsFragment == null || frsFragment.u3() || TbSingleton.getInstance().getFrsResponseData() == null) ? false : true;
         }
-        StatisticItem statisticItem = new StatisticItem("c13627");
-        statisticItem.param("fid", bm8Var.g);
-        statisticItem.param("obj_type", bm8Var.f == null ? 1 : 2);
-        statisticItem.param("obj_locate", bm8Var.h);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        cm8 cm8Var = bm8Var.f;
-        String str = cm8Var != null ? cm8Var.c : bm8Var.d;
-        cm8 cm8Var2 = bm8Var.f;
-        if (cm8Var2 != null) {
-            String str2 = cm8Var2.a;
-        } else {
-            String str3 = bm8Var.c;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-        statisticItem.param("obj_name", bm8Var.c);
-        statisticItem.param("obj_param1", bm8Var.d);
-        a(statisticItem, str);
-        TiebaStatic.log(statisticItem);
-        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(bm8Var.i, 0));
+        return invokeV.booleanValue;
     }
 }

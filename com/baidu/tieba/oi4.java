@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class oi4 extends SQLiteOpenHelper {
+public class oi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public oi4(Context context) {
-        super(context.getApplicationContext(), "OpenStat.db", (SQLiteDatabase.CursorFactory) null, 5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,149 +33,245 @@ public class oi4 extends SQLiteOpenHelper {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.a = context;
     }
 
-    public final void a(SQLiteDatabase sQLiteDatabase) {
+    public final boolean a(hj4 hj4Var) {
+        InterceptResult invokeL;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE event ADD COLUMN extend TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN extend TEXT");
-            } catch (SQLException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hj4Var)) == null) {
+            File file = new File(this.a.getFilesDir() + File.separator + "ubcdir", "proc");
+            if (!file.exists() || (listFiles = file.listFiles()) == null || listFiles.length == 0) {
+                return false;
             }
-        }
-    }
-
-    public final void b(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN extend TEXT");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void c(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE config ADD COLUMN sample TEXT");
-                sQLiteDatabase.execSQL("ALTER TABLE flow ADD COLUMN slot TEXT");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void d(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new File(this.a.getDatabasePath("OpenStat.db").getPath() + "-journal").length();
-        }
-        return invokeV.longValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? new File(this.a.getDatabasePath("OpenStat.db").getPath()).length() : invokeV.longValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"BDThrowableCheck"})
-    public synchronized SQLiteDatabase getReadableDatabase() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
+            for (File file2 : listFiles) {
+                BufferedReader bufferedReader = null;
                 try {
-                    sQLiteDatabase = super.getReadableDatabase();
-                } catch (Exception unused) {
-                    new File(this.a.getDatabasePath("OpenStat.db").getPath()).delete();
-                    sQLiteDatabase = null;
-                }
-            }
-            return sQLiteDatabase;
-        }
-        return (SQLiteDatabase) invokeV.objValue;
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    @SuppressLint({"BDThrowableCheck"})
-    public synchronized SQLiteDatabase getWritableDatabase() {
-        InterceptResult invokeV;
-        SQLiteDatabase sQLiteDatabase;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                try {
-                    sQLiteDatabase = super.getWritableDatabase();
                     try {
-                        sQLiteDatabase.enableWriteAheadLogging();
-                    } catch (Exception unused) {
-                        new File(this.a.getDatabasePath("OpenStat.db").getPath()).delete();
-                        return sQLiteDatabase;
+                        BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                        long j = Long.MAX_VALUE;
+                        long j2 = 0;
+                        int i = 0;
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader2.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                                if (jSONObject.has("abtest")) {
+                                    hj4Var.f = "1";
+                                }
+                                long j3 = jSONObject.getLong("timestamp");
+                                if (j3 > 0) {
+                                    if (j3 < j) {
+                                        j = j3;
+                                    }
+                                    if (j3 > j2) {
+                                        j2 = j3;
+                                    }
+                                }
+                                hj4Var.a(jSONObject);
+                                i++;
+                                if (i >= 10) {
+                                    break;
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                bufferedReader = bufferedReader2;
+                                e.printStackTrace();
+                                pj4.d(bufferedReader);
+                            } catch (Throwable th) {
+                                th = th;
+                                bufferedReader = bufferedReader2;
+                                pj4.d(bufferedReader);
+                                throw th;
+                            }
+                        }
+                        hj4Var.g(j, j2);
+                        pj4.d(bufferedReader2);
+                    } catch (Exception e2) {
+                        e = e2;
                     }
-                } catch (Exception unused2) {
-                    sQLiteDatabase = null;
+                } catch (Throwable th2) {
+                    th = th2;
                 }
             }
-            return sQLiteDatabase;
+            return true;
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    public void b(boolean z) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL("CREATE TABLE event (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowhandle INTEGER,eventid TEXT,begintime LONG,content TEXT,reserve1 TEXT,reserve2 TEXT,extend TEXT );");
-            sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle INTEGER,state TEXT,begintime LONG,endtime LONG,content TEXT,option INTEGER,reserve1 TEXT,reserve2 TEXT,slot TEXT,extend TEXT );");
-            sQLiteDatabase.execSQL("CREATE TABLE config (eventid TEXT PRIMARY KEY,type TEXT,recordrule TEXT,uploadrule TEXT,cycle INTEGER,switch TEXT,sample INTEGER,reserve1 TEXT,reserve2 TEXT,extend TEXT);");
-            sQLiteDatabase.execSQL("CREATE TABLE file (filename TEXT PRIMARY KEY,state TEXT,reserve1 TEXT,reserve2 TEXT);");
-            ti4.f().putString("ubc_version_md5", "0");
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i == 1) {
-                    d(sQLiteDatabase);
-                } else if (i == 2) {
-                    c(sQLiteDatabase);
-                } else if (i == 3) {
-                    a(sQLiteDatabase);
-                } else if (i == 4) {
-                    b(sQLiteDatabase);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (file.exists()) {
+                File file2 = new File(file, z ? "filereal" : "filedata");
+                if (file2.exists()) {
+                    file2.delete();
                 }
-                i++;
+                File file3 = new File(file, "proc");
+                if (!file3.exists() || !file3.isDirectory() || (listFiles = file3.listFiles()) == null || listFiles.length == 0) {
+                    return;
+                }
+                for (File file4 : listFiles) {
+                    if (file4.isFile()) {
+                        file4.delete();
+                    }
+                }
+            }
+        }
+    }
+
+    public boolean c(hj4 hj4Var, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, hj4Var, z)) == null) {
+            File file = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            boolean a = !z ? a(hj4Var) : false;
+            File file2 = new File(file, z ? "filereal" : "filedata");
+            if (file2.exists()) {
+                BufferedReader bufferedReader = null;
+                try {
+                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
+                    long j = Long.MAX_VALUE;
+                    long j2 = 0;
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
+                            if (jSONObject.has("abtest")) {
+                                hj4Var.f = "1";
+                            }
+                            long j3 = jSONObject.getLong("timestamp");
+                            if (j3 > 0) {
+                                if (j3 < j) {
+                                    j = j3;
+                                }
+                                if (j3 > j2) {
+                                    j2 = j3;
+                                }
+                            }
+                            hj4Var.a(jSONObject);
+                            a = true;
+                        } catch (Exception unused) {
+                            bufferedReader = bufferedReader2;
+                            pj4.d(bufferedReader);
+                            return a;
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader2;
+                            pj4.d(bufferedReader);
+                            throw th;
+                        }
+                    }
+                    hj4Var.g(j, j2);
+                    pj4.d(bufferedReader2);
+                } catch (Exception unused2) {
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            }
+            return a;
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public void d(vi4 vi4Var, boolean z) {
+        File file;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, vi4Var, z) == null) {
+            File file2 = new File(this.a.getFilesDir(), "ubcdir");
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            if (!TextUtils.isEmpty(vi4Var.k)) {
+                File file3 = new File(file2, "proc");
+                if (!file3.exists()) {
+                    file3.mkdirs();
+                }
+                file = new File(file3, vi4Var.k);
+            } else {
+                file = new File(file2, z ? "filereal" : "filedata");
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (vi4Var.e != null) {
+                    JSONObject jSONObject2 = vi4Var.e;
+                    if (jSONObject2.has("bizId")) {
+                        try {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
+                            JSONObject jSONObject4 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
+                            if (jSONObject3 != null && jSONObject4 != null) {
+                                jSONObject3.put(DI.APP_INFO_NAME, jSONObject4);
+                                jSONObject2.remove(DI.APP_INFO_NAME);
+                            }
+                            jSONObject = jSONObject2;
+                        } catch (JSONException unused) {
+                            jSONObject = jSONObject2;
+                        }
+                    } else {
+                        jSONObject.put("content", jSONObject2);
+                    }
+                } else if (!TextUtils.isEmpty(vi4Var.d)) {
+                    jSONObject.put("content", vi4Var.d);
+                }
+                jSONObject.put("bizId", vi4Var.a);
+                jSONObject.put("timestamp", vi4Var.f);
+                jSONObject.put("eventType", "0");
+                if (!TextUtils.isEmpty(vi4Var.h)) {
+                    jSONObject.put("abtest", vi4Var.h);
+                }
+                if (!TextUtils.isEmpty(vi4Var.i)) {
+                    jSONObject.put("c", vi4Var.i);
+                }
+                if (vi4Var.j) {
+                    jSONObject.put("of", "1");
+                }
+                jSONObject.put(Constant.ID_TYPE, qi4.g().j(vi4Var.a));
+            } catch (JSONException unused2) {
+            }
+            byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file, true);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileOutputStream.write(encode);
+                fileOutputStream.write("\n".getBytes());
+                fileOutputStream.flush();
+                pj4.d(fileOutputStream);
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                pj4.d(fileOutputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                pj4.d(fileOutputStream2);
+                throw th;
             }
         }
     }

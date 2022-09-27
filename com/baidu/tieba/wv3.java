@@ -1,97 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.vn2;
+import android.app.Application;
+import android.net.Uri;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.tieba.io2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wv3 {
+public final class wv3 extends rv3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, long j) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wv3() {
+        super("navigateToSwanGame");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            vv3 vv3Var = new vv3();
-            vv3Var.b = str;
-            vv3Var.e = str2;
-            if (y23.M() != null && y23.M().Y() != null) {
-                vn2.a Y = y23.M().Y();
-                vv3Var.a = r93.n(Y.G());
-                vv3Var.f = Y.H();
-                vv3Var.c = Y.T();
-                vv3Var.a("play_time", Long.valueOf(j));
-            }
-            r93.y("916", "68", vv3Var);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        String str3;
-        vn2.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (y23.M() == null || y23.M().Y() == null) {
-                str3 = "";
-                aVar = null;
-            } else {
-                aVar = y23.M().Y();
-                str3 = r93.n(aVar.G());
-            }
-            if (aVar == null || !TextUtils.equals(str3, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            vv3 vv3Var = new vv3();
-            vv3Var.b = str;
-            vv3Var.e = str2;
-            vv3Var.a = str3;
-            vv3Var.f = aVar.H();
-            vv3Var.c = aVar.T();
-            r93.y("916", "68", vv3Var);
         }
     }
 
-    public static void c(String str, String str2, String str3) {
+    @Override // com.baidu.tieba.rv3
+    public lv1 a(JSONObject paramsJson, pg2 callback) {
+        InterceptResult invokeLL;
+        io2.a W;
+        String I;
+        io2.a W2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            vv3 vv3Var = new vv3();
-            vv3Var.b = str;
-            vv3Var.e = str2;
-            if (y23.M() != null && y23.M().Y() != null) {
-                vn2.a Y = y23.M().Y();
-                vv3Var.a = r93.n(Y.G());
-                vv3Var.f = Y.H();
-                vv3Var.c = Y.T();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, paramsJson, callback)) == null) {
+            Intrinsics.checkNotNullParameter(paramsJson, "paramsJson");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            Application c = sm2.c();
+            if (c == null) {
+                callback.onFail(202, "params may be error");
+                return null;
             }
-            vv3Var.k = str3;
-            r93.y("916", "68", vv3Var);
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            vv3 vv3Var = new vv3();
-            vv3Var.b = str;
-            vv3Var.e = "show";
-            if (y23.M() != null && y23.M().Y() != null) {
-                vn2.a Y = y23.M().Y();
-                vv3Var.a = r93.n(Y.G());
-                vv3Var.f = Y.H();
-                vv3Var.c = Y.T();
+            String optString = paramsJson.optString("appKey");
+            boolean z = false;
+            if (optString == null || optString.length() == 0) {
+                callback.onFail(202, "params may be error");
+                return null;
             }
-            vv3Var.a("early", e() ? "0" : "1");
-            r93.y("916", "68", vv3Var);
+            JSONObject jSONObject = new JSONObject();
+            l33 b0 = l33.b0();
+            String str = "";
+            jSONObject.put("pre_source", (b0 == null || (W2 = b0.W()) == null || (r8 = W2.T()) == null) ? "" : "");
+            l33 b02 = l33.b0();
+            if (b02 != null && (W = b02.W()) != null && (I = W.I()) != null) {
+                str = I;
+            }
+            jSONObject.put("pre_appid", str);
+            paramsJson.put(UBCCloudControlProcessor.UBC_KEY, jSONObject);
+            String d1 = jo2.d1(optString, 1, paramsJson);
+            Uri parse = (d1 == null || d1.length() == 0) ? true : true ? null : Uri.parse(d1);
+            if (parse == null) {
+                callback.onFail(202, "params may be error");
+                return null;
+            }
+            if (SchemeRouter.invokeScheme(c, parse, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                callback.a(null);
+            } else {
+                callback.onFail(202, "params may be error");
+            }
+            return null;
         }
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? v34.c() > 0 && iz3.c() && System.currentTimeMillis() - v34.c() > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION : invokeV.booleanValue;
+        return (lv1) invokeLL.objValue;
     }
 }

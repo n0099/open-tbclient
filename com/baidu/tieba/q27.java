@@ -1,29 +1,99 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActiveCenter;
 /* loaded from: classes5.dex */
-public class q27 {
+public class q27 extends p26 implements d36 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId T;
     public transient /* synthetic */ FieldHolder $fh;
+    public int R;
+    public ActiveCenterData S;
 
-    public static boolean a(TbPageContext<?> tbPageContext, Cdo cdo) {
-        InterceptResult invokeLL;
-        c26 c26Var;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, cdo)) == null) {
-            if (!(cdo instanceof c26) || (threadData = (c26Var = (c26) cdo).a) == null || threadData.getVoiceRoomData() == null || StringUtils.isNull(c26Var.a.getVoiceRoomData().room_name) || c26Var.a.getVoiceRoomData().room_id.longValue() <= 0) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040019, "Lcom/baidu/tieba/q27;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            ((j95) ServiceManager.getService(j95.a.a())).a(tbPageContext, c26Var.a.getVoiceRoomData().room_id.longValue());
-            return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948040019, "Lcom/baidu/tieba/q27;");
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        T = BdUniqueId.gen();
+    }
+
+    public q27() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public void N(ActiveCenter activeCenter) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, activeCenter) == null) || activeCenter == null) {
+            return;
+        }
+        ActiveCenterData activeCenterData = new ActiveCenterData();
+        this.S = activeCenterData;
+        activeCenterData.parseProto(activeCenter);
+    }
+
+    @Override // com.baidu.tieba.d36
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.d36
+    public int getPosition() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.R : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? T : (BdUniqueId) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d36
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.d36
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
     }
 }

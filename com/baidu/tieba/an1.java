@@ -1,19 +1,9 @@
 package com.baidu.tieba;
+
+import android.content.Context;
 /* loaded from: classes3.dex */
 public interface an1 {
-    void a(String str, fq2 fq2Var);
+    void a(Context context, int i);
 
-    int getDuration();
-
-    boolean isPlaying();
-
-    void onRelease();
-
-    void pause();
-
-    void play();
-
-    void seek(int i);
-
-    void stop();
+    int b(Context context);
 }

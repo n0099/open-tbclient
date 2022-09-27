@@ -9,43 +9,43 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fo5;
-import com.baidu.tieba.go5;
-import com.baidu.tieba.mx5;
-import com.baidu.tieba.ot4;
-import com.baidu.tieba.pg6;
-import com.baidu.tieba.qg6;
-import com.baidu.tieba.t16;
+import com.baidu.tieba.bu4;
+import com.baidu.tieba.ch6;
+import com.baidu.tieba.dh6;
+import com.baidu.tieba.g26;
+import com.baidu.tieba.i26;
+import com.baidu.tieba.so5;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.v16;
+import com.baidu.tieba.to5;
+import com.baidu.tieba.zx5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FrsSplitAlaShareItemAdapter extends qg6<ot4, FrsPageAlaShareHolder> implements t16, go5 {
+public class FrsSplitAlaShareItemAdapter extends dh6<bu4, FrsPageAlaShareHolder> implements g26, to5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
-    public mx5 m;
+    public zx5 m;
     public String n;
-    public v16<ThreadData> o;
+    public i26<ThreadData> o;
 
     /* loaded from: classes3.dex */
     public static class FrsPageAlaShareHolder extends TypeAdapter.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public mx5 a;
+        public zx5 a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public FrsPageAlaShareHolder(mx5 mx5Var) {
-            super(mx5Var.h());
+        public FrsPageAlaShareHolder(zx5 zx5Var) {
+            super(zx5Var.h());
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mx5Var};
+                Object[] objArr = {zx5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,12 +56,12 @@ public class FrsSplitAlaShareItemAdapter extends qg6<ot4, FrsPageAlaShareHolder>
                     return;
                 }
             }
-            this.a = mx5Var;
+            this.a = zx5Var;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class a extends v16<ThreadData> {
+    public class a extends i26<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsSplitAlaShareItemAdapter b;
@@ -85,7 +85,7 @@ public class FrsSplitAlaShareItemAdapter extends qg6<ot4, FrsPageAlaShareHolder>
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.v16
+        @Override // com.baidu.tieba.i26
         /* renamed from: d */
         public void a(View view2, ThreadData threadData) {
             CustomMessage customMessage;
@@ -94,7 +94,7 @@ public class FrsSplitAlaShareItemAdapter extends qg6<ot4, FrsPageAlaShareHolder>
                 if (view2.getId() == R.id.obfuscated_res_0x7f0912a7) {
                     customMessage = new CustomMessage(2921018);
                 } else if (view2.getId() != R.id.obfuscated_res_0x7f09054e && view2.getId() != R.id.obfuscated_res_0x7f09054a) {
-                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f092513 ? new CustomMessage(2921019) : null;
+                    customMessage = view2.getId() == R.id.obfuscated_res_0x7f092515 ? new CustomMessage(2921019) : null;
                 } else {
                     customMessage = new CustomMessage(2921016);
                 }
@@ -140,9 +140,9 @@ public class FrsSplitAlaShareItemAdapter extends qg6<ot4, FrsPageAlaShareHolder>
             if (tbPageContext == null) {
                 return null;
             }
-            mx5 mx5Var = new mx5(tbPageContext, this.mPageId);
-            this.m = mx5Var;
-            mx5Var.T(this.mPageId);
+            zx5 zx5Var = new zx5(tbPageContext, this.mPageId);
+            this.m = zx5Var;
+            zx5Var.T(this.mPageId);
             this.m.a(this.l);
             this.m.n(this.o);
             return new FrsPageAlaShareHolder(this.m);
@@ -151,36 +151,36 @@ public class FrsSplitAlaShareItemAdapter extends qg6<ot4, FrsPageAlaShareHolder>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qg6, com.baidu.tieba.qn
+    @Override // com.baidu.tieba.dh6, com.baidu.tieba.qn
     /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ot4 ot4Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bu4 bu4Var, FrsPageAlaShareHolder frsPageAlaShareHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ot4Var, frsPageAlaShareHolder})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bu4Var, frsPageAlaShareHolder})) == null) {
             CustomMessage customMessage = new CustomMessage(2921017);
             FrsViewData frsViewData = this.b;
             int topThreadSize = frsViewData != null ? frsViewData.getTopThreadSize() : 0;
-            ThreadData threadData = ot4Var.t;
-            threadData.statFloor = (ot4Var.position + 1) - topThreadSize;
+            ThreadData threadData = bu4Var.t;
+            threadData.statFloor = (bu4Var.position + 1) - topThreadSize;
             customMessage.setData(threadData);
             this.c.sendMessage(customMessage);
-            if (ot4Var != null) {
-                mx5 mx5Var = frsPageAlaShareHolder.a;
-                if (mx5Var instanceof fo5) {
-                    mx5Var.b(this.n);
+            if (bu4Var != null) {
+                zx5 zx5Var = frsPageAlaShareHolder.a;
+                if (zx5Var instanceof so5) {
+                    zx5Var.b(this.n);
                 }
                 frsPageAlaShareHolder.a.a(this.l);
-                pg6.j(frsPageAlaShareHolder.a.M(), this.b);
-                pg6.j(frsPageAlaShareHolder.a.O(), this.b);
-                frsPageAlaShareHolder.a.i(ot4Var.t);
-                ot4Var.t.updateShowStatus();
+                ch6.j(frsPageAlaShareHolder.a.M(), this.b);
+                ch6.j(frsPageAlaShareHolder.a.O(), this.b);
+                frsPageAlaShareHolder.a.i(bu4Var.t);
+                bu4Var.t.updateShowStatus();
             }
             return frsPageAlaShareHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.t16
+    @Override // com.baidu.tieba.g26
     public void a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -188,7 +188,7 @@ public class FrsSplitAlaShareItemAdapter extends qg6<ot4, FrsPageAlaShareHolder>
         }
     }
 
-    @Override // com.baidu.tieba.go5
+    @Override // com.baidu.tieba.to5
     public void g(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
@@ -196,7 +196,7 @@ public class FrsSplitAlaShareItemAdapter extends qg6<ot4, FrsPageAlaShareHolder>
         }
     }
 
-    @Override // com.baidu.tieba.t16
+    @Override // com.baidu.tieba.g26
     public void p(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {

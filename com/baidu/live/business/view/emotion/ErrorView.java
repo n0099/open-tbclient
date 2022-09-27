@@ -11,9 +11,9 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc0;
-import com.baidu.tieba.q90;
-import com.baidu.tieba.y90;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.la0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class ErrorView extends LinearLayout {
     public TextView a;
     public SimpleDraweeView b;
     public TextView c;
-    public y90 d;
+    public la0 d;
 
     /* loaded from: classes2.dex */
     public class a implements View.OnClickListener {
@@ -56,7 +56,7 @@ public class ErrorView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (q90.f(this.a.getContext())) {
+                if (da0.f(this.a.getContext())) {
                     if (this.a.d != null) {
                         this.a.d.a(view2);
                         return;
@@ -99,24 +99,24 @@ public class ErrorView extends LinearLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (q90.f(getContext())) {
+            if (da0.f(getContext())) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams.width = q90.b(getContext(), EmotionStrategy.getInstance().errorWidth);
-                layoutParams.height = q90.b(getContext(), EmotionStrategy.getInstance().errorHeight);
+                layoutParams.width = da0.b(getContext(), EmotionStrategy.getInstance().errorWidth);
+                layoutParams.height = da0.b(getContext(), EmotionStrategy.getInstance().errorHeight);
                 this.b.setLayoutParams(layoutParams);
-                setImageResource(hc0.f().c(str));
+                setImageResource(uc0.f().c(str));
                 this.c.setText(R.string.obfuscated_res_0x7f0f0a0a);
             } else {
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.b.getLayoutParams();
-                layoutParams2.width = q90.b(getContext(), EmotionStrategy.getInstance().networkWidth);
-                layoutParams2.height = q90.b(getContext(), EmotionStrategy.getInstance().networkHeight);
+                layoutParams2.width = da0.b(getContext(), EmotionStrategy.getInstance().networkWidth);
+                layoutParams2.height = da0.b(getContext(), EmotionStrategy.getInstance().networkHeight);
                 this.b.setLayoutParams(layoutParams2);
-                setImageResource(hc0.f().d(str));
+                setImageResource(uc0.f().d(str));
                 this.c.setText(R.string.obfuscated_res_0x7f0f0a0b);
             }
-            this.c.setTextColor(hc0.f().a(getContext(), str, "color_8585852"));
-            this.a.setTextColor(hc0.f().a(getContext(), str, "color_5252522"));
-            this.a.setBackground(hc0.f().o(getContext(), str));
+            this.c.setTextColor(uc0.f().a(getContext(), str, "color_8585852"));
+            this.a.setTextColor(uc0.f().a(getContext(), str, "color_5252522"));
+            this.a.setBackground(uc0.f().o(getContext(), str));
         }
     }
 
@@ -137,10 +137,10 @@ public class ErrorView extends LinearLayout {
         }
     }
 
-    public void setActionCallback(y90 y90Var) {
+    public void setActionCallback(la0 la0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, y90Var) == null) {
-            this.d = y90Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, la0Var) == null) {
+            this.d = la0Var;
         }
     }
 

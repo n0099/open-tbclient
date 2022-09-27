@@ -23,11 +23,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fa5;
+import com.baidu.tieba.pp8;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.s95;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -130,7 +130,7 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
             }
         }
         this.a = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.Voice_play_type);
         this.a = obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         e(context);
@@ -255,9 +255,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073b, (ViewGroup) this, true);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919f8);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e9);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091aba);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919fa);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919eb);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abc);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
@@ -384,9 +384,9 @@ public class PlayVoiceBnt extends RelativeLayout implements VoiceManager.i, View
                 return;
             }
             o();
-            if (s95.b().d()) {
-                s95.b().n(false);
-                s95.b().l(false);
+            if (fa5.b().d()) {
+                fa5.b().n(false);
+                fa5.b().l(false);
             }
             if (i != 1) {
                 if (i == 2) {

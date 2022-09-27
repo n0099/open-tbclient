@@ -24,10 +24,10 @@ import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dp4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ih5;
-import com.baidu.tieba.ys7;
+import com.baidu.tieba.mt7;
+import com.baidu.tieba.qp4;
+import com.baidu.tieba.vh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -44,8 +44,8 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
     public TextView f;
     public TextView g;
     public View h;
-    public ys7 i;
-    public dp4<ys7> j;
+    public mt7 i;
+    public qp4<mt7> j;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicListInfoItem(Context context) {
@@ -69,17 +69,17 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         c();
     }
 
-    public void a(ys7 ys7Var) {
+    public void a(mt7 mt7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, ys7Var) == null) || ys7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, mt7Var) == null) || mt7Var == null) {
             return;
         }
-        this.i = ys7Var;
-        this.b.K(ys7Var.f, 10, false);
-        this.d.setCompoundDrawablesWithIntrinsicBounds(ys7Var.b() ? WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a46, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL) : null, (Drawable) null, (Drawable) null, (Drawable) null);
-        this.d.setText(ys7Var.c);
-        this.g.setText(ys7Var.d);
-        String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.e.getContext(), ys7Var.g);
+        this.i = mt7Var;
+        this.b.K(mt7Var.f, 10, false);
+        this.d.setCompoundDrawablesWithIntrinsicBounds(mt7Var.b() ? WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a48, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL) : null, (Drawable) null, (Drawable) null, (Drawable) null);
+        this.d.setText(mt7Var.c);
+        this.g.setText(mt7Var.d);
+        String hotTopicTagStr = TagTextHelper.getHotTopicTagStr(this.e.getContext(), mt7Var.g);
         if (TextUtils.isEmpty(hotTopicTagStr)) {
             this.e.setVisibility(8);
         } else {
@@ -87,25 +87,25 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
             this.e.setText(hotTopicTagStr);
         }
         b();
-        if (ys7Var.e > 0) {
+        if (mt7Var.e > 0) {
             this.f.setVisibility(0);
-            String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(ys7Var.e);
+            String numberUniformFormatExtraWithRoundInt = StringHelper.numberUniformFormatExtraWithRoundInt(mt7Var.e);
             TextView textView = this.f;
             textView.setText(textView.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f08a2, numberUniformFormatExtraWithRoundInt));
         } else {
             this.f.setVisibility(4);
         }
         TextView textView2 = this.c;
-        textView2.setText("" + ys7Var.b);
+        textView2.setText("" + mt7Var.b);
     }
 
     public final void b() {
-        ys7 ys7Var;
+        mt7 mt7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (ys7Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mt7Var = this.i) == null) {
             return;
         }
-        int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(ys7Var.g);
+        int hotTopicTagColorRes = TagTextHelper.getHotTopicTagColorRes(mt7Var.g);
         Drawable background = this.e.getBackground();
         DrawableCompat.setTint(background, SkinManager.getColor(hotTopicTagColorRes));
         this.e.setBackgroundDrawable(background);
@@ -119,17 +119,17 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a8, (ViewGroup) this, true);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091c6b);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091c6d);
             this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090715);
             this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090f22);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09221c);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092031);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09221e);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092033);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091719);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09079a);
             this.b.setPlaceHolder(1);
             this.b.setRadius(ej.f(getContext(), R.dimen.tbds10));
             this.b.setConrers(15);
-            findViewById(R.id.obfuscated_res_0x7f091c6b).setOnClickListener(this);
+            findViewById(R.id.obfuscated_res_0x7f091c6d).setOnClickListener(this);
         }
     }
 
@@ -150,18 +150,18 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        ys7 ys7Var;
+        mt7 mt7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (ys7Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, view2) == null) || (mt7Var = this.i) == null) {
             return;
         }
-        long j = ys7Var.a;
+        long j = mt7Var.a;
         if (j <= 0) {
             return;
         }
-        dp4<ys7> dp4Var = this.j;
-        if (dp4Var != null) {
-            dp4Var.c(view2, ys7Var, ys7Var.b, j);
+        qp4<mt7> qp4Var = this.j;
+        if (qp4Var != null) {
+            qp4Var.c(view2, mt7Var, mt7Var.b, j);
         }
         String tryFixDefaultValue = StringUtils.tryFixDefaultValue(String.valueOf(this.i.a));
         String tryFixDefaultValue2 = StringUtils.tryFixDefaultValue(this.i.c);
@@ -171,7 +171,7 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         }
         if (!this.i.b() && NewWebHotTopicPageSwitch.isOn()) {
             if (getContext() instanceof BaseActivity) {
-                ih5.e(((BaseActivity) getContext()).getPageContext(), tryFixDefaultValue, tryFixDefaultValue2);
+                vh5.e(((BaseActivity) getContext()).getPageContext(), tryFixDefaultValue, tryFixDefaultValue2);
                 return;
             }
             return;
@@ -179,10 +179,10 @@ public class HotTopicListInfoItem extends RelativeLayout implements View.OnClick
         new HotTopicActivityConfig(getContext()).createNormalConfig(tryFixDefaultValue, null, String.valueOf(this.i.a()), "5", locate).start();
     }
 
-    public void setOnItemCoverListener(dp4<ys7> dp4Var) {
+    public void setOnItemCoverListener(qp4<mt7> qp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, dp4Var) == null) {
-            this.j = dp4Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, qp4Var) == null) {
+            this.j = qp4Var;
         }
     }
 

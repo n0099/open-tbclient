@@ -1,94 +1,304 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class g70 {
+public class g70 implements c70 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile g70 b;
-    public static final int c;
-    public static final int d;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
+    public HttpURLConnection a;
+    public int b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746697, "Lcom/baidu/tieba/g70;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947746697, "Lcom/baidu/tieba/g70;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        c = availableProcessors;
-        d = Math.max(4, Math.min(availableProcessors - 1, 4));
-        e = (c * 3) + 1;
-    }
-
-    public g70() {
+    public g70(HttpURLConnection httpURLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpURLConnection};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(false);
-        Executors.newSingleThreadExecutor();
+        this.b = 4;
+        this.a = httpURLConnection;
     }
 
-    public static g70 a() {
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (httpURLConnection = this.a) == null) {
+            return;
+        }
+        httpURLConnection.disconnect();
+    }
+
+    @Override // com.baidu.tieba.c70
+    public void disconnect() {
+        HttpURLConnection httpURLConnection;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (httpURLConnection = this.a) == null) {
+            return;
+        }
+        try {
+            httpURLConnection.disconnect();
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // com.baidu.tieba.c70
+    public int getCode() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (g70.class) {
-                    if (b == null) {
-                        b = new g70();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                return this.a.getResponseCode();
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.c70
+    public Map<String, List<String>> getHeaders() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.getHeaderFields() : (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c70
+    public InputStream getInputStream() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                InputStream inputStream = this.a.getInputStream();
+                if (inputStream == null) {
+                    disconnect();
+                    return inputStream;
+                }
+                return new BufferedInputStream(new a(this, inputStream));
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c70
+    public String getMessage() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                return this.a.getResponseMessage();
+            } catch (IOException e) {
+                disconnect();
+                throw e;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c70
+    public InputStream q() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            InputStream errorStream = getCode() >= 400 ? this.a.getErrorStream() : null;
+            return errorStream != null ? new a(this, errorStream) : errorStream;
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.c70
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.c70
+    public int u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends InputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public InputStream a;
+        public final /* synthetic */ g70 b;
+
+        public a(g70 g70Var, InputStream inputStream) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g70Var, inputStream};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = g70Var;
+            this.a = inputStream;
+        }
+
+        public final IOException a(IOException iOException) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iOException)) == null) {
+                this.b.disconnect();
+                return TextUtils.isEmpty(iOException.getMessage()) ? new IOException(iOException.getClass().getName(), iOException) : iOException;
+            }
+            return (IOException) invokeL.objValue;
+        }
+
+        @Override // java.io.InputStream
+        public int available() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                try {
+                    return this.a.available();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+        public void close() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                try {
+                    if (read() >= 0) {
+                        this.a.close();
+                        this.b.disconnect();
+                        return;
+                    }
+                    this.a.close();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void mark(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+                synchronized (this) {
+                    this.a.mark(i);
+                }
+            }
+        }
+
+        @Override // java.io.InputStream
+        public boolean markSupported() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.markSupported() : invokeV.booleanValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read() throws IOException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                try {
+                    return this.a.read();
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public synchronized void reset() throws IOException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                synchronized (this) {
+                    try {
+                        this.a.reset();
+                    } catch (IOException e) {
+                        throw a(e);
                     }
                 }
             }
-            return b;
         }
-        return (g70) invokeV.objValue;
-    }
 
-    public final boolean b(Runnable runnable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            try {
-                this.a.submit(runnable);
-                return true;
-            } catch (Throwable th) {
-                k70.b("UBCTaskManager", "Exception ", th);
-                return false;
+        @Override // java.io.InputStream
+        public long skip(long j) throws IOException {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+                try {
+                    return this.a.skip(j);
+                } catch (IOException e) {
+                    throw a(e);
+                }
             }
+            return invokeJ.longValue;
         }
-        return invokeL.booleanValue;
+
+        @Override // java.io.InputStream
+        public int read(byte[] bArr) throws IOException {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+                try {
+                    return read(bArr, 0, bArr.length);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // java.io.InputStream
+        public int read(byte[] bArr, int i, int i2) throws IOException {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048583, this, bArr, i, i2)) == null) {
+                try {
+                    return this.a.read(bArr, i, i2);
+                } catch (IOException e) {
+                    throw a(e);
+                }
+            }
+            return invokeLII.intValue;
+        }
     }
 }

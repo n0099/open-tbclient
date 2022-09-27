@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,14 +11,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class at2 {
+public class at2 extends ys2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, JSONObject> a;
-    public final LruCache<String, JSONObject> b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,159 +29,46 @@ public abstract class at2 {
                 return;
             }
         }
-        c = ij1.a;
+        boolean z = vj1.a;
     }
 
-    public at2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public at2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new LruCache<>(5);
-        this.b = new LruCache<>(5);
     }
 
-    public final JSONObject a(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    private void update(ts2 ts2Var, vs2 vs2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "appInfo is null");
-                }
-                return null;
-            }
-            String str = pMSAppInfo.appId;
-            String valueOf = String.valueOf(pMSAppInfo.appSign);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                String e = e(str, valueOf);
-                JSONObject jSONObject = this.a.get(e);
-                if (jSONObject == null) {
-                    jSONObject = fg4.p(bt2.a(pMSAppInfo));
-                    this.a.put(e, jSONObject);
-                }
-                if (c) {
-                    Log.d("SwanAppExtInfo", "appId - " + str + " app info' ext - " + jSONObject.toString());
-                }
-                return jSONObject;
-            }
-            if (c) {
-                Log.e("SwanAppExtInfo", "appId or app sign is empty");
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLLLL(65538, this, ts2Var, vs2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ts2Var.h(vs2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public final JSONObject b(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ys2
+    public boolean a(ts2 ts2Var, vs2 vs2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
-            JSONObject a = a(pMSAppInfo);
-            if (a == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "appInfoExt is null");
-                }
-                return null;
-            }
-            JSONObject optJSONObject = a.optJSONObject("client");
-            if (optJSONObject == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "clientInfo is null");
-                }
-                return null;
-            }
-            if (c) {
-                Log.d("SwanAppExtInfo", "clientInfo - " + optJSONObject);
-            }
-            return optJSONObject;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ts2Var, vs2Var, context, unitedSchemeEntity, callbackHandler, l33Var})) == null) {
+            l02.b("vrvideo", "update, video id:" + vs2Var.j + " slave id: " + vs2Var.c);
+            update(ts2Var, vs2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final String c(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
-            JSONObject a = a(pMSAppInfo);
-            if (a == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "appInfoExt is null");
-                }
-                return null;
-            }
-            String optString = a.optString("webview_whitelist_switch");
-            if (TextUtils.isEmpty(optString)) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "webview whitelist switch is empty");
-                }
-                return null;
-            }
-            if (c) {
-                Log.d("SwanAppExtInfo", "webview whitelist switch - " + optString);
-            }
-            return optString;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final JSONObject d(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "appInfo is null");
-                }
-                return null;
-            }
-            String str = pMSAppInfo.appId;
-            String valueOf = String.valueOf(pMSAppInfo.versionCode);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                String e = e(str, valueOf);
-                JSONObject jSONObject = this.b.get(e);
-                if (jSONObject == null) {
-                    jSONObject = fg4.p(ct2.f(pMSAppInfo));
-                    this.a.put(e, jSONObject);
-                }
-                if (c) {
-                    Log.d("SwanAppExtInfo", "appId - " + str + " pkg info' ext - " + jSONObject.toString());
-                }
-                return jSONObject;
-            }
-            if (c) {
-                Log.e("SwanAppExtInfo", "appId or version code is empty");
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            return str + "_" + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (c) {
-                Log.d("SwanAppExtInfo", "release cache");
-            }
-            this.a.evictAll();
-            this.b.evictAll();
-        }
+        return invokeCommon.booleanValue;
     }
 }

@@ -1,120 +1,139 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes4.dex */
 public class ff8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final View b;
-    public AdvertAppInfo c;
-    public gg7 d;
-    public TbPageContext e;
-    public AdCard f;
-    public View.OnClickListener g;
 
-    public ff8(View view2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = view2;
-        this.a = str;
-    }
-
-    public final <T> T a(int i) {
+    public static int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? (T) this.b.findViewById(i) : (T) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
     }
 
-    public void b() {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
     }
 
-    public void c(pe8 pe8Var) {
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pe8Var) == null) {
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
     }
 
-    public void d() {
+    public static lk0 d(@NonNull AdCard adCard) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setVisibility(0);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.v(this.c.j).q(String.valueOf(this.c.position + 1)).p(this.c.g).z(String.valueOf(303));
-            uz0.b(clogBuilder);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setVisibility(8);
-        }
-    }
-
-    public void f(AdvertAppInfo advertAppInfo) {
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
-            this.c = advertAppInfo;
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof AdCard)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
+            if (ck0.b().query(adCard.getDownloadKey()) != null) {
+                return ck0.b().query(adCard.getDownloadKey());
             }
-            this.f = (AdCard) iLegoAdvert;
+            lk0 lk0Var = new lk0();
+            lk0Var.h(adCard.getDownloadKey());
+            if (adCard.downloadInfo != null) {
+                if (TextUtils.isEmpty(lk0Var.e())) {
+                    lk0Var.h(adCard.downloadInfo.b);
+                }
+                ye8 ye8Var = adCard.downloadInfo;
+                lk0Var.g = ye8Var.b;
+                lk0Var.d = ye8Var.a;
+            }
+            if (TextUtils.isEmpty(lk0Var.e())) {
+                lk0Var.h(adCard.adId);
+            }
+            pk0 pk0Var = new pk0();
+            pk0Var.j = adCard.adId;
+            pk0Var.a = adCard.getExtInfo();
+            ar4 ar4Var = adCard.appInfoModel;
+            if (ar4Var != null) {
+                pk0Var.g = ar4Var.b;
+                pk0Var.h = ar4Var.c;
+            }
+            if (wi0.n(adCard.cmdScheme)) {
+                pk0Var.c = adCard.cmdScheme;
+            }
+            lk0Var.p = pk0Var;
+            mk0 mk0Var = new mk0();
+            mk0Var.a = adCard.getAdvertAppInfo().j;
+            mk0Var.t = tm5.a().b();
+            mk0Var.s = tm5.a().h();
+            lk0Var.q = mk0Var;
+            return lk0Var;
         }
+        return (lk0) invokeL.objValue;
     }
 
-    public void g(gg7 gg7Var) {
+    public static String e(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, gg7Var) == null) {
-            this.d = gg7Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public void h(TbPageContext<?> tbPageContext) {
+    public static Drawable f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
-            this.e = tbPageContext;
-        }
+        return (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) ? fv4.D(fv4.k(gv4.y(), i), i2, i3, i4) : (Drawable) invokeIIII.objValue;
     }
 
-    public void i(View.OnClickListener onClickListener) {
+    public static int g(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.g = onClickListener;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i != i2 && f > 0.0f) {
+                if (f >= 1.0f) {
+                    return i2;
+                }
+                int red = Color.red(i);
+                int green = Color.green(i);
+                int blue = Color.blue(i);
+                int alpha = Color.alpha(i);
+                return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+            }
+            return i;
         }
+        return invokeCommon.intValue;
     }
 
-    public void j(CountDownTextView.c cVar) {
+    public static int h(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
+            try {
+                return Color.parseColor(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return i;
+            }
         }
+        return invokeLI.intValue;
     }
 }

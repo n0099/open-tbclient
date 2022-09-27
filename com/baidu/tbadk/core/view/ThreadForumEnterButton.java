@@ -28,7 +28,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -175,7 +175,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         }
         this.i = skinType;
         if (this.e) {
-            uu4 d = uu4.d(this.f);
+            hv4 d = hv4.d(this.f);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0304);
@@ -184,7 +184,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d.l(R.dimen.L_X01);
             d.k(R.color.CAM_X0304);
         } else {
-            uu4 d2 = uu4.d(this.f);
+            hv4 d2 = hv4.d(this.f);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0304);
@@ -193,7 +193,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
         }
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080924, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080926, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
         this.g = pureDrawable;
         if (pureDrawable != null) {
             int f = ej.f(this.b, R.dimen.T_X09);

@@ -1,7 +1,6 @@
 package com.vivo.identifier;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,9 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public class IdentifierIdLog {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static volatile boolean mDebug;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,41 +45,18 @@ public class IdentifierIdLog {
         }
     }
 
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && mDebug) {
-            Log.d(str, str2);
-        }
-    }
+    @Keep
+    public static native void d(String str, String str2);
 
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && mDebug) {
-            Log.e(str, str2);
-        }
-    }
+    @Keep
+    public static native void e(String str, String str2);
 
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && mDebug) {
-            Log.i(str, str2);
-        }
-    }
+    @Keep
+    public static native void i(String str, String str2);
 
-    public static boolean setDebug(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
-            mDebug = z;
-            return mDebug;
-        }
-        return invokeZ.booleanValue;
-    }
+    @Keep
+    public static native boolean setDebug(boolean z);
 
-    public static void w(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && mDebug) {
-            Log.w(str, str2);
-        }
-    }
+    @Keep
+    public static native void w(String str, String str2);
 }

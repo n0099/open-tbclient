@@ -91,7 +91,7 @@ public class BubbleListData extends OrmObject implements Serializable, Cloneable
         public String getDynamicUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.dynamic_url : (String) invokeV.objValue;
         }
 
         public String getDynamicUrlSmall() {

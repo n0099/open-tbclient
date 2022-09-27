@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.bc6;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.oc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,7 +77,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(String str, bc6 bc6Var);
+        void a(String str, oc6 oc6Var);
 
         void onFail(int i, String str);
     }

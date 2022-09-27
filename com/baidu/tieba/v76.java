@@ -1,59 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.HashMap;
-import java.util.Map;
+import tbclient.ApkDetail;
 /* loaded from: classes6.dex */
-public final class v76 {
+public class v76 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, String> a;
-    public static Map<String, String> b;
-    public static Map<String, String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948193748, "Lcom/baidu/tieba/v76;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948193748, "Lcom/baidu/tieba/v76;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new HashMap();
-        c = new HashMap();
-        a.put("CAM_X0906", "CAM_X0906");
-        b.put("CAM_X0906", "com.baidu.tbadk.core.elementsMaven.EMABTest");
-        c.put("CAM_X0906", "testMethod");
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void a(k76 k76Var) {
+        ItemData itemData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (b.containsKey(str)) {
-                try {
-                    Method declaredMethod = Class.forName(b.get(str)).getDeclaredMethod(c.get(str), new Class[0]);
-                    declaredMethod.setAccessible(true);
-                    Object invoke = declaredMethod.invoke(null, new Object[0]);
-                    return ((invoke instanceof Boolean) && ((Boolean) invoke).booleanValue()) ? a.get(str) : str;
-                } catch (ClassNotFoundException | IllegalAccessException | NoSuchMethodException | InvocationTargetException e) {
-                    e.printStackTrace();
-                }
-            }
-            return str;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, k76Var) == null) || k76Var == null || (itemData = k76Var.a) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
+        httpMessage.addParam("item_id", itemData.itemId);
+        httpMessage.addParam("app_name", itemData.mTitle);
+        httpMessage.addParam("source_type", k76Var.b);
+        httpMessage.addParam("icon_url", itemData.mIconUrl);
+        httpMessage.addParam("score", Double.valueOf(itemData.mScore));
+        httpMessage.addParam("tags", itemData.mTags);
+        httpMessage.addParam("apk_name", itemData.pkgName);
+        ApkDetail apkDetail = itemData.apkDetail;
+        if (apkDetail != null) {
+            httpMessage.addParam("developer", apkDetail.developer);
+            httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
+            httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
+            httpMessage.addParam("version", itemData.apkDetail.version);
+            httpMessage.addParam("version_code", itemData.apkDetail.version_code);
+        }
+        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lo4;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                lo4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
+                yo4.z(true, this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
                 if (this.a.f != null) {
                     this.a.f.onClick(view2);
                 }
@@ -89,11 +89,11 @@ public class PbVideoWifiTipLayout extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0516, this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092426);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092425);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923e8);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09238c);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d6);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092428);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092427);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ea);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09238e);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d8);
             this.e = textView;
             textView.setOnClickListener(new a(this));
         }

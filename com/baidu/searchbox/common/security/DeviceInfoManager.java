@@ -16,8 +16,8 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
 import com.baidu.searchbox.common.security.IDeviceInfoService;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.he1;
-import com.baidu.tieba.wh8;
+import com.baidu.tieba.li8;
+import com.baidu.tieba.ue1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -302,7 +302,7 @@ public final class DeviceInfoManager {
     public final IDeviceInfoAppHost getAppHost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) ? wh8.a() : (IDeviceInfoAppHost) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65565, this)) == null) ? li8.a() : (IDeviceInfoAppHost) invokeV.objValue;
     }
 
     @JvmStatic
@@ -741,7 +741,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (he1.g()) {
+            if (ue1.g()) {
                 DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) 4);
                 if (deviceIdBag == null) {
                     deviceIdBag = readAndroidId(context, scene, purpose);
@@ -800,7 +800,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (he1.g()) {
+            if (ue1.g()) {
                 DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) 128);
                 if (deviceIdBag == null) {
                     deviceIdBag = readHarmonyVersion(context, scene, purpose);
@@ -846,7 +846,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (he1.g()) {
+            if (ue1.g()) {
                 DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) 1);
                 if (deviceIdBag == null) {
                     deviceIdBag = readMac(context, scene, purpose);
@@ -879,7 +879,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (he1.g()) {
+            if (ue1.g()) {
                 DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) 256);
                 if (deviceIdBag == null) {
                     deviceIdBag = readManufacturer(scene, purpose);
@@ -912,7 +912,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (he1.g()) {
+            if (ue1.g()) {
                 DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) 16);
                 if (deviceIdBag == null) {
                     deviceIdBag = readModel(scene, purpose);
@@ -945,7 +945,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (he1.g()) {
+            if (ue1.g()) {
                 DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) 8);
                 if (deviceIdBag == null) {
                     deviceIdBag = readOAID(scene, purpose);
@@ -990,7 +990,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, scene, purpose)) == null) {
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (he1.g()) {
+            if (ue1.g()) {
                 DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) 32);
                 if (deviceIdBag == null) {
                     deviceIdBag = readOsVersion(scene, purpose);
@@ -1227,7 +1227,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || interceptable.invokeLZ(1048592, this, appContext, z) == null) {
             Intrinsics.checkNotNullParameter(appContext, "appContext");
             mContext = appContext;
-            if (he1.g()) {
+            if (ue1.g()) {
                 if (z) {
                     DeviceInfoIPCServiceManager.Companion.addIPCService();
                 }
@@ -1272,7 +1272,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || interceptable.invokeL(1048593, this, context) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             mContext = context;
-            if (he1.g() && getAppHost().useMapping()) {
+            if (ue1.g() && getAppHost().useMapping()) {
                 Context context2 = mContext;
                 if (context2 == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("mContext");
@@ -1312,7 +1312,7 @@ public final class DeviceInfoManager {
         if (interceptable == null || interceptable.invokeLZ(1048594, this, appContext, z) == null) {
             Intrinsics.checkNotNullParameter(appContext, "appContext");
             mContext = appContext;
-            if (he1.g() && z) {
+            if (ue1.g() && z) {
                 DeviceInfoIPCServiceManager.Companion.addIPCService();
             }
         }
@@ -1325,7 +1325,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (!he1.g()) {
+            if (!ue1.g()) {
                 IDeviceInfoService iPCService = DeviceInfoIPCServiceManager.Companion.getIPCService();
                 if (checkIPCService(iPCService)) {
                     try {
@@ -1365,7 +1365,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (he1.g()) {
+            if (ue1.g()) {
                 DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) 2);
                 int i = 0;
                 try {
@@ -1408,7 +1408,7 @@ public final class DeviceInfoManager {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(scene, "scene");
             Intrinsics.checkNotNullParameter(purpose, "purpose");
-            if (he1.g()) {
+            if (ue1.g()) {
                 DeviceIdBag deviceIdBag = (DeviceIdBag) mDeviceInfoMap.get((Object) 64);
                 int i = 0;
                 try {

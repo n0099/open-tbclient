@@ -1,98 +1,190 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ks7 implements Cdo {
+public class ks7 implements Object<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public boolean c;
+    public TbPageContext a;
+    public BdListView b;
+    public ds7 c;
+    public gs7 d;
+    public View e;
+    public f95 f;
+    public FrameLayout g;
+    public NoDataView h;
+    public boolean i;
+    public NoNetworkView j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923738, "Lcom/baidu/tieba/ks7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947923738, "Lcom/baidu/tieba/ks7;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
-
-    public ks7() {
+    public ks7(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = true;
+        this.i = false;
+        this.a = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02e7, (ViewGroup) null, false);
+        this.e = inflate;
+        NoNetworkView noNetworkView = (NoNetworkView) inflate.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        this.j = noNetworkView;
+        noNetworkView.a(this);
+        this.g = (FrameLayout) this.e.findViewById(R.id.obfuscated_res_0x7f091efe);
+        this.b = (BdListView) this.e.findViewById(R.id.obfuscated_res_0x7f0908d3);
+        this.d = new gs7(this.e.findViewById(R.id.obfuscated_res_0x7f0908d2), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0563));
+        this.b.setDivider(null);
+        this.b.setOverScrollMode(2);
+        this.b.setVerticalScrollBarEnabled(false);
+        this.c = new ds7(tbPageContext, this.b);
+        h();
     }
 
-    public int a() {
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (View) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b() {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.f == null || (frameLayout = this.g) == null) {
+            return;
+        }
+        frameLayout.setVisibility(8);
+        this.f.dettachView(this.g);
+        this.f = null;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public final void c() {
+        NoDataView noDataView;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.booleanValue;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (noDataView = this.h) != null && noDataView.getParent() == this.g) {
+            this.h.setVisibility(8);
+            this.g.removeView(this.h);
+            this.g.setVisibility(8);
+        }
     }
 
-    public void f(int i) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
+            View view2 = this.e;
+            if (view2 != null) {
+                SkinManager.setBackgroundColor(view2, R.color.cp_bg_line_d_alpha90, i);
+            }
+            BdListView bdListView = this.b;
+            if (bdListView != null) {
+                SkinManager.setBackgroundColor(bdListView, R.color.CAM_X0201, i);
+            }
+            gs7 gs7Var = this.d;
+            if (gs7Var != null) {
+                gs7Var.b(i);
+            }
+            NoNetworkView noNetworkView = this.j;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.a, i);
+            }
+            FrameLayout frameLayout = this.g;
+            if (frameLayout != null) {
+                SkinManager.setBackgroundColor(frameLayout, R.color.CAM_X0201, i);
+            }
         }
     }
 
-    public void g(String str) {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b();
+            c();
         }
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final void f() {
+        BdListView bdListView;
+        gs7 gs7Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (bdListView = this.b) == null || this.i || (gs7Var = this.d) == null) {
+            return;
+        }
+        this.i = true;
+        bdListView.setEmptyView(gs7Var.a());
     }
 
-    public void h(boolean z) {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.c = z;
+        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && z) {
+            h();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921314));
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.a == null || this.g == null) {
+            return;
+        }
+        e();
+        this.g.setVisibility(0);
+        if (this.f == null) {
+            this.f = new f95(this.a.getPageActivity());
+        }
+        this.f.attachView(this.g, true);
+        this.f.onChangeSkinType();
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.a == null || this.g == null) {
+            return;
+        }
+        e();
+        this.g.setVisibility(0);
+        NoDataView b = NoDataViewFactory.b(this.a.getPageActivity(), this.g, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.WEBVIEW, ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070236)), NoDataViewFactory.e.d(null, this.a.getString(R.string.obfuscated_res_0x7f0f0565)), null, true);
+        this.h = b;
+        b.setVisibility(0);
+        this.h.d(this.a);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    public void update(List<EmotionPackageData> list) {
+        ds7 ds7Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
+            f();
+            if (list == null || (ds7Var = this.c) == null) {
+                return;
+            }
+            ds7Var.update(list);
         }
     }
 }

@@ -18,7 +18,7 @@ import android.view.MotionEvent;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pg3;
+import com.baidu.tieba.ch3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -135,7 +135,7 @@ public class DrawableCenterTextView extends TextView {
                 this.a.setCornerRadius(4.0f);
             }
             if (this.h) {
-                int f2 = pg3.f(getContext(), 0.5f);
+                int f2 = ch3.f(getContext(), 0.5f);
                 Object obj = this.d;
                 if (obj instanceof String) {
                     this.a.setStroke(f2, Color.parseColor(obj.toString()));
@@ -181,7 +181,7 @@ public class DrawableCenterTextView extends TextView {
             float width = getWidth();
             float height = getHeight();
             Paint paint = new Paint();
-            paint.setStrokeWidth(pg3.f(getContext(), 0.5f));
+            paint.setStrokeWidth(ch3.f(getContext(), 0.5f));
             Object obj = this.e;
             if (obj instanceof String) {
                 paint.setColor(Color.parseColor(obj.toString()));
@@ -242,8 +242,8 @@ public class DrawableCenterTextView extends TextView {
             }
             drawable = null;
             i = -1;
-            int w = pg3.w(this);
-            int v = pg3.v(this);
+            int w = ch3.w(this);
+            int v = ch3.v(this);
             int compoundDrawablePadding = getCompoundDrawablePadding();
             if (drawable != null) {
                 Rect bounds = drawable.getBounds();

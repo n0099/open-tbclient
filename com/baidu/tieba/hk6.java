@@ -1,68 +1,122 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.entelechy.view.ReadProgressViewHolder;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Message;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.AdMixFloor;
+import tbclient.App;
+import tbclient.GeneralTabList.DataRes;
+import tbclient.ItemInfo;
+import tbclient.SportPageHeadInfo;
+import tbclient.SportScheduleInfo;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes4.dex */
-public class hk6 extends qg6<bh6, ReadProgressViewHolder> {
+public class hk6 implements tb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public HashMap<String, MetaData> b;
+    public ArrayList<Cdo> c;
+    public int d;
+    public String e;
+    public String f;
+    public boolean g;
+    public SportScheduleInfo h;
+    public int i;
+    public ItemInfo j;
+    public List<App> k;
+    public int l;
+    public List<AdMixFloor> m;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hk6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public hk6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new HashMap<>();
+        this.c = new ArrayList<>();
+        this.i = 1;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: E */
-    public ReadProgressViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) ? new ReadProgressViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0346, viewGroup, false), this.c.getPageActivity()) : (ReadProgressViewHolder) invokeL.objValue;
-    }
-
-    public View F(int i, View view2, ViewGroup viewGroup, bh6 bh6Var, ReadProgressViewHolder readProgressViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bh6Var, readProgressViewHolder})) == null) {
-            if (bh6Var != null && readProgressViewHolder != null) {
-                readProgressViewHolder.b(bh6Var);
-            }
-            return view2;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) || dataRes == null) {
+            return;
         }
-        return (View) invokeCommon.objValue;
+        this.a = dataRes.has_more.intValue() == 1;
+        if (!ListUtils.isEmpty(dataRes.user_list)) {
+            for (User user : dataRes.user_list) {
+                if (user != null) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserProtobuf(user);
+                    String userId = metaData.getUserId();
+                    if (userId != null && !"0".equals(userId)) {
+                        this.b.put(userId, metaData);
+                    }
+                }
+            }
+        }
+        if (!ListUtils.isEmpty(dataRes.general_list)) {
+            for (ThreadInfo threadInfo : dataRes.general_list) {
+                if (threadInfo != null) {
+                    ThreadData threadData = new ThreadData();
+                    threadData.setUserMap(this.b);
+                    threadData.forceReadUserMap = true;
+                    threadData.parserProtobuf(threadInfo);
+                    threadData.parser_title();
+                    threadData.insertItemToTitleOrAbstractText();
+                    this.c.add(threadData);
+                }
+            }
+        }
+        this.l = dataRes.ad_show_select.intValue();
+        this.m = dataRes.ad_mix_list;
+        String str = dataRes.ad_sample_map_key;
+        this.k = dataRes.app_list;
+        AbsGroupUbsABTest.setCardInfoUbsABTest(this.c);
+        this.d = dataRes.new_thread_num.intValue();
+        SportPageHeadInfo sportPageHeadInfo = dataRes.sport_head_info;
+        if (sportPageHeadInfo != null) {
+            this.e = sportPageHeadInfo.head_url;
+            this.f = sportPageHeadInfo.jump_url;
+            this.g = sportPageHeadInfo.is_ad.intValue() == 1;
+        }
+        this.h = dataRes.sport_schedule_info;
+        this.i = dataRes.sort_type.intValue();
+        this.j = dataRes.item_info;
     }
 
-    @Override // com.baidu.tieba.qg6, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (bh6) obj, (ReadProgressViewHolder) viewHolder);
-        return view2;
+    @Override // com.baidu.tieba.tb5
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.tb5
+    public void initByProtobuf(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+        }
     }
 }

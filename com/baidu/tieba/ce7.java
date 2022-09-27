@@ -1,341 +1,31 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.fragment.app.FragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.imMessageCenter.mention.ChatAggregationFragment;
-import com.baidu.tieba.setting.model.MsgRemindModel;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.imMessageCenter.mention.FeedData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import tbclient.ReplyMe.DataReq;
+import tbclient.ReplyMe.ReplyMeReqIdl;
 /* loaded from: classes3.dex */
-public class ce7 {
+public class ce7 implements sb5, pb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ChatAggregationFragment a;
+    public int a;
+    public int b;
+    public String c;
 
-    /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ce7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ce7 ce7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ce7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int[] iArr;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof int[]) && (iArr = (int[]) customResponsedMessage.getData()) != null && iArr.length == 2) {
-                int i = iArr[0];
-                int i2 = iArr[1];
-                TbPageContext<BaseFragmentActivity> pageContext = this.a.a.getPageContext();
-                if (pageContext == null || pageContext.getUniqueId() == null || pageContext.getUniqueId().getId() != i) {
-                    return;
-                }
-                this.a.d(i2);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements zo4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public b(ce7 ce7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(1, true, null);
-                }
-                if (this.c) {
-                    w25.l(this.d);
-                } else {
-                    s25.e(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements zo4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public c(ce7 ce7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(2, true, null);
-                }
-                if (this.c) {
-                    w25.l(this.d);
-                } else {
-                    s25.e(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements zo4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public d(ce7 ce7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(20, true, null);
-                }
-                if (this.c) {
-                    w25.l(this.d);
-                } else {
-                    s25.e(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements zo4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public e(ce7 ce7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(3, true, null);
-                }
-                if (this.c) {
-                    w25.l(this.d);
-                } else {
-                    s25.e(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements zo4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TbPageContext b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ Activity d;
-
-        public f(ce7 ce7Var, boolean z, TbPageContext tbPageContext, boolean z2, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ce7Var, Boolean.valueOf(z), tbPageContext, Boolean.valueOf(z2), activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tbPageContext;
-            this.c = z2;
-            this.d = activity;
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a) {
-                    new MsgRemindModel(this.b).E(10, true, null);
-                }
-                if (this.c) {
-                    w25.l(this.d);
-                } else {
-                    s25.e(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.zo4
-        public void onCancelClick() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-    }
-
-    public ce7(ChatAggregationFragment chatAggregationFragment) {
+    public ce7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {chatAggregationFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -345,78 +35,127 @@ public class ce7 {
                 return;
             }
         }
-        this.a = chatAggregationFragment;
+        this.b = 1;
     }
 
-    public void c() {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
-            return;
-        }
-        this.a.registerListener(new a(this, 2921700));
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
     }
 
-    public final void d(int i) {
-        ChatAggregationFragment chatAggregationFragment;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (chatAggregationFragment = this.a) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = 1;
+            this.a = 1;
+            this.c = null;
+        }
+    }
+
+    public void c(FeedData feedData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, feedData) == null) || feedData == null) {
             return;
         }
-        FragmentActivity fragmentActivity = chatAggregationFragment.getFragmentActivity();
-        TbPageContext<BaseFragmentActivity> pageContext = this.a.getPageContext();
-        if (fragmentActivity == null || pageContext == null) {
-            return;
+        this.c = String.format("%s,%s", feedData.getThread_id(), feedData.getPost_id());
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b++;
+            this.a = 4;
         }
-        boolean areNotificationsEnabled = NotificationManagerCompat.from(fragmentActivity).areNotificationsEnabled();
-        if (i == 3) {
-            boolean y = x15.d().y();
-            if (areNotificationsEnabled && y) {
-                return;
-            }
-            b bVar = new b(this, y, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (s25.j(TbadkCoreApplication.getInst(), 6)) {
-                w25.k(pageContext, 3, bVar);
-            }
-        }
-        if (i == 6) {
-            boolean t = x15.d().t();
-            if (areNotificationsEnabled && t) {
-                return;
-            }
-            c cVar = new c(this, t, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (s25.j(TbadkCoreApplication.getInst(), 3)) {
-                w25.k(pageContext, 6, cVar);
-            }
-        }
-        if (i == 7) {
-            boolean B = x15.d().B();
-            if (areNotificationsEnabled && B) {
-                return;
-            }
-            d dVar = new d(this, B, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (s25.j(TbadkCoreApplication.getInst(), 4)) {
-                w25.k(pageContext, 7, dVar);
+    }
+
+    @Override // com.baidu.tieba.ub5
+    public Object g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.pn = Integer.valueOf(this.b);
+                builder.ids = this.c;
+                builder.q_type = Integer.valueOf(hq4.c().e());
+                builder.scr_dip = Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density);
+                builder.scr_h = Integer.valueOf(ej.i(TbadkCoreApplication.getInst().getApp()));
+                builder.scr_w = Integer.valueOf(ej.k(TbadkCoreApplication.getInst().getApp()));
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    sh5.a(builder, true);
+                }
+                ReplyMeReqIdl.Builder builder2 = new ReplyMeReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
             }
         }
-        if (i == 8) {
-            boolean w = x15.d().w();
-            if (areNotificationsEnabled && w) {
-                return;
-            }
-            e eVar = new e(this, w, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (s25.j(TbadkCoreApplication.getInst(), 5)) {
-                w25.k(pageContext, 8, eVar);
-            }
+        return invokeZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.ob5
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pb5
+    public boolean isNeedUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return true;
         }
-        if (i == 2) {
-            boolean q = x15.d().q();
-            if (areNotificationsEnabled && q) {
-                return;
-            }
-            f fVar = new f(this, q, pageContext, areNotificationsEnabled, fragmentActivity);
-            if (w25.g(TbadkCoreApplication.getInst(), 0)) {
-                w25.k(pageContext, 2, fVar);
-            }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pb5
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rb5
+    public HashMap<String, Object> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            HashMap<String, Object> hashMap = new HashMap<>();
+            hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
+            hashMap.put("pn", String.valueOf(this.b));
+            hashMap.put("q_type", Integer.valueOf(hq4.c().e()));
+            hashMap.put("scr_dip", Double.valueOf(TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density));
+            hashMap.put("scr_h", Integer.valueOf(ej.i(TbadkCoreApplication.getInst().getApp())));
+            hashMap.put("scr_w", Integer.valueOf(ej.k(TbadkCoreApplication.getInst().getApp())));
+            if (this.a == 4 && !TextUtils.isEmpty(this.c)) {
+                hashMap.put("ids", this.c);
+            }
+            return hashMap;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rb5
+    public HashMap<String, String> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pb5
+    public String y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "tb_user_replyme" : (String) invokeV.objValue;
     }
 }

@@ -1,6 +1,6 @@
 package com.baidu.swan.webcompat.impl;
 
-import com.baidu.tieba.x23;
+import com.baidu.tieba.k33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,7 +61,7 @@ public final class WebCompatImpl$externalFilePathInfo$2 extends Lambda implement
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            File it = x23.K().getExternalFilesDir(null);
+            File it = k33.K().getExternalFilesDir(null);
             if (it != null) {
                 Intrinsics.checkNotNullExpressionValue(it, "it");
                 return new FilePathInfo(it);

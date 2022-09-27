@@ -1,39 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.vm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class p59 extends k59 {
+public class p59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements vm8.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p59 a;
+        public final /* synthetic */ EditorTools a;
 
-        public a(p59 p59Var) {
+        public a(EditorTools editorTools) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p59Var};
+                Object[] objArr = {editorTools};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,135 +36,161 @@ public class p59 extends k59 {
                     return;
                 }
             }
-            this.a = p59Var;
+            this.a = editorTools;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.vm8.f
+        public void onRefresh() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(this.a.a.getPageActivity(), "", ej.P(TbConfig.QUESTION_THREAD_RULE, "refer=3"), true, true, true)));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.A(new h55(2, 12, null));
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p59(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull c49 c49Var, boolean z) {
-        super(tbPageContext, navigationBar, linearLayout, editorTools, c49Var, z);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, c49Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (c49) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes5.dex */
+    public static class b implements vm8.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EditorTools a;
+
+        public b(EditorTools editorTools) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editorTools};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = editorTools;
+        }
+
+        @Override // com.baidu.tieba.vm8.f
+        public void onRefresh() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.A(new h55(2, 12, null));
             }
         }
     }
 
-    @Override // com.baidu.tieba.l59
-    public void M(@NonNull List<d49<?>> list) {
+    public static w39 a(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            list.add(a59.n(this.a));
-            u39 m = a59.m(this.a, this, this.s, this.J);
-            this.D = m;
-            list.add(m);
-            k39 c = a59.c(this.a, this, this.d, this.s, this.J);
-            this.E = c;
-            list.add(c);
-            list.add(a59.g(this.a, this.C));
-            r39 j = a59.j(this.a);
-            j.u(this.E);
-            list.add(j);
-            s39 k = a59.k(this.a);
-            j.u(k);
-            list.add(k);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) ? new w39(tbPageContext) : (w39) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.k59, com.baidu.tieba.l59
-    public void O(@NonNull EditorTools editorTools) {
+    public static y39 b(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
-            editorTools.setMoreButtonAtEnd(false);
-            editorTools.setBarLauncherType(8);
-            editorTools.C(true);
-            editorTools.D(false);
-            editorTools.setBackgroundColorId(R.color.CAM_X0201);
-            c59.m(this.a, editorTools, this.p.getCallFrom(), this).n(false);
-            editorTools.f();
-            super.O(editorTools);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) ? new y39(tbPageContext) : (y39) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.k59, com.baidu.tieba.l59
-    public void P(@NonNull NavigationBar navigationBar) {
+    public static z39 c(@NonNull TbPageContext<?> tbPageContext, @NonNull o49 o49Var, @NonNull EditorTools editorTools, @NonNull m39 m39Var, @NonNull t59 t59Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
-            super.P(navigationBar);
-            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0f03));
-            o0(0, ej.f(this.a.getPageActivity(), R.dimen.M_W_X002));
-            p0(R.drawable.obfuscated_res_0x7f0809ca, R.dimen.tbds42, R.dimen.tbds42, R.dimen.tbds3);
-            this.j.setOnClickListener(new a(this));
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, o49Var, editorTools, m39Var, t59Var)) == null) {
+            z39 z39Var = new z39(tbPageContext, m39Var, t59Var);
+            z39Var.R(o49Var);
+            z39Var.W(new a(editorTools));
+            return z39Var;
         }
+        return (z39) invokeLLLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.k59, com.baidu.tieba.l59
-    public void U(Bundle bundle) {
+    public static a49 d(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
-            super.U(bundle);
-            this.p.setQuestionThread(true);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tbPageContext)) == null) ? new a49(tbPageContext) : (a49) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.k59, com.baidu.tieba.l59
-    public void Y() {
+    public static b49 e(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            yl8.p(this.p.getForumId(), this);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) ? new b49(tbPageContext) : (b49) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.k59, com.baidu.tieba.l59
-    public void c0() {
+    public static c49 f(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.c0();
-            yl8.z(this.p.getForumId(), this.p, false);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tbPageContext)) == null) ? new c49(tbPageContext) : (c49) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.k59, com.baidu.tieba.l59, com.baidu.tieba.f49
-    public void i() {
+    public static d49 g(@NonNull TbPageContext<?> tbPageContext, @NonNull x59 x59Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.i();
-            yl8.z(this.p.getForumId(), this.p, true);
-        }
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, tbPageContext, x59Var)) == null) ? new d49(tbPageContext, x59Var) : (d49) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.k59, com.baidu.tieba.l59, com.baidu.tieba.z39
-    public void q(@NonNull e49 e49Var, boolean z) {
+    public static e49 h(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, e49Var, z) == null) {
-            super.q(e49Var, z);
-            if (this.a.getPageActivity() == null) {
-                return;
-            }
-            if (z) {
-                this.a.getPageActivity().getWindow().setSoftInputMode(16);
-            } else {
-                this.a.getPageActivity().getWindow().setSoftInputMode(48);
-            }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, tbPageContext)) == null) ? new e49(tbPageContext) : (e49) invokeL.objValue;
+    }
+
+    public static f49 i(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tbPageContext)) == null) ? new f49(tbPageContext) : (f49) invokeL.objValue;
+    }
+
+    public static g49 j(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbPageContext)) == null) ? new g49(tbPageContext) : (g49) invokeL.objValue;
+    }
+
+    public static h49 k(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tbPageContext)) == null) ? new h49(tbPageContext) : (h49) invokeL.objValue;
+    }
+
+    public static i49 l(@NonNull TbPageContext<?> tbPageContext, @NonNull o49 o49Var, @NonNull EditorTools editorTools, @NonNull x59 x59Var, @NonNull m39 m39Var, @NonNull t59 t59Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{tbPageContext, o49Var, editorTools, x59Var, m39Var, t59Var})) == null) {
+            i49 i49Var = new i49(tbPageContext, x59Var, m39Var, t59Var);
+            i49Var.T(o49Var);
+            i49Var.V(new b(editorTools));
+            return i49Var;
         }
+        return (i49) invokeCommon.objValue;
+    }
+
+    public static j49 m(@NonNull TbPageContext<?> tbPageContext, @NonNull o49 o49Var, @NonNull m39 m39Var, @NonNull t59 t59Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, tbPageContext, o49Var, m39Var, t59Var)) == null) {
+            j49 j49Var = new j49(tbPageContext, m39Var, t59Var);
+            j49Var.K(o49Var);
+            return j49Var;
+        }
+        return (j49) invokeLLLL.objValue;
+    }
+
+    public static k49 n(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65549, null, tbPageContext)) == null) ? new k49(tbPageContext) : (k49) invokeL.objValue;
+    }
+
+    public static l49 o(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, tbPageContext)) == null) ? new l49(tbPageContext) : (l49) invokeL.objValue;
+    }
+
+    public static m49 p(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, tbPageContext)) == null) ? new m49(tbPageContext) : (m49) invokeL.objValue;
     }
 }

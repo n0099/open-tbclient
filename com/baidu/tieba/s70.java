@@ -1,176 +1,138 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.logsystem.basic.upload.BaseContentUploader;
+import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class s70 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String g = "Flow";
+public final class s70 implements q70, r70 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public final long c;
-    public long d;
-    public Context e;
-    public Map<String, String> f;
+    public final Context a;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public final /* synthetic */ s70 c;
-
-        public a(s70 s70Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s70Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = s70Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.f.put(this.a, this.b);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948104189, "Lcom/baidu/tieba/s70;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948104189, "Lcom/baidu/tieba/s70;");
-        }
-    }
-
-    public s70(Context context, int i, int i2) {
+    public s70(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = 0L;
-        this.e = context;
-        this.a = i;
-        this.b = i2;
-        this.c = System.currentTimeMillis();
-        this.f = new ConcurrentHashMap();
+        this.a = context;
     }
 
-    public s70 b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                q70.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
-            }
-            String str2 = g;
-            y80.a(str2, "flow addEvent id:" + str + ",value:" + i);
-            return this;
-        }
-        return (s70) invokeLI.objValue;
-    }
-
-    public s70 c(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                q70.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
-            }
-            String str2 = g;
-            y80.a(str2, "flow addEvent id:" + str + ",value:" + j);
-            return this;
-        }
-        return (s70) invokeLJ.objValue;
-    }
-
-    public s70 d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && str2 != null) {
-                q70.h(this.e).f().execute(new a(this, str, str2));
-            }
-            String str3 = g;
-            y80.a(str3, "flow addEvent id:" + str + ",value:" + str2);
-            return this;
-        }
-        return (s70) invokeLL.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = System.currentTimeMillis();
-            q70.h(this.e).e(this);
-        }
-    }
-
-    public String f() {
+    @Override // com.baidu.tieba.q70
+    public final String a() {
         InterceptResult invokeV;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : this.f.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = o70.d().c() != v70.a ? "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox" : "https://tcbox.baidu.com/ztbox";
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            sb.append("?");
+            StringBuilder sb2 = new StringBuilder();
+            sb2.append("action=zubc");
+            sb2.append("&appname=imsdk");
+            sb2.append("&uid=");
+            sb2.append(o70.d().a());
+            sb2.append("&ua=");
+            Context context = this.a;
+            DisplayMetrics a = a80.a(context);
+            int i = a != null ? a.widthPixels : 0;
+            DisplayMetrics a2 = a80.a(context);
+            int i2 = a2 != null ? a2.heightPixels : 0;
+            DisplayMetrics a3 = a80.a(context);
+            int i3 = a3 != null ? a3.densityDpi : 0;
+            sb2.append(i + "_" + i2 + "_android_" + a80.b(context) + "_" + i3);
+            sb2.append("&ut=");
+            String str2 = Build.MODEL;
+            String replace = TextUtils.isEmpty(str2) ? "NUL" : str2.replace("_", "-");
+            String str3 = Build.VERSION.RELEASE;
+            String replace2 = TextUtils.isEmpty(str3) ? "0.0" : str3.replace("_", "-");
+            int i4 = Build.VERSION.SDK_INT;
+            String str4 = Build.MANUFACTURER;
+            sb2.append(replace + "_" + replace2 + "_" + i4 + "_" + (TextUtils.isEmpty(str4) ? "NUL" : str4.replace("_", "-")));
+            sb2.append("&network=");
+            y70 y70Var = new y70(this.a);
+            boolean isEmpty = TextUtils.isEmpty(y70Var.a);
+            String str5 = NetworkParam.NET_TYPE_ID_DISCONNECT;
+            if (!isEmpty && (num = y70.c.get(y70Var.a)) != null) {
+                str5 = num + "_" + y70Var.b;
             }
-            return jSONObject.toString();
+            if (str5 == null) {
+                str5 = "unknown";
+            }
+            sb2.append(str5);
+            sb2.append("&appversion=");
+            sb2.append(a80.b(this.a));
+            if (o70.d().c() != v70.a) {
+                sb2.append("&debug=1");
+            }
+            sb.append(sb2.toString());
+            return sb.toString();
         }
         return (String) invokeV.objValue;
     }
 
-    public Map<String, String> g() {
+    @Override // com.baidu.tieba.r70
+    public final void a(int i, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
+            String str = new String(bArr);
+            x70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
+        }
+    }
+
+    @Override // com.baidu.tieba.q70
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r70
+    public final void b(int i, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
+            String str = new String(bArr);
+            x70.a("UBCRequest", "ubc upload errorcode:" + i + ", resultContent:" + str);
+        }
+    }
+
+    @Override // com.baidu.tieba.q70
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "application/octet-stream" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.q70
+    public final Map<String, String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(BaseContentUploader.NB, "1");
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
     }
 }

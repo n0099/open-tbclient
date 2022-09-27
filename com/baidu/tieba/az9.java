@@ -1,30 +1,116 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.tw9;
-import com.baidu.tieba.uw9;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ix9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.util.RxThreadFactory;
 /* loaded from: classes3.dex */
-public final class az9<T> extends uw9<T> {
+public final class az9 extends ix9 implements gz9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
+    public static final c d;
+    public static final b e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final T b;
+    public final ThreadFactory a;
+    public final AtomicReference<b> b;
 
     /* loaded from: classes3.dex */
-    public class a implements uw9.c<T> {
+    public static final class a extends ix9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Object a;
+        public final qz9 a;
+        public final z1a b;
+        public final qz9 c;
+        public final c d;
 
-        public a(Object obj) {
+        /* renamed from: com.baidu.tieba.az9$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class C0208a implements sx9 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sx9 a;
+            public final /* synthetic */ a b;
+
+            public C0208a(a aVar, sx9 sx9Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, sx9Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = sx9Var;
+            }
+
+            @Override // com.baidu.tieba.sx9
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isUnsubscribed()) {
+                    return;
+                }
+                this.a.call();
+            }
+        }
+
+        /* loaded from: classes3.dex */
+        public class b implements sx9 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sx9 a;
+            public final /* synthetic */ a b;
+
+            public b(a aVar, sx9 sx9Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, sx9Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = sx9Var;
+            }
+
+            @Override // com.baidu.tieba.sx9
+            public void call() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isUnsubscribed()) {
+                    return;
+                }
+                this.a.call();
+            }
+        }
+
+        public a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {obj};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -34,178 +120,221 @@ public final class az9<T> extends uw9<T> {
                     return;
                 }
             }
-            this.a = obj;
+            this.a = new qz9();
+            z1a z1aVar = new z1a();
+            this.b = z1aVar;
+            this.c = new qz9(this.a, z1aVar);
+            this.d = cVar;
         }
 
-        @Override // com.baidu.tieba.uw9.c, com.baidu.tieba.ex9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((vw9) ((vw9) obj));
-        }
-
-        public void call(vw9<? super T> vw9Var) {
+        @Override // com.baidu.tieba.ix9.a
+        public mx9 b(sx9 sx9Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vw9Var) == null) {
-                vw9Var.c((Object) this.a);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sx9Var)) == null) {
+                if (isUnsubscribed()) {
+                    return c2a.c();
+                }
+                return this.d.i(new C0208a(this, sx9Var), 0L, null, this.a);
+            }
+            return (mx9) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.ix9.a
+        public mx9 c(sx9 sx9Var, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{sx9Var, Long.valueOf(j), timeUnit})) == null) {
+                if (isUnsubscribed()) {
+                    return c2a.c();
+                }
+                return this.d.j(new b(this, sx9Var), j, timeUnit, this.b);
+            }
+            return (mx9) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.mx9
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.isUnsubscribed() : invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.mx9
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.c.unsubscribe();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class b<T> implements uw9.c<T> {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ly9 a;
-        public final T b;
+        public final int a;
+        public final c[] b;
+        public long c;
 
-        public b(ly9 ly9Var, T t) {
+        public b(ThreadFactory threadFactory, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ly9Var, t};
+                Object[] objArr = {threadFactory, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ly9Var;
-            this.b = t;
+            this.a = i;
+            this.b = new c[i];
+            for (int i4 = 0; i4 < i; i4++) {
+                this.b[i4] = new c(threadFactory);
+            }
         }
 
-        @Override // com.baidu.tieba.uw9.c, com.baidu.tieba.ex9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((vw9) ((vw9) obj));
-        }
-
-        public void call(vw9<? super T> vw9Var) {
+        public c a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vw9Var) == null) {
-                vw9Var.a(this.a.a(new d(vw9Var, this.b)));
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.a;
+                if (i == 0) {
+                    return az9.d;
+                }
+                c[] cVarArr = this.b;
+                long j = this.c;
+                this.c = 1 + j;
+                return cVarArr[(int) (j % i)];
+            }
+            return (c) invokeV.objValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                for (c cVar : this.b) {
+                    cVar.unsubscribe();
+                }
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static final class c<T> implements uw9.c<T> {
+    public static final class c extends fz9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final tw9 a;
-        public final T b;
 
-        public c(tw9 tw9Var, T t) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ThreadFactory threadFactory) {
+            super(threadFactory);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tw9Var, t};
+                Object[] objArr = {threadFactory};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((ThreadFactory) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = tw9Var;
-            this.b = t;
-        }
-
-        @Override // com.baidu.tieba.uw9.c, com.baidu.tieba.ex9
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((vw9) ((vw9) obj));
-        }
-
-        public void call(vw9<? super T> vw9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, vw9Var) == null) {
-                tw9.a createWorker = this.a.createWorker();
-                vw9Var.a(createWorker);
-                createWorker.b(new d(vw9Var, this.b));
-            }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static final class d<T> implements dx9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final vw9<? super T> a;
-        public final T b;
-
-        public d(vw9<? super T> vw9Var, T t) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947632617, "Lcom/baidu/tieba/az9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vw9Var, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = vw9Var;
-            this.b = t;
-        }
-
-        /* JADX DEBUG: Type inference failed for r1v1. Raw type applied. Possible types: T, ? super T */
-        @Override // com.baidu.tieba.dx9
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.c((T) this.b);
-                } catch (Throwable th) {
-                    this.a.b(th);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947632617, "Lcom/baidu/tieba/az9;");
+                return;
             }
         }
+        int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        if (intValue <= 0 || intValue > availableProcessors) {
+            intValue = availableProcessors;
+        }
+        c = intValue;
+        c cVar = new c(RxThreadFactory.NONE);
+        d = cVar;
+        cVar.unsubscribe();
+        e = new b(null, 0);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public az9(T t) {
-        super(new a(t));
+    public az9(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {threadFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((uw9.c) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = t;
+        this.a = threadFactory;
+        this.b = new AtomicReference<>(e);
+        start();
     }
 
-    public static <T> az9<T> m(T t) {
+    public mx9 a(sx9 sx9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t)) == null) ? new az9<>(t) : (az9) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sx9Var)) == null) ? this.b.get().a().h(sx9Var, -1L, TimeUnit.NANOSECONDS) : (mx9) invokeL.objValue;
     }
 
-    public uw9<T> n(tw9 tw9Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ix9
+    public ix9.a createWorker() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tw9Var)) == null) {
-            if (tw9Var instanceof ly9) {
-                return uw9.b(new b((ly9) tw9Var, this.b));
-            }
-            return uw9.b(new c(tw9Var, this.b));
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a(this.b.get().a()) : (ix9.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gz9
+    public void shutdown() {
+        b bVar;
+        b bVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            do {
+                bVar = this.b.get();
+                bVar2 = e;
+                if (bVar == bVar2) {
+                    return;
+                }
+            } while (!this.b.compareAndSet(bVar, bVar2));
+            bVar.b();
         }
-        return (uw9) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gz9
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b bVar = new b(this.a, c);
+            if (this.b.compareAndSet(e, bVar)) {
+                return;
+            }
+            bVar.b();
+        }
     }
 }

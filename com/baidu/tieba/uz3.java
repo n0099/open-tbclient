@@ -1,15 +1,18 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uz3 implements l04 {
+public final class uz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ta2 a;
 
     public uz3() {
         Interceptable interceptable = $ic;
@@ -25,28 +28,48 @@ public class uz3 implements l04 {
         }
     }
 
-    @Override // com.baidu.tieba.l04
-    public byte[] a(String str, byte[] bArr) {
-        InterceptResult invokeLL;
+    public boolean a(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
-            if (str == null || bArr == null) {
-                return bArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            ta2 ta2Var = this.a;
+            if (ta2Var == null) {
+                return false;
             }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 76158) {
-                if (hashCode == 1952093519 && str.equals("BASE64")) {
-                    c = 1;
-                }
-            } else if (str.equals("MD5")) {
-                c = 0;
+            boolean f = vz3.f(ta2Var.n());
+            boolean f2 = vz3.f(this.a.x());
+            JSEvent jSEvent = null;
+            if (f || f2) {
+                jSEvent = vz3.j(motionEvent);
             }
-            if (c != 0) {
-                return c != 1 ? bArr : Base64.encode(bArr, 2);
+            boolean dispatchEvent = f ? this.a.dispatchEvent(jSEvent) : false;
+            if (f2 && this.a.u0()) {
+                this.a.x().dispatchEvent(jSEvent);
             }
-            return ej4.d(bArr, false).getBytes();
+            vz3.g(true);
+            return dispatchEvent;
         }
-        return (byte[]) invokeLL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            vz3.m(i, i2);
+        }
+    }
+
+    public void c(ta2 ta2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ta2Var) == null) {
+            this.a = ta2Var;
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            vz3.l(i, i2);
+        }
     }
 }

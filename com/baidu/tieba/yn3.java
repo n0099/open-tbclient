@@ -1,49 +1,88 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class yn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Method a;
+    public Object b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948335883, "Lcom/baidu/tieba/yn3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948335883, "Lcom/baidu/tieba/yn3;");
+    public yn3(Class<?> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        if (cls == null) {
+            return;
+        }
         try {
-            a = c74.i(c74.b("android.os.SystemProperties", true), "get", String.class);
+            this.b = p74.m(cls);
+            Method i3 = p74.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
+            this.a = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
         } catch (Throwable unused) {
         }
     }
 
-    public static String a(String str) {
+    public static yn3 a(@NonNull Context context) {
+        Class<?> cls;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Method method = a;
-            if (method != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                cls = p74.b("com.hisi.perfhub.PerfHub", true);
+            } catch (Throwable unused) {
+                cls = null;
+            }
+            return new yn3(cls);
+        }
+        return (yn3) invokeL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (this.b == null || this.a == null) ? false : true : invokeV.booleanValue;
+    }
+
+    public int c(int i, String str, int... iArr) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
+            if (b()) {
                 try {
-                    return (String) method.invoke(null, str);
+                    Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
+                    if (invoke == null) {
+                        return -1;
+                    }
+                    return ((Integer) invoke).intValue();
                 } catch (Throwable unused) {
+                    return -1;
                 }
             }
-            return null;
+            return -1;
         }
-        return (String) invokeL.objValue;
+        return invokeILL.intValue;
     }
 }

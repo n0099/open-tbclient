@@ -1,87 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataOutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class zb1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a() {
-        InterceptResult invokeV;
-        ConnectivityManager connectivityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = bc1.a();
-            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948354080, "Lcom/baidu/tieba/zb1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return connectivityManager.getActiveNetworkInfo();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948354080, "Lcom/baidu/tieba/zb1;");
+                return;
+            }
         }
-        return (NetworkInfo) invokeV.objValue;
+        if (za1.a() != 1) {
+            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+        }
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
+    public zb1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "1";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "2";
-                case 13:
-                case 18:
-                case 19:
-                    break;
-                default:
-                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
-                        return "unknown";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public void a(ua1 ua1Var, ta1 ta1Var, sa1 sa1Var) {
+        DataOutputStream dataOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(1048576, this, ua1Var, ta1Var, sa1Var) != null) {
+            return;
+        }
+        try {
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
+            for (Map.Entry<String, String> entry : ua1Var.c().entrySet()) {
+                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
+            }
+            httpURLConnection.setDoInput(true);
+            httpURLConnection.setDoOutput(true);
+            httpURLConnection.setRequestMethod("POST");
+            httpURLConnection.setUseCaches(false);
+            httpURLConnection.setConnectTimeout(5000);
+            httpURLConnection.setReadTimeout(5000);
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<String, String> entry2 : ta1Var.c().entrySet()) {
+                String encode = URLEncoder.encode(entry2.getValue(), IMAudioTransRequest.CHARSET);
+                sb.append(entry2.getKey());
+                sb.append("=");
+                sb.append(encode);
+                sb.append("&");
+            }
+            byte[] bytes = sb.toString().getBytes();
+            httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
+            httpURLConnection.connect();
+            dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+            try {
+                dataOutputStream.write(bytes);
+                dataOutputStream.flush();
+                int responseCode = httpURLConnection.getResponseCode();
+                if (sa1Var != null) {
+                    if (responseCode >= 200 && responseCode <= 299) {
+                        sa1Var.c(null);
+                    } else {
+                        sa1Var.a(null, 119501, null);
                     }
-                    break;
+                }
+                ic1.a(dataOutputStream);
+            } catch (Throwable unused) {
+                if (sa1Var != null) {
+                    try {
+                        sa1Var.a(null, 119501, null);
+                    } catch (Throwable th) {
+                        ic1.a(dataOutputStream);
+                        throw th;
+                    }
+                }
+                ic1.a(dataOutputStream);
             }
-            return "3";
+        } catch (Throwable unused2) {
+            dataOutputStream = null;
         }
-        return (String) invokeIL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a();
-            return (a == null || !a.isConnected()) ? "0" : a.getType() == 1 ? "4" : a.getType() == 0 ? b(a.getSubtype(), a.getSubtypeName()) : "unknown";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            NetworkInfo a = a();
-            return a != null && a.isConnected();
-        }
-        return invokeV.booleanValue;
     }
 }

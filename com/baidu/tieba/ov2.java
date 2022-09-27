@@ -1,122 +1,198 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.UUID;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class ov2 extends m22 {
+public class ov2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
+    public static final ov2 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<qv2> a;
+    public final Map<String, qv2> b;
+    public boolean c;
+    public nv2 d;
 
-    /* loaded from: classes5.dex */
-    public class a extends j42 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ov2 c;
-
-        public a(ov2 ov2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045630, "Lcom/baidu/tieba/ov2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ov2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = ov2Var;
-        }
-
-        @Override // com.baidu.tieba.j42, com.baidu.tieba.m42
-        public boolean b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
-                    Map<String, String> t = qg3.t(qg3.o(str));
-                    if (t != null && t.get("statusCode") != null) {
-                        try {
-                            qv2.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), URLDecoder.decode(t.get(TiebaStatic.LogFields.RESULT), "UTF-8"));
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                            qv2.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), null);
-                        }
-                    } else {
-                        qv2.a().onPayResult(6, null);
-                    }
-                    m22.Y2();
-                    return true;
-                }
-                return super.b(str);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948045630, "Lcom/baidu/tieba/ov2;");
+                return;
             }
-            return invokeL.booleanValue;
         }
+        e = vj1.a;
+        f = new ov2();
     }
 
     public ov2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.b = new HashMap();
+        this.c = false;
+    }
+
+    public static ov2 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f : (ov2) invokeV.objValue;
+    }
+
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, hybridUbcFlow) == null) || hybridUbcFlow == null) {
+            return;
+        }
+        JSONArray e2 = e();
+        if (e2 != null && e2.length() > 0) {
+            hybridUbcFlow.D("ma_update_recorder", e2.toString());
+        }
+        c();
+    }
+
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.c) {
+                return null;
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
+            qv2 qv2Var = new qv2(str);
+            qv2Var.a(currentTimeMillis);
+            synchronized (this.a) {
+                this.b.put(str2, qv2Var);
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
+                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = true;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "done");
             }
         }
     }
 
-    @Override // com.baidu.tieba.m22
-    public m42 Z2() {
-        InterceptResult invokeV;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (m42) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.m22
-    public hp1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? s92.U().f0().i(getContext()) : (hp1) invokeV.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r6v5, types: [com.baidu.tieba.fp1] */
-    @Override // com.baidu.tieba.m22, com.baidu.swan.support.v4.app.Fragment
-    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00de, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f090182).setVisibility(8);
-            hp1 k = k();
-            this.F0 = k;
-            k.Y(Z2());
-            this.G0 = this.F0.r();
-            this.F0.loadUrl(this.H0);
-            this.F0.j((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ad), this.G0.covertToView());
-            if (T1()) {
-                inflate = W1(inflate);
-            }
-            return D1(inflate, this);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.c) {
+            return;
         }
-        return (View) invokeLLL.objValue;
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        synchronized (this.a) {
+            qv2 qv2Var = this.b.get(str);
+            if (qv2Var != null) {
+                qv2Var.c(currentTimeMillis);
+                this.a.add(qv2Var);
+                this.b.remove(str);
+            }
+        }
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
+        }
+    }
+
+    public final JSONArray e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            synchronized (this.a) {
+                try {
+                    for (qv2 qv2Var : this.a) {
+                        if (qv2Var != null && (this.d == null || this.d.a(qv2Var))) {
+                            jSONArray.put(qv2Var.d());
+                        }
+                    }
+                } catch (Exception e2) {
+                    if (e) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", jSONArray.toString());
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = false;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "reset");
+            }
+        }
+    }
+
+    public void h(nv2 nv2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, nv2Var) == null) {
+            this.d = nv2Var;
+        }
     }
 }

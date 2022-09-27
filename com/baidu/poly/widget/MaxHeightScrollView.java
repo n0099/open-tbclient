@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.ScrollView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea1;
+import com.baidu.tieba.ra1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class MaxHeightScrollView extends ScrollView {
     public final void b(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ea1.MaxHeightScrollView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ra1.MaxHeightScrollView);
             this.a = obtainStyledAttributes.getFloat(1, -1.0f);
             this.b = obtainStyledAttributes.getFloat(2, -1.0f);
             obtainStyledAttributes.recycle();

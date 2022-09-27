@@ -73,16 +73,16 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
         this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09175f);
-        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922a7);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a32);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924de);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bf9);
+        this.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0922a9);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a34);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924e0);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bfb);
         this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8e);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bea);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091bec);
         this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090f96);
         this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090faa);
         this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f090fa0);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091914);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091916);
         this.g = ej.d(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.d;
         if (linearLayout != null) {

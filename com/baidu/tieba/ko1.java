@@ -1,11 +1,19 @@
 package com.baidu.tieba;
+
+import java.io.File;
 /* loaded from: classes4.dex */
-public interface ko1 {
-    String a();
+public interface ko1 extends cx2 {
+    File a();
 
-    String b();
+    void e(String str, String str2);
 
-    String getAppName();
+    void e(String str, String str2, Throwable th);
 
-    String getSchemeHeader();
+    void flush(boolean z);
+
+    void i(String str, String str2);
+
+    void w(String str, String str2);
+
+    void w(String str, String str2, Throwable th);
 }

@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,12 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class uf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, fn4> a;
+    public sf7 a;
 
     /* loaded from: classes6.dex */
     public static /* synthetic */ class a {
@@ -26,98 +23,19 @@ public class uf7 {
     /* loaded from: classes6.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public String b;
-        public HashMap<String, String> c;
-
-        public b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = false;
-            Uri parse = Uri.parse(str);
-            this.a = "tblego".equals(parse.getScheme());
-            if (e()) {
-                this.b = parse.getAuthority() + parse.getPath();
-                this.c = new HashMap<>();
-                for (String str2 : parse.getQueryParameterNames()) {
-                    this.c.put(str2, parse.getQueryParameter(str2));
-                }
-                return;
-            }
-            this.b = "";
-            this.c = new HashMap<>();
-        }
-
-        public static b a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new b(str) : (b) invokeL.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-        }
-
-        public HashMap<String, String> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (HashMap) invokeV.objValue;
-        }
-
-        public String d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                if (!TextUtils.isEmpty(str) && e()) {
-                    for (String str2 : this.c.keySet()) {
-                        if (str.equals(str2)) {
-                            return this.c.get(str2);
-                        }
-                    }
-                }
-                return null;
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
         public static uf7 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-376762076, "Lcom/baidu/tieba/uf7$c;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-376762107, "Lcom/baidu/tieba/uf7$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-376762076, "Lcom/baidu/tieba/uf7$c;");
+                    classClinitInterceptable.invokePostClinit(-376762107, "Lcom/baidu/tieba/uf7$b;");
                     return;
                 }
             }
@@ -129,53 +47,34 @@ public class uf7 {
         this();
     }
 
-    public static uf7 a() {
+    public static uf7 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a : (uf7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (uf7) invokeV.objValue;
     }
 
-    public void b(cn4 cn4Var) {
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cn4Var) == null) {
-            c(cn4Var.c(), cn4Var);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            sf7 sf7Var = this.a;
+            if (sf7Var != null) {
+                sf7Var.cancel();
+                this.a = null;
+            }
+            sf7 sf7Var2 = new sf7(z);
+            this.a = sf7Var2;
+            sf7Var2.execute(new String[0]);
         }
     }
 
-    public void c(String str, fn4 fn4Var) {
+    public void c() {
+        sf7 sf7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fn4Var) == null) {
-            this.a.put(str, fn4Var);
-        }
-    }
-
-    public void d(Object obj, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (sf7Var = this.a) == null) {
             return;
         }
-        b a2 = b.a(str);
-        fn4 fn4Var = this.a.get(a2.b());
-        if (fn4Var == null || !a2.e()) {
-            return;
-        }
-        fn4Var.b(obj, a2.c(), str);
-    }
-
-    public void e(Object obj, String str, HashMap<String, String> hashMap, q9 q9Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(1048579, this, obj, str, hashMap, q9Var) == null) || str == null) {
-            return;
-        }
-        b a2 = b.a(str);
-        fn4 fn4Var = this.a.get(a2.b());
-        if (fn4Var == null || !a2.e()) {
-            return;
-        }
-        if (hashMap != null && !hashMap.isEmpty()) {
-            a2.c().putAll(hashMap);
-        }
-        fn4Var.a(obj, a2.c(), str, q9Var);
+        sf7Var.cancel();
+        this.a = null;
     }
 
     public uf7() {
@@ -188,9 +87,7 @@ public class uf7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap<>();
     }
 }

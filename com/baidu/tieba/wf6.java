@@ -1,100 +1,12 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.core.data.ErrorData;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wf6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public final View b;
-    public final RelativeLayout c;
-    public final EditText d;
-    public final ImageView e;
-    public final TextView f;
-    public final BdTypeListView g;
-    public final ImageView h;
-    public int i;
+public interface wf6 {
+    void onError(String str, ErrorData errorData);
 
-    public wf6(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.i = 3;
-        this.a = tbPageContext;
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02c9, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ddb);
-        this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091dde);
-        this.d = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090d8b);
-        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090d7b);
-        this.d.setHint(R.string.obfuscated_res_0x7f0f10d7);
-        TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090d7a);
-        this.f = textView;
-        textView.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0375));
-        this.g = (BdTypeListView) this.b.findViewById(R.id.obfuscated_res_0x7f091ddf);
-        a();
-        b(TbadkCoreApplication.getInst().getSkinType());
-    }
+    void onNoData(ErrorData errorData);
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            layoutParams.height = ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070306);
-            int f = ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070302);
-            layoutParams.rightMargin = f;
-            layoutParams.leftMargin = f;
-            int immersiveStickyBarHeight = UtilHelper.getImmersiveStickyBarHeight();
-            if (immersiveStickyBarHeight > 0) {
-                layoutParams.topMargin = immersiveStickyBarHeight;
-            }
-            this.c.setLayoutParams(layoutParams);
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.i == i) {
-            return;
-        }
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, null);
-        SkinManager.setViewTextColor(this.f, R.color.CAM_X0302, 1);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f0809dd, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        if (i == 2) {
-            this.d.setHintTextColor(SkinManager.getColor(R.color.s_navbar_title_color));
-        } else {
-            this.d.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
-        }
-        SkinManager.setNavbarTitleColor(this.d, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        this.i = i;
-    }
+    void onSucc(String str, List<String> list, List<Cdo> list2);
 }

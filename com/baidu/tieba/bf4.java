@@ -7,23 +7,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bf4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Set<String> b;
+    public a a;
 
-    public bf4(String str, Set<String> set) {
+    /* loaded from: classes3.dex */
+    public static class a extends vj4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_ceres");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public bf4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, set};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,42 +53,62 @@ public class bf4 {
                 return;
             }
         }
-        this.a = str;
-        this.b = set;
+        this.a = new a();
     }
 
-    public static bf4 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        JSONArray optJSONArray;
+    public static bf4 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
-                return null;
-            }
-            String optString = jSONObject.optString("version");
-            HashSet hashSet = new HashSet();
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString2 = optJSONArray.optString(i);
-                if (!TextUtils.isEmpty(optString2)) {
-                    hashSet.add(optString2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (bf4.class) {
+                    if (b == null) {
+                        b = new bf4();
+                    }
                 }
             }
-            return new bf4(optString, hashSet);
+            return b;
         }
-        return (bf4) invokeL.objValue;
+        return (bf4) invokeV.objValue;
     }
 
-    public Set<String> b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (Set) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString("ceres_info", "0") : (String) invokeV.objValue;
     }
 
-    public String c() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("global_info", "0") : (String) invokeV.objValue;
+    }
+
+    public af4 d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("ceres_info");
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("global_info");
+            if (optJSONObject == null || optJSONObject2 == null) {
+                return null;
+            }
+            String optString = optJSONObject.optString("version");
+            JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+            if (TextUtils.isEmpty(optString) || optJSONArray == null) {
+                return null;
+            }
+            String optString2 = optJSONObject2.optString("version");
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
+            if (TextUtils.isEmpty(optString) || optJSONObject3 == null) {
+                return null;
+            }
+            this.a.edit().putString("ceres_info", optString).putString("global_info", optString2).apply();
+            return new af4(optJSONArray, optJSONObject3);
+        }
+        return (af4) invokeL.objValue;
     }
 }

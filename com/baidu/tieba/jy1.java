@@ -1,206 +1,142 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.util.Log;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ky1;
+import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class jy1<V extends TextView, M extends ky1> extends ly1<V, M> {
+public class jy1 extends iy1 {
     public static /* synthetic */ Interceptable $ic;
+    public static Map<String, Class<? extends rw1>> m;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<rw1> k;
+    public boolean l;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947899527, "Lcom/baidu/tieba/jy1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947899527, "Lcom/baidu/tieba/jy1;");
+                return;
+            }
+        }
+        HashMap hashMap = new HashMap();
+        m = hashMap;
+        hashMap.put("setFillStyle", ox1.class);
+        m.put("fillRect", dx1.class);
+        m.put("setStrokeStyle", xx1.class);
+        m.put("strokeStyle", ey1.class);
+        m.put("setLineCap", rx1.class);
+        m.put("setLineJoin", tx1.class);
+        m.put("setLineWidth", ux1.class);
+        m.put("setLineDash", sx1.class);
+        m.put("setMiterLimit", vx1.class);
+        m.put("strokeRect", dy1.class);
+        m.put("moveTo", hx1.class);
+        m.put("lineTo", gx1.class);
+        m.put("stroke", cy1.class);
+        m.put("fill", cx1.class);
+        m.put("beginPath", uw1.class);
+        m.put("rect", jx1.class);
+        m.put("clearRect", ww1.class);
+        m.put("closePath", yw1.class);
+        m.put("arc", tw1.class);
+        m.put("bezierCurveTo", vw1.class);
+        m.put("quadraticCurveTo", ix1.class);
+        m.put("scale", nx1.class);
+        m.put("rotate", lx1.class);
+        m.put("translate", hy1.class);
+        m.put("transform", gy1.class);
+        m.put("setTransform", ay1.class);
+        m.put("font", fx1.class);
+        m.put("setFontSize", px1.class);
+        m.put("setTextAlign", yx1.class);
+        m.put("setTextBaseline", zx1.class);
+        m.put("fillText", ex1.class);
+        m.put("strokeText", fy1.class);
+        m.put("clip", xw1.class);
+        m.put("drawImage", bx1.class);
+        m.put("save", mx1.class);
+        m.put("restore", kx1.class);
+        m.put("setShadow", wx1.class);
+        m.put("setGlobalAlpha", qx1.class);
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jy1(@Nullable Context context, @NonNull M m) {
-        super(context, m);
+    public jy1(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (my1) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ly1, com.baidu.tieba.ny1
-    @NonNull
-    /* renamed from: S */
-    public qz1 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            qz1 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(6);
-            }
-            return k;
-        }
-        return (qz1) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ly1
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull qz1 qz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, qz1Var) == null) {
-            super.C(v, m, qz1Var);
-            if (qz1Var.a(6)) {
-                U(v, m);
-            }
-            if (qz1Var.a(4)) {
-                V(v, m);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: android.text.SpannableStringBuilder */
-    /* JADX WARN: Multi-variable type inference failed */
-    public void U(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            if (ny1.h) {
-                Log.d("Component-TextView", "renderText");
-            }
-            boolean z = !TextUtils.isEmpty(m.t) && m.x >= 0;
-            String str = m.t;
-            if (z) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                spannableStringBuilder.setSpan(new iy1(m.x), 0, str.length(), 33);
-                str = spannableStringBuilder;
-            }
-            v.setIncludeFontPadding(!z);
-            v.setText(str);
-        }
-    }
-
-    public final void V(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048582, this, v, m) == null) || m.j == null) {
-            return;
-        }
-        if (ny1.h) {
-            Log.d("Component-TextView", "renderTextStyle");
-        }
-        if (m.v) {
-            v.setTextColor(m.u);
-        }
-        float f = (float) m.w;
-        if (f > 0.0f) {
-            v.setTextSize(1, f);
-        }
-        X(v, m);
-        W(v, m);
-        String str = m.B;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == -1039592053 && str.equals("nowrap")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c == 0) {
-            v.setSingleLine(false);
-        } else if (c == 1) {
-            v.setSingleLine(true);
-        }
-        if ("ellipsis".equals(m.C)) {
-            v.setEllipsize(TextUtils.TruncateAt.END);
-        }
-    }
-
-    public void W(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048583, this, v, m) == null) || m.j == null) {
-            return;
-        }
-        if (ny1.h) {
-            Log.d("Component-TextView", "renderTextStyleFontWeight");
-        }
-        String str = m.A;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1039745817) {
-            if (hashCode == 3029637 && str.equals("bold")) {
-                c = 1;
-            }
-        } else if (str.equals("normal")) {
-            c = 0;
-        }
-        if (c == 0) {
-            v.setTypeface(Typeface.SANS_SERIF, 0);
-        } else if (c != 1) {
-            yz1.o("Component-TextView", "invalid font weight : " + m.A);
-            v.setTypeface(Typeface.SANS_SERIF, 0);
-        } else {
-            v.setTypeface(Typeface.SANS_SERIF, 1);
-        }
-    }
-
-    public void X(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            Y(v, m, 48);
-        }
-    }
-
-    public final void Y(@NonNull V v, @NonNull M m, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(1048585, this, v, m, i) == null) || m.j == null) {
-            return;
-        }
-        if (ny1.h) {
-            Log.d("Component-TextView", "renderTextStyleTextAlign");
-        }
-        String str = m.z;
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1364013995) {
-            if (hashCode != 3317767) {
-                if (hashCode == 108511772 && str.equals("right")) {
-                    c = 1;
+        this.k = new ArrayList();
+        this.l = false;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONArray jSONArray = new JSONArray(jSONObject.optString(NotificationCompat.WearableExtender.KEY_ACTIONS));
+            int length = jSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+                String optString = optJSONObject.optString("method");
+                JSONArray optJSONArray = optJSONObject.optJSONArray("data");
+                Class<? extends rw1> cls = m.get(optString);
+                if (cls != null) {
+                    rw1 newInstance = cls.newInstance();
+                    newInstance.b(optJSONArray);
+                    this.k.add(newInstance);
                 }
-            } else if (str.equals("left")) {
-                c = 0;
             }
-        } else if (str.equals("center")) {
-            c = 2;
-        }
-        if (c != 0) {
-            if (c == 1) {
-                i2 = 8388613 | i;
-            } else if (c != 2) {
-                yz1.o("Component-TextView", "invalid text align: " + m.z);
-            } else {
-                i2 = i | 1;
+            this.l = jSONObject.optInt("reserve") != 0;
+        } catch (Exception e) {
+            if (vj1.a) {
+                e.printStackTrace();
             }
-            v.setGravity(i2);
         }
-        i2 = i | GravityCompat.START;
-        v.setGravity(i2);
+    }
+
+    public List<rw1> h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.k : (List) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.l : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.iy1, com.baidu.tieba.bz1, com.baidu.tieba.kt2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.isValid() : invokeV.booleanValue;
     }
 }

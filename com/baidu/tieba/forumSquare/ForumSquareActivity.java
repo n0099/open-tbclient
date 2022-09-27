@@ -3,8 +3,8 @@ package com.baidu.tieba.forumSquare;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.gf6;
-import com.baidu.tieba.hf6;
+import com.baidu.tieba.tf6;
+import com.baidu.tieba.uf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gf6 a;
+    public tf6 a;
 
     public ForumSquareActivity() {
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.hc5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.uc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -42,9 +42,9 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            hf6 hf6Var = this.a.d;
-            if (hf6Var != null) {
-                hf6Var.a(i);
+            uf6 uf6Var = this.a.d;
+            if (uf6Var != null) {
+                uf6Var.a(i);
             }
         }
     }
@@ -54,17 +54,17 @@ public class ForumSquareActivity extends BaseActivity<ForumSquareActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            gf6 gf6Var = new gf6(this, getPageContext());
-            this.a = gf6Var;
-            gf6Var.k(getIntent());
+            tf6 tf6Var = new tf6(this, getPageContext());
+            this.a = tf6Var;
+            tf6Var.k(getIntent());
             setContentView(this.a.d.e());
             this.a.m();
         }
     }
 
-    public gf6 z1() {
+    public tf6 z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (gf6) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (tf6) invokeV.objValue;
     }
 }

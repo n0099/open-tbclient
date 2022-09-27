@@ -1,116 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cr4 extends ThreadData {
+public class cr4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static volatile cr4 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public int d;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684356, "Lcom/baidu/tieba/cr4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947684356, "Lcom/baidu/tieba/cr4;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
+    public float a;
+    public float b;
+    public float c;
+    public boolean d;
 
     public cr4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
     }
 
-    public int c() {
+    public static cr4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (cr4.class) {
+                    if (e == null) {
+                        e = new cr4();
+                    }
+                }
+            }
+            return e;
         }
+        return (cr4) invokeV.objValue;
     }
 
-    public void n(boolean z) {
+    public float b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.floatValue;
     }
 
-    public void r(boolean z) {
+    public float c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.floatValue;
     }
 
-    public void s(boolean z) {
+    public float d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.b = z;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.floatValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.d : invokeV.booleanValue;
+    }
+
+    public void f(float f, float f2, float f3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Boolean.valueOf(z)}) == null) {
+            this.a = f;
+            this.b = f2;
+            this.c = f3;
+            this.d = z;
         }
     }
 }

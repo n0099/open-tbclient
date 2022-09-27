@@ -23,11 +23,11 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.swan.apps.res.ui.SwanAppScrollView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ff3;
-import com.baidu.tieba.fm2;
-import com.baidu.tieba.hf3;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.sg3;
+import com.baidu.tieba.fh3;
+import com.baidu.tieba.sf3;
+import com.baidu.tieba.sm2;
+import com.baidu.tieba.uf3;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -269,7 +269,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                     }
                     e.t(valueOf, this.b);
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                    hf3.g(appContext, intent);
+                    uf3.g(appContext, intent);
                 }
             }
         }
@@ -410,7 +410,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         public void E(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                sg3.a0(new a(this, z));
+                fh3.a0(new a(this, z));
             }
         }
 
@@ -540,7 +540,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
                 return;
             }
         }
-        q = ij1.a;
+        q = vj1.a;
     }
 
     public BaseActivityDialog() {
@@ -595,14 +595,14 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             this.a = (TextView) findViewById(R.id.dialog_title);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0907c9);
             this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907ca);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a37);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091a39);
             this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091673);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f091683);
             this.h = findViewById(R.id.obfuscated_res_0x7f0907fc);
             this.i = findViewById(R.id.obfuscated_res_0x7f0907fd);
             this.j = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0907c1);
             this.k = (ImageView) findViewById(R.id.obfuscated_res_0x7f0907c4);
-            this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e19);
+            this.l = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091e1b);
             this.g = findViewById(R.id.obfuscated_res_0x7f0907fb);
             this.n = (SwanAppScrollView) findViewById(R.id.obfuscated_res_0x7f091527);
             this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09044c);
@@ -610,7 +610,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
             if (this.m.p > 0) {
                 this.n.getLayoutParams().height = this.m.p;
             }
-            if (ff3.k() || ff3.l()) {
+            if (sf3.k() || sf3.l()) {
                 int dimensionPixelSize = this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07012a);
                 this.b.setPadding(dimensionPixelSize, 0, dimensionPixelSize, 0);
             }
@@ -680,7 +680,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Resources b2 = fm2.M().b();
+            Resources b2 = sm2.M().b();
             return b2 != null ? b2 : super.getResources();
         }
         return (Resources) invokeV.objValue;

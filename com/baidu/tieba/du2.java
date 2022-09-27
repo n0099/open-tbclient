@@ -1,82 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.FormBody;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okio.BufferedSink;
 /* loaded from: classes3.dex */
-public final class du2 extends RequestBody {
+public class du2 extends cu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MediaType a;
-    public final FormBody b;
+    public Bitmap e;
 
-    public du2(FormBody formBody) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public du2(String str, Bitmap bitmap, boolean z) {
+        super(5, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {formBody};
+            Object[] objArr = {str, bitmap, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = formBody;
+        this.e = bitmap;
+        this.d = z;
     }
 
-    public static du2 a(FormBody formBody, MediaType mediaType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
-            du2 du2Var = new du2(formBody);
-            du2Var.b(mediaType);
-            return du2Var;
-        }
-        return (du2) invokeLL.objValue;
-    }
-
-    public void b(MediaType mediaType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
-            this.a = mediaType;
-        }
-    }
-
-    @Override // okhttp3.RequestBody
-    public long contentLength() {
+    public Bitmap e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.contentLength() : invokeV.longValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public MediaType contentType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            MediaType mediaType = this.a;
-            return mediaType == null ? this.b.contentType() : mediaType;
-        }
-        return (MediaType) invokeV.objValue;
-    }
-
-    @Override // okhttp3.RequestBody
-    public void writeTo(BufferedSink bufferedSink) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
-            this.b.writeTo(bufferedSink);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (Bitmap) invokeV.objValue;
     }
 }

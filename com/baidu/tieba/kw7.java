@@ -1,28 +1,84 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface kw7 {
-    void c(boolean z);
+public class kw7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void d(View.OnLongClickListener onLongClickListener);
+    public static void a(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(65536, null, i) == null) || TbadkCoreApplication.getInst().getFontSize() == i) {
+            return;
+        }
+        TbadkCoreApplication.getInst().setFontSize(i);
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+    }
 
-    void e(View.OnClickListener onClickListener);
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            if (fontSize == 0) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1451);
+            }
+            if (fontSize == 1) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f144e);
+            }
+            if (fontSize == 2) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f144f);
+            }
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1450);
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void f(boolean z);
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 3;
+            if (fontSize == 0) {
+                i = 1;
+            } else if (fontSize == 1) {
+                i = 2;
+            }
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+            }
+            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
+            b.e(R.drawable.icon_word_t_size);
+            b.c(0);
+            b.i();
+        }
+    }
 
-    void k(View.OnClickListener onClickListener);
-
-    void l(int i);
-
-    void n(TbRichTextView.y yVar);
-
-    void o(String str);
-
-    void q(boolean z);
-
-    void r(vu7 vu7Var);
-
-    void setFromCDN(boolean z);
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            int fontSize = TbadkCoreApplication.getInst().getFontSize();
+            int i = 2;
+            if (fontSize == 0 || fontSize == 1) {
+                i = 0;
+            } else if (fontSize == 2) {
+                i = 1;
+            }
+            if (fontSize != i) {
+                TbadkCoreApplication.getInst().setFontSize(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+            }
+            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
+            b.e(R.drawable.icon_word_t_size);
+            b.c(0);
+            b.i();
+        }
+    }
 }

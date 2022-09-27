@@ -318,7 +318,7 @@ public final class a extends com.kwad.components.ad.reward.presenter.a implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (view2 == this.rW || view2 == this.rX) {
-                com.kwad.components.core.c.a.a.a(new a.C0574a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
+                com.kwad.components.core.c.a.a.a(new a.C0570a(view2.getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2).l(this.nM.eF.getPlayDuration()).a(new a.b(this) { // from class: com.kwad.components.ad.reward.presenter.platdetail.kwai.a.5
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ a sb;

@@ -1,23 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface cz4 {
-    int getFansNum();
+    void a();
 
-    boolean getIsLike();
-
-    int getLikeStatus();
-
-    String getPortrait();
-
-    String getUserId();
-
-    boolean isGod();
-
-    void setFansNum(int i);
-
-    void setIsFromNetWork(boolean z);
-
-    void setIsLike(boolean z);
-
-    void setLikeStatus(int i);
+    void onLoadingStart();
 }

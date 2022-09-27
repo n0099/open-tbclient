@@ -1,278 +1,120 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.oc4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.Arrays;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import okhttp3.Callback;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes4.dex */
-public final class jm3 {
+public class jm3 implements ym1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public volatile int b;
-    public Integer c;
-    public Integer d;
-    public Integer e;
-    public Integer f;
-    public byte[] g;
-    public byte[] h;
-    public long i;
-    public byte[] j;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public jm3() {
-        this(null, null, null, null, null, null, 0L, null, 255, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((Integer) objArr[0], (Integer) objArr[1], (Integer) objArr[2], (Integer) objArr[3], (byte[]) objArr[4], (byte[]) objArr[5], ((Long) objArr[6]).longValue(), (byte[]) objArr[7], ((Integer) objArr[8]).intValue(), (DefaultConstructorMarker) objArr[9]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947888057, "Lcom/baidu/tieba/jm3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947888057, "Lcom/baidu/tieba/jm3;");
                 return;
             }
         }
+        a = vj1.a;
     }
 
-    public jm3(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3) {
+    public jm3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {num, num2, num3, num4, bArr, bArr2, Long.valueOf(j), bArr3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = num;
-        this.d = num2;
-        this.e = num3;
-        this.f = num4;
-        this.g = bArr;
-        this.h = bArr2;
-        this.i = j;
-        this.j = bArr3;
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.ym1
+    public void d(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (ij1.a) {
-                Log.d("BDTLS", "Recovery: add recoveryCount: " + this.b);
-            }
-            this.b++;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
+            km3.b().c(bArr);
         }
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ym1
+    public <T> void e(String str, String str2, ResponseCallback<T> responseCallback) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b < 3 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, responseCallback) == null) {
+            new an3().q(str, str2, responseCallback);
+        }
     }
 
-    public final byte[] c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ym1
+    public void f(String str, String str2, oc4.c cVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : (byte[]) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, cVar) == null) {
+            new zm3().k(str, str2, cVar);
+        }
     }
 
-    public final Integer d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (Integer) invokeV.objValue;
-    }
-
-    public final Integer e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (Integer) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
+    @Override // com.baidu.tieba.ym1
+    public boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof jm3) {
-                    jm3 jm3Var = (jm3) obj;
-                    return Intrinsics.areEqual(this.c, jm3Var.c) && Intrinsics.areEqual(this.d, jm3Var.d) && Intrinsics.areEqual(this.e, jm3Var.e) && Intrinsics.areEqual(this.f, jm3Var.f) && Intrinsics.areEqual(this.g, jm3Var.g) && Intrinsics.areEqual(this.h, jm3Var.h) && this.i == jm3Var.i && Intrinsics.areEqual(this.j, jm3Var.j);
-                }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? km3.b().e(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ym1
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? km3.b().d() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ym1
+    public boolean i(@NonNull l33 l33Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, ei3<String> ei3Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{l33Var, jSONObject, str, str2, callback, ei3Var})) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            if (optJSONObject == null || !optJSONObject.optBoolean("enableBdtls", false)) {
                 return false;
             }
+            String optString = optJSONObject.optString("serviceId");
+            if (TextUtils.isEmpty(optString)) {
+                if (a) {
+                    Log.d("BdtlsImpl", "onFailure: serviceId is invalid");
+                }
+                if (ei3Var != null) {
+                    ei3Var.a("serviceId is invalid");
+                    return true;
+                }
+                return true;
+            }
+            ea3.D(str, l33Var.Y().G(), null, str2);
+            new cn3(l33Var, jSONObject, str2, callback).o(optString);
             return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final Integer f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (Integer) invokeV.objValue;
-    }
-
-    public final Integer g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (Integer) invokeV.objValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            Integer num = this.c;
-            int hashCode = (num != null ? num.hashCode() : 0) * 31;
-            Integer num2 = this.d;
-            int hashCode2 = (hashCode + (num2 != null ? num2.hashCode() : 0)) * 31;
-            Integer num3 = this.e;
-            int hashCode3 = (hashCode2 + (num3 != null ? num3.hashCode() : 0)) * 31;
-            Integer num4 = this.f;
-            int hashCode4 = (hashCode3 + (num4 != null ? num4.hashCode() : 0)) * 31;
-            byte[] bArr = this.g;
-            int hashCode5 = (hashCode4 + (bArr != null ? Arrays.hashCode(bArr) : 0)) * 31;
-            byte[] bArr2 = this.h;
-            int hashCode6 = bArr2 != null ? Arrays.hashCode(bArr2) : 0;
-            long j = this.i;
-            int i = (((hashCode5 + hashCode6) * 31) + ((int) (j ^ (j >>> 32)))) * 31;
-            byte[] bArr3 = this.j;
-            return i + (bArr3 != null ? Arrays.hashCode(bArr3) : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public final byte[] i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.h : (byte[]) invokeV.objValue;
-    }
-
-    public final synchronized boolean j() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            synchronized (this) {
-                long currentTimeMillis = System.currentTimeMillis() / 1000;
-                z = false;
-                if (this.g != null && this.h != null && this.i > currentTimeMillis && this.a == 1) {
-                    z = true;
-                }
-                if (ul3.a) {
-                    Log.d("BDTLS", "isSessionEnable " + this.g + WebvttCueParser.CHAR_SPACE + this.h + WebvttCueParser.CHAR_SPACE + this.i + WebvttCueParser.CHAR_SPACE + this.a);
-                }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            if (ij1.a) {
-                Log.d("BDTLS", "Downgrade: reset downgrade count " + this.b);
-            }
-            this.b = 0;
-        }
-    }
-
-    public final void l(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, bArr) == null) {
-            this.g = bArr;
-        }
-    }
-
-    public final void m(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, num) == null) {
-            this.c = num;
-        }
-    }
-
-    public final void n(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, num) == null) {
-            this.e = num;
-        }
-    }
-
-    public final void o(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, num) == null) {
-            this.d = num;
-        }
-    }
-
-    public final void p(Integer num) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, num) == null) {
-            this.f = num;
-        }
-    }
-
-    public final void q(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bArr) == null) {
-            this.j = bArr;
-        }
-    }
-
-    public final void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
-            this.i = j;
-        }
-    }
-
-    public final void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public final void t(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, bArr) == null) {
-            this.h = bArr;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "SessionParams(dhGroupId=" + this.c + ", dhSecretKey=" + this.d + ", dhPublicKey=" + this.e + ", dhServerPublicKey=" + this.f + ", aesSecretKey=" + Arrays.toString(this.g) + ", sessionTicket=" + Arrays.toString(this.h) + ", expireTime=" + this.i + ", entryType=" + Arrays.toString(this.j) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ jm3(Integer num, Integer num2, Integer num3, Integer num4, byte[] bArr, byte[] bArr2, long j, byte[] bArr3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? null : num, (i & 2) != 0 ? null : num2, (i & 4) != 0 ? null : num3, (i & 8) != 0 ? null : num4, (i & 16) != 0 ? null : bArr, (i & 32) != 0 ? null : bArr2, (i & 64) != 0 ? 0L : j, (i & 128) == 0 ? bArr3 : null);
+        return invokeCommon.booleanValue;
     }
 }

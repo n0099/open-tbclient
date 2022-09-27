@@ -1,40 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tieba.iw3;
-import com.baidu.tieba.mw3;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.tieba.nw3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes4.dex */
-public class lw3 {
+public class lw3 extends EventTargetImpl implements ow3, nw3.a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile lw3 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public e b;
-    public jw3 c;
-    public long d;
-    public int e;
-    public long f;
-    public kw3 g;
-    public mw3.d h;
+    public String a;
+    @V8JavascriptField
+    public String adUnitId;
+    public va2 b;
+    public String c;
+    public boolean d;
+    public wq3 e;
+    public bs3 f;
+    public boolean g;
+    public Map<String, String> h;
+    public sw3 i;
+    public ar3 j;
+    @V8JavascriptField
+    public nw3 style;
 
     /* loaded from: classes4.dex */
-    public class a implements iw3.d {
+    public class a implements ar3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lw3 a;
@@ -57,134 +61,81 @@ public class lw3 {
             this.a = lw3Var;
         }
 
-        @Override // com.baidu.tieba.iw3.d
-        public void onFail(String str) {
+        @Override // com.baidu.tieba.ar3
+        public void a(boolean z, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && ij1.a) {
-                Log.e("AntiAddictionManager", "handleLoginAndRealName: " + str);
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
+                if (z) {
+                    this.a.dispatchEvent(new JSEvent("load"));
+                    jw3.b(this.a.g ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, "success");
+                    return;
+                }
+                jw3.c(this.a.g ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, com.baidu.pass.biometrics.face.liveness.b.a.g0, str);
             }
         }
 
-        @Override // com.baidu.tieba.iw3.d
-        public void onSuccess() {
-            Activity activity;
+        @Override // com.baidu.tieba.ar3
+        public void b(boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (activity = this.a.getActivity()) == null) {
+            if (!(interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) || this.a.i == null) {
                 return;
             }
-            q23.f(activity, R.string.obfuscated_res_0x7f0f010a).G();
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements iw3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ iw3.d b;
-        public final /* synthetic */ lw3 c;
-
-        /* loaded from: classes4.dex */
-        public class a implements mw3.d {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // com.baidu.tieba.mw3.d
-            public void onFail(String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                    this.a.b.onFail(str);
-                }
-            }
-
-            @Override // com.baidu.tieba.mw3.d
-            public void onSuccess(Object obj) {
-                Activity activity;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                    nw3 nw3Var = (nw3) obj;
-                    if (ij1.a) {
-                        Log.d("AntiAddictionManager", nw3Var.toString());
-                    }
-                    int i = nw3Var.a;
-                    if (i == 0) {
-                        this.a.b.onSuccess();
-                    } else if (1 == i) {
-                        this.a.b.onFail(nw3Var.b);
-                    } else {
-                        this.a.b.onFail(nw3Var.b);
-                        if (TextUtils.isEmpty(nw3Var.b) || (activity = this.a.c.getActivity()) == null) {
-                            return;
-                        }
-                        this.a.c.g.f(activity, nw3Var.b, activity.getString(R.string.obfuscated_res_0x7f0f0109), true, null);
-                    }
-                }
+            if (z) {
+                this.a.i.c();
+            } else {
+                this.a.i.b("3010010");
             }
         }
 
-        public b(lw3 lw3Var, String str, iw3.d dVar) {
+        @Override // com.baidu.tieba.ar3
+        public void c(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lw3Var, str, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = lw3Var;
-            this.a = str;
-            this.b = dVar;
-        }
-
-        @Override // com.baidu.tieba.iw3.d
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.onFail(str);
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+                JSEvent jSEvent = new JSEvent("resize");
+                jSEvent.data = mw3.b(i, i2);
+                this.a.dispatchEvent(jSEvent);
             }
         }
 
-        @Override // com.baidu.tieba.iw3.d
-        public void onSuccess() {
+        @Override // com.baidu.tieba.ar3
+        public void onClick() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                mw3.h(this.a, new a(this));
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.g) {
+                jw3.b("gdtbanner", "click");
+            }
+        }
+
+        @Override // com.baidu.tieba.ar3
+        public void onClose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                this.a.destroy();
+                y54 A = y54.A();
+                String str = this.a.adUnitId;
+                A.K(str, "" + System.currentTimeMillis());
+                jw3.b(this.a.g ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER, "close");
+            }
+        }
+
+        @Override // com.baidu.tieba.ar3
+        public void onError(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+                JSEvent jSEvent = new JSEvent("error");
+                jSEvent.data = mw3.a(str);
+                this.a.dispatchEvent(jSEvent);
+                us3.k(this.a.h, str);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c implements DialogInterface.OnClickListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ lw3 a;
 
-        public c(lw3 lw3Var) {
+        public b(lw3 lw3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -202,354 +153,157 @@ public class lw3 {
             this.a = lw3Var;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                this.a.q();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements mw3.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lw3 a;
-
-        public d(lw3 lw3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lw3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lw3Var;
-        }
-
-        @Override // com.baidu.tieba.mw3.d
-        public void onFail(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && ij1.a) {
-                Log.e("AntiAddictionManager", str);
-            }
-        }
-
-        @Override // com.baidu.tieba.mw3.d
-        public void onSuccess(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-                ow3 ow3Var = (ow3) obj;
-                if (ij1.a) {
-                    Log.d("AntiAddictionManager", ow3Var.toString());
-                }
-                this.a.d = System.currentTimeMillis();
-                if (this.a.s(ow3Var.c)) {
-                    this.a.r(ow3Var.d * 1000);
-                    this.a.p(ow3Var.a, ow3Var.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lw3 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(lw3 lw3Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lw3Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lw3Var;
-        }
-
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                removeCallbacksAndMessages(null);
-            }
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? hasMessages(1) : invokeV.booleanValue;
-        }
-
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || 1 == this.a.e) {
-                return;
-            }
-            sendEmptyMessageDelayed(1, this.a.f);
-        }
-
-        @Override // android.os.Handler
-        public void dispatchMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, message) == null) && message.what == 1) {
-                this.a.y(false);
-                c();
+                JSEvent jSEvent = new JSEvent("error");
+                jSEvent.data = mw3.a(this.a.c);
+                this.a.dispatchEvent(jSEvent);
+                us3.k(this.a.h, this.a.c);
             }
         }
     }
 
-    public lw3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lw3(va2 va2Var, JsObject jsObject) {
+        super(va2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {va2Var, jsObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((JSRuntime) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = 0;
-        this.f = 300000L;
-        this.h = new d(this);
-        k();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
-            y23 b0 = y23.b0();
-            if (b0 == null || b0.w() == null) {
-                return null;
+        this.style = null;
+        this.h = new TreeMap();
+        this.j = new a(this);
+        this.b = va2Var;
+        sv1 F = sv1.F(jsObject);
+        if (F != null) {
+            this.adUnitId = F.B("adUnitId");
+            this.a = F.B("appSid");
+            sv1 w = F.w("style");
+            if (w != null) {
+                this.style = new nw3(w);
             }
-            return b0.w();
         }
-        return (Activity) invokeV.objValue;
+        boolean e = ft3.e();
+        this.g = e;
+        if (e) {
+            this.a = ft3.a();
+            this.adUnitId = ft3.b();
+        }
+        String str = this.a;
+        String str2 = this.adUnitId;
+        boolean z = this.g;
+        String str3 = SpeedStatsUtils.UBC_VALUE_BANNER;
+        Map<String, String> a2 = us3.a(SpeedStatsUtils.UBC_VALUE_BANNER, "game", str, str2, z);
+        this.h = a2;
+        us3.m("loadApi", a2);
+        if (B()) {
+            if (F != null && !TextUtils.isEmpty(this.adUnitId) && !TextUtils.isEmpty(this.a) && this.style != null) {
+                hw3 hw3Var = new hw3();
+                this.f = hw3Var;
+                wq3 wq3Var = new wq3(this.a, this.adUnitId, this.j, hw3Var);
+                this.e = wq3Var;
+                wq3Var.F(this.h);
+                nw3 nw3Var = this.style;
+                if (nw3Var != null) {
+                    this.e.E(nw3Var.left, nw3Var.top, nw3Var.width, nw3Var.height);
+                    this.style.b(this);
+                }
+                jw3.b(this.g ? "gdtbanner" : str3, null);
+                return;
+            }
+            va2Var.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
+        }
     }
 
-    public static lw3 o() {
+    public final boolean B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (i == null) {
-                synchronized (lw3.class) {
-                    if (i == null) {
-                        i = new lw3();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.c)) {
+                y54 A = y54.A();
+                if (!A.k()) {
+                    if (!A.l()) {
+                        if (A.t(this.adUnitId)) {
+                            this.c = "3010011";
+                        }
+                    } else {
+                        this.c = "3010013";
                     }
+                } else {
+                    this.c = "3010012";
                 }
             }
-            return i;
-        }
-        return (lw3) invokeV.objValue;
-    }
-
-    public static synchronized void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, null) == null) {
-            synchronized (lw3.class) {
-                if (i != null) {
-                    i.m();
-                    i = null;
-                }
+            if (TextUtils.isEmpty(this.c)) {
+                return true;
             }
+            this.b.postOnJSThread(new b(this));
+            jw3.c(SpeedStatsUtils.UBC_VALUE_BANNER, "reject", this.c);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void j(String str, iw3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, dVar) == null) {
-            if (TextUtils.isEmpty(str)) {
-                dVar.onFail("orderInfo is null");
-            } else if (!t()) {
-                dVar.onSuccess();
-            } else {
-                iw3.b(new b(this, str, dVar));
-            }
-        }
-    }
-
-    public final void k() {
+    @JavascriptInterface
+    public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            l();
-            y(true);
-            x();
-            this.g = new kw3();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null) {
-            HandlerThread handlerThread = new HandlerThread("anti_addiction_monitor");
-            this.a = handlerThread;
-            handlerThread.start();
-            this.b = new e(this, this.a.getLooper());
-        }
-    }
-
-    public final synchronized void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.b.a();
-                if (this.a != null) {
-                    this.a.quitSafely();
-                    this.a = null;
-                }
-                if (this.g != null) {
-                    this.g.e();
-                    this.g = null;
-                }
+            this.d = true;
+            removeEventListener("error", null);
+            removeEventListener("load", null);
+            removeEventListener("resize", null);
+            wq3 wq3Var = this.e;
+            if (wq3Var != null) {
+                wq3Var.y();
+                this.e = null;
             }
         }
     }
 
-    public synchronized void n() {
+    @JavascriptInterface
+    public void hide() {
+        wq3 wq3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (t()) {
-                    y(false);
-                }
-                this.b.a();
-            }
-        }
-    }
-
-    public final void p(int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i2, str) == null) {
-            if (i2 < 0) {
-                if (ij1.a) {
-                    Log.e("AntiAddictionManager", "server AntiAddiction state error = " + i2 + " msg = " + str);
-                }
-            } else if (i2 != 0) {
-                if (i2 != 1) {
-                    u(i2, str);
-                    return;
-                }
-                Activity activity = getActivity();
-                if (activity == null) {
-                    return;
-                }
-                this.g.f(activity, activity.getString(R.string.obfuscated_res_0x7f0f0108), activity.getString(R.string.obfuscated_res_0x7f0f0107), true, new c(this));
-            }
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            iw3.c(new a(this));
-        }
-    }
-
-    public final void r(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            if (300000 < j) {
-                this.f = j;
-            } else {
-                this.f = 300000L;
-            }
-        }
-    }
-
-    public final boolean s(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
-            this.e = i2;
-            if (1 == i2) {
-                n();
-                return false;
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.e == 0 : invokeV.booleanValue;
-    }
-
-    public final void u(int i2, String str) {
-        jw3 jw3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048586, this, i2, str) == null) || (jw3Var = this.c) == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (wq3Var = this.e) == null) {
             return;
         }
-        try {
-            jw3Var.x(i2, str);
-        } catch (JSONException e2) {
-            if (ij1.a) {
-                e2.printStackTrace();
-            }
-        }
+        wq3Var.B();
     }
 
-    public void w(jw3 jw3Var) {
+    @Override // com.baidu.tieba.nw3.a
+    public void i(String str) {
+        wq3 wq3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jw3Var) == null) {
-            this.c = jw3Var;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || this.d || TextUtils.isEmpty(str) || str.equals("height") || this.style == null || (wq3Var = this.e) == null) {
+            return;
         }
+        wq3Var.H(str);
     }
 
-    public synchronized void x() {
+    @JavascriptInterface
+    public void showAd(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            synchronized (this) {
-                if (t() && !this.b.b()) {
-                    this.d = System.currentTimeMillis();
-                    this.b.c();
-                }
+        if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
+            jw3.d(this.g ? "gdtbanner" : SpeedStatsUtils.UBC_VALUE_BANNER);
+            us3.m("showApi", this.h);
+            if (!B() || this.e == null) {
+                return;
             }
-        }
-    }
-
-    public final void y(boolean z) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            if (z) {
-                j = 0;
-            } else {
-                j = System.currentTimeMillis() - this.d;
-                if (LiveFeedPageSdk.REFRESH_TIME > j) {
-                    return;
-                }
-            }
-            if (ij1.a) {
-                Log.d("AntiAddictionManager", "Request upUseTime");
-            }
-            mw3.i(j, this.h);
+            y54.A().E();
+            this.i = sw3.d(sv1.F(jsObject));
+            this.e.G(jsObject);
         }
     }
 }

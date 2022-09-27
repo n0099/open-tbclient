@@ -1,53 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.WebEventTypeEnum;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class pn0 implements ki0 {
+public class pn0 {
     public static /* synthetic */ Interceptable $ic;
+    public static rn0 a;
+    public static sn0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebEventTypeEnum a;
 
-    public pn0(WebEventTypeEnum type) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948067671, "Lcom/baidu/tieba/pn0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948067671, "Lcom/baidu/tieba/pn0;");
+        }
+    }
+
+    public pn0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
     }
 
-    @Override // com.baidu.tieba.ki0
-    public String a() {
+    public static rn0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = pn0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "WebViewEvent::class.java.simpleName");
-            return simpleName;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (pn0.class) {
+                    if (a == null) {
+                        a = (rn0) ServiceManager.getService(rn0.a);
+                    }
+                    if (a == null) {
+                        a = rn0.b;
+                    }
+                }
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (rn0) invokeV.objValue;
     }
 
-    public final WebEventTypeEnum getType() {
+    public static sn0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (WebEventTypeEnum) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (pn0.class) {
+                    if (b == null) {
+                        b = (sn0) ServiceManager.getService(sn0.a);
+                    }
+                    if (b == null) {
+                        b = sn0.b;
+                    }
+                }
+            }
+            return b;
+        }
+        return (sn0) invokeV.objValue;
     }
 }

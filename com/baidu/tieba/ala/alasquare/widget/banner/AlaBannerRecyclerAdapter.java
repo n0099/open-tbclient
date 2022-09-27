@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.yv5;
-import com.baidu.tieba.zv5;
+import com.baidu.tieba.lw5;
+import com.baidu.tieba.mw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
     public transient /* synthetic */ FieldHolder $fh;
     public List<T> a;
     public Context b;
-    public yv5 c;
-    public zv5 d;
+    public lw5 c;
+    public mw5 d;
     public boolean e;
     public View.OnClickListener f;
 
@@ -60,12 +60,12 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         }
     }
 
-    public AlaBannerRecyclerAdapter(Context context, yv5 yv5Var, boolean z) {
+    public AlaBannerRecyclerAdapter(Context context, lw5 lw5Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, yv5Var, Boolean.valueOf(z)};
+            Object[] objArr = {context, lw5Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,7 +77,7 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         }
         this.f = new a(this);
         this.b = context;
-        this.c = yv5Var;
+        this.c = lw5Var;
         this.e = z;
     }
 
@@ -132,25 +132,25 @@ public class AlaBannerRecyclerAdapter<T> extends RecyclerView.Adapter<AlaBannerV
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            yv5 yv5Var = this.c;
-            if (yv5Var != null) {
-                return yv5Var.a(viewGroup, i);
+            lw5 lw5Var = this.c;
+            if (lw5Var != null) {
+                return lw5Var.a(viewGroup, i);
             }
             return null;
         }
         return (AlaBannerViewHolder) invokeLI.objValue;
     }
 
-    public void i(zv5 zv5Var) {
+    public void i(mw5 mw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zv5Var) == null) {
-            this.d = zv5Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mw5Var) == null) {
+            this.d = mw5Var;
         }
     }
 
-    public void j(yv5 yv5Var) {
+    public void j(lw5 lw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, yv5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, lw5Var) == null) {
         }
     }
 

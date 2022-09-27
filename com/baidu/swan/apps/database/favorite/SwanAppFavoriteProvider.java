@@ -7,8 +7,8 @@ import android.net.Uri;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ap2;
-import com.baidu.tieba.x92;
+import com.baidu.tieba.ka2;
+import com.baidu.tieba.np2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SwanAppFavoriteProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile x92 a;
+    public volatile ka2 a;
 
     public SwanAppFavoriteProvider() {
         Interceptable interceptable = $ic;
@@ -34,20 +34,20 @@ public class SwanAppFavoriteProvider extends ContentProvider {
         }
     }
 
-    public final x92 a() {
+    public final ka2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             if (this.a == null) {
                 synchronized (SwanAppFavoriteProvider.class) {
                     if (this.a == null) {
-                        this.a = new x92();
+                        this.a = new ka2();
                     }
                 }
             }
             return this.a;
         }
-        return (x92) invokeV.objValue;
+        return (ka2) invokeV.objValue;
     }
 
     @Override // android.content.ContentProvider
@@ -78,7 +78,7 @@ public class SwanAppFavoriteProvider extends ContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ap2.a().b(getContext());
+            np2.a().b(getContext());
             return true;
         }
         return invokeV.booleanValue;

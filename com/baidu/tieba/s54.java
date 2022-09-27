@@ -1,74 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class s54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JsFunction a;
+    public JsFunction b;
+    public JsFunction c;
 
-    public static boolean a(View view2, et2 et2Var) {
-        InterceptResult invokeLL;
+    public s54() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, et2Var)) == null) {
-            pk1 X = lo2.U().X();
-            return X != null && X.c(view2, et2Var);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static Context b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            pk1 X = lo2.U().X();
-            if (X != null) {
-                return X.getContext();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return null;
         }
-        return (Context) invokeV.objValue;
     }
 
-    public static void c(xh3 xh3Var) {
-        pk1 X;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, xh3Var) == null) || (X = lo2.U().X()) == null) {
-            return;
-        }
-        X.e(xh3Var);
-    }
-
-    public static boolean d(View view2) {
+    public static s54 d(sv1 sv1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            pk1 X = lo2.U().X();
-            return X != null && X.removeView(view2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sv1Var)) == null) {
+            if (sv1Var == null) {
+                return null;
+            }
+            s54 s54Var = new s54();
+            JsFunction u = sv1Var.u("onCheckForUpdate");
+            s54Var.a = u;
+            if (u != null) {
+                u.setReleaseMode(false);
+            }
+            JsFunction u2 = sv1Var.u("onUpdateReady");
+            s54Var.b = u2;
+            if (u2 != null) {
+                u2.setReleaseMode(false);
+            }
+            JsFunction u3 = sv1Var.u("onUpdateFailed");
+            s54Var.c = u3;
+            if (u3 != null) {
+                u3.setReleaseMode(false);
+            }
+            return s54Var;
         }
-        return invokeL.booleanValue;
+        return (s54) invokeL.objValue;
     }
 
-    public static void e(xh3 xh3Var) {
-        pk1 X;
+    public void a(t54 t54Var) {
+        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, xh3Var) == null) || (X = lo2.U().X()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, t54Var) == null) || (jsFunction = this.a) == null) {
             return;
         }
-        X.f(xh3Var);
+        jsFunction.call(t54Var);
     }
 
-    public static boolean f(View view2, et2 et2Var) {
-        InterceptResult invokeLL;
+    public void b() {
+        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, et2Var)) == null) {
-            pk1 X = lo2.U().X();
-            return X != null && X.a(view2, et2Var);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (jsFunction = this.c) == null) {
+            return;
         }
-        return invokeLL.booleanValue;
+        jsFunction.call();
+    }
+
+    public void c() {
+        JsFunction jsFunction;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (jsFunction = this.b) == null) {
+            return;
+        }
+        jsFunction.call();
     }
 }

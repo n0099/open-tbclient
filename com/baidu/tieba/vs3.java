@@ -1,63 +1,166 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoAd;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vs3 extends ts3 {
+public class vs3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public JSONObject b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vs3(Context context, AdElementInfo adElementInfo, ur3 ur3Var) {
-        super(context, adElementInfo, ur3Var);
+    /* loaded from: classes6.dex */
+    public class a extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(vs3 vs3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vs3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) ? response : invokeLI.objValue;
+        }
+    }
+
+    public vs3(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, adElementInfo, ur3Var};
+            Object[] objArr = {context, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (ur3) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = context;
+        this.b = jSONObject;
     }
 
-    @Override // com.baidu.tieba.ts3
-    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
+    public final void a(@NonNull Request request) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, request) == null) {
+            oa4 oa4Var = new oa4(request.url().toString(), new a(this));
+            oa4Var.f = true;
+            oa4Var.g = false;
+            oa4Var.h = false;
+            pa4.g().d(oa4Var);
         }
     }
 
-    @Override // com.baidu.tieba.ts3
-    public String q() {
-        InterceptResult invokeV;
+    public final String b(String str, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "reward_banner_html" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, hashMap)) == null) {
+            HashMap hashMap2 = new HashMap();
+            hashMap2.put("origin_time", String.valueOf(System.currentTimeMillis()));
+            hashMap.putAll(hashMap2);
+            try {
+                str = URLDecoder.decode(str, "UTF-8");
+            } catch (UnsupportedEncodingException | IllegalArgumentException unused) {
+            }
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                str = str.replaceAll("%%" + entry.getKey() + "%%", entry.getValue());
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ts3
-    @SuppressLint({"InflateParams"})
-    public View u() {
-        InterceptResult invokeV;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d065d, (ViewGroup) null) : (View) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            d(str, new HashMap<>());
+        }
+    }
+
+    public void d(String str, HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, hashMap) == null) {
+            if (TextUtils.equals(str, "da_area")) {
+                hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "VIDEODETAIL_TAIL");
+            } else if (!TextUtils.equals(str, "lpin") && !TextUtils.equals(str, "lpout")) {
+                hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "VIDEOADDETAI");
+            } else {
+                hashMap.put(BdVideoAd.AD_VIDEO_DAPAGE, "MINIAPP");
+            }
+            hashMap.put("play_mode", String.valueOf((NetworkUtils.g(this.a) && TextUtils.equals(str, "vstart")) ? 0 : 1));
+            JSONObject jSONObject = this.b;
+            JSONArray optJSONArray = jSONObject != null ? jSONObject.optJSONArray(str) : null;
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    String optString = optJSONArray.optString(i);
+                    if (NetworkUtils.f(this.a) && !TextUtils.isEmpty(optString)) {
+                        HttpUrl parse = HttpUrl.parse(b(optString, hashMap));
+                        if (parse == null) {
+                            return;
+                        }
+                        a(new Request.Builder().url(parse.newBuilder().build()).build());
+                    }
+                }
+            }
+        }
+    }
+
+    public void e(String str) {
+        HttpUrl parse;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || !NetworkUtils.f(this.a) || TextUtils.isEmpty(str) || (parse = HttpUrl.parse(str)) == null) {
+            return;
+        }
+        a(new Request.Builder().url(parse.newBuilder().build()).build());
     }
 }

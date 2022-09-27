@@ -1,87 +1,176 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes5.dex */
 public class n09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? nu8.d : (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public static class a implements p09 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p09 a;
+
+        public a(p09 p09Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p09Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p09Var;
+        }
+
+        @Override // com.baidu.tieba.p09
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                p09 p09Var = this.a;
+                if (p09Var != null) {
+                    p09Var.a(i, bitmap);
+                }
+                qg9.d("single-frameResult: " + i);
+            }
+        }
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? nu8.c : (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public static class b implements p09 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p09 a;
+
+        public b(p09 p09Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p09Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p09Var;
+        }
+
+        @Override // com.baidu.tieba.p09
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                p09 p09Var = this.a;
+                if (p09Var != null) {
+                    p09Var.a(i, bitmap);
+                }
+                qg9.d("multi-frameResult: " + i);
+            }
+        }
     }
 
-    public static String c(String str, Bitmap bitmap, String str2) {
-        InterceptResult invokeLLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947948786, "Lcom/baidu/tieba/n09;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947948786, "Lcom/baidu/tieba/n09;");
+        }
+    }
+
+    public static TbMultiMediaData a(VideoInfo videoInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLLL = interceptable.invokeLLL(65538, null, str, bitmap, str2)) != null) {
-            return (String) invokeLLL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
+            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
+            tbMultiMediaData.path = videoInfo.getVideoPath();
+            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
+            tbMultiMediaData.height = videoInfo.getVideoHeight();
+            tbMultiMediaData.width = videoInfo.getVideoWidth();
+            tbMultiMediaData.type = 1;
+            tbMultiMediaData.start = 0L;
+            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.scaleType = "center_inside";
+            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
+            return tbMultiMediaData;
         }
-        String str3 = "";
-        FileOutputStream fileOutputStream = null;
-        try {
-        } catch (IOException e) {
-            e.printStackTrace();
+        return (TbMultiMediaData) invokeL.objValue;
+    }
+
+    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, p09 p09Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), p09Var}) == null) || vlogEditManager == null || context == null || i <= 0) {
+            return;
         }
-        try {
-            try {
-            } catch (Exception e2) {
-                e = e2;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(file, str2);
-            if (!file2.exists()) {
-                file2.createNewFile();
-            }
-            FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-            try {
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream2);
-                fileOutputStream2.flush();
-                str3 = file2.getAbsolutePath();
-                fileOutputStream2.close();
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream = fileOutputStream2;
-                e.printStackTrace();
-                if (fileOutputStream != null) {
-                    fileOutputStream.close();
-                }
-                return str3;
-            } catch (Throwable th) {
-                th = th;
-                fileOutputStream = fileOutputStream2;
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            return str3;
-        } catch (Throwable th2) {
-            th = th2;
+        y09 y09Var = new y09();
+        y09Var.a = vlogEditManager.getDuration();
+        y09Var.b = i;
+        y09Var.f = vlogEditManager.getInputMultiMediaData();
+        MediaTrack mediaTrack = (MediaTrack) vg9.c(vlogEditManager.getUpdateMediaTracks(), 0);
+        if (mediaTrack == null) {
+            return;
         }
+        y09Var.e = mediaTrack.mediaSegments;
+        if (i2 == 0) {
+            i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+        }
+        y09Var.c = i2;
+        if (i3 == 0) {
+            i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+        }
+        y09Var.d = i3;
+        s09.f().i(y09Var, new b(p09Var));
+    }
+
+    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, p09 p09Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), p09Var}) == null) || multiMediaData == null || context == null || i <= 0) {
+            return;
+        }
+        z09 z09Var = new z09();
+        z09Var.b = i;
+        z09Var.a = multiMediaData.originalDuration;
+        z09Var.e = multiMediaData;
+        if (i2 == 0) {
+            i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+        }
+        z09Var.c = i2;
+        if (i3 == 0) {
+            i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+        }
+        z09Var.d = i3;
+        s09.f().j(z09Var, new a(p09Var));
     }
 }

@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.ContentValues;
+import android.database.Cursor;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class nb4 implements gb4<ac4> {
+public class nb4 extends lb4<gc4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,39 +29,51 @@ public class nb4 implements gb4<ac4> {
         }
     }
 
-    @Override // com.baidu.tieba.gb4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.tieba.lb4
+    public List<gc4> e(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
-        }
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE IF NOT EXISTS " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0," + PackageTable.ABI + " TEXT,lib_name TEXT NOT NULL UNIQUE);";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "so_lib" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.gb4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i == 9) {
-                    sQLiteDatabase.execSQL(b());
-                }
-                i++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return arrayList;
             }
+            do {
+                gc4 gc4Var = new gc4();
+                if (b(cursor, gc4Var)) {
+                    arrayList.add(gc4Var);
+                }
+            } while (cursor.moveToNext());
+            return arrayList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lb4
+    /* renamed from: f */
+    public ContentValues c(gc4 gc4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, gc4Var)) == null) ? a(gc4Var) : (ContentValues) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lb4
+    /* renamed from: g */
+    public gc4 d(Cursor cursor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
+            if (cursor == null || cursor.getCount() <= 0 || !cursor.moveToFirst()) {
+                return null;
+            }
+            gc4 gc4Var = new gc4();
+            if (b(cursor, gc4Var)) {
+                return gc4Var;
+            }
+            return null;
+        }
+        return (gc4) invokeL.objValue;
     }
 }

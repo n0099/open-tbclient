@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class js4 extends ThreadData {
+public class js4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
     public js4() {
         Interceptable interceptable = $ic;

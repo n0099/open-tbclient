@@ -1,46 +1,57 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class z01 extends x01 {
+public abstract class z01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final r01[][] a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z01(int i) {
-        super(i);
+    public z01() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = i;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, i, 100L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
-        this.c = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
+        this.a = new r01[0];
     }
 
-    @Override // com.baidu.nadcore.thread.executor.BaseExecutorCell
-    public String d() {
+    public static r01 a(int i, String str, String str2, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) ? b(i, str, str2, i2, 0) : (r01) invokeCommon.objValue;
+    }
+
+    public static r01 b(int i, String str, String str2, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) ? new r01(i, str, str2, i2, i3) : (r01) invokeCommon.objValue;
+    }
+
+    public abstract Column[] c();
+
+    public abstract r01[] d();
+
+    public r01[][] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ElasticDredgeNormalCell" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (r01[][]) invokeV.objValue;
     }
+
+    public abstract r01[] f();
+
+    public abstract String g();
 }

@@ -103,7 +103,7 @@ public final class i extends a implements View.OnClickListener {
             } else if (view2 == this.df) {
                 i = 100;
             }
-            if (com.kwad.components.core.c.a.d.a(new a.C0574a(getContext()).L(this.mAdTemplate), 1) == 1) {
+            if (com.kwad.components.core.c.a.d.a(new a.C0570a(getContext()).L(this.mAdTemplate), 1) == 1) {
                 aq(i);
                 return;
             }

@@ -23,12 +23,12 @@ import com.kwad.sdk.api.loader.Wrapper;
 public final class a extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final InterfaceC0583a GY;
+    public final InterfaceC0579a GY;
     public final String GZ;
 
     /* renamed from: com.kwad.components.core.page.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0583a {
+    public interface InterfaceC0579a {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -37,19 +37,19 @@ public final class a extends Dialog {
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public a(@NonNull Context context, @NonNull InterfaceC0583a interfaceC0583a) {
-        this(context, null, interfaceC0583a);
+    public a(@NonNull Context context, @NonNull InterfaceC0579a interfaceC0579a) {
+        this(context, null, interfaceC0579a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, interfaceC0583a};
+            Object[] objArr = {context, interfaceC0579a};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (String) objArr2[1], (InterfaceC0583a) objArr2[2]);
+                this((Context) objArr2[0], (String) objArr2[1], (InterfaceC0579a) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -58,13 +58,13 @@ public final class a extends Dialog {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a(@NonNull Context context, String str, @NonNull InterfaceC0583a interfaceC0583a) {
+    public a(@NonNull Context context, String str, @NonNull InterfaceC0579a interfaceC0579a) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, interfaceC0583a};
+            Object[] objArr = {context, str, interfaceC0579a};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,7 +78,7 @@ public final class a extends Dialog {
         if (context instanceof Activity) {
             setOwnerActivity((Activity) context);
         }
-        this.GY = interfaceC0583a;
+        this.GY = interfaceC0579a;
         this.GZ = str;
     }
 

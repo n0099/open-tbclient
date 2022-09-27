@@ -1,63 +1,62 @@
 package com.baidu.tieba;
 
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Closeable;
 /* loaded from: classes6.dex */
-public final class ya9 {
+public class ya9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
 
-    public ya9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948323576, "Lcom/baidu/tieba/ya9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948323576, "Lcom/baidu/tieba/ya9;");
                 return;
             }
         }
-        this.a = xa9.a().c();
+        a = x99.m();
     }
 
-    public final List<com.baidu.ubs.analytics.a.i> a() {
-        InterceptResult invokeV;
+    public static void a(Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
-                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
-                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
-                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
-                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
-                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
-                arrayList.add(iVar);
-            }
-            rawQuery.close();
-            return arrayList;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, cursor) == null) || cursor == null) {
+            return;
         }
-        return (List) invokeV.objValue;
+        try {
+            if (cursor.isClosed()) {
+                return;
+            }
+            cursor.close();
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
+            }
+        }
     }
 
-    public final void b(int i) {
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        if (!(interceptable == null || interceptable.invokeL(65538, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception e) {
+            if (a) {
+                e.printStackTrace();
+            }
         }
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tieba.barselect.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a06;
-import com.baidu.tieba.yz5;
-import com.baidu.tieba.zz5;
+import com.baidu.tieba.l06;
+import com.baidu.tieba.m06;
+import com.baidu.tieba.n06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import tbclient.Myrecord;
 public class VoteElectionSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a06 mVoteData;
+    public n06 mVoteData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteElectionSocketResMessage() {
@@ -56,22 +56,22 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
                     return electionInfoResIdl;
                 }
                 if (this.mVoteData == null) {
-                    this.mVoteData = new a06();
+                    this.mVoteData = new n06();
                 }
                 if (electionInfoResIdl.data.election_list != null) {
-                    ArrayList<yz5> arrayList = new ArrayList<>();
+                    ArrayList<l06> arrayList = new ArrayList<>();
                     for (ElectionList electionList : electionInfoResIdl.data.election_list) {
-                        arrayList.add(yz5.o(electionList));
+                        arrayList.add(l06.o(electionList));
                     }
                     this.mVoteData.h(arrayList);
                 }
                 Basic basic = electionInfoResIdl.data.basic;
                 if (basic != null) {
-                    this.mVoteData.m(zz5.j(basic));
+                    this.mVoteData.m(m06.j(basic));
                 }
                 Myrecord myrecord = electionInfoResIdl.data.my_record;
                 if (myrecord != null) {
-                    this.mVoteData.n(yz5.p(myrecord));
+                    this.mVoteData.n(l06.p(myrecord));
                 }
                 Integer num = electionInfoResIdl.data.has_more;
                 if (num != null) {
@@ -87,9 +87,9 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public a06 getVoteData() {
+    public n06 getVoteData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mVoteData : (a06) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mVoteData : (n06) invokeV.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bx4;
+import com.baidu.tieba.ox4;
 import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -33,7 +33,7 @@ public class WeChatShareSmallAppToH5Switch extends qf {
     public static boolean isOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? bx4.k().l("key_wechat_small_app_to_h5", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ox4.k().l("key_wechat_small_app_to_h5", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.qf

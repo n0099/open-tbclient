@@ -29,7 +29,7 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.vd5;
+import com.baidu.tieba.ie5;
 import com.baidu.tieba.write.write.relevance.list.RelevanceItemListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,7 +40,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class RelevanceItemSearchView implements vd5, ViewPager.OnPageChangeListener {
+public class RelevanceItemSearchView implements ie5, ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String[] a;
@@ -281,7 +281,7 @@ public class RelevanceItemSearchView implements vd5, ViewPager.OnPageChangeListe
         i();
     }
 
-    @Override // com.baidu.tieba.vd5
+    @Override // com.baidu.tieba.ie5
     public boolean G0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -298,7 +298,7 @@ public class RelevanceItemSearchView implements vd5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.vd5
+    @Override // com.baidu.tieba.ie5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -353,9 +353,9 @@ public class RelevanceItemSearchView implements vd5, ViewPager.OnPageChangeListe
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091de5);
-            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091df7);
-            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091e11);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091de7);
+            this.j = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091df9);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f091e13);
             this.i = editText;
             editText.addTextChangedListener(new b(this));
         }
@@ -364,7 +364,7 @@ public class RelevanceItemSearchView implements vd5, ViewPager.OnPageChangeListe
     public final void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09202b);
+            TbTabLayout tbTabLayout = (TbTabLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09202d);
             this.e = tbTabLayout;
             tbTabLayout.setTabTextSize(ej.f(this.d, R.dimen.tbds46));
             this.e.setSelectedTabTextSize(ej.f(this.d, R.dimen.tbds52));
@@ -372,7 +372,7 @@ public class RelevanceItemSearchView implements vd5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.vd5
+    @Override // com.baidu.tieba.ie5
     public void n(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
@@ -435,7 +435,7 @@ public class RelevanceItemSearchView implements vd5, ViewPager.OnPageChangeListe
     public final void p() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0925d7);
+            CustomViewPager customViewPager = (CustomViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f0925d9);
             this.f = customViewPager;
             customViewPager.addOnPageChangeListener(this);
             FragmentAdapter fragmentAdapter = new FragmentAdapter(this.d.getSupportFragmentManager());
@@ -445,7 +445,7 @@ public class RelevanceItemSearchView implements vd5, ViewPager.OnPageChangeListe
         }
     }
 
-    @Override // com.baidu.tieba.vd5
+    @Override // com.baidu.tieba.ie5
     public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

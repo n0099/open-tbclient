@@ -154,13 +154,13 @@ public class MediaTipStateLayer implements View.OnClickListener {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0836, (ViewGroup) null, false);
             this.c = inflate;
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091fe1);
-            this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091fda);
-            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fc9);
-            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fca);
-            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f091fe9);
-            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091fe8);
-            this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fea);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f091fe3);
+            this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091fdc);
+            this.f = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fcb);
+            this.g = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fcc);
+            this.d = this.c.findViewById(R.id.obfuscated_res_0x7f091feb);
+            this.i = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091fea);
+            this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091fec);
             h(TipState.NORMAL);
         }
     }
@@ -171,7 +171,7 @@ public class MediaTipStateLayer implements View.OnClickListener {
             Resources resources = this.a.getResources();
             TipState tipState = this.h;
             if (tipState == TipState.ERROR) {
-                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811e2);
+                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811e6);
                 this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1345));
                 this.c.setVisibility(0);
                 this.d.setVisibility(0);
@@ -182,7 +182,7 @@ public class MediaTipStateLayer implements View.OnClickListener {
                 this.e.setVisibility(0);
                 this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060ac4));
                 this.g.setText(R.string.obfuscated_res_0x7f0f133a);
-                this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811d9);
+                this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811dd);
             } else if (tipState == TipState.NO_NETWORK) {
                 this.c.setVisibility(0);
                 this.d.setVisibility(8);
@@ -190,9 +190,9 @@ public class MediaTipStateLayer implements View.OnClickListener {
                 this.g.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060ac3));
                 this.g.setText(R.string.obfuscated_res_0x7f0f133c);
                 this.f.setText(R.string.obfuscated_res_0x7f0f1337);
-                this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811d8);
+                this.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811dc);
             } else if (tipState == TipState.END) {
-                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811e3);
+                this.i.setImageResource(R.drawable.obfuscated_res_0x7f0811e7);
                 this.j.setText(this.a.getText(R.string.obfuscated_res_0x7f0f1346));
                 this.c.setVisibility(0);
                 this.d.setVisibility(0);
@@ -227,13 +227,13 @@ public class MediaTipStateLayer implements View.OnClickListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091fc9 || id == R.id.obfuscated_res_0x7f091fe9) {
+            if (id == R.id.obfuscated_res_0x7f091fcb || id == R.id.obfuscated_res_0x7f091feb) {
                 SwanVideoView swanVideoView2 = this.b;
                 if (swanVideoView2 != null) {
                     swanVideoView2.Y();
                 }
                 h(TipState.NORMAL);
-            } else if (id != R.id.obfuscated_res_0x7f091fda || (swanVideoView = this.b) == null || swanVideoView.getVideoPlayerCallback() == null) {
+            } else if (id != R.id.obfuscated_res_0x7f091fdc || (swanVideoView = this.b) == null || swanVideoView.getVideoPlayerCallback() == null) {
             } else {
                 this.b.getVideoPlayerCallback().d(!this.l);
             }

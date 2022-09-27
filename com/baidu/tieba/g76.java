@@ -1,75 +1,73 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.ItemManage.DataRes;
-import tbclient.ManageInfo;
 /* loaded from: classes4.dex */
-public class g76 implements gb5 {
+public class g76 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<x66> a;
-    public List<x66> b;
-    public Integer c;
+    public FeatureCardTopic a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947746883, "Lcom/baidu/tieba/g76;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947746883, "Lcom/baidu/tieba/g76;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
     public g76() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = 0;
     }
 
-    public void a(g76 g76Var) {
+    public FeatureCardTopic a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, g76Var) == null) {
-            this.a.addAll(g76Var.a);
-            this.b = g76Var.b;
-            this.c = g76Var.c;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (FeatureCardTopic) invokeV.objValue;
     }
 
-    public void b(DataRes dataRes) {
+    public void b(FeatureCardTopic featureCardTopic) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) {
-            for (ManageInfo manageInfo : dataRes.manage_list) {
-                this.a.add(x66.c(manageInfo));
-            }
-            for (ManageInfo manageInfo2 : dataRes.manage_recomm_list) {
-                this.b.add(x66.c(manageInfo2));
-            }
-            this.c = dataRes.has_more;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardTopic) == null) || featureCardTopic == null) {
+            return;
         }
+        this.a = featureCardTopic;
+        String str = featureCardTopic.title;
+        Integer num = featureCardTopic.floor;
+        Integer num2 = featureCardTopic.type;
     }
 
-    @Override // com.baidu.tieba.gb5
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.gb5
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, message) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
     }
 }

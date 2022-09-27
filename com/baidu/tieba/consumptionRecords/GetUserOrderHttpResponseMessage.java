@@ -2,8 +2,8 @@ package com.baidu.tieba.consumptionRecords;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.b36;
-import com.baidu.tieba.c36;
+import com.baidu.tieba.o36;
+import com.baidu.tieba.p36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,8 +17,8 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public ArrayList<b36> orderList;
-    public c36 recommendData;
+    public ArrayList<o36> orderList;
+    public p36 recommendData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserOrderHttpResponseMessage(int i) {
@@ -49,9 +49,9 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         }
         for (int i = 0; i < jSONArray.length(); i++) {
             JSONObject optJSONObject = jSONArray.optJSONObject(i);
-            b36 b36Var = new b36();
-            b36Var.n(optJSONObject);
-            this.orderList.add(b36Var);
+            o36 o36Var = new o36();
+            o36Var.n(optJSONObject);
+            this.orderList.add(o36Var);
         }
     }
 
@@ -79,15 +79,15 @@ public class GetUserOrderHttpResponseMessage extends JsonHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.hasMore : invokeV.booleanValue;
     }
 
-    public ArrayList<b36> getOrderList() {
+    public ArrayList<o36> getOrderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.orderList : (ArrayList) invokeV.objValue;
     }
 
-    public c36 getRecommendInfo() {
+    public p36 getRecommendInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommendData : (c36) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.recommendData : (p36) invokeV.objValue;
     }
 }

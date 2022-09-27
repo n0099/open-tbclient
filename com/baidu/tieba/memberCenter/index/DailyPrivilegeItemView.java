@@ -50,13 +50,13 @@ public class DailyPrivilegeItemView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03d7, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a93);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa2);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a95);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa4);
             this.d = tbImageView;
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f08123c);
-            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08123c);
-            this.e = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa3);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a92);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f081240);
+            this.d.setDefaultBgResource(R.drawable.obfuscated_res_0x7f081240);
+            this.e = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091aa5);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091a94);
         }
     }
 

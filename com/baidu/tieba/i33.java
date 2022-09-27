@@ -2,8 +2,8 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.p33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +11,90 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 /* loaded from: classes4.dex */
-public final class i33 {
+public final class i33 implements ei3<p33.a> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, n33> a;
+    public final Map<String, ei3<p33.a>> a;
+    public final List<gi3<p33.a, Boolean>> b;
+
+    /* loaded from: classes4.dex */
+    public class a implements ei3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ei3 a;
+        public final /* synthetic */ i33 b;
+
+        public a(i33 i33Var, ei3 ei3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i33Var, ei3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i33Var;
+            this.a = ei3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ei3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
+                return;
+            }
+            this.b.a.put(str, this.a);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements ei3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i33 a;
+
+        public b(i33 i33Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i33Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i33Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ei3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.a.a.remove(str);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +109,7 @@ public final class i33 {
                 return;
             }
         }
-        b = ij1.a;
+        c = vj1.a;
     }
 
     public i33() {
@@ -50,74 +125,77 @@ public final class i33 {
                 return;
             }
         }
-        this.a = null;
+        this.a = new HashMap();
+        this.b = new ArrayList();
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    public i33 c(gi3<p33.a, Boolean> gi3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            File d = fy2.d(str2);
-            if (d == null || !d.exists()) {
-                if (str.endsWith(File.separator)) {
-                    d = new File(str + str2 + ".json");
-                } else {
-                    d = new File(str + File.separator + str2 + ".json");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gi3Var)) == null) {
+            if (gi3Var != null) {
+                this.b.add(gi3Var);
+            }
+            return this;
+        }
+        return (i33) invokeL.objValue;
+    }
+
+    public final boolean d(p33.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar)) == null) {
+            if (aVar == null) {
+                return false;
+            }
+            for (gi3<p33.a, Boolean> gi3Var : this.b) {
+                if (gi3Var != null && !gi3Var.a(aVar).booleanValue()) {
+                    return false;
                 }
             }
-            if (b) {
-                Log.d("PageConfigData", "parseConfigFile baseUrl : " + str + " ,page: " + str2 + " file exist:" + d.exists());
-            }
-            if (d.exists()) {
-                return ul2.m(d);
-            }
-            return null;
+            return true;
         }
-        return (String) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public n33 a(String str, @NonNull String str2, @NonNull n33 n33Var) {
-        InterceptResult invokeLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ei3
+    /* renamed from: e */
+    public void a(p33.a aVar) {
+        ei3<p33.a> ei3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, n33Var)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return n33Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            if (c) {
+                Log.i("EventHandler", "handle: " + aVar);
             }
-            n33 d = d(str, str2, n33Var);
-            this.a.put(str2, d);
-            return d;
+            if (!d(aVar) || (ei3Var = this.a.get(aVar.b)) == null) {
+                return;
+            }
+            ei3Var.a(aVar);
         }
-        return (n33) invokeLLL.objValue;
     }
 
-    public n33 b(String str, String str2, @NonNull n33 n33Var) {
-        InterceptResult invokeLLL;
+    public i33 f(ei3<p33.a> ei3Var, String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, n33Var)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return n33Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, ei3Var, strArr)) == null) {
+            if (ei3Var != null && strArr != null && strArr.length > 0) {
+                di3.d(new a(this, ei3Var), strArr);
             }
-            if (this.a == null) {
-                this.a = new TreeMap();
-            }
-            n33 n33Var2 = this.a.get(str2);
-            if (n33Var2 != null) {
-                return n33Var2;
-            }
-            n33 d = d(str, str2, n33Var);
-            this.a.put(str2, d);
-            return d;
+            return this;
         }
-        return (n33) invokeLLL.objValue;
+        return (i33) invokeLL.objValue;
     }
 
-    public final n33 d(String str, String str2, @NonNull n33 n33Var) {
-        InterceptResult invokeLLL;
+    public i33 g(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, n33Var)) == null) {
-            String c = c(str, str2);
-            return TextUtils.isEmpty(c) ? n33Var : n33.b(c, n33Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
+            if (strArr != null && strArr.length > 0) {
+                di3.d(new b(this), strArr);
+            }
+            return this;
         }
-        return (n33) invokeLLL.objValue;
+        return (i33) invokeL.objValue;
     }
 }

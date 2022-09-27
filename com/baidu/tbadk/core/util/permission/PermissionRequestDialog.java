@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au4;
+import com.baidu.tieba.nu4;
 import com.baidu.tieba.r9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 import com.kuaishou.weapon.p0.h;
 /* loaded from: classes3.dex */
-public class PermissionRequestDialog extends au4 {
+public class PermissionRequestDialog extends nu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView mCloseView;
@@ -66,12 +66,12 @@ public class PermissionRequestDialog extends au4 {
         if (interceptable == null || interceptable.invokeV(65541, this) == null) {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d022e, (ViewGroup) null);
             this.mRootView = viewGroup;
-            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923e5);
-            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e4);
-            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e2);
+            this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923e7);
+            this.mDetailView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e6);
+            TextView textView = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e4);
             this.mCloseView = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f03f8);
-            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e3);
+            TextView textView2 = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0923e5);
             this.mContinueView = textView2;
             textView2.setText(R.string.obfuscated_res_0x7f0f026a);
             onChangeSkinType();
@@ -79,8 +79,8 @@ public class PermissionRequestDialog extends au4 {
         }
     }
 
-    @Override // com.baidu.tieba.au4
-    public au4 create(r9<?> r9Var) {
+    @Override // com.baidu.tieba.nu4
+    public nu4 create(r9<?> r9Var) {
         InterceptResult invokeL;
         char c;
         String string;
@@ -186,7 +186,7 @@ public class PermissionRequestDialog extends au4 {
             });
             return this;
         }
-        return (au4) invokeL.objValue;
+        return (nu4) invokeL.objValue;
     }
 
     public void onChangeSkinType() {

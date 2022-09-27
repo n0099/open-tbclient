@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af7;
-import com.baidu.tieba.bf7;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.df7;
 import com.baidu.tieba.interestlabel.model.LabelRequestEnum;
 import com.baidu.tieba.interestlabel.model.LabelSettingModel;
+import com.baidu.tieba.of7;
+import com.baidu.tieba.ox4;
+import com.baidu.tieba.pf7;
+import com.baidu.tieba.rf7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,12 +28,12 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LabelSettingModel a;
-    public df7 b;
+    public rf7 b;
     public int c;
-    public bf7 d;
+    public pf7 d;
 
     /* loaded from: classes4.dex */
-    public class a implements bf7 {
+    public class a implements pf7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LabelRecommendActivity a;
@@ -56,14 +56,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             this.a = labelRecommendActivity;
         }
 
-        @Override // com.baidu.tieba.bf7
-        public void a(LabelRequestEnum labelRequestEnum, af7 af7Var, int i) {
+        @Override // com.baidu.tieba.pf7
+        public void a(LabelRequestEnum labelRequestEnum, of7 of7Var, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, af7Var, i) == null) {
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, labelRequestEnum, of7Var, i) == null) {
                 int i2 = b.a[labelRequestEnum.ordinal()];
                 if (i2 != 1) {
                     if (i2 == 2 && i == 0) {
-                        bx4.k().u("set_recommend_label", true);
+                        ox4.k().u("set_recommend_label", true);
                         this.a.B1();
                         this.a.finish();
                         return;
@@ -72,10 +72,10 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                 }
                 LabelRecommendActivity labelRecommendActivity = this.a;
                 labelRecommendActivity.hideLoadingView(labelRecommendActivity.b.c());
-                if (af7Var != null && !ListUtils.isEmpty(af7Var.b()) && !ListUtils.isEmpty(af7Var.a())) {
+                if (of7Var != null && !ListUtils.isEmpty(of7Var.b()) && !ListUtils.isEmpty(of7Var.a())) {
                     LabelRecommendActivity labelRecommendActivity2 = this.a;
                     labelRecommendActivity2.hideNetRefreshView(labelRecommendActivity2.b.c());
-                    this.a.b.j(af7Var);
+                    this.a.b.j(of7Var);
                     return;
                 }
                 LabelRecommendActivity labelRecommendActivity3 = this.a;
@@ -180,9 +180,9 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            df7 df7Var = new df7(this);
-            this.b = df7Var;
-            df7Var.k(this);
+            rf7 rf7Var = new rf7(this);
+            this.b = rf7Var;
+            rf7Var.k(this);
             LabelSettingModel labelSettingModel = new LabelSettingModel(getPageContext());
             this.a = labelSettingModel;
             labelSettingModel.G(this.d);
@@ -191,7 +191,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             }
             TiebaStatic.log(new StatisticItem("c12243").param("obj_type", this.c));
             a();
-            bx4.k().u("show_recommend_label", true);
+            ox4.k().u("show_recommend_label", true);
         }
     }
 

@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class qx extends nx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lq4 h;
+    public yq4 h;
     public ForumEnterLayout i;
     public final View.OnClickListener j;
 
@@ -122,12 +122,12 @@ public class qx extends nx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: v */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, lq4Var) == null) {
-            this.h = lq4Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, yq4Var) == null) {
+            this.h = yq4Var;
             this.i.setSourceForPb(this.a.i());
-            this.i.setData(lq4Var);
+            this.i.setData(yq4Var);
         }
     }
 

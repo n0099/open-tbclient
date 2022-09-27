@@ -1,73 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class eh9 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDFactory";
-    public static boolean c;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ih9 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947734483, "Lcom/baidu/tieba/eh9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947734483, "Lcom/baidu/tieba/eh9;");
-                return;
-            }
-        }
-        c = bh9.e();
-    }
-
-    public eh9(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        int a = ch9.a();
-        if (c) {
-            String str = b;
-            Log.e(str, "UnionIDFactory manufacturer:" + a);
-        }
-        if (a == 10001) {
-            this.a = new kh9(context);
-        } else if (a != 10002) {
-            this.a = new lh9(context);
-        } else {
-            if (c) {
-                Log.e(b, "UnionIDFactory XMUnionID");
-            }
-            this.a = new mh9(context);
-        }
-    }
-
-    public ih9 a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ih9) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b() : invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.MODEL;
+            if (kh9.a(str)) {
+                return false;
+            }
+            return str.equalsIgnoreCase("OPPO R9sk");
+        }
+        return invokeV.booleanValue;
     }
 }

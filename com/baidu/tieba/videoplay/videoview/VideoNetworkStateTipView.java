@@ -10,9 +10,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lo4;
+import com.baidu.tieba.hv8;
 import com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView;
-import com.baidu.tieba.su8;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     private void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092543);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092545);
         }
     }
 
@@ -63,7 +63,7 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (b() || su8.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !BdNetTypeUtil.isMobileNet()) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (b() || hv8.c().d() || TbadkCoreApplication.getInst().getVideoAutoPlayReal() == 2 || !BdNetTypeUtil.isMobileNet()) ? false : true : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoNetworkStateTipView
@@ -81,8 +81,8 @@ public class VideoNetworkStateTipView extends OperableVideoNetworkStateTipView {
             return;
         }
         if (view2.getId() == R.id.obfuscated_res_0x7f090ad5) {
-            lo4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
-        } else if (view2.getId() != R.id.obfuscated_res_0x7f0919e8 || (onClickListener = this.c) == null) {
+            yo4.z(true, getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f06e2), TbConfig.URL_BAIDU_SINGKIL);
+        } else if (view2.getId() != R.id.obfuscated_res_0x7f0919ea || (onClickListener = this.c) == null) {
         } else {
             onClickListener.onClick(view2);
         }

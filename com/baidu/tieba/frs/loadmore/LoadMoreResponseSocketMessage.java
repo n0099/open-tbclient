@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
 import com.baidu.tieba.Cdo;
-import com.baidu.tieba.bs4;
-import com.baidu.tieba.ve8;
-import com.baidu.tieba.ye8;
+import com.baidu.tieba.kf8;
+import com.baidu.tieba.nf8;
+import com.baidu.tieba.os4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,7 +78,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     }
                 }
             }
-            ve8.e().h(threadListResIdl.data.asp_shown_info);
+            kf8.e().h(threadListResIdl.data.asp_shown_info);
             long j = 0;
             Message<?> orginalMessage2 = getOrginalMessage();
             if (orginalMessage2 == null || !(orginalMessage2.getExtra() instanceof LoadMoreRequestMessage)) {
@@ -103,18 +103,18 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     threadData.parser_title();
                     threadData.isFromBrandForum = z;
                     if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                        bs4 bs4Var = new bs4();
-                        bs4Var.h(threadData.getLegoCard());
-                        this.threadList.add(bs4Var);
+                        os4 os4Var = new os4();
+                        os4Var.h(threadData.getLegoCard());
+                        this.threadList.add(os4Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = ye8.b(threadInfo);
+                        JSONObject b = nf8.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                ye8.f().h("FRS", arrayList);
+                nf8.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

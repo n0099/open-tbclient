@@ -8,15 +8,15 @@ import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.PostPrefixData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.kf8;
-import com.baidu.tieba.ro8;
+import com.baidu.tieba.gp8;
+import com.baidu.tieba.zf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class EditThreadDispatcher implements kf8 {
+public class EditThreadDispatcher implements zf8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ORIGINAL_THREAD = "1";
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class EditThreadDispatcher implements kf8 {
         }
     }
 
-    @Override // com.baidu.tieba.kf8
+    @Override // com.baidu.tieba.zf8
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) || jSONObject == null || context == null) {
@@ -83,7 +83,7 @@ public class EditThreadDispatcher implements kf8 {
             intent.putExtra("from", "frs");
             intent.putExtra(BaseWriteConfig.KEY_CALL_FROM, "2");
             intent.setClass(context, WriteActivity.class);
-            ro8.h = intent;
+            gp8.h = intent;
             context.startActivity(intent);
         }
     }

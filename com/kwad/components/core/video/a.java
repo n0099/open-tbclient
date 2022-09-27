@@ -34,7 +34,7 @@ import com.kwad.sdk.widget.KSRelativeLayout;
 public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterfaceC0585a JA;
+    public InterfaceC0581a JA;
     public final com.kwad.sdk.core.download.kwai.a JB;
     public boolean Jk;
     public boolean Jl;
@@ -65,7 +65,7 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
 
     /* renamed from: com.kwad.components.core.video.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0585a {
+    public interface InterfaceC0581a {
         void a(int i, aa.a aVar);
     }
 
@@ -189,12 +189,12 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
     }
 
     private void aq(int i) {
-        InterfaceC0585a interfaceC0585a;
+        InterfaceC0581a interfaceC0581a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65538, this, i) == null) || (interfaceC0585a = this.JA) == null) {
+        if (!(interceptable == null || interceptable.invokeI(65538, this, i) == null) || (interfaceC0581a = this.JA) == null) {
             return;
         }
-        interfaceC0585a.a(i, this.Jp.getTouchCoords());
+        interfaceC0581a.a(i, this.Jp.getTouchCoords());
     }
 
     private void init() {
@@ -499,10 +499,10 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
         }
     }
 
-    public void setAdClickListener(InterfaceC0585a interfaceC0585a) {
+    public void setAdClickListener(InterfaceC0581a interfaceC0581a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, interfaceC0585a) == null) {
-            this.JA = interfaceC0585a;
+        if (interceptable == null || interceptable.invokeL(1048594, this, interfaceC0581a) == null) {
+            this.JA = interfaceC0581a;
         }
     }
 

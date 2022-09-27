@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class od5 extends nb {
+public class od5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public od5() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,29 +19,19 @@ public class od5 extends nb {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        BdUniqueId.gen();
+        this.a = 0;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kb
-    /* renamed from: c */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage == null) {
-                return null;
-            }
-            if (socketResponsedMessage.getError() == 2260104) {
-                xg5.a();
-            }
-            return socketResponsedMessage;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

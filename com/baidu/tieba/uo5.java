@@ -1,38 +1,76 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class uo5 implements NadAsyncRequester.b {
+public class uo5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PlaceId a;
-    public String b;
-    public int c;
-    public boolean d;
-    public NadAsyncRequester e;
-    public long f;
-    public final WeakReference<IAdBaseAsyncController.a> g;
+    public BaseActivity a;
+    public boolean b;
+    public List<AccountData> c;
+    public View.OnClickListener d;
 
-    public uo5(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
+        public TextView d;
+
+        public b(uo5 uo5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uo5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(uo5 uo5Var, a aVar) {
+            this(uo5Var);
+        }
+    }
+
+    public uo5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {placeId, str, aVar};
+            Object[] objArr = {baseActivity, onClickListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,80 +80,141 @@ public class uo5 implements NadAsyncRequester.b {
                 return;
             }
         }
-        this.d = false;
-        this.f = 0L;
-        this.a = placeId;
-        this.b = str;
-        this.g = new WeakReference<>(aVar);
-        this.e = new NadAsyncRequester(this, this.a);
+        this.a = baseActivity;
+        this.c = null;
+        this.b = false;
+        this.d = onClickListener;
     }
 
-    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.b
-    public final void a(boolean z, List<AdvertAppInfo> list) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-            IAdBaseAsyncController.a aVar = this.g.get();
-            if (!z || mg7.e(list)) {
-                if (aVar != null) {
-                    aVar.b(null);
-                    return;
-                }
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void b(List<AccountData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.c = list;
+        }
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<AccountData> list = this.c;
+            return (list != null ? list.size() : 0) + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            List<AccountData> list = this.c;
+            if (list == null || i < 0 || i >= list.size()) {
+                return null;
             }
-            f(list);
-            c(list);
-            if (aVar != null) {
-                aVar.b(list);
+            return this.c.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            if (getItem(i) != null) {
+                return i;
             }
+            return -1L;
         }
+        return invokeI.longValue;
     }
 
-    public void b() {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.h();
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? getItemId(i) >= 0 ? 0 : 1 : invokeI.intValue;
     }
 
-    public void c(List<AdvertAppInfo> list) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-        }
-    }
-
-    public void d(int i, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(1048579, this, i, map) == null) || System.currentTimeMillis() - this.f < this.c * tc8.a) {
-            return;
-        }
-        this.e.i(map, i);
-        this.f = System.currentTimeMillis();
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void f(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            Iterator<AdvertAppInfo> it = list.iterator();
-            while (it.hasNext()) {
-                AdvertAppInfo next = it.next();
-                next.j = this.b;
-                if (qc8.l(next) && this.d) {
-                    it.remove();
-                } else {
-                    int n = next.n();
-                    if (n != 0) {
-                        ze8.h(next, 0, n);
-                        it.remove();
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            try {
+                try {
+                    if (view2 == null) {
+                        if (getItemViewType(i) == 0) {
+                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0022, viewGroup, false);
+                            bVar = new b(this, null);
+                            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090051);
+                            bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090071);
+                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090789);
+                            bVar.d = textView;
+                            hv4.d(textView).v(R.color.CAM_X0105);
+                            bVar.d.setOnClickListener(this.d);
+                            view2.setTag(bVar);
+                            hv4.d(bVar.a).v(R.color.CAM_X0105);
+                            SkinManager.setBackgroundResource(bVar.c, R.drawable.icon_set_list_ok_s);
+                        } else {
+                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
+                            bVar = new b(this, null);
+                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090124);
+                            view2.setTag(bVar);
+                            hv4.d(bVar.b).v(R.color.CAM_X0302);
+                        }
+                    } else {
+                        bVar = (b) view2.getTag();
                     }
+                    if (getItemViewType(i) == 0) {
+                        AccountData accountData = (AccountData) getItem(i);
+                        bVar.c.setVisibility(8);
+                        bVar.d.setVisibility(8);
+                        bVar.d.setTag(accountData);
+                        if (accountData != null) {
+                            bVar.a.setText(accountData.getAccountNameShow());
+                            if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
+                                bVar.c.setVisibility(0);
+                            }
+                            if (this.b) {
+                                bVar.d.setVisibility(0);
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                 }
+                return view2;
+            } finally {
+                hv4.d(view2).f(R.color.CAM_X0205);
             }
         }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
     }
 }

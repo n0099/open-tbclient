@@ -29,13 +29,13 @@ import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.g88;
-import com.baidu.tieba.h88;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.rb;
+import com.baidu.tieba.u88;
+import com.baidu.tieba.v88;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,7 +70,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public g88 mCardNullPolymericData;
+    public u88 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -972,15 +972,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new h88());
+            this.postList.add(new v88());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            g88 g88Var = new g88();
-            this.mCardNullPolymericData = g88Var;
-            this.postList.add(g88Var);
+            u88 u88Var = new u88();
+            this.mCardNullPolymericData = u88Var;
+            this.postList.add(u88Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {

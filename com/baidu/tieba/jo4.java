@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface jo4 {
-    float a();
+    void a(lo4 lo4Var);
 
-    int b();
+    void onPreLoad();
 }

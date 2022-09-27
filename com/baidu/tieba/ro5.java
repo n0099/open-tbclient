@@ -1,274 +1,164 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.ad8;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public final class ro5 implements ad8 {
+public class ro5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern d;
-    public static ro5 e;
+    public static volatile ro5 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<ad8.a> a;
-    public final ConcurrentHashMap<String, ad8.b> b;
-    public ad8.c c;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ad8.a a;
-        public final /* synthetic */ ro5 b;
-
-        public a(ro5 ro5Var, ad8.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ro5Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ro5Var;
-            this.a = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.f(this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948128369, "Lcom/baidu/tieba/ro5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948128369, "Lcom/baidu/tieba/ro5;");
-                return;
-            }
-        }
-        d = Pattern.compile(UrlManager.patternText, 2);
-        e = new ro5();
-    }
+    public ArrayList<Integer> a;
+    public oo5 b;
+    public qo5 c;
+    public List<StatisticItem> d;
 
     public ro5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedList();
-        this.b = new ConcurrentHashMap<>();
-        this.c = null;
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        this.a = arrayList;
+        arrayList.add(1);
+        this.a.add(2);
+        qo5 qo5Var = new qo5();
+        this.c = qo5Var;
+        this.b = new oo5(qo5Var, this.a);
+        g(ox4.k().l("key_abtest_channel", 0));
     }
 
-    public static ro5 l() {
+    public static ro5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e : (ro5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ad8
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? !TextUtils.isEmpty(str) && d.matcher(str).find() : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ad8
-    public void b(Context context, String[] strArr, boolean z, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, strArr, Boolean.valueOf(z), bundle}) == null) {
-            h(context, strArr, false, null, z, bundle);
-        }
-    }
-
-    @Override // com.baidu.tieba.ad8
-    public boolean c(Context context, String[] strArr, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, strArr, bundle)) == null) ? h(context, strArr, false, null, false, bundle) : invokeLLL.booleanValue;
-    }
-
-    public void e(ad8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            if (ej.C()) {
-                f(aVar);
-            } else {
-                gh.a().post(new a(this, aVar));
-            }
-        }
-    }
-
-    public final void f(ad8.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) || this.a.contains(aVar)) {
-            return;
-        }
-        this.a.add(aVar);
-    }
-
-    public boolean g(Context context, String str, String[] strArr, boolean z, ad8.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{context, str, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) {
-            if (strArr == null || strArr.length == 0 || TextUtils.isEmpty(strArr[0])) {
-                return false;
-            }
-            String str2 = strArr[0];
-            ad8.b bVar = this.b.get(m(str2));
-            if (bVar != null) {
-                bVar.a(context, j(k(str2)));
-                return true;
-            }
-            Iterator<ad8.a> it = this.a.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    z3 = false;
-                    break;
-                }
-                ad8.a next = it.next();
-                if (next != null && next.a(context, strArr) != 3) {
-                    z3 = true;
-                    break;
-                }
-            }
-            if (!z3 && this.c != null) {
-                if (str2.contains("nohead:url") || str2.contains("booktown") || str2.contains("bookreader")) {
-                    return true;
-                }
-                n(context, str, strArr[0], z, dVar, z2, bundle);
-            }
-            return z3;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public boolean h(Context context, String[] strArr, boolean z, ad8.d dVar, boolean z2, Bundle bundle) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{context, strArr, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle})) == null) ? g(context, "", strArr, z, dVar, z2, bundle) : invokeCommon.booleanValue;
-    }
-
-    public int i(Context context, String[] strArr) {
-        InterceptResult invokeLL;
-        int a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (ad8.a aVar : this.a) {
-                    if (aVar != null && (a2 = aVar.a(context, strArr)) != 3) {
-                        return a2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (qo5.class) {
+                    if (e == null) {
+                        e = new ro5();
                     }
                 }
             }
-            return 3;
+            return e;
         }
-        return invokeLL.intValue;
+        return (ro5) invokeV.objValue;
     }
 
-    public final Map<String, String> j(String str) {
-        InterceptResult invokeL;
+    public void a(StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
+            return;
+        }
+        if (this.d == null) {
+            this.d = new ArrayList();
+        }
+        this.d.add(statisticItem);
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            oo5 oo5Var = this.b;
+            if (oo5Var == null) {
+                return 0;
             }
-            HashMap hashMap = new HashMap();
-            String[] split = str.split("[&]");
-            if (split == null) {
-                hashMap.put(UrlManager.DEFAULT_PARAM, str);
-                return hashMap;
+            return oo5Var.a(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void d(String str) {
+        qo5 qo5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (dj.isEmpty(str) || (qo5Var = this.c) == null || !qo5Var.g()) {
+                fb9.d(str);
             }
-            for (String str2 : split) {
-                String[] split2 = str2.split("[=]");
-                if (split2.length > 1) {
-                    hashMap.put(split2[0], split2[1]);
+        }
+    }
+
+    public void e(String str) {
+        qo5 qo5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (dj.isEmpty(str) || (qo5Var = this.c) == null || !qo5Var.g()) {
+                fb9.e(str);
+            }
+        }
+    }
+
+    public void f(String str) {
+        oo5 oo5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, str) == null) || (oo5Var = this.b) == null) {
+            return;
+        }
+        oo5Var.b(str);
+    }
+
+    public void g(int i) {
+        qo5 qo5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (qo5Var = this.c) == null) {
+            return;
+        }
+        qo5Var.k(i);
+    }
+
+    public void h(String str, String str2) {
+        qo5 qo5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) || ListUtils.isEmpty(this.d) || (qo5Var = this.c) == null || !qo5Var.g()) {
+            return;
+        }
+        int i = -1;
+        for (StatisticItem statisticItem : this.d) {
+            if (statisticItem != null) {
+                if (statisticItem.getPosition() == 0) {
+                    i(str, str2, statisticItem);
+                } else if (i != statisticItem.getPosition()) {
+                    i = statisticItem.getPosition();
+                    i(str, str2, statisticItem);
                 }
             }
-            return hashMap;
         }
-        return (Map) invokeL.objValue;
+        this.d.clear();
     }
 
-    public final String k(String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
+    public void i(String str, String str2, StatisticItem statisticItem) {
+        qo5 qo5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
-                return str.substring(lastIndexOf + 1);
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) || statisticItem == null || (qo5Var = this.c) == null || !qo5Var.g()) {
+            return;
+        }
+        HashMap hashMap = new HashMap();
+        List<Object> params = statisticItem.getParams();
+        if (params != null) {
+            int size = params.size();
+            for (int i = 0; i < size; i += 2) {
+                Object obj = params.get(i);
+                String obj2 = obj != null ? obj.toString() : "";
+                Object obj3 = params.get(i + 1);
+                hashMap.put(obj2, obj3 != null ? obj3.toString() : "");
             }
-            return null;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            return str.contains(":") ? str.substring(0, str.lastIndexOf(":")) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void n(Context context, String str, String str2, boolean z, ad8.d dVar, boolean z2, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{context, str, str2, Boolean.valueOf(z), dVar, Boolean.valueOf(z2), bundle}) == null) && d.matcher(str2).find()) {
-            this.c.a(context, str, str2, z, dVar, z2, bundle);
-        }
-    }
-
-    public void o(ad8.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, cVar) == null) {
-            this.c = cVar;
-        }
+        fb9.c(str2 + statisticItem.getKey(), str, "", hashMap);
     }
 }

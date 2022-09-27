@@ -6,7 +6,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.ij1;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,7 +87,7 @@ public class SwanAppBearInfo extends SwanAppIPCData {
                 return;
             }
         }
-        DEBUG = ij1.a;
+        DEBUG = vj1.a;
         CREATOR = new a();
     }
 

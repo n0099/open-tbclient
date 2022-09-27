@@ -1,41 +1,77 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.util.AttributeSet;
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes5.dex */
-public abstract class pg4 extends og4 {
+public class pg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public pg4() {
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
             }
+            return sb.toString();
         }
+        return (String) invokeLLZ.objValue;
     }
 
-    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
-    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
-            View h = h(view2, str, context, attributeSet);
-            return (h != null || Build.VERSION.SDK_INT < 11) ? h : super.onCreateView(view2, str, context, attributeSet);
+        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) != null) {
+            return (String) invokeLZ.objValue;
         }
-        return (View) invokeLLLL.objValue;
+        FileInputStream fileInputStream2 = null;
+        try {
+            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+            messageDigest.reset();
+            fileInputStream = new FileInputStream(file);
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    int read = fileInputStream.read(bArr);
+                    if (read > 0) {
+                        messageDigest.update(bArr, 0, read);
+                    } else {
+                        String a = a(messageDigest.digest(), "", z);
+                        pj4.d(fileInputStream);
+                        return a;
+                    }
+                }
+            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
+                pj4.d(fileInputStream);
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                fileInputStream2 = fileInputStream;
+                pj4.d(fileInputStream2);
+                throw th;
+            }
+        } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
+            fileInputStream = null;
+        } catch (Throwable th2) {
+            th = th2;
+        }
     }
 }

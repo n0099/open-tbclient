@@ -5,8 +5,8 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ng4;
-import com.baidu.tieba.vg4;
+import com.baidu.tieba.ah4;
+import com.baidu.tieba.ih4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -86,12 +86,12 @@ public final class BackStackState implements Parcelable {
         CREATOR = new a();
     }
 
-    public BackStackState(ng4 ng4Var) {
+    public BackStackState(ah4 ah4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ng4Var};
+            Object[] objArr = {ah4Var};
             interceptable.invokeUnInit(65538, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,16 +102,16 @@ public final class BackStackState implements Parcelable {
             }
         }
         int i3 = 0;
-        for (ng4.d dVar = ng4Var.b; dVar != null; dVar = dVar.a) {
+        for (ah4.d dVar = ah4Var.b; dVar != null; dVar = dVar.a) {
             ArrayList<Fragment> arrayList = dVar.i;
             if (arrayList != null) {
                 i3 += arrayList.size();
             }
         }
-        this.mOps = new int[(ng4Var.d * 7) + i3];
-        if (ng4Var.k) {
+        this.mOps = new int[(ah4Var.d * 7) + i3];
+        if (ah4Var.k) {
             int i4 = 0;
-            for (ng4.d dVar2 = ng4Var.b; dVar2 != null; dVar2 = dVar2.a) {
+            for (ah4.d dVar2 = ah4Var.b; dVar2 != null; dVar2 = dVar2.a) {
                 int[] iArr = this.mOps;
                 int i5 = i4 + 1;
                 iArr[i4] = dVar2.c;
@@ -144,16 +144,16 @@ public final class BackStackState implements Parcelable {
                     i4 = i10 + 1;
                 }
             }
-            this.mTransition = ng4Var.i;
-            this.mTransitionStyle = ng4Var.j;
-            this.mName = ng4Var.m;
-            this.mIndex = ng4Var.o;
-            this.mBreadCrumbTitleRes = ng4Var.p;
-            this.mBreadCrumbTitleText = ng4Var.q;
-            this.mBreadCrumbShortTitleRes = ng4Var.r;
-            this.mBreadCrumbShortTitleText = ng4Var.s;
-            this.mSharedElementSourceNames = ng4Var.t;
-            this.mSharedElementTargetNames = ng4Var.u;
+            this.mTransition = ah4Var.i;
+            this.mTransitionStyle = ah4Var.j;
+            this.mName = ah4Var.m;
+            this.mIndex = ah4Var.o;
+            this.mBreadCrumbTitleRes = ah4Var.p;
+            this.mBreadCrumbTitleText = ah4Var.q;
+            this.mBreadCrumbShortTitleRes = ah4Var.r;
+            this.mBreadCrumbShortTitleText = ah4Var.s;
+            this.mSharedElementSourceNames = ah4Var.t;
+            this.mSharedElementTargetNames = ah4Var.u;
             return;
         }
         throw new IllegalStateException("Not on back stack");
@@ -169,24 +169,24 @@ public final class BackStackState implements Parcelable {
         return invokeV.intValue;
     }
 
-    public ng4 instantiate(vg4 vg4Var) {
+    public ah4 instantiate(ih4 ih4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vg4Var)) == null) {
-            ng4 ng4Var = new ng4(vg4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ih4Var)) == null) {
+            ah4 ah4Var = new ah4(ih4Var);
             int i = 0;
             int i2 = 0;
             while (i < this.mOps.length) {
-                ng4.d dVar = new ng4.d();
+                ah4.d dVar = new ah4.d();
                 int i3 = i + 1;
                 dVar.c = this.mOps[i];
-                if (vg4.x) {
-                    Log.v("FragmentManager", "Instantiate " + ng4Var + " op #" + i2 + " base fragment #" + this.mOps[i3]);
+                if (ih4.x) {
+                    Log.v("FragmentManager", "Instantiate " + ah4Var + " op #" + i2 + " base fragment #" + this.mOps[i3]);
                 }
                 int i4 = i3 + 1;
                 int i5 = this.mOps[i3];
                 if (i5 >= 0) {
-                    dVar.d = vg4Var.d.get(i5);
+                    dVar.d = ih4Var.d.get(i5);
                 } else {
                     dVar.d = null;
                 }
@@ -205,33 +205,33 @@ public final class BackStackState implements Parcelable {
                     dVar.i = new ArrayList<>(i11);
                     int i12 = 0;
                     while (i12 < i11) {
-                        if (vg4.x) {
-                            Log.v("FragmentManager", "Instantiate " + ng4Var + " set remove fragment #" + this.mOps[i10]);
+                        if (ih4.x) {
+                            Log.v("FragmentManager", "Instantiate " + ah4Var + " set remove fragment #" + this.mOps[i10]);
                         }
-                        dVar.i.add(vg4Var.d.get(this.mOps[i10]));
+                        dVar.i.add(ih4Var.d.get(this.mOps[i10]));
                         i12++;
                         i10++;
                     }
                 }
                 i = i10;
-                ng4Var.o(dVar);
+                ah4Var.o(dVar);
                 i2++;
             }
-            ng4Var.i = this.mTransition;
-            ng4Var.j = this.mTransitionStyle;
-            ng4Var.m = this.mName;
-            ng4Var.o = this.mIndex;
-            ng4Var.k = true;
-            ng4Var.p = this.mBreadCrumbTitleRes;
-            ng4Var.q = this.mBreadCrumbTitleText;
-            ng4Var.r = this.mBreadCrumbShortTitleRes;
-            ng4Var.s = this.mBreadCrumbShortTitleText;
-            ng4Var.t = this.mSharedElementSourceNames;
-            ng4Var.u = this.mSharedElementTargetNames;
-            ng4Var.q(1);
-            return ng4Var;
+            ah4Var.i = this.mTransition;
+            ah4Var.j = this.mTransitionStyle;
+            ah4Var.m = this.mName;
+            ah4Var.o = this.mIndex;
+            ah4Var.k = true;
+            ah4Var.p = this.mBreadCrumbTitleRes;
+            ah4Var.q = this.mBreadCrumbTitleText;
+            ah4Var.r = this.mBreadCrumbShortTitleRes;
+            ah4Var.s = this.mBreadCrumbShortTitleText;
+            ah4Var.t = this.mSharedElementSourceNames;
+            ah4Var.u = this.mSharedElementTargetNames;
+            ah4Var.q(1);
+            return ah4Var;
         }
-        return (ng4) invokeL.objValue;
+        return (ah4) invokeL.objValue;
     }
 
     @Override // android.os.Parcelable

@@ -13,11 +13,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class lt5 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static final BdUniqueId d;
+    public static final BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
-    public ys5 a;
-    public ys5 b;
+    public SdkLiveInfoData a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
     static {
         InterceptResult invokeClinit;
@@ -32,8 +37,7 @@ public class lt5 extends BaseCardInfo {
                 return;
             }
         }
-        c = BdUniqueId.gen();
-        d = BdUniqueId.gen();
+        i = BdUniqueId.gen();
     }
 
     public lt5() {
@@ -41,29 +45,24 @@ public class lt5 extends BaseCardInfo {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.f = false;
+        this.g = false;
+        this.h = false;
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
-        SdkLiveInfoData sdkLiveInfoData;
-        SdkLiveInfoData.AlaLiveInfo alaLiveInfo;
-        SdkLiveInfoData.YYExt yYExt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ys5 ys5Var = this.a;
-            if (ys5Var != null && (sdkLiveInfoData = ys5Var.a) != null && (alaLiveInfo = sdkLiveInfoData.liveInfo) != null && (yYExt = alaLiveInfo.yyExt) != null && yYExt.isYYGame == 1) {
-                return d;
-            }
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? i : (BdUniqueId) invokeV.objValue;
     }
 }

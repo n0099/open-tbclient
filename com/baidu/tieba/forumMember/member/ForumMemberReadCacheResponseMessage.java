@@ -3,7 +3,7 @@ package com.baidu.tieba.forumMember.member;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vl8;
+import com.baidu.tieba.km8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
     public MemberGodInfo mMemberGodInfo;
     public List<MemberGroupInfo> mMemberGroupInfoList;
     public PriManagerApplyInfo mPrivateMgrApplyInfo;
-    public vl8 mUserInfo;
+    public km8 mUserInfo;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumMemberReadCacheResponseMessage() {
@@ -63,9 +63,9 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
                 }
                 if (getError() == 0 && (dataRes = getMemberInfoResIdl.data) != null) {
                     if (dataRes.forum_member_info != null) {
-                        vl8 vl8Var = new vl8();
-                        this.mUserInfo = vl8Var;
-                        vl8Var.x(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
+                        km8 km8Var = new km8();
+                        this.mUserInfo = km8Var;
+                        km8Var.x(getMemberInfoResIdl.data.forum_member_info.is_like.intValue());
                         this.mUserInfo.t(getMemberInfoResIdl.data.forum_member_info.cur_score.intValue());
                         this.mUserInfo.w(getMemberInfoResIdl.data.forum_member_info.levelup_score.intValue());
                         this.mUserInfo.y(getMemberInfoResIdl.data.forum_member_info.user_level.intValue());
@@ -107,10 +107,10 @@ public class ForumMemberReadCacheResponseMessage extends CustomResponsedMessage<
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mPrivateMgrApplyInfo : (PriManagerApplyInfo) invokeV.objValue;
     }
 
-    public vl8 getUserInfo() {
+    public km8 getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserInfo : (vl8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.mUserInfo : (km8) invokeV.objValue;
     }
 
     public boolean isBawuShow() {

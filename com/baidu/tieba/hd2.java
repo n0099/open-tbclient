@@ -1,138 +1,42 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.download.center.clearcache.controller.ClearCacheUbcController;
+import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hd2 {
+public final class hd2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947819795, "Lcom/baidu/tieba/hd2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947819795, "Lcom/baidu/tieba/hd2;");
-                return;
-            }
+    public static void a(j22 j22Var, ld2 ld2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, j22Var, ld2Var) == null) || j22Var == null || ld2Var == null) {
+            return;
         }
-        a = ij1.a;
+        ld2Var.g(j22Var);
     }
 
-    public static void a() {
+    public static String b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            f(0).f().c();
-            f(0).e().f();
-            if (f(1) != null) {
-                f(1).f().c();
-                f(1).e().f();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return "";
             }
+            String quote = JSONObject.quote(str3);
+            return str + "." + str2 + " = " + quote + ParamableElem.DIVIDE_PARAM;
         }
+        return (String) invokeLLL.objValue;
     }
 
-    public static <T extends ee2> Exception b(int i, T t) {
-        InterceptResult invokeIL;
+    public static String c(j22 j22Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, t)) == null) {
-            kd2 f = f(i);
-            if (f == null) {
-                return new Exception("SwanExtCore-Manager doRemoteUpdate: null extensionCoreManager");
-            }
-            return f.a(t);
-        }
-        return (Exception) invokeIL.objValue;
-    }
-
-    public static ExtensionCore c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            kd2 f = f(i);
-            if (f == null) {
-                return null;
-            }
-            return f.c();
-        }
-        return (ExtensionCore) invokeI.objValue;
-    }
-
-    public static long d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            ExtensionCore c = c(i);
-            if (c != null) {
-                return c.extensionCoreVersionCode;
-            }
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    public static String e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            ExtensionCore c = c(i);
-            return (c == null || TextUtils.isEmpty(c.extensionCoreVersionName)) ? "0" : c.extensionCoreVersionName;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public static kd2 f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i == 1) {
-                kd2 t = gm2.i().t();
-                if (t == null && ij1.a) {
-                    Log.e("SwanGameRuntime", "非手百环境依赖注入接口getSwanGameExtensionCoreManager未实现，直接返回");
-                }
-                return t;
-            }
-            return gd2.k();
-        }
-        return (kd2) invokeI.objValue;
-    }
-
-    public static void g(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
-            if (a) {
-                Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
-            }
-            if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {
-                a();
-                pe2.i(0, true);
-                pe2.i(1, true);
-            }
-        }
-    }
-
-    public static void h(int i, @Nullable rh3<Exception> rh3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65544, null, i, rh3Var) == null) {
-            kd2 f = f(i);
-            if (f != null) {
-                f.g(rh3Var);
-            } else if (rh3Var != null) {
-                rh3Var.a(null);
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, j22Var)) == null) ? j22Var.isWebView() ? ClearCacheUbcController.DOCUMENT : SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME : (String) invokeL.objValue;
     }
 }

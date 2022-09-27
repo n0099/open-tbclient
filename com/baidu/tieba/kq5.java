@@ -1,80 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kq5 extends se1<qn0> {
+public class kq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile SQLiteDatabase a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements qn0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(kq5 kq5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kq5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.qn0
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d05fc : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.qn0
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.obfuscated_res_0x7f0d0600 : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.qn0
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d05fe : invokeV.intValue;
-        }
-    }
-
-    public kq5() {
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            synchronized (kq5.class) {
+                fj.b(a);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.se1
-    /* renamed from: a */
-    public qn0 createService() throws ServiceNotFoundException {
+    public static synchronized SQLiteDatabase b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (qn0) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (kq5.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "RelationshipDbManager.getRelationshipDataBase", new Object[0]);
+                }
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                if (a != null && a.isOpen()) {
+                    return a;
+                }
+                a = new jq5(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
+                return a;
+            }
+        }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

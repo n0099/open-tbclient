@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.view.MotionEvent;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,16 +18,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class v59 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public Bitmap b;
-    public Rect c;
+    @NonNull
+    public TbPageContext<?> a;
+    @NonNull
+    public NavigationBar b;
+    @NonNull
+    public LinearLayout c;
+    @NonNull
+    public LinearLayout d;
+    @NonNull
+    public r49 e;
+    public EditorTools f;
 
-    public v59(Context context) {
+    public v59(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull LinearLayout linearLayout2, @NonNull r49 r49Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, linearLayout2, r49Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,40 +45,64 @@ public class v59 {
                 return;
             }
         }
-        this.a = context;
-        this.c = new Rect();
+        this.a = tbPageContext;
+        this.b = navigationBar;
+        this.c = linearLayout;
+        this.d = linearLayout2;
+        this.e = r49Var;
     }
 
-    public void a(Canvas canvas, float f, float f2) {
-        Bitmap bitmap;
+    @Nullable
+    public u49 a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2)}) == null) || (bitmap = this.b) == null) {
-            return;
-        }
-        this.c.left = (int) (f - (bitmap.getWidth() / 2));
-        this.c.right = (int) (f + (this.b.getWidth() / 2));
-        this.c.top = (int) (f2 - (this.b.getHeight() / 2));
-        this.c.bottom = (int) (f2 + (this.b.getHeight() / 2));
-        canvas.drawBitmap(this.b, (Rect) null, this.c, (Paint) null);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? c(i, z) : (u49) invokeCommon.objValue;
     }
 
-    public boolean b(MotionEvent motionEvent) {
+    @Nullable
+    public u49 b(Bundle bundle) {
         InterceptResult invokeL;
+        Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            int i = 9;
+            if (bundle != null) {
+                i = bundle.getInt("type", 9);
+            } else if (this.a.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
+                i = intent.getIntExtra("type", 9);
             }
-            Rect rect = this.c;
-            return motionEvent.getX(0) >= ((float) rect.left) && motionEvent.getX(0) <= ((float) rect.right) && motionEvent.getY(0) >= ((float) rect.top) && motionEvent.getY(0) <= ((float) rect.bottom);
+            return c(i, true);
         }
-        return invokeL.booleanValue;
+        return (u49) invokeL.objValue;
     }
 
-    public void c(int i) {
+    public final u49 c(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = BitmapHelper.getResBitmap(this.a, i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (this.a.getPageActivity() == null) {
+                return null;
+            }
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_LEFT);
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+            this.c.removeAllViews();
+            this.d.removeAllViews();
+            EditorTools editorTools = new EditorTools(this.a.getPageActivity());
+            this.f = editorTools;
+            this.d.addView(editorTools);
+            switch (i) {
+                case 11:
+                    return new f69(this.a, this.b, this.c, this.f, this.e, z);
+                case 12:
+                    return new b69(this.a, this.b, this.c, this.f, this.e, z);
+                case 13:
+                    return new c69(this.a, this.b, this.c, this.f, this.e, z);
+                case 14:
+                    return new e69(this.a, this.b, this.c, this.f, this.e, z);
+                default:
+                    return new d69(this.a, this.b, this.c, this.f, this.e, z);
+            }
         }
+        return (u49) invokeCommon.objValue;
     }
 }

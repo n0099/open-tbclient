@@ -1,19 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
-import org.json.JSONObject;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.tieba.gr3;
 /* loaded from: classes5.dex */
 public interface pr3 {
-    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
+    void a(DownloadInfo downloadInfo);
 
-    void b(String str, JSONObject jSONObject, ResponseCallback<hr3> responseCallback);
+    void b(DownloadInfo downloadInfo);
 
-    void c(String str, ResponseCallback<qq3> responseCallback);
+    void c(DownloadInfo downloadInfo);
 
-    void d(String str);
+    void d(DownloadInfo downloadInfo);
 
-    void e(String str);
+    void destroy();
 
-    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull gr3.d<Boolean> dVar);
+
+    DownloadInfo g(String str);
 }

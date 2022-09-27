@@ -1,79 +1,140 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cq1 extends aq1 {
+public class cq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public volatile long c;
+    public long d;
+    public long e;
+    public long f;
+    public String g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cq1(v33 v33Var) {
-        super(v33Var, "/swanAPI/cloudGetUrl");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((v33) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947683302, "Lcom/baidu/tieba/cq1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947683302, "Lcom/baidu/tieba/cq1;");
                 return;
             }
         }
+        boolean z = vj1.a;
     }
 
-    @Override // com.baidu.tieba.aq1, com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
-        InterceptResult invokeLLLL;
+    public cq1() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) ? super.d(context, unitedSchemeEntity, callbackHandler, y23Var) : invokeLLLL.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.g = "1";
     }
 
-    @Override // com.baidu.tieba.aq1
-    public void j(Response response, CallbackHandler callbackHandler, String str) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, callbackHandler, str) == null) {
-            String header = response.header("Content-Type", "");
-            if (header != null && header.contains("application/json")) {
-                try {
-                    JSONObject m = yp1.m(response);
-                    if (m == null) {
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "response body is null").toString());
-                        return;
-                    } else if (!TextUtils.isEmpty(m.optString("DownloadUrl"))) {
-                        m(callbackHandler, str, m);
-                        return;
-                    } else {
-                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "downloadUrl is empty").toString());
-                        return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = this.g;
+            switch (str.hashCode()) {
+                case 48:
+                    if (str.equals("0")) {
+                        c = 0;
+                        break;
                     }
-                } catch (Exception e) {
-                    k(callbackHandler, str, 1001, e.getMessage());
-                    if (aq1.c) {
-                        e.printStackTrace();
-                        return;
+                    c = 65535;
+                    break;
+                case 49:
+                    if (str.equals("1")) {
+                        c = 1;
+                        break;
                     }
-                    return;
+                    c = 65535;
+                    break;
+                case 50:
+                    if (str.equals("2")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 51:
+                    if (str.equals("3")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            return c != 0 ? c != 1 ? c != 2 ? c != 3 ? "unknown" : "fip" : "ftp" : "fcp" : "fmp";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            long j = this.f;
+            if (j > 0) {
+                return j;
+            }
+            long[] jArr = {this.d, this.e, this.b};
+            long j2 = Long.MAX_VALUE;
+            for (int i = 0; i < 3; i++) {
+                long j3 = jArr[i];
+                if (j3 > 0 && j3 < j2) {
+                    j2 = j3;
                 }
             }
-            k(callbackHandler, str, 1001, "content type error.");
+            if (j2 != Long.MAX_VALUE) {
+                this.f = j2;
+            }
+            return this.f;
         }
+        return invokeV.longValue;
+    }
+
+    public String c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) ? j == this.d ? "2" : j == this.e ? "3" : (j != this.b && j == this.c) ? "0" : "1" : (String) invokeJ.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "WebViewPaintTiming{fp=" + this.a + ", fcp=" + this.b + ", fmp=" + this.c + ", ftp=" + this.d + ", fip=" + this.e + ", mMinCache=" + this.f + ", fmpType='" + this.g + "', fmpTypeName='" + a() + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

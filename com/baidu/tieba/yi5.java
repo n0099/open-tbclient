@@ -1,123 +1,104 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.webkit.JsPromptResult;
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebStorage;
-import android.webkit.WebView;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class yi5 extends WebChromeClient {
+public class yi5 extends ImageSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Activity a;
-    public jn8 b;
+    public WeakReference<Drawable> a;
+    public int b;
+    public int c;
 
-    public yi5(Activity activity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yi5(Drawable drawable, int i) {
+        super(drawable);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {drawable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = activity;
+        this.b = 0;
+        this.c = 1;
+        this.c = i;
     }
 
-    public final void a(WebView webView, String str, String str2) {
+    public final Drawable a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) || webView == null || dj.isEmpty(str) || dj.isEmpty(str2)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Drawable> weakReference = this.a;
+            Drawable drawable = weakReference != null ? weakReference.get() : null;
+            if (drawable == null) {
+                Drawable drawable2 = getDrawable();
+                this.a = new WeakReference<>(drawable2);
+                return drawable2;
+            }
+            return drawable;
+        }
+        return (Drawable) invokeV.objValue;
+    }
+
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+        Drawable a;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) || (a = a()) == null) {
             return;
         }
-        webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+        int i6 = this.c;
+        float f2 = i6 != 0 ? i6 != 1 ? i6 != 2 ? 0.0f : 0.2f : 0.15f : 0.1f;
+        float height = f2 != 0.0f ? ((i4 - i5) + (a.getBounds().height() * f2)) - this.b : 0.0f;
+        canvas.save();
+        canvas.translate(a.getBounds().width() * 0.15f, height);
+        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
+        canvas.restore();
     }
 
-    public void b(jn8 jn8Var) {
+    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jn8Var) == null) {
-            this.b = jn8Var;
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
-            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
-            quotaUpdater.updateQuota(j2 * 2);
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
-            if (ih.e(this.a)) {
-                return super.onJsAlert(webView, str, str2, jsResult);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            Drawable a = a();
+            if (a == null) {
+                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
             }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
-            if (ih.e(this.a)) {
-                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            Rect bounds = a.getBounds();
+            if (fontMetricsInt != null) {
+                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
+                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
+                int i4 = (bounds.bottom - bounds.top) / 2;
+                int i5 = i3 / 4;
+                int i6 = i4 - i5;
+                int i7 = -(i4 + i5);
+                fontMetricsInt.ascent = i7;
+                fontMetricsInt.top = i7;
+                fontMetricsInt.bottom = i6;
+                fontMetricsInt.descent = i6;
             }
-            return true;
+            return bounds.right;
         }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
-            if (ih.e(this.a)) {
-                return super.onJsConfirm(webView, str, str2, jsResult);
-            }
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        jn8 jn8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!z05.a(str) && str2.startsWith("tiebaapp")) {
-                mn8 mn8Var = new mn8();
-                mn8Var.v(qn8.b(str2));
-                mn8Var.x(301);
-                a(webView, mn8Var.c(), mn8Var.d());
-            }
-            if (z05.a(str) && (jn8Var = this.b) != null && jn8Var.onJsPrompt(str2, jsPromptResult)) {
-                return true;
-            }
-            jsPromptResult.cancel();
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
+        return invokeCommon.intValue;
     }
 }

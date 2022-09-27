@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ch;
-import com.baidu.tieba.fi5;
+import com.baidu.tieba.si5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -173,7 +173,7 @@ public class ThirdStatisticHelper {
                 httpURLConnection.setInstanceFollowRedirects(false);
                 httpURLConnection.setConnectTimeout(i);
                 httpURLConnection.setReadTimeout(i2);
-                httpURLConnection.setRequestProperty("User-Agent", fi5.b());
+                httpURLConnection.setRequestProperty("User-Agent", si5.b());
                 httpURLConnection.addRequestProperty("Cookie", str);
                 return httpURLConnection;
             }

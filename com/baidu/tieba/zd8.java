@@ -1,36 +1,36 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public interface zd8 extends IAdBaseAsyncController {
-    View b(@NonNull String str, boolean z);
+public interface zd8 {
+    qn<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
-    AdvertAppInfo d(@NonNull String str);
+    ud8 b();
 
-    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
+    pd8 c();
 
-    boolean f(@NonNull String str);
+    qn<?, ?> d(yd8 yd8Var, BdUniqueId bdUniqueId);
 
-    void g(@NonNull hg5 hg5Var);
+    void e();
 
-    int getAdCount();
+    List<AdvertAppInfo> f();
 
-    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
+    qn<?, ?> g(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
 
-    void j(@NonNull String str);
+    IAdBaseAsyncController h(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
 
-    void k(@NonNull AdvertAppInfo advertAppInfo);
+    wd8 i();
 
-    void l();
+    void j(AdvertAppInfo advertAppInfo);
 
-    boolean n();
-
-    void o(String str);
-
-    void onDestroy();
+    void k(HashMap<String, String> hashMap, Context context);
 }

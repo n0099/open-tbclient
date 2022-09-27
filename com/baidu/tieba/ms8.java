@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.content.Context;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,19 +15,23 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ms8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ms8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public TextView c;
-    public TbImageView d;
-    public TextView e;
+    public a a;
 
-    public ms8(TbPageContext<?> tbPageContext) {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Context context);
+
+        void b(Context context, WebView webView, WebChromeClient webChromeClient);
+
+        void c(Context context, String str, boolean z);
+    }
+
+    public ms8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,42 +41,65 @@ public class ms8 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        b();
+        this.a = c();
     }
 
-    public View a() {
+    public static ms8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ms8.class) {
+                    if (b == null) {
+                        b = new ms8();
+                    }
+                }
+            }
+            return b;
+        }
+        return (ms8) invokeV.objValue;
     }
 
-    public final void b() {
+    public void a(Context context) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0131, (ViewGroup) null);
-            this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09210b);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090388);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09210a);
-            c();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.a(context);
         }
     }
 
-    public void c() {
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            td5.a(this.a, this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!d() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+                return null;
+            }
+            return (a) runTask.getData();
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public final boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ox4.k().l("pref_key_stat_sdk_enable", 1) != 0 : invokeV.booleanValue;
+    }
+
+    public void e(Context context, String str, boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.c(context, str, z);
         }
     }
 
-    public void d(DressItemData dressItemData) {
+    public void f(Context context, WebView webView, WebChromeClient webChromeClient) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, dressItemData) == null) || dressItemData == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLL(1048580, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
+            aVar.b(context, webView, webChromeClient);
         }
-        this.c.setText(dressItemData.getTitle());
-        this.d.K(dressItemData.getPermissionImgUrl(), 10, false);
-        this.e.setText(dressItemData.getDescription());
     }
 }

@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.p55;
-import com.baidu.tieba.u45;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.c65;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.ol8;
+import com.baidu.tieba.t55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class SendView extends TextView implements g55 {
+public class SendView extends TextView implements t55 {
     public static /* synthetic */ Interceptable $ic = null;
     public static int f = 2;
     public static int g = 1;
@@ -63,7 +63,7 @@ public class SendView extends TextView implements g55 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.K(new u45(8, -1, null));
+                this.a.K(new h55(8, -1, null));
             }
         }
     }
@@ -114,15 +114,15 @@ public class SendView extends TextView implements g55 {
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.v45
-    public void B(u45 u45Var) {
+    @Override // com.baidu.tieba.i55
+    public void B(h55 h55Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, u45Var) == null) || u45Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) || h55Var == null) {
             return;
         }
-        int i = u45Var.a;
+        int i = h55Var.a;
         if (i == 4) {
-            Object obj = u45Var.c;
+            Object obj = h55Var.c;
             if (obj != null && (!(obj instanceof String) || !StringUtils.isNull((String) obj))) {
                 this.c[0] = true;
             } else {
@@ -150,13 +150,13 @@ public class SendView extends TextView implements g55 {
                     this.c[2] = false;
                     break;
                 case 12:
-                    Object obj2 = u45Var.c;
-                    if (obj2 instanceof p55) {
-                        p55 p55Var = (p55) obj2;
-                        WriteImagesInfo writeImagesInfo = p55Var.a;
+                    Object obj2 = h55Var.c;
+                    if (obj2 instanceof c65) {
+                        c65 c65Var = (c65) obj2;
+                        WriteImagesInfo writeImagesInfo = c65Var.a;
                         if (writeImagesInfo != null) {
                             if (writeImagesInfo.getChosedFiles() != null) {
-                                this.d[0] = p55Var.a.getChosedFiles().size();
+                                this.d[0] = c65Var.a.getChosedFiles().size();
                             } else {
                                 this.d[0] = 0;
                             }
@@ -188,14 +188,14 @@ public class SendView extends TextView implements g55 {
         a(this.e);
     }
 
-    @Override // com.baidu.tieba.g55
-    public void K(u45 u45Var) {
+    @Override // com.baidu.tieba.t55
+    public void K(h55 h55Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u45Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h55Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(u45Var);
+        editorTools.A(h55Var);
     }
 
     public void a(int i) {
@@ -218,7 +218,7 @@ public class SendView extends TextView implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -226,14 +226,14 @@ public class SendView extends TextView implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -241,7 +241,7 @@ public class SendView extends TextView implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
@@ -249,16 +249,16 @@ public class SendView extends TextView implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             int color = SkinManager.getColor(i, (int) R.color.CAM_X0302);
-            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{zk8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), zk8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
+            setTextColor(new ColorStateList(new int[][]{new int[]{-16842910}, new int[]{16842910, 16842919}, new int[0]}, new int[]{ol8.a(color, SkinManager.RESOURCE_ALPHA_DISABLE), ol8.a(color, SkinManager.RESOURCE_ALPHA_PRESS), color}));
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editorTools) == null) {
@@ -266,7 +266,7 @@ public class SendView extends TextView implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.view.View;
 /* loaded from: classes5.dex */
-public interface pp4 {
-    void c1(Intent intent);
+public interface pp4<T> {
+    void c(View view2, T t, int i, long j);
 }

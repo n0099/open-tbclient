@@ -1,125 +1,149 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.Context;
+import android.content.res.Resources;
+import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
+import com.baidu.nadcore.widget.LoadingProgressBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class k61<T> {
+public class k61 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r61 a;
-    public n61 b;
+    public Context a;
+    public View b;
+    public LoadingProgressBar c;
+    public TextView d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
-    public k61(n61 n61Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k61(@NonNull Context context) {
+        super(context, R.style.obfuscated_res_0x7f100134);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {n61Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = n61Var.f();
-        this.b = n61Var;
+        this.e = "";
+        this.g = false;
+        this.h = false;
+        this.a = context;
+        this.f = a(context);
     }
 
-    public k61<T> a(boolean z) {
+    public final boolean a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) ? context instanceof Activity : invokeL.booleanValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = findViewById(R.id.obfuscated_res_0x7f091c74);
+            this.c = (LoadingProgressBar) findViewById(R.id.obfuscated_res_0x7f091416);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091515);
+            this.d = textView;
+            textView.setText(this.e);
+            setCancelable(this.g);
+            setCanceledOnTouchOutside(this.h);
+            f();
+        }
+    }
+
+    public k61 c(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.b.d(z);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.g = z;
             return this;
         }
         return (k61) invokeZ.objValue;
     }
 
-    public k61<T> b(View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
+    public k61 d(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, viewGroup)) == null) {
-            this.a.s(view2, viewGroup);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.h = z;
             return this;
         }
-        return (k61) invokeLL.objValue;
+        return (k61) invokeZ.objValue;
     }
 
-    public k61<T> c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            this.b.m(i);
-            return this;
-        }
-        return (k61) invokeI.objValue;
-    }
-
-    public k61<T> d(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            if (i != -1) {
-                try {
-                    this.a.w(i);
-                } catch (Exception e) {
-                    jj0.h("BubbleBuilder", "", e);
-                    this.a.w(-1);
-                    return this;
-                }
-            }
-            if (i2 != -1) {
-                try {
-                    this.a.x(i2);
-                } catch (Exception e2) {
-                    jj0.h("BubbleBuilder", "", e2);
-                    this.a.x(-1);
-                }
-            }
-            return this;
-        }
-        return (k61) invokeII.objValue;
-    }
-
-    public k61<T> e(BubblePosition bubblePosition) {
+    public k61 e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bubblePosition)) == null) {
-            this.b.e().d = false;
-            this.b.e().e = bubblePosition;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.e = str;
             return this;
         }
         return (k61) invokeL.objValue;
     }
 
-    public k61<T> f(BubbleManager.b bVar) {
-        InterceptResult invokeL;
+    public final void f() {
+        Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bVar)) == null) {
-            this.b.n(bVar);
-            return this;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (context = this.a) == null) {
+            return;
         }
-        return (k61) invokeL.objValue;
+        Resources resources = context.getResources();
+        View view2 = this.b;
+        if (view2 != null) {
+            view2.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f080dd3));
+        }
+        LoadingProgressBar loadingProgressBar = this.c;
+        if (loadingProgressBar != null) {
+            loadingProgressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080dd6));
+        }
+        TextView textView = this.d;
+        if (textView != null) {
+            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060828));
+        }
     }
 
-    public k61<T> g(float f) {
-        InterceptResult invokeF;
+    @Override // android.app.Dialog
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            this.b.e().q(f);
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+            super.onCreate(bundle);
+            setContentView(R.layout.obfuscated_res_0x7f0d05e3);
+            b();
         }
-        return (k61) invokeF.objValue;
+    }
+
+    @Override // android.app.Dialog
+    public void show() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f) {
+            try {
+                super.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

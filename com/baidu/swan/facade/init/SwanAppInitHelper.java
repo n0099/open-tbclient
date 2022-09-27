@@ -8,24 +8,24 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.ubc.OpenStatisticIPCManager;
-import com.baidu.tieba.b62;
-import com.baidu.tieba.eo3;
-import com.baidu.tieba.fe4;
-import com.baidu.tieba.ff3;
-import com.baidu.tieba.fm2;
-import com.baidu.tieba.gm2;
-import com.baidu.tieba.he1;
-import com.baidu.tieba.ia4;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.kb2;
-import com.baidu.tieba.le1;
-import com.baidu.tieba.pi4;
+import com.baidu.tieba.cj4;
+import com.baidu.tieba.fg3;
+import com.baidu.tieba.k33;
+import com.baidu.tieba.kp3;
+import com.baidu.tieba.m92;
+import com.baidu.tieba.mf3;
+import com.baidu.tieba.mg4;
+import com.baidu.tieba.o62;
+import com.baidu.tieba.ro3;
+import com.baidu.tieba.se4;
 import com.baidu.tieba.sf3;
-import com.baidu.tieba.x23;
-import com.baidu.tieba.xo3;
-import com.baidu.tieba.z82;
-import com.baidu.tieba.ze3;
-import com.baidu.tieba.zf4;
+import com.baidu.tieba.sm2;
+import com.baidu.tieba.tm2;
+import com.baidu.tieba.ue1;
+import com.baidu.tieba.va4;
+import com.baidu.tieba.vj1;
+import com.baidu.tieba.xb2;
+import com.baidu.tieba.ye1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,13 +73,13 @@ public class SwanAppInitHelper {
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a) {
-                ia4.m(new fe4(0), new b62(null), gm2.i().o(null));
+                va4.m(new se4(0), new o62(null), tm2.i().o(null));
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements z82.e {
+    public static class b implements m92.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -108,7 +108,7 @@ public class SwanAppInitHelper {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    kb2.c().e(null);
+                    xb2.c().e(null);
                 }
             }
         }
@@ -127,11 +127,11 @@ public class SwanAppInitHelper {
             }
         }
 
-        @Override // com.baidu.tieba.z82.e
+        @Override // com.baidu.tieba.m92.e
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                x23.M().post(new a(this));
+                k33.M().post(new a(this));
             }
         }
     }
@@ -168,8 +168,8 @@ public class SwanAppInitHelper {
     public static void asyncUpdateSwanAppCore() {
         boolean c;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (c = zf4.c(0))) {
-            sf3.k(new a(c), "asyncUpdateSwanAppCore by PMS");
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (c = mg4.c(0))) {
+            fg3.k(new a(c), "asyncUpdateSwanAppCore by PMS");
         }
     }
 
@@ -180,27 +180,27 @@ public class SwanAppInitHelper {
         }
     }
 
-    public static void doWebViewInit(Context context, z82.e... eVarArr) {
+    public static void doWebViewInit(Context context, m92.e... eVarArr) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, eVarArr) == null) {
             if (ProcessUtils.isMainProcess()) {
-                z82.h(context).f(new b());
+                m92.h(context).f(new b());
             }
             if (eVarArr != null && eVarArr.length > 0) {
-                for (z82.e eVar : eVarArr) {
+                for (m92.e eVar : eVarArr) {
                     if (eVar != null) {
-                        z82.h(context).f(eVar);
+                        m92.h(context).f(eVar);
                     }
                 }
             }
-            z82.h(context).k(ProcessUtils.isMainProcess());
+            m92.h(context).k(ProcessUtils.isMainProcess());
         }
     }
 
     public static boolean entranceOK() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? !sOnlyInitForLollipopAndAbove || ff3.f() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? !sOnlyInitForLollipopAndAbove || sf3.f() : invokeV.booleanValue;
     }
 
     public static void initConfig() {
@@ -228,13 +228,13 @@ public class SwanAppInitHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, null, application) == null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            le1.b(application);
+            ye1.b(application);
         }
     }
 
     public static void initStatisticsModule(Application application) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, null, application) == null) && he1.g()) {
+        if ((interceptable == null || interceptable.invokeL(65548, null, application) == null) && ue1.g()) {
             OpenStatisticIPCManager.a();
             initConfig();
         }
@@ -247,13 +247,13 @@ public class SwanAppInitHelper {
                 Fresco.initialize(application);
             }
             if (ProcessUtils.isMainProcess()) {
-                xo3.d(application).i();
+                kp3.d(application).i();
             }
             initWebView(application);
             if (ProcessUtils.isMainProcess()) {
                 asyncUpdateSwanAppCore();
-                if (ij1.a) {
-                    ze3.d(0, 1);
+                if (vj1.a) {
+                    mf3.d(0, 1);
                 }
             }
         }
@@ -262,10 +262,10 @@ public class SwanAppInitHelper {
     public static void initWebView(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
-            boolean d = fm2.w0().d();
+            boolean d = sm2.w0().d();
             WebViewFactory.setAbTestInterface(new DefaultSailorAbTest());
             WebViewFactory.initOnAppStart(AppRuntime.getAppContext(), d, false);
-            doWebViewInit(context, new z82.e[0]);
+            doWebViewInit(context, new m92.e[0]);
         }
     }
 
@@ -284,7 +284,7 @@ public class SwanAppInitHelper {
     public static void onTerminate() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65553, null) == null) {
-            z82.h(AppRuntime.getAppContext()).n();
+            m92.h(AppRuntime.getAppContext()).n();
         }
     }
 
@@ -298,7 +298,7 @@ public class SwanAppInitHelper {
     public static void uploadLastData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65555, null) == null) {
-            pi4 b2 = pi4.b();
+            cj4 b2 = cj4.b();
             b2.h();
             b2.i();
         }
@@ -319,8 +319,8 @@ public class SwanAppInitHelper {
             if (entranceOK() && !isDelayInit() && isProcessNeedInit()) {
                 initStatisticsModule(application);
                 initSwanAppModule(application);
-                eo3.a().a(application);
-                eo3.b().a(application, z, z2);
+                ro3.a().a(application);
+                ro3.b().a(application, z, z2);
             }
         }
     }

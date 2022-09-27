@@ -2,13 +2,10 @@ package com.asus.msa.sdid;
 
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.util.Log;
 import androidx.annotation.Keep;
 import com.asus.msa.SupplementaryDID.IDidAidlInterface;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,13 +17,20 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class SupplementaryDIDManager {
     public static /* synthetic */ Interceptable $ic = null;
+    @Keep
     public static boolean DEBUG = false;
+    @Keep
     public static final String TAG = "SupplementaryDIDManager";
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public boolean isBinded;
+    @Keep
     public Context mContext;
+    @Keep
     public IDidAidlInterface mDidService;
+    @Keep
     public IDIDBinderStatusListener mListener;
+    @Keep
     public ServiceConnection mServiceConnection;
 
     static {
@@ -63,6 +67,7 @@ public class SupplementaryDIDManager {
         this.mServiceConnection = new ServiceConnection(this) { // from class: com.asus.msa.sdid.SupplementaryDIDManager.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            @Keep
             public final /* synthetic */ SupplementaryDIDManager this$0;
 
             {
@@ -84,87 +89,26 @@ public class SupplementaryDIDManager {
             }
 
             @Override // android.content.ServiceConnection
-            public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, componentName, iBinder) == null) {
-                    if (SupplementaryDIDManager.DEBUG) {
-                        Log.i(SupplementaryDIDManager.TAG, "did service binded");
-                    }
-                    this.this$0.mDidService = IDidAidlInterface.Stub.asInterface(iBinder);
-                    this.this$0.notifyAllListeners(true);
-                }
-            }
+            @Keep
+            public native void onServiceConnected(ComponentName componentName, IBinder iBinder);
 
             @Override // android.content.ServiceConnection
-            public void onServiceDisconnected(ComponentName componentName) {
-                Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-                    this.this$0.notifyAllListeners(false);
-                }
-            }
+            @Keep
+            public native void onServiceDisconnected(ComponentName componentName);
         };
         this.mContext = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void notifyAllListeners(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, this, z) == null) {
-            try {
-                if (z) {
-                    this.mListener.onSuccess(this.mDidService);
-                } else {
-                    this.mListener.onError();
-                }
-            } catch (Exception e) {
-                if (DEBUG) {
-                    Log.e(TAG, "notify did bind status error :" + e.getMessage());
-                }
-            }
-        }
-    }
+    @Keep
+    public native void notifyAllListeners(boolean z);
 
-    public void deInit() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                if (!this.isBinded || this.mServiceConnection == null || this.mContext == null) {
-                    return;
-                }
-                if (DEBUG) {
-                    Log.i(TAG, "start to unbind did service");
-                }
-                this.isBinded = false;
-                this.mContext.unbindService(this.mServiceConnection);
-            } catch (Exception e) {
-                Log.w(TAG, e.getMessage());
-            }
-        }
-    }
+    @Keep
+    public native void deInit();
 
-    public void init(IDIDBinderStatusListener iDIDBinderStatusListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iDIDBinderStatusListener) == null) {
-            try {
-                this.mListener = iDIDBinderStatusListener;
-                Intent intent = new Intent("com.asus.msa.action.ACCESS_DID");
-                ComponentName componentName = new ComponentName("com.asus.msa.SupplementaryDID", "com.asus.msa.SupplementaryDID.SupplementaryDIDService");
-                Intent intent2 = new Intent(intent);
-                intent2.setComponent(componentName);
-                if (DEBUG) {
-                    Log.i(TAG, "start to bind did service.");
-                }
-                this.isBinded = this.mContext.bindService(intent2, this.mServiceConnection, 1);
-            } catch (Exception unused) {
-                notifyAllListeners(false);
-            }
-        }
-    }
+    @Keep
+    public native void init(IDIDBinderStatusListener iDIDBinderStatusListener);
 
-    public void showLog(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            DEBUG = z;
-        }
-    }
+    @Keep
+    public native void showLog(boolean z);
 }

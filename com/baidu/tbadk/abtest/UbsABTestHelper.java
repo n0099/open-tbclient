@@ -32,9 +32,9 @@ import com.baidu.tbadk.abtest.group.TbNetABTest;
 import com.baidu.tbadk.abtest.group.TbVideoPlayerABTest;
 import com.baidu.tbadk.abtest.group.TiebaPlusCardModelABTest;
 import com.baidu.tbadk.abtest.group.VideoAdDrawUbsABTest;
-import com.baidu.tieba.bx4;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -345,7 +345,7 @@ public class UbsABTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65577, null)) == null) {
             try {
-                return new JSONArray(bx4.k().q("key_index_tab_info_list", "[]")).length() == 0;
+                return new JSONArray(ox4.k().q("key_index_tab_info_list", "[]")).length() == 0;
             } catch (JSONException e) {
                 e.printStackTrace();
                 return true;

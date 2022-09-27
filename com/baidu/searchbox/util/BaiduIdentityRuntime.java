@@ -2,7 +2,7 @@ package com.baidu.searchbox.util;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.oh8;
+import com.baidu.tieba.di8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,6 +32,6 @@ public class BaiduIdentityRuntime {
     public static IBaiduIdentityContext getBaiduIdentityContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? oh8.a() : (IBaiduIdentityContext) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? di8.a() : (IBaiduIdentityContext) invokeV.objValue;
     }
 }

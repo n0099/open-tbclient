@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dm8;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -143,8 +143,8 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            dm8.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            dm8.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            sm8.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            sm8.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

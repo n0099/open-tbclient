@@ -24,9 +24,9 @@ import com.baidu.live.business.model.data.LiveFeedToolWrapData;
 import com.baidu.live.business.view.search.LiveSearchGuideView;
 import com.baidu.spswitch.emotion.view.BDEmotionBagVerticalLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dc0;
-import com.baidu.tieba.hc0;
-import com.baidu.tieba.q90;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.qc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -235,7 +235,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
             }
             ImageView imageView = this.e;
             if (imageView != null) {
-                imageView.setImageResource(hc0.f().q(this.b ? LiveFeedPageSdk.IMMERSION : LiveFeedPageSdk.HOST_LIVE_TAB));
+                imageView.setImageResource(uc0.f().q(this.b ? LiveFeedPageSdk.IMMERSION : LiveFeedPageSdk.HOST_LIVE_TAB));
             }
             ViewGroup viewGroup = this.f;
             if (viewGroup != null) {
@@ -282,8 +282,8 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            float b2 = q90.b(getContext(), this.b ? 38.0f : 47.0f);
-            dc0.f(this.e, b2, b2);
+            float b2 = da0.b(getContext(), this.b ? 38.0f : 47.0f);
+            qc0.f(this.e, b2, b2);
             this.g.c();
             if (this.f != null) {
                 for (int i = 0; i < this.f.getChildCount(); i++) {
@@ -351,7 +351,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
                 }
                 if (z) {
                     LiveFeedPageToolItemView liveFeedPageToolItemView2 = new LiveFeedPageToolItemView(this.f.getContext());
-                    liveFeedPageToolItemView2.setData(this.b, R.drawable.obfuscated_res_0x7f080d02, "搜索");
+                    liveFeedPageToolItemView2.setData(this.b, R.drawable.obfuscated_res_0x7f080d04, "搜索");
                     liveFeedPageToolItemView2.setOnClickListener(new b(this));
                     this.f.addView(liveFeedPageToolItemView2, new LinearLayout.LayoutParams(-1, (int) TypedValue.applyDimension(1, 57.0f, getResources().getDisplayMetrics())));
                 }
@@ -382,7 +382,7 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
             if (view2 != null) {
                 ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
                 if (layoutParams2 instanceof RelativeLayout.LayoutParams) {
-                    ((RelativeLayout.LayoutParams) layoutParams2).rightMargin = q90.b(getContext(), z ? 15.0f : 10.0f);
+                    ((RelativeLayout.LayoutParams) layoutParams2).rightMargin = da0.b(getContext(), z ? 15.0f : 10.0f);
                     this.d.setLayoutParams(layoutParams2);
                 }
             }
@@ -390,18 +390,18 @@ public class LiveFeedPageToolFloatLayout extends RelativeLayout {
             if (viewGroup != null) {
                 ViewGroup.LayoutParams layoutParams3 = viewGroup.getLayoutParams();
                 if (layoutParams3 instanceof FrameLayout.LayoutParams) {
-                    ((FrameLayout.LayoutParams) layoutParams3).rightMargin = q90.b(getContext(), z ? 0.0f : 4.0f);
+                    ((FrameLayout.LayoutParams) layoutParams3).rightMargin = da0.b(getContext(), z ? 0.0f : 4.0f);
                     this.f.setLayoutParams(layoutParams3);
                 }
             }
             ImageView imageView = this.e;
             if (imageView != null && (layoutParams = imageView.getLayoutParams()) != null) {
-                int b2 = q90.b(getContext(), z ? 38.0f : 47.0f);
+                int b2 = da0.b(getContext(), z ? 38.0f : 47.0f);
                 layoutParams.width = b2;
                 layoutParams.height = b2;
                 this.e.setLayoutParams(layoutParams);
             }
-            d(hc0.f().r());
+            d(uc0.f().r());
             e();
         }
     }

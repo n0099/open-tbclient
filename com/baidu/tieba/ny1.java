@@ -1,662 +1,341 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Rect;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.MotionEvent;
 import android.view.View;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
-import com.baidu.tieba.oy1;
-import com.baidu.tieba.qw9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.retrieve.upload.UploadConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class ny1<V extends View, M extends oy1> {
+public class ny1 extends iy1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public oz1 a;
-    @Nullable
-    public V b;
-    @NonNull
-    public M c;
-    @Nullable
-    public M d;
-    @Nullable
-    public SwanAppComponentContainerView e;
-    @Nullable
-    public ww9 f;
-    public int g;
+    public int k;
+    public int l;
+    public int m;
+    public int n;
+    public int o;
+    public int p;
+    public String q;
+    public float r;
 
-    /* loaded from: classes5.dex */
-    public class a extends ww9<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ ny1 f;
-
-        public a(ny1 ny1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = ny1Var;
-            this.e = str;
-        }
-
-        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.ny1 */
-        /* JADX DEBUG: Multi-variable search result rejected for r0v6, resolved type: com.baidu.tieba.ny1 */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.rw9
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ny1 ny1Var = this.f;
-                ny1Var.b = ny1Var.v(ny1Var.a.getContext());
-                ny1 ny1Var2 = this.f;
-                ny1Var2.A(ny1Var2.b);
-                this.f.e.setTargetView(this.f.b, 0);
-                ny1 ny1Var3 = this.f;
-                ny1Var3.C(ny1Var3.b, this.f.c, new qz1(true));
-                if (ny1.h) {
-                    Log.d("Component-Base", this.e + " insert delayed（view）: success");
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.rw9
-        @SuppressLint({"BDThrowableCheck"})
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                yz1.o("Component-Base", this.e + " insert delayed（view）: fail");
-                if (ny1.h && th != null && TextUtils.equals(th.getMessage(), "save subscriber and return subscriber: nolinear !")) {
-                    throw new RuntimeException("save subscriber and return subscriber: nolinear !");
-                }
-                this.f.B();
-            }
-        }
-
-        @Override // com.baidu.tieba.rw9
-        public void onNext(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-                yz1.o("Component-Base", this.e + " success should call onCompleted");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements qw9.a<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ ny1 b;
-
-        public b(ny1 ny1Var, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny1Var, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ny1Var;
-            this.a = j;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qw9.a, com.baidu.tieba.ex9
-        public void call(ww9<? super Object> ww9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ww9Var) == null) {
-                if (ny1.h) {
-                    Log.d("Component-Base", "insert delayed => save thread: " + Thread.currentThread().getName());
-                }
-                if (this.a != Thread.currentThread().getId()) {
-                    rz1.a("Component-Base", "save subscriber and return subscriber: nolinear !");
-                }
-                this.b.f = ww9Var;
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c extends ei3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean j;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(ny1 ny1Var, String str, String str2, String str3, boolean z) {
-            super(str, str2, str3);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ny1Var, str, str2, str3, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.j = z;
-        }
-
-        @Override // com.baidu.tieba.ei3, android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) ? this.j && super.onTouch(view2, motionEvent) : invokeLL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018691, "Lcom/baidu/tieba/ny1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948018691, "Lcom/baidu/tieba/ny1;");
-                return;
-            }
-        }
-        h = ij1.a;
-    }
-
-    public ny1(@Nullable Context context, @NonNull M m) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ny1(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        M j = j(m);
-        this.c = j;
-        oz1 c2 = lz1.c(j);
-        this.a = c2;
-        if (c2 != null) {
-            if (context != null) {
-                c2.c(context);
-                return;
+        this.q = "png";
+        this.r = 1.0f;
+        try {
+            JSONObject jSONObject = new JSONObject(str);
+            this.k = ch3.g((float) jSONObject.optDouble("x"));
+            this.l = ch3.g((float) jSONObject.optDouble("y"));
+            this.m = ch3.g((float) jSONObject.optDouble("width"));
+            this.n = ch3.g((float) jSONObject.optDouble("height"));
+            this.o = ch3.g((float) jSONObject.optDouble("destWidth"));
+            this.p = ch3.g((float) jSONObject.optDouble("destHeight"));
+            this.q = jSONObject.optString(UploadConstant.KEY_FILE_TYPE);
+            this.r = (float) jSONObject.optDouble("quality");
+        } catch (Exception e) {
+            if (vj1.a) {
+                e.printStackTrace();
             }
-            return;
-        }
-        yz1.c("Component-Base", o() + " context is null !");
-    }
-
-    public void A(@NonNull V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, v) == null) {
         }
     }
 
-    @NonNull
-    @UiThread
-    public final py1 B() {
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String o = o();
-            if (h) {
-                Log.i("Component-Base", "=====================" + o + " start remove=====================");
-            }
-            oz1 oz1Var = this.a;
-            if (oz1Var == null) {
-                rz1.a("Component-Base", o + " remove with a null component context!");
-                return new py1(202, "component context is null");
-            } else if (this.e == null) {
-                yz1.c("Component-Base", o + " remove must after insert");
-                return new py1(202, "component remove must after insert");
-            } else if (!oz1Var.a().e(this)) {
-                String str = o + " remove fail";
-                yz1.c("Component-Base", str);
-                return new py1(1001, str);
-            } else {
-                z();
-                if (h) {
-                    Log.d("Component-Base", o + " remove: success");
-                }
-                return new py1(0, "success");
-            }
-        }
-        return (py1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TextUtils.equals(this.q, "jpg") : invokeV.booleanValue;
     }
 
-    @CallSuper
-    public void C(@NonNull V v, @NonNull M m, @NonNull qz1 qz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, v, m, qz1Var) == null) {
-            D(m, qz1Var);
-        }
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public final void D(@NonNull M m, @NonNull qz1 qz1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, m, qz1Var) == null) {
-            if (this.e == null) {
-                rz1.a("Component-Base", "renderContainerView with a null container view");
-                return;
-            }
-            if (qz1Var.a(1)) {
-                this.e.setHidden(m.f);
-            }
-            if (qz1Var.a(2)) {
-                r(this.e, m);
-            }
-        }
-    }
-
-    public final void E() {
-        ww9 ww9Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (ww9Var = this.f) == null || ww9Var.isUnsubscribed()) {
-            return;
-        }
-        this.f.unsubscribe();
-    }
-
-    @NonNull
-    public final ny1 g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.g = i | this.g;
-            return this;
-        }
-        return (ny1) invokeI.objValue;
-    }
-
-    public final boolean h(@NonNull oz1 oz1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, oz1Var)) == null) {
-            boolean b2 = oz1Var.a().b(this);
-            x(b2);
-            return b2;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @NonNull
-    public final py1 i(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, m)) == null) {
-            if (m == null) {
-                return new py1(202, "model is null");
-            }
-            if (TextUtils.isEmpty(m.c)) {
-                return new py1(202, "slave id is empty");
-            }
-            if (!m.isValid()) {
-                return new py1(202, "model is invalid");
-            }
-            return new py1(0, "model is valid");
-        }
-        return (py1) invokeL.objValue;
-    }
-
-    @NonNull
-    @UiThread
-    public final py1 insert() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            String o = o();
-            py1 i = i(this.c);
-            if (!i.a()) {
-                yz1.c("Component-Base", o + " insert with a invalid model => " + i.b);
-                return i;
-            }
-            if (h) {
-                Log.i("Component-Base", "=====================" + o + " start insert=====================");
-            }
-            oz1 oz1Var = this.a;
-            if (oz1Var == null) {
-                yz1.c("Component-Base", o + " insert with a null component context!");
-                return new py1(202, "component context is null");
-            }
-            Context context = oz1Var.getContext();
-            if (this.e != null || this.b != null) {
-                yz1.o("Component-Base", o + " repeat insert");
-            }
-            V v = v(this.a.getContext());
-            this.b = v;
-            A(v);
-            SwanAppComponentContainerView u = u(context);
-            this.e = u;
-            u.setTargetView(this.b);
-            C(this.b, this.c, new qz1(true));
-            if (h(this.a)) {
-                if (h) {
-                    Log.d("Component-Base", o + " insert: success");
-                }
-                return new py1(0, "success");
-            }
-            yz1.c("Component-Base", o + " insert: attach fail");
-            return new py1(1001, "attach fail");
-        }
-        return (py1) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0023  */
-    /* JADX WARN: Removed duplicated region for block: B:14:0x0027  */
-    @NonNull
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0045 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x0059 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x006e A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x0071 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0079 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x007c A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x00b9 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00bc A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00c9 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x00d2 A[Catch: OutOfMemoryError -> 0x00f3, Exception -> 0x00fc, TryCatch #2 {Exception -> 0x00fc, OutOfMemoryError -> 0x00f3, blocks: (B:9:0x000f, B:11:0x0027, B:14:0x002c, B:16:0x0030, B:18:0x0036, B:21:0x003b, B:23:0x003f, B:25:0x0045, B:28:0x004d, B:30:0x0053, B:32:0x0059, B:35:0x0061, B:37:0x0068, B:39:0x006e, B:41:0x0073, B:43:0x0079, B:45:0x007e, B:47:0x00b9, B:49:0x00be, B:51:0x00c9, B:52:0x00cc, B:54:0x00d2, B:55:0x00d9, B:48:0x00bc, B:44:0x007c, B:40:0x0071, B:36:0x0064, B:29:0x0050), top: B:71:0x000f }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final M j(@NonNull M m) {
-        InterceptResult invokeL;
-        oy1 oy1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
-            try {
-                oy1Var = (oy1) m.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                rz1.b("Component-Base", "model must implement cloneable", e);
-                oy1Var = null;
-                if (oy1Var == null) {
-                }
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                rz1.b("Component-Base", "clone model fail ！", e2);
-                oy1Var = null;
-                if (oy1Var == null) {
-                }
-            }
-            if (oy1Var == null) {
-                rz1.a("Component-Base", "clone model fail ！");
-                return m;
-            }
-            return (M) oy1Var;
-        }
-        return (M) invokeL.objValue;
-    }
-
-    @NonNull
-    @CallSuper
-    public qz1 k(@NonNull M m, @NonNull M m2) {
+    public boolean i(View view2, String str) {
         InterceptResult invokeLL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, m, m2)) == null) {
-            qz1 qz1Var = new qz1();
-            et2 et2Var = m2.h;
-            if (et2Var != null && et2Var.b(m.h)) {
-                qz1Var.b(3);
-            }
-            if (m.f != m2.f) {
-                qz1Var.b(1);
-            }
-            if (m.g != m2.g) {
-                qz1Var.b(2);
-            }
-            return qz1Var;
-        }
-        return (qz1) invokeLL.objValue;
-    }
-
-    @NonNull
-    public final M l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? j(this.c) : (M) invokeV.objValue;
-    }
-
-    @Nullable
-    public final SwanAppComponentContainerView m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.e : (SwanAppComponentContainerView) invokeV.objValue;
-    }
-
-    @NonNull
-    public final M n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.c : (M) invokeV.objValue;
-    }
-
-    @NonNull
-    public final String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            py1 i = i(this.c);
-            if (i.a()) {
-                return this.c.d();
-            }
-            return "【illegal component#" + i.b + "】";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Nullable
-    public final M p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.d : (M) invokeV.objValue;
-    }
-
-    @Nullable
-    public final V q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.b : (V) invokeV.objValue;
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, swanAppComponentContainerView, m) == null) {
-            swanAppComponentContainerView.setOnTouchListener(new c(this, m.c, m.b, m.a, m.g));
-        }
-    }
-
-    public final boolean s(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) ? (this.g & i) == i : invokeI.booleanValue;
-    }
-
-    public final boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.d != null : invokeV.booleanValue;
-    }
-
-    @NonNull
-    public SwanAppComponentContainerView u(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, context)) == null) ? new SwanAppComponentContainerView(context) : (SwanAppComponentContainerView) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.ny1<V extends android.view.View, M extends com.baidu.tieba.oy1> */
-    /* JADX WARN: Multi-variable type inference failed */
-    @NonNull
-    @UiThread
-    public /* bridge */ /* synthetic */ py1 update(@NonNull qy1 qy1Var) {
-        return update((ny1<V, M>) ((oy1) qy1Var));
-    }
-
-    @NonNull
-    public abstract V v(@NonNull Context context);
-
-    @Nullable
-    @UiThread
-    public final ww9 w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            String o = o();
-            py1 i = i(this.c);
-            if (!i.a()) {
-                yz1.c("Component-Base", o + " insert delayed with a invalid model => " + i.b);
-                return null;
-            }
-            if (h) {
-                Log.i("Component-Base", "=====================" + o + " start insertDelayed=====================");
-            }
-            if (this.a == null) {
-                rz1.a("Component-Base", o + " insert delayed with a null component context!");
-                return null;
-            }
-            if (this.e != null) {
-                yz1.o("Component-Base", o + " repeat insert delayed: container view repeat");
-            }
-            ww9 ww9Var = this.f;
-            if (ww9Var != null && !ww9Var.isUnsubscribed()) {
-                this.f.unsubscribe();
-                this.f = null;
-                yz1.o("Component-Base", o + " insert delayed repeat: subscriber repeat");
-            }
-            this.e = u(this.a.getContext());
-            D(this.c, new qz1(true));
-            if (h(this.a)) {
-                if (h) {
-                    Log.d("Component-Base", o + " insert delayed（container view）: success");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, str)) == null) {
+            if (view2 != null && !TextUtils.isEmpty(str)) {
+                try {
+                    Bitmap x = ch3.x(view2, view2.getWidth(), view2.getHeight());
+                    int width = x.getWidth();
+                    int height = x.getHeight();
+                    if (this.k >= 0 && this.k < width) {
+                        i = this.k;
+                        this.k = i;
+                        if (this.l >= 0 && this.l < height) {
+                            i2 = this.l;
+                            this.l = i2;
+                            if (this.m > 0 && this.k + this.m <= width) {
+                                i3 = this.m;
+                                this.m = i3;
+                                if (this.n > 0 && this.l + this.n <= height) {
+                                    i4 = this.n;
+                                    this.n = i4;
+                                    this.o = this.o > 0 ? this.m : this.o;
+                                    int i5 = this.p > 0 ? this.n : this.p;
+                                    this.p = i5;
+                                    Bitmap createBitmap = Bitmap.createBitmap(this.o, i5, x.getConfig());
+                                    new Canvas(createBitmap).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
+                                    Bitmap.CompressFormat compressFormat = !h() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
+                                    file = new File(str);
+                                    if (file.exists()) {
+                                        file.delete();
+                                    }
+                                    if (file.getParentFile() != null) {
+                                        file.getParentFile().mkdirs();
+                                    }
+                                    file.createNewFile();
+                                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                                    createBitmap.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream);
+                                    fileOutputStream.flush();
+                                    pj4.d(fileOutputStream);
+                                    return true;
+                                }
+                                i4 = height - this.l;
+                                this.n = i4;
+                                this.o = this.o > 0 ? this.m : this.o;
+                                if (this.p > 0) {
+                                }
+                                this.p = i5;
+                                Bitmap createBitmap2 = Bitmap.createBitmap(this.o, i5, x.getConfig());
+                                new Canvas(createBitmap2).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
+                                if (!h()) {
+                                }
+                                file = new File(str);
+                                if (file.exists()) {
+                                }
+                                if (file.getParentFile() != null) {
+                                }
+                                file.createNewFile();
+                                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                                createBitmap2.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream2);
+                                fileOutputStream2.flush();
+                                pj4.d(fileOutputStream2);
+                                return true;
+                            }
+                            i3 = width - this.k;
+                            this.m = i3;
+                            if (this.n > 0) {
+                                i4 = this.n;
+                                this.n = i4;
+                                this.o = this.o > 0 ? this.m : this.o;
+                                if (this.p > 0) {
+                                }
+                                this.p = i5;
+                                Bitmap createBitmap22 = Bitmap.createBitmap(this.o, i5, x.getConfig());
+                                new Canvas(createBitmap22).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
+                                if (!h()) {
+                                }
+                                file = new File(str);
+                                if (file.exists()) {
+                                }
+                                if (file.getParentFile() != null) {
+                                }
+                                file.createNewFile();
+                                FileOutputStream fileOutputStream22 = new FileOutputStream(file);
+                                createBitmap22.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream22);
+                                fileOutputStream22.flush();
+                                pj4.d(fileOutputStream22);
+                                return true;
+                            }
+                            i4 = height - this.l;
+                            this.n = i4;
+                            this.o = this.o > 0 ? this.m : this.o;
+                            if (this.p > 0) {
+                            }
+                            this.p = i5;
+                            Bitmap createBitmap222 = Bitmap.createBitmap(this.o, i5, x.getConfig());
+                            new Canvas(createBitmap222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
+                            if (!h()) {
+                            }
+                            file = new File(str);
+                            if (file.exists()) {
+                            }
+                            if (file.getParentFile() != null) {
+                            }
+                            file.createNewFile();
+                            FileOutputStream fileOutputStream222 = new FileOutputStream(file);
+                            createBitmap222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream222);
+                            fileOutputStream222.flush();
+                            pj4.d(fileOutputStream222);
+                            return true;
+                        }
+                        i2 = 0;
+                        this.l = i2;
+                        if (this.m > 0) {
+                            i3 = this.m;
+                            this.m = i3;
+                            if (this.n > 0) {
+                            }
+                            i4 = height - this.l;
+                            this.n = i4;
+                            this.o = this.o > 0 ? this.m : this.o;
+                            if (this.p > 0) {
+                            }
+                            this.p = i5;
+                            Bitmap createBitmap2222 = Bitmap.createBitmap(this.o, i5, x.getConfig());
+                            new Canvas(createBitmap2222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
+                            if (!h()) {
+                            }
+                            file = new File(str);
+                            if (file.exists()) {
+                            }
+                            if (file.getParentFile() != null) {
+                            }
+                            file.createNewFile();
+                            FileOutputStream fileOutputStream2222 = new FileOutputStream(file);
+                            createBitmap2222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream2222);
+                            fileOutputStream2222.flush();
+                            pj4.d(fileOutputStream2222);
+                            return true;
+                        }
+                        i3 = width - this.k;
+                        this.m = i3;
+                        if (this.n > 0) {
+                        }
+                        i4 = height - this.l;
+                        this.n = i4;
+                        this.o = this.o > 0 ? this.m : this.o;
+                        if (this.p > 0) {
+                        }
+                        this.p = i5;
+                        Bitmap createBitmap22222 = Bitmap.createBitmap(this.o, i5, x.getConfig());
+                        new Canvas(createBitmap22222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
+                        if (!h()) {
+                        }
+                        file = new File(str);
+                        if (file.exists()) {
+                        }
+                        if (file.getParentFile() != null) {
+                        }
+                        file.createNewFile();
+                        FileOutputStream fileOutputStream22222 = new FileOutputStream(file);
+                        createBitmap22222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream22222);
+                        fileOutputStream22222.flush();
+                        pj4.d(fileOutputStream22222);
+                        return true;
+                    }
+                    i = 0;
+                    this.k = i;
+                    if (this.l >= 0) {
+                        i2 = this.l;
+                        this.l = i2;
+                        if (this.m > 0) {
+                        }
+                        i3 = width - this.k;
+                        this.m = i3;
+                        if (this.n > 0) {
+                        }
+                        i4 = height - this.l;
+                        this.n = i4;
+                        this.o = this.o > 0 ? this.m : this.o;
+                        if (this.p > 0) {
+                        }
+                        this.p = i5;
+                        Bitmap createBitmap222222 = Bitmap.createBitmap(this.o, i5, x.getConfig());
+                        new Canvas(createBitmap222222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
+                        if (!h()) {
+                        }
+                        file = new File(str);
+                        if (file.exists()) {
+                        }
+                        if (file.getParentFile() != null) {
+                        }
+                        file.createNewFile();
+                        FileOutputStream fileOutputStream222222 = new FileOutputStream(file);
+                        createBitmap222222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream222222);
+                        fileOutputStream222222.flush();
+                        pj4.d(fileOutputStream222222);
+                        return true;
+                    }
+                    i2 = 0;
+                    this.l = i2;
+                    if (this.m > 0) {
+                    }
+                    i3 = width - this.k;
+                    this.m = i3;
+                    if (this.n > 0) {
+                    }
+                    i4 = height - this.l;
+                    this.n = i4;
+                    this.o = this.o > 0 ? this.m : this.o;
+                    if (this.p > 0) {
+                    }
+                    this.p = i5;
+                    Bitmap createBitmap2222222 = Bitmap.createBitmap(this.o, i5, x.getConfig());
+                    new Canvas(createBitmap2222222).drawBitmap(x, new Rect(this.k, this.l, this.k + this.m, this.l + this.n), new Rect(0, 0, this.o, this.p), new Paint());
+                    if (!h()) {
+                    }
+                    file = new File(str);
+                    if (file.exists()) {
+                    }
+                    if (file.getParentFile() != null) {
+                    }
+                    file.createNewFile();
+                    FileOutputStream fileOutputStream2222222 = new FileOutputStream(file);
+                    createBitmap2222222.compress(compressFormat, (int) (this.r * 100.0f), fileOutputStream2222222);
+                    fileOutputStream2222222.flush();
+                    pj4.d(fileOutputStream2222222);
+                    return true;
+                } catch (Exception e) {
+                    if (vj1.a) {
+                        e.printStackTrace();
+                    }
+                } catch (OutOfMemoryError e2) {
+                    if (vj1.a) {
+                        e2.printStackTrace();
+                    }
                 }
-                qw9.a(new b(this, Thread.currentThread().getId())).u(new a(this, o));
-                return this.f;
             }
-            yz1.c("Component-Base", o + " insert delayed: attach fail");
-            return null;
+            return false;
         }
-        return (ww9) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void x(boolean z) {
+    @Override // com.baidu.tieba.iy1, com.baidu.tieba.bz1, com.baidu.tieba.kt2
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-        }
-    }
-
-    @CallSuper
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            if (h) {
-                Log.d("Component-Base", o() + " onDestroy");
-            }
-            E();
-        }
-    }
-
-    @CallSuper
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
-            E();
-        }
-    }
-
-    @NonNull
-    @UiThread
-    public final py1 update(@NonNull M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, m)) == null) {
-            String o = o();
-            py1 i = i(m);
-            if (!i.a()) {
-                yz1.c("Component-Base", o + " update with a invalid model => " + i.b);
-                return i;
-            }
-            if (h) {
-                Log.i("Component-Base", "=====================" + o + " start update=====================");
-            }
-            M m2 = this.c;
-            if (m2 == m) {
-                String str = o + " update with the same model";
-                rz1.a("Component-Base", str);
-                return new py1(202, str);
-            } else if (!TextUtils.equals(m2.b, m.b)) {
-                String str2 = o + " update with different id: " + this.c.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.b;
-                rz1.a("Component-Base", str2);
-                return new py1(202, str2);
-            } else if (!TextUtils.equals(this.c.c, m.c)) {
-                String str3 = o + " update with different slave id: " + this.c.c + StringUtil.ARRAY_ELEMENT_SEPARATOR + m.c;
-                rz1.a("Component-Base", str3);
-                return new py1(202, str3);
-            } else if (this.b != null && this.e != null) {
-                if (this.a == null) {
-                    rz1.a("Component-Base", o + " update with a null component context!");
-                    return new py1(202, "component context is null");
-                }
-                M m3 = this.c;
-                this.d = m3;
-                qz1 k = k(m3, m);
-                M j = j(m);
-                this.c = j;
-                C(this.b, j, k);
-                boolean f = this.a.a().f(this, k);
-                this.d = null;
-                if (!f) {
-                    String str4 = o + " update component fail";
-                    yz1.c("Component-Base", str4);
-                    return new py1(1001, str4);
-                }
-                if (h) {
-                    Log.d("Component-Base", o + " component update: success");
-                }
-                return new py1(0, "success");
-            } else {
-                String str5 = o + " update must after insert succeeded";
-                rz1.a("Component-Base", str5);
-                return new py1(202, str5);
-            }
-        }
-        return (py1) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.m > 0 && this.n > 0 : invokeV.booleanValue;
     }
 }

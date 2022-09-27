@@ -1,77 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class jy7 extends PostData {
+public class jy7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId W0;
     public transient /* synthetic */ FieldHolder $fh;
-    public ps4 T0;
-    public ps4 U0;
-    public ps4 V0;
+    public final int a;
+    public BdTypeListView b;
+    public boolean c;
+    public int d;
+    public int e;
+    public a f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947899713, "Lcom/baidu/tieba/jy7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947899713, "Lcom/baidu/tieba/jy7;");
-                return;
-            }
-        }
-        W0 = BdUniqueId.gen();
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a();
     }
 
-    public jy7() {
+    public jy7(BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
+        this.d = -1;
+        this.e = -1;
+        this.b = bdTypeListView;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final int a(List<Cdo> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? W0 : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean j1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ps4 ps4Var = this.T0;
-            if (ps4Var == null || StringUtils.isNull(ps4Var.b)) {
-                ps4 ps4Var2 = this.U0;
-                if (ps4Var2 == null || StringUtils.isNull(ps4Var2.b)) {
-                    ps4 ps4Var3 = this.V0;
-                    return (ps4Var3 == null || StringUtils.isNull(ps4Var3.b)) ? false : true;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, list, i)) == null) {
+            if (!ListUtils.isEmpty(list) && i != -1) {
+                int i2 = 0;
+                for (int i3 = 0; i3 < list.size(); i3++) {
+                    if ((list.get(i3) instanceof PostData) && ((PostData) list.get(i3)).getType() == PostData.L0 && (i2 = i2 + 1) == i) {
+                        return i3;
+                    }
                 }
-                return true;
             }
-            return true;
+            return -1;
         }
-        return invokeV.booleanValue;
+        return invokeLI.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e = a(this.b.getData(), mu7.b().c());
+        }
+    }
+
+    public void c(int i, int i2) {
+        View childAt;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) || this.b == null || this.c || !mu7.b().e() || mu7.b().c() == -1 || this.e < 0 || (childAt = this.b.getChildAt(i2 - 1)) == null) {
+            return;
+        }
+        if (this.d <= 0) {
+            this.d = this.b.getHeight() - this.a;
+        }
+        if (this.d <= 0) {
+            return;
+        }
+        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
+        int i3 = (i + i2) - 1;
+        if (i3 > headerViewsCount) {
+            if (i3 - 1 != headerViewsCount || childAt.getTop() <= this.d) {
+                a aVar = this.f;
+                if (aVar != null) {
+                    aVar.a();
+                }
+                this.c = true;
+            }
+        }
+    }
+
+    public void d(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.f = aVar;
+        }
     }
 }

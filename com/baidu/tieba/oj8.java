@@ -1,73 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.content.Intent;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
 public class oj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Cdo> a;
-    public List<RecommendForumInfo> b;
-    public Page c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
 
-    public oj8() {
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, intent)) == null) {
+            if (intent == null) {
+                return false;
             }
+            return intent.getBooleanExtra(SpeedStatsUtils.UBC_VALUE_SPLASH, false);
         }
-        this.a = new ArrayList();
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
+        return invokeL.booleanValue;
     }
 
-    public List<Cdo> a() {
-        InterceptResult invokeV;
+    public static boolean b(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void b(u86 u86Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u86Var) == null) {
-            String str = u86Var.d;
-            this.c = u86Var.c;
-            List<RecommendForumInfo> list = u86Var.a;
-            this.b = list;
-            if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.b) {
-                    nj8 nj8Var = new nj8();
-                    nj8Var.r(recommendForumInfo);
-                    this.a.add(nj8Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (intent == null) {
+                return false;
+            }
+            boolean booleanExtra = intent.getBooleanExtra(FrsActivityConfig.FROM_SHORT_CUT, false);
+            if (booleanExtra) {
+                String stringExtra = intent.getStringExtra("fname");
+                if (!StringUtils.isNull(stringExtra)) {
+                    TiebaStatic.log(new StatisticItem("c11897").param("fname", stringExtra));
                 }
             }
-            Page page = this.c;
-            if (page != null) {
-                this.d = page.has_more.intValue() == 1;
-                this.e = this.c.current_page.intValue();
-            }
+            return booleanExtra;
         }
+        return invokeL.booleanValue;
     }
 }

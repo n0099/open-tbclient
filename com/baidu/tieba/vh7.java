@@ -1,81 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.util.Log;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-import com.baidu.android.imrtc.BIMRtcClient;
-import com.baidu.android.imsdk.BIMManager;
-import com.baidu.android.imsdk.account.ILoginListener;
+import android.graphics.drawable.ColorDrawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class vh7 implements ILoginListener {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile vh7 d = null;
-    public static boolean e = true;
+public class vh7 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b b;
-    public BroadcastReceiver c;
+    public Animation a;
+    public Animation b;
+    public View c;
+    public ViewGroup d;
+    public c e;
+    public uh7 f;
+    public boolean g;
 
     /* loaded from: classes6.dex */
-    public class a extends BroadcastReceiver {
+    public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vh7 this$0;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ vh7 b;
 
-        /* renamed from: com.baidu.tieba.vh7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0437a extends qh5<Object> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0437a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+        public a(vh7 vh7Var, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vh7Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                this.a = aVar;
             }
-
-            @Override // com.baidu.tieba.qh5
-            public Object doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive doInBackground");
-                    this.a.this$0.d(null);
-                    return null;
-                }
-                return invokeV.objValue;
-            }
+            this.b = vh7Var;
+            this.a = context;
         }
 
-        public a(vh7 vh7Var) {
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                sh7 item = this.b.f.getItem(i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016448));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016449, item));
+                this.b.f(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends fh {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vh7 a;
+
+        public b(vh7 vh7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -90,177 +91,131 @@ public class vh7 implements ILoginListener {
                     return;
                 }
             }
-            this.this$0 = vh7Var;
+            this.a = vh7Var;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
+        @Override // com.baidu.tieba.fh, android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive context=" + context + ", intent=" + intent);
-                if (intent == null || !"com.baidu.lcp.sdk.broadcast".equals(intent.getAction())) {
-                    return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
+                this.a.g = false;
+                if (this.a.e != null) {
+                    this.a.e.a();
                 }
-                boolean z = intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1) == 0;
-                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z);
-                Log.d("ImSdkManager", "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1));
-                if (z) {
-                    uh5.b(new C0437a(this), null);
-                }
+                this.a.d.removeView(this.a.c);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, String str);
+    public interface c {
+        void a();
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948240868, "Lcom/baidu/tieba/vh7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948240868, "Lcom/baidu/tieba/vh7;");
-        }
-    }
-
-    public vh7() {
+    public vh7(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
+        this.g = false;
+        this.d = viewGroup;
     }
 
-    public static vh7 a() {
+    public void f(Context context) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view2 = this.c) == null) {
+            return;
+        }
+        view2.startAnimation(i(context));
+    }
+
+    public final View g(Context context, List<sh7> list, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, list, i)) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d051e, (ViewGroup) null);
+            GridView gridView = (GridView) inflate.findViewById(R.id.obfuscated_res_0x7f091dcf);
+            gridView.setSelector(new ColorDrawable(context.getResources().getColor(17170445)));
+            uh7 uh7Var = new uh7(context, i);
+            this.f = uh7Var;
+            uh7Var.b(list);
+            gridView.setAdapter((ListAdapter) this.f);
+            gridView.setOnItemClickListener(new a(this, context));
+            return inflate;
+        }
+        return (View) invokeLLI.objValue;
+    }
+
+    public final Animation h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (this.a == null) {
+                this.a = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f01005f);
+            }
+            return this.a;
+        }
+        return (Animation) invokeL.objValue;
+    }
+
+    public final Animation i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            if (this.b == null) {
+                this.b = AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f010060);
+            }
+            this.b.setAnimationListener(new b(this));
+            return this.b;
+        }
+        return (Animation) invokeL.objValue;
+    }
+
+    public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (vh7.class) {
-                    if (d == null) {
-                        d = new vh7();
-                    }
-                }
-            }
-            return d;
-        }
-        return (vh7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : invokeV.booleanValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("test_checkoutImEnvRD", Boolean.FALSE);
-            if (hashMap.containsKey("test_checkoutImEnvRD")) {
-                return ((Boolean) hashMap.get("test_checkoutImEnvRD")).booleanValue();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init context=" + context);
-            int i = 0;
-            this.a = false;
-            String version = TbConfig.getVersion();
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
-            LocalBroadcastManager.getInstance(context).registerReceiver(this.c, intentFilter);
-            z80.y(context, true);
-            BIMManager.setProductLine(context, 3, version);
-            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            BIMManager.enableDebugMode(true);
-            if (c()) {
-                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init debug");
-                BIMManager.init(context, Constants.APPID_TIEBA, 1, cuidGalaxy2);
-                BIMRtcClient.setRtcDebugAndLogEnable(context, true, true);
-                i = 1;
-            } else {
-                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init online");
-                BIMManager.init(context, Constants.APPID_TIEBA, 0, cuidGalaxy2);
-                BIMRtcClient.setRtcDebugAndLogEnable(context, false, false);
-            }
-            LogUtils.d("imlog", "BIMManager init env:" + i);
-            e(context);
-        }
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM listener=" + bVar);
-            this.b = bVar;
-            String from = TbConfig.getFrom();
-            String currentFrom = TbConfig.getCurrentFrom();
-            if (TbadkCoreApplication.isLogin()) {
-                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM login");
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                String currentBduss = TbadkCoreApplication.getCurrentBduss();
-                BIMManager.login(currentAccount, currentBduss, 1, from, currentFrom, this);
-                LogUtils.d("imlog", "IMSdkManager PassIsLogin loginToIM uid = " + currentAccount + ", bduss = " + currentBduss + ", from = " + from + ", cfrom = " + currentFrom);
-                return;
-            }
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM cuid");
-            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            BIMManager.login(null, cuidGalaxy2, 6, from, currentFrom, this);
-            LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuidGalaxy2 + ", from = " + from + ", cfrom = " + currentFrom);
-        }
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP context=" + context);
-            int i = e ? 1 : 2;
-            e = false;
-            y70.a(context, "10773430", TbadkCoreApplication.getInst().getCuidGalaxy2(), i);
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP connect end");
-        }
-    }
-
-    @Override // com.baidu.android.imsdk.account.ILoginListener
-    public void onLoginResult(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i + ", errMsg=" + str);
-            b bVar = this.b;
-            if (bVar != null) {
-                bVar.a(i, str);
-                this.b = null;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+            uh7 uh7Var = this.f;
+            if (uh7Var != null) {
+                uh7Var.notifyDataSetChanged();
             }
         }
     }
 
-    @Override // com.baidu.android.imsdk.account.ILoginListener
-    public void onLogoutResult(int i, String str, int i2) {
+    public void l(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLogoutResult errno=" + i + ", errMsg=" + str + ", type=" + i2);
-            if (this.a) {
-                return;
-            }
-            d(null);
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.e = cVar;
         }
+    }
+
+    public void m(Context context, List<sh7> list, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLI(1048583, this, context, list, i) == null) || this.g) {
+            return;
+        }
+        this.g = true;
+        View g = g(context, list, i);
+        this.c = g;
+        this.d.addView(g);
+        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0111);
+        this.c.startAnimation(h(context));
     }
 }

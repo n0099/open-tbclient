@@ -21,16 +21,16 @@ import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au4;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.kz4;
-import com.baidu.tieba.lo8;
+import com.baidu.tieba.ap8;
+import com.baidu.tieba.fa5;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.nu4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.s95;
 import com.baidu.tieba.sj;
-import com.baidu.tieba.u45;
+import com.baidu.tieba.t55;
 import com.baidu.tieba.uj;
 import com.baidu.tieba.w9;
+import com.baidu.tieba.xz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes.dex */
-public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
+public class NewVoiceRecordButton extends LinearLayout implements uj, t55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrameLayout a;
@@ -50,7 +50,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
     public int g;
     public VoiceData.VoiceModel h;
     public boolean i;
-    public au4 j;
+    public nu4 j;
     public PermissionJudgePolicy k;
 
     /* loaded from: classes.dex */
@@ -101,7 +101,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
     }
 
     /* loaded from: classes.dex */
-    public class b implements au4.e {
+    public class b implements nu4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewVoiceRecordButton a;
@@ -124,17 +124,17 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
             this.a = newVoiceRecordButton;
         }
 
-        @Override // com.baidu.tieba.au4.e
-        public void onClick(au4 au4Var) {
+        @Override // com.baidu.tieba.nu4.e
+        public void onClick(nu4 nu4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
-                au4Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
+                nu4Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class c implements au4.e {
+    public class c implements nu4.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ NewVoiceRecordButton a;
@@ -157,12 +157,12 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
             this.a = newVoiceRecordButton;
         }
 
-        @Override // com.baidu.tieba.au4.e
-        public void onClick(au4 au4Var) {
+        @Override // com.baidu.tieba.nu4.e
+        public void onClick(nu4 nu4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
-                au4Var.dismiss();
-                this.a.K(new u45(11, -1, null));
+            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
+                nu4Var.dismiss();
+                this.a.K(new h55(11, -1, null));
             }
         }
     }
@@ -224,20 +224,20 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
         g();
     }
 
-    @Override // com.baidu.tieba.v45
-    public void B(u45 u45Var) {
+    @Override // com.baidu.tieba.i55
+    public void B(h55 h55Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, u45Var) == null) || u45Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) || h55Var == null) {
             return;
         }
-        int i = u45Var.a;
+        int i = h55Var.a;
         if (i == 1) {
             TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_FUNCTION_PANEL_CLIKED).param("obj_locate", 6));
         } else if (i == 9) {
             i();
         } else if (i != 52) {
         } else {
-            Object obj = u45Var.c;
+            Object obj = h55Var.c;
             if (obj instanceof VoiceData.VoiceModel) {
                 this.h = (VoiceData.VoiceModel) obj;
                 this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1595));
@@ -247,17 +247,17 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
-    public void K(u45 u45Var) {
+    @Override // com.baidu.tieba.t55
+    public void K(h55 h55Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u45Var) == null) || (editorTools = this.f) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h55Var) == null) || (editorTools = this.f) == null) {
             return;
         }
-        editorTools.A(u45Var);
+        editorTools.A(h55Var);
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -271,15 +271,15 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
             LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d048a, this);
             this.a = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912a5);
             this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091026);
-            RecordingAnimView recordingAnimView = (RecordingAnimView) findViewById(R.id.obfuscated_res_0x7f091baa);
+            RecordingAnimView recordingAnimView = (RecordingAnimView) findViewById(R.id.obfuscated_res_0x7f091bac);
             this.c = recordingAnimView;
             recordingAnimView.setCertainColumnCount(8);
             this.c.setColumnColor(R.color.CAM_X0111);
             this.c.setColumnWidth(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09238e);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092415);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092390);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092417);
             this.a.setOnTouchListener(new a(this));
-            lo8 recorderManager = getRecorderManager();
+            ap8 recorderManager = getRecorderManager();
             if (recorderManager != null) {
                 recorderManager.e(this);
                 recorderManager.d(sj.a);
@@ -287,7 +287,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
         }
     }
 
-    public lo8 getRecorderManager() {
+    public ap8 getRecorderManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -297,10 +297,10 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
             }
             return voiceManager.getRecorderManager();
         }
-        return (lo8) invokeV.objValue;
+        return (ap8) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -324,7 +324,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
         return (VoiceManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -342,7 +342,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -363,9 +363,9 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             if (this.j == null) {
-                au4 au4Var = new au4(w9.a(getContext()).getPageActivity());
-                this.j = au4Var;
-                au4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f1596)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f1595), new c(this)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f0375), new b(this)).create(w9.a(getContext()));
+                nu4 nu4Var = new nu4(w9.a(getContext()).getPageActivity());
+                this.j = nu4Var;
+                nu4Var.setMessage(getContext().getString(R.string.obfuscated_res_0x7f0f1596)).setPositiveButton(getContext().getString(R.string.obfuscated_res_0x7f0f1595), new c(this)).setNegativeButton(getContext().getString(R.string.obfuscated_res_0x7f0f0375), new b(this)).create(w9.a(getContext()));
             }
             this.j.show();
         }
@@ -387,14 +387,14 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
             }
             VoiceData.VoiceModel voiceModel = this.h;
             if (voiceModel != null) {
-                kz4.a(kz4.b(voiceModel.voiceId));
+                xz4.a(xz4.b(voiceModel.voiceId));
             }
-            lo8 recorderManager = getRecorderManager();
+            ap8 recorderManager = getRecorderManager();
             if (recorderManager == null || !recorderManager.f()) {
                 return;
             }
             this.i = recorderManager.c(this, -1);
-            s95.b().l(true);
+            fa5.b().l(true);
             this.d.setVisibility(0);
         }
     }
@@ -407,16 +407,16 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
             this.c.setVisibility(4);
             this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1590));
             this.d.setVisibility(4);
-            lo8 recorderManager = getRecorderManager();
+            ap8 recorderManager = getRecorderManager();
             if (this.i && recorderManager != null) {
                 recorderManager.stopRecord();
             }
             this.i = false;
-            s95.b().l(false);
+            fa5.b().l(false);
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -447,7 +447,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
         voiceModel.voiceId = str;
         voiceModel.voice_status = 1;
         this.e.setText(getResources().getText(R.string.obfuscated_res_0x7f0f1595));
-        K(new u45(10, -1, this.h));
+        K(new h55(10, -1, this.h));
     }
 
     @Override // com.baidu.tieba.uj
@@ -493,7 +493,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048598, this, editorTools) == null) {
@@ -501,7 +501,7 @@ public class NewVoiceRecordButton extends LinearLayout implements uj, g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048599, this, i) == null) {

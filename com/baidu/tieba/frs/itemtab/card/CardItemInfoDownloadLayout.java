@@ -23,9 +23,9 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.jy4;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.wy4;
 import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -239,14 +239,14 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements xx {
             ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d032a, (ViewGroup) null);
             this.a = viewGroup;
             viewGroup.setPadding(r, 0, 0, 0);
-            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09221e);
+            this.b = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092220);
             this.g = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fba);
             this.c = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09002a);
             this.h = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fd0);
             RankStarView rankStarView = (RankStarView) this.a.findViewById(R.id.obfuscated_res_0x7f090fbf);
             this.i = rankStarView;
             rankStarView.setStarSpacing(ej.f(getContext(), R.dimen.M_W_X001));
-            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090ddc);
+            this.d = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090ddb);
             this.e = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f090fac);
             this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090fc1);
             this.d.setOnClickListener(this.p);
@@ -260,9 +260,9 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements xx {
     public final void o(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            jy4 jy4Var = new jy4(6);
-            jy4Var.o(i);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, jy4Var));
+            wy4 wy4Var = new wy4(6);
+            wy4Var.o(i);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, wy4Var));
         }
     }
 
@@ -270,16 +270,16 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements xx {
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            uu4 d = uu4.d(this.a);
+            hv4 d = hv4.d(this.a);
             d.m(1);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            uu4 d2 = uu4.d(this.g);
+            hv4 d2 = hv4.d(this.g);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
-            uu4.d(this.h).v(R.color.CAM_X0305);
-            uu4.d(this.e).v(R.color.CAM_X0311);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080958, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
+            hv4.d(this.h).v(R.color.CAM_X0305);
+            hv4.d(this.e).v(R.color.CAM_X0311);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f08095a, R.color.CAM_X0311, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundResource(this.d, R.drawable.pic_bg_gamelistl);
             this.i.e(i);
         }
@@ -289,12 +289,12 @@ public class CardItemInfoDownloadLayout extends FrameLayout implements xx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                uu4 d = uu4.d(this.h);
+                hv4 d = hv4.d(this.h);
                 d.z(R.dimen.T_X06);
                 d.v(R.color.CAM_X0305);
                 return;
             }
-            uu4 d2 = uu4.d(this.h);
+            hv4 d2 = hv4.d(this.h);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0109);
         }

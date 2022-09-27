@@ -1,158 +1,173 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.net.Uri;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.common.ResizeOptions;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class kq2 extends BaseAdapter {
+public final class kq2 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<jq2> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public String b;
-    public ArrayList<yq2> c;
-    public int d;
 
-    /* loaded from: classes4.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public SimpleDraweeView a;
-        public TextView b;
-        public TextView c;
-
-        public a(kq2 kq2Var, View view2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921661, "Lcom/baidu/tieba/kq2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kq2Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09024d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090250);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09024f);
-        }
-    }
-
-    public kq2(Activity activity, String str, ArrayList<yq2> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, str, arrayList};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947921661, "Lcom/baidu/tieba/kq2;");
                 return;
             }
         }
-        this.a = activity;
-        this.b = str;
-        this.c = arrayList;
-        this.d = (int) (pg3.f(activity, 50.0f) / 2.0f);
+        a = new ArrayList<>();
     }
 
-    public final String a(int i) {
-        InterceptResult invokeI;
+    public static void a(jq2 jq2Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? TextUtils.equals(this.b, "Image") ? this.a.getString(R.string.obfuscated_res_0x7f0f12e1, new Object[]{Integer.valueOf(i)}) : this.a.getString(R.string.obfuscated_res_0x7f0f12b0, new Object[]{Integer.valueOf(i)}) : (String) invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<yq2> arrayList = this.c;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
+        if (!(interceptable == null || interceptable.invokeL(65537, null, jq2Var) == null) || jq2Var == null || a.contains(jq2Var)) {
+            return;
         }
-        return invokeV.intValue;
+        a.add(jq2Var);
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (i < 0 || i > this.c.size()) {
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.clear();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                jq2 jq2Var = a.get(size);
+                if (jq2Var != null) {
+                    jq2Var.onDestroy();
+                }
+            }
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            jq2 jq2Var = a.get(size);
+            if (jq2Var != null && TextUtils.equals(str, jq2Var.b())) {
+                jq2Var.onDestroy();
+            }
+        }
+    }
+
+    public static jq2 e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return this.c.get(i);
+            for (int size = a.size() - 1; size >= 0; size--) {
+                jq2 jq2Var = a.get(size);
+                if (jq2Var != null && TextUtils.equals(str, jq2Var.c())) {
+                    return jq2Var;
+                }
+            }
+            return null;
         }
-        return invokeI.objValue;
+        return (jq2) invokeL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static jq2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                jq2 jq2Var = a.get(size);
+                if (jq2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, jq2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, jq2Var.f())) || TextUtils.equals(str3, jq2Var.c())))) {
+                    return jq2Var;
+                }
+            }
+            return null;
+        }
+        return (jq2) invokeLLL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
+    public static boolean g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0825, (ViewGroup) null);
-                aVar = new a(this, view2);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081180));
-            yq2 yq2Var = this.c.get(i);
-            if (yq2Var == null) {
-                return view2;
+            for (int size = a.size() - 1; size >= 0; size--) {
+                jq2 jq2Var = a.get(size);
+                if (jq2Var != null && TextUtils.equals(str, jq2Var.b()) && jq2Var.onBackPressed()) {
+                    return true;
+                }
             }
-            aVar.b.setText(yq2Var.c());
-            ArrayList<MediaModel> arrayList = yq2Var.d;
-            if (arrayList == null) {
-                return view2;
-            }
-            aVar.c.setText(a(arrayList.size()));
-            if (yq2Var.d.get(0) != null && !TextUtils.isEmpty(yq2Var.d.get(0).getPath())) {
-                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(yq2Var.d.get(0).getPath())));
-                int i2 = this.d;
-                newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
-                newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
-                aVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).setOldController(aVar.a.getController()).build());
-            }
-            return view2;
+            return false;
         }
-        return (View) invokeILL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                jq2 jq2Var = a.get(size);
+                if (jq2Var != null) {
+                    jq2Var.j(z);
+                }
+            }
+        }
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLZ(65545, null, str, z) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            jq2 jq2Var = a.get(size);
+            if (jq2Var != null && TextUtils.equals(str, jq2Var.b())) {
+                jq2Var.k(z);
+            }
+        }
+    }
+
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                jq2 jq2Var = a.get(size);
+                if (jq2Var != null) {
+                    jq2Var.k(z);
+                }
+            }
+        }
+    }
+
+    public static void k(jq2 jq2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65547, null, jq2Var) == null) || jq2Var == null) {
+            return;
+        }
+        a.remove(jq2Var);
     }
 }

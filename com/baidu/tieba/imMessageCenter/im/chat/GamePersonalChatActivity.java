@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.atomData.GamePersonalChatActivityConfig;
 import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.j77;
+import com.baidu.tieba.x77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -247,10 +247,10 @@ public class GamePersonalChatActivity extends PersonalChatActivity {
     }
 
     @Override // com.baidu.tieba.imMessageCenter.im.chat.PersonalChatActivity, com.baidu.tieba.im.chat.MsglistActivity
-    public boolean r1(j77 j77Var) {
+    public boolean r1(x77 x77Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, j77Var)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, x77Var)) == null) {
             return true;
         }
         return invokeL.booleanValue;

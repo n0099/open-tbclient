@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.fd5;
-import com.baidu.tieba.su8;
-import com.baidu.tieba.u75;
-import com.baidu.tieba.up4;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.hq4;
+import com.baidu.tieba.hv8;
+import com.baidu.tieba.sd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -94,7 +94,7 @@ public class InitViewConfigTask extends LaunchTask {
                     }
                 };
                 ej.I(TbadkCoreApplication.getInst().mToast);
-                fd5.b().H(System.currentTimeMillis() - currentTimeMillis);
+                sd5.b().H(System.currentTimeMillis() - currentTimeMillis);
             }
         }
     }
@@ -104,18 +104,18 @@ public class InitViewConfigTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewHelper.initSkinDataOnStartup(AppRuntime.getAppContext());
-            up4.c().f();
+            hq4.c().f();
             TbConfig.initBigImageWidth(TbadkCoreApplication.getInst());
             TbConfig.initBigImageMaxUsedMemory(TbadkCoreApplication.getInst().getContext());
             if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                u75.k().q(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
+                h85.k().q(TbConfig.getMaxPhotoMemoryCache(), TbConfig.getBigImageMaxUsedMemory());
             } else {
-                u75.k().q(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
+                h85.k().q(TbConfig.getMaxPhotoMemoryCacheForRemoteProcess(), TbConfig.getBigImageMaxUsedMemoryForRemoteProcess());
             }
             TbConfig.initFriendPhotoConfig(TbadkCoreApplication.getInst());
             TbadkCoreApplication.getInst().setFontSize(TbadkSettings.getInst().loadInt("font_size", 2));
             TbDimenManager.getInstance().init(AppRuntime.getApplication());
-            su8.c();
+            hv8.c();
             initCustomToastView();
         }
     }

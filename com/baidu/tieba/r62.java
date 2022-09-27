@@ -1,149 +1,146 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.ul2;
-import com.baidu.tieba.xl2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class r62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948073499, "Lcom/baidu/tieba/r62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948073499, "Lcom/baidu/tieba/r62;");
-                return;
-            }
-        }
-        a = ij1.a;
-    }
-
-    public static String a(String str) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x009e, code lost:
+        if (r10.equals("1") != false) goto L13;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) ? a(ul2.e.i(str, str2).getPath()) : (String) invokeLL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? e(str, "swan_sub_package_zip") : (String) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            File a2 = gm2.g().a(str, str2);
-            if (a2 != null) {
-                return c(a2.getPath());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            char c = 0;
+            if (TextUtils.isEmpty(str)) {
+                return 0;
             }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                File file = new File(str, str2);
-                if (file.exists()) {
-                    return file.getPath();
-                }
-                if (file.mkdirs()) {
-                    return file.getPath();
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean f(List<yb4> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
-            if (list == null || list.isEmpty()) {
-                return false;
-            }
-            return list.get(0).r;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(yb4 yb4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, yb4Var)) == null) {
-            if (yb4Var == null || TextUtils.isEmpty(yb4Var.o)) {
-                return false;
-            }
-            return h(new File(yb4Var.a), new File(ul2.e.i(yb4Var.o, String.valueOf(yb4Var.i)).getPath(), yb4Var.p));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h(File file, File file2) {
-        InterceptResult invokeLL;
-        boolean U;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, file2)) == null) {
-            if (file != null && file2 != null) {
-                if (!file.exists()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "解压分包时，ZIP包不存在 zipFile=" + file);
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 49:
+                    break;
+                case 50:
+                    if (str.equals("2")) {
+                        c = 1;
+                        break;
                     }
-                    return false;
-                } else if (!file2.exists() && !file2.mkdirs()) {
-                    if (a) {
-                        Log.e("SubPkgDownloadUtil", "创建分包解压文件夹失败 unzipFolder=" + file2);
+                    c = 65535;
+                    break;
+                case 51:
+                    if (str.equals("3")) {
+                        c = 2;
+                        break;
                     }
-                    return false;
-                } else {
-                    xl2.c j = xl2.j(file);
-                    int i = j.b;
-                    if (i != -1) {
-                        U = xl2.d(j.a, file2, i).a;
-                    } else {
-                        U = cj4.U(file.getAbsolutePath(), file2.getAbsolutePath());
+                    c = 65535;
+                    break;
+                case 52:
+                    if (str.equals("4")) {
+                        c = 3;
+                        break;
                     }
-                    if (U) {
-                        if (a) {
-                            Log.i("SubPkgDownloadUtil", "分包解压成功");
-                            return true;
-                        }
-                        return true;
-                    } else if (a) {
-                        Log.e("SubPkgDownloadUtil", "分包解压文件失败, file:" + file.getAbsolutePath() + " folder:" + file2.getAbsolutePath());
+                    c = 65535;
+                    break;
+                case 53:
+                    if (str.equals("5")) {
+                        c = 4;
+                        break;
                     }
-                }
+                    c = 65535;
+                    break;
+                case 54:
+                    if (str.equals("6")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 55:
+                    if (str.equals("7")) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 56:
+                    if (str.equals("8")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 57:
+                    if (str.equals("9")) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 1567:
+                            if (str.equals("10")) {
+                                c = '\t';
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1568:
+                            if (str.equals("11")) {
+                                c = '\n';
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1569:
+                            if (str.equals("12")) {
+                                c = 11;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        default:
+                            c = 65535;
+                            break;
+                    }
             }
-            return false;
+            switch (c) {
+                case 0:
+                    return 6;
+                case 1:
+                    return 5;
+                case 2:
+                    return 8;
+                case 3:
+                    return 9;
+                case 4:
+                    return 10;
+                case 5:
+                    return 11;
+                case 6:
+                    return 12;
+                case 7:
+                    return 13;
+                case '\b':
+                    return 14;
+                case '\t':
+                    return 15;
+                case '\n':
+                    return 11;
+                case 11:
+                    return 12;
+                default:
+                    return 7;
+            }
         }
-        return invokeLL.booleanValue;
+        return invokeL.intValue;
     }
 }

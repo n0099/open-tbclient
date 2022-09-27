@@ -32,15 +32,15 @@ public class b {
     public class a implements SensorEventListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ InterfaceC0121b a;
+        public final /* synthetic */ InterfaceC0118b a;
         public final /* synthetic */ b b;
 
-        public a(b bVar, InterfaceC0121b interfaceC0121b) {
+        public a(b bVar, InterfaceC0118b interfaceC0118b) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, interfaceC0121b};
+                Object[] objArr = {bVar, interfaceC0118b};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,7 +51,7 @@ public class b {
                 }
             }
             this.b = bVar;
-            this.a = interfaceC0121b;
+            this.a = interfaceC0118b;
         }
 
         @Override // android.hardware.SensorEventListener
@@ -76,9 +76,9 @@ public class b {
                     Log.w(str2, "onSensorChanged() event.values[0]:" + this.b.f);
                 }
                 this.b.e = System.currentTimeMillis();
-                InterfaceC0121b interfaceC0121b = this.a;
-                if (interfaceC0121b != null) {
-                    interfaceC0121b.a(this.b.a());
+                InterfaceC0118b interfaceC0118b = this.a;
+                if (interfaceC0118b != null) {
+                    interfaceC0118b.a(this.b.a());
                 }
             }
         }
@@ -86,7 +86,7 @@ public class b {
 
     /* renamed from: com.baidu.pass.biometrics.face.liveness.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0121b {
+    public interface InterfaceC0118b {
         void a(float f);
     }
 
@@ -139,9 +139,9 @@ public class b {
     }
 
     @TargetApi(3)
-    public void a(InterfaceC0121b interfaceC0121b) {
+    public void a(InterfaceC0118b interfaceC0118b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0121b) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0118b) == null) {
             SensorManager sensorManager = (SensorManager) this.a.getSystemService("sensor");
             this.b = sensorManager;
             if (sensorManager == null) {
@@ -153,7 +153,7 @@ public class b {
             if (defaultSensor == null) {
                 return;
             }
-            a aVar = new a(this, interfaceC0121b);
+            a aVar = new a(this, interfaceC0118b);
             this.d = aVar;
             this.b.registerListener(aVar, this.c, 3);
         }

@@ -2,17 +2,23 @@ package com.vivo.identifier;
 
 import android.database.ContentObserver;
 import android.os.Handler;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public class IdentifierIdObserver extends ContentObserver {
     public static /* synthetic */ Interceptable $ic = null;
+    @Keep
     public static final String TAG = "VMS_SDK_Observer";
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public String mAppId;
+    @Keep
     public IdentifierIdClient mIdentifierIdClient;
+    @Keep
     public int mType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -39,15 +45,6 @@ public class IdentifierIdObserver extends ContentObserver {
     }
 
     @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            IdentifierIdClient identifierIdClient = this.mIdentifierIdClient;
-            if (identifierIdClient != null) {
-                identifierIdClient.sendMessageToDataBase(this.mType, this.mAppId);
-            } else {
-                IdentifierIdLog.e(TAG, "mIdentifierIdClient is null");
-            }
-        }
-    }
+    @Keep
+    public native void onChange(boolean z);
 }

@@ -12,9 +12,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.cm5;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.go;
+import com.baidu.tieba.pm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean S;
     public boolean T;
     @NonNull
-    public cm5 U;
+    public pm5 U;
     public boolean V;
     public boolean W;
     public boolean a0;
@@ -150,7 +150,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new cm5(this);
+        this.U = new pm5(this);
         H();
     }
 
@@ -353,7 +353,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new cm5(this);
+        this.U = new pm5(this);
         H();
     }
 
@@ -383,7 +383,7 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new cm5(this);
+        this.U = new pm5(this);
         H();
     }
 }

@@ -48,9 +48,9 @@ public class px extends ix implements wx<ThreadData>, xx {
         m(z);
     }
 
-    public void k(lq4 lq4Var, boolean z) {
+    public void k(yq4 yq4Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lq4Var, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yq4Var, z) == null) {
             this.f = z;
             t(0);
             o(true);

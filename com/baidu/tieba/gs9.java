@@ -1,145 +1,167 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import androidx.constraintlayout.motion.widget.Key;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.Layout;
-import com.opensource.svgaplayer.proto.ShapeEntity;
-import com.opensource.svgaplayer.proto.Transform;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 /* loaded from: classes4.dex */
-public final class gs9 {
+public class gs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public js9 b;
-    public Matrix c;
-    public bs9 d;
-    public List<SVGAVideoShapeEntity> e;
+    public Handler a;
+    public Context b;
+    public c c;
+    public ServiceConnection d;
 
-    public gs9(JSONObject jSONObject) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        gs9 gs9Var = this;
-        gs9Var.b = new js9(0.0d, 0.0d, 0.0d, 0.0d);
-        gs9Var.c = new Matrix();
-        gs9Var.e = CollectionsKt__CollectionsKt.emptyList();
-        gs9Var.a = jSONObject.optDouble(Key.ALPHA, 0.0d);
-        JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_LAYOUT);
-        if (optJSONObject != null) {
-            gs9Var.b = new js9(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
-        if (optJSONObject2 != null) {
-            double optDouble = optJSONObject2.optDouble("a", 1.0d);
-            double optDouble2 = optJSONObject2.optDouble("b", 0.0d);
-            double optDouble3 = optJSONObject2.optDouble("c", 0.0d);
-            double optDouble4 = optJSONObject2.optDouble("d", 1.0d);
-            double optDouble5 = optJSONObject2.optDouble("tx", 0.0d);
-            double optDouble6 = optJSONObject2.optDouble(Config.EXCEPTION_CRASH_CHANNEL, 0.0d);
-            float f = (float) optDouble3;
-            z = true;
-            float f2 = (float) 0.0d;
-            float[] fArr = {(float) optDouble, f, (float) optDouble5, (float) optDouble2, (float) optDouble4, (float) optDouble6, f2, f2, (float) 1.0d};
-            gs9Var = this;
-            gs9Var.c.setValues(fArr);
-        } else {
-            z = true;
-        }
-        String optString = jSONObject.optString("clipPath");
-        if (optString != null) {
-            if (optString.length() <= 0 ? false : z) {
-                gs9Var.d = new bs9(optString);
-            }
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
-        if (optJSONArray != null) {
-            ArrayList arrayList = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
-                if (optJSONObject3 != null) {
-                    arrayList.add(new SVGAVideoShapeEntity(optJSONObject3));
+    /* loaded from: classes4.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gs9 a;
+
+        public a(gs9 gs9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gs9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            gs9Var.e = CollectionsKt___CollectionsKt.toList(arrayList);
+            this.a = gs9Var;
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onBindingDied(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onNullBinding(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
+                this.a.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+                this.a.a.removeMessages(2);
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
+            }
         }
     }
 
-    public final double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.doubleValue;
-    }
+    /* loaded from: classes4.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gs9 a;
 
-    public final js9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (js9) invokeV.objValue;
-    }
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(gs9 gs9Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gs9Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gs9Var;
+        }
 
-    public final bs9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (bs9) invokeV.objValue;
-    }
-
-    public final List<SVGAVideoShapeEntity> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (List) invokeV.objValue;
-    }
-
-    public final Matrix e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (Matrix) invokeV.objValue;
-    }
-
-    public final void f(List<SVGAVideoShapeEntity> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.e = list;
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i == 0) {
+                    this.a.c.a(-1, null);
+                } else if (i != 1) {
+                    if (i != 2) {
+                        return;
+                    }
+                    this.a.c.a(-2, null);
+                } else {
+                    OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
+                    try {
+                        try {
+                            this.a.c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                            } catch (Exception e) {
+                                this.a.c.a(-4, e);
+                            }
+                        } catch (RemoteException e2) {
+                            this.a.c.a(-3, e2);
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                            } catch (Exception unused) {
+                            }
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            this.a.b.unbindService(this.a.d);
+                        } catch (Exception e3) {
+                            this.a.c.a(-4, e3);
+                        }
+                        throw th;
+                    }
+                }
+            }
         }
     }
 
-    public gs9(FrameEntity frameEntity) {
-        Float f;
-        Float f2;
+    /* loaded from: classes4.dex */
+    public interface c {
+        void a(int i, Exception exc);
+
+        void b(String str, boolean z);
+    }
+
+    public gs9(Context context, c cVar, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frameEntity};
+            Object[] objArr = {context, cVar, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -149,59 +171,37 @@ public final class gs9 {
                 return;
             }
         }
-        this.b = new js9(0.0d, 0.0d, 0.0d, 0.0d);
-        this.c = new Matrix();
-        this.e = CollectionsKt__CollectionsKt.emptyList();
-        this.a = frameEntity.alpha != null ? f.floatValue() : 0.0f;
-        Layout layout = frameEntity.layout;
-        if (layout != null) {
-            Float f3 = layout.x;
-            double floatValue = f3 != null ? f3.floatValue() : 0.0f;
-            Float f4 = layout.y;
-            double floatValue2 = f4 != null ? f4.floatValue() : 0.0f;
-            Float f5 = layout.width;
-            this.b = new js9(floatValue, floatValue2, f5 != null ? f5.floatValue() : 0.0f, layout.height != null ? f2.floatValue() : 0.0f);
+        this.d = new a(this);
+        this.b = context;
+        this.c = cVar;
+        this.a = new b(this, handler == null ? Looper.getMainLooper() : handler.getLooper());
+    }
+
+    public static void d(Context context, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
+            e(context, cVar, null);
         }
-        Transform transform = frameEntity.transform;
-        if (transform != null) {
-            float[] fArr = new float[9];
-            Float f6 = transform.a;
-            float floatValue3 = f6 != null ? f6.floatValue() : 1.0f;
-            Float f7 = transform.b;
-            float floatValue4 = f7 != null ? f7.floatValue() : 0.0f;
-            Float f8 = transform.c;
-            float floatValue5 = f8 != null ? f8.floatValue() : 0.0f;
-            Float f9 = transform.d;
-            float floatValue6 = f9 != null ? f9.floatValue() : 1.0f;
-            Float f10 = transform.tx;
-            float floatValue7 = f10 != null ? f10.floatValue() : 0.0f;
-            Float f11 = transform.ty;
-            float floatValue8 = f11 != null ? f11.floatValue() : 0.0f;
-            fArr[0] = floatValue3;
-            fArr[1] = floatValue5;
-            fArr[2] = floatValue7;
-            fArr[3] = floatValue4;
-            fArr[4] = floatValue6;
-            fArr[5] = floatValue8;
-            fArr[6] = 0.0f;
-            fArr[7] = 0.0f;
-            fArr[8] = 1.0f;
-            this.c.setValues(fArr);
+    }
+
+    public static void e(Context context, c cVar, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, cVar, handler) == null) {
+            new gs9(context.getApplicationContext(), cVar, handler).f();
         }
-        String str = frameEntity.clipPath;
-        if (str != null) {
-            str = str.length() > 0 ? str : null;
-            if (str != null) {
-                this.d = new bs9(str);
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            if (this.b.bindService(intent, this.d, 1)) {
+                Handler handler = this.a;
+                handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
+                return;
             }
+            this.a.sendEmptyMessage(0);
         }
-        List<ShapeEntity> list = frameEntity.shapes;
-        Intrinsics.checkExpressionValueIsNotNull(list, "obj.shapes");
-        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-        for (ShapeEntity it : list) {
-            Intrinsics.checkExpressionValueIsNotNull(it, "it");
-            arrayList.add(new SVGAVideoShapeEntity(it));
-        }
-        this.e = arrayList;
     }
 }

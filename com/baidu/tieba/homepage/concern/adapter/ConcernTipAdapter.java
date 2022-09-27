@@ -12,15 +12,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.kx6;
 import com.baidu.tieba.qn;
+import com.baidu.tieba.yx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ConcernTipAdapter extends qn<kx6, ConcernTipViewHolder> {
+public class ConcernTipAdapter extends qn<yx6, ConcernTipViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public static int a;
     public static int b;
@@ -70,7 +70,7 @@ public class ConcernTipAdapter extends qn<kx6, ConcernTipViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ConcernTipAdapter(Context context) {
-        super(context, kx6.f);
+        super(context, yx6.f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -113,16 +113,16 @@ public class ConcernTipAdapter extends qn<kx6, ConcernTipViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.qn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kx6 kx6Var, ConcernTipViewHolder concernTipViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yx6 yx6Var, ConcernTipViewHolder concernTipViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kx6Var, concernTipViewHolder})) == null) {
-            concernTipViewHolder.a.setText(kx6Var.b);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yx6Var, concernTipViewHolder})) == null) {
+            concernTipViewHolder.a.setText(yx6Var.b);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) concernTipViewHolder.a.getLayoutParams();
-            if (kx6Var.c) {
+            if (yx6Var.c) {
                 layoutParams.height = b;
                 concernTipViewHolder.b.setVisibility(0);
-            } else if (kx6Var.d) {
+            } else if (yx6Var.d) {
                 layoutParams.height = a;
             }
             concernTipViewHolder.a.setLayoutParams(layoutParams);

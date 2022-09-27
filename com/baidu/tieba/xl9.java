@@ -1,68 +1,236 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.MainThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTSplashAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class xl9 implements TTNativeAd.AdInteractionListener {
+public class xl9 extends im9<bn9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ am9 c;
-    public final /* synthetic */ ul9 d;
 
-    public xl9(ul9 ul9Var, am9 am9Var) {
+    /* loaded from: classes6.dex */
+    public class a implements TTAdNative.SplashAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xl9 a;
+
+        public a(xl9 xl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xl9Var;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        @MainThread
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJSplashAd onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
+        @MainThread
+        public void onSplashAdLoad(TTSplashAd tTSplashAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTSplashAd) == null) {
+                LogPrinter.d();
+                this.a.onAdLoaded((xl9) new bn9(tTSplashAd));
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
+        @MainThread
+        public void onTimeout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.e();
+                this.a.onError(0, "Load Timeout");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements TTSplashAd.AdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final bn9 a;
+        public final String b;
+        public boolean c;
+        public boolean d;
+        public final /* synthetic */ xl9 e;
+
+        public b(xl9 xl9Var, bn9 bn9Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xl9Var, bn9Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = xl9Var;
+            this.a = bn9Var;
+            this.b = str;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdClicked(View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked(this.a, this.d, new String[0]);
+                this.d = true;
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdShow(View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+                LogPrinter.d();
+                this.e.onAdShow(this.a, this.c, new String[0]);
+                this.c = true;
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdSkip() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.a);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
+        public void onAdTimeOver() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.a);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xl9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, false, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ul9Var, am9Var};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = ul9Var;
-        this.c = am9Var;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            bn9 bn9Var = (bn9) obj;
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+    public final boolean h(ViewGroup viewGroup, bn9 bn9Var, TTSplashAd.AdInteractionListener adInteractionListener) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup, bn9Var, adInteractionListener)) == null) {
+            View splashView = ((TTSplashAd) bn9Var.a).getSplashView();
+            if (splashView.getParent() != null) {
+                ((ViewGroup) splashView.getParent()).removeView(splashView);
+            }
+            viewGroup.removeAllViews();
+            viewGroup.addView(splashView);
+            onShowStart(bn9Var);
+            ((TTSplashAd) bn9Var.a).setSplashInteractionListener(adInteractionListener);
+            return true;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            int expressHeight = (int) ((funAdSlot.getExpressHeight() * context.getResources().getDisplayMetrics().density) + 0.5f);
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setImageAcceptedSize((int) ((funAdSlot.getExpressWidth() * context.getResources().getDisplayMetrics().density) + 0.5f), expressHeight).setExpressViewAcceptedSize(funAdSlot.getExpressWidth(), funAdSlot.getExpressHeight()).build();
+            onLoadStart(funAdSlot);
+            this.e.loadSplashAd(build, new a(this), 5000);
         }
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-    public void onAdShow(TTNativeAd tTNativeAd) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
-            LogPrinter.d();
-            this.d.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            bn9 bn9Var = (bn9) obj;
+            h(viewGroup, bn9Var, new b(this, bn9Var, str));
+            return true;
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            bn9 bn9Var = (bn9) obj;
+            hm9 hm9Var = new hm9((TTSplashAd) bn9Var.a);
+            h(viewGroup, bn9Var, new yl9(this, bn9Var, str, hm9Var));
+            return hm9Var;
+        }
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

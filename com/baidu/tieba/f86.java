@@ -1,52 +1,47 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
+import android.webkit.JsPromptResult;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f86 {
+public class f86 implements z76 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, lq4 lq4Var, String str) {
+    public f86() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, view2, lq4Var, str) == null) || lq4Var == null || lq4Var.getThreadData() == null) {
-            return;
-        }
-        ThreadData threadData = lq4Var.getThreadData();
-        if (threadData.isVideoThreadType()) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
-            return;
-        }
-        int id = view2.getId();
-        if (view2.getId() == R.id.obfuscated_res_0x7f09217e || id == R.id.obfuscated_res_0x7f092192) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f092486) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f0924b4) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f090a8f) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
-        } else if (id == R.id.obfuscated_res_0x7f092192) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
-        } else if (view2 instanceof TbImageView) {
-            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(lq4 lq4Var, String str) {
+    @Override // com.baidu.tieba.z76
+    public void a(String str, String str2, String str3, String str4, JsPromptResult jsPromptResult) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, lq4Var, str) == null) || lq4Var == null || lq4Var.getThreadData() == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, str, str2, str3, str4, jsPromptResult) == null) && b().equals(str)) {
+            try {
+                y76.f().i(str2, str3);
+            } catch (Throwable unused) {
+                y76.f().e();
+            }
         }
-        if (lq4Var.getThreadData().isVideoThreadType()) {
-            o16.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(lq4Var.getThreadData(), str));
-        } else {
-            o16.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(lq4Var.getThreadData(), str));
-        }
+    }
+
+    @Override // com.baidu.tieba.z76
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showNativeDialog" : (String) invokeV.objValue;
     }
 }

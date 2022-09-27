@@ -6,7 +6,7 @@ import com.kwad.sdk.crash.model.message.ExceptionMessage;
 import com.kwad.sdk.crash.utils.f;
 import java.util.ArrayList;
 import java.util.UUID;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class a {
     public static void a(ExceptionMessage exceptionMessage) {
         com.kwad.sdk.core.e.b.d("ExceptionCollector", "upload msg=" + exceptionMessage);

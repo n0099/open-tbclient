@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 import java.util.Map;
-@Service
 /* loaded from: classes4.dex */
-public class jg0 extends wh0 {
+public class jg0 implements eg0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public eg0 a;
 
     public jg0() {
         Interceptable interceptable = $ic;
@@ -27,26 +29,120 @@ public class jg0 extends wh0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new hg0();
     }
 
-    @Override // com.baidu.tieba.wh0
-    public String a() {
+    @Override // com.baidu.tieba.eg0
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "pcharge" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.wh0
-    public boolean b(@NonNull Context context, @NonNull ai0 ai0Var, @Nullable Map<String, Object> map, @Nullable ei0 ei0Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.eg0
+    public void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ai0Var, map, ei0Var)) == null) {
-            super.b(context, ai0Var, map, ei0Var);
-            vh0.e((String) lz0.b(ai0Var.d(), "lp_cmd"), context, map, ei0Var);
-            return true;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            this.a.b(i, i2);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public int c(int i, int i2, Map<String, float[]> map) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, map)) == null) ? this.a.c(i, i2, map) : invokeIIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public int d(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, mediaTrack, i, map)) == null) ? this.a.d(mediaTrack, i, map) : invokeLIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public void e(List<MediaTrack> list, Map<String, ShaderConfig> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, map) == null) {
+            this.a.e(list, map);
+        }
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public int f(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{mediaTrack, Integer.valueOf(i), Integer.valueOf(i2), map})) == null) ? this.a.f(mediaTrack, i, i2, map) : invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public void g(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.a.g(i, j);
+        }
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public int h(MediaSegment mediaSegment, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048583, this, mediaSegment, i, map)) == null) ? this.a.h(mediaSegment, i, map) : invokeLIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public int i(MediaTrack mediaTrack, int i, Map<String, float[]> map) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaTrack, i, map)) == null) ? this.a.i(mediaTrack, i, map) : invokeLIL.intValue;
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public void j(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
+            this.a.j(context);
+        }
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Float.valueOf(f)})) == null) ? this.a.k(i, fArr, fArr2, i2, i3, f) : invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public List<MediaTrack> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.a.l() : (List) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), fArr, fArr2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), map})) == null) ? this.a.m(i, fArr, fArr2, i2, i3, i4, map) : invokeCommon.intValue;
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public void n(List<MediaTrack> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, list) == null) {
+            this.a.n(list);
+        }
+    }
+
+    @Override // com.baidu.tieba.eg0
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            this.a.release();
+        }
     }
 }

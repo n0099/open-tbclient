@@ -1,24 +1,76 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.HashSet;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class xh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static String d;
+    public static volatile xh1 g;
     public transient /* synthetic */ FieldHolder $fh;
+    public BroadcastReceiver a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public HashSet<String> f;
+
+    /* loaded from: classes6.dex */
+    public class a extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xh1 a;
+
+        public a(xh1 xh1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xh1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xh1Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                String stringExtra = intent.getStringExtra("ss");
+                if (this.a.b == 1) {
+                    return;
+                }
+                if (TextUtils.isEmpty(stringExtra)) {
+                    this.a.b = 1;
+                } else if ("LOADED".equals(stringExtra)) {
+                    if (this.a.f.isEmpty()) {
+                        return;
+                    }
+                    this.a.b = 1;
+                } else {
+                    this.a.b = 1;
+                    this.a.f.add(stringExtra);
+                }
+            }
+        }
+    }
 
     public xh1() {
         Interceptable interceptable = $ic;
@@ -30,129 +82,110 @@ public class xh1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 0;
+        this.c = false;
+        this.d = false;
+        this.e = false;
+        this.f = new HashSet<>();
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public static xh1 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(a)) {
-                    a = ii1.e(context);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (g == null) {
+                synchronized (xh1.class) {
+                    if (g == null) {
+                        g = new xh1();
+                    }
                 }
-                return TextUtils.isEmpty(a) ? "" : a;
-            } catch (Throwable th) {
-                ii1.d(th);
-                return "";
             }
+            return g;
         }
-        return (String) invokeL.objValue;
+        return (xh1) invokeV.objValue;
     }
 
-    public static JSONObject c(Context context, String str) {
-        InterceptResult invokeLL;
+    public void d(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("1", b(context));
-                jSONObject.put("3", d(context));
-                jSONObject.put("2", e(context));
-                jSONObject.put("4", f(context));
-                jSONObject.put("5", str);
-                jSONObject.put("6", System.currentTimeMillis());
-                jSONObject.put("7", "0");
-                jSONObject.put("8", vg1.b);
-                jSONObject.put("9", AccountConstants.LOGIN_TYPE_NATIVE_SRC_SSO);
-                jSONObject.put("10", "1.1.4");
-                jSONObject.put("14", ii1.i(context));
-                jSONObject.put("23", uh1.a(context));
-                jSONObject.put("26", "");
-                jSONObject.put("31", wg1.f(context).J());
-                return jSONObject;
-            } catch (Throwable th) {
-                ii1.d(th);
-                return null;
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(b)) {
-                    b = ii1.g(context);
+                if (this.a != null) {
+                    return;
                 }
-                return TextUtils.isEmpty(b) ? "" : b;
+                this.a = new a(this);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.intent.action.SIM_STATE_CHANGED");
+                context.registerReceiver(this.a, intentFilter);
             } catch (Throwable th) {
-                ii1.d(th);
-                return "";
+                vi1.d(th);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
+    public void e(Context context, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            try {
-                if (TextUtils.isEmpty(c)) {
-                    c = context.getPackageName();
-                }
-                return TextUtils.isEmpty(c) ? "" : c;
-            } catch (Throwable th) {
-                ii1.d(th);
-                return "";
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject) == null) {
+            this.d = jSONObject.optInt("1", 0) == 1;
+            this.c = jSONObject.optInt("2", 0) == 1;
+            this.e = jSONObject.optInt("3", 0) == 1;
+            if (this.c) {
+                d(context);
+            } else {
+                h(context);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String f(Context context) {
-        InterceptResult invokeL;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(d)) {
-                    return d;
-                }
-                String b2 = ji1.b(context);
-                d = b2;
-                return b2;
-            } catch (Throwable unused) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.c) {
+                return this.b;
             }
+            return -1000;
         }
-        return (String) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public ai1 a(Context context, String str, String str2, int i, int i2) {
-        InterceptResult invokeCommon;
+    public void h(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{context, str, str2, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
+                if (this.a == null) {
+                    return;
                 }
-                JSONArray jSONArray = new JSONArray(str);
-                JSONObject c2 = c(context, str2);
-                c2.put("module_section", jSONArray);
-                ai1 ai1Var = new ai1();
-                ai1Var.e(i);
-                ai1Var.c(c2.toString());
-                ai1Var.g(i2);
-                return ai1Var;
+                context.unregisterReceiver(this.a);
+                this.a = null;
             } catch (Throwable th) {
-                ii1.d(th);
-                return null;
+                vi1.d(th);
             }
         }
-        return (ai1) invokeCommon.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.d) {
+                if (this.e) {
+                    return this.c && this.b != 1;
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            this.f.clear();
+        }
     }
 }

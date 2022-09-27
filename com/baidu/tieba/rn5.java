@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,9 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class rn5 {
     public static /* synthetic */ Interceptable $ic;
-    public static rn5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public hm0 a;
+    public a a;
+    public int b;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(int i, int i2);
+    }
 
     public rn5() {
         Interceptable interceptable = $ic;
@@ -25,28 +31,39 @@ public class rn5 {
                 return;
             }
         }
-        this.a = dm0.b().a();
+        this.b = 0;
     }
 
-    public static rn5 a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (rn5.class) {
-                    if (b == null) {
-                        b = new rn5();
-                    }
-                }
-            }
-            return b;
-        }
-        return (rn5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) ? this.a.a(str, i) : invokeLI.intValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    public void c(int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (i2 = this.b) == i) {
+            return;
+        }
+        a aVar = this.a;
+        if (aVar != null) {
+            aVar.a(i2, i);
+        }
+        this.b = i;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+        }
     }
 }

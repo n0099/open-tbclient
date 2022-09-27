@@ -4,7 +4,7 @@ import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.gg9;
+import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -69,7 +69,7 @@ public final class SubtitleLog {
     public static <T extends RichStickerBaseUnit> void d(List<T> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
-            if (gg9.e(list)) {
+            if (vg9.e(list)) {
                 d("list empty");
                 return;
             }

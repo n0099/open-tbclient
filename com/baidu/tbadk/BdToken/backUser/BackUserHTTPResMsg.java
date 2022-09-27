@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.backUser;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.fm4;
+import com.baidu.tieba.sm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class BackUserHTTPResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fm4 mData;
+    public sm4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserHTTPResMsg() {
@@ -36,10 +36,10 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
         }
     }
 
-    public fm4 getData() {
+    public sm4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (fm4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mData : (sm4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -56,9 +56,9 @@ public class BackUserHTTPResMsg extends HttpResponsedMessage {
             setErrorString(backUserResIdl.error.usermsg);
         }
         if (backUserResIdl.data != null) {
-            fm4 fm4Var = new fm4();
-            this.mData = fm4Var;
-            fm4Var.a(backUserResIdl.data);
+            sm4 sm4Var = new sm4();
+            this.mData = sm4Var;
+            sm4Var.a(backUserResIdl.data);
         }
     }
 }

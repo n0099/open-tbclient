@@ -55,10 +55,10 @@ public class BasicTaskItemView extends LinearLayout {
             View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d03e2, this);
             this.b = inflate;
             this.h = inflate.findViewById(R.id.obfuscated_res_0x7f091473);
-            this.c = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920cb);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09243f);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092437);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09243e);
+            this.c = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920cd);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092441);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092439);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092440);
             this.f = textView;
             textView.setOnClickListener(this.i);
             this.h.setOnClickListener(this.i);

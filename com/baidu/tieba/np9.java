@@ -1,30 +1,30 @@
 package com.baidu.tieba;
 
+import android.content.DialogInterface;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Set;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsNativeAd;
 /* loaded from: classes5.dex */
-public class np9 {
+public class np9 extends tp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zj9 a;
-    public final qk9 b;
-    public final HashMap<String, sk9> c;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ KsNativeAd c;
+    public final /* synthetic */ mp9 d;
 
-    /* loaded from: classes5.dex */
-    public interface a<E> {
-        void a(E e);
-
-        void b(E e);
-    }
-
-    public np9() {
+    public np9(mp9 mp9Var, KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mp9Var, ksNativeAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,20 +34,37 @@ public class np9 {
                 return;
             }
         }
-        this.b = new qk9();
-        this.c = new HashMap<>();
+        this.d = mp9Var;
+        this.c = ksNativeAd;
     }
 
-    public final <E> void a(Set<E> set, Set<E> set2, a<E> aVar) {
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, set, set2, aVar) == null) {
-            for (E e : set2) {
-                if (set == null || !set.contains(e)) {
-                    aVar.b(e);
-                } else {
-                    aVar.a(e);
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(ksNativeAd, this.b, new String[0]);
+            this.b = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdShow(KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
         }
     }
 }

@@ -3,8 +3,8 @@ package com.baidu.tieba.ala.alasquare.recent_history.message;
 import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.bv5;
-import com.baidu.tieba.cv5;
+import com.baidu.tieba.ov5;
+import com.baidu.tieba.pv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bv5 mHistoryData;
+    public ov5 mHistoryData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaRecentHistoryResponseMessage() {
@@ -45,18 +45,18 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            bv5 bv5Var = new bv5();
-            this.mHistoryData = bv5Var;
-            bv5Var.a = jSONObject.optInt("has_more") == 1;
+            ov5 ov5Var = new ov5();
+            this.mHistoryData = ov5Var;
+            ov5Var.a = jSONObject.optInt("has_more") == 1;
             ArrayList arrayList = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("host_list");
             if (optJSONArray != null && optJSONArray.length() > 0) {
                 int length = optJSONArray.length();
                 ArrayList arrayList2 = new ArrayList(length);
                 for (int i2 = 0; i2 < length; i2++) {
-                    cv5 cv5Var = new cv5();
-                    cv5Var.a(optJSONArray.optJSONObject(i2));
-                    arrayList2.add(cv5Var);
+                    pv5 pv5Var = new pv5();
+                    pv5Var.a(optJSONArray.optJSONObject(i2));
+                    arrayList2.add(pv5Var);
                 }
                 arrayList = arrayList2;
             }
@@ -64,9 +64,9 @@ public class AlaRecentHistoryResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public bv5 getRecentHistoryData() {
+    public ov5 getRecentHistoryData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (bv5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mHistoryData : (ov5) invokeV.objValue;
     }
 }

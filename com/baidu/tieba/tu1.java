@@ -1,132 +1,348 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.ArrayMap;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.mobstat.Config;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tu1 extends BasePendingOperation {
+public class tu1 extends ku1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final CopyOnWriteArrayList<String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ms1 a;
-    public y23 b;
-    public JSONObject c;
-    public String d;
-    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948193593, "Lcom/baidu/tieba/tu1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements ei3<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ArrayMap a;
+        public final /* synthetic */ JSONArray b;
+        public final /* synthetic */ JSONArray c;
+        public final /* synthetic */ JSONArray d;
+        public final /* synthetic */ JSONObject e;
+        public final /* synthetic */ tu1 f;
+
+        public a(tu1 tu1Var, ArrayMap arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tu1Var, arrayMap, jSONArray, jSONArray2, jSONArray3, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948193593, "Lcom/baidu/tieba/tu1;");
+            this.f = tu1Var;
+            this.a = arrayMap;
+            this.b = jSONArray;
+            this.c = jSONArray2;
+            this.d = jSONArray3;
+            this.e = jSONObject;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ei3
+        /* renamed from: b */
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
                 return;
             }
+            JSONArray jSONArray = null;
+            try {
+                jSONArray = new JSONArray(str);
+            } catch (JSONException unused) {
+            }
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return;
+            }
+            for (int i = 0; i < jSONArray.length(); i++) {
+                JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                String optString = optJSONObject.optString("fileID");
+                String optString2 = optJSONObject.optString("tempFileURL");
+                if (optJSONObject.optString("status").equals("0") && !TextUtils.isEmpty(optString2)) {
+                    this.a.put(optString, optString2);
+                }
+            }
+            this.f.G(this.a, this.b, "images");
+            this.f.G(this.a, this.c, "urls");
+            this.f.G(this.a, this.d, "url");
+            try {
+                this.e.put("images", this.b);
+                this.e.put("urls", this.c);
+                this.e.put("url", this.d);
+            } catch (JSONException unused2) {
+            }
+            SwanAppActivity activity = yo2.U().getActivity();
+            if (activity == null) {
+                sm2.C().b(this.f.getContext(), this.e);
+            } else {
+                sm2.C().b(activity, this.e);
+            }
         }
-        CopyOnWriteArrayList<String> copyOnWriteArrayList = new CopyOnWriteArrayList<>();
-        f = copyOnWriteArrayList;
-        copyOnWriteArrayList.add("https://hmma.baidu.com/mini.gif");
-        f.add("https://dxp.baidu.com/mini");
-        f.add("https://mbd.baidu.com/smtapp/recordhandler/getrecordinfo");
-        f.add("https://eclick.baidu.com/se.jpg");
-        f.add("https://miniapp-ad.cdn.bcebos.com/miniapp_ad/config/cg.json");
     }
 
-    public tu1(@NonNull ms1 ms1Var, @NonNull y23 y23Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tu1(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ms1Var, y23Var, jSONObject, str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {mr1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((mr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = ms1Var;
-        this.b = y23Var;
-        this.c = jSONObject;
-        this.d = str;
-        this.e = str2;
     }
 
-    public static Collection<String> d() {
-        InterceptResult invokeV;
+    public final String A(JSONArray jSONArray, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? f : (Collection) invokeV.objValue;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, jSONArray, str, i)) == null) {
+            if (str.equals("images")) {
+                return jSONArray.optJSONObject(i).optString("url");
+            }
+            return jSONArray.optString(i);
+        }
+        return (String) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? e(this.c.optString("url")) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "request" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? String.format("%s : %s", this.b.getAppId(), this.c.optString("url")) : (String) invokeV.objValue;
-    }
-
-    public final boolean e(String str) {
+    public lv1 B(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            int size = f.size();
-            for (int i = 0; i < size; i++) {
-                String str2 = f.get(i);
-                if (!TextUtils.isEmpty(str2) && str.startsWith(str2)) {
-                    return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#handlePreviewImage", false);
+            if (n()) {
+                l02.c("PreviewImageApi", "PreviewImageApi does not supported when app is invisible.");
+                return new lv1(1001, "PreviewImageApi does not supported when app is invisible.");
+            } else if (TextUtils.isEmpty(str)) {
+                return new lv1(202);
+            } else {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.optBoolean("only_support_wifi") && !SwanAppNetworkUtils.j(getContext())) {
+                        return new lv1(403);
+                    }
+                    String optString = jSONObject.optString("source", "unitedscheme");
+                    String optString2 = jSONObject.optString("type", "0");
+                    JSONArray optJSONArray = jSONObject.optJSONArray("urls");
+                    if (optJSONArray != null && optJSONArray.length() != 0) {
+                        JSONArray optJSONArray2 = jSONObject.optJSONArray("images");
+                        if (optJSONArray2 != null) {
+                            F(optJSONArray2);
+                            jSONObject.put("images", optJSONArray2);
+                        } else {
+                            JSONArray jSONArray = new JSONArray();
+                            int length = optJSONArray.length();
+                            for (int i = 0; i < length; i++) {
+                                JSONObject jSONObject2 = new JSONObject();
+                                String optString3 = optJSONArray.optString(i);
+                                jSONObject2.put("url", optString3);
+                                String b = sg3.b();
+                                if (sg3.c(optString3) && !TextUtils.isEmpty(b)) {
+                                    jSONObject2.put(Config.LAUNCH_REFERER, b);
+                                }
+                                String g0 = fa2.U().g0();
+                                if (!TextUtils.isEmpty(g0)) {
+                                    jSONObject2.put(HttpRequest.USER_AGENT, g0);
+                                }
+                                jSONArray.put(jSONObject2);
+                            }
+                            jSONObject.put("images", jSONArray);
+                        }
+                        if (TextUtils.equals(optString, "swan")) {
+                            C(optJSONArray);
+                        }
+                        jSONObject.put("url", optJSONArray);
+                        jSONObject.put("type", optString2);
+                        int z = z(jSONObject, optJSONArray);
+                        if (z >= 0 && z < optJSONArray.length()) {
+                            jSONObject.put("index", String.valueOf(z));
+                            ArrayMap<String, String> arrayMap = new ArrayMap<>();
+                            JSONArray optJSONArray3 = jSONObject.optJSONArray("images");
+                            JSONArray optJSONArray4 = jSONObject.optJSONArray("urls");
+                            JSONArray optJSONArray5 = jSONObject.optJSONArray("url");
+                            D(arrayMap, optJSONArray3, "images");
+                            D(arrayMap, optJSONArray4, "urls");
+                            D(arrayMap, optJSONArray5, "url");
+                            if (arrayMap.keySet().size() > 0) {
+                                E(jSONObject, arrayMap, optJSONArray3, optJSONArray4, optJSONArray5);
+                            } else {
+                                Context activity = yo2.U().getActivity();
+                                if (activity != null) {
+                                    sm2.C().b(activity, jSONObject);
+                                } else {
+                                    sm2.C().b(getContext(), jSONObject);
+                                }
+                            }
+                            return lv1.f();
+                        }
+                        return new lv1(202);
+                    }
+                    return new lv1(202);
+                } catch (JSONException unused) {
+                    return new lv1(202);
                 }
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return (lv1) invokeL.objValue;
     }
 
-    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
-    public BasePendingOperation.OperationType getType() {
+    public final JSONArray C(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        l33 M;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+            int length = jSONArray.length();
+            if (jSONArray != null && length > 0 && (M = l33.M()) != null && !TextUtils.isEmpty(M.b) && !TextUtils.isEmpty(M.k0())) {
+                for (int i = 0; i < length; i++) {
+                    try {
+                        String optString = jSONArray.optString(i);
+                        PathType s = ta3.s(optString);
+                        if (s == PathType.BD_FILE) {
+                            optString = ta3.M(optString, M.b);
+                        } else if (s == PathType.RELATIVE) {
+                            optString = ta3.L(optString, M, M.k0());
+                        }
+                        if (!TextUtils.isEmpty(optString)) {
+                            jSONArray.put(i, optString);
+                        }
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public final void D(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, arrayMap, jSONArray, str) == null) || jSONArray == null || jSONArray.length() <= 0) {
+            return;
+        }
+        for (int i = 0; i < jSONArray.length(); i++) {
+            String A = A(jSONArray, str, i);
+            if (!TextUtils.isEmpty(A) && ta3.s(A) == PathType.CLOUD) {
+                arrayMap.put(A, A);
+            }
+        }
+    }
+
+    public final void E(JSONObject jSONObject, ArrayMap<String, String> arrayMap, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLLL(1048580, this, jSONObject, arrayMap, jSONArray, jSONArray2, jSONArray3) == null) || jSONObject == null || arrayMap == null || arrayMap.keySet().size() <= 0) {
+            return;
+        }
+        JSONArray jSONArray4 = new JSONArray();
+        for (String str : arrayMap.values()) {
+            jSONArray4.put(str);
+        }
+        tn1 l = sm2.l();
+        if (l == null) {
+            return;
+        }
+        l.c(getContext(), jSONArray4, new a(this, arrayMap, jSONArray, jSONArray2, jSONArray3, jSONObject));
+    }
+
+    public final void F(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jSONArray) == null) {
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                try {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("url");
+                        String b = sg3.b();
+                        if (sg3.c(optString) && !TextUtils.isEmpty(b)) {
+                            optJSONObject.put(Config.LAUNCH_REFERER, b);
+                        }
+                        String g0 = fa2.U().g0();
+                        if (!TextUtils.isEmpty(g0)) {
+                            optJSONObject.put(HttpRequest.USER_AGENT, g0);
+                        }
+                    }
+                } catch (JSONException unused) {
+                    return;
+                }
+            }
+        }
+    }
+
+    public final void G(ArrayMap<String, String> arrayMap, JSONArray jSONArray, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, arrayMap, jSONArray, str) == null) || arrayMap == null || jSONArray == null || jSONArray.length() <= 0) {
+            return;
+        }
+        for (int i = 0; i < jSONArray.length(); i++) {
+            String str2 = arrayMap.get(A(jSONArray, str, i));
+            if (!TextUtils.isEmpty(str2)) {
+                try {
+                    if (str.equals("images")) {
+                        jSONArray.optJSONObject(i).put("url", str2);
+                    } else {
+                        jSONArray.put(i, str2);
+                    }
+                } catch (JSONException unused) {
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.or1
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST : (BasePendingOperation.OperationType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "PreviewImageApi" : (String) invokeV.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    public final int z(@NonNull JSONObject jSONObject, @NonNull JSONArray jSONArray) throws JSONException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.I(this.b, this.c, this.d, this.e);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, jSONArray)) == null) {
+            int optInt = jSONObject.optInt(ProgressInfo.JSON_KEY_CURRENT, -1);
+            if (optInt >= 0) {
+                return optInt;
+            }
+            String optString = jSONObject.optString(ProgressInfo.JSON_KEY_CURRENT);
+            if (TextUtils.isEmpty(optString)) {
+                return 0;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                if (TextUtils.equals(optString, jSONArray.getString(i))) {
+                    return i;
+                }
+            }
+            return -1;
         }
+        return invokeLL.intValue;
     }
 }

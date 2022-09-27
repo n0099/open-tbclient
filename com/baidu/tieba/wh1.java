@@ -1,336 +1,560 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Handler;
+import android.content.IntentFilter;
+import android.os.Message;
 import android.text.TextUtils;
-import android.util.Base64;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.UIMsg;
+import com.baidu.tieba.ih1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
 import java.util.ArrayList;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wh1 extends qh1 {
+public class wh1 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile wh1 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public th1 c;
-    public xh1 d;
-    public Context e;
+    public final Map<Integer, sh1> a;
+    public final ArrayList<ih1.a> b;
+    public com.baidu.sso.h.h c;
+    public Context d;
+    public boolean e;
     public int f;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements ih1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wh1 a;
+        public final /* synthetic */ sh1 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ ih1.a e;
 
-        public a(wh1 wh1Var) {
+        public a(wh1 wh1Var, sh1 sh1Var, Context context, int i, long j, ih1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wh1Var};
+                Object[] objArr = {wh1Var, sh1Var, context, Integer.valueOf(i), Long.valueOf(j), aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = wh1Var;
+            this.a = sh1Var;
+            this.b = context;
+            this.c = i;
+            this.d = j;
+            this.e = aVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.ih1.a
+        public void onFinish(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 try {
-                    this.a.i(true);
-                } catch (Throwable th) {
-                    ii1.d(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ wh1 b;
-
-        public b(wh1 wh1Var, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wh1Var, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = wh1Var;
-            this.a = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.b.i(false)) {
-                        wg1.f(this.b.e).F(this.a);
+                    if (new JSONObject(str).optInt("0", -1) == 0) {
+                        this.a.j(this.b, this.c, this.d);
+                        return;
                     }
-                } catch (Throwable th) {
-                    ii1.d(th);
+                    if (this.e != null) {
+                        this.e.onFinish(str);
+                    }
+                    oh1.c().d(false);
+                } catch (Throwable unused) {
+                    ih1.a aVar = this.e;
+                    if (aVar != null) {
+                        aVar.onFinish(str);
+                    }
+                    oh1.c().d(false);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements Runnable {
+    public class b implements ih1.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wh1 a;
+        public final /* synthetic */ sh1 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ ih1.a e;
 
-        public c(wh1 wh1Var) {
+        public b(wh1 wh1Var, sh1 sh1Var, Context context, int i, long j, ih1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wh1Var};
+                Object[] objArr = {wh1Var, sh1Var, context, Integer.valueOf(i), Long.valueOf(j), aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = wh1Var;
+            this.a = sh1Var;
+            this.b = context;
+            this.c = i;
+            this.d = j;
+            this.e = aVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.ih1.a
+        public void onFinish(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 try {
-                    wh1.c(this.a.e).i(true);
-                } catch (Throwable th) {
-                    ii1.d(th);
+                    if (new JSONObject(str).optInt("0", -1) == 0) {
+                        this.a.p(this.b, this.c, this.d);
+                        return;
+                    }
+                    if (this.e != null) {
+                        this.e.onFinish(str);
+                    }
+                    oh1.c().n(false);
+                } catch (Throwable unused) {
+                    ih1.a aVar = this.e;
+                    if (aVar != null) {
+                        aVar.onFinish(str);
+                    }
+                    oh1.c().n(false);
                 }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wh1(Context context, Handler handler) {
-        super(context, handler);
+    public wh1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (Handler) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = 0;
-        this.e = context;
-        this.c = th1.a(context);
-        this.d = new xh1();
+        this.a = new HashMap();
+        this.b = new ArrayList<>();
+        this.f = -1;
     }
 
-    public static wh1 c(Context context) {
-        InterceptResult invokeL;
+    public static wh1 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             if (g == null) {
                 synchronized (wh1.class) {
                     if (g == null) {
-                        g = new wh1(context, null);
+                        g = new wh1();
                     }
                 }
             }
             return g;
         }
-        return (wh1) invokeL.objValue;
+        return (wh1) invokeV.objValue;
     }
 
-    public final JSONArray d(JSONArray jSONArray, String str) {
-        InterceptResult invokeLL;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONArray, str)) == null) {
-            try {
-                jSONArray.put(new JSONObject(str));
-            } catch (Throwable th) {
-                ii1.d(th);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
+    }
+
+    public final int b(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            if (this.a.size() == 1) {
+                return Integer.valueOf(this.a.get(this.a.keySet().iterator().next()).c).intValue();
             }
-            return jSONArray;
+            return (this.a.size() != 2 || i2 >= 4 || i2 <= 0) ? i : i2;
         }
-        return (JSONArray) invokeLL.objValue;
+        return invokeII.intValue;
     }
 
-    public void e() {
+    public synchronized void c(int i, int i2, int i3, int i4, String str, vh1 vh1Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            long c0 = wg1.f(this.e).c0();
-            long j0 = wg1.f(this.e).j0() * ii1.e;
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - c0 >= j0 && ii1.j(this.e) != 0 && ii1.n(this.e)) {
-                vh1.a().post(new b(this, currentTimeMillis));
-            }
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[MOVE_EXCEPTION, INVOKE, MOVE_EXCEPTION] complete} */
-    public synchronized void f(String str, String str2, int i) {
-        ai1 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str, vh1Var, Boolean.valueOf(z)}) == null) {
             synchronized (this) {
-                try {
-                    a2 = this.d.a(this.e, str, str2, i, 1);
-                } finally {
-                }
-                if (a2 == null) {
+                if (vh1Var == null) {
                     return;
                 }
-                this.f++;
-                zh1.a(this.e).c(a2);
-                if (this.f >= 2 && ii1.n(this.e)) {
-                    this.f = 0;
-                    vh1.a().post(new a(this));
-                }
-            }
-        }
-    }
-
-    public final boolean h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            try {
-                byte[] bytes = mi1.b(ji1.a(this.e)).getBytes();
-                byte[] f = ii1.f();
-                String b2 = this.c.b("p/1/r", URLEncoder.encode(Base64.encodeToString(ki1.h(f, bytes), 0)));
-                byte[] e = this.c.e(f, str);
-                if (e == null) {
-                    return false;
-                }
-                String a2 = a(b2, e);
-                if (TextUtils.isEmpty(a2)) {
-                    return false;
-                }
-                try {
-                } catch (Throwable th) {
-                    ii1.d(th);
-                }
-                return new JSONObject(a2).getInt("response") == 1;
-            } catch (Throwable th2) {
-                ii1.d(th2);
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean i(boolean z) {
-        InterceptResult invokeZ;
-        boolean z2;
-        ArrayList<ai1> b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            try {
-                int j = ii1.j(this.e);
-                if (j != 2) {
-                    z2 = j == 1 ? true : true;
-                    return false;
-                }
-                z2 = false;
-                String valueOf = z ? String.valueOf(1) : "1,2";
-                if (z2) {
-                    b2 = zh1.a(this.e).e(valueOf);
-                    String b0 = wg1.f(this.e).b0();
-                    String a2 = ii1.a();
-                    if (!TextUtils.isEmpty(a2) && !a2.equals(b0)) {
-                        wg1.f(this.e).G(a2);
-                        wg1.f(this.e).U(0L);
+                Pair<Boolean, ih1.a> b2 = oh1.c().b(i);
+                if (((Boolean) b2.first).booleanValue()) {
+                    yh1.a().b(i);
+                    h((ih1.a) b2.second, new rh1(i2, i3, i4, str), vh1Var.a, z);
+                    if (i2 == 1) {
+                        vh1Var.b = 1;
                     }
-                } else {
-                    b2 = zh1.a(this.e).b(valueOf);
-                }
-                if (b2 != null && b2.size() != 0) {
-                    long n0 = wg1.f(this.e).n0();
-                    int size = b2.size();
-                    long h0 = wg1.f(this.e).h0() * 1048576;
-                    JSONArray jSONArray = new JSONArray();
-                    ArrayList<ai1> arrayList = new ArrayList<>();
-                    for (int i = 0; i < size; i++) {
-                        ai1 ai1Var = b2.get(i);
-                        if (ai1Var != null) {
-                            String d = ai1Var.d();
-                            if (z2) {
-                                if (d.length() + n0 > h0) {
-                                    break;
-                                }
-                                n0 += d.length();
+                    if (z) {
+                        int i5 = vh1Var.a;
+                        if (i5 == 1) {
+                            li1.b(this.d, i4, vh1Var.b, i3, str);
+                        } else if (i5 == 3) {
+                            li1.f(this.d, i4, vh1Var.b, i3, str);
+                        } else if (i5 == 2) {
+                            if (i2 == 3 && i3 == 2019) {
+                                jh1.f(this.d).z(System.currentTimeMillis());
+                                jh1.f(this.d).i(i3);
                             }
-                            d(jSONArray, d);
-                            arrayList.add(ai1Var);
+                            li1.a(this.d, i4, i2, i3, vh1Var.c, vh1Var.d);
+                        } else {
+                            if (i2 == 3 && i3 == 2019) {
+                                jh1.f(this.d).L(System.currentTimeMillis());
+                                jh1.f(this.d).q(i3);
+                            }
+                            li1.e(this.d, i4, i2, i3, vh1Var.c, vh1Var.d);
                         }
                     }
-                    if (jSONArray.length() == 0) {
-                        return false;
-                    }
-                    boolean h = h(jSONArray.toString());
-                    if (h) {
-                        zh1.a(this.e).d(arrayList);
-                        if (z2) {
-                            wg1.f(this.e).U(wg1.f(this.e).n0() + jSONArray.toString().length());
-                        }
-                    }
-                    return h;
                 }
-                return false;
-            } catch (Throwable th) {
-                ii1.d(th);
-                return false;
             }
         }
-        return invokeZ.booleanValue;
     }
 
-    public void j() {
+    public synchronized void d(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && ii1.n(this.e)) {
-            vh1.a().post(new c(this));
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            synchronized (this) {
+                try {
+                    if (this.e) {
+                        return;
+                    }
+                    this.d = context.getApplicationContext();
+                    if (!hi1.f(context)) {
+                        ej1.b().a(this.d, null);
+                    }
+                    boolean z = false;
+                    if (!lh1.a(this.d).d() && vi1.j(this.d) == 0) {
+                        z = true;
+                    }
+                    g(this.d, z);
+                    vi1.l(this.d);
+                    this.a.put(1, new ph1(this.d));
+                    this.a.put(3, new zh1(this.d));
+                    this.a.put(2, new bi1(this.d));
+                    this.e = true;
+                }
+            }
+        }
+    }
+
+    public synchronized void e(Context context, int i, Pair<Integer, Integer> pair, long j, ih1.a aVar) {
+        int intValue;
+        int intValue2;
+        int intValue3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), pair, Long.valueOf(j), aVar}) == null) {
+            synchronized (this) {
+                int i2 = -1;
+                if (oh1.c().g()) {
+                    this.b.add(aVar);
+                    return;
+                }
+                this.b.clear();
+                int a2 = oh1.c().a(aVar);
+                try {
+                    Message message = new Message();
+                    message.what = a2;
+                    message.arg1 = -1;
+                    message.arg2 = 1;
+                    this.f = -1;
+                    yh1.a().c(message, j);
+                    Pair<Integer, Integer> c = pair == null ? dj1.c(context) : pair;
+                    intValue = ((Integer) c.first).intValue();
+                    intValue2 = ((Integer) c.second).intValue();
+                    intValue3 = ((Integer) c.second).intValue();
+                } catch (Throwable unused) {
+                    i2 = a2;
+                    vh1 vh1Var = new vh1();
+                    vh1Var.a = 1;
+                    c(i2, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, -1, "auth login unknown error.", vh1Var, true);
+                }
+                if (i(a2, intValue2, intValue, 1)) {
+                    int b2 = b(intValue2, i);
+                    this.f = b2;
+                    oh1.c().i(false, true);
+                    if (b2 != 1 && b2 != 2 && b2 != 3) {
+                        vh1 vh1Var2 = new vh1();
+                        vh1Var2.a = 1;
+                        c(a2, 3, 2004, b2, "has no op.", vh1Var2, true);
+                        return;
+                    }
+                    sh1 sh1Var = this.a.get(Integer.valueOf(b2));
+                    if (sh1Var == null) {
+                        vh1 vh1Var3 = new vh1();
+                        vh1Var3.a = 1;
+                        c(a2, 3, 2002, b2, "not support current operator", vh1Var3, true);
+                    } else {
+                        sh1Var.m(intValue3);
+                        sh1Var.i(context, intValue, a2);
+                        li1.d(context, intValue3, 1, sh1.q);
+                    }
+                }
+            }
+        }
+    }
+
+    public void f(Context context, long j, ih1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            int a2 = oh1.c().a(aVar);
+            Pair<Integer, Integer> c = dj1.c(context);
+            int intValue = ((Integer) c.first).intValue();
+            int intValue2 = ((Integer) c.second).intValue();
+            if (i(a2, intValue2, intValue, 2)) {
+                if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
+                    vh1 vh1Var = new vh1();
+                    vh1Var.a = 2;
+                    c(a2, 3, 2004, intValue2, "has no op.", vh1Var, true);
+                    return;
+                }
+                sh1 sh1Var = this.a.get(Integer.valueOf(intValue2));
+                if (sh1Var == null) {
+                    vh1 vh1Var2 = new vh1();
+                    vh1Var2.a = 2;
+                    c(a2, 3, 2002, intValue2, "not support current operator", vh1Var2, true);
+                } else if (!oh1.c().e(false, true)) {
+                    vh1 vh1Var3 = new vh1();
+                    vh1Var3.a = 2;
+                    c(a2, 3, 998, intValue2, "is doing auth login.", vh1Var3, false);
+                } else {
+                    li1.d(context, intValue2, 2, sh1.q);
+                    if (!sh1Var.l()) {
+                        sh1Var.j(context, a2, j);
+                    } else if (oh1.c().g()) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        while (oh1.c().g()) {
+                            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                            if (currentTimeMillis2 > 0 && currentTimeMillis2 < j) {
+                                try {
+                                    Thread.sleep(100L);
+                                    if (!sh1Var.l()) {
+                                        sh1Var.j(context, a2, j);
+                                        return;
+                                    }
+                                } catch (Throwable th) {
+                                    vi1.d(th);
+                                    vh1 vh1Var4 = new vh1();
+                                    vh1Var4.a = 2;
+                                    c(a2, 3, 2019, intValue2, "auth out time", vh1Var4, true);
+                                    return;
+                                }
+                            } else {
+                                vh1 vh1Var5 = new vh1();
+                                vh1Var5.a = 2;
+                                c(a2, 3, 2019, intValue2, "auth out time", vh1Var5, true);
+                                return;
+                            }
+                        }
+                    } else {
+                        e(context, 0, c, j, new a(this, sh1Var, context, a2, j, aVar));
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void g(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, context, z) == null) {
+            synchronized (this) {
+                try {
+                    m(context);
+                    this.c = new com.baidu.sso.h.h();
+                    IntentFilter intentFilter = new IntentFilter();
+                    intentFilter.addAction("sso_action_t_m");
+                    if (z) {
+                        intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+                    }
+                    context.registerReceiver(this.c, intentFilter);
+                } catch (Throwable th) {
+                    vi1.d(th);
+                }
+            }
+        }
+    }
+
+    public final synchronized void h(ih1.a aVar, rh1 rh1Var, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{aVar, rh1Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            synchronized (this) {
+                if (i == 1) {
+                    this.b.clear();
+                    uh1.b(aVar, rh1Var, i, (ArrayList) this.b.clone(), z);
+                } else {
+                    uh1.b(aVar, rh1Var, i, null, z);
+                }
+            }
+        }
+    }
+
+    public final boolean i(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4)) == null) {
+            vh1 vh1Var = new vh1();
+            vh1Var.a = i4;
+            if (!this.e) {
+                c(i, 3, 2001, i2, "has no init.", vh1Var, false);
+                return false;
+            } else if (TextUtils.isEmpty(ih1.b) && TextUtils.isEmpty(ih1.c)) {
+                c(i, 3, 2007, i2, "has no key.", vh1Var, false);
+                return false;
+            } else if (this.a.isEmpty()) {
+                c(i, 3, 2002, i2, "has no sdk.", vh1Var, false);
+                return false;
+            } else if (i3 == 0) {
+                c(i, 3, 2003, i2, "has no net.", vh1Var, false);
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    public void k(Context context, int i, Pair<Integer, Integer> pair, long j, ih1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{context, Integer.valueOf(i), pair, Long.valueOf(j), aVar}) == null) {
+            int a2 = oh1.c().a(aVar);
+            try {
+                Message message = new Message();
+                message.what = a2;
+                message.arg1 = -1;
+                message.arg2 = 3;
+                this.f = -1;
+                yh1.a().c(message, j);
+                if (pair == null) {
+                    pair = dj1.c(context);
+                }
+                int intValue = ((Integer) pair.first).intValue();
+                int intValue2 = ((Integer) pair.second).intValue();
+                int intValue3 = ((Integer) pair.second).intValue();
+                if (i(a2, intValue2, intValue, 3)) {
+                    int b2 = b(intValue2, i);
+                    this.f = b2;
+                    if (!oh1.c().m(false, true)) {
+                        vh1 vh1Var = new vh1();
+                        vh1Var.a = 3;
+                        c(a2, 3, 998, b2, "is doing auth prelogin.", vh1Var, false);
+                    } else if (b2 != 1 && b2 != 2 && b2 != 3) {
+                        vh1 vh1Var2 = new vh1();
+                        vh1Var2.a = 3;
+                        c(a2, 3, 2004, b2, "has no op.", vh1Var2, true);
+                    } else {
+                        sh1 sh1Var = this.a.get(Integer.valueOf(b2));
+                        if (sh1Var == null) {
+                            vh1 vh1Var3 = new vh1();
+                            vh1Var3.a = 3;
+                            c(a2, 3, 2002, b2, "not support current operator", vh1Var3, true);
+                            return;
+                        }
+                        sh1Var.m(intValue3);
+                        sh1Var.h(context, a2);
+                        li1.d(context, intValue3, 3, sh1.r);
+                    }
+                }
+            } catch (Throwable unused) {
+                vh1 vh1Var4 = new vh1();
+                vh1Var4.a = 3;
+                c(a2, 3, UIMsg.m_AppUI.MSG_APP_VERSION_COMMEND_NAV_MODULE, -1, "auth login unknown error.", vh1Var4, true);
+            }
+        }
+    }
+
+    public void l(Context context, long j, ih1.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{context, Long.valueOf(j), aVar}) == null) {
+            int a2 = oh1.c().a(aVar);
+            Pair<Integer, Integer> c = dj1.c(context);
+            int intValue = ((Integer) c.first).intValue();
+            int intValue2 = ((Integer) c.second).intValue();
+            if (i(a2, intValue2, intValue, 4)) {
+                if (intValue2 != 1 && intValue2 != 2 && intValue2 != 3) {
+                    vh1 vh1Var = new vh1();
+                    vh1Var.a = 4;
+                    c(a2, 3, 2004, intValue2, "has no op.", vh1Var, true);
+                    return;
+                }
+                sh1 sh1Var = this.a.get(Integer.valueOf(intValue2));
+                if (sh1Var == null) {
+                    vh1 vh1Var2 = new vh1();
+                    vh1Var2.a = 4;
+                    c(a2, 3, 2002, intValue2, "not support current operator", vh1Var2, true);
+                } else if (!oh1.c().o(false, true)) {
+                    vh1 vh1Var3 = new vh1();
+                    vh1Var3.a = 4;
+                    c(a2, 3, 998, intValue2, "is doing auth verify.", vh1Var3, false);
+                } else {
+                    li1.d(context, intValue2, 4, sh1.r);
+                    if (!sh1Var.q()) {
+                        sh1Var.p(context, a2, j);
+                    } else if (oh1.c().k()) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        while (oh1.c().k()) {
+                            long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
+                            if (currentTimeMillis2 > 0 && currentTimeMillis2 < j) {
+                                try {
+                                    Thread.sleep(100L);
+                                    if (!sh1Var.q()) {
+                                        sh1Var.p(context, a2, j);
+                                        return;
+                                    }
+                                } catch (Throwable th) {
+                                    vi1.d(th);
+                                    vh1 vh1Var4 = new vh1();
+                                    vh1Var4.a = 4;
+                                    c(a2, 3, 2019, intValue2, "auth out time", vh1Var4, true);
+                                    return;
+                                }
+                            } else {
+                                vh1 vh1Var5 = new vh1();
+                                vh1Var5.a = 4;
+                                c(a2, 3, 2019, intValue2, "auth out time", vh1Var5, true);
+                                return;
+                            }
+                        }
+                    } else {
+                        k(context, 0, c, j, new b(this, sh1Var, context, a2, j, aVar));
+                    }
+                }
+            }
+        }
+    }
+
+    public final void m(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
+            try {
+                if (this.c != null) {
+                    context.unregisterReceiver(this.c);
+                }
+                this.c = null;
+            } catch (Throwable th) {
+                vi1.d(th);
+            }
         }
     }
 }

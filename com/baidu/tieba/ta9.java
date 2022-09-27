@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public final class ta9 {
+public class ta9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ua9 a;
+    @Inject(force = false)
+    public se1<na9> a;
 
     public ta9() {
         Interceptable interceptable = $ic;
@@ -26,26 +27,21 @@ public final class ta9 {
                 return;
             }
         }
-        this.a = new ua9();
+        b();
     }
 
-    public final List<com.baidu.ubs.analytics.a.a> a() {
+    public na9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a() : (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.get() : (na9) invokeV.objValue;
     }
 
-    public final void b(int i) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.b(i);
-        }
-    }
-
-    public final void c(com.baidu.ubs.analytics.a.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a.c(aVar);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            qe1 b = qe1.b();
+            this.a = b;
+            b.a(new oa9());
         }
     }
 }

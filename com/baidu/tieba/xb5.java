@@ -1,119 +1,119 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.common.param.CommonUrlParamManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tbadk.novel.ReadRecordsData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class xb5 {
+public abstract class xb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<vb5> eventDelegates;
+    public boolean isDispatchMvcEventing;
+    public BdUniqueId uniqueId;
 
-    public static String a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    public xb5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, str, str2, i)) == null) {
-            JSONObject params = SchemeActionHelper.getParams(Uri.parse(str), "data");
-            String str3 = null;
-            try {
-                params.put(str2, i);
-                int indexOf = str.indexOf("data");
-                if (indexOf > 0) {
-                    str3 = str.substring(0, indexOf) + "data=" + params;
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return TextUtils.isEmpty(str3) ? str : str3;
-        }
-        return (String) invokeLLI.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? TbadkCoreApplication.getCurrentAccount() : (String) invokeV.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        jf<String> i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if ((TbadkCoreApplication.isLogin() || !StringUtils.isNull(str)) && TextUtils.equals(b(), str2) && (i = zt4.i("tb.novel_thread_read_record", b(), str)) != null && !StringUtils.isNull(i.get(str))) {
-                return i.get(str);
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921697, Boolean.TRUE));
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921658, Boolean.TRUE));
-        }
-    }
-
-    public static void e(String str, ReadRecordsData readRecordsData) {
-        jf<String> i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, readRecordsData) == null) {
-            if ((!TbadkCoreApplication.isLogin() && StringUtils.isNull(str)) || (i = zt4.i("tb.novel_thread_read_record", b(), str)) == null || readRecordsData == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            i.g(str, OrmObject.jsonStrWithObject(readRecordsData));
         }
+        this.isDispatchMvcEventing = false;
     }
 
-    public static String f(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
+    public void addEventDelegate(vb5 vb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, str, str2, str3, str4)) == null) {
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return str;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vb5Var) == null) {
+            if (this.eventDelegates == null) {
+                this.eventDelegates = new ArrayList();
             }
-            String queryParameter = parse.getQueryParameter(str2);
-            if (dj.isEmpty(queryParameter)) {
-                return str;
+            if (this.eventDelegates.contains(vb5Var)) {
+                return;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(queryParameter);
-                jSONObject.put(str3, str4);
-                int indexOf = str.indexOf("&data");
-                if (indexOf > 0) {
-                    String substring = str.substring(0, indexOf);
-                    return substring + "&data=" + jSONObject.toString();
-                }
-                return null;
-            } catch (Exception e) {
-                bg9.g(e);
-                return str;
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
             }
+            this.eventDelegates.add(vb5Var);
         }
-        return (String) invokeLLLL.objValue;
     }
 
-    public static String g(String str) {
+    public boolean dispatchMvcEvent(wb5 wb5Var) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return CommonUrlParamManager.getInstance().processUrl(str) + "&ctv=2&cen=ua_ut_uid";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wb5Var)) == null) {
+            if (wb5Var == null) {
+                return false;
+            }
+            if (wb5Var.e() == null) {
+                wb5Var.i(this.uniqueId);
+            }
+            if (this.eventDelegates != null) {
+                try {
+                    this.isDispatchMvcEventing = true;
+                    onBeforeDispatchMvcEvent(wb5Var);
+                    int size = this.eventDelegates.size();
+                    z = false;
+                    for (int i = 0; i < size; i++) {
+                        try {
+                            vb5 vb5Var = this.eventDelegates.get(i);
+                            if (vb5Var != null && ((!vb5Var.R0() || (vb5Var.R0() && wb5Var.e() == vb5Var.getUniqueId())) && (z = vb5Var.r0(wb5Var)) && wb5Var.f())) {
+                                return true;
+                            }
+                        } catch (Throwable th) {
+                            th = th;
+                            try {
+                                BdLog.e(th);
+                                if (TbadkCoreApplication.getInst().isDebugMode()) {
+                                    throw new RuntimeException(th);
+                                }
+                                this.isDispatchMvcEventing = false;
+                                return z;
+                            } finally {
+                                this.isDispatchMvcEventing = false;
+                            }
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    z = false;
+                }
+                this.isDispatchMvcEventing = false;
+                return z;
+            }
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void onBeforeDispatchMvcEvent(wb5 wb5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wb5Var) == null) {
+        }
+    }
+
+    public void removeEventDelegate(vb5 vb5Var) {
+        List<vb5> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, vb5Var) == null) && (list = this.eventDelegates) != null && list.contains(vb5Var)) {
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+            }
+            this.eventDelegates.remove(vb5Var);
+        }
     }
 }

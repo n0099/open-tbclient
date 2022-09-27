@@ -1,47 +1,53 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.sendtool.SendNoLaunchView;
-import com.baidu.tieba.im.chat.TalkableActivity;
+import android.util.Log;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d75 extends f55 {
-    public static /* synthetic */ Interceptable $ic;
+public class d75 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static int b = 50;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public d75(TalkableActivity talkableActivity, boolean z) {
-        super(talkableActivity, (String) null, 38);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {talkableActivity, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947657479, "Lcom/baidu/tieba/d75;")) == null) {
+            return;
         }
-        this.o = true;
-        this.n = 8;
-        SendNoLaunchView sendNoLaunchView = new SendNoLaunchView(talkableActivity);
-        sendNoLaunchView.setIsFriend(z);
-        this.m = sendNoLaunchView;
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
-        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-        ((View) this.m).setLayoutParams(layoutParams);
-        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947657479, "Lcom/baidu/tieba/d75;");
+        }
+    }
+
+    public static synchronized int a(Context context) {
+        InterceptResult invokeL;
+        int i;
+        int identifier;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (d75.class) {
+                if (!a && (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) > 0) {
+                    int dimensionPixelSize = context.getResources().getDimensionPixelSize(identifier);
+                    b = dimensionPixelSize;
+                    a = true;
+                    Log.d("StatusBarHeightUtil", String.format("Get status bar height %d", Integer.valueOf(dimensionPixelSize)));
+                }
+                i = b;
+            }
+            return i;
+        }
+        return invokeL.intValue;
     }
 }

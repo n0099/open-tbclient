@@ -12,9 +12,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.kz7;
+import com.baidu.tieba.my4;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.wy7;
-import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public wy7 c;
+    public kz7 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,8 +69,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            wy7 wy7Var = this.c;
-            return (wy7Var == null || wy7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
+            kz7 kz7Var = this.c;
+            return (kz7Var == null || kz7Var.j() == null || !this.c.j().getIsLike()) ? false : true;
         }
         return invokeV.booleanValue;
     }
@@ -85,7 +85,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             this.a.setBorderWidth(ej.f(context, R.dimen.tbds3));
             this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
             this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new zx4());
+            this.b.setConfig(new my4());
         }
     }
 
@@ -100,17 +100,17 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             if (!(getContext() instanceof AbsPbActivity)) {
                 return;
             }
-            wy7 wy7Var = new wy7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-            this.c = wy7Var;
-            wy7Var.m("11");
+            kz7 kz7Var = new kz7(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+            this.c = kz7Var;
+            kz7Var.m("11");
             this.c.l(this.d);
         }
         this.c.n(threadData.getAuthor());
         this.c.x(str);
         this.c.v(threadData);
-        wy7 wy7Var2 = this.c;
-        wy7Var2.p = true;
-        wy7Var2.w(a);
+        kz7 kz7Var2 = this.c;
+        kz7Var2.p = true;
+        kz7Var2.w(a);
     }
 
     public void setData(ThreadData threadData) {

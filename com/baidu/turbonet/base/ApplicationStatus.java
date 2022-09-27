@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t79;
+import com.baidu.tieba.i89;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,8 +27,8 @@ public class ApplicationStatus {
     public static Activity c;
     public static f d;
     public static final Map<Activity, d> e;
-    public static final t79<e> f;
-    public static final t79<f> g;
+    public static final i89<e> f;
+    public static final i89<f> g;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
@@ -220,8 +220,8 @@ public class ApplicationStatus {
         }
         a = new Object();
         e = new ConcurrentHashMap();
-        f = new t79<>();
-        g = new t79<>();
+        f = new i89<>();
+        g = new i89<>();
     }
 
     public ApplicationStatus() {
@@ -368,7 +368,7 @@ public class ApplicationStatus {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
-        public t79<e> b;
+        public i89<e> b;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -384,13 +384,13 @@ public class ApplicationStatus {
                 }
             }
             this.a = 6;
-            this.b = new t79<>();
+            this.b = new i89<>();
         }
 
-        public t79<e> a() {
+        public i89<e> a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (t79) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (i89) invokeV.objValue;
         }
 
         public int b() {

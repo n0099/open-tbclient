@@ -8,15 +8,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.editortools.RawLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.u45;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.t55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MenuKeyboardView extends LinearLayout implements g55 {
+public class MenuKeyboardView extends LinearLayout implements t55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -50,7 +50,7 @@ public class MenuKeyboardView extends LinearLayout implements g55 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.K(new u45(30, 0, null));
+                this.a.K(new h55(30, 0, null));
             }
         }
     }
@@ -79,24 +79,24 @@ public class MenuKeyboardView extends LinearLayout implements g55 {
         setOnClickListener(new a(this));
     }
 
-    @Override // com.baidu.tieba.v45
-    public void B(u45 u45Var) {
+    @Override // com.baidu.tieba.i55
+    public void B(h55 h55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, u45Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.g55
-    public void K(u45 u45Var) {
+    @Override // com.baidu.tieba.t55
+    public void K(h55 h55Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u45Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h55Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(u45Var);
+        editorTools.A(h55Var);
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -104,14 +104,14 @@ public class MenuKeyboardView extends LinearLayout implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -119,21 +119,21 @@ public class MenuKeyboardView extends LinearLayout implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, editorTools) == null) {
@@ -141,7 +141,7 @@ public class MenuKeyboardView extends LinearLayout implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {

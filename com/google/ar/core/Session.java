@@ -3,8 +3,8 @@ package com.google.ar.core;
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cr9;
-import com.baidu.tieba.xq9;
+import com.baidu.tieba.mr9;
+import com.baidu.tieba.rr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class Session {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public final Object b;
-    public final cr9 c;
+    public final rr9 c;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes7.dex */
@@ -305,7 +305,7 @@ public class Session {
             }
         }
         this.b = new Object();
-        this.c = new cr9();
+        this.c = new rr9();
         this.a = 0L;
     }
 
@@ -417,7 +417,7 @@ public class Session {
                     return;
                 }
             }
-            c = new ad("BASE_TRACKABLE", 0, 1095893248, xq9.class);
+            c = new ad("BASE_TRACKABLE", 0, 1095893248, mr9.class);
             a = new ae("UNKNOWN_TO_JAVA", 1, -1, null);
             d = new af("PLANE", 2, 1095893249, Plane.class);
             e = new ag("POINT", 3, 1095893250, Point.class);
@@ -449,7 +449,7 @@ public class Session {
             this.h = cls;
         }
 
-        public static c a(Class<? extends xq9> cls) {
+        public static c a(Class<? extends mr9> cls) {
             InterceptResult invokeL;
             c[] values;
             Interceptable interceptable = $ic;
@@ -471,7 +471,7 @@ public class Session {
             return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? (c[]) i.clone() : (c[]) invokeV.objValue;
         }
 
-        public abstract xq9 a(long j, Session session);
+        public abstract mr9 a(long j, Session session);
 
         public /* synthetic */ c(String str, int i2, int i3, Class cls, byte b) {
             this(str, i2, i3, cls);

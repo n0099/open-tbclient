@@ -36,7 +36,7 @@ public final class a {
                         com.kwad.components.ad.interstitial.widget.d.d(cVar);
                         return true;
                     } else if (com.kwad.sdk.core.response.a.a.br(bQ) == 1) {
-                        new com.kwad.components.core.page.widget.a(ownerActivity, com.kwad.sdk.core.response.a.a.bs(bQ), new a.InterfaceC0583a(cVar) { // from class: com.kwad.components.ad.interstitial.c.a.1
+                        new com.kwad.components.core.page.widget.a(ownerActivity, com.kwad.sdk.core.response.a.a.bs(bQ), new a.InterfaceC0579a(cVar) { // from class: com.kwad.components.ad.interstitial.c.a.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ c gf;
@@ -59,7 +59,7 @@ public final class a {
                                 this.gf = cVar;
                             }
 
-                            @Override // com.kwad.components.core.page.widget.a.InterfaceC0583a
+                            @Override // com.kwad.components.core.page.widget.a.InterfaceC0579a
                             public final void a(DialogInterface dialogInterface) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
@@ -68,7 +68,7 @@ public final class a {
                                 }
                             }
 
-                            @Override // com.kwad.components.core.page.widget.a.InterfaceC0583a
+                            @Override // com.kwad.components.core.page.widget.a.InterfaceC0579a
                             public final void b(DialogInterface dialogInterface) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface) == null) {
@@ -78,7 +78,7 @@ public final class a {
                                 }
                             }
 
-                            @Override // com.kwad.components.core.page.widget.a.InterfaceC0583a
+                            @Override // com.kwad.components.core.page.widget.a.InterfaceC0579a
                             public final void c(DialogInterface dialogInterface) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogInterface) == null) {

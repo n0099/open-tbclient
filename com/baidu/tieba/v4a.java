@@ -1,80 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.model.ThemeColorConfig;
 /* loaded from: classes6.dex */
-public final class v4a {
+public class v4a {
     public static /* synthetic */ Interceptable $ic;
-    public static final v4a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948192198, "Lcom/baidu/tieba/v4a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948192198, "Lcom/baidu/tieba/v4a;");
-                return;
-            }
-        }
-        a = new v4a();
-    }
-
-    public v4a() {
+    public static void a(String str, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, context) == null) {
+            ((ClipboardManager) context.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD)).setPrimaryClip(ClipData.newPlainText("Label", str));
         }
-    }
-
-    public final int a(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null || themeColorConfig.getThemeResId() == null) {
-                return R.style.obfuscated_res_0x7f10014e;
-            }
-            Integer themeResId = payUIKitConfig.themeColorConfig.getThemeResId();
-            if (themeResId == null) {
-                Intrinsics.throwNpe();
-            }
-            return themeResId.intValue();
-        }
-        return invokeL.intValue;
-    }
-
-    public final boolean b(PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeL;
-        ThemeColorConfig themeColorConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payUIKitConfig)) == null) {
-            if (payUIKitConfig == null || (themeColorConfig = payUIKitConfig.themeColorConfig) == null) {
-                return true;
-            }
-            Integer themeResId = themeColorConfig != null ? themeColorConfig.getThemeResId() : null;
-            return themeResId != null && themeResId.intValue() == R.style.obfuscated_res_0x7f10014e;
-        }
-        return invokeL.booleanValue;
     }
 }

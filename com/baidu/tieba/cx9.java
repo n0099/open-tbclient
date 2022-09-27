@@ -1,141 +1,183 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.List;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.OnErrorThrowable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.MissingBackpressureException;
 /* loaded from: classes3.dex */
 public final class cx9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final d a;
+    public static final d b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Throwable th, Throwable th2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, th, th2) == null) {
-            HashSet hashSet = new HashSet();
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
+    /* loaded from: classes3.dex */
+    public static final class a implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-875403896, "Lcom/baidu/tieba/cx9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-875403896, "Lcom/baidu/tieba/cx9$a;");
                     return;
                 }
-                th = th.getCause();
-                if (!hashSet.contains(th.getCause())) {
-                    hashSet.add(th.getCause());
-                    i = i2;
+            }
+            a = new a();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            try {
-                th.initCause(th2);
-            } catch (Throwable unused) {
+        }
+
+        @Override // com.baidu.tieba.cx9.d
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
             }
+            return invokeV.booleanValue;
         }
     }
 
-    public static Throwable b(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
-            int i = 0;
-            while (th.getCause() != null) {
-                int i2 = i + 1;
-                if (i >= 25) {
-                    return new RuntimeException("Stack too deep to get final cause");
+    /* loaded from: classes3.dex */
+    public static final class b implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-875403865, "Lcom/baidu/tieba/cx9$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                th = th.getCause();
-                i = i2;
-            }
-            return th;
-        }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static RuntimeException c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-875403865, "Lcom/baidu/tieba/cx9$b;");
+                    return;
                 }
-                throw new RuntimeException(th);
             }
-            throw ((RuntimeException) th);
+            a = new b();
         }
-        return (RuntimeException) invokeL.objValue;
-    }
 
-    public static void d(List<? extends Throwable> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, list) == null) || list == null || list.isEmpty()) {
-            return;
-        }
-        if (list.size() == 1) {
-            Throwable th = list.get(0);
-            if (!(th instanceof RuntimeException)) {
-                if (th instanceof Error) {
-                    throw ((Error) th);
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
-                throw new RuntimeException(th);
             }
-            throw ((RuntimeException) th);
         }
-        throw new CompositeException(list);
+
+        @Override // com.baidu.tieba.cx9.d
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
     }
 
-    public static void e(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
-            if (!(th instanceof OnErrorNotImplementedException)) {
-                if (!(th instanceof OnErrorFailedException)) {
-                    if (!(th instanceof OnCompletedFailedException)) {
-                        if (!(th instanceof VirtualMachineError)) {
-                            if (!(th instanceof ThreadDeath)) {
-                                if (th instanceof LinkageError) {
-                                    throw ((LinkageError) th);
-                                }
-                                return;
-                            }
-                            throw ((ThreadDeath) th);
-                        }
-                        throw ((VirtualMachineError) th);
-                    }
-                    throw ((OnCompletedFailedException) th);
+    /* loaded from: classes3.dex */
+    public static final class c implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-875403834, "Lcom/baidu/tieba/cx9$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                throw ((OnErrorFailedException) th);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-875403834, "Lcom/baidu/tieba/cx9$c;");
+                    return;
+                }
             }
-            throw ((OnErrorNotImplementedException) th);
+            a = new c();
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.cx9.d
+        public boolean a() throws MissingBackpressureException {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                throw new MissingBackpressureException("Overflowed buffer");
+            }
+            return invokeV.booleanValue;
         }
     }
 
-    public static void f(Throwable th, rw9<?> rw9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, th, rw9Var) == null) {
-            e(th);
-            rw9Var.onError(th);
-        }
+    /* loaded from: classes3.dex */
+    public interface d {
+        boolean a() throws MissingBackpressureException;
     }
 
-    public static void g(Throwable th, rw9<?> rw9Var, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, th, rw9Var, obj) == null) {
-            e(th);
-            rw9Var.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947690277, "Lcom/baidu/tieba/cx9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947690277, "Lcom/baidu/tieba/cx9;");
+                return;
+            }
         }
-    }
-
-    public static void h(Throwable th, vw9<?> vw9Var, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, th, vw9Var, obj) == null) {
-            e(th);
-            vw9Var.b(OnErrorThrowable.addValueAsLastCause(th, obj));
-        }
+        c cVar = c.a;
+        a = cVar;
+        b = cVar;
+        b bVar = b.a;
+        a aVar = a.a;
     }
 }

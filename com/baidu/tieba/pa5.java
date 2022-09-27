@@ -1,16 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import android.content.Intent;
+import com.baidu.tbadk.mutiprocess.DataType;
+import com.baidu.tbadk.mutiprocess.ParcelableEvent;
+import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pa5 implements u95<MissionEvent> {
+public class pa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-524585080, "Lcom/baidu/tieba/pa5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-524585080, "Lcom/baidu/tieba/pa5$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[DataType.values().length];
+            a = iArr;
+            try {
+                iArr[DataType.ORM.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[DataType.PARCELABLE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[DataType.SERIALIZABLE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
 
     public pa5() {
         Interceptable interceptable = $ic;
@@ -26,32 +67,26 @@ public class pa5 implements u95<MissionEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u95
-    /* renamed from: a */
-    public boolean onEvent(MissionEvent missionEvent) {
+    public ga5 a(Intent intent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, missionEvent)) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                int i = missionEvent.pageId;
-                int i2 = missionEvent.pageType;
-                long j = missionEvent.tid;
-                String str = missionEvent.actionType;
-                if ("onResume".equals(str)) {
-                    el4.w().K(i, j);
-                    el4.w().P(i2, j);
-                } else if (MissionEvent.MESSAGE_PAUSE.equals(str)) {
-                    el4.w().E();
-                } else if (MissionEvent.MESSAGE_TOUCH.equals(str)) {
-                    el4.w().F();
-                } else if (MissionEvent.MESSAGE_ACTIVITY.equals(str)) {
-                    el4.w().K(i, j);
-                }
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, intent)) == null) {
+            int intExtra = intent.getIntExtra("value_type", -1);
+            if (intExtra < 0) {
+                return null;
             }
-            return false;
+            int i = a.a[DataType.values()[intExtra].ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return (SerializableEvent) intent.getSerializableExtra("value");
+                }
+                return (ParcelableEvent) intent.getParcelableExtra("value");
+            }
+            return (StickyEvent) intent.getSerializableExtra("value");
         }
-        return invokeL.booleanValue;
+        return (ga5) invokeL.objValue;
     }
 }

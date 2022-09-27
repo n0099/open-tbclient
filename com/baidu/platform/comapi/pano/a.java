@@ -23,7 +23,7 @@ public class a {
 
     /* renamed from: com.baidu.platform.comapi.pano.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0125a<T> {
+    public interface InterfaceC0122a<T> {
         void a(HttpClient.HttpStateError httpStateError);
 
         void a(T t);
@@ -104,9 +104,9 @@ public class a {
         builder.appendQueryParameter(str, str2);
     }
 
-    public void a(String str, InterfaceC0125a<c> interfaceC0125a) {
+    public void a(String str, InterfaceC0122a<c> interfaceC0122a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0125a) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, interfaceC0122a) == null) {
             Uri.Builder builder = new Uri.Builder();
             builder.scheme(HttpClient.isHttpsEnable ? "https" : "http");
             builder.encodedAuthority("api.map.baidu.com");
@@ -116,11 +116,11 @@ public class a {
             a(builder, "action", "0");
             String authToken = HttpClient.getAuthToken();
             if (authToken == null) {
-                interfaceC0125a.a((InterfaceC0125a<c>) new c(PanoStateError.d));
+                interfaceC0122a.a((InterfaceC0122a<c>) new c(PanoStateError.d));
                 return;
             }
             a(builder, "token", authToken);
-            this.a.get(a(builder), new b(this, interfaceC0125a));
+            this.a.get(a(builder), new b(this, interfaceC0122a));
         }
     }
 }

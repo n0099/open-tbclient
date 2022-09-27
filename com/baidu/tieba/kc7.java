@@ -1,146 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.GroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.ResponseGroupsByUidLocalMessage;
+import com.baidu.tieba.im.message.ResponseGroupsByUidMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class kc7 {
+public class kc7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.kc7$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0308a extends qh5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean a;
-
-            public C0308a(a aVar, boolean z) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, Boolean.valueOf(z)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = z;
+    public kc7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qh5
-            /* renamed from: a */
-            public Integer doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    if (!this.a) {
-                        z87.a().b();
-                    }
-                    return 0;
-                }
-                return (Integer) invokeV.objValue;
-            }
-        }
-
-        /* loaded from: classes4.dex */
-        public class b implements vg5<Integer> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.vg5
-            /* renamed from: a */
-            public void onReturnDataInUI(Integer num) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, num) == null) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005018, null));
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2005016 || customResponsedMessage.getData() == null) {
-                return;
-            }
-            boolean isNull = StringUtils.isNull(((AccountData) customResponsedMessage.getData()).getAccount());
-            if (!isNull) {
-                v15.h0().g0(new g25());
-                v15.h0().b0(0);
-                v15.h0().Z(0);
-                v15.h0().Y(0);
-                v15.h0().c0(0);
-                v15.h0().d0(0);
-                v15.h0().a();
-                uh5.a();
-                k97.w().q();
-                j97.w().q();
-            }
-            uh5.c(new C0308a(this, isNull), new b(this));
         }
     }
 
-    public static void a() {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            MessageManager.getInstance().registerListener(2005016, new a(0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof GroupsByUidLocalMessage)) {
+                return null;
+            }
+            String str = ResponseGroupsByUidMessage.CACHE_KEY_PREFIX + (TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "");
+            mu4.f();
+            byte[] bArr = mu4.d("tb.im_entergroup").get(str);
+            ResponseGroupsByUidLocalMessage responseGroupsByUidLocalMessage = new ResponseGroupsByUidLocalMessage();
+            if (bArr != null) {
+                try {
+                    responseGroupsByUidLocalMessage.decodeInBackGround(2001106, bArr);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return responseGroupsByUidLocalMessage;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

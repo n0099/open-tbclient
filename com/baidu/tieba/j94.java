@@ -1,55 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.menu.viewpager.PointPageIndicator;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
+import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
+import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class j94 extends PointPageIndicator {
+public class j94 {
     public static /* synthetic */ Interceptable $ic;
+    public static j94 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public RoutePlanSearch a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j94(Context context) {
-        super(context);
+    public j94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.swan.menu.viewpager.PointPageIndicator
-    public /* bridge */ /* synthetic */ PointPageIndicator d(Drawable drawable, Drawable drawable2) {
-        g(drawable, drawable2);
-        return this;
+    public static j94 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (j94.class) {
+                    if (b == null) {
+                        b = new j94();
+                    }
+                }
+            }
+            return b;
+        }
+        return (j94) invokeV.objValue;
     }
 
-    public j94 g(Drawable drawable, Drawable drawable2) {
-        InterceptResult invokeLL;
+    public void a() {
+        RoutePlanSearch routePlanSearch;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, drawable, drawable2)) == null) {
-            this.a = drawable;
-            this.b = drawable2;
-            this.c.set(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            this.d.set(0, 0, drawable2.getIntrinsicWidth(), drawable2.getIntrinsicHeight());
-            return this;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (routePlanSearch = this.a) == null) {
+            return;
         }
-        return (j94) invokeLL.objValue;
+        routePlanSearch.destroy();
+    }
+
+    public void c(LatLng latLng, LatLng latLng2, OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng, latLng2, onGetRoutePlanResultListener) == null) || latLng == null || latLng2 == null || onGetRoutePlanResultListener == null) {
+            return;
+        }
+        RoutePlanSearch newInstance = RoutePlanSearch.newInstance();
+        this.a = newInstance;
+        newInstance.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
+        PlanNode withLocation = PlanNode.withLocation(latLng);
+        this.a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
     }
 }

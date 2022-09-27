@@ -1,78 +1,171 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 /* loaded from: classes3.dex */
-public final class bm5 extends TimerTask {
+public class bm5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long[] a;
+    public static final String[] b;
+    public static final String[] c;
+    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public final WheelView d;
 
-    public bm5(WheelView wheelView, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947649791, "Lcom/baidu/tieba/bm5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947649791, "Lcom/baidu/tieba/bm5;");
                 return;
             }
         }
-        this.d = wheelView;
-        this.c = i;
-        this.a = Integer.MAX_VALUE;
-        this.b = 0;
+        a = new long[]{19416, 19168, 42352, 21717, 53856, 55632, 91476, 22176, 39632, 21970, 19168, 42422, 42192, 53840, 119381, 46400, 54944, 44450, 38320, 84343, 18800, 42160, 46261, 27216, 27968, 109396, 11104, 38256, 21234, 18800, 25958, 54432, 59984, 28309, 23248, 11104, 100067, 37600, 116951, 51536, 54432, 120998, 46416, 22176, 107956, 9680, 37584, 53938, 43344, 46423, 27808, 46416, 86869, 19872, 42416, 83315, 21168, 43432, 59728, 27296, 44710, 43856, 19296, 43748, 42352, 21088, 62051, 55632, 23383, 22176, 38608, 19925, 19152, 42192, 54484, 53840, 54616, 46400, 46752, 103846, 38320, 18864, 43380, 42160, 45690, 27216, 27968, 44870, 43872, 38256, 19189, 18800, 25776, 29859, 59984, 27480, 21952, 43872, 38613, 37600, 51552, 55636, 54432, 55888, 30034, 22176, 43959, 9680, 37584, 51893, 43344, 46240, 47780, 44368, 21977, 19360, 42416, 86390, 21168, 43312, 31060, 27296, 44368, 23378, 19296, 42726, 42208, 53856, 60005, 54576, 23200, 30371, 38608, 19195, 19152, 42192, 118966, 53840, 54560, 56645, 46496, 22224, 21938, 18864, 42359, 42160, 43600, 111189, 27936, 44448, 84835, 37744, 18936, 18800, 25776, 92326, 59984, 27424, 108228, 43744, 41696, 53987, 51552, 54615, 54432, 55888, 23893, 22176, 42704, 21972, 21200, 43448, 43344, 46240, 46758, 44368, 21920, 43940, 42416, 21168, 45683, 26928, 29495, 27296, 44368, 84821, 19296, 42352, 21732, 53600, 59752, 54560, 55968, 92838, 22224, 19168, 43476, 41680, 53584, 62034, 54560};
+        b = new String[]{"", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十", "冬", "腊"};
+        c = new String[]{"甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"};
+        d = new String[]{"子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"};
+        new SimpleDateFormat("yyyy年M月d日 EEEEE");
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    public static final String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == Integer.MAX_VALUE) {
-                this.a = this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            if (i == 10) {
+                return "初十";
             }
-            int i = this.a;
-            int i2 = (int) (i * 0.1f);
-            this.b = i2;
-            if (i2 == 0) {
-                if (i < 0) {
-                    this.b = -1;
-                } else {
-                    this.b = 1;
-                }
+            if (i == 20) {
+                return "二十";
             }
-            if (Math.abs(this.a) <= 1) {
-                this.d.b();
-                this.d.getHandler().sendEmptyMessage(3000);
-                return;
+            if (i == 30) {
+                return "三十";
             }
-            WheelView wheelView = this.d;
-            wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.b);
-            if (!this.d.i()) {
-                float itemHeight = this.d.getItemHeight();
-                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
-                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
-                    WheelView wheelView2 = this.d;
-                    wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.b);
-                    this.d.b();
-                    this.d.getHandler().sendEmptyMessage(3000);
-                    return;
-                }
+            int i2 = i / 10;
+            String str = i2 == 0 ? "初" : "";
+            if (i2 == 1) {
+                str = "十";
             }
-            this.d.getHandler().sendEmptyMessage(1000);
-            this.a -= this.b;
+            if (i2 == 2) {
+                str = "廿";
+            }
+            if (i2 == 3) {
+                str = "三";
+            }
+            switch (i % 10) {
+                case 1:
+                    return str + "一";
+                case 2:
+                    return str + "二";
+                case 3:
+                    return str + "三";
+                case 4:
+                    return str + "四";
+                case 5:
+                    return str + "五";
+                case 6:
+                    return str + "六";
+                case 7:
+                    return str + "七";
+                case 8:
+                    return str + "八";
+                case 9:
+                    return str + "九";
+                default:
+                    return str;
+            }
         }
+        return (String) invokeI.objValue;
+    }
+
+    public static ArrayList<String> b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i2 = 1; i2 <= i; i2++) {
+                arrayList.add(a(i2));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeI.objValue;
+    }
+
+    public static String c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int i2 = i - 4;
+            sb.append(c[i2 % 10]);
+            sb.append(d[i2 % 12]);
+            sb.append("年");
+            return sb.toString();
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static ArrayList<String> d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int i2 = 1; i2 < b.length; i2++) {
+                arrayList.add(b[i2] + "月");
+            }
+            if (g(i) != 0) {
+                int g = g(i);
+                arrayList.add(g, "闰" + b[g(i)] + "月");
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeI.objValue;
+    }
+
+    public static ArrayList<String> e(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65541, null, i, i2)) == null) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            while (i < i2) {
+                arrayList.add(String.format("%s(%d)", c(i), Integer.valueOf(i)));
+                i++;
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeII.objValue;
+    }
+
+    public static final int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (g(i) != 0) {
+                return (a[i + (-1900)] & 65536) != 0 ? 30 : 29;
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public static final int g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) ? (int) (a[i - 1900] & 15) : invokeI.intValue;
+    }
+
+    public static final int h(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65544, null, i, i2)) == null) ? (((long) (65536 >> i2)) & a[i + (-1900)]) == 0 ? 29 : 30 : invokeII.intValue;
     }
 }

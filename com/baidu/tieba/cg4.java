@@ -1,77 +1,39 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cg4 {
+public class cg4 extends te4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public cg4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (z) {
-                    hexString = hexString.toUpperCase();
-                }
-                if (hexString.length() == 1) {
-                    sb.append("0");
-                }
-                sb.append(hexString);
-                sb.append(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return sb.toString();
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    public static String b(File file, boolean z) {
-        InterceptResult invokeLZ;
-        FileInputStream fileInputStream;
+    @Override // com.baidu.tieba.te4, com.baidu.tieba.we4
+    public void b(JSONObject jSONObject, gb4 gb4Var, @Nullable gb4 gb4Var2, @Nullable gb4 gb4Var3) {
+        JSONObject optJSONObject;
+        zf4 a;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) != null) {
-            return (String) invokeLZ.objValue;
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, gb4Var, gb4Var2, gb4Var3) == null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("base_info")) == null || (a = zf4.a(optJSONObject)) == null) {
+            return;
         }
-        FileInputStream fileInputStream2 = null;
-        try {
-            MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-            messageDigest.reset();
-            fileInputStream = new FileInputStream(file);
-            try {
-                byte[] bArr = new byte[8192];
-                while (true) {
-                    int read = fileInputStream.read(bArr);
-                    if (read > 0) {
-                        messageDigest.update(bArr, 0, read);
-                    } else {
-                        String a = a(messageDigest.digest(), "", z);
-                        cj4.d(fileInputStream);
-                        return a;
-                    }
-                }
-            } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused) {
-                cj4.d(fileInputStream);
-                return null;
-            } catch (Throwable th) {
-                th = th;
-                fileInputStream2 = fileInputStream;
-                cj4.d(fileInputStream2);
-                throw th;
-            }
-        } catch (FileNotFoundException | IOException | NoSuchAlgorithmException unused2) {
-            fileInputStream = null;
-        } catch (Throwable th2) {
-            th = th2;
-        }
+        ag4.e().i(a);
+        ag4.e().j(a.k);
     }
 }

@@ -11,7 +11,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -53,10 +53,10 @@ public class PbFloorComplaint extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06e2, (ViewGroup) this, true);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bce);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c39);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bcf);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bf8);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bd0);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c3b);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bd1);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091bfa);
             this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090a28);
         }
     }
@@ -71,27 +71,27 @@ public class PbFloorComplaint extends RelativeLayout {
             int i = this.f;
             if (i == 1) {
                 this.c.setText(R.string.obfuscated_res_0x7f0f0ffe);
-                uu4.d(this.c).v(R.color.CAM_X0301);
+                hv4.d(this.c).v(R.color.CAM_X0301);
             } else if (i == 2) {
                 this.c.setText(R.string.obfuscated_res_0x7f0f0653);
-                uu4.d(this.c).v(R.color.CAM_X0105);
+                hv4.d(this.c).v(R.color.CAM_X0105);
             } else if (i == 3) {
                 this.c.setText(R.string.obfuscated_res_0x7f0f0654);
-                uu4.d(this.c).v(R.color.CAM_X0301);
+                hv4.d(this.c).v(R.color.CAM_X0301);
             } else {
                 this.c.setText(R.string.obfuscated_res_0x7f0f0ffe);
-                uu4.d(this.c).v(R.color.CAM_X0301);
+                hv4.d(this.c).v(R.color.CAM_X0301);
             }
             int i2 = this.g;
             if (i2 == 1 || i2 == 3) {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4a, R.color.CAM_X0301, null);
+                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4c, R.color.CAM_X0301, null);
             } else if (i2 == 2) {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080923, R.color.CAM_X0105, null);
+                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080925, R.color.CAM_X0105, null);
             } else {
-                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4a, R.color.CAM_X0301, null);
+                WebPManager.setPureDrawable(this.a, R.drawable.obfuscated_res_0x7f080a4c, R.color.CAM_X0301, null);
             }
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080920, R.color.CAM_X0304, null);
-            uu4 d = uu4.d(this.d);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080922, R.color.CAM_X0304, null);
+            hv4 d = hv4.d(this.d);
             d.v(R.color.CAM_X0107);
             d.z(R.dimen.T_X09);
         }

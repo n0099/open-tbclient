@@ -1,27 +1,27 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.cx9;
-import com.baidu.tieba.sw9;
-import com.baidu.tieba.ww9;
+import com.baidu.tieba.hx9;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.rx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public final class SingleProducer<T> extends AtomicBoolean implements sw9 {
+public final class SingleProducer<T> extends AtomicBoolean implements hx9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -3353584923995471404L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ww9<? super T> child;
+    public final lx9<? super T> child;
     public final T value;
 
-    public SingleProducer(ww9<? super T> ww9Var, T t) {
+    public SingleProducer(lx9<? super T> lx9Var, T t) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ww9Var, t};
+            Object[] objArr = {lx9Var, t};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,31 +31,31 @@ public final class SingleProducer<T> extends AtomicBoolean implements sw9 {
                 return;
             }
         }
-        this.child = ww9Var;
+        this.child = lx9Var;
         this.value = t;
     }
 
-    @Override // com.baidu.tieba.sw9
+    @Override // com.baidu.tieba.hx9
     public void request(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i != 0 && compareAndSet(false, true)) {
-                    ww9<? super T> ww9Var = this.child;
-                    if (ww9Var.isUnsubscribed()) {
+                    lx9<? super T> lx9Var = this.child;
+                    if (lx9Var.isUnsubscribed()) {
                         return;
                     }
                     Object obj = (T) this.value;
                     try {
-                        ww9Var.onNext(obj);
-                        if (ww9Var.isUnsubscribed()) {
+                        lx9Var.onNext(obj);
+                        if (lx9Var.isUnsubscribed()) {
                             return;
                         }
-                        ww9Var.onCompleted();
+                        lx9Var.onCompleted();
                         return;
                     } catch (Throwable th) {
-                        cx9.g(th, ww9Var, obj);
+                        rx9.g(th, lx9Var, obj);
                         return;
                     }
                 }

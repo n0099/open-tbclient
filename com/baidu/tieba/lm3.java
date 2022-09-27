@@ -1,87 +1,200 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.bdtls.AES;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class lm3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile lm3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static hm3 a(byte[] bArr) {
-        InterceptResult invokeL;
+    public lm3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            hm3 hm3Var = null;
-            if (bArr == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            byte b = wrap.get();
-            byte b2 = wrap.get();
-            if (b == -27 && b2 == -89) {
-                hm3Var = new hm3();
-                wrap.get();
-                wrap.get();
-                hm3Var.r(wrap.get());
-                hm3Var.p(wrap.get());
-                int i = wrap.getShort();
-                hm3Var.q(i);
-                int i2 = wrap.getInt();
-                hm3Var.k(i2);
-                hm3Var.l(wrap.getLong());
-                byte[] bArr2 = new byte[i];
-                wrap.get(bArr2, 0, i);
-                hm3Var.o(bArr2);
-                if (i2 > 0) {
-                    byte[] bArr3 = new byte[i2];
-                    wrap.get(bArr3, 0, i2);
-                    hm3Var.j(bArr3);
-                }
-            }
-            return hm3Var;
         }
-        return (hm3) invokeL.objValue;
     }
 
-    public static byte[] b(hm3 hm3Var) {
+    public static int a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hm3Var)) == null) {
-            if (hm3Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr != null) {
+                int i = 0;
+                for (byte b : bArr) {
+                    i = (i << 8) | (b & 255);
+                }
+                return i;
             }
-            ByteBuffer allocate = ByteBuffer.allocate(hm3Var.h() + 20 + hm3Var.b());
-            allocate.put((byte) -27);
-            allocate.put((byte) -89);
-            if (hm3Var.e() != null && hm3Var.e().length == 2) {
-                allocate.put(hm3Var.e()[0]);
-                allocate.put(hm3Var.e()[1]);
-                allocate.put(hm3Var.i());
-                allocate.put(hm3Var.g());
-                if (hm3Var.f() != null && hm3Var.f().length != 0) {
-                    int length = hm3Var.f().length;
-                    allocate.put((byte) ((length >> 8) & 255));
-                    allocate.put((byte) (length & 255));
-                    if (hm3Var.a() != null && hm3Var.a().length != 0) {
-                        allocate.putInt(hm3Var.a().length);
-                    } else {
-                        allocate.putInt(0);
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: char */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(bArr[i] > 0 ? bArr[i] : bArr[i] & 255);
+                sb.append(",");
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static lm3 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (lm3.class) {
+                    if (a == null) {
+                        a = new lm3();
                     }
-                    allocate.putLong(hm3Var.c());
-                    if (hm3Var.f() != null) {
-                        allocate.put(hm3Var.f());
-                    }
-                    if (hm3Var.a() != null) {
-                        allocate.put(hm3Var.a());
-                    }
-                    return allocate.array();
                 }
             }
-            return null;
+            return a;
+        }
+        return (lm3) invokeV.objValue;
+    }
+
+    public static byte[] g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)} : (byte[]) invokeI.objValue;
+    }
+
+    public byte[] b(wm3 wm3Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, wm3Var, str)) == null) {
+            if (wm3Var == null) {
+                return null;
+            }
+            try {
+                um3 a2 = um3.j.a();
+                a2.r((byte) 23);
+                byte[] i = wm3Var.i();
+                if (i != null && i.length > 0 && i.length <= 32767) {
+                    a2.q((short) i.length);
+                    a2.o(i);
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    byte[] aesEncrypt = AES.aesEncrypt(str, wm3Var.c());
+                    a2.k(aesEncrypt.length);
+                    a2.j(aesEncrypt);
+                }
+                a2.l(ag4.e().d().longValue());
+                return ym3.b(a2);
+            } catch (Exception e) {
+                if (hm3.a) {
+                    e.printStackTrace();
+                    Log.d("BDTLS", "exception=" + e.getMessage());
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public vm3 c(wm3 wm3Var, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wm3Var, bArr)) == null) {
+            vm3 vm3Var = new vm3();
+            try {
+                um3 a2 = ym3.a(bArr);
+                byte i = a2.i();
+                if (i == 21) {
+                    Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.f());
+                    if (parseFrom != null) {
+                        String str = new String(parseFrom.getDescription().toByteArray());
+                        if (hm3.a) {
+                            Log.d("BDTLS", "bdtls ubc application alert : " + str);
+                        }
+                        mm3.b(wm3Var, parseFrom);
+                        if (1 == parseFrom.getLevel()) {
+                            vm3Var.d(-2);
+                        } else if (TextUtils.equals(str, "down grade")) {
+                            vm3Var.d(2);
+                        } else {
+                            vm3Var.d(-1);
+                        }
+                        if (hm3.a) {
+                            if (parseFrom.getDescription() != null) {
+                                if (hm3.a) {
+                                    Log.d("BDTLS", "BdtlsPostRequest response alert message=" + str);
+                                }
+                            } else if (hm3.a) {
+                                Log.d("BDTLS", "BdtlsPostRequest response alert messag=null");
+                            }
+                        }
+                    } else {
+                        vm3Var.d(-1);
+                    }
+                } else if (i == 23) {
+                    vm3Var.c(new String(AES.aesDecrypt(a2.a(), wm3Var.c())));
+                    vm3Var.d(1);
+                }
+            } catch (Exception e) {
+                if (hm3.a) {
+                    e.printStackTrace();
+                    Log.d("BDTLS", "exception=" + e.getMessage());
+                }
+                vm3Var.d(-1);
+            }
+            return vm3Var;
+        }
+        return (vm3) invokeLL.objValue;
+    }
+
+    public byte[] e(wm3 wm3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wm3Var)) == null) {
+            if (wm3Var == null) {
+                return null;
+            }
+            try {
+                byte[] b = xm3.b(wm3Var, new tm3());
+                if (b == null) {
+                    return null;
+                }
+                um3 a2 = um3.j.a();
+                a2.r((byte) 22);
+                a2.q((short) b.length);
+                a2.l(ag4.e().d().longValue());
+                a2.o(b);
+                return ym3.b(a2);
+            } catch (Exception e) {
+                if (hm3.a) {
+                    e.printStackTrace();
+                    Log.d("BDTLS", "exception=" + e.getMessage());
+                }
+                return null;
+            }
         }
         return (byte[]) invokeL.objValue;
     }

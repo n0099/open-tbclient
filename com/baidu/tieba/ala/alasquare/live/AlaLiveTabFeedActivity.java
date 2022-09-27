@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sa0;
-import com.baidu.tieba.su5;
+import com.baidu.tieba.fb0;
+import com.baidu.tieba.fv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -66,15 +66,15 @@ public class AlaLiveTabFeedActivity extends BaseFragmentActivity {
             if (getIntent() != null && !StringUtils.isNull(getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE))) {
                 this.c = getIntent().getStringExtra(AlaTabFeedActivityConfig.KEY_PAGE_SOURCE);
             }
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c72);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c74);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091657);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0226));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            su5.a().c(TbadkCoreApplication.getInst());
-            sa0 sa0Var = new sa0();
-            this.b = sa0Var;
-            View onCreateView = sa0Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
+            fv5.a().c(TbadkCoreApplication.getInst());
+            fb0 fb0Var = new fb0();
+            this.b = fb0Var;
+            View onCreateView = fb0Var.onCreateView(this, null, LiveFeedPageSdk.HOST_LIVE_TAB, this.c, null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) onCreateView.getParent()).removeView(onCreateView);
             }

@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,109 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class zs2 {
+public class zs2 extends ys2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
-    public String f;
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public zs2 a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new zs2();
-        }
-
-        public zs2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (zs2) invokeV.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.a.d = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.a.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a e(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.a.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.a.f = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.a.e = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -127,109 +30,52 @@ public final class zs2 {
                 return;
             }
         }
-        g = ij1.a;
-        h = "SwanAppParam";
+        boolean z = vj1.a;
     }
 
-    public zs2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zs2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static zs2 g(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ys2
+    public boolean a(ts2 ts2Var, vs2 vs2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                zs2 zs2Var = new zs2();
-                JSONObject jSONObject = new JSONObject(str);
-                zs2Var.a = jSONObject.optString("page");
-                zs2Var.c = jSONObject.optString("params");
-                zs2Var.b = jSONObject.optString("baseUrl");
-                zs2Var.d = jSONObject.optBoolean("isFirstPage");
-                zs2Var.e = jSONObject.optString("routeType");
-                zs2Var.f = jSONObject.optString("routeId");
-                return zs2Var;
-            } catch (JSONException e) {
-                if (g) {
-                    String str2 = h;
-                    Log.e(str2, "createSwanAppParam() error: " + Log.getStackTraceString(e));
-                }
-                return null;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ts2Var, vs2Var, context, unitedSchemeEntity, callbackHandler, l33Var})) == null) {
+            l02.i("vrvideo", "remove, video id:" + vs2Var.j + " slave id: " + vs2Var.c);
+            d(ts2Var, vs2Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (zs2) invokeL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public String h() {
-        InterceptResult invokeV;
+    public final void d(ts2 ts2Var, vs2 vs2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("page", this.a);
-                jSONObject.put("params", this.c);
-                jSONObject.put("baseUrl", this.b);
-                jSONObject.put("isFirstPage", this.d);
-                jSONObject.put("routeType", this.e);
-                jSONObject.put("routeId", this.f);
-            } catch (JSONException e) {
-                if (g) {
-                    String str = h;
-                    Log.e(str, "toJSONString error: " + Log.getStackTraceString(e));
-                }
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ts2Var, vs2Var, unitedSchemeEntity, callbackHandler) == null) {
+            az1 a = yz1.a(vs2Var);
+            if (a != null) {
+                a.B();
+            } else {
+                e02.a("VrVideoRemoveAction", "remove with a null component");
             }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d = false;
+            ts2Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

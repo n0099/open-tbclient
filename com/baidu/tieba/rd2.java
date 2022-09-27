@@ -1,23 +1,75 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class rd2 {
+public class rd2<T> extends ld2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public T c;
+    public boolean d;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? mb3.a().getBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", false) : invokeV.booleanValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948117705, "Lcom/baidu/tieba/rd2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948117705, "Lcom/baidu/tieba/rd2;");
+                return;
+            }
+        }
+        e = vj1.a;
     }
 
-    public static void b(boolean z) {
+    public rd2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            mb3.a().putBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = true;
+        this.a = "message";
+    }
+
+    @Override // com.baidu.tieba.ld2
+    public void m(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            Object obj = this.c;
+            if (obj instanceof String) {
+                String str = (String) obj;
+                if (this.d) {
+                    str = Uri.encode(str);
+                }
+                if (e) {
+                    Log.d("SwanAppWebMessage", "mData: " + this.c);
+                    Log.d("SwanAppWebMessage", "encode mData: " + str);
+                }
+                map.put("message", str);
+            } else if (obj instanceof JSONObject) {
+                map.put("message", obj);
+            }
         }
     }
 }

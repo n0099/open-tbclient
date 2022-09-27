@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a06;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.yz5;
+import com.baidu.tieba.l06;
+import com.baidu.tieba.n06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,7 +48,7 @@ public class VotedAreaLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092633);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f092635);
         }
     }
 
@@ -78,10 +78,10 @@ public class VotedAreaLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, a06 a06Var) {
+    public void setData(int i, n06 n06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, a06Var) == null) {
-            super.setData(i, a06Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, n06Var) == null) {
+            super.setData(i, n06Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 TextView textView = this.e;
                 textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
@@ -92,12 +92,12 @@ public class VotedAreaLayout extends CardBasicLayout {
         }
     }
 
-    public void setMyRecordData(yz5 yz5Var) {
+    public void setMyRecordData(l06 l06Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, yz5Var) == null) || yz5Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, l06Var) == null) || l06Var == null) {
             return;
         }
-        this.c = yz5Var;
+        this.c = l06Var;
         TextView textView = this.e;
         textView.setText(StringHelper.numFormatOverWan(this.c.m()) + "票");
     }

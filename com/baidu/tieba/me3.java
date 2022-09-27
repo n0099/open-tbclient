@@ -1,112 +1,136 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewTreeObserver;
+import android.content.Context;
+import android.net.wifi.WifiConfiguration;
+import android.net.wifi.WifiEnterpriseConfig;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.StandardCharsets;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class me3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public View c;
-    public int d;
-    public le3 e;
 
-    /* loaded from: classes5.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ me3 b;
-
-        public a(me3 me3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {me3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static WifiConfiguration a(je3 je3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, je3Var)) == null) {
+            int b = ne3.b(je3Var);
+            if (f(je3Var.a)) {
+                WifiConfiguration wifiConfiguration = new WifiConfiguration();
+                wifiConfiguration.SSID = "\"" + je3Var.a + "\"";
+                if (!TextUtils.isEmpty(je3Var.b)) {
+                    wifiConfiguration.BSSID = je3Var.b;
                 }
+                if (b == 0) {
+                    ne3.d(wifiConfiguration, 0);
+                } else if (b == 1) {
+                    ne3.d(wifiConfiguration, 1);
+                    String[] strArr = wifiConfiguration.wepKeys;
+                    strArr[0] = "\"" + je3Var.d + "\"";
+                } else if (b == 2) {
+                    ne3.d(wifiConfiguration, 2);
+                    wifiConfiguration.preSharedKey = "\"" + je3Var.d + "\"";
+                } else if (b == 3) {
+                    ne3.d(wifiConfiguration, 3);
+                    WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
+                    wifiEnterpriseConfig.setEapMethod(0);
+                    wifiEnterpriseConfig.setIdentity(je3Var.c);
+                    wifiEnterpriseConfig.setPassword(je3Var.d);
+                    wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
+                }
+                return wifiConfiguration;
             }
-            this.b = me3Var;
-            this.a = str;
+            return null;
         }
+        return (WifiConfiguration) invokeL.objValue;
+    }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.b.e != null) {
-                    this.b.e.c(this.a);
-                }
-                Rect rect = new Rect();
-                this.b.c.getWindowVisibleDisplayFrame(rect);
-                int height = rect.height();
-                if (this.b.d == this.b.a) {
-                    this.b.d = height;
-                } else if (this.b.d == height) {
-                } else {
-                    if (this.b.d - height > this.b.b) {
-                        if (this.b.e != null) {
-                            this.b.e.b(this.a, this.b.d - height);
-                        }
-                        this.b.d = height;
-                    } else if (height - this.b.d > this.b.b) {
-                        if (this.b.e != null) {
-                            this.b.e.a(this.a, height - this.b.d);
-                        }
-                        this.b.d = height;
+    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
+            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
+                        return wifiConfiguration;
                     }
                 }
             }
+            return null;
         }
+        return (WifiConfiguration) invokeLLL.objValue;
     }
 
-    public me3(String str, Activity activity) {
+    public static WifiConfiguration c(Context context, WifiManager wifiManager, je3 je3Var) {
+        InterceptResult invokeLLL;
+        List<WifiConfiguration> d;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, je3Var)) == null) {
+            if (je3Var != null && f(je3Var.a) && (d = d(context, wifiManager)) != null) {
+                for (WifiConfiguration wifiConfiguration : d) {
+                    if (TextUtils.equals(e(wifiConfiguration.SSID), je3Var.a)) {
+                        return wifiConfiguration;
+                    }
+                }
+            }
+            return null;
+        }
+        return (WifiConfiguration) invokeLLL.objValue;
+    }
+
+    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
+            if (wifiManager == null) {
+                return null;
+            }
+            try {
+                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) != 0) {
+                    return null;
+                }
+                return wifiManager.getConfiguredNetworks();
+            } catch (Exception e) {
+                l02.b("SwanWifiUtils", Log.getStackTraceString(e));
+                return null;
             }
         }
-        this.a = 0;
-        this.b = 200;
-        View decorView = activity.getWindow().getDecorView();
-        this.c = decorView;
-        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
+        return (List) invokeLL.objValue;
     }
 
-    public static void g(String str, Activity activity, le3 le3Var) {
+    public static String e(String str) {
+        InterceptResult invokeL;
+        int length;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, str, activity, le3Var) == null) {
-            new me3(str, activity).h(le3Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (length = str.length()) <= 1 || str.charAt(0) != '\"') {
+                return str;
+            }
+            int i = length - 1;
+            return str.charAt(i) == '\"' ? str.substring(1, i) : str;
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void h(le3 le3Var) {
+    public static boolean f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, le3Var) == null) {
-            this.e = le3Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.equals("<unknown ssid>")) {
+                return false;
+            }
+            return StandardCharsets.UTF_8.newEncoder().canEncode(str);
         }
+        return invokeL.booleanValue;
     }
 }

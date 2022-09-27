@@ -1,168 +1,107 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Environment;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Stack;
 /* loaded from: classes6.dex */
 public final class yb9 {
     public static /* synthetic */ Interceptable $ic;
-    public static String[] a;
-    public static File b;
-    public static RandomAccessFile c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Stack<WeakReference<Activity>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948324537, "Lcom/baidu/tieba/yb9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final yb9 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-265880036, "Lcom/baidu/tieba/yb9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-265880036, "Lcom/baidu/tieba/yb9$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948324537, "Lcom/baidu/tieba/yb9;");
+            a = new yb9((byte) 0);
+        }
+    }
+
+    public /* synthetic */ yb9(byte b) {
+        this();
+    }
+
+    public final Stack<WeakReference<Activity>> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Stack) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < this.a.size(); i++) {
+                Activity activity = this.a.get(i).get();
+                if (activity != null) {
+                    sb.append(activity.getClass().getSimpleName());
+                    sb.append("->");
+                }
+            }
+            return sb.length() > 0 ? sb.substring(0, sb.length() - 2) : "没有路径了";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void c(WeakReference<Activity> weakReference) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, weakReference) == null) {
+            this.a.add(weakReference);
+        }
+    }
+
+    public final void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (this.a != null) {
+                for (int i = 0; i < this.a.size(); i++) {
+                    if (this.a.get(i).get() == activity) {
+                        Stack<WeakReference<Activity>> stack = this.a;
+                        stack.remove(stack.get(i));
+                    }
+                }
+            }
+            b();
+        }
+    }
+
+    public yb9() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"};
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            File file = new File(str);
-            b = file;
-            return file.exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            File file = new File(str);
-            b = file;
-            return file.delete();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String externalStorageState = Environment.getExternalStorageState();
-            if (Build.VERSION.SDK_INT >= 23) {
-                return sa9.h().getContext().checkCallingOrSelfPermission(a[0]) == 0 && externalStorageState.equals("mounted");
-            }
-            return externalStorageState.equals("mounted");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static synchronized boolean d(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
-            synchronized (yb9.class) {
-                if (c() && f(str2, str3)) {
-                    try {
-                        b = new File(str2 + str3);
-                        RandomAccessFile randomAccessFile = new RandomAccessFile(b, "rwd");
-                        c = randomAccessFile;
-                        randomAccessFile.seek(b.length());
-                        c.write((str + "\r\n").getBytes("UTF-8"));
-                        c.close();
-                        return true;
-                    } catch (Exception e) {
-                        bc9.e(e);
-                        return false;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static synchronized String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            synchronized (yb9.class) {
-                if (c()) {
-                    if (a(str + str2)) {
-                        try {
-                            b = new File(str + str2);
-                            c = new RandomAccessFile(b, "r");
-                            StringBuffer stringBuffer = new StringBuffer();
-                            while (true) {
-                                String readLine = c.readLine();
-                                if (readLine == null) {
-                                    break;
-                                }
-                                stringBuffer.append(new String(readLine.getBytes("ISO-8859-1"), IMAudioTransRequest.CHARSET));
-                                stringBuffer.append(",");
-                            }
-                            String stringBuffer2 = stringBuffer.toString();
-                            try {
-                                c.close();
-                            } catch (IOException e) {
-                                e.printStackTrace();
-                            }
-                            return stringBuffer2;
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            try {
-                                c.close();
-                            } catch (IOException e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                    }
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            try {
-                b = new File(str);
-                if (!a(str)) {
-                    b.mkdirs();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                File file = new File(str + str2);
-                b = file;
-                if (file.exists()) {
-                    return true;
-                }
-                return b.createNewFile();
-            } catch (Exception e2) {
-                e2.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
+        this.a = new Stack<>();
     }
 }

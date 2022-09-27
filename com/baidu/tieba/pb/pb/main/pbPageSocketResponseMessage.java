@@ -5,11 +5,11 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ix7;
+import com.baidu.tieba.hv7;
+import com.baidu.tieba.jv7;
+import com.baidu.tieba.nf8;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.tu7;
-import com.baidu.tieba.vu7;
-import com.baidu.tieba.ye8;
+import com.baidu.tieba.wx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
     public transient /* synthetic */ FieldHolder $fh;
     public String cacheKey;
     public boolean isFromMark;
-    public tu7 mAppealInfo;
-    public vu7 pbData;
+    public hv7 mAppealInfo;
+    public jv7 pbData;
     public int updateType;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -62,12 +62,12 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 if (getError() != 4 || pbPageResIdl.data == null) {
                     return pbPageResIdl;
                 }
-                tu7 tu7Var = new tu7();
-                this.mAppealInfo = tu7Var;
+                hv7 hv7Var = new hv7();
+                this.mAppealInfo = hv7Var;
                 AppealInfo appealInfo = pbPageResIdl.data.appeal_info;
                 if (appealInfo != null) {
-                    tu7Var.a = appealInfo.source;
-                    tu7Var.c = appealInfo.appeal_url;
+                    hv7Var.a = appealInfo.source;
+                    hv7Var.c = appealInfo.appeal_url;
                 }
                 SimpleForum simpleForum = pbPageResIdl.data.forum;
                 if (simpleForum != null) {
@@ -75,18 +75,18 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
                 }
                 return pbPageResIdl;
             }
-            vu7 vu7Var = new vu7();
-            this.pbData = vu7Var;
-            vu7Var.B0(2);
+            jv7 jv7Var = new jv7();
+            this.pbData = jv7Var;
+            jv7Var.B0(2);
             this.pbData.A0(pbPageResIdl.data);
             DataRes dataRes = pbPageResIdl.data;
             if (dataRes != null) {
-                JSONObject b = ye8.b(dataRes.thread);
+                JSONObject b = nf8.b(dataRes.thread);
                 ArrayList arrayList = new ArrayList();
                 if (b != null) {
                     arrayList.add(b);
                 }
-                ye8.f().h("PB", arrayList);
+                nf8.f().h("PB", arrayList);
             }
             BdLog.detailException(null);
             return pbPageResIdl;
@@ -94,16 +94,16 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public tu7 getAppealInfo() {
+    public hv7 getAppealInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppealInfo : (tu7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mAppealInfo : (hv7) invokeV.objValue;
     }
 
-    public vu7 getPbData() {
+    public jv7 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pbData : (vu7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.pbData : (jv7) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -133,10 +133,10 @@ public class pbPageSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             int i2 = this.updateType;
             if (i2 == 3) {
-                ix7.b().e(this.cacheKey, this.isFromMark, bArr);
+                wx7.b().e(this.cacheKey, this.isFromMark, bArr);
             } else if (i2 != 4) {
             } else {
-                ix7.b().f(this.cacheKey, bArr);
+                wx7.b().f(this.cacheKey, bArr);
             }
         }
     }

@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.StorageFile;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ic;
-import com.baidu.tieba.mz4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.setting.model.MoreModel;
 import com.baidu.tieba.setting.more.SystemHelpSettingActivity;
+import com.baidu.tieba.zz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public class SystemHelpSettingModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, strArr)) == null) {
                 TiebaDatabase.getInstance().getSdcardMainDBDatabaseManager().b();
-                mz4.a();
+                zz4.a();
                 try {
                     FileHelper.clearCacheDir("image");
                     FileHelper.clearCacheDir("images");

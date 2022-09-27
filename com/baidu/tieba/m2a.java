@@ -1,34 +1,73 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.ViewGroup;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes5.dex */
-public interface m2a {
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import tv.athena.revenue.payui.model.PayUIKitConfig;
+/* loaded from: classes4.dex */
+public final class m2a {
+    public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(CancelType cancelType);
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final <T> T a(Class<T> cls, int i, int i2, Context context, PayUIKitConfig payUIKitConfig) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{cls, Integer.valueOf(i), Integer.valueOf(i2), context, payUIKitConfig})) == null) {
+                try {
+                    return (T) cls.getClassLoader().loadClass(cls.getCanonicalName() + "$$Factory").getMethod("createInstance", Integer.TYPE, Integer.TYPE, Context.class, PayUIKitConfig.class).invoke(null, Integer.valueOf(i), Integer.valueOf(i2), context, payUIKitConfig);
+                } catch (Exception e) {
+                    RLog.error("ApiInstanceCreator", "getApiInstance error " + e, new Object[0]);
+                    return null;
+                }
+            }
+            return (T) invokeCommon.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
     }
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(CancelType cancelType);
-
-        void b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947922157, "Lcom/baidu/tieba/m2a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947922157, "Lcom/baidu/tieba/m2a;");
+                return;
+            }
+        }
+        a = new a(null);
     }
-
-    GiftBagsInfo a();
-
-    boolean b(Activity activity, b bVar, o2a o2aVar, AbsViewEventHandler absViewEventHandler);
-
-    void c(ViewGroup viewGroup, Activity activity);
-
-    void d(GiftBagsInfo giftBagsInfo);
-
-    boolean e(Activity activity, a aVar, o2a o2aVar, AbsViewEventHandler absViewEventHandler);
-
-    void f(GiftBagsInfo giftBagsInfo);
 }

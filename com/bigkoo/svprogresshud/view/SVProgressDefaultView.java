@@ -83,7 +83,7 @@ public class SVProgressDefaultView extends LinearLayout {
             this.ivBigLoading = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fee);
             this.ivSmallLoading = (ImageView) findViewById(R.id.ivSmallLoading);
             this.circleProgressBar = (SVCircleProgressBar) findViewById(R.id.circleProgressBar);
-            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f092352);
+            this.tvMsg = (TextView) findViewById(R.id.obfuscated_res_0x7f092354);
         }
     }
 

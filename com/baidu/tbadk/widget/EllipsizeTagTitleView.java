@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.un5;
+import com.baidu.tieba.ho5;
 import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -307,7 +307,7 @@ public class EllipsizeTagTitleView extends View implements xx {
     public final void k(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, un5.EllipsizeTagTitleView);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.EllipsizeTagTitleView);
             this.c = obtainStyledAttributes.getInt(9, CAM_X0105);
             this.b = obtainStyledAttributes.getInt(11, 0);
             this.a = obtainStyledAttributes.getDimensionPixelSize(10, B);

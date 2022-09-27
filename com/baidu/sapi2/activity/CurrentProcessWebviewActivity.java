@@ -92,8 +92,8 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             if (this.a) {
                 setTheme(R.style.obfuscated_res_0x7f10017c);
             }
-            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092657);
-            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092216);
+            this.e = (WebView) findViewById(R.id.obfuscated_res_0x7f092659);
+            this.mTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
             ImageView imageView = (ImageView) findViewById(R.id.title_btn_left_iv);
             this.mLeftBtnIv = imageView;
             imageView.setOnClickListener(this);
@@ -125,13 +125,13 @@ public class CurrentProcessWebviewActivity extends Activity implements View.OnCl
             }
             if (this.a) {
                 this.mTitleBgLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
-                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f08102b);
+                this.mLeftBtnIv.setImageResource(R.drawable.obfuscated_res_0x7f08102f);
                 this.mTitle.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0609df));
                 this.mLeftBtnLayout.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
                 this.dividerLine.setBackgroundColor(getResources().getColor(R.color.obfuscated_res_0x7f0609e2));
                 ImageView imageView2 = this.mBottomBackBtnIv;
                 if (imageView2 != null) {
-                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08102b);
+                    imageView2.setImageResource(R.drawable.obfuscated_res_0x7f08102f);
                 }
                 RelativeLayout relativeLayout = this.mBottomBgLayout;
                 if (relativeLayout != null) {

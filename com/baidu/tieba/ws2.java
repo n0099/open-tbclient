@@ -2,10 +2,12 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.view.SwanAppActionBar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,178 +15,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ws2 {
+public class ws2 extends ys2 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ SwanAppActionBar b;
-        public final /* synthetic */ String c;
-
-        public a(Context context, SwanAppActionBar swanAppActionBar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, swanAppActionBar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = swanAppActionBar;
-            this.c = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ws2.e(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ SwanAppActionBar b;
-
-        public b(JSONObject jSONObject, SwanAppActionBar swanAppActionBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject, swanAppActionBar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jSONObject;
-            this.b = swanAppActionBar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ws2.o(this.b, ws2.n(this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ f94 b;
-        public final /* synthetic */ SwanAppActionBar c;
-        public final /* synthetic */ String d;
-
-        public c(Context context, f94 f94Var, SwanAppActionBar swanAppActionBar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, f94Var, swanAppActionBar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = f94Var;
-            this.c = swanAppActionBar;
-            this.d = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ws2.f(this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONArray a;
-        public final /* synthetic */ f94 b;
-        public final /* synthetic */ SwanAppActionBar c;
-
-        public d(JSONArray jSONArray, f94 f94Var, SwanAppActionBar swanAppActionBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jSONArray, f94Var, swanAppActionBar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jSONArray;
-            this.b = f94Var;
-            this.c = swanAppActionBar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONArray jSONArray = this.a;
-                int length = jSONArray == null ? 0 : jSONArray.length();
-                if (length == 0) {
-                    return;
-                }
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = this.a.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        this.b.z(optJSONObject);
-                        ws2.d(optJSONObject);
-                    }
-                }
-                this.b.j();
-                y23 b0 = y23.b0();
-                if (b0 != null) {
-                    ws2.o(this.c, b0.U().d("key_unread_counts_message", 0).intValue());
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -199,159 +34,66 @@ public class ws2 {
                 return;
             }
         }
-        a = ij1.a;
+        boolean z = vj1.a;
     }
 
-    public static void d(JSONObject jSONObject) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ws2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) || jSONObject == null || Long.valueOf(jSONObject.optLong("pa_unread_sums")).longValue() <= 0) {
-            return;
-        }
-        int optInt = jSONObject.optInt("pa_type");
-        String str = optInt != 7 ? optInt != 666 ? optInt != 888 ? optInt != 999 ? "" : "message" : PushConstants.MZ_PUSH_MESSAGE_METHOD_ACTION_PRIVATE : "notice" : "customerService";
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        os2.q(str, "1", "show");
-    }
-
-    public static void e(Context context, SwanAppActionBar swanAppActionBar, String str) {
-        JSONObject c2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65541, null, context, swanAppActionBar, str) == null) || (c2 = fm2.i().c(context, str)) == null || swanAppActionBar == null) {
-            return;
-        }
-        x23.M().post(new b(c2, swanAppActionBar));
-    }
-
-    public static void f(Context context, f94 f94Var, SwanAppActionBar swanAppActionBar, String str) {
-        JSONObject c2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65542, null, context, f94Var, swanAppActionBar, str) == null) || (c2 = fm2.i().c(context, str)) == null || f94Var == null) {
-            return;
-        }
-        m(c2, f94Var, swanAppActionBar);
-    }
-
-    public static int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? x23.K().q().U().d("key_unread_counts_message", 0).intValue() : invokeV.intValue;
-    }
-
-    public static int h(Context context) {
-        InterceptResult invokeL;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            y23 q = x23.K().q();
-            if (q == null || q.W() == null || q.W().f0() == null) {
-                return 0;
-            }
-            JSONObject c2 = fm2.i().c(context, q.W().f0().paNumber);
-            if (c2 == null || (optJSONArray = c2.optJSONArray("un_read_list")) == null || optJSONArray.length() <= 0) {
-                return 0;
-            }
-            int i = 0;
-            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                if (optJSONObject != null && optJSONObject.optInt("pa_type") == 888) {
-                    i += optJSONObject.optInt("pa_unread_sums");
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65545, null) == null) || y23.b0() == null) {
-            return;
-        }
-        y23.b0().U().i("key_unread_counts_message", 0);
-    }
-
-    public static void j(g94 g94Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65546, null, g94Var) == null) || y23.b0() == null) {
-            return;
-        }
-        y23.b0().U().i("key_unread_counts_message", Integer.valueOf(Math.max((int) (y23.b0().U().d("key_unread_counts_message", 0).intValue() - g94Var.e()), 0)));
-    }
-
-    public static void k(Context context, SwanAppActionBar swanAppActionBar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, context, swanAppActionBar, str) == null) {
-            rw2.e().d(new a(context, swanAppActionBar, str), "getRefreshTips", true);
-        }
-    }
-
-    public static void l(Context context, f94 f94Var, SwanAppActionBar swanAppActionBar, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65548, null, context, f94Var, swanAppActionBar, str) == null) {
-            ExecutorUtilsExt.postOnElastic(new c(context, f94Var, swanAppActionBar, str), "getMenuToolRefreshTips", 1);
-        }
-    }
-
-    public static void m(JSONObject jSONObject, f94 f94Var, SwanAppActionBar swanAppActionBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65549, null, jSONObject, f94Var, swanAppActionBar) == null) {
-            n(jSONObject);
-            x23.M().post(new d(jSONObject.optJSONArray("un_read_list"), f94Var, swanAppActionBar));
-        }
-    }
-
-    public static int n(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, jSONObject)) == null) {
-            if (jSONObject == null || (optJSONArray = jSONObject.optJSONArray("un_read_list")) == null || optJSONArray.length() == 0) {
-                return 0;
-            }
-            int length = optJSONArray.length();
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-                int optInt = optJSONObject.optInt("pa_type");
-                if (optInt == 7) {
-                    i += optJSONObject.optInt("pa_unread_sums");
-                }
-                if (sg3.R() && (optInt == 27 || optInt == 17)) {
-                    i += optJSONObject.optInt("pa_unread_sums");
-                }
-            }
-            if (i == 0) {
-                for (int i3 = 0; i3 < length; i3++) {
-                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
-                    int optInt2 = optJSONObject2.optInt("pa_type");
-                    if (optInt2 == 888 || optInt2 == 666 || optInt2 == 999) {
-                        i += optJSONObject2.optInt("pa_unread_sums");
-                    }
-                }
-            }
-            if (y23.b0() != null) {
-                y23.b0().U().i("key_unread_counts_message", Integer.valueOf(i));
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void o(SwanAppActionBar swanAppActionBar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65551, null, swanAppActionBar, i) == null) {
-            if (fm2.y0().d()) {
-                swanAppActionBar.setRightRedDotVisibility(false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (a) {
-                Log.i("messageRefresh", "update_red_dots:" + i);
+        }
+    }
+
+    @Override // com.baidu.tieba.ys2
+    public boolean a(ts2 ts2Var, vs2 vs2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ts2Var, vs2Var, context, unitedSchemeEntity, callbackHandler, l33Var})) == null) {
+            l02.i("vrvideo", "open, video id:" + vs2Var.j + " slave id: " + vs2Var.c);
+            d(ts2Var, vs2Var, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ys2
+    public ts2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
             }
-            if (swanAppActionBar != null) {
-                swanAppActionBar.setRightRedDotVisibility(i > 0);
+            jq2 f = kq2.f(str, str2, str3);
+            if (f == null) {
+                return new ts2(context, vs2.h(jSONObject, new vs2()));
             }
+            if (f.i() instanceof ts2) {
+                return (ts2) f.i();
+            }
+            return null;
+        }
+        return (ts2) invokeLLLLL.objValue;
+    }
+
+    public final void d(ts2 ts2Var, vs2 vs2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, ts2Var, vs2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ts2Var.g(vs2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 }

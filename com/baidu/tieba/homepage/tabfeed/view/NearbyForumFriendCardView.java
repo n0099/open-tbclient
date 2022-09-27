@@ -17,20 +17,20 @@ import com.baidu.tbadk.abtest.helper.HomeGroupUbsUIHelper;
 import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a37;
-import com.baidu.tieba.sp7;
-import com.baidu.tieba.tp7;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.gq7;
+import com.baidu.tieba.hq7;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.o37;
 import com.baidu.tieba.wx;
 import com.baidu.tieba.xx;
-import com.baidu.tieba.y35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<tp7>, View.OnClickListener {
+public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<hq7>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -42,8 +42,8 @@ public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<tp
     public View g;
     public LinearLayout h;
     public BdTypeRecyclerView i;
-    public sp7 j;
-    public tp7 k;
+    public gq7 j;
+    public hq7 k;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NearbyForumFriendCardView(Context context) {
@@ -72,14 +72,14 @@ public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<tp
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0630, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ce);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cd);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923d0);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cf);
             this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09101b);
             this.d = findViewById(R.id.obfuscated_res_0x7f09166f);
             this.g = findViewById(R.id.obfuscated_res_0x7f09166d);
             this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09166c);
             this.b = findViewById(R.id.obfuscated_res_0x7f09129f);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091bb9);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f091bbb);
             this.i = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.d.setOnClickListener(this);
@@ -90,7 +90,7 @@ public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<tp
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            this.j = new sp7(context, y35.l, 1);
+            this.j = new gq7(context, l45.l, 1);
             LinkedList linkedList = new LinkedList();
             linkedList.add(this.j);
             this.i.a(linkedList);
@@ -100,18 +100,18 @@ public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<tp
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: d */
-    public void a(tp7 tp7Var) {
+    public void a(hq7 hq7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tp7Var) == null) {
-            this.k = tp7Var;
-            sp7 sp7Var = this.j;
-            if (sp7Var != null) {
-                sp7Var.B(tp7Var.a);
+        if (interceptable == null || interceptable.invokeL(1048579, this, hq7Var) == null) {
+            this.k = hq7Var;
+            gq7 gq7Var = this.j;
+            if (gq7Var != null) {
+                gq7Var.B(hq7Var.a);
             }
-            this.i.setData(tp7Var.b);
-            if (tp7Var.c) {
+            this.i.setData(hq7Var.b);
+            if (hq7Var.c) {
                 this.d.setVisibility(0);
-                a37.q();
+                o37.q();
                 return;
             }
             this.d.setVisibility(4);
@@ -125,17 +125,17 @@ public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<tp
             return;
         }
         HomeGroupUbsUIHelper.handleLineColor(this.g);
-        uu4 d = uu4.d(this.c);
+        hv4 d = hv4.d(this.c);
         d.v(R.color.CAM_X0105);
         d.z(R.dimen.T_X07);
         d.A(R.string.F_X02);
-        uu4 d2 = uu4.d(this.e);
+        hv4 d2 = hv4.d(this.e);
         d2.v(R.color.CAM_X0109);
         d2.z(R.dimen.T_X08);
         d2.A(R.string.F_X01);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08096a, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.obfuscated_res_0x7f08096c, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         this.a = i;
-        uu4 d3 = uu4.d(this.h);
+        hv4 d3 = hv4.d(this.h);
         d3.n(R.string.J_X06);
         d3.f(R.color.CAM_X0205);
     }
@@ -147,19 +147,19 @@ public class NearbyForumFriendCardView extends LinearLayout implements xx, wx<tp
             return;
         }
         new NearbyFriendsActivityConfig(getContext(), this.k.a).start();
-        a37.j();
+        o37.j();
     }
 
     public void setNeedCompleteProfile(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            tp7 tp7Var = this.k;
-            if (tp7Var != null) {
-                tp7Var.a = z;
+            hq7 hq7Var = this.k;
+            if (hq7Var != null) {
+                hq7Var.a = z;
             }
-            sp7 sp7Var = this.j;
-            if (sp7Var != null) {
-                sp7Var.B(z);
+            gq7 gq7Var = this.j;
+            if (gq7Var != null) {
+                gq7Var.B(z);
             }
         }
     }

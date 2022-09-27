@@ -8,9 +8,9 @@ import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.eg5;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.iu6;
+import com.baidu.tieba.rg5;
+import com.baidu.tieba.wu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,11 +63,11 @@ public class InitBearTask extends LaunchTask {
     public void initBearSdk() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
-            boolean q = eg5.q();
+            boolean q = rg5.q();
             SpeedStatsManager.getInstance().setIsNeedBear(q);
-            SpeedStatsManager.getInstance().setIsNeedPlg(eg5.w());
+            SpeedStatsManager.getInstance().setIsNeedPlg(rg5.w());
             if (q) {
-                iu6.m().u(new iu6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
+                wu6.m().u(new wu6.l(this) { // from class: com.baidu.searchbox.task.sync.appcreate.InitBearTask.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ InitBearTask this$0;
@@ -90,7 +90,7 @@ public class InitBearTask extends LaunchTask {
                         this.this$0 = this;
                     }
 
-                    @Override // com.baidu.tieba.iu6.l
+                    @Override // com.baidu.tieba.wu6.l
                     public void initComplete() {
                         Interceptable interceptable2 = $ic;
                         if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {

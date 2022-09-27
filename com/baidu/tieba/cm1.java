@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class cm1 implements po1 {
+public class cm1 implements ko1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,48 +27,69 @@ public class cm1 implements po1 {
         }
     }
 
-    @Override // com.baidu.tieba.po1
-    public ExecutorService d() {
+    @Override // com.baidu.tieba.ko1
+    public File a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (ExecutorService) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.po1
-    public void e(String str, int i, JSONArray jSONArray) {
+    @Override // com.baidu.tieba.cx2
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, jSONArray) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.po1
-    public void f(String str, int i) {
+    @Override // com.baidu.tieba.cx2
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.po1
-    public void g(String str, String str2, int i, String str3, int i2) {
+    @Override // com.baidu.tieba.ko1
+    public void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.po1
-    public void i(String str, int i, String str2) {
+    @Override // com.baidu.tieba.ko1
+    public void e(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.po1
-    public void n(String str, String str2, int i, String str3, long j, int i2) {
+    @Override // com.baidu.tieba.ko1
+    public void flush(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ko1
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ko1
+    public void w(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ko1
+    public void w(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, th) == null) {
         }
     }
 }

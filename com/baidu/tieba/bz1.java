@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
+import android.widget.FrameLayout;
+import androidx.annotation.CallSuper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,216 +18,263 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bz1 extends x33 {
+public abstract class bz1 implements dz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public boolean f;
+    public boolean g;
+    @Nullable
+    public rt2 h;
+    public String i;
 
-    /* loaded from: classes3.dex */
-    public class a implements cz1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dz1 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ bz1 c;
-
-        public a(bz1 bz1Var, dz1 dz1Var, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947662160, "Lcom/baidu/tieba/bz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bz1Var, dz1Var, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.c = bz1Var;
-            this.a = dz1Var;
-            this.b = callbackHandler;
-        }
-
-        @Override // com.baidu.tieba.cz1
-        public void a(int i, View view2, @Nullable Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, view2, obj) == null) {
-                ez1 ez1Var = (ez1) this.a.n();
-                if (i == 0 || i == 1) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", "loadState");
-                        jSONObject.put("parentId", ez1Var.d);
-                        jSONObject.put("viewId", ez1Var.b);
-                        jSONObject.put("loadState", i == 1 ? "finish" : "error");
-                    } catch (JSONException e) {
-                        yz1.d("Component-Action-ImageCover", "loadState callback error", e);
-                    }
-                    this.c.s(this.b, jSONObject, ez1Var.e);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947662160, "Lcom/baidu/tieba/bz1;");
+                return;
             }
         }
+        boolean z = vj1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bz1(v33 v33Var) {
-        super(v33Var, "/swanAPI/coverimage");
+    public bz1(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((v33) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = "unknown";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = false;
+        this.g = false;
+        this.i = "id";
+        if (!TextUtils.isEmpty(str)) {
+            this.a = str;
+        } else {
+            e02.a("Component-Model-Base", "component type is empty");
+        }
+        if (!TextUtils.isEmpty(str2)) {
+            this.i = str2;
+        } else {
+            e02.a("Component-Model-Base", "component id key is empty");
+        }
     }
 
-    @Override // com.baidu.tieba.x33
-    @NonNull
-    public String j() {
+    @Override // com.baidu.tieba.kt2
+    @CallSuper
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        if (!TextUtils.equals(this.i, "ARCameraId")) {
+            String optString = jSONObject.optString("componentId");
+            this.b = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.b = jSONObject.optString(this.i);
+            }
+        } else {
+            String optString2 = jSONObject.optString(this.i);
+            this.b = optString2;
+            if (TextUtils.isEmpty(optString2)) {
+                this.b = jSONObject.optString("componentId");
+            }
+        }
+        if (TextUtils.isEmpty(this.b)) {
+            l02.c("Component-Model-Base", this.a + " component componentId is empty");
+        }
+        String optString3 = jSONObject.optString("slaveId");
+        this.c = optString3;
+        if (TextUtils.isEmpty(optString3)) {
+            l02.c("Component-Model-Base", this.a + " component slaveId is empty");
+        }
+        this.d = jSONObject.optString("parentId");
+        this.e = jSONObject.optString("cb");
+        this.f = jSONObject.optBoolean("hide", false);
+        this.g = TextUtils.equals(jSONObject.optString("gesture"), "1");
+        f(jSONObject);
+    }
+
+    public final FrameLayout.LayoutParams b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/coverimage" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            rt2 rt2Var = this.h;
+            int f = rt2Var != null ? rt2Var.f() : -1;
+            rt2 rt2Var2 = this.h;
+            int c = rt2Var2 != null ? rt2Var2.c() : -1;
+            rt2 rt2Var3 = this.h;
+            int d = rt2Var3 != null ? rt2Var3.d() : 0;
+            rt2 rt2Var4 = this.h;
+            int e = rt2Var4 != null ? rt2Var4.e() : 0;
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(f, c);
+            layoutParams.setMargins(d, e, 0, 0);
+            return layoutParams;
+        }
+        return (FrameLayout.LayoutParams) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x33
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, y23 y23Var) {
-        InterceptResult invokeLLLLL;
+    public final float c(JSONObject jSONObject, String str, float f) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, y23Var)) == null) {
-            if (v43.b) {
-                Log.d("Component-Action-ImageCover", "insert");
-            }
-            ez1 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                yz1.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            dz1 dz1Var = new dz1(context, r);
-            dz1Var.e0(new a(this, dz1Var, callbackHandler));
-            py1 insert = dz1Var.insert();
-            boolean a2 = insert.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) ? jSONObject == null ? f : (float) jSONObject.optDouble(str, f) : invokeCommon.floatValue;
+    }
+
+    @CallSuper
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            bz1 bz1Var = (bz1) super.clone();
+            rt2 rt2Var = this.h;
+            if (rt2Var != null) {
+                bz1Var.h = (rt2) rt2Var.clone();
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
+                bz1Var.h = null;
             }
-            return a2;
+            return bz1Var;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x33
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, y23 y23Var) {
-        InterceptResult invokeLLLLL;
+    @NonNull
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, y23Var)) == null) {
-            if (v43.b) {
-                Log.d("Component-Action-ImageCover", "remove");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("【");
+            sb.append(this.a);
+            sb.append("#");
+            sb.append(TextUtils.isEmpty(this.b) ? "" : this.b);
+            sb.append("】");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void e(JSONObject jSONObject, @NonNull bz1 bz1Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, bz1Var) == null) || jSONObject == null) {
+            return;
+        }
+        if (!TextUtils.equals(this.i, "ARCameraId")) {
+            String optString = jSONObject.optString("componentId");
+            this.b = optString;
+            if (TextUtils.isEmpty(optString)) {
+                this.b = jSONObject.optString(this.i, bz1Var.b);
             }
-            ez1 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                yz1.c("Component-Action-ImageCover", "model is null");
-                return false;
+        } else {
+            String optString2 = jSONObject.optString(this.i);
+            this.b = optString2;
+            if (TextUtils.isEmpty(optString2)) {
+                this.b = jSONObject.optString("componentId", bz1Var.b);
             }
-            dz1 dz1Var = (dz1) lz1.a(r);
-            if (dz1Var == null) {
-                String str2 = "can't find imageCoverView component:#" + r.b;
-                yz1.c("Component-Action-ImageCover", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            py1 B = dz1Var.B();
-            boolean a2 = B.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+        }
+        if (TextUtils.isEmpty(this.b)) {
+            l02.c("Component-Model-Base", this.a + " component componentId is empty");
+        }
+        String optString3 = jSONObject.optString("slaveId", bz1Var.c);
+        this.c = optString3;
+        if (TextUtils.isEmpty(optString3)) {
+            l02.c("Component-Model-Base", this.a + " component slaveId is empty");
+        }
+        this.d = jSONObject.optString("parentId", bz1Var.d);
+        this.e = jSONObject.optString("cb", bz1Var.e);
+        this.f = jSONObject.optBoolean("hide", bz1Var.f);
+        this.g = TextUtils.equals(jSONObject.optString("gesture", bz1Var.g ? "1" : "0"), "1");
+        rt2 rt2Var = bz1Var.h;
+        this.h = rt2Var;
+        if (rt2Var == null) {
+            this.h = new rt2();
+        }
+        f(jSONObject);
+    }
+
+    public final void f(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) || (optJSONObject = jSONObject.optJSONObject(CriusAttrConstants.POSITION)) == null) {
+            return;
+        }
+        rt2 rt2Var = new rt2();
+        this.h = rt2Var;
+        rt2Var.l(ch3.g(c(optJSONObject, "left", 0.0f)));
+        this.h.m(ch3.g(c(optJSONObject, "top", 0.0f)));
+        this.h.n(ch3.g(c(optJSONObject, "width", 0.0f)));
+        this.h.j(ch3.g(c(optJSONObject, "height", 0.0f)));
+    }
+
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            if (!TextUtils.equals(this.i, "ARCameraId")) {
+                String optString = jSONObject.optString("componentId");
+                this.b = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    this.b = jSONObject.optString(this.i, this.b);
+                }
             } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
+                String optString2 = jSONObject.optString(this.i);
+                this.b = optString2;
+                if (TextUtils.isEmpty(optString2)) {
+                    this.b = jSONObject.optString("componentId", this.b);
+                }
             }
-            return a2;
+            if (TextUtils.isEmpty(this.b)) {
+                l02.c("Component-Model-Base", this.a + " component componentId is empty");
+            }
+            String optString3 = jSONObject.optString("slaveId", this.c);
+            this.c = optString3;
+            if (TextUtils.isEmpty(optString3)) {
+                l02.c("Component-Model-Base", this.a + " component slaveId is empty");
+            }
+            this.d = jSONObject.optString("parentId", this.d);
+            this.e = jSONObject.optString("cb", this.e);
+            this.f = jSONObject.optBoolean("hide", this.f);
+            this.g = TextUtils.equals(jSONObject.optString("gesture", this.g ? "1" : "0"), "1");
+            f(jSONObject);
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.x33
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, y23 y23Var) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.kt2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        rt2 rt2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, y23Var)) == null) {
-            if (v43.b) {
-                Log.d("Component-Action-ImageCover", "update");
-            }
-            ez1 r = r(unitedSchemeEntity);
-            if (r == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                yz1.c("Component-Action-ImageCover", "model is null");
-                return false;
-            }
-            dz1 dz1Var = (dz1) lz1.a(r);
-            if (dz1Var == null) {
-                String str2 = "can't find imageCoverView component:#" + r.b;
-                yz1.c("Component-Action-ImageCover", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            py1 update = dz1Var.update((dz1) r);
-            boolean a2 = update.a();
-            if (a2) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a2;
-        }
-        return invokeLLLLL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c) || (rt2Var = this.h) == null || !rt2Var.h()) ? false : true : invokeV.booleanValue;
     }
 
-    @Nullable
-    public final ez1 r(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                yz1.c("Component-Action-ImageCover", "params is null");
-                return null;
-            }
-            ez1 ez1Var = new ez1();
-            try {
-                ez1Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                yz1.d("Component-Action-ImageCover", "model parse exception:", e);
-            }
-            return ez1Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "SwanAppBaseComponentModel{componentType='" + this.a + "', componentId='" + this.b + "', slaveId='" + this.c + "', parentId='" + this.d + "', callback='" + this.e + "', hidden=" + this.f + ", gesture=" + this.g + ", position=" + this.h + ", mComponentIdKey='" + this.i + "'}";
         }
-        return (ez1) invokeL.objValue;
-    }
-
-    public final void s(@NonNull CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, callbackHandler, jSONObject, str) == null) {
-            yz1.i("Component-Action-ImageCover", "sendAsyncCallback info: " + jSONObject);
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-        }
+        return (String) invokeV.objValue;
     }
 }

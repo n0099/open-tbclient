@@ -1,27 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Intent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cyberplayer.sdk.CyberPlayerManager;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.videoplay.VideoPlayView;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.data.VideoEasterEggData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes4.dex */
-public class ix8 {
+public class ix8 implements hx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public cx8 c;
-    public VideoPlayView.i d;
-    public int e;
-    public Set<String> f;
+    public VideoEasterEggData a;
 
     public ix8() {
         Interceptable interceptable = $ic;
@@ -33,66 +27,140 @@ public class ix8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.f = new HashSet();
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.hx8
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
-            this.b = this.a + 1;
-            b();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.c == null || this.e <= 0) {
-            return;
-        }
-        while (this.b < this.c.k()) {
-            VideoItemData s = this.c.s(this.b);
-            this.b++;
-            if (s != null && !TextUtils.isEmpty(s.video_url)) {
-                this.e--;
-                if (!this.f.contains(s.video_url)) {
-                    CyberPlayerManager.prefetch(s.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
-                    this.f.add(s.video_url);
-                }
-                if (this.e <= 0) {
-                    break;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
             }
+            return videoEasterEggData.getPopText();
         }
-        if (this.e <= 0 || this.d == null || this.c.k() - this.a >= 10) {
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hx8
+    public void b(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) || intent == null) {
             return;
         }
-        this.d.a();
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
+        intent.getStringExtra("from");
+        if (intent.hasExtra(IntentConfig.VIDEO_EASTER_EGG_DATA)) {
+            this.a = (VideoEasterEggData) intent.getSerializableExtra(IntentConfig.VIDEO_EASTER_EGG_DATA);
         }
     }
 
-    public void d(cx8 cx8Var) {
+    @Override // com.baidu.tieba.hx8
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cx8Var) == null) {
-            this.c = cx8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getActivityID();
         }
+        return (String) invokeV.objValue;
     }
 
-    public void e(VideoPlayView.i iVar) {
+    @Override // com.baidu.tieba.hx8
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
-            this.d = iVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareTitle();
         }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hx8
+    public void e(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) || dj.isEmpty(g())) {
+            return;
+        }
+        zg.h().m(g(), 10, null, bdUniqueId);
+    }
+
+    @Override // com.baidu.tieba.hx8
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hx8
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getPopImageUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hx8
+    public String getVideoUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getVideoUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hx8
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareImageUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hx8
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            VideoEasterEggData videoEasterEggData = this.a;
+            if (videoEasterEggData == null) {
+                return null;
+            }
+            return videoEasterEggData.getShareContent();
+        }
+        return (String) invokeV.objValue;
     }
 }

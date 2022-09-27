@@ -1,48 +1,29 @@
 package com.baidu.tieba;
 
+import android.view.Surface;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class vj2 extends sg2<uj2> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vj2 extends xj2 {
 
-    public vj2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
     }
 
-    @Override // com.baidu.tieba.sg2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "hideConfirmBar" : (String) invokeV.objValue;
-    }
+    void R(int i, int i2);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull uj2 uj2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, uj2Var) == null) {
-            d(uj2Var, command.what, null, false);
-            uj2Var.x0();
-        }
-    }
+    void X(long j);
+
+    int getVideoHeight();
+
+    int getVideoWidth();
+
+    void m(String str);
+
+    void o(@NonNull a aVar);
+
+    void s(int i, int i2, int i3, int i4);
+
+    void setSurface(Surface surface);
+
+    void z(int i);
 }

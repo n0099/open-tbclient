@@ -1,69 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.model.IMUserListModel;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class yp8 {
+public class yp8 extends zp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public long b;
+    public Runnable b;
 
-    public yp8(MainTabActivity mainTabActivity, ip8 ip8Var) {
+    public yp8(Runnable runnable, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ip8Var};
+            Object[] objArr = {runnable, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = 0L;
-        this.a = mainTabActivity;
+        this.b = runnable;
+        this.a = i;
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || System.currentTimeMillis() - this.b < IMUserListModel.REQUEST_SPACE) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put("type", "start");
-        hashMap.put("uname", TbadkCoreApplication.getCurrentAccountName());
-        hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2006002, hashMap));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005013, null));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-        this.b = System.currentTimeMillis();
-    }
-
+    @Override // com.baidu.tieba.zp8
     public void b() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.run();
+        }
+    }
+
+    @Override // com.baidu.tieba.zp8
+    public void c() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zg.h().b(this.a.getUniqueId());
-            a();
-            try {
-                this.a.moveTaskToBack(true);
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
+            tp8.a = Math.max(tp8.a, this.a + 1);
+        }
+    }
+
+    @Override // com.baidu.tieba.zp8
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 }

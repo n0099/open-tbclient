@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ow9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public abstract class v0a {
+public final class v0a<E> extends xz9<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -22,28 +22,57 @@ public abstract class v0a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        b(new LinkedQueueNode<>());
+        d(this.producerNode);
+        this.consumerNode.soNext(null);
     }
 
-    @Deprecated
-    public ow9.f a(ow9.f fVar) {
+    @Override // java.util.Queue
+    public boolean offer(E e) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) ? fVar : (ow9.f) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
+            if (e != null) {
+                LinkedQueueNode<E> linkedQueueNode = new LinkedQueueNode<>(e);
+                this.producerNode.soNext(linkedQueueNode);
+                this.producerNode = linkedQueueNode;
+                return true;
+            }
+            throw new NullPointerException("null elements not allowed");
+        }
+        return invokeL.booleanValue;
     }
 
-    @Deprecated
-    public Throwable b(Throwable th) {
-        InterceptResult invokeL;
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th)) == null) ? th : (Throwable) invokeL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                return lvNext.lpValue();
+            }
+            return null;
+        }
+        return (E) invokeV.objValue;
     }
 
-    @Deprecated
-    public ow9.f c(ow9 ow9Var, ow9.f fVar) {
-        InterceptResult invokeLL;
+    @Override // java.util.Queue
+    public E poll() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ow9Var, fVar)) == null) ? fVar : (ow9.f) invokeLL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinkedQueueNode<E> lvNext = this.consumerNode.lvNext();
+            if (lvNext != null) {
+                E andNullValue = lvNext.getAndNullValue();
+                this.consumerNode = lvNext;
+                return andNullValue;
+            }
+            return null;
+        }
+        return (E) invokeV.objValue;
     }
 }

@@ -1,160 +1,115 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ht9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.ProtoAdapter;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
-public final class ft9 {
+public final class ft9<E extends ht9> extends ProtoAdapter<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<E> a;
+    public Method b;
 
-    public static int a(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ft9(Class<E> cls) {
+        super(FieldEncoding.VARINT, cls);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (str == null && str2 == null) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (str == null || str2 != null) {
-                if (str == null) {
-                    return -1;
-                }
-                if (str.equals(str2)) {
-                    return 0;
-                }
-                if (str.startsWith(str2)) {
-                    return 1;
-                }
-                if (str2.startsWith(str)) {
-                    return -1;
-                }
-                String[] split = str.split("\\.|-");
-                String[] split2 = str2.split("\\.|-");
-                int length = split.length <= split2.length ? split.length : split2.length;
-                for (int i = 0; i < length; i++) {
-                    try {
-                        int parseInt = Integer.parseInt(split[i]);
-                        int parseInt2 = Integer.parseInt(split2[i]);
-                        Integer.parseInt(split[i]);
-                        Integer.parseInt(split2[i]);
-                        if (parseInt > parseInt2) {
-                            return 1;
-                        }
-                        if (parseInt < parseInt2) {
-                            return -1;
-                        }
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (split.length > length) {
-                    return 1;
-                }
-                if (split2.length > length) {
-                    return -1;
-                }
-                return str.compareTo(str2);
-            }
-            return 1;
         }
-        return invokeLL.intValue;
+        this.a = cls;
     }
 
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (context != null && str != null) {
-                try {
-                    PackageManager packageManager = context.getPackageManager();
-                    return packageManager.getApplicationLabel(packageManager.getApplicationInfo(str, 128)).toString();
-                } catch (Exception unused) {
-                }
-            }
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String c(Context context) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: a */
+    public E decode(dt9 dt9Var) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dt9Var)) == null) {
+            int l = dt9Var.l();
             try {
-                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-                return packageInfo.packageName + "(" + packageInfo.versionName + SmallTailInfo.EMOTION_SUFFIX;
-            } catch (Throwable unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean d(Context context, Class<? extends Activity> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, cls)) == null) {
-            if (context != null && cls != null) {
-                try {
-                    context.getPackageManager().getActivityInfo(new ComponentName(context.getPackageName(), cls.getName()), 0);
-                    return true;
-                } catch (Exception unused) {
+                E e = (E) d().invoke(null, Integer.valueOf(l));
+                if (e != null) {
+                    return e;
                 }
+                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
+            } catch (IllegalAccessException | InvocationTargetException e2) {
+                throw new AssertionError(e2);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return (E) invokeL.objValue;
     }
 
-    /*  JADX ERROR: NullPointerException in pass: RegionMakerVisitor
-        java.lang.NullPointerException: Cannot read field "wordsInUse" because "set" is null
-        	at java.base/java.util.BitSet.or(BitSet.java:943)
-        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:732)
-        	at jadx.core.utils.BlockUtils.getPathCross(BlockUtils.java:811)
-        	at jadx.core.dex.visitors.regions.IfMakerHelper.restructureIf(IfMakerHelper.java:88)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:706)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:730)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMaker.processIf(RegionMaker.java:735)
-        	at jadx.core.dex.visitors.regions.RegionMaker.traverse(RegionMaker.java:155)
-        	at jadx.core.dex.visitors.regions.RegionMaker.makeRegion(RegionMaker.java:94)
-        	at jadx.core.dex.visitors.regions.RegionMakerVisitor.visit(RegionMakerVisitor.java:52)
-        */
-    public static boolean e(android.content.Context r4, android.content.Intent r5) {
-        /*
-            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.ft9.$ic
-            if (r0 != 0) goto L1a
-        L4:
-            r0 = 0
-            if (r4 == 0) goto L19
-            if (r5 != 0) goto La
-            goto L19
-        La:
-            android.content.pm.PackageManager r4 = r4.getPackageManager()     // Catch: java.lang.Exception -> L19
-            java.util.List r4 = r4.queryIntentActivities(r5, r0)     // Catch: java.lang.Exception -> L19
-            int r4 = r4.size()     // Catch: java.lang.Exception -> L19
-            if (r4 <= 0) goto L19
-            r0 = 1
-        L19:
-            return r0
-        L1a:
-            r1 = r0
-            r2 = 65540(0x10004, float:9.1841E-41)
-            r3 = 0
-            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeLL(r2, r3, r4, r5)
-            if (r0 == 0) goto L4
-            boolean r1 = r0.booleanValue
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.ft9.e(android.content.Context, android.content.Intent):boolean");
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public void encode(et9 et9Var, E e) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, et9Var, e) == null) {
+            et9Var.q(e.getValue());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public int encodedSize(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) ? et9.i(e.getValue()) : invokeL.intValue;
+    }
+
+    public final Method d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            Method method = this.b;
+            if (method != null) {
+                return method;
+            }
+            try {
+                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
+                this.b = method2;
+                return method2;
+            } catch (NoSuchMethodException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return (Method) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof ft9) && ((ft9) obj).a == this.a : invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.hashCode() : invokeV.intValue;
     }
 }

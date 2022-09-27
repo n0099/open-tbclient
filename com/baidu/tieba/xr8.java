@@ -1,105 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
 import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class xr8 {
+public class xr8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static xr8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public final MainTabActivity a;
+    public final xp8 b;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(Context context);
-
-        void b(Context context, WebView webView, WebChromeClient webChromeClient);
-
-        void c(Context context, String str, boolean z);
-    }
-
-    public xr8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xr8(MainTabActivity mainTabActivity, xp8 xp8Var) {
+        super(2921452);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, xp8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = c();
+        this.a = mainTabActivity;
+        this.b = xp8Var;
     }
 
-    public static xr8 b() {
-        InterceptResult invokeV;
+    public final void a() {
+        xp8 xp8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (xr8.class) {
-                    if (b == null) {
-                        b = new xr8();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            vp8 vp8Var = this.a.w;
+            if (vp8Var != null) {
+                vp8Var.h();
             }
-            return b;
-        }
-        return (xr8) invokeV.objValue;
-    }
-
-    public void a(Context context) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.a(context);
-        }
-    }
-
-    public final a c() {
-        InterceptResult invokeV;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!d() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
-                return null;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921032));
+            MainTabActivity mainTabActivity = this.a;
+            if (mainTabActivity.q == null) {
+                mainTabActivity.q = new u19(mainTabActivity.getPageContext(), this.a.p, "main_tab", 3, null);
+                this.a.q.E("8");
             }
-            return (a) runTask.getData();
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? bx4.k().l("pref_key_stat_sdk_enable", 1) != 0 : invokeV.booleanValue;
-    }
-
-    public void e(Context context, String str, boolean z) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048579, this, context, str, z) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.c(context, str, z);
+            if (this.a.v.d() || (xp8Var = this.b) == null || xp8Var.B() == null || this.b.B().getFragmentTabWidget() == null) {
+                return;
+            }
+            this.a.q.I(false, this.b.B().getTabWrapper(), this.b.B().getFragmentTabWidget().getWriteView());
         }
     }
 
-    public void f(Context context, WebView webView, WebChromeClient webChromeClient) {
-        a aVar;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048580, this, context, webView, webChromeClient) == null) && PermissionUtil.isAgreePrivacyPolicy() && (aVar = this.a) != null) {
-            aVar.b(context, webView, webChromeClient);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof p45) && ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity())) {
+            a();
         }
     }
 }

@@ -255,12 +255,12 @@ public class DownloadProgressView extends FrameLayout {
             Drawable drawable = obtainStyledAttributes.getDrawable(6);
             this.Cq = drawable;
             if (drawable == null) {
-                this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c10);
+                this.Cq = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c12);
             }
             Drawable drawable2 = obtainStyledAttributes.getDrawable(0);
             this.Cr = drawable2;
             if (drawable2 == null) {
-                this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c0f);
+                this.Cr = getResources().getDrawable(R.drawable.obfuscated_res_0x7f080c11);
             }
             String string = obtainStyledAttributes.getString(5);
             this.Cs = string;

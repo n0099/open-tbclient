@@ -1,7 +1,7 @@
 package com.bun.miitmdid.provider.xiaomi;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +10,21 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
+@Keep
 /* loaded from: classes7.dex */
 public class IdentifierManager {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static Class<?> sClass;
+    @Keep
     public static Method sGetAAID;
+    @Keep
     public static Method sGetOAID;
+    @Keep
     public static Method sGetUDID;
+    @Keep
     public static Method sGetVAID;
+    @Keep
     public static Object sIdProivderImpl;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -61,55 +68,21 @@ public class IdentifierManager {
         }
     }
 
-    public static String getAAID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) ? invokeMethod(context, sGetAAID) : (String) invokeL.objValue;
-    }
+    @Keep
+    public static native String getAAID(Context context);
 
-    public static String getOAID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) ? invokeMethod(context, sGetOAID) : (String) invokeL.objValue;
-    }
+    @Keep
+    public static native String getOAID(Context context);
 
-    public static String getUDID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) ? invokeMethod(context, sGetUDID) : (String) invokeL.objValue;
-    }
+    @Keep
+    public static native String getUDID(Context context);
 
-    public static String getVAID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) ? invokeMethod(context, sGetVAID) : (String) invokeL.objValue;
-    }
+    @Keep
+    public static native String getVAID(Context context);
 
-    public static String invokeMethod(Context context, Method method) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, method)) == null) {
-            Object obj = sIdProivderImpl;
-            if (obj == null || method == null) {
-                return null;
-            }
-            try {
-                Object invoke = method.invoke(obj, context);
-                if (invoke != null) {
-                    return (String) invoke;
-                }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
+    @Keep
+    public static native String invokeMethod(Context context, Method method);
 
-    public static boolean isSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? (sClass == null || sIdProivderImpl == null) ? false : true : invokeV.booleanValue;
-    }
+    @Keep
+    public static native boolean isSupported();
 }

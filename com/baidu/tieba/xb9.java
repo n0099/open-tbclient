@@ -1,52 +1,64 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.vb9;
+import com.baidu.tieba.yb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public final class xb9 {
+public final class xb9 implements vb9.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public xb9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            char[] charArray = str.toCharArray();
-            StringBuilder sb = new StringBuilder();
-            for (char c : charArray) {
-                String binaryString = Integer.toBinaryString(c);
-                while (binaryString.length() < 8) {
-                    binaryString = "0" + binaryString;
-                }
-                sb.append(binaryString);
-            }
-            while (sb.length() % 6 != 0) {
-                sb.append("0");
-            }
-            String valueOf = String.valueOf(sb);
-            int length = valueOf.length() / 6;
-            char[] cArr = new char[length];
-            for (int i = 0; i < length; i++) {
-                int parseInt = Integer.parseInt(valueOf.substring(0, 6), 2);
-                valueOf = valueOf.substring(6);
-                cArr[i] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/".charAt(parseInt);
-            }
-            StringBuilder sb2 = new StringBuilder(String.valueOf(cArr));
-            if (str.length() % 3 == 1) {
-                sb2.append("==");
-            } else if (str.length() % 3 == 2) {
-                sb2.append("=");
-            }
-            for (int i2 = 76; i2 < sb2.length(); i2 += 76) {
-                sb2.insert(i2, "\r\n");
-            }
-            sb2.append("\r\n");
-            return String.valueOf(sb2);
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vb9.a
+    public final void U() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vb9.a
+    public final void a(Activity activity) {
+        yb9 yb9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            yb9Var = yb9.a.a;
+            yb9Var.c(new WeakReference<>(activity));
+        }
+    }
+
+    @Override // com.baidu.tieba.vb9.a
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vb9.a
+    public final void onActivityDestroyed(Activity activity) {
+        yb9 yb9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            yb9Var = yb9.a.a;
+            yb9Var.d(activity);
+        }
     }
 }

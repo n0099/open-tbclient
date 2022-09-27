@@ -1,71 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class up8 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ up8 a;
-
-        public a(up8 up8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {up8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = up8Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948218796, "Lcom/baidu/tieba/up8;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ue7.m(this.a.a).I(this.a.a.C.intValue(), 0);
-            }
-        }
-    }
-
-    public up8(MainTabActivity mainTabActivity, ip8 ip8Var) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ip8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = mainTabActivity;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948218796, "Lcom/baidu/tieba/up8;");
+        }
     }
 
-    public void b() {
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gh.a().postDelayed(new a(this), 400L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (intent == null) {
+                return false;
+            }
+            String action = intent.getAction();
+            Set<String> categories = intent.getCategories();
+            boolean z = a && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER");
+            a = false;
+            return z;
         }
+        return invokeL.booleanValue;
     }
 }

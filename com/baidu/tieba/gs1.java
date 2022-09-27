@@ -1,172 +1,240 @@
 package com.baidu.tieba;
 
+import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.or1;
+import com.baidu.tieba.p23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gs1 {
+public class gs1 extends es1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
-    public static final MediaType g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public Map<String, String> c;
-    public boolean d;
-    public String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947804388, "Lcom/baidu/tieba/gs1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes4.dex */
+    public class a implements or1.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gs1 a;
+
+        /* renamed from: com.baidu.tieba.gs1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class RunnableC0268a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ l33 a;
+            public final /* synthetic */ JSONObject b;
+            public final /* synthetic */ String c;
+            public final /* synthetic */ String d;
+            public final /* synthetic */ a e;
+
+            /* renamed from: com.baidu.tieba.gs1$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes4.dex */
+            public class DialogInterface$OnClickListenerC0269a implements DialogInterface.OnClickListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ RunnableC0268a a;
+
+                public DialogInterface$OnClickListenerC0269a(RunnableC0268a runnableC0268a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {runnableC0268a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = runnableC0268a;
+                }
+
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("type", "cancel");
+                            RunnableC0268a runnableC0268a = this.a;
+                            runnableC0268a.e.a.d(runnableC0268a.c, new lv1(0, jSONObject));
+                        } catch (JSONException unused) {
+                            RunnableC0268a runnableC0268a2 = this.a;
+                            runnableC0268a2.e.a.d(runnableC0268a2.c, new lv1(201));
+                        }
+                    }
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947804388, "Lcom/baidu/tieba/gs1;");
-                return;
+
+            /* renamed from: com.baidu.tieba.gs1$a$a$b */
+            /* loaded from: classes4.dex */
+            public class b implements DialogInterface.OnClickListener {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ RunnableC0268a a;
+
+                public b(RunnableC0268a runnableC0268a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {runnableC0268a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = runnableC0268a;
+                }
+
+                @Override // android.content.DialogInterface.OnClickListener
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            jSONObject.put("type", "confirm");
+                            RunnableC0268a runnableC0268a = this.a;
+                            runnableC0268a.e.a.d(runnableC0268a.c, new lv1(0, jSONObject));
+                        } catch (JSONException unused) {
+                            RunnableC0268a runnableC0268a2 = this.a;
+                            runnableC0268a2.e.a.d(runnableC0268a2.c, new lv1(201));
+                        }
+                    }
+                }
+            }
+
+            public RunnableC0268a(a aVar, l33 l33Var, JSONObject jSONObject, String str, String str2) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, l33Var, jSONObject, str, str2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.e = aVar;
+                this.a = l33Var;
+                this.b = jSONObject;
+                this.c = str;
+                this.d = str2;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.w() == null || this.a.w().isFinishing() || this.a.w().isDestroyed()) {
+                    return;
+                }
+                p23.a aVar = new p23.a(this.e.a.getContext());
+                aVar.V(this.b.optString("title"));
+                aVar.x(this.b.optString("content"));
+                aVar.n(new ti3());
+                aVar.m(false);
+                if (this.b.optBoolean("showCancel", true)) {
+                    aVar.E(this.b.optString("cancelColor"), R.color.obfuscated_res_0x7f0603dc);
+                    String optString = this.b.optString("cancelText");
+                    if (TextUtils.isEmpty(optString)) {
+                        optString = this.e.a.getContext().getString(R.string.obfuscated_res_0x7f0f0112);
+                    }
+                    aVar.C(optString, new DialogInterface$OnClickListenerC0269a(this));
+                }
+                aVar.R(this.b.optString("confirmColor"), R.color.obfuscated_res_0x7f0603dd);
+                aVar.P(this.d, new b(this));
+                aVar.X();
             }
         }
-        boolean z = ij1.a;
-        f = String.format("%s/ma/call", sz1.b());
-        g = fu2.a;
+
+        public a(gs1 gs1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gs1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gs1Var;
+        }
+
+        @Override // com.baidu.tieba.or1.a
+        public lv1 a(l33 l33Var, JSONObject jSONObject, @Nullable String str) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, l33Var, jSONObject, str)) == null) {
+                String optString = jSONObject.optString("confirmText");
+                if (TextUtils.isEmpty(optString)) {
+                    optString = this.a.getContext().getString(R.string.obfuscated_res_0x7f0f011a);
+                }
+                fh3.e0(new RunnableC0268a(this, l33Var, jSONObject, str, optString));
+                return lv1.f();
+            }
+            return (lv1) invokeLLL.objValue;
+        }
     }
 
-    public gs1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gs1(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mr1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((mr1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f + "?";
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = false;
-        this.e = "";
-        d();
-        e();
     }
 
-    public final void a() {
-        y23 b0;
-        PMSAppInfo f0;
+    public lv1 A(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (b0 = y23.b0()) == null || (f0 = b0.W().f0()) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            q("#showModal", false);
+            return l(str, true, new a(this));
         }
-        this.c.put("app_ver", String.valueOf(f0.versionCode));
+        return (lv1) invokeL.objValue;
     }
 
-    public final void b() {
-        y23 b0;
+    @Override // com.baidu.tieba.or1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (b0 = y23.b0()) == null) {
-            return;
-        }
-        int k = b0.k();
-        String i = dc3.i(lo2.U().M(), k);
-        if (k == 0) {
-            this.c.put("swan_ver", i);
-        } else if (k == 1) {
-            this.c.put("game_ver", i);
-        }
-    }
-
-    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback) == null) {
-            if (!this.d) {
-                responseCallback.onFail(new InvalidParameterException("no service has been set"));
-                return;
-            }
-            String b = qg3.b(this.a, this.c);
-            this.a = b;
-            this.a = uz1.b(b);
-            ba4 ba4Var = new ba4(this.a, RequestBody.create(g, this.e), responseCallback);
-            ba4Var.c = this.b;
-            ba4Var.g = true;
-            yz1.i("CallServiceRequest", "Start request cloud ability: " + this.c.get("service"));
-            ca4.g().e(ba4Var);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (tm3.getContext() == null) {
-                yz1.c("CallServiceRequest", Log.getStackTraceString(new AssertionError("Assertion failed: SwanConfigRuntime.getContext() == null")));
-                return;
-            }
-            this.c.put("host_os", zi4.f());
-            this.c.put("host_os_ver", zi4.g());
-            this.c.put("host_app", tm3.getContext().c());
-            this.c.put("host_app_ver", tm3.getContext().h());
-            this.c.put("sdk_ver", tm3.getContext().b());
-            this.c.put("ua", hj4.b(tm3.getContext().h()));
-            this.c.put("ut", uz1.f());
-            this.c.put("network", zi4.e());
-            this.c.put("bundle_Id", x23.K().getAppId());
-            this.c.put("cuid", tm3.getContext().g());
-            this.c.put("uuid", tm3.getContext().e());
-            Map<String, String> map = this.c;
-            map.put("sid", fm2.g0().k() + "");
-            this.c.put("source", "swan_sdk");
-            this.c.put("timestamp", String.valueOf(System.currentTimeMillis()));
-            b();
-            a();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.put("mnpunion", String.valueOf(SwanAppAllianceLoginHelper.d.f() ? 2 : 0));
-            this.b.put("Referer", fg3.b());
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                this.e = "";
-            } else {
-                this.e = jSONObject.toString();
-            }
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        this.c.put("service", str);
-        this.d = true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ModalApi" : (String) invokeV.objValue;
     }
 }

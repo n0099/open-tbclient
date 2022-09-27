@@ -1,30 +1,31 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.app.Application;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ls8 extends BaseAdapter {
+public class ls8 {
     public static /* synthetic */ Interceptable $ic;
+    public static ls8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ms8 b;
-    public DressItemData c;
+    public a a;
+    public boolean b;
 
-    public ls8(TbPageContext<?> tbPageContext, DressItemData dressItemData) {
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(Application application);
+    }
+
+    public ls8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, dressItemData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,50 +35,52 @@ public class ls8 extends BaseAdapter {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = dressItemData;
-        this.b = new ms8(tbPageContext);
+        this.b = false;
+        this.a = c();
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public static ls8 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (ls8.class) {
+                    if (c == null) {
+                        c = new ls8();
+                    }
+                }
+            }
+            return c;
         }
-        return invokeV.intValue;
+        return (ls8) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ox4.k().l("pref_key_jpush_sdk_enable", 0) == 1 : invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!a() || (runTask = MessageManager.getInstance().runTask(2156672, a.class)) == null) {
+                return null;
+            }
+            return (a) runTask.getData();
         }
-        return invokeI.longValue;
+        return (a) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public void d(Application application) {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
-            this.b.d(this.c);
-            this.a.getLayoutMode().k(this.b.a());
-            return this.b.a();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) || this.b || (aVar = this.a) == null) {
+            return;
         }
-        return (View) invokeILL.objValue;
+        aVar.a(application);
+        this.b = true;
     }
 }

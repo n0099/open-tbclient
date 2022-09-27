@@ -1,142 +1,189 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.hm2;
+import com.baidu.tieba.q83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class je2 {
+public class je2 extends i53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static je2 d;
-    public static je2 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947880338, "Lcom/baidu/tieba/je2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements ei3<o83<q83.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ je2 e;
+
+        public a(je2 je2Var, CallbackHandler callbackHandler, String str, Context context, String str2) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {je2Var, callbackHandler, str, context, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947880338, "Lcom/baidu/tieba/je2;");
-                return;
+            this.e = je2Var;
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = context;
+            this.d = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ei3
+        /* renamed from: b */
+        public void a(o83<q83.e> o83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, o83Var) == null) {
+                if (j83.h(o83Var)) {
+                    this.e.l(this.c, this.d, this.b, this.a);
+                } else {
+                    j83.q(o83Var, this.a, this.b);
+                }
             }
         }
-        c = ij1.a;
     }
 
-    public je2() {
+    /* loaded from: classes4.dex */
+    public class b implements hm2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ String c;
+
+        public b(je2 je2Var, Context context, CallbackHandler callbackHandler, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {je2Var, context, callbackHandler, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = callbackHandler;
+            this.c = str;
+        }
+
+        @Override // com.baidu.tieba.hm2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.hm2.c
+        public void onFailed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                d33.f(this.a, R.string.obfuscated_res_0x7f0f0151).G();
+                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            }
+        }
+
+        @Override // com.baidu.tieba.hm2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                File d = sc3.d();
+                File c = sc3.c();
+                if (i53.b) {
+                    Log.d("replaceSwanCore", "swanCoreZipFile: " + d + " swanCoreDir: " + c);
+                }
+                if (d.exists() && pj4.U(d.getPath(), c.getPath())) {
+                    kz2.M(true);
+                    d33.f(this.a, R.string.obfuscated_res_0x7f0f0152).G();
+                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    return;
+                }
+                d33.f(this.a, R.string.obfuscated_res_0x7f0f0151).G();
+                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public je2(i43 i43Var) {
+        super(i43Var, "/swanAPI/debug/replaceSwanCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @NonNull
-    public static je2 a(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (d == null) {
-                d = d(e(str));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            JSONObject a2 = i53.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                d33.f(context, R.string.obfuscated_res_0x7f0f0149).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
+                return false;
             }
-            return d;
+            String optString = a2.optString("url");
+            String optString2 = a2.optString("cb");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
+                l33Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, context, optString));
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
+            d33.f(context, R.string.obfuscated_res_0x7f0f011e).G();
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swan core url or cb is null");
+            return false;
         }
-        return (je2) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @NonNull
-    public static je2 b(@NonNull he2 he2Var) {
-        InterceptResult invokeL;
+    public final void l(Context context, String str, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, he2Var)) == null) {
-            if (he2Var.c() == 1) {
-                return c(he2Var.d());
-            }
-            return a(he2Var.d());
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, callbackHandler) == null) {
+            hm2.J(str, new b(this, context, callbackHandler, str2));
         }
-        return (je2) invokeL.objValue;
-    }
-
-    @NonNull
-    public static je2 c(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (e == null) {
-                e = d(e(str));
-            }
-            return e;
-        }
-        return (je2) invokeL.objValue;
-    }
-
-    @NonNull
-    public static je2 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jSONObject)) == null) {
-            je2 je2Var = new je2();
-            if (jSONObject != null) {
-                je2Var.a = jSONObject.optString("extension-core-version-name");
-                je2Var.b = jSONObject.optLong("extension-core-version-code");
-            }
-            return je2Var;
-        }
-        return (je2) invokeL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static JSONObject e(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (c) {
-                Log.d("ExtCore-PresetConfig", "readPresetConfig start.");
-            }
-            String D = cj4.D(AppRuntime.getAppContext(), str);
-            if (TextUtils.isEmpty(D)) {
-                if (c) {
-                    Log.w("ExtCore-PresetConfig", "readPresetConfig: empty preset json.");
-                }
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(D);
-                if (c) {
-                    Log.d("ExtCore-PresetConfig", "readPresetConfig end. config: " + jSONObject.toString());
-                }
-                return jSONObject;
-            } catch (JSONException e2) {
-                if (c) {
-                    throw new RuntimeException(e2);
-                }
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
     }
 }

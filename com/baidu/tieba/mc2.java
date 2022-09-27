@@ -1,81 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.lc2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
+import com.baidu.tieba.hm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import com.facebook.common.internal.Sets;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mc2 {
+public class mc2 implements kc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
-    public static final Set<String> b;
-    public static final Set<String> c;
-    public static final Map<String, lc2> d;
-    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String[] a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947967789, "Lcom/baidu/tieba/mc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947967789, "Lcom/baidu/tieba/mc2;");
+    public mc2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-        b = new HashSet(a);
-        c = new HashSet(b);
-        d = new HashMap();
-        e = false;
+        this.a = new String[]{hm2.i(), hm2.l(), hm2.r(), hm2.b.f(), e12.f(), e12.d(), p02.c(), hm2.f.f(), hm2.f.d(), dh2.d};
     }
 
-    public static lc2 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            c();
-            return d.get(str);
-        }
-        return (lc2) invokeL.objValue;
-    }
-
-    public static lc2 b() {
+    @Override // com.baidu.tieba.kc2
+    public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            lc2.b bVar = new lc2.b();
-            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-            bVar.e(fm2.w0().a());
-            bVar.b(fm2.w0().d());
-            return bVar.a();
-        }
-        return (lc2) invokeV.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!e) {
-                for (String str : c) {
-                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
-                        d.put(str, b());
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = pj4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
                 }
             }
-            e = true;
+            l02.k("SwanSandboxFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
+        return (ArraySet) invokeV.objValue;
     }
 }

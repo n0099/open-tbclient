@@ -1,131 +1,136 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
+import android.os.Build;
+import android.view.LayoutInflater;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class zh4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Map<String, Integer> a(Set<String> set) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
-            HashMap hashMap = new HashMap();
-            int i = 0;
-            for (String str : set) {
-                hashMap.put(str, Integer.valueOf(i));
-                i++;
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(LayoutInflater layoutInflater, di4 di4Var);
     }
 
-    public static StringBuilder b(StringBuilder... sbArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (StringBuilder sb2 : sbArr) {
-                sb.append((CharSequence) sb2);
+    /* loaded from: classes6.dex */
+    public static class b implements a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return sb;
         }
-        return (StringBuilder) invokeL.objValue;
+
+        @Override // com.baidu.tieba.zh4.a
+        public void a(LayoutInflater layoutInflater, di4 di4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, di4Var) == null) {
+                ai4.a(layoutInflater, di4Var);
+            }
+        }
     }
 
-    public static String c(List<wh4> list, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
-            Set<String> d = xh4.b().d();
-            int size = d.size();
-            Map<String, Integer> a = a(d);
-            StringBuilder[] sbArr = new StringBuilder[size];
-            for (int i = 0; i < size; i++) {
-                sbArr[i] = new StringBuilder();
-            }
-            for (wh4 wh4Var : list) {
-                Integer num = a.get(wh4Var.f());
-                if (num != null) {
-                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, wh4Var.d()));
-                    sbArr[num.intValue()].append("- ");
-                    StringBuilder sb = sbArr[num.intValue()];
-                    sb.append(wh4Var.b() / 1000);
-                    sb.append("ms");
-                    sbArr[num.intValue()].append("   ");
-                    sbArr[num.intValue()].append(wh4Var.f());
-                    sbArr[num.intValue()].append("   ");
-                    sbArr[num.intValue()].append(wh4Var.c().getFullName());
-                    sbArr[num.intValue()].append("\n");
+    /* loaded from: classes6.dex */
+    public static class c extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            String sb2 = b(sbArr).toString();
-            d(sb2, str);
-            return sb2;
         }
-        return (String) invokeLL.objValue;
+
+        @Override // com.baidu.tieba.zh4.b, com.baidu.tieba.zh4.a
+        public void a(LayoutInflater layoutInflater, di4 di4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, di4Var) == null) {
+                bi4.b(layoutInflater, di4Var);
+            }
+        }
     }
 
-    public static void d(String str, String str2) {
-        FileWriter fileWriter;
+    /* loaded from: classes6.dex */
+    public static class d extends c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.zh4.c, com.baidu.tieba.zh4.b, com.baidu.tieba.zh4.a
+        public void a(LayoutInflater layoutInflater, di4 di4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, layoutInflater, di4Var) == null) {
+                ci4.a(layoutInflater, di4Var);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948359939, "Lcom/baidu/tieba/zh4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948359939, "Lcom/baidu/tieba/zh4;");
+                return;
+            }
+        }
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 21) {
+            a = new d();
+        } else if (i >= 11) {
+            a = new c();
+        } else {
+            a = new b();
+        }
+    }
+
+    public static void a(LayoutInflater layoutInflater, di4 di4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        FileWriter fileWriter2 = null;
-        try {
-            try {
-                try {
-                    File parentFile = new File(str2).getParentFile();
-                    if (parentFile != null && !parentFile.exists()) {
-                        parentFile.mkdirs();
-                    }
-                    fileWriter = new FileWriter(str2);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    return;
-                }
-            } catch (IOException e2) {
-                e = e2;
-            }
-        } catch (Throwable th) {
-            th = th;
-        }
-        try {
-            fileWriter.write(str);
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException e3) {
-            e = e3;
-            fileWriter2 = fileWriter;
-            e.printStackTrace();
-            if (fileWriter2 != null) {
-                fileWriter2.close();
-            }
-        } catch (Throwable th2) {
-            th = th2;
-            fileWriter2 = fileWriter;
-            if (fileWriter2 != null) {
-                try {
-                    fileWriter2.close();
-                } catch (IOException e4) {
-                    e4.printStackTrace();
-                }
-            }
-            throw th;
+        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, di4Var) == null) {
+            a.a(layoutInflater, di4Var);
         }
     }
 }

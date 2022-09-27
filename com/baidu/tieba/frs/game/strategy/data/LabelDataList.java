@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.game.strategy.data;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.km6;
+import com.baidu.tieba.xm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import tbclient.ForumSubLabel;
 /* loaded from: classes4.dex */
-public class LabelDataList extends ArrayList<km6> {
+public class LabelDataList extends ArrayList<xm6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,9 +35,9 @@ public class LabelDataList extends ArrayList<km6> {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            Iterator<km6> it = iterator();
+            Iterator<xm6> it = iterator();
             while (it.hasNext()) {
-                km6 next = it.next();
+                xm6 next = it.next();
                 if (next != null && next.a == i) {
                     return next.b;
                 }
@@ -51,17 +51,17 @@ public class LabelDataList extends ArrayList<km6> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Iterator<km6> it = iterator();
+            Iterator<xm6> it = iterator();
             while (it.hasNext()) {
-                km6 next = it.next();
+                xm6 next = it.next();
                 if (next != null && next.c) {
                     return next.a;
                 }
             }
-            km6 km6Var = (km6) ListUtils.getItem(this, 0);
-            if (km6Var != null) {
-                km6Var.c = true;
-                return km6Var.a;
+            xm6 xm6Var = (xm6) ListUtils.getItem(this, 0);
+            if (xm6Var != null) {
+                xm6Var.c = true;
+                return xm6Var.a;
             }
             return 0;
         }
@@ -77,10 +77,10 @@ public class LabelDataList extends ArrayList<km6> {
             }
             for (ForumSubLabel forumSubLabel : list) {
                 if (forumSubLabel != null) {
-                    km6 km6Var = new km6();
-                    km6Var.a = forumSubLabel.id.intValue();
-                    km6Var.b = forumSubLabel.sub_label_name;
-                    add(km6Var);
+                    xm6 xm6Var = new xm6();
+                    xm6Var.a = forumSubLabel.id.intValue();
+                    xm6Var.b = forumSubLabel.sub_label_name;
+                    add(xm6Var);
                 }
             }
             if (isEmpty()) {
@@ -91,16 +91,16 @@ public class LabelDataList extends ArrayList<km6> {
     }
 
     public void setSelectedIndex(int i) {
-        km6 km6Var;
+        xm6 xm6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (km6Var = (km6) ListUtils.getItem(this, i)) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (xm6Var = (xm6) ListUtils.getItem(this, i)) == null) {
             return;
         }
-        km6Var.c = true;
-        Iterator<km6> it = iterator();
+        xm6Var.c = true;
+        Iterator<xm6> it = iterator();
         while (it.hasNext()) {
-            km6 next = it.next();
-            if (next != null && next != km6Var) {
+            xm6 next = it.next();
+            if (next != null && next != xm6Var) {
                 next.c = false;
             }
         }

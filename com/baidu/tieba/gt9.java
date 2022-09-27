@@ -1,229 +1,245 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.Signature;
-import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.inner.BaseStatisContent;
-import java.io.ByteArrayOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.Message;
+import com.squareup.wire2.Message.a;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.WireField;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.util.Locale;
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class gt9 {
+public final class gt9<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<M> a;
+    public final Class<B> b;
+    public final Map<Integer, bt9<M, B>> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805597, "Lcom/baidu/tieba/gt9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947805597, "Lcom/baidu/tieba/gt9;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gt9(Class<M> cls, Class<B> cls2, Map<Integer, bt9<M, B>> map) {
+        super(FieldEncoding.LENGTH_DELIMITED, cls);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, cls2, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
+        this.a = cls;
+        this.b = cls2;
+        this.c = map;
     }
 
-    public static int a(Context context) {
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> gt9<M, B> a(Class<M> cls) {
         InterceptResult invokeL;
-        String[][] strArr;
+        Field[] declaredFields;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                boolean z = false;
-                for (String[] strArr2 : a) {
-                    if (strArr2.length > 1) {
-                        String str = strArr2[0];
-                        try {
-                            if (ft9.a(context.getPackageManager().getPackageInfo(str, 1).versionName, strArr2[1]) >= 0) {
-                                Intent intent = new Intent();
-                                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
-                                if (ft9.e(context, intent)) {
-                                    return 0;
-                                }
-                            }
-                            z = true;
-                        } catch (Exception unused) {
-                            z = false;
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
+            Class e = e(cls);
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            for (Field field : cls.getDeclaredFields()) {
+                WireField wireField = (WireField) field.getAnnotation(WireField.class);
+                if (wireField != null) {
+                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new bt9(wireField, field, e));
                 }
-                return z ? 2 : 1;
-            } catch (Exception unused2) {
-                return 1;
             }
+            return new gt9<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
+        }
+        return (gt9) invokeL.objValue;
+    }
+
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            try {
+                return (Class<B>) Class.forName(cls.getName() + "$Builder");
+            } catch (ClassNotFoundException unused) {
+                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
+            }
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public M decode(dt9 dt9Var) throws IOException {
+        InterceptResult invokeL;
+        ProtoAdapter<?> i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, dt9Var)) != null) {
+            return (M) invokeL.objValue;
+        }
+        B f = f();
+        long c = dt9Var.c();
+        while (true) {
+            int f2 = dt9Var.f();
+            if (f2 != -1) {
+                bt9<M, B> bt9Var = this.c.get(Integer.valueOf(f2));
+                if (bt9Var != null) {
+                    try {
+                        if (bt9Var.f()) {
+                            i = bt9Var.a();
+                        } else {
+                            i = bt9Var.i();
+                        }
+                        bt9Var.j(f, i.decode(dt9Var));
+                    } catch (ProtoAdapter.EnumConstantNotFoundException e) {
+                        f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
+                    }
+                } else {
+                    FieldEncoding g = dt9Var.g();
+                    f.addUnknownField(f2, g, g.rawProtoAdapter().decode(dt9Var));
+                }
+            } else {
+                dt9Var.d(c);
+                return (M) f.build();
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public void encode(et9 et9Var, M m) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, et9Var, m) == null) {
+            for (bt9<M, B> bt9Var : this.c.values()) {
+                Object b = bt9Var.b(m);
+                if (b != null) {
+                    bt9Var.a().encodeWithTag(et9Var, bt9Var.c, b);
+                }
+            }
+            et9Var.k(m.unknownFields());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: d */
+    public int encodedSize(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
+            int i = m.cachedSerializedSize;
+            if (i != 0) {
+                return i;
+            }
+            int i2 = 0;
+            for (bt9<M, B> bt9Var : this.c.values()) {
+                Object b = bt9Var.b(m);
+                if (b != null) {
+                    i2 += bt9Var.a().encodedSizeWithTag(bt9Var.c, b);
+                }
+            }
+            int size = i2 + m.unknownFields().size();
+            m.cachedSerializedSize = size;
+            return size;
         }
         return invokeL.intValue;
     }
 
-    public static String b(Context context) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
-        Signature[] signatureArr;
-        ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            ByteArrayOutputStream byteArrayOutputStream2 = null;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? (obj instanceof gt9) && ((gt9) obj).a == this.a : invokeL.booleanValue;
+    }
+
+    public B f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             try {
-                try {
-                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
-                    byteArrayOutputStream = new ByteArrayOutputStream();
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
+                return this.b.newInstance();
+            } catch (IllegalAccessException | InstantiationException e) {
+                throw new AssertionError(e);
             }
-            try {
-                for (Signature signature : signatureArr) {
-                    if (signature != null) {
-                        byteArrayOutputStream.write(signature.toByteArray());
+        }
+        return (B) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: g */
+    public M redact(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
+            Message.a<M, B> newBuilder = m.newBuilder();
+            for (bt9<M, B> bt9Var : this.c.values()) {
+                if (bt9Var.f && bt9Var.a == WireField.Label.REQUIRED) {
+                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", bt9Var.b, this.javaType.getName()));
+                }
+                boolean isAssignableFrom = Message.class.isAssignableFrom(bt9Var.i().javaType);
+                if (!bt9Var.f && (!isAssignableFrom || bt9Var.a.isRepeated())) {
+                    if (isAssignableFrom && bt9Var.a.isRepeated()) {
+                        it9.k((List) bt9Var.e(newBuilder), bt9Var.i());
+                    }
+                } else {
+                    Object e = bt9Var.e(newBuilder);
+                    if (e != null) {
+                        bt9Var.h(newBuilder, bt9Var.a().redact(e));
                     }
                 }
-                byteArrayOutputStream.flush();
-                String f = f(byteArrayOutputStream.toByteArray());
-                try {
-                    byteArrayOutputStream.close();
-                } catch (IOException unused) {
-                }
-                return f;
-            } catch (Exception e2) {
-                e = e2;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-                e.printStackTrace();
-                if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                        return "";
-                    } catch (IOException unused2) {
-                        return "";
-                    }
-                }
-                return "";
-            } catch (Throwable th2) {
-                th = th2;
-                byteArrayOutputStream2 = byteArrayOutputStream;
-                if (byteArrayOutputStream2 != null) {
-                    try {
-                        byteArrayOutputStream2.close();
-                    } catch (IOException unused3) {
-                    }
-                }
-                throw th;
             }
+            newBuilder.clearUnknownFields();
+            return newBuilder.build();
+        }
+        return (M) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: h */
+    public String toString(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (bt9<M, B> bt9Var : this.c.values()) {
+                Object b = bt9Var.b(m);
+                if (b != null) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(bt9Var.b);
+                    sb.append('=');
+                    if (bt9Var.f) {
+                        b = "██";
+                    }
+                    sb.append(b);
+                }
+            }
+            sb.replace(0, 2, this.a.getSimpleName() + '{');
+            sb.append('}');
+            return sb.toString();
         }
         return (String) invokeL.objValue;
     }
 
-    public static String c(Context context, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) ? String.format(Locale.getDefault(), "%s?appId=%s&appType=android&appSign=%s&appDeviceid=%s&grantType=code&callbackType=uri&redirectUri=%s&state=%s", "https://thirdlogin.yy.com/open/oauth/authorize.do", str, b(context), et9.a(context), g(z), str2) : (String) invokeCommon.objValue;
-    }
-
-    public static Bundle d(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("appid", str);
-            bundle.putString("appname", ft9.b(context, context.getPackageName()));
-            bundle.putString("appver", ft9.c(context));
-            bundle.putString("appdeviceid", et9.a(context));
-            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
-            return bundle;
-        }
-        return (Bundle) invokeLL.objValue;
-    }
-
-    public static Intent e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            for (String[] strArr : a) {
-                String str = strArr[0];
-                Intent intent = new Intent();
-                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
-                if (ft9.e(context, intent)) {
-                    return intent;
-                }
-            }
-            return null;
-        }
-        return (Intent) invokeL.objValue;
-    }
-
-    public static String f(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
-            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                byte[] digest = messageDigest.digest();
-                char[] cArr2 = new char[digest.length * 2];
-                int i = 0;
-                for (byte b : digest) {
-                    int i2 = i + 1;
-                    cArr2[i] = cArr[(b >>> 4) & 15];
-                    i = i2 + 1;
-                    cArr2[i2] = cArr[b & 15];
-                }
-                return new String(cArr2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) ? z ? "https://raqweb.yy.com/" : "https://raq.yy.com/" : (String) invokeZ.objValue;
-    }
-
-    public static String h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            if (i != 444111001) {
-                switch (i) {
-                    case 444222000:
-                        return "参数为空，请检查";
-                    case 444222001:
-                        return "请求操作类型错误";
-                    case 444222002:
-                        return "请求操作附带参数为空";
-                    case 444222003:
-                        return "请求操作附带参数错误";
-                    default:
-                        switch (i) {
-                            case 444222104:
-                                return "授权APP返回的请求码出错";
-                            case 444222105:
-                                return "Json格式错误";
-                            default:
-                                return "未知错误";
-                        }
-                }
-            }
-            return "成功";
-        }
-        return (String) invokeI.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.hashCode() : invokeV.intValue;
     }
 }

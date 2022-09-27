@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import com.baidu.tieba.jg5;
-import com.baidu.tieba.ow4;
-import com.baidu.tieba.pw4;
+import com.baidu.tieba.bx4;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.wg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -474,12 +474,12 @@ public class ImageViewerConfig extends IntentConfig {
         intent.putExtra("from_forum_id", builder.n);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, jg5.c());
-        if (ow4.a() != null && ow4.a().a != null) {
-            intent.putExtra(REMIND_LIVE_DATA, ow4.a().a);
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, wg5.c());
+        if (bx4.a() != null && bx4.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, bx4.a().a);
         }
-        if (pw4.b() != null) {
-            intent.putExtra(REMIND_LIVE_FREQUENCY, pw4.b().a());
+        if (cx4.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, cx4.b().a());
         }
     }
 }

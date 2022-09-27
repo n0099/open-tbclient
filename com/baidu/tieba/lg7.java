@@ -1,83 +1,166 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class lg7 {
+public class lg7 extends pn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
 
-    public lg7(JSONObject jSONObject) {
+    /* loaded from: classes4.dex */
+    public class a extends BdAsyncTask<Object, Integer, un4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public volatile NetWork a;
+        public String b;
+        public String c;
+        public HashMap<String, String> d;
+        public q9 e;
+
+        public a(lg7 lg7Var, String str, String str2, HashMap<String, String> hashMap, q9 q9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lg7Var, str, str2, hashMap, q9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = str;
+            this.c = str2;
+            this.d = hashMap;
+            this.e = q9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public un4 doInBackground(Object... objArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                un4 un4Var = new un4();
+                try {
+                    this.a = new NetWork(TbConfig.SERVER_ADDRESS + this.c);
+                    Set<String> keySet = this.d.keySet();
+                    if (keySet.size() > 0) {
+                        for (String str : keySet) {
+                            if (!"url".equalsIgnoreCase(str)) {
+                                this.a.addPostData(str, this.d.get(str));
+                            }
+                        }
+                    }
+                    this.a.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
+                    this.a.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
+                    boolean z = true;
+                    this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                    String postNetData = this.a.postNetData();
+                    if (!this.a.getNetContext().getResponse().isNetSuccess()) {
+                        un4Var.b = this.a.getNetErrorCode();
+                        un4Var.c = this.a.getNetString();
+                    } else {
+                        un4Var.b = this.a.getServerErrorCode();
+                        un4Var.c = this.a.getErrorString();
+                    }
+                    if (this.a.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
+                        if (un4Var.b != 0) {
+                            z = false;
+                        }
+                        un4Var.a = z;
+                        return un4Var;
+                    }
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+                un4Var.a = false;
+                return un4Var;
+            }
+            return (un4) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(un4 un4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, un4Var) == null) {
+                q9 q9Var = this.e;
+                if (q9Var != null) {
+                    q9Var.c(un4Var);
+                }
+                hg7.a().d(this.c, this.d, un4Var);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a != null) {
+                    this.a.cancelNetConnect();
+                    this.a = null;
+                }
+                super.cancel(true);
+                q9 q9Var = this.e;
+                if (q9Var != null) {
+                    q9Var.c(null);
+                }
+            }
+        }
+    }
+
+    public lg7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("moreText");
-            this.b = ng7.b(jSONObject.optString("moreColor", ""));
-            this.c = ng7.b(jSONObject.optString("moreColorNight", ""));
-            this.d = jSONObject.optString("moreScheme");
+    }
+
+    @Override // com.baidu.tieba.pn4, com.baidu.tieba.sn4
+    public void a(Object obj, HashMap<String, String> hashMap, String str, q9 q9Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, obj, hashMap, str, q9Var) == null) || hashMap == null || hashMap.isEmpty() || !hashMap.containsKey("url")) {
             return;
         }
-        this.a = "";
-        this.b = Integer.MAX_VALUE;
-        this.c = Integer.MAX_VALUE;
-        this.d = "";
+        String str2 = hashMap.get("url");
+        if (TextUtils.isEmpty(str2)) {
+            return;
+        }
+        a aVar = new a(this, str, str2, hashMap, q9Var);
+        aVar.setPriority(2);
+        aVar.execute(new Object[0]);
     }
 
-    public static lg7 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) ? new lg7(jSONObject) : (lg7) invokeL.objValue;
-    }
-
-    public int b() {
+    @Override // com.baidu.tieba.pn4
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "post" : (String) invokeV.objValue;
     }
 }

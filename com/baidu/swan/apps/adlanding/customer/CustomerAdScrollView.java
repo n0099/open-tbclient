@@ -4,7 +4,7 @@ import android.content.Context;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vp1;
+import com.baidu.tieba.iq1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ public class CustomerAdScrollView extends ScrollView {
     public boolean a;
     public boolean b;
     public float c;
-    public vp1 d;
+    public iq1 d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public CustomerAdScrollView(Context context) {
@@ -71,9 +71,9 @@ public class CustomerAdScrollView extends ScrollView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onScrollChanged(i, i2, i3, i4);
-            vp1 vp1Var = this.d;
-            if (vp1Var != null) {
-                vp1Var.onScrollChanged(i, i2, i3, i4);
+            iq1 iq1Var = this.d;
+            if (iq1Var != null) {
+                iq1Var.onScrollChanged(i, i2, i3, i4);
             }
         }
     }
@@ -92,10 +92,10 @@ public class CustomerAdScrollView extends ScrollView {
         }
     }
 
-    public void setScrollViewListener(vp1 vp1Var) {
+    public void setScrollViewListener(iq1 iq1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vp1Var) == null) {
-            this.d = vp1Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iq1Var) == null) {
+            this.d = iq1Var;
         }
     }
 }

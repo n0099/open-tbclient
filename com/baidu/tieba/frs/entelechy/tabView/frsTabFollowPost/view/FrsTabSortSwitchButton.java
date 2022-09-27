@@ -19,8 +19,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ii6;
-import com.baidu.tieba.jh6;
+import com.baidu.tieba.vi6;
+import com.baidu.tieba.wh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ import tbclient.FrsTabInfo;
 public class FrsTabSortSwitchButton extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jh6> A;
+    public List<wh6> A;
     public List<Float> B;
     public GestureDetector C;
     public GestureDetector.SimpleOnGestureListener D;
@@ -299,7 +299,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     public final void A(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ii6.FrsTabSortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vi6.FrsTabSortSwitchButton);
             this.d = obtainStyledAttributes.getResourceId(0, R.color.CAM_X0107);
             this.e = obtainStyledAttributes.getResourceId(4, R.color.CAM_X0101);
             this.f = obtainStyledAttributes.getResourceId(8, R.color.CAM_X0105);
@@ -342,24 +342,24 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
                 return true;
             }
             for (int i = 0; i < size; i++) {
-                jh6 jh6Var = this.A.get(i);
+                wh6 wh6Var = this.A.get(i);
                 FrsTabInfo frsTabInfo = list.get(i);
-                if (frsTabInfo.tab_id.intValue() != jh6Var.b) {
+                if (frsTabInfo.tab_id.intValue() != wh6Var.b) {
                     return true;
                 }
-                if (frsTabInfo.tab_id.intValue() == 2 && !jh6Var.a.equals(this.l)) {
+                if (frsTabInfo.tab_id.intValue() == 2 && !wh6Var.a.equals(this.l)) {
                     return true;
                 }
-                if (frsTabInfo.tab_id.intValue() == 3 && !jh6Var.a.equals(this.m)) {
+                if (frsTabInfo.tab_id.intValue() == 3 && !wh6Var.a.equals(this.m)) {
                     return true;
                 }
                 if (frsTabInfo.tab_id.intValue() != 2 && frsTabInfo.tab_id.intValue() != 3) {
                     String str = frsTabInfo.tab_name;
                     if (str != null && str.length() > 5) {
-                        if (!jh6Var.a.equals(frsTabInfo.tab_name.substring(0, 5))) {
+                        if (!wh6Var.a.equals(frsTabInfo.tab_name.substring(0, 5))) {
                             return true;
                         }
-                    } else if (!jh6Var.a.equals(frsTabInfo.tab_name)) {
+                    } else if (!wh6Var.a.equals(frsTabInfo.tab_name)) {
                         return true;
                     }
                 }
@@ -434,10 +434,10 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    jh6 jh6Var = (jh6) ListUtils.getItem(this.A, i3);
-                    if (jh6Var != null) {
+                    wh6 wh6Var = (wh6) ListUtils.getItem(this.A, i3);
+                    if (wh6Var != null) {
                         Paint paint = this.p;
-                        String str = jh6Var.a;
+                        String str = wh6Var.a;
                         if (str == null) {
                             str = "";
                         }
@@ -577,30 +577,30 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             }
             setVisibility(0);
             for (int i = 0; i < list.size(); i++) {
-                jh6 jh6Var = new jh6();
-                jh6Var.b = list.get(i).tab_id.intValue();
+                wh6 wh6Var = new wh6();
+                wh6Var.b = list.get(i).tab_id.intValue();
                 if (list.get(i).tab_id.intValue() == 2) {
                     if (list.get(i).tab_type.intValue() == 16) {
-                        jh6Var.a = "最热";
+                        wh6Var.a = "最热";
                     } else {
-                        jh6Var.a = this.l;
+                        wh6Var.a = this.l;
                     }
                 } else if (list.get(i).tab_id.intValue() == 3) {
                     if (list.get(i).tab_type.intValue() == 16) {
-                        jh6Var.a = "最新";
+                        wh6Var.a = "最新";
                     } else {
-                        jh6Var.a = this.m;
+                        wh6Var.a = this.m;
                     }
                 } else {
                     String str = list.get(i).tab_name;
-                    jh6Var.a = str;
+                    wh6Var.a = str;
                     if (str == null) {
-                        jh6Var.a = "";
+                        wh6Var.a = "";
                     } else if (str.length() > 5) {
-                        jh6Var.a = jh6Var.a.substring(0, 5);
+                        wh6Var.a = wh6Var.a.substring(0, 5);
                     }
                 }
-                this.A.add(jh6Var);
+                this.A.add(wh6Var);
             }
             requestLayout();
         }
@@ -687,11 +687,11 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            jh6 jh6Var = (jh6) ListUtils.getItem(this.A, i);
-            if (jh6Var == null) {
+            wh6 wh6Var = (wh6) ListUtils.getItem(this.A, i);
+            if (wh6Var == null) {
                 return -1;
             }
-            return jh6Var.b;
+            return wh6Var.b;
         }
         return invokeI.intValue;
     }

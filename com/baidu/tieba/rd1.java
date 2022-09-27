@@ -1,16 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public class rd1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface rd1 {
+    void a();
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            rz0.a().b("splash_sp_name").g("splash_launch_status", 2);
-        }
-    }
+    void b(String str);
+
+    boolean c(String str);
+
+    void d();
+
+    void e(lg1 lg1Var);
+
+    void f();
+
+    @NonNull
+    ViewGroup g();
+
+    void onAdShow();
+
+    void onSkip();
 }

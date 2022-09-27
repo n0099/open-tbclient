@@ -1,41 +1,232 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity;
+import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ufosdk.FeedbackConfigurations;
-import com.baidu.ufosdk.FeedbackManager;
-import com.baidu.ufosdk.IConfigurations;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class mt8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public PersonalCardCategoryActivity b;
+    public View c;
+    public NavigationBar d;
+    public NoNetworkView e;
+    public MemberRecommendView f;
+    public BdListView g;
+    public lt8 h;
+    public View i;
+    public TextView j;
+    public int k;
 
-    public static Intent a() {
-        InterceptResult invokeV;
+    public mt8(PersonalCardCategoryActivity personalCardCategoryActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            b();
-            return FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).getFeedbackIntentWithCategory(0, "https://ufosdk.baidu.com/ufosdk/helpCenter/qtbMBmwrIBtM25TGeonQxQ%3D%3D");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {personalCardCategoryActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Intent) invokeV.objValue;
+        this.a = 3;
+        this.k = 0;
+        this.b = personalCardCategoryActivity;
+        this.k = ej.f(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023c);
+        View inflate = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01c8, (ViewGroup) null);
+        this.c = inflate;
+        this.b.setContentView(inflate);
+        this.i = this.c.findViewById(R.id.obfuscated_res_0x7f0903b7);
+        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.obfuscated_res_0x7f0925c4);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0e8f);
+        this.e = (NoNetworkView) this.c.findViewById(R.id.obfuscated_res_0x7f0925c6);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.c.findViewById(R.id.obfuscated_res_0x7f0905ac);
+        this.f = memberRecommendView;
+        memberRecommendView.setFromType(9);
+        TextView textView = new TextView(this.b.getActivity());
+        this.j = textView;
+        textView.setHeight(ej.f(this.b.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        this.g = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f0905ab);
+        lt8 lt8Var = new lt8(this.b.getPageContext());
+        this.h = lt8Var;
+        this.g.setAdapter((ListAdapter) lt8Var);
     }
 
-    public static void b() {
+    public final List<Object> a(List<kt8> list) {
+        InterceptResult invokeL;
+        int size;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            FeedbackConfigurations.Builder builder = new FeedbackConfigurations.Builder();
-            builder.setAppIdentifier(TbadkCoreApplication.getInst().getPackageName(), TbadkCoreApplication.getInst().getVersionName() != null ? TbadkCoreApplication.getInst().getVersionName() : "");
-            builder.setBaiduCuid(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            if (TbadkCoreApplication.getCurrentAccount() != null) {
-                builder.setAccount(TbadkCoreApplication.getCurrentAccountName(), TbadkCoreApplication.getCurrentAccount());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (kt8 kt8Var : list) {
+                ArrayList<ns8> a = kt8Var.a();
+                if (a != null && (size = a.size()) != 0) {
+                    arrayList.add(kt8Var.b());
+                    if (size > 6) {
+                        size = 6;
+                    }
+                    int i2 = 0;
+                    while (i2 < size) {
+                        ArrayList arrayList2 = new ArrayList();
+                        int i3 = 0;
+                        while (true) {
+                            i = this.a;
+                            if (i3 < i) {
+                                int i4 = i2 + i3;
+                                if (i4 < size) {
+                                    arrayList2.add(a.get(i4));
+                                }
+                                i3++;
+                            }
+                        }
+                        arrayList.add(arrayList2);
+                        i2 = i2 + (i - 1) + 1;
+                    }
+                }
             }
-            builder.setFeedbackBackbar(0);
-            IConfigurations build = builder.build();
-            build.setThemeMode(TbadkCoreApplication.getInst().getSkinType() != 0 ? 1 : 0);
-            FeedbackManager.getInstance(TbadkCoreApplication.getInst().getContext()).initFeedbackSDK(build);
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.hideNetRefreshView(this.c);
+            this.i.setVisibility(0);
+        }
+    }
+
+    public View c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (View) invokeV.objValue;
+    }
+
+    public void d() {
+        lt8 lt8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b.getLayoutMode().l(TbadkApplication.getInst().getSkinType() == 1);
+            this.b.getLayoutMode().k(this.c);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.b.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            NoNetworkView noNetworkView = this.e;
+            if (noNetworkView != null) {
+                noNetworkView.d(this.b.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.g;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (lt8Var = this.h) != null) {
+                lt8Var.notifyDataSetChanged();
+            }
+            MemberRecommendView memberRecommendView = this.f;
+            if (memberRecommendView != null && memberRecommendView.getVisibility() == 0) {
+                this.f.d();
+            }
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
+        }
+    }
+
+    public final void e(List<kt8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.g.setVisibility(0);
+                this.h.b(a(list));
+                this.h.notifyDataSetChanged();
+                return;
+            }
+            this.g.setVisibility(8);
+        }
+    }
+
+    public final boolean f(st8 st8Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, st8Var)) == null) {
+            if (st8Var != null && !StringUtils.isNull(st8Var.c())) {
+                this.f.setVisibility(0);
+                this.f.e(st8Var);
+                return true;
+            }
+            this.f.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(PersonalCardItemView.b bVar) {
+        lt8 lt8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) || (lt8Var = this.h) == null) {
+            return;
+        }
+        lt8Var.a(bVar);
+    }
+
+    public void h(BdListView.p pVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, pVar) == null) {
+            this.g.setOnSrollToBottomListener(pVar);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.i.setVisibility(8);
+            String string = this.b.getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0c73);
+            this.b.setNetRefreshViewTopMargin(this.k);
+            this.b.showNetRefreshView(this.c, string, false);
+        }
+    }
+
+    public void j(int i, st8 st8Var, List<kt8> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), st8Var, list, Boolean.valueOf(z)}) == null) {
+            if ((st8Var == null || StringUtils.isNull(st8Var.c())) && (list == null || list.size() <= 0)) {
+                i();
+            } else if (i != 0) {
+            } else {
+                b();
+                if (f(st8Var)) {
+                    this.g.removeHeaderView(this.j);
+                    this.g.addHeaderView(this.j);
+                } else {
+                    this.g.removeHeaderView(this.j);
+                }
+                e(list);
+            }
         }
     }
 }

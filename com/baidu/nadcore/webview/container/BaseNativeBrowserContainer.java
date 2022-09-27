@@ -37,32 +37,32 @@ import com.baidu.nadcore.webview.BrowserStateView;
 import com.baidu.nadcore.webview.container.base.AbsContainer;
 import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a31;
-import com.baidu.tieba.a41;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.d41;
+import com.baidu.tieba.a21;
+import com.baidu.tieba.a61;
+import com.baidu.tieba.b51;
+import com.baidu.tieba.c51;
+import com.baidu.tieba.d61;
 import com.baidu.tieba.e51;
-import com.baidu.tieba.ei0;
-import com.baidu.tieba.g21;
-import com.baidu.tieba.i21;
-import com.baidu.tieba.ji0;
-import com.baidu.tieba.kz0;
-import com.baidu.tieba.l21;
-import com.baidu.tieba.l41;
-import com.baidu.tieba.m41;
-import com.baidu.tieba.mi0;
-import com.baidu.tieba.n11;
-import com.baidu.tieba.n51;
-import com.baidu.tieba.o41;
-import com.baidu.tieba.p41;
-import com.baidu.tieba.q51;
-import com.baidu.tieba.r41;
+import com.baidu.tieba.e61;
+import com.baidu.tieba.g51;
+import com.baidu.tieba.gi0;
+import com.baidu.tieba.ii0;
+import com.baidu.tieba.k41;
+import com.baidu.tieba.m51;
+import com.baidu.tieba.n31;
+import com.baidu.tieba.n41;
+import com.baidu.tieba.nj0;
+import com.baidu.tieba.q41;
 import com.baidu.tieba.r51;
-import com.baidu.tieba.t41;
-import com.baidu.tieba.th0;
-import com.baidu.tieba.vh0;
-import com.baidu.tieba.x31;
+import com.baidu.tieba.ri0;
+import com.baidu.tieba.t21;
+import com.baidu.tieba.v21;
+import com.baidu.tieba.wi0;
+import com.baidu.tieba.xz0;
+import com.baidu.tieba.y21;
+import com.baidu.tieba.y41;
 import com.baidu.tieba.z41;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,13 +76,13 @@ import org.json.JSONObject;
 public class BaseNativeBrowserContainer extends AbsContainer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m41 d;
+    public z41 d;
     public FrameLayout e;
     public LinearLayout f;
     public WebView g;
     public String h;
     public String i;
-    public e51 j;
+    public r51 j;
     public String k;
     public RelativeLayout l;
     public BrowserStateView m;
@@ -119,7 +119,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a31 a = a31.a(this.a.getActivity());
+                n31 a = n31.a(this.a.getActivity());
                 a.b("老架构，url = " + this.a.h);
             }
         }
@@ -159,7 +159,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     }
 
     /* loaded from: classes2.dex */
-    public class c implements ei0 {
+    public class c implements ri0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseNativeBrowserContainer a;
@@ -182,11 +182,11 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             this.a = baseNativeBrowserContainer;
         }
 
-        @Override // com.baidu.tieba.ei0
+        @Override // com.baidu.tieba.ri0
         public void a(boolean z, @Nullable Map<String, String> map) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZL(1048576, this, z, map) == null) {
-                String p = ji0.p(map);
+                String p = wi0.p(map);
                 if (TextUtils.isEmpty(p)) {
                     return;
                 }
@@ -196,36 +196,36 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     }
 
     /* loaded from: classes2.dex */
-    public class d extends r51 {
+    public class d extends e61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ei0 c;
+        public final /* synthetic */ ri0 c;
         public final /* synthetic */ BaseNativeBrowserContainer d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(BaseNativeBrowserContainer baseNativeBrowserContainer, WebView webView, WebViewClient webViewClient, ei0 ei0Var, ei0 ei0Var2) {
-            super(webView, webViewClient, ei0Var);
+        public d(BaseNativeBrowserContainer baseNativeBrowserContainer, WebView webView, WebViewClient webViewClient, ri0 ri0Var, ri0 ri0Var2) {
+            super(webView, webViewClient, ri0Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {baseNativeBrowserContainer, webView, webViewClient, ei0Var, ei0Var2};
+                Object[] objArr = {baseNativeBrowserContainer, webView, webViewClient, ri0Var, ri0Var2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((WebView) objArr2[0], (WebViewClient) objArr2[1], (ei0) objArr2[2]);
+                    super((WebView) objArr2[0], (WebViewClient) objArr2[1], (ri0) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.d = baseNativeBrowserContainer;
-            this.c = ei0Var2;
+            this.c = ri0Var2;
         }
 
-        @Override // com.baidu.tieba.r51, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.e61, android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
@@ -245,7 +245,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             }
         }
 
-        @Override // com.baidu.tieba.r51, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.e61, android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
@@ -272,15 +272,15 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             }
         }
 
-        @Override // com.baidu.tieba.r51, android.webkit.WebViewClient
+        @Override // com.baidu.tieba.e61, android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-                String d = n51.d(str);
+                String d = a61.d(str);
                 if (TextUtils.isEmpty(d) || !(d.startsWith("http://") || d.startsWith("https://") || d.startsWith("ftp://") || d.startsWith("sftp://") || d.startsWith("ftps://"))) {
                     this.d.o = true;
-                    if (this.d.j.G(webView, this.d.P(), str) || th0.b(this.d.getActivity(), str, false) || x31.b.a().a(this.d.getActivity(), str, webView.getUrl(), this.c) || vh0.c(str, this.d.getActivity())) {
+                    if (this.d.j.G(webView, this.d.P(), str) || gi0.b(this.d.getActivity(), str, false) || k41.b.a().a(this.d.getActivity(), str, webView.getUrl(), this.c) || ii0.c(str, this.d.getActivity())) {
                         return true;
                     }
                     this.d.s0();
@@ -293,7 +293,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     }
 
     /* loaded from: classes2.dex */
-    public class e extends q51 {
+    public class e extends d61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseNativeBrowserContainer c;
@@ -438,7 +438,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && NetUtil.a(mi0.b())) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && NetUtil.a(zi0.b())) {
                 this.a.k0();
                 this.a.s0();
             }
@@ -446,18 +446,18 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseNativeBrowserContainer(l41 l41Var, m41 m41Var) {
-        super(l41Var);
+    public BaseNativeBrowserContainer(y41 y41Var, z41 z41Var) {
+        super(y41Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l41Var, m41Var};
+            Object[] objArr = {y41Var, z41Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((l41) newInitContext.callArgs[0]);
+                super((y41) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -467,7 +467,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         this.o = false;
         this.p = true;
         this.q = new h(this);
-        this.d = m41Var;
+        this.d = z41Var;
         d0();
     }
 
@@ -475,12 +475,12 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public void A() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l21.a(h(), l().getDecorView().getWindowToken());
+            y21.a(h(), l().getDecorView().getWindowToken());
             if (this.g.canGoBack()) {
                 this.g.goBack();
             } else if (H()) {
             } else {
-                t41.b.a().a(getActivity());
+                g51.b.a().a(getActivity());
             }
         }
     }
@@ -585,19 +585,19 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             if (TextUtils.isEmpty(stringExtra) && !TextUtils.isEmpty(L())) {
                 stringExtra = L();
             }
-            String d2 = n51.d(stringExtra);
-            return (TextUtils.isEmpty(d2) || !n51.g(n51.b(d2))) ? "" : d2;
+            String d2 = a61.d(stringExtra);
+            return (TextUtils.isEmpty(d2) || !a61.g(a61.b(d2))) ? "" : d2;
         }
         return (String) invokeL.objValue;
     }
 
     public final void S(String str, String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) && i21.b(i21.c(i21.e(str, str3, str4)), str4) == 3) {
-            JSONObject c2 = kz0.c(this.k);
-            kz0.f(c2, "url", str);
-            kz0.e(c2, BreakpointSQLiteKey.CONTENT_LENGTH, j);
-            a41.a().b(getActivity(), this.l, c2.toString());
+        if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) && v21.b(v21.c(v21.e(str, str3, str4)), str4) == 3) {
+            JSONObject c2 = xz0.c(this.k);
+            xz0.f(c2, "url", str);
+            xz0.e(c2, BreakpointSQLiteKey.CONTENT_LENGTH, j);
+            n41.a().b(getActivity(), this.l, c2.toString());
         }
     }
 
@@ -632,7 +632,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             BrowserStateView browserStateView = new BrowserStateView(getActivity());
             this.m = browserStateView;
             browserStateView.setErrorViewClickListener(this.q);
-            WebView a2 = o41.a().a(getActivity());
+            WebView a2 = b51.a().a(getActivity());
             this.g = a2;
             frameLayout.addView(a2, new FrameLayout.LayoutParams(-1, -1));
             frameLayout.addView(this.m, new FrameLayout.LayoutParams(-1, -1));
@@ -650,7 +650,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             if (this.b) {
                 b0();
             } else {
-                this.e.findViewById(R.id.obfuscated_res_0x7f09224c).setVisibility(8);
+                this.e.findViewById(R.id.obfuscated_res_0x7f09224e).setVisibility(8);
             }
         }
     }
@@ -691,21 +691,21 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         int[] c2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.e.findViewById(R.id.obfuscated_res_0x7f09224c).setVisibility(0);
-            LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f092251);
-            for (int i : p41.h().b()) {
+            this.e.findViewById(R.id.obfuscated_res_0x7f09224e).setVisibility(0);
+            LinearLayout linearLayout = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f092253);
+            for (int i : c51.h().b()) {
                 ImageView imageView = new ImageView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100137), null, R.style.obfuscated_res_0x7f100137);
                 imageView.setImageResource(i);
                 imageView.setTag(Integer.valueOf(i));
-                p41.h().a(imageView, this);
+                c51.h().a(imageView, this);
                 linearLayout.addView(imageView);
             }
-            LinearLayout linearLayout2 = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f092259);
-            for (int i2 : p41.h().c()) {
+            LinearLayout linearLayout2 = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f09225b);
+            for (int i2 : c51.h().c()) {
                 NadLongPressView nadLongPressView = new NadLongPressView(new ContextThemeWrapper(getActivity(), (int) R.style.obfuscated_res_0x7f100137), null, R.style.obfuscated_res_0x7f100137);
                 nadLongPressView.setImageResource(i2);
                 nadLongPressView.setTag(Integer.valueOf(i2));
-                p41.h().a(nadLongPressView, this);
+                c51.h().a(nadLongPressView, this);
                 nadLongPressView.setHandler(new a(this));
                 linearLayout2.addView(nadLongPressView);
             }
@@ -785,7 +785,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public final void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            this.j = new e51(this);
+            this.j = new r51(this);
         }
     }
 
@@ -817,10 +817,10 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     }
 
     @Override // com.baidu.nadcore.webview.container.base.AbsContainer
-    public z41 g() {
+    public m51 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.j.i() : (z41) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.j.i() : (m51) invokeV.objValue;
     }
 
     @SuppressLint({"SetJavaScriptEnabled"})
@@ -832,7 +832,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             webView.setVerticalScrollBarEnabled(true);
             webView.setHorizontalScrollBarEnabled(false);
             webView.getSettings().setLightTouchEnabled(false);
-            webView.getSettings().setUserAgentString(mi0.e());
+            webView.getSettings().setUserAgentString(zi0.e());
             webView.getSettings().setDefaultTextEncodingName("UTF-8");
             webView.getSettings().setSupportZoom(true);
             webView.getSettings().setJavaScriptEnabled(true);
@@ -864,10 +864,10 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            m41 m41Var = this.d;
-            if (m41Var == null || !m41Var.D0()) {
-                e51 e51Var = this.j;
-                if (e51Var == null || !e51Var.m()) {
+            z41 z41Var = this.d;
+            if (z41Var == null || !z41Var.D0()) {
+                r51 r51Var = this.j;
+                if (r51Var == null || !r51Var.m()) {
                     this.o = true;
                     WebView webView = this.g;
                     if (webView != null) {
@@ -936,7 +936,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
             ((ViewGroup) this.g.getParent()).removeView(this.g);
         }
         WebView webView2 = this.g;
-        if (!g21.b.c()) {
+        if (!t21.b.c()) {
             new Handler().postDelayed(new f(this, webView2), 1500L);
         } else {
             try {
@@ -976,7 +976,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public void n(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048616, this, str) == null) {
-            aj0.b(new g(this, str));
+            nj0.b(new g(this, str));
         }
     }
 
@@ -991,7 +991,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public void o(int i, int i2, Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048618, this, i, i2, intent) == null) {
-            d41.c().g(getActivity(), i, i2, intent);
+            q41.c().g(getActivity(), i, i2, intent);
             super.o(i, i2, intent);
         }
     }
@@ -1016,7 +1016,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048621, this, i, keyEvent)) == null) {
-            if (r41.b.a().a(i) || T(i, keyEvent)) {
+            if (e51.b.a().a(i) || T(i, keyEvent)) {
                 return true;
             }
             if (i == 4) {
@@ -1053,7 +1053,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
             this.j.v();
-            d41.c().d(getActivity());
+            q41.c().d(getActivity());
             super.p();
             x(View.inflate(getActivity(), R.layout.obfuscated_res_0x7f0d05f8, null));
             Y();
@@ -1078,7 +1078,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048626, this) == null) {
             this.j.w();
-            d41.c().f(getActivity());
+            q41.c().f(getActivity());
             l0();
             super.q();
         }
@@ -1097,7 +1097,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         if (interceptable == null || interceptable.invokeV(1048628, this) == null) {
             this.j.z();
             this.g.onPause();
-            l21.a(h(), l().getDecorView().getWindowToken());
+            y21.a(h(), l().getDecorView().getWindowToken());
             super.r();
         }
     }
@@ -1142,11 +1142,11 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     @TargetApi(23)
     public void t0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048632, this) == null) && g21.b.d()) {
+        if ((interceptable == null || interceptable.invokeV(1048632, this) == null) && t21.b.d()) {
             if (getActivity().checkSelfPermission(PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0 && getActivity().checkSelfPermission(PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0) {
                 return;
             }
-            n11.a().a(getActivity(), R.string.obfuscated_res_0x7f0f090b);
+            a21.a().a(getActivity(), R.string.obfuscated_res_0x7f0f090b);
         }
     }
 
@@ -1162,7 +1162,7 @@ public class BaseNativeBrowserContainer extends AbsContainer {
     public void u0(String str) {
         TextView textView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048634, this, str) == null) || (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092417)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048634, this, str) == null) || (textView = (TextView) this.f.findViewById(R.id.obfuscated_res_0x7f092419)) == null) {
             return;
         }
         textView.setText(str);
@@ -1182,8 +1182,8 @@ public class BaseNativeBrowserContainer extends AbsContainer {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048636, this, view2) == null) {
             super.x(view2);
-            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c82);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092659);
+            this.e = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c84);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09265b);
         }
     }
 

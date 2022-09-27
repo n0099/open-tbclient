@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.wifi.ScanResult;
-import java.util.List;
+import androidx.annotation.Nullable;
 /* loaded from: classes5.dex */
 public interface rd3 {
-    void a(List<ScanResult> list);
+    @Nullable
+    qd3 b();
 }

@@ -63,7 +63,7 @@ public class SetBubbleResultData extends OrmObject implements Serializable {
         public String getDynamicUrl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.dynamic_url : (String) invokeV.objValue;
         }
 
         public int getIs_free() {

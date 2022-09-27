@@ -1,24 +1,72 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import tbclient.ZoneRight.DataReq;
+import tbclient.ZoneRight.ZoneRightReqIdl;
 /* loaded from: classes6.dex */
-public interface wq6 extends cr6 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
+public class wq6 implements sb5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public long b;
+    public String c;
+    public int d;
+    public int e;
 
-    void b(@NonNull ThemeElement themeElement);
+    public wq6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(@NonNull FrsFragment frsFragment, @NonNull View view2);
+    @Override // com.baidu.tieba.ub5
+    public Object g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            DataReq.Builder builder = new DataReq.Builder();
+            sh5.c(builder, true, false, true);
+            builder.forum_id = Long.valueOf(dh.g(this.c, 0L));
+            builder.thread_id = Long.valueOf(this.b);
+            builder.req_type = Integer.valueOf(this.d == 1 ? 2 : 1);
+            ZoneRightReqIdl.Builder builder2 = new ZoneRightReqIdl.Builder();
+            builder2.data = builder.build(false);
+            return builder2.build(false);
+        }
+        return invokeZ.objValue;
+    }
 
-    @NonNull
-    ar6 e();
+    @Override // com.baidu.tieba.rb5
+    public HashMap<String, Object> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
 
-    void f(boolean z);
-
-    int l(@NonNull LogicField logicField);
+    @Override // com.baidu.tieba.rb5
+    public HashMap<String, String> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (HashMap) invokeV.objValue;
+    }
 }

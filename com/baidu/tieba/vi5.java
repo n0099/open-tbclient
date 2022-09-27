@@ -1,92 +1,120 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.NewVcodeActivityConfig;
+import com.baidu.tbadk.core.atomData.VcodeActivityConfig;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class vi5 {
     public static /* synthetic */ Interceptable $ic;
+    @Nullable
+    public static PostWriteCallBackData a;
+    @Nullable
+    public static y15 b;
+    @Nullable
+    public static WriteData c;
+    @Nullable
+    public static AntiData d;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<WeakReference<View>> a;
-    public View b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public vi5(View view2) {
-        this(view2, -1);
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((View) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-        }
-    }
-
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (View) invokeV.objValue;
-    }
-
-    public <T extends View> T b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            WeakReference<View> weakReference = this.a.get(i);
-            if (weakReference == null) {
-                T t = (T) this.b.findViewById(i);
-                if (t != null) {
-                    this.a.put(i, new WeakReference<>(t));
-                    return t;
-                }
-                return t;
+            int indexOf = str.indexOf("(");
+            int indexOf2 = str.indexOf(SmallTailInfo.EMOTION_SUFFIX);
+            if (indexOf == -1 || indexOf2 == -1 || (i = indexOf + 1) >= indexOf2) {
+                return null;
             }
-            return (T) weakReference.get();
+            return str.substring(i, indexOf2);
         }
-        return (T) invokeI.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public vi5 c(View.OnClickListener onClickListener) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
-            this.b.setOnClickListener(onClickListener);
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            return str.equals("4") || str.equals("5") || str.equals("6");
         }
-        return (vi5) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public vi5(View view2, int i) {
+    public static boolean c(int i, int i2, @Nullable Intent intent) {
+        InterceptResult invokeIIL;
+        PostWriteCallBackData postWriteCallBackData;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, intent)) == null) {
+            if (i != 12006) {
+                return false;
             }
+            boolean z = i2 == -1 && intent != null;
+            if (a != null && b != null && c != null && d != null && z) {
+                try {
+                    postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    postWriteCallBackData = null;
+                }
+                if (postWriteCallBackData == null) {
+                    return false;
+                }
+                ep8.k().h(true, postWriteCallBackData, b, c, d);
+            } else {
+                ep8.k().h(false, a, null, c, d);
+            }
+            a = null;
+            b = null;
+            c = null;
+            d = null;
+            return true;
         }
-        this.b = view2;
-        this.a = new SparseArray<>();
+        return invokeIIL.booleanValue;
+    }
+
+    public static boolean d(@Nullable PostWriteCallBackData postWriteCallBackData, @Nullable y15 y15Var, @Nullable WriteData writeData, @Nullable AntiData antiData) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, postWriteCallBackData, y15Var, writeData, antiData)) == null) {
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            boolean z = (currentActivity == null || writeData == null || y15Var == null || TextUtils.isEmpty(y15Var.c())) ? false : true;
+            if (z) {
+                a = postWriteCallBackData;
+                b = y15Var;
+                c = writeData;
+                d = antiData;
+                writeData.setVcodeMD5(y15Var.b());
+                writeData.setVcodeUrl(y15Var.c());
+                writeData.setVcodeExtra(y15Var.a());
+                if (b(y15Var.d())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(currentActivity, 12006, writeData, false, y15Var.d())));
+                } else {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(currentActivity, writeData, 12006)));
+                }
+            }
+            return z;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

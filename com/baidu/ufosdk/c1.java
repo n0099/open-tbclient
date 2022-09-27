@@ -236,7 +236,7 @@ public class c1 extends Dialog implements View.OnClickListener, DialogInterface.
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             this.j.setVisibility(8);
-            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091c64)).addView(this.j, layoutParams);
+            ((RelativeLayout) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091c66)).addView(this.j, layoutParams);
             window.setLayout(-1, -2);
             Button button = (Button) inflate.findViewById(com.baidu.tieba.R.id.btn_sumbit_evaluate);
             this.l = button;

@@ -1,85 +1,43 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.pms.callback.DefaultDownloadCallback;
-import com.baidu.searchbox.pms.init.PmsManager;
-import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.tbadk.data.IconStampData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public class x25 {
+public final class x25 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(IconStampData iconStampData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, iconStampData)) == null) {
-            if (iconStampData == null) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248494, "Lcom/baidu/tieba/x25;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            String c = c(iconStampData.stampType);
-            if (TextUtils.isEmpty(c)) {
-                return false;
-            }
-            return !StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) && new File(um.b(c)).exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void b(boolean z) {
-        String c;
-        String c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            if (z) {
-                c = c(1);
-                c2 = c(3);
-            } else {
-                c = c(2);
-                c2 = c(4);
-            }
-            if (TextUtils.isEmpty(c) || TextUtils.isEmpty(c2)) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948248494, "Lcom/baidu/tieba/x25;");
                 return;
             }
-            String str = BdBaseApplication.getInst().getResHashMap().get(c2);
-            if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get(c)) || StringUtils.isNull(str)) {
-                RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(qm.a);
-                requestParams.setRunNode("aps");
-                ArrayList arrayList = new ArrayList();
-                arrayList.add("com.baidu.tieba.resloader." + c);
-                arrayList.add("com.baidu.tieba.resloader." + c2);
-                requestParams.addChannel(new pm(arrayList, (DefaultDownloadCallback) null));
-                PmsManager.getInstance().execute(requestParams);
-            }
         }
+        a = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "#"};
     }
 
-    public static String c(int i) {
-        InterceptResult invokeI;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            return null;
-                        }
-                        return "reply_7_times.mp4";
-                    }
-                    return "post_7_times.mp4";
-                }
-                return "reply_1_times.mp4";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return "post_1_times.mp4";
+            return Arrays.asList(a).contains(str);
         }
-        return (String) invokeI.objValue;
+        return invokeL.booleanValue;
     }
 }

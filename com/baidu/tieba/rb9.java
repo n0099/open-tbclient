@@ -1,51 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public final class rb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<String, Long> a;
-
-    /* loaded from: classes5.dex */
-    public class a extends vb9 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
-
-        public a(rb9 rb9Var, com.baidu.ubs.analytics.a.l lVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rb9Var, lVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lVar;
-        }
-
-        @Override // com.baidu.tieba.vb9
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new bb9().c(this.a);
-            }
-        }
-    }
+    public SQLiteDatabase a;
 
     public rb9() {
         Interceptable interceptable = $ic;
@@ -60,44 +29,59 @@ public final class rb9 {
                 return;
             }
         }
-        this.a = new LinkedHashMap<>();
+        this.a = mb9.a().c();
     }
 
     public final void a(String str) {
-        jb9 jb9Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
-        synchronized (this.a) {
-            Long remove = this.a.remove(str);
-            if (remove == null) {
-                return;
-            }
-            try {
-                lVar.setStartTime(String.valueOf(remove));
-                lVar.t(str);
-                lVar.z(String.valueOf(System.currentTimeMillis()));
-                jb9Var = jb9.a.a;
-                lVar.setPath(jb9Var.b());
-                lVar.x(sb9.e().I());
-            } catch (Exception e) {
-                bc9.a(e.toString());
-                tb9.b(e.toString());
-            }
-            ub9.c(new a(this, lVar));
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a.execSQL("delete from tb_ab_sessionlog where not ( _sessionId = ? )", new String[]{str});
         }
     }
 
-    public final void b(String str) {
+    public final boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Cursor rawQuery = this.a.rawQuery("select * from tb_ab_sessionlog where _sessionId = ? ", new String[]{str});
+            int count = rawQuery.getCount();
+            rawQuery.close();
+            return count > 0;
         }
-        synchronized (this.a) {
-            this.a.put(str, Long.valueOf(System.currentTimeMillis()));
-            String.valueOf(System.currentTimeMillis());
+        return invokeL.booleanValue;
+    }
+
+    public final List<com.baidu.ubs.analytics.a.n> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Cursor rawQuery = this.a.rawQuery("SELECT * FROM  tb_ab_sessionlog", null);
+            ArrayList arrayList = new ArrayList();
+            while (rawQuery.moveToNext()) {
+                com.baidu.ubs.analytics.a.n nVar = new com.baidu.ubs.analytics.a.n();
+                nVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
+                nVar.setStartTime(rawQuery.getString(rawQuery.getColumnIndex("_startTime")));
+                nVar.A(rawQuery.getString(rawQuery.getColumnIndex("_keepTime")));
+                nVar.z(rawQuery.getString(rawQuery.getColumnIndex("_endTime")));
+                arrayList.add(nVar);
+            }
+            rawQuery.close();
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void d(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, nVar) == null) {
+            this.a.execSQL("INSERT INTO tb_ab_sessionlog(_startTime,_keepTime,_endTime,_sessionId) VALUES (?,?,?,?);", new String[]{nVar.N(), nVar.P(), nVar.O(), nVar.I()});
+        }
+    }
+
+    public final void e(com.baidu.ubs.analytics.a.n nVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, nVar) == null) {
+            this.a.execSQL("UPDATE tb_ab_sessionlog SET _keepTime= ? , _endTime = ? WHERE _sessionId= ?", new String[]{nVar.P(), nVar.O(), nVar.I()});
         }
     }
 }

@@ -1,64 +1,77 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import tbclient.RecomVideo.DislikeReason;
-import tbclient.RecomVideo.ThreadPersonalized;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o57 {
+public class o57 extends qn<r57, CardViewHolder<t57>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
 
-    public static void a(List<ThreadPersonalized> list, List<Cdo> list2) {
-        c26 c26Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o57(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), r57.c);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65536, null, list, list2) == null) || list == null || list2 == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        for (ThreadPersonalized threadPersonalized2 : list) {
-            if (threadPersonalized2 != null) {
-                hashMap.put(String.valueOf(threadPersonalized2.tid), threadPersonalized2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        int count = ListUtils.getCount(list2);
-        for (int i = 0; i < count; i++) {
-            Cdo cdo = (Cdo) ListUtils.getItem(list2, i);
-            if ((cdo instanceof c26) && (threadData = (c26Var = (c26) cdo).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.getTid())) != null) {
-                c26Var.J(threadPersonalized.source);
-                c26Var.M(threadPersonalized.weight);
-                c26Var.F(threadPersonalized.abtest_tag);
-                threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                threadData.mRecomSource = threadPersonalized.source;
-                threadData.mRecomWeight = threadPersonalized.weight;
-                if (threadData.getThreadVideoInfo() != null) {
-                    c26Var.H(threadData.getThreadVideoInfo().is_vertical);
-                }
-                List<DislikeReason> list3 = threadPersonalized.dislike_resource;
-                if (list3 != null) {
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    for (DislikeReason dislikeReason : list3) {
-                        int intValue = dislikeReason.dislike_id.intValue();
-                        sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                    }
-                    c26Var.feedBackReasonMap = sparseArray;
-                    c26Var.G(threadPersonalized.extra);
-                }
-            }
-        }
+        this.a = tbPageContext;
     }
 
-    public static void b(List<ThreadPersonalized> list, List<Cdo> list2) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public CardViewHolder<t57> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
-            a(list, list2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            t57 t57Var = new t57(this.a);
+            t57Var.o(this.mPageId);
+            CardViewHolder<t57> cardViewHolder = new CardViewHolder<>(t57Var);
+            int f = ej.f(this.a.getPageActivity(), R.dimen.tbds44);
+            cardViewHolder.getView().setPadding(f, 0, f, 0);
+            return cardViewHolder;
         }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, r57 r57Var, CardViewHolder<t57> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r57Var, cardViewHolder})) == null) {
+            if (r57Var == null || cardViewHolder == null || cardViewHolder.a() == null) {
+                return null;
+            }
+            cardViewHolder.a().i(r57Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

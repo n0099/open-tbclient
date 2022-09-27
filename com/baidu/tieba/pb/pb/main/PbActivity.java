@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.util.PriorityOrganizer;
 import com.baidu.tieba.R;
+import com.baidu.tieba.az7;
 import com.baidu.tieba.go;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.mv4;
-import com.baidu.tieba.my7;
-import com.baidu.tieba.zy7;
+import com.baidu.tieba.nz7;
+import com.baidu.tieba.wv4;
+import com.baidu.tieba.zv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -143,9 +143,9 @@ public class PbActivity extends AbsPbActivity {
         bdTypeRecyclerView.w = true;
     }
 
-    public void B1(int i, zy7 zy7Var) {
+    public void B1(int i, nz7 nz7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, zy7Var) == null) || this.v || j1() == null) {
+        if (!(interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, nz7Var) == null) || this.v || j1() == null) {
             return;
         }
         int i2 = 1;
@@ -158,7 +158,7 @@ public class PbActivity extends AbsPbActivity {
         if (i2 != 3) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DATABACK_STAMP_KEY);
         }
-        zy7Var.m2(new b(this, i, i2));
+        nz7Var.m2(new b(this, i, i2));
     }
 
     @NonNull
@@ -202,7 +202,7 @@ public class PbActivity extends AbsPbActivity {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_START_STAMP_KEY);
             super.onCreate(bundle);
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_ONCREATE_END_STAMP_KEY);
-            registerListener(new my7(this));
+            registerListener(new az7(this));
         }
     }
 
@@ -236,15 +236,15 @@ public class PbActivity extends AbsPbActivity {
         if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             if (i2 != 3) {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_LANDING_ACTIVITY_DRAW_DISPATCH_STAMP_KEY);
-                int i3 = mv4.a().c == 1 ? 8 : -1;
-                if (mv4.a().c == 2) {
+                int i3 = zv4.a().c == 1 ? 8 : -1;
+                if (zv4.a().c == 2) {
                     i3 = 9;
                 }
-                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, mv4.a().d);
+                SpeedStats.getInstance().onSchemeOrPushStatsEnd(this, i3, zv4.a().d);
             }
             long currentTimeMillis = System.currentTimeMillis() - f1();
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_PB_OPTIMIZE_LOAD_DURATION);
-            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, jv4.e());
+            statisticItem.addParam("obj_type", i2).addParam("obj_locate", i).addParam("obj_param1", currentTimeMillis).addParam(TiebaStatic.Params.OBJ_PARAM2, wv4.e());
             TiebaStatic.log(statisticItem);
         }
     }

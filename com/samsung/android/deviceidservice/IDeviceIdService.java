@@ -4,20 +4,24 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
+import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public interface IDeviceIdService extends IInterface {
 
+    @Keep
     /* loaded from: classes8.dex */
     public static class Default implements IDeviceIdService {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Keep
         public Default() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -33,6 +37,7 @@ public interface IDeviceIdService extends IInterface {
         }
 
         @Override // android.os.IInterface
+        @Keep
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -43,6 +48,7 @@ public interface IDeviceIdService extends IInterface {
         }
 
         @Override // com.samsung.android.deviceidservice.IDeviceIdService
+        @Keep
         public String getAAID(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -53,6 +59,7 @@ public interface IDeviceIdService extends IInterface {
         }
 
         @Override // com.samsung.android.deviceidservice.IDeviceIdService
+        @Keep
         public String getOAID() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -63,6 +70,7 @@ public interface IDeviceIdService extends IInterface {
         }
 
         @Override // com.samsung.android.deviceidservice.IDeviceIdService
+        @Keep
         public String getVAID(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -73,22 +81,31 @@ public interface IDeviceIdService extends IInterface {
         }
     }
 
+    @Keep
     /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements IDeviceIdService {
         public static /* synthetic */ Interceptable $ic = null;
+        @Keep
         public static final String DESCRIPTOR = "com.samsung.android.deviceidservice.IDeviceIdService";
+        @Keep
         public static final int TRANSACTION_getAAID = 3;
+        @Keep
         public static final int TRANSACTION_getOAID = 1;
+        @Keep
         public static final int TRANSACTION_getVAID = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Keep
         /* loaded from: classes8.dex */
         public static class Proxy implements IDeviceIdService {
             public static /* synthetic */ Interceptable $ic;
+            @Keep
             public static IDeviceIdService sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
+            @Keep
             public IBinder mRemote;
 
+            @Keep
             public Proxy(IBinder iBinder) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -108,6 +125,7 @@ public interface IDeviceIdService extends IInterface {
             }
 
             @Override // android.os.IInterface
+            @Keep
             public IBinder asBinder() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -115,6 +133,7 @@ public interface IDeviceIdService extends IInterface {
             }
 
             @Override // com.samsung.android.deviceidservice.IDeviceIdService
+            @Keep
             public String getAAID(String str) {
                 InterceptResult invokeL;
                 String readString;
@@ -140,6 +159,7 @@ public interface IDeviceIdService extends IInterface {
                 return (String) invokeL.objValue;
             }
 
+            @Keep
             public String getInterfaceDescriptor() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
@@ -147,6 +167,7 @@ public interface IDeviceIdService extends IInterface {
             }
 
             @Override // com.samsung.android.deviceidservice.IDeviceIdService
+            @Keep
             public String getOAID() {
                 InterceptResult invokeV;
                 String readString;
@@ -172,6 +193,7 @@ public interface IDeviceIdService extends IInterface {
             }
 
             @Override // com.samsung.android.deviceidservice.IDeviceIdService
+            @Keep
             public String getVAID(String str) {
                 InterceptResult invokeL;
                 String readString;
@@ -198,6 +220,7 @@ public interface IDeviceIdService extends IInterface {
             }
         }
 
+        @Keep
         public Stub() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -214,6 +237,7 @@ public interface IDeviceIdService extends IInterface {
             attachInterface(this, DESCRIPTOR);
         }
 
+        @Keep
         public static IDeviceIdService asInterface(IBinder iBinder) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -227,12 +251,14 @@ public interface IDeviceIdService extends IInterface {
             return (IDeviceIdService) invokeL.objValue;
         }
 
+        @Keep
         public static IDeviceIdService getDefaultImpl() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (IDeviceIdService) invokeV.objValue;
         }
 
+        @Keep
         public static boolean setDefaultImpl(IDeviceIdService iDeviceIdService) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -250,6 +276,7 @@ public interface IDeviceIdService extends IInterface {
         }
 
         @Override // android.os.IInterface
+        @Keep
         public IBinder asBinder() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -257,6 +284,7 @@ public interface IDeviceIdService extends IInterface {
         }
 
         @Override // android.os.Binder
+        @Keep
         public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
             InterceptResult invokeCommon;
             String oaid;
@@ -286,9 +314,12 @@ public interface IDeviceIdService extends IInterface {
         }
     }
 
+    @Keep
     String getAAID(String str);
 
+    @Keep
     String getOAID();
 
+    @Keep
     String getVAID(String str);
 }

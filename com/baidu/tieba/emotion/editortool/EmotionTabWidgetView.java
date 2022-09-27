@@ -12,8 +12,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m55;
-import com.baidu.tieba.u45;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.z55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -57,7 +57,7 @@ public class EmotionTabWidgetView extends LinearLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.c == null) {
                 return;
             }
-            this.a.c.A(new u45(3, -1, null));
+            this.a.c.A(new h55(3, -1, null));
         }
     }
 
@@ -88,10 +88,10 @@ public class EmotionTabWidgetView extends LinearLayout {
         c(context);
     }
 
-    public void b(m55 m55Var) {
+    public void b(z55 z55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m55Var) == null) {
-            this.a.k(m55Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, z55Var) == null) {
+            this.a.k(z55Var);
         }
     }
 
@@ -131,7 +131,7 @@ public class EmotionTabWidgetView extends LinearLayout {
         }
     }
 
-    public void setDatas(ArrayList<m55> arrayList) {
+    public void setDatas(ArrayList<z55> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
             this.a.setDatas(arrayList);

@@ -1,8 +1,8 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.bx4;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public class NewWritePageSwitch extends BaseNormalSwitch {
                 return switchOn;
             }
             isSwitchLoaded = true;
-            int l = bx4.k().l("key_new_write_page", 0);
+            int l = ox4.k().l("key_new_write_page", 1);
             type = l;
             boolean z = l == 1;
             switchOn = z;

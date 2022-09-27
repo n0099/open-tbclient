@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.fh5;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class UserMuteCheckRequestMessage extends NetMessage {
             builder.user_id_f = Long.valueOf(this.userIdF);
             builder.user_id_t = Long.valueOf(this.userIdT);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                fh5.a(builder, true);
+                sh5.a(builder, true);
             }
             UserMuteCheckReqIdl.Builder builder2 = new UserMuteCheckReqIdl.Builder();
             builder2.data = builder.build(false);

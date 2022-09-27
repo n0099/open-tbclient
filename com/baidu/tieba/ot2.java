@@ -1,40 +1,51 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ot2 extends pt2 {
+public class ot2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ot2(boolean z) {
-        super(4);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043708, "Lcom/baidu/tieba/ot2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948043708, "Lcom/baidu/tieba/ot2;");
                 return;
             }
         }
-        this.e = z;
+        a = vj1.a;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public static String a(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : invokeV.booleanValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                if (a) {
+                    Log.e("AppInfoExt", "appInfo can not be null, please check");
+                    return "";
+                }
+                return "";
+            }
+            String str = pMSAppInfo.serverExt;
+            if (a) {
+                Log.d("AppInfoExt", "appId - " + pMSAppInfo.appId + ",get app info' ext - " + str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

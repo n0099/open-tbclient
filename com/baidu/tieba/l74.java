@@ -1,72 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class l74 extends k74<kp2> {
+public class l74 extends k74 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String errCode;
+    @V8JavascriptField
+    public String errMsg;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947895776, "Lcom/baidu/tieba/l74;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947895776, "Lcom/baidu/tieba/l74;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
-    }
-
-    public l74() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l74(String str, String str2, String str3) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static l74 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new l74() : (l74) invokeV.objValue;
+        this.errCode = str2;
+        this.errMsg = str3;
     }
 
     @Override // com.baidu.tieba.k74
-    public boolean b(Context context, kp2 kp2Var, hp2 hp2Var, y23 y23Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, kp2Var, hp2Var, y23Var, jSONObject)) == null) ? d(context, kp2Var, hp2Var, y23Var) : invokeLLLLL.booleanValue;
-    }
-
-    public final boolean d(Context context, kp2 kp2Var, hp2 hp2Var, y23 y23Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, kp2Var, hp2Var, y23Var)) == null) {
-            yz1.i("map", "MapCreateAction start");
-            boolean a = h74.b().a(context, kp2Var);
-            yz1.i("map", "MapCreateAction end");
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "GameWebViewErrorResult{url=" + this.url + ", errMsg='" + this.errMsg + "'}";
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

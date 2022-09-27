@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class lr8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wp8 a;
+    public MainTabActivity a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public lr8(MainTabActivity mainTabActivity) {
-        super(2921725);
+        super(2921654);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,23 +31,21 @@ public class lr8 extends CustomMessageListener {
                 return;
             }
         }
-        this.a = mainTabActivity.e;
+        this.a = mainTabActivity;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        wp8 wp8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (wp8Var = this.a) == null || wp8Var.g() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null) {
             return;
         }
-        if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            Runnable runnable = this.a.g().c;
-            gh.a().removeCallbacks(runnable);
-            gh.a().post(runnable);
+        m65 m65Var = customResponsedMessage.getData() instanceof m65 ? (m65) customResponsedMessage.getData() : null;
+        if (m65Var == null || m65Var.b() != 0) {
             return;
         }
-        gh.a().removeCallbacks(this.a.g().c);
+        MainTabActivity mainTabActivity = this.a;
+        new l65(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f092015), m65Var).m();
     }
 }

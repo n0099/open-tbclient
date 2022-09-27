@@ -1,15 +1,15 @@
 package com.baidu.tieba;
-
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes3.dex */
 public interface ar3 {
-    void a(DownloadInfo downloadInfo);
+    void a(boolean z, String str);
 
-    void b();
+    void b(boolean z);
 
-    DownloadInfo c(String str);
+    void c(int i, int i2);
 
-    void close();
+    void onClick();
 
-    void delete(DownloadInfo downloadInfo);
+    void onClose();
+
+    void onError(String str);
 }

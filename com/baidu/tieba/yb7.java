@@ -3,49 +3,57 @@ package com.baidu.tieba;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.im.message.RequestSearchGroupsLocalMessage;
-import com.baidu.tieba.im.message.ResponseSearchGroupLocalMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.SaveDraftMessage;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yb7 implements CustomMessageTask.CustomRunnable<Object> {
+public abstract class yb7 implements CustomMessageTask.CustomRunnable<SaveDraftMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public jb7 a;
+    public int b;
 
-    public yb7() {
+    public yb7(jb7 jb7Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jb7Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = jb7Var;
+        this.b = i;
     }
 
     @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public CustomResponsedMessage<?> run(CustomMessage<SaveDraftMessage.a> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof RequestSearchGroupsLocalMessage)) {
+            CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(this.b);
+            if (customMessage == null || !(customMessage instanceof SaveDraftMessage)) {
                 return null;
             }
-            long groupId = ((RequestSearchGroupsLocalMessage) customMessage).getGroupId();
-            ResponseSearchGroupLocalMessage responseSearchGroupLocalMessage = new ResponseSearchGroupLocalMessage(2001207);
-            responseSearchGroupLocalMessage.setOrginalMessage(customMessage);
-            responseSearchGroupLocalMessage.setError(0);
-            String str = groupId + "";
-            zt4.f();
-            jf<String> g = zt4.g("tb.im_group_search_history");
-            g.g(str, g.get(str));
-            return responseSearchGroupLocalMessage;
+            SaveDraftMessage.a data = customMessage.getData();
+            ChatSetting a = this.a.a(TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "", data.b);
+            if (a == null) {
+                return null;
+            }
+            a.setDraft(data.a);
+            this.a.h(a);
+            return customResponsedMessage;
         }
         return (CustomResponsedMessage) invokeL.objValue;
     }

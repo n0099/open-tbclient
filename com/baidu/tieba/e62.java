@@ -1,146 +1,69 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class e62 {
+public class e62 extends or1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:45:0x009e, code lost:
-        if (r10.equals("1") != false) goto L13;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static int a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e62(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            char c = 0;
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            int hashCode = str.hashCode();
-            switch (hashCode) {
-                case 49:
-                    break;
-                case 50:
-                    if (str.equals("2")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 51:
-                    if (str.equals("3")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 52:
-                    if (str.equals("4")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 53:
-                    if (str.equals("5")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 54:
-                    if (str.equals("6")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 55:
-                    if (str.equals("7")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 56:
-                    if (str.equals("8")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 57:
-                    if (str.equals("9")) {
-                        c = '\b';
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    switch (hashCode) {
-                        case 1567:
-                            if (str.equals("10")) {
-                                c = '\t';
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        case 1568:
-                            if (str.equals("11")) {
-                                c = '\n';
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        case 1569:
-                            if (str.equals("12")) {
-                                c = 11;
-                                break;
-                            }
-                            c = 65535;
-                            break;
-                        default:
-                            c = 65535;
-                            break;
-                    }
-            }
-            switch (c) {
-                case 0:
-                    return 6;
-                case 1:
-                    return 5;
-                case 2:
-                    return 8;
-                case 3:
-                    return 9;
-                case 4:
-                    return 10;
-                case 5:
-                    return 11;
-                case 6:
-                    return 12;
-                case 7:
-                    return 13;
-                case '\b':
-                    return 14;
-                case '\t':
-                    return 15;
-                case '\n':
-                    return 11;
-                case 11:
-                    return 12;
-                default:
-                    return 7;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mr1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((mr1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.or1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Preload" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.or1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "PreloadStatusApi" : (String) invokeV.objValue;
+    }
+
+    public lv1 x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#preloadStatus", false);
+            if (l33.b0() == null) {
+                return new lv1(1001, "SwanApp is null");
+            }
+            Pair<lv1, JSONObject> s = s(str);
+            lv1 lv1Var = (lv1) s.first;
+            if (lv1Var.isSuccess()) {
+                b62.c().j((JSONObject) s.second);
+                return lv1.f();
+            }
+            return lv1Var;
+        }
+        return (lv1) invokeL.objValue;
     }
 }

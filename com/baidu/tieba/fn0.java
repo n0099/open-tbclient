@@ -1,41 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface fn0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "loadVideo");
-    public static final fn0 b = new a();
+public class fn0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public te1<dn0> a;
 
-    /* loaded from: classes4.dex */
-    public static class a implements fn0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public fn0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.fn0
-        public void a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-            }
-        }
+        a();
     }
 
-    void a(String str, int i);
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            re1 b = re1.b();
+            this.a = b;
+            b.a(new en0());
+        }
+    }
 }

@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tieba.h85;
 import com.baidu.tieba.on;
-import com.baidu.tieba.u75;
 import com.baidu.tieba.yg;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -104,7 +104,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     if (StringUtils.isNull(str2)) {
                         return alaPushAlertResIdl;
                     }
-                    u75 k = u75.k();
+                    h85 k = h85.k();
                     on m = k.m(optString4 + 10);
                     if (m != null && m.p() != null) {
                         NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, m.p(), false);

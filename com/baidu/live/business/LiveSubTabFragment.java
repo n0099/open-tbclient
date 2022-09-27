@@ -43,21 +43,21 @@ import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.searchbox.live.interfaces.service.FloatingService;
 import com.baidu.searchbox.live.interfaces.service.LiveBdTlsScrollService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g90;
+import com.baidu.tieba.ba0;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.fa0;
+import com.baidu.tieba.fc0;
 import com.baidu.tieba.gb0;
-import com.baidu.tieba.h90;
-import com.baidu.tieba.hc0;
-import com.baidu.tieba.i90;
-import com.baidu.tieba.j90;
-import com.baidu.tieba.o90;
-import com.baidu.tieba.q90;
-import com.baidu.tieba.s90;
-import com.baidu.tieba.sb0;
-import com.baidu.tieba.ta0;
-import com.baidu.tieba.ua0;
-import com.baidu.tieba.vb0;
-import com.baidu.tieba.wa0;
-import com.baidu.tieba.y90;
+import com.baidu.tieba.hb0;
+import com.baidu.tieba.ic0;
+import com.baidu.tieba.jb0;
+import com.baidu.tieba.la0;
+import com.baidu.tieba.t90;
+import com.baidu.tieba.tb0;
+import com.baidu.tieba.u90;
+import com.baidu.tieba.uc0;
+import com.baidu.tieba.v90;
+import com.baidu.tieba.w90;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -103,8 +103,8 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public LiveFeedInterstModel.OnInterestDataLoadCallback X;
     public int Y;
     public int Z;
-    public ta0 a0;
-    public ta0 b0;
+    public gb0 a0;
+    public gb0 b0;
     public boolean c0;
     public Handler d0;
     public ArrayList e0;
@@ -113,7 +113,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public View t;
     public RecyclerView u;
     public View v;
-    public o90 w;
+    public ba0 w;
     public BdSwipeRefreshLayout x;
     public LoadingView y;
     public ErrorView z;
@@ -372,7 +372,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     }
 
     /* loaded from: classes2.dex */
-    public class g extends wa0 {
+    public class g extends jb0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveRoomEntity a;
@@ -465,7 +465,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     }
 
     /* loaded from: classes2.dex */
-    public class h extends wa0 {
+    public class h extends jb0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveRoomEntity a;
@@ -558,7 +558,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     }
 
     /* loaded from: classes2.dex */
-    public class i implements y90 {
+    public class i implements la0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LiveSubTabFragment a;
@@ -581,7 +581,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             this.a = liveSubTabFragment;
         }
 
-        @Override // com.baidu.tieba.y90
+        @Override // com.baidu.tieba.la0
         public void a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
@@ -852,14 +852,14 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.r == null) {
             return;
         }
-        this.r.onItemPlayerEnd(1, this.m, this.o, this.Y, (LiveRoomEntity) sb0.b(this.C, this.Y));
+        this.r.onItemPlayerEnd(1, this.m, this.o, this.Y, (LiveRoomEntity) fc0.b(this.C, this.Y));
     }
 
     public final void B3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.r != null) {
-                this.r.onItemPlayerStart(1, this.m, this.o, this.Y, (LiveRoomEntity) sb0.b(this.C, this.Y));
+                this.r.onItemPlayerStart(1, this.m, this.o, this.Y, (LiveRoomEntity) fc0.b(this.C, this.Y));
             }
             int i2 = this.Y;
             if (i2 < 0 || i2 >= this.C.size()) {
@@ -874,14 +874,14 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.r == null) {
             return;
         }
-        this.r.onItemPlayerEnd(2, this.m, this.o, this.Y, (LiveRoomEntity) sb0.b(this.C, this.Y));
+        this.r.onItemPlayerEnd(2, this.m, this.o, this.Y, (LiveRoomEntity) fc0.b(this.C, this.Y));
     }
 
     public final void D3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.r != null) {
-                this.r.onItemPlayerStart(2, this.m, this.o, this.Y, (LiveRoomEntity) sb0.b(this.C, this.Y));
+                this.r.onItemPlayerStart(2, this.m, this.o, this.Y, (LiveRoomEntity) fc0.b(this.C, this.Y));
             }
             int i2 = this.Z;
             if (i2 < 0 || i2 >= this.C.size()) {
@@ -893,7 +893,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
 
     public void E3(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || vb0.a(str) || vb0.a(str2) || !str.equals(this.m)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) || ic0.a(str) || ic0.a(str2) || !str.equals(this.m)) {
             return;
         }
         this.o = str2;
@@ -918,9 +918,9 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             return;
         }
         LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091359);
-        LiveRoomEntity liveRoomEntity = (LiveRoomEntity) sb0.b(this.C, this.Y);
+        LiveRoomEntity liveRoomEntity = (LiveRoomEntity) fc0.b(this.C, this.Y);
         if (this.a0 == null) {
-            ta0 a2 = ua0.a(String.valueOf(this.J));
+            gb0 a2 = hb0.a(String.valueOf(this.J));
             this.a0 = a2;
             a2.setVideoScalingMode(0);
             this.a0.mute(true);
@@ -965,9 +965,9 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             return;
         }
         LiveFeedPageRoundRect liveFeedPageRoundRect = (LiveFeedPageRoundRect) findViewByPosition.findViewById(R.id.obfuscated_res_0x7f091359);
-        LiveRoomEntity liveRoomEntity = (LiveRoomEntity) sb0.b(this.C, this.Z);
+        LiveRoomEntity liveRoomEntity = (LiveRoomEntity) fc0.b(this.C, this.Z);
         if (this.b0 == null) {
-            ta0 a2 = ua0.a(String.valueOf(this.J));
+            gb0 a2 = hb0.a(String.valueOf(this.J));
             this.b0 = a2;
             a2.setVideoScalingMode(0);
             this.b0.mute(true);
@@ -1018,22 +1018,22 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             FloatingService floatingService = (FloatingService) ServiceManager.getService(FloatingService.Companion.getSERVICE_REFERENCE());
-            if ((floatingService == null || !floatingService.isFloatViewShowing()) && q90.h(getContext())) {
+            if ((floatingService == null || !floatingService.isFloatViewShowing()) && da0.h(getContext())) {
                 N2();
                 O2();
             }
         }
     }
 
-    public final void R2(int i2, int i3, LiveRoomEntity liveRoomEntity, ta0 ta0Var) {
+    public final void R2(int i2, int i3, LiveRoomEntity liveRoomEntity, gb0 gb0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), liveRoomEntity, ta0Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i2), Integer.valueOf(i3), liveRoomEntity, gb0Var}) == null) {
             if (liveRoomEntity == null || !liveRoomEntity.isYYShow()) {
-                ta0Var.setVideoScalingMode(0);
+                gb0Var.setVideoScalingMode(0);
             } else if (i2 > i3) {
-                ta0Var.setVideoScalingMode(2);
+                gb0Var.setVideoScalingMode(2);
             } else {
-                ta0Var.setVideoScalingMode(0);
+                gb0Var.setVideoScalingMode(0);
             }
         }
     }
@@ -1117,7 +1117,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048593, this, i2, i3, staggeredGridLayoutManager)) == null) {
             while (i2 <= i3) {
-                LiveRoomEntity liveRoomEntity = (LiveRoomEntity) sb0.b(this.C, i2);
+                LiveRoomEntity liveRoomEntity = (LiveRoomEntity) fc0.b(this.C, i2);
                 if (liveRoomEntity != null && liveRoomEntity.canAutoPlay() && !liveRoomEntity.isTopicRoom()) {
                     return i2;
                 }
@@ -1134,7 +1134,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048594, this, i2, i3, staggeredGridLayoutManager)) == null) {
             for (int i4 = i2; i4 <= i3; i4++) {
-                LiveRoomEntity liveRoomEntity = (LiveRoomEntity) sb0.b(this.C, i4);
+                LiveRoomEntity liveRoomEntity = (LiveRoomEntity) fc0.b(this.C, i4);
                 if (liveRoomEntity != null && liveRoomEntity.canAutoPlay() && !liveRoomEntity.isTopicRoom() && (childAt = staggeredGridLayoutManager.getChildAt(i4 - i2)) != null) {
                     childAt.getLocationOnScreen(new int[2]);
                     Rect rect = new Rect();
@@ -1167,12 +1167,12 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                     t3();
                     this.M = 0L;
                 }
-                if (sb0.c(liveFeedWrapData.roomInfoList)) {
+                if (fc0.c(liveFeedWrapData.roomInfoList)) {
                     return 0;
                 }
                 ArrayList arrayList = new ArrayList();
                 for (LiveRoomEntity liveRoomEntity : liveFeedWrapData.roomInfoList) {
-                    if (liveRoomEntity != null && !vb0.a(liveRoomEntity.roomId) && this.D.add(liveRoomEntity.roomId)) {
+                    if (liveRoomEntity != null && !ic0.a(liveRoomEntity.roomId) && this.D.add(liveRoomEntity.roomId)) {
                         arrayList.add(liveRoomEntity);
                     }
                 }
@@ -1201,10 +1201,10 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public final void c3(LiveFeedData liveFeedData) {
         LiveFeedWrapData liveFeedWrapData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048597, this, liveFeedData) == null) || liveFeedData == null || (liveFeedWrapData = liveFeedData.feedWrapData) == null || this.P == -1 || sb0.c(liveFeedWrapData.roomInfoList)) {
+        if (!(interceptable == null || interceptable.invokeL(1048597, this, liveFeedData) == null) || liveFeedData == null || (liveFeedWrapData = liveFeedData.feedWrapData) == null || this.P == -1 || fc0.c(liveFeedWrapData.roomInfoList)) {
             return;
         }
-        LiveFeedPageSdk.liveLog("yjl_feed_tag", "===>>  handleInterestData ListUtils.isEmpty(feedData.feedWrapData.roomInfoList): " + sb0.c(liveFeedData.feedWrapData.roomInfoList));
+        LiveFeedPageSdk.liveLog("yjl_feed_tag", "===>>  handleInterestData ListUtils.isEmpty(feedData.feedWrapData.roomInfoList): " + fc0.c(liveFeedData.feedWrapData.roomInfoList));
         for (LiveRoomEntity liveRoomEntity : liveFeedData.feedWrapData.roomInfoList) {
             liveRoomEntity.hasInterest = true;
         }
@@ -1233,37 +1233,37 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public final void e3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.t.findViewById(R.id.obfuscated_res_0x7f091f94);
+            BdSwipeRefreshLayout bdSwipeRefreshLayout = (BdSwipeRefreshLayout) this.t.findViewById(R.id.obfuscated_res_0x7f091f96);
             this.x = bdSwipeRefreshLayout;
             bdSwipeRefreshLayout.setOnRefreshListener(this.V);
-            RecyclerView recyclerView = (RecyclerView) this.t.findViewById(R.id.obfuscated_res_0x7f091f93);
+            RecyclerView recyclerView = (RecyclerView) this.t.findViewById(R.id.obfuscated_res_0x7f091f95);
             this.u = recyclerView;
             recyclerView.setLayoutManager(new FixedStaggeredGridLayoutManager(2, 1));
             this.u.setItemAnimator(null);
-            int b2 = q90.b(getContext(), 7.0f);
+            int b2 = da0.b(getContext(), 7.0f);
             if (LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
-                b2 = q90.b(getContext(), 8.0f);
+                b2 = da0.b(getContext(), 8.0f);
             }
             this.u.addItemDecoration(new LiveItemDecoration(b2));
             this.u.setOverScrollMode(2);
             this.u.addOnScrollListener(this.W);
-            o90 o90Var = new o90(getContext());
-            this.w = o90Var;
-            this.x.setProgressView(o90Var);
+            ba0 ba0Var = new ba0(getContext());
+            this.w = ba0Var;
+            this.x.setProgressView(ba0Var);
             this.w.y(this.e);
-            LoadingView loadingView = (LoadingView) this.t.findViewById(R.id.obfuscated_res_0x7f091f92);
+            LoadingView loadingView = (LoadingView) this.t.findViewById(R.id.obfuscated_res_0x7f091f94);
             this.y = loadingView;
             loadingView.c(this.e);
-            ErrorView errorView = (ErrorView) this.t.findViewById(R.id.obfuscated_res_0x7f091f91);
+            ErrorView errorView = (ErrorView) this.t.findViewById(R.id.obfuscated_res_0x7f091f93);
             this.z = errorView;
             errorView.c(this.e);
-            EmptyView emptyView = (EmptyView) this.t.findViewById(R.id.obfuscated_res_0x7f091f90);
+            EmptyView emptyView = (EmptyView) this.t.findViewById(R.id.obfuscated_res_0x7f091f92);
             this.A = emptyView;
             emptyView.a(this.e);
             this.z.setActionCallback(new i(this));
             this.v = this.t.findViewById(R.id.obfuscated_res_0x7f091368);
             if (LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
-                int b3 = q90.b(getContext(), 9.0f);
+                int b3 = da0.b(getContext(), 9.0f);
                 this.u.setPadding(b3, 0, b3, 0);
                 this.v.setVisibility(8);
                 this.x.setEnabled(false);
@@ -1292,9 +1292,9 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public void i3(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048602, this, str) == null) && this.G) {
-            this.t.setBackgroundColor(hc0.f().a(getContext(), this.e, "color_F5F5F51"));
+            this.t.setBackgroundColor(uc0.f().a(getContext(), this.e, "color_F5F5F51"));
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColors(new int[]{hc0.f().a(getContext(), this.e, "color_white1"), hc0.f().a(getContext(), this.e, "color_F5F5F51")});
+            gradientDrawable.setColors(new int[]{uc0.f().a(getContext(), this.e, "color_white1"), uc0.f().a(getContext(), this.e, "color_F5F5F51")});
             gradientDrawable.setGradientType(0);
             gradientDrawable.setOrientation(GradientDrawable.Orientation.TOP_BOTTOM);
             this.v.setBackgroundDrawable(gradientDrawable);
@@ -1302,9 +1302,9 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             if (liveSubTabAdapter != null) {
                 liveSubTabAdapter.notifyDataSetChanged();
             }
-            o90 o90Var = this.w;
-            if (o90Var != null) {
-                o90Var.y(this.e);
+            ba0 ba0Var = this.w;
+            if (ba0Var != null) {
+                ba0Var.y(this.e);
             }
             ErrorView errorView = this.z;
             if (errorView != null) {
@@ -1363,29 +1363,29 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                     onRefreshListener.onPullRefreshEnd();
                 }
             }
-            if (liveFeedData != null && !vb0.a(liveFeedData.resource)) {
+            if (liveFeedData != null && !ic0.a(liveFeedData.resource)) {
                 LiveFeedConfig liveFeedConfig = liveFeedData.feedConfig;
                 if (liveFeedConfig != null) {
                     this.Q = liveFeedConfig.minorUfoUrl;
                 }
                 if (liveFeedData.isMinor) {
-                    j90 j90Var = new j90();
-                    j90Var.b = liveFeedData.isMinor;
-                    j90Var.c = this.Q;
-                    j90Var.b(this.J);
-                    gb0.a().b(j90Var);
+                    w90 w90Var = new w90();
+                    w90Var.b = liveFeedData.isMinor;
+                    w90Var.c = this.Q;
+                    w90Var.b(this.J);
+                    tb0.a().b(w90Var);
                 }
                 if (liveFeedData.resource.contains(SpeedStatsUtils.UBC_VALUE_BANNER) && liveFeedData.bannerWrapData != null) {
-                    g90 g90Var = new g90();
-                    g90Var.b = liveFeedData.bannerWrapData;
-                    g90Var.b(this.J);
-                    gb0.a().b(g90Var);
+                    t90 t90Var = new t90();
+                    t90Var.b = liveFeedData.bannerWrapData;
+                    t90Var.b(this.J);
+                    tb0.a().b(t90Var);
                 }
                 if (liveFeedData.resource.contains("follow") && liveFeedData.followWrapData != null) {
-                    i90 i90Var = new i90();
-                    i90Var.b = liveFeedData.followWrapData;
-                    i90Var.b(this.J);
-                    gb0.a().b(i90Var);
+                    v90 v90Var = new v90();
+                    v90Var.b = liveFeedData.followWrapData;
+                    v90Var.b(this.J);
+                    tb0.a().b(v90Var);
                 }
                 LiveFeedWrapData liveFeedWrapData2 = liveFeedData.feedWrapData;
                 if (liveFeedWrapData2 != null) {
@@ -1393,7 +1393,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                         this.q = "";
                         this.l = liveFeedData.feedWrapData.sessionId;
                         T2(liveFeedData.feedWrapData, b3(liveFeedData.feedWrapData, liveFeedData.resource.contains("reserve") ? liveFeedData.reserveWrapData : null));
-                        z = !sb0.c(liveFeedData.feedWrapData.roomInfoList);
+                        z = !fc0.c(liveFeedData.feedWrapData.roomInfoList);
                     } else {
                         z = false;
                     }
@@ -1401,14 +1401,14 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                     this.H = liveFeedWrapData3.hasMore;
                     this.k = liveFeedWrapData3.refreshIndex;
                     if (liveFeedWrapData3.isBigRefresh()) {
-                        gb0.a().b(new h90(this.J));
+                        tb0.a().b(new u90(this.J));
                     }
                 } else {
                     this.H = false;
                     z = false;
                 }
                 u3();
-                if (sb0.c(this.C) && !z) {
+                if (fc0.c(this.C) && !z) {
                     EmptyView emptyView = this.A;
                     int i2 = liveFeedData.errno;
                     LiveFeedWrapData liveFeedWrapData4 = liveFeedData.feedWrapData;
@@ -1450,7 +1450,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                     this.H = liveFeedWrapData2.hasMore;
                     this.l = liveFeedWrapData2.sessionId;
                     u3();
-                    if (sb0.c(this.C) && sb0.c(this.b.roomInfoList)) {
+                    if (fc0.c(this.C) && fc0.c(this.b.roomInfoList)) {
                         EmptyView emptyView = this.A;
                         LiveFeedWrapData liveFeedWrapData3 = this.b;
                         y3(emptyView, 0, liveFeedWrapData3, "", liveFeedWrapData3.sessionId, this.j);
@@ -1532,18 +1532,18 @@ public class LiveSubTabFragment extends LiveBaseFragment {
     public void o3() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048609, this) == null) {
-            if (q90.f(getContext()) && q90.h(getContext())) {
+            if (da0.f(getContext()) && da0.h(getContext())) {
                 P2();
                 return;
             }
-            ta0 ta0Var = this.a0;
-            if (ta0Var != null) {
-                ta0Var.detachFromContainer();
+            gb0 gb0Var = this.a0;
+            if (gb0Var != null) {
+                gb0Var.detachFromContainer();
                 this.a0.stop();
             }
-            ta0 ta0Var2 = this.b0;
-            if (ta0Var2 != null) {
-                ta0Var2.detachFromContainer();
+            gb0 gb0Var2 = this.b0;
+            if (gb0Var2 != null) {
+                gb0Var2.detachFromContainer();
                 this.b0.stop();
             }
         }
@@ -1572,7 +1572,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
             this.m = liveTabEntity.type;
             this.n = liveTabEntity.channelId;
             String str2 = "";
-            if (sb0.c(liveTabEntity.subTabList)) {
+            if (fc0.c(liveTabEntity.subTabList)) {
                 str = "";
             } else {
                 str = "";
@@ -1807,7 +1807,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                 bdSwipeRefreshLayout.setRefreshing(false);
             }
             this.F = 0;
-            if (this.B != null && !sb0.c(this.C)) {
+            if (this.B != null && !fc0.c(this.C)) {
                 this.B.l(this.H);
                 LiveSubTabAdapter liveSubTabAdapter = this.B;
                 liveSubTabAdapter.notifyItemChanged(liveSubTabAdapter.getItemCount() - 1);
@@ -1892,7 +1892,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         }
         if (!"recommend".equals(this.e) && !LiveFeedPageSdk.VIDEO_BAR.equals(this.e)) {
             LiveFeedWrapData liveFeedWrapData3 = null;
-            String b2 = s90.b(LiveFeedWrapData.getFeedCacheKey(this.m, this.o), "");
+            String b2 = fa0.b(LiveFeedWrapData.getFeedCacheKey(this.m, this.o), "");
             if (!TextUtils.isEmpty(b2)) {
                 try {
                     JSONObject jSONObject = new JSONObject(b2);
@@ -1903,7 +1903,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                         liveFeedWrapData2 = liveFeedWrapData4;
                     } catch (JSONException unused) {
                         liveFeedWrapData3 = liveFeedWrapData4;
-                        s90.g(LiveFeedWrapData.getFeedCacheKey(this.m, this.o));
+                        fa0.g(LiveFeedWrapData.getFeedCacheKey(this.m, this.o));
                         liveFeedWrapData2 = liveFeedWrapData3;
                         if (liveFeedWrapData2 == null) {
                         }
@@ -1918,7 +1918,7 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                 this.H = liveFeedWrapData2.hasMore;
                 this.l = liveFeedWrapData2.sessionId;
                 u3();
-                if (sb0.c(liveFeedWrapData2.roomInfoList)) {
+                if (fc0.c(liveFeedWrapData2.roomInfoList)) {
                     x3(view2);
                 } else {
                     x3(this.x);
@@ -1947,13 +1947,13 @@ public class LiveSubTabFragment extends LiveBaseFragment {
         if (interceptable == null || interceptable.invokeZ(1048629, this, z) == null) {
             this.d0.removeCallbacks(this.g0);
             if (z) {
-                ta0 ta0Var = this.a0;
-                if (ta0Var != null) {
-                    ta0Var.stop();
+                gb0 gb0Var = this.a0;
+                if (gb0Var != null) {
+                    gb0Var.stop();
                     this.d0.postDelayed(new k(this), 500L);
-                    ta0 ta0Var2 = this.b0;
-                    if (ta0Var2 != null) {
-                        ta0Var2.stop();
+                    gb0 gb0Var2 = this.b0;
+                    if (gb0Var2 != null) {
+                        gb0Var2.stop();
                         this.d0.postDelayed(new a(this), 500L);
                         return;
                     }
@@ -1961,15 +1961,15 @@ public class LiveSubTabFragment extends LiveBaseFragment {
                 }
                 return;
             }
-            ta0 ta0Var3 = this.a0;
-            if (ta0Var3 != null) {
-                ta0Var3.detachFromContainer();
+            gb0 gb0Var3 = this.a0;
+            if (gb0Var3 != null) {
+                gb0Var3.detachFromContainer();
                 this.a0.setPlayerListener(null);
                 this.a0 = null;
             }
-            ta0 ta0Var4 = this.b0;
-            if (ta0Var4 != null) {
-                ta0Var4.detachFromContainer();
+            gb0 gb0Var4 = this.b0;
+            if (gb0Var4 != null) {
+                gb0Var4.detachFromContainer();
                 this.b0.setPlayerListener(null);
                 this.b0 = null;
             }

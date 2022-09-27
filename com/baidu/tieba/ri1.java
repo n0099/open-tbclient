@@ -1,111 +1,94 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public class ri1 implements si1 {
+public class ri1 implements ThreadFactory {
     public static /* synthetic */ Interceptable $ic;
-    public static ri1 c;
+    public static final AtomicInteger d;
     public transient /* synthetic */ FieldHolder $fh;
-    public si1 a;
-    public boolean b;
+    public final AtomicInteger a;
+    public String b;
+    public int c;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948122479, "Lcom/baidu/tieba/ri1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948122479, "Lcom/baidu/tieba/ri1;");
+                return;
+            }
+        }
+        d = new AtomicInteger(1);
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ri1() {
+        this(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
     }
 
-    public static ri1 b() {
-        InterceptResult invokeV;
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (ri1.class) {
-                    if (c == null) {
-                        c = new ri1();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+            if (thread.isDaemon()) {
+                thread.setDaemon(false);
             }
-            return c;
-        }
-        return (ri1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.si1
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            si1 si1Var = this.a;
-            if (si1Var == null) {
-                return null;
-            }
-            try {
-                return si1Var.a();
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0044 A[Catch: all -> 0x0049, TRY_LEAVE, TryCatch #0 {all -> 0x0049, blocks: (B:4:0x0004, B:7:0x0009, B:23:0x0040, B:25:0x0044, B:17:0x0024, B:18:0x0029, B:19:0x002c, B:20:0x0032, B:21:0x0038), top: B:31:0x0004 }] */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.si1
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(Context context, ti1 ti1Var) {
-        si1 si1Var;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, ti1Var) != null) {
-            return;
-        }
-        try {
-            if (this.b) {
-                return;
-            }
-            this.b = true;
-            int ordinal = com.baidu.sso.s.a.a(Build.MANUFACTURER).ordinal();
-            if (ordinal == 0) {
-                si1Var = null;
-            } else if (ordinal == 1) {
-                si1Var = new vi1();
-            } else if (ordinal == 2) {
-                si1Var = new dj1();
-            } else if (ordinal == 3) {
-                si1Var = new bj1();
-            } else if (ordinal != 4) {
-                if (this.a == null) {
-                    this.a.a(context, ti1Var);
-                    return;
-                }
-                return;
+            int i = this.c;
+            if (i != 5) {
+                thread.setPriority(i);
             } else {
-                si1Var = new xi1();
+                thread.setPriority(5);
             }
-            this.a = si1Var;
-            if (this.a == null) {
-            }
-        } catch (Throwable unused) {
+            return thread;
         }
+        return (Thread) invokeL.objValue;
+    }
+
+    public ri1(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicInteger(1);
+        this.b = "sso-" + d.getAndIncrement() + "-thread-";
+        this.c = i;
     }
 }

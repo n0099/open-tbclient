@@ -1,235 +1,229 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.Signature;
+import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.java_websocket.WebSocket;
+import com.yy.hiidostatis.inner.BaseStatisContent;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.security.MessageDigest;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public abstract class vt9 extends wt9 {
+public class vt9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[][] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int connectionLostTimeout;
-    public Timer connectionLostTimer;
-    public TimerTask connectionLostTimerTask;
-    public boolean reuseAddr;
-    public boolean tcpNoDelay;
-    public boolean websocketRunning;
 
-    /* loaded from: classes6.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ArrayList<WebSocket> a;
-        public final /* synthetic */ vt9 b;
-
-        public a(vt9 vt9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252462, "Lcom/baidu/tieba/vt9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vt9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = vt9Var;
-            this.a = new ArrayList<>();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948252462, "Lcom/baidu/tieba/vt9;");
+                return;
+            }
         }
+        a = new String[][]{new String[]{"com.duowan.mobile", "7.10.0"}};
+    }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.clear();
-                try {
-                    this.a.addAll(this.b.getConnections());
-                    long currentTimeMillis = System.currentTimeMillis() - (this.b.connectionLostTimeout * 1500);
-                    Iterator<WebSocket> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        WebSocket next = it.next();
-                        if (next instanceof xt9) {
-                            xt9 xt9Var = (xt9) next;
-                            if (xt9Var.r() < currentTimeMillis) {
-                                if (xt9.u) {
-                                    PrintStream printStream = System.out;
-                                    printStream.println("Closing connection due to no pong received: " + next.toString());
+    public static int a(Context context) {
+        InterceptResult invokeL;
+        String[][] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                boolean z = false;
+                for (String[] strArr2 : a) {
+                    if (strArr2.length > 1) {
+                        String str = strArr2[0];
+                        try {
+                            if (ut9.a(context.getPackageManager().getPackageInfo(str, 1).versionName, strArr2[1]) >= 0) {
+                                Intent intent = new Intent();
+                                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                                if (ut9.e(context, intent)) {
+                                    return 0;
                                 }
-                                xt9Var.f(1006, "The connection was closed because the other endpoint did not respond with a pong in time. For more information check: https://github.com/TooTallNate/Java-WebSocket/wiki/Lost-connection-detection");
-                            } else if (xt9Var.B()) {
-                                xt9Var.J();
-                            } else if (xt9.u) {
-                                PrintStream printStream2 = System.out;
-                                printStream2.println("Trying to ping a non open connection: " + next.toString());
                             }
+                            z = true;
+                        } catch (Exception unused) {
+                            z = false;
                         }
                     }
-                } catch (Exception e) {
-                    if (xt9.u) {
-                        PrintStream printStream3 = System.out;
-                        printStream3.println("Exception during connection lost ping: " + e.getMessage());
-                    }
                 }
-                this.a.clear();
+                return z ? 2 : 1;
+            } catch (Exception unused2) {
+                return 1;
             }
         }
+        return invokeL.intValue;
     }
 
-    public vt9() {
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Signature[] signatureArr;
+        ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.connectionLostTimeout = 60;
-        this.websocketRunning = false;
-    }
-
-    private void cancelConnectionLostTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, this) == null) {
-            Timer timer = this.connectionLostTimer;
-            if (timer != null) {
-                timer.cancel();
-                this.connectionLostTimer = null;
-            }
-            TimerTask timerTask = this.connectionLostTimerTask;
-            if (timerTask != null) {
-                timerTask.cancel();
-                this.connectionLostTimerTask = null;
-            }
-        }
-    }
-
-    private void restartConnectionLostTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            cancelConnectionLostTimer();
-            this.connectionLostTimer = new Timer("WebSocketTimer");
-            a aVar = new a(this);
-            this.connectionLostTimerTask = aVar;
-            Timer timer = this.connectionLostTimer;
-            int i = this.connectionLostTimeout;
-            timer.scheduleAtFixedRate(aVar, i * 1000, i * 1000);
-        }
-    }
-
-    public int getConnectionLostTimeout() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.connectionLostTimeout : invokeV.intValue;
-    }
-
-    public abstract Collection<WebSocket> getConnections();
-
-    public boolean isReuseAddr() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.reuseAddr : invokeV.booleanValue;
-    }
-
-    public boolean isTcpNoDelay() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.tcpNoDelay : invokeV.booleanValue;
-    }
-
-    public void setConnectionLostTimeout(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.connectionLostTimeout = i;
-            if (i <= 0) {
-                if (xt9.u) {
-                    System.out.println("Connection lost timer stopped");
-                }
-                cancelConnectionLostTimer();
-            } else if (this.websocketRunning) {
-                if (xt9.u) {
-                    System.out.println("Connection lost timer restarted");
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            ByteArrayOutputStream byteArrayOutputStream2 = null;
+            try {
                 try {
-                    Iterator it = new ArrayList(getConnections()).iterator();
-                    while (it.hasNext()) {
-                        WebSocket webSocket = (WebSocket) it.next();
-                        if (webSocket instanceof xt9) {
-                            ((xt9) webSocket).N();
+                    signatureArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 64).signatures;
+                    byteArrayOutputStream = new ByteArrayOutputStream();
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                for (Signature signature : signatureArr) {
+                    if (signature != null) {
+                        byteArrayOutputStream.write(signature.toByteArray());
+                    }
+                }
+                byteArrayOutputStream.flush();
+                String f = f(byteArrayOutputStream.toByteArray());
+                try {
+                    byteArrayOutputStream.close();
+                } catch (IOException unused) {
+                }
+                return f;
+            } catch (Exception e2) {
+                e = e2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                e.printStackTrace();
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                        return "";
+                    } catch (IOException unused2) {
+                        return "";
+                    }
+                }
+                return "";
+            } catch (Throwable th2) {
+                th = th2;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException unused3) {
+                    }
+                }
+                throw th;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, str2, Boolean.valueOf(z)})) == null) ? String.format(Locale.getDefault(), "%s?appId=%s&appType=android&appSign=%s&appDeviceid=%s&grantType=code&callbackType=uri&redirectUri=%s&state=%s", "https://thirdlogin.yy.com/open/oauth/authorize.do", str, b(context), tt9.a(context), g(z), str2) : (String) invokeCommon.objValue;
+    }
+
+    public static Bundle d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("appid", str);
+            bundle.putString("appname", ut9.b(context, context.getPackageName()));
+            bundle.putString("appver", ut9.c(context));
+            bundle.putString("appdeviceid", tt9.a(context));
+            bundle.putString(BaseStatisContent.SDKVER, "1.0.0");
+            return bundle;
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static Intent e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            for (String[] strArr : a) {
+                String str = strArr[0];
+                Intent intent = new Intent();
+                intent.setClassName(str, "com.yy.udbauth.open.activity.AgentActivity");
+                if (ut9.e(context, intent)) {
+                    return intent;
+                }
+            }
+            return null;
+        }
+        return (Intent) invokeL.objValue;
+    }
+
+    public static String f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            char[] cArr = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                byte[] digest = messageDigest.digest();
+                char[] cArr2 = new char[digest.length * 2];
+                int i = 0;
+                for (byte b : digest) {
+                    int i2 = i + 1;
+                    cArr2[i] = cArr[(b >>> 4) & 15];
+                    i = i2 + 1;
+                    cArr2[i2] = cArr[b & 15];
+                }
+                return new String(cArr2);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeZ = interceptable.invokeZ(65543, null, z)) == null) ? z ? "https://raqweb.yy.com/" : "https://raq.yy.com/" : (String) invokeZ.objValue;
+    }
+
+    public static String h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            if (i != 444111001) {
+                switch (i) {
+                    case 444222000:
+                        return "参数为空，请检查";
+                    case 444222001:
+                        return "请求操作类型错误";
+                    case 444222002:
+                        return "请求操作附带参数为空";
+                    case 444222003:
+                        return "请求操作附带参数错误";
+                    default:
+                        switch (i) {
+                            case 444222104:
+                                return "授权APP返回的请求码出错";
+                            case 444222105:
+                                return "Json格式错误";
+                            default:
+                                return "未知错误";
                         }
-                    }
-                } catch (Exception e) {
-                    if (xt9.u) {
-                        PrintStream printStream = System.out;
-                        printStream.println("Exception during connection lost restart: " + e.getMessage());
-                    }
                 }
-                restartConnectionLostTimer();
             }
+            return "成功";
         }
-    }
-
-    public void setReuseAddr(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.reuseAddr = z;
-        }
-    }
-
-    public void setTcpNoDelay(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.tcpNoDelay = z;
-        }
-    }
-
-    public void startConnectionLostTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.connectionLostTimeout <= 0) {
-                if (xt9.u) {
-                    System.out.println("Connection lost timer deactivated");
-                    return;
-                }
-                return;
-            }
-            if (xt9.u) {
-                System.out.println("Connection lost timer started");
-            }
-            this.websocketRunning = true;
-            restartConnectionLostTimer();
-        }
-    }
-
-    public void stopConnectionLostTimer() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.connectionLostTimer == null && this.connectionLostTimerTask == null) {
-                return;
-            }
-            this.websocketRunning = false;
-            if (xt9.u) {
-                System.out.println("Connection lost timer stopped");
-            }
-            cancelConnectionLostTimer();
-        }
+        return (String) invokeI.objValue;
     }
 }

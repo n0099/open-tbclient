@@ -1,71 +1,175 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.Editable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.PopupWindow;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class dm2 extends DataInputStream {
+public class dm2 extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
-    public static final cm2<String, byte[]> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public SwanAppActivity a;
+    public EditText b;
+    public String[] c;
+    public int d;
+    public d e;
 
     /* loaded from: classes3.dex */
-    public static class a implements cm2<String, byte[]> {
+    public class a implements AdapterView.OnItemClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ dm2 b;
 
-        public a() {
+        public a(dm2 dm2Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dm2Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = dm2Var;
+            this.a = i;
+        }
+
+        @Override // android.widget.AdapterView.OnItemClickListener
+        public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+                int selectionStart = this.b.b.getSelectionStart();
+                Editable text = this.b.b.getText();
+                if (i == 11) {
+                    if (selectionStart <= 0 || text == null || text.length() <= 0) {
+                        return;
+                    }
+                    int i2 = selectionStart - 1;
+                    text.delete(i2, selectionStart);
+                    this.b.b.setText(text);
+                    this.b.b.setSelection(i2);
+                    return;
+                }
+                int length = text.length();
+                int i3 = this.a;
+                if (length < i3 || i3 < 0) {
+                    text.insert(selectionStart, this.b.c[i]);
+                    this.b.b.setText(text);
+                    this.b.b.setSelection(selectionStart + this.b.c[i].length());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ GridView a;
+        public final /* synthetic */ AdapterView.OnItemClickListener b;
+
+        /* loaded from: classes3.dex */
+        public class a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    int intValue = ((Integer) view2.getTag()).intValue();
+                    b bVar = this.a;
+                    bVar.b.onItemClick(bVar.a, view2, intValue, intValue);
+                }
+            }
+        }
+
+        public b(dm2 dm2Var, GridView gridView, AdapterView.OnItemClickListener onItemClickListener) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dm2Var, gridView, onItemClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = gridView;
+            this.b = onItemClickListener;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cm2
-        @Nullable
-        public String call(@Nullable byte[] bArr) throws Exception {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-                if (bArr == null) {
-                    return null;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int childCount = this.a.getChildCount();
+                if (childCount > 0) {
+                    this.a.setClickable(false);
+                    for (int i = 0; i < childCount; i++) {
+                        View childAt = this.a.getChildAt(i);
+                        childAt.setTag(Integer.valueOf(i));
+                        childAt.setOnClickListener(new a(this));
+                    }
+                    return;
                 }
-                return bArr.length == 0 ? "" : new String(bArr);
+                this.a.setOnItemClickListener(this.b);
             }
-            return (String) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements cm2<Boolean, byte[]> {
+    public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ dm2 a;
 
-        public b(dm2 dm2Var) {
+        public c(dm2 dm2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,164 +187,115 @@ public class dm2 extends DataInputStream {
             this.a = dm2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cm2
-        @Nullable
-        public Boolean call(@Nullable byte[] bArr) throws Exception {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-                return Boolean.valueOf(bArr != null);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
+                this.a.b.clearFocus();
             }
-            return (Boolean) invokeL.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947709280, "Lcom/baidu/tieba/dm2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947709280, "Lcom/baidu/tieba/dm2;");
-                return;
-            }
-        }
-        a = new a();
+    /* loaded from: classes3.dex */
+    public interface d {
+        void a();
+
+        void b(int i);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dm2(InputStream inputStream) throws IOException {
-        super(inputStream);
+    public dm2(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i, int i2) {
+        super(swanAppActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((InputStream) newInitContext.callArgs[0]);
+            Object[] objArr = {swanAppActivity, editText, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new String[12];
+        c(i);
+        d(swanAppActivity, editText, i2);
     }
 
-    public Map<String, Boolean> a() throws IOException {
-        InterceptResult invokeV;
+    public final void c(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? f(new b(this)) : (Map) invokeV.objValue;
-    }
-
-    public byte[] c() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int readInt = readInt();
-            if (readInt >= 0) {
-                byte[] bArr = new byte[readInt];
-                if (readInt == read(bArr)) {
-                    return bArr;
-                }
-                return null;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            int i2 = 0;
+            while (i2 < 9) {
+                int i3 = i2 + 1;
+                this.c[i2] = String.valueOf(i3);
+                i2 = i3;
             }
-            return null;
+            if (i == 1) {
+                this.c[9] = "X";
+            } else if (i == 0) {
+                this.c[9] = "";
+            } else if (i == 2) {
+                this.c[9] = ".";
+            }
+            this.c[10] = "0";
         }
-        return (byte[]) invokeV.objValue;
     }
 
-    public <T> T d(@NonNull cm2<T, byte[]> cm2Var) {
-        InterceptResult invokeL;
+    public final void d(@NonNull SwanAppActivity swanAppActivity, @NonNull EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cm2Var)) == null) {
-            try {
-                return cm2Var.call(c());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity, editText, i) == null) {
+            this.a = swanAppActivity;
+            this.b = editText;
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(swanAppActivity).inflate(R.layout.obfuscated_res_0x7f0d00b5, (ViewGroup) null);
+            this.d = swanAppActivity.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070152);
+            linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            GridView gridView = (GridView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091040);
+            gridView.setAdapter((ListAdapter) new cm2(swanAppActivity, this.c));
+            fh3.a0(new b(this, gridView, new a(this, i)));
+            ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09065d);
+            imageView.setOnClickListener(new c(this));
+            imageView.setClickable(true);
+            setContentView(linearLayout);
+            setWidth(-1);
+            setHeight(this.d);
+            setBackgroundDrawable(new BitmapDrawable());
         }
-        return (T) invokeL.objValue;
     }
 
-    public <T> List<T> e(cm2<T, byte[]> cm2Var) throws IOException {
-        InterceptResult invokeL;
+    @Override // android.widget.PopupWindow
+    public void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cm2Var)) == null) {
-            int readInt = readInt();
-            if (readInt < 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList(readInt);
-            for (int i = 0; i < readInt; i++) {
-                try {
-                    arrayList.add(cm2Var.call(c()));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public <T> Map<String, T> f(cm2<T, byte[]> cm2Var) throws IOException {
-        InterceptResult invokeL;
-        List<String> j;
-        List<T> e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cm2Var)) == null) {
-            if (readInt() >= 0 && (j = j()) != null && (e = e(cm2Var)) != null && j.size() == e.size()) {
-                HashMap hashMap = new HashMap();
-                for (int i = 0; i < j.size(); i++) {
-                    hashMap.put(j.get(i), e.get(i));
-                }
-                return hashMap;
-            }
-            return null;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                return a.call(c());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.dismiss();
+            d dVar = this.e;
+            if (dVar != null) {
+                dVar.a();
             }
         }
-        return (String) invokeV.objValue;
     }
 
-    public List<String> j() throws IOException {
-        InterceptResult invokeV;
+    public void e(@NonNull d dVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? e(a) : (List) invokeV.objValue;
-    }
-
-    public List<String> k(List<String> list) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, list)) == null) {
-            List<String> j = j();
-            return j == null ? list : j;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.e = dVar;
         }
-        return (List) invokeL.objValue;
     }
 
-    public Map<String, String> l() throws IOException {
-        InterceptResult invokeV;
+    public void f() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? f(a) : (Map) invokeV.objValue;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || isShowing()) {
+            return;
+        }
+        showAtLocation(this.a.getWindow().getDecorView(), 80, 0, 0);
+        d dVar = this.e;
+        if (dVar != null) {
+            dVar.b(this.d);
+        }
     }
 }

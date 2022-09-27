@@ -1,115 +1,358 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.cloudcontrol.utils.CloudStabilityUBCUtils;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.content.Context;
+import android.os.Process;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.BdSailor;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import com.baidu.webkit.sdk.CookieSyncManager;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.WebKitFactory;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
-public class m92 {
+public final class m92 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean h;
+    public static volatile m92 i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public boolean h;
-    public String i;
-    public boolean j;
-    public String k;
-    public boolean l;
-    public String m;
+    public Context a;
+    public volatile boolean b;
+    public boolean c;
+    public boolean d;
+    public final Object e;
+    public final Object f;
+    public ArrayList<e> g;
 
-    public m92() {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ boolean b;
+        public final /* synthetic */ m92 c;
+
+        public a(m92 m92Var, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m92Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = m92Var;
+            this.a = z;
+            this.b = z2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.setThreadPriority(10);
+                this.c.g(this.a, this.b);
+                this.c.b = true;
+                synchronized (this.c.f) {
+                    this.c.d = true;
+                    this.c.f.notifyAll();
+                    this.c.m();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(m92 m92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                WebView.setWebContentsDebuggingEnabled(true);
+                Log.setMinLogLevel(3, true);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m92 a;
+
+        public c(m92 m92Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m92Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m92Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                CookieSyncManager.createInstance(this.a.a);
+                BdSailor.initCookieSyncManager(this.a.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements fi3<Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Runnable a;
+
+        public d(m92 m92Var, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m92Var, runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fi3
+        /* renamed from: a */
+        public Void create() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.a.run();
+                return null;
+            }
+            return (Void) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e {
+        void a();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947927427, "Lcom/baidu/tieba/m92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947927427, "Lcom/baidu/tieba/m92;");
+                return;
+            }
+        }
+        h = vj1.a;
+    }
+
+    public m92(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
+        this.c = false;
+        this.d = false;
+        this.e = new Object();
+        this.f = new Object();
+        this.g = new ArrayList<>();
+        this.a = context.getApplicationContext();
     }
 
-    public static Map<String, String> a(m92 m92Var) {
+    public static synchronized m92 h(Context context) {
         InterceptResult invokeL;
+        m92 m92Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, m92Var)) == null) {
-            TreeMap treeMap = new TreeMap();
-            if (m92Var == null) {
-                return treeMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            synchronized (m92.class) {
+                if (i == null) {
+                    i = new m92(context);
+                }
+                m92Var = i;
             }
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_CONFIG, m92Var.a);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, m92Var.b);
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, m92Var.c);
-            treeMap.put(PrefetchEvent.EVENT_KEY_PAGE_URL, m92Var.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, m92Var.f);
-            treeMap.put("root", m92Var.g);
-            if (!TextUtils.isEmpty(m92Var.e)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_EXTRA_DATA, m92Var.e);
-            }
-            treeMap.put(PrefetchEvent.EVENT_DATA_SHOW_PERFORMANCE_PANEL, String.valueOf(m92Var.h));
-            treeMap.put("pageType", m92Var.i);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(m92Var.j));
-            if (!TextUtils.isEmpty(m92Var.k)) {
-                treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, m92Var.k);
-            }
-            wy2.a(treeMap, "app ready event");
-            q63.a(m92Var.d, treeMap);
-            if (c22.c()) {
-                treeMap.put("offlinePerfTool", String.valueOf(1));
-            }
-            if (w83.d()) {
-                treeMap.put("performanceType", CloudStabilityUBCUtils.VALUE_TYPE);
-            }
-            if (w83.f()) {
-                treeMap.put("performanceType", "stabilityProfile");
-            }
-            treeMap.put("slaveReady", String.valueOf(m92Var.l));
-            if (!TextUtils.isEmpty(m92Var.m)) {
-                treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, m92Var.m);
-            }
-            return treeMap;
+            return m92Var;
         }
-        return (Map) invokeL.objValue;
+        return (m92) invokeL.objValue;
     }
 
-    public static zc2 b(m92 m92Var) {
-        InterceptResult invokeL;
+    public void f(e eVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, m92Var)) == null) {
-            Map<String, String> a = a(m92Var);
-            zc2 zc2Var = new zc2("AppReady", a);
-            PrefetchEvent.c createFromAppReadyEvent = PrefetchEvent.createFromAppReadyEvent(a);
-            if (createFromAppReadyEvent == null) {
-                return zc2Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, eVar) == null) {
+            synchronized (this.f) {
+                if (h) {
+                    android.util.Log.d("BlinkInitHelper", "addBlinkInitListener.");
+                }
+                if (!this.g.contains(eVar)) {
+                    this.g.add(eVar);
+                }
+                if (this.d) {
+                    m();
+                }
             }
-            o92 o92Var = new o92();
-            o92Var.t(createFromAppReadyEvent);
-            o92Var.t(zc2Var);
-            return o92Var;
         }
-        return (zc2) invokeL.objValue;
     }
 
-    public static String c(y23 y23Var, String str) {
-        InterceptResult invokeLL;
+    public final void g(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, y23Var, str)) == null) {
-            String c0 = y23Var != null ? y23Var.c0(qg3.f(str)) : null;
-            return c0 == null ? "" : c0;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            WebKitFactory.setNeedDownloadCloudResource(false);
+            WebKitFactory.setProcessType("1");
+            com.baidu.webkit.sdk.WebView.setDataDirectorySuffix(ProcessUtils.getCurProcessName());
+            BdSailor.getInstance().init(this.a, null, null);
+            if (h) {
+                fh3.a0(new b(this));
+            }
+            BdSailor.getInstance().setWebkitEnable(!(h && kz2.G().booleanValue()));
+            BdSailor.getInstance().initWebkit("swan", false);
+            BdSailor.getInstance().getSailorSettings().setJavaScriptEnabledOnFileScheme(true);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                if (h) {
+                    android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) success ^V^");
+                }
+            } else if (h) {
+                android.util.Log.d("BlinkInitHelper", "WebKitFactory.setEngine(WebKitFactory.ENGINE_BLINK) fail !!!!");
+            }
+            c cVar = new c(this);
+            if (z2) {
+                k33.M().post(cVar);
+            } else {
+                ci3.b(new d(this, cVar));
+            }
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            j(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
+        }
+    }
+
+    public final void j(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || this.b) {
+            return;
+        }
+        boolean z3 = z && fh3.O();
+        synchronized (this.e) {
+            if (!this.c) {
+                Executors.newSingleThreadExecutor().execute(new a(this, z2, z3));
+                this.c = true;
+            }
+        }
+        if (z) {
+            synchronized (this.f) {
+                while (!this.d) {
+                    try {
+                        this.f.wait(1000L);
+                    } catch (InterruptedException e2) {
+                        e2.printStackTrace();
+                    }
+                }
+            }
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            j(false, z);
+        }
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            synchronized (this.f) {
+                if (h) {
+                    android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
+                }
+                Iterator<e> it = this.g.iterator();
+                while (it.hasNext()) {
+                    it.next().a();
+                }
+                this.g.clear();
+            }
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && l()) {
+            BdSailor.getInstance().destroy();
+        }
     }
 }

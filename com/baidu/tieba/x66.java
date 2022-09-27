@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,17 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ApkDetail;
-import tbclient.ManageInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class x66 implements Cdo {
+public final class x66 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final x66 a;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<q46> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
-    public int b;
-    public int c;
-    public boolean d;
 
     static {
         InterceptResult invokeClinit;
@@ -35,7 +35,10 @@ public class x66 implements Cdo {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        a = new x66();
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
     }
 
     public x66() {
@@ -48,79 +51,45 @@ public class x66 implements Cdo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = 0;
-        this.c = 0;
-        this.d = true;
     }
 
-    public static x66 b(r35 r35Var) {
-        InterceptResult invokeL;
+    public final q46 a(r46 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, r35Var)) == null) {
-            x66 x66Var = new x66();
-            x66Var.a = r35Var.b;
-            x66Var.b = r35Var.d;
-            x66Var.c = r35Var.e;
-            return x66Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            q46 acquire = d.acquire();
+            if (acquire == null) {
+                acquire = null;
+            } else {
+                acquire.l(data);
+                acquire.p(player.m().w());
+            }
+            return acquire == null ? new q46(data, player) : acquire;
         }
-        return (x66) invokeL.objValue;
+        return (q46) invokeLL.objValue;
     }
 
-    public static x66 c(ManageInfo manageInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
-            x66 x66Var = new x66();
-            ItemData itemData = new ItemData();
-            x66Var.a = itemData;
-            itemData.parseProto(manageInfo.item);
-            x66Var.b = manageInfo.item_source.intValue();
-            return x66Var;
-        }
-        return (x66) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public x66 clone() {
+    public final PointF b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            x66 x66Var = new x66();
-            x66Var.a = this.a;
-            x66Var.b = this.b;
-            x66Var.c = this.c;
-            x66Var.d = this.d;
-            return x66Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PointF acquire = c.acquire();
+            return acquire == null ? new PointF() : acquire;
         }
-        return (x66) invokeV.objValue;
+        return (PointF) invokeV.objValue;
     }
 
-    public boolean f(x66 x66Var) {
-        InterceptResult invokeL;
-        ItemData itemData;
-        ApkDetail apkDetail;
-        ApkDetail apkDetail2;
-        ItemData itemData2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x66Var)) == null) {
-            boolean z = this.b == x66Var.b && this.c == x66Var.c;
-            ItemData itemData3 = this.a;
-            boolean equals = (itemData3 == null || (itemData2 = x66Var.a) == null) ? false : itemData3.pkgName.equals(itemData2.pkgName);
-            ItemData itemData4 = this.a;
-            return z && equals && ((itemData4 == null || (itemData = x66Var.a) == null || (apkDetail = itemData4.apkDetail) == null || (apkDetail2 = itemData.apkDetail) == null) ? false : apkDetail.version_code.equals(apkDetail2.version_code));
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public final RectF c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            RectF acquire = b.acquire();
+            return acquire == null ? new RectF() : acquire;
+        }
+        return (RectF) invokeV.objValue;
     }
 }

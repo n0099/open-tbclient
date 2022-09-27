@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.u75;
+import com.baidu.tieba.h85;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -571,7 +571,8 @@ public class TbConfig {
     public static final String api_key = "GXGROE8KmWiRmcWFpiWTmUbE";
     public static final String app_id = "1095821";
     @Nullable
-    public static String cachedFeedBackUrl;
+    public static String cachedFeedBackUrl = null;
+    public static final String gamePlayIndexBanner = "/peiwan/api/index/service";
     public static boolean sThreadImageMaxInited;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -1277,7 +1278,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                u75.k().t(i);
+                h85.k().t(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }

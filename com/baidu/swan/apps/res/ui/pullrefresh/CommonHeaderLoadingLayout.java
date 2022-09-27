@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.pg3;
+import com.baidu.tieba.ch3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,14 +139,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             }
         }
         this.e = 0;
-        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091bc3);
-        int f = pg3.f(getContext(), 29.0f);
+        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091bc5);
+        int f = ch3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i3 = (int) (f * 1.5f);
         this.h = i3;
         this.g = i3;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091bc1);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091bc3);
         this.k = headerRefreshIndicator;
         headerRefreshIndicator.i();
     }
@@ -225,7 +225,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
             if (view2 != null) {
                 return view2.getHeight();
             }
-            return pg3.f(getContext(), 50.0f);
+            return ch3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }

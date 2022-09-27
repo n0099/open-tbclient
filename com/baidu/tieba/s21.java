@@ -1,41 +1,88 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.common.security.RSAUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
+import java.util.TimeZone;
 /* loaded from: classes5.dex */
 public final class s21 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static byte[] a(@NonNull byte[] bArr, PublicKey publicKey) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, publicKey)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-                cipher.init(1, publicKey);
-                return cipher.doFinal(bArr);
-            } catch (Exception unused) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948099415, "Lcom/baidu/tieba/s21;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948099415, "Lcom/baidu/tieba/s21;");
+                return;
             }
         }
-        return (byte[]) invokeLL.objValue;
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
     }
 
-    public static PublicKey b(@NonNull byte[] bArr) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        InterceptResult invokeL;
+    public static int a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) ? KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(bArr)) : (PublicKey) invokeL.objValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? (int) ((j2 - (j - ((TimeZone.getDefault().getRawOffset() + j) % 86400000))) / 86400000) : invokeCommon.intValue;
+    }
+
+    public static String b(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i < 0) {
+                return "";
+            }
+            int i2 = i / 3600;
+            int i3 = (i % 3600) / 60;
+            int i4 = i % 60;
+            return (i2 != 0 || z) ? String.format(Locale.US, "%02d:%02d:%02d", Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)) : String.format(Locale.US, "%02d:%02d", Integer.valueOf(i3), Integer.valueOf(i4));
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static long c(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) ? Math.abs((j2 - j) / 86400000) : invokeCommon.longValue;
+    }
+
+    public static boolean d(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(j);
+            Calendar calendar2 = Calendar.getInstance();
+            calendar2.setTimeInMillis(j2);
+            return calendar.get(1) == calendar2.get(1) && calendar.get(6) == calendar2.get(6);
+        }
+        return invokeCommon.booleanValue;
     }
 }

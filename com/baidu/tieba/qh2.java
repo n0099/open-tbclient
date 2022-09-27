@@ -8,9 +8,8 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class qh2 extends sg2<ij2> {
+public class qh2 extends fh2<lh2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,27 +27,24 @@ public class qh2 extends sg2<ij2> {
         }
     }
 
-    @Override // com.baidu.tieba.sg2
+    @Override // com.baidu.tieba.fh2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onFocus" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showsoftkeyboard" : (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg2
+    @Override // com.baidu.tieba.fh2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull ij2 ij2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull lh2 lh2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, ij2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, lh2Var) == null) {
+            int i = command.arg1;
             String str = command.what;
-            d(ij2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                ij2Var.s(jSONObject.optInt("focusWidth"), jSONObject.optInt("focusHeight"), jSONObject.optInt("focusX"), jSONObject.optInt("focusY"));
-            }
+            d(lh2Var, str, "Type:" + i, false);
+            lh2Var.A0(i);
         }
     }
 }

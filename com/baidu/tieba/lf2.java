@@ -3,21 +3,18 @@ package com.baidu.tieba;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class lf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
     @V8JavascriptField
-    public String digest;
+    public long createTime;
     @V8JavascriptField
-    public String errMsg;
+    public String filePath;
     @V8JavascriptField
-    public int size;
+    public long size;
 
     public lf2() {
         Interceptable interceptable = $ic;
@@ -29,20 +26,7 @@ public class lf2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.a = 0 + 1;
-        this.b = 0;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GetFileInfoCallBack" + this.b;
-        }
-        return (String) invokeV.objValue;
     }
 }

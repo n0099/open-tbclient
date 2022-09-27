@@ -421,11 +421,11 @@ public class SmsPager extends LinearLayout implements a.c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d04dd, this);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d96);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d33);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d94);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d92);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9c);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091d98);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091d35);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f091d96);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091d94);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091d9e);
             this.h.setOnClickListener(new b(this));
             this.i.setOnClickListener(new c(this));
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.obfuscated_res_0x7f010119);
@@ -463,12 +463,12 @@ public class SmsPager extends LinearLayout implements a.c {
             aVar.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
             this.n.setBox(i);
             if (ColorType.DARK == this.c) {
-                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109f));
-                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109d));
+                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a3));
+                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a1));
                 this.n.setTextColor(Color.parseColor("#CCFFFFFF"));
             } else {
-                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109e));
-                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08109c));
+                this.n.setBoxNormalBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a2));
+                this.n.setBoxErrorBg(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0810a0));
                 this.n.setTextColor(Color.parseColor("#1F1F1F"));
             }
             this.n.b();

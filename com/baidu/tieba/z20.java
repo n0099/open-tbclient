@@ -54,7 +54,7 @@ public class z20 extends v20 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
-        public Boolean call() throws Exception {
+        public Boolean call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -95,7 +95,7 @@ public class z20 extends v20 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
-        public Boolean call() throws Exception {
+        public Boolean call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -110,7 +110,7 @@ public class z20 extends v20 {
                 }
                 this.a.j = false;
                 this.a.e = false;
-                this.a.n();
+                this.a.q();
                 return Boolean.FALSE;
             }
             return (Boolean) invokeV.objValue;
@@ -144,13 +144,13 @@ public class z20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
             if (this.e) {
-                w();
+                t();
                 if (this.j) {
                     this.c.a(str, bundle, cVar);
                     return;
                 }
             }
-            t();
+            n();
             this.d.a(str, bundle, cVar);
         }
     }
@@ -160,13 +160,13 @@ public class z20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.e) {
-                w();
+                t();
                 if (this.j && this.c != null) {
                     this.c.d();
                     return;
                 }
             }
-            t();
+            n();
             if (this.d != null) {
                 this.d.d();
             }
@@ -179,12 +179,12 @@ public class z20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
             if (this.e) {
-                w();
+                t();
                 if (this.j) {
                     return this.c.e(str);
                 }
             }
-            t();
+            n();
             return this.d.e(str);
         }
         return invokeL.booleanValue;
@@ -196,12 +196,12 @@ public class z20 extends v20 {
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             if (this.e) {
                 synchronized (this.l) {
-                    p();
+                    w();
                 }
                 return;
             }
             synchronized (this.m) {
-                n();
+                q();
             }
         }
     }
@@ -212,7 +212,7 @@ public class z20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) {
             if (this.e) {
-                w();
+                t();
                 if (this.j) {
                     v20.d g = this.c.g(str, bundle);
                     if (g.b()) {
@@ -221,7 +221,7 @@ public class z20 extends v20 {
                     this.e = false;
                 }
             }
-            t();
+            n();
             return this.d.g(str, bundle);
         }
         return (v20.d) invokeLL.objValue;
@@ -231,31 +231,17 @@ public class z20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.e = false;
-            n();
+            q();
         }
     }
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.f && this.i == null) {
-            this.i = this.a.d.submit(new a(this));
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !this.g && this.h == null) {
-            this.h = this.a.d.submit(new b(this));
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.e || this.f) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.e || this.f) {
             return;
         }
         synchronized (this.m) {
-            n();
+            q();
         }
         try {
             this.i.get();
@@ -263,18 +249,32 @@ public class z20 extends v20 {
         }
     }
 
-    public final void w() {
+    public final void q() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.e) {
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && !this.f && this.i == null) {
+            this.i = this.a.d.submit(new a(this));
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.e) {
             if (!this.g) {
                 synchronized (this.l) {
-                    p();
+                    w();
                 }
             }
             try {
                 this.h.get();
             } catch (Exception unused) {
             }
+        }
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.g && this.h == null) {
+            this.h = this.a.d.submit(new b(this));
         }
     }
 }

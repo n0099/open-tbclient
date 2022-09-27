@@ -1,12 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.tieba.lf3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,133 +9,79 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class jh3 extends lf3.a {
+public class jh3 implements og4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947883252, "Lcom/baidu/tieba/jh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947883252, "Lcom/baidu/tieba/jh3;");
-                return;
-            }
-        }
-        c = ij1.a;
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jh3(boolean z) {
-        super(z);
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final jh3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-689954890, "Lcom/baidu/tieba/jh3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-689954890, "Lcom/baidu/tieba/jh3$b;");
+                    return;
+                }
+            }
+            a = new jh3(null);
+        }
+    }
+
+    public /* synthetic */ jh3(a aVar) {
+        this();
+    }
+
+    public static jh3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (jh3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.og4
+    public boolean a(@NonNull String str, @NonNull int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (i == 0) {
+                File file = new File(hm2.g(), str);
+                return file.exists() && file.isDirectory();
+            } else if (i != 1) {
+                return false;
+            } else {
+                File file2 = new File(tm2.g().b(), str);
+                return file2.exists() && file2.isDirectory();
+            }
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public jh3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        String str = z ? "swan_js_native_v8_ab.txt" : "swan_js_native_webview_ab.txt";
-        this.b = ul2.g().getPath() + File.separator + "js_native" + File.separator + str;
-    }
-
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            String str = ul2.g().getPath() + File.separator + "js_native" + File.separator;
-            if ((i & 1) != 0) {
-                z = cj4.M(str + "swan_js_native_v8_ab.txt");
-            } else {
-                z = true;
-            }
-            if ((i & 2) != 0) {
-                return z & cj4.M(str + "swan_js_native_webview_ab.txt");
-            }
-            return z;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Nullable
-    public final List<String> b(boolean z, String str) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            List<JSONObject> b = hh3.b(z ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW, z ? "swan/v8_ab" : "swan/webview_ab");
-            if (b != null) {
-                File file = new File(str);
-                ArrayList arrayList = new ArrayList();
-                for (JSONObject jSONObject : b) {
-                    if (jSONObject != null) {
-                        arrayList.add(jSONObject.toString());
-                    }
-                }
-                if (file.exists()) {
-                    cj4.L(file);
-                }
-                cj4.h(file);
-                cj4.P(arrayList, file);
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeZL.objValue;
-    }
-
-    public boolean c(@NonNull JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            if (jSONArray.length() <= 0 || !cj4.v(this.b)) {
-                return false;
-            }
-            return ih3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(this.a ? SchemeCollecter.CLASSIFY_SWAN_V8 : SchemeCollecter.CLASSIFY_SWAN_WEBVIEW));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public List<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
-            }
-            if (!ff4.b() && !TextUtils.equals(ff4.a(), "0")) {
-                File file = new File(this.b);
-                if (file.exists()) {
-                    cj4.L(file);
-                }
-            }
-            if (cj4.v(this.b)) {
-                if (c) {
-                    Log.d("SwanAppCompat", "start create cache");
-                }
-                return cj4.F(new File(this.b));
-            }
-            return b(this.a, this.b);
-        }
-        return (List) invokeV.objValue;
     }
 }

@@ -6,24 +6,25 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.res.ui.FloatButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c63 extends v43 {
+public class c63 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c63(v33 v33Var) {
-        super(v33Var, "/swanAPI/showNavigationBarLoading");
+    public c63(i43 i43Var) {
+        super(i43Var, "/swanAPI/hideOpenAppGuide");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
+            Object[] objArr = {i43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,40 +38,24 @@ public class c63 extends v43 {
         }
     }
 
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            if (v43.b) {
-                Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (i53.b) {
+                Log.i("HideFloatButtonGuide", unitedSchemeEntity.toString());
             }
-            if (y23Var != null && y23Var.n0()) {
-                if (v43.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            }
-            h22 V = lo2.U().V();
-            if (V == null) {
-                yz1.c("navigationLoading", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            e22 m = V.m();
-            if (m == null) {
-                yz1.c("navigationLoading", "swanAppFragment is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!m.N2()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                yz1.c("navigationLoading", "show navigation loading progressbar fail");
-                return false;
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            b63 d = b63.d();
+            FloatButton c = d.c();
+            if (c == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }
+            c.setVisibility(8);
+            d.j(null);
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

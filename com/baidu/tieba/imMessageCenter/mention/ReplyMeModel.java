@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.dm8;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -152,8 +152,8 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        dm8.f(303010, CheckPostResponseMessage.class, false);
-        dm8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        sm8.f(303010, CheckPostResponseMessage.class, false);
+        sm8.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

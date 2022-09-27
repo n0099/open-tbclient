@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.m35;
 import com.baidu.tieba.s9;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.z25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -187,18 +187,18 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            uu4 d = uu4.d(this.a);
+            hv4 d = hv4.d(this.a);
             d.n(R.string.J_X05);
             d.f(R.color.CAM_X0215);
-            uu4 d2 = uu4.d(this.e);
+            hv4 d2 = hv4.d(this.e);
             d2.v(R.color.CAM_X0101);
             d2.z(R.dimen.T_X08);
             d2.A(R.string.F_X01);
-            uu4 d3 = uu4.d(this.c);
+            hv4 d3 = hv4.d(this.c);
             d3.v(R.color.CAM_X0101);
             d3.z(R.dimen.T_X06);
             d3.A(R.string.F_X01);
-            uu4.d(this.b).v(R.string.J_X04);
+            hv4.d(this.b).v(R.string.J_X04);
             WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f0806fe, R.color.CAM_X0101, null);
         }
     }
@@ -259,12 +259,12 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 if (!TextUtils.isEmpty(this.f.getCover())) {
                     this.b.K(this.f.getCover(), 10, false);
                 } else {
-                    this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0808da);
+                    this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0808dc);
                 }
                 int f = (((getResources().getDisplayMetrics().widthPixels - ej.f(TbadkApplication.getInst(), R.dimen.tbds94)) - ej.f(TbadkApplication.getInst(), R.dimen.tbds180)) - ej.f(TbadkApplication.getInst(), R.dimen.tbds75)) - ej.f(TbadkApplication.getInst(), R.dimen.tbds200);
                 TextPaint paint = this.c.getPaint();
                 String name = this.f.getName();
-                this.c.setText(z25.a(name, StringHelper.STRING_MORE + j, f, paint));
+                this.c.setText(m35.a(name, StringHelper.STRING_MORE + j, f, paint));
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.f.updateStatus(FaceGroupInfoData.Status.FINISH);

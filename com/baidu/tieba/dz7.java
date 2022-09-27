@@ -1,55 +1,167 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.pb.main.PbPageReadLocalRequestMessage;
-import com.baidu.tieba.pb.pb.main.PbPageReadLocalResponseMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbReplyTitleViewHolder;
+import com.baidu.tieba.view.SortSwitchButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dz7 implements CustomMessageTask.CustomRunnable<Object> {
+public class dz7 extends ay7<wv7, PbReplyTitleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View.OnClickListener g;
+    public SortSwitchButton.f h;
+    public BdUniqueId i;
+    public BdUniqueId j;
+    public boolean k;
+    public jv7 l;
+    public View m;
+    public boolean n;
 
-    public dz7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dz7(t28 t28Var, BdUniqueId bdUniqueId) {
+        super(t28Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t28Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((t28) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.k = false;
+        this.i = BdUniqueId.gen();
+        this.j = BdUniqueId.gen();
+    }
+
+    public void e(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.g = onClickListener;
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.k = false;
+            MessageManager.getInstance().unRegisterListener(this.i);
+            MessageManager.getInstance().unRegisterListener(this.j);
+        }
+    }
+
+    @Override // com.baidu.tieba.ay7, com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        x(i, view2, viewGroup, (wv7) obj, (PbReplyTitleViewHolder) viewHolder);
+        return view2;
+    }
+
+    public void r(jv7 jv7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jv7Var) == null) {
+            this.l = jv7Var;
+        }
+    }
+
+    public final void u() {
+        jv7 jv7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (jv7Var = this.l) == null || jv7Var.O() == null || this.l.h() == null) {
+            return;
+        }
+        jv7 jv7Var2 = this.l;
+        if (jv7Var2.i && !this.k) {
+            this.k = true;
+            boolean isLike = jv7Var2.h().getIsLike();
+            TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 9).param("obj_id", this.l.h().d()).param("thread_type", this.l.O().getThreadType()).param("tid", this.l.O().getId()));
+            if (isLike) {
+                return;
+            }
+            TiebaStatic.log(new StatisticItem("common_exp").param("page_type", "a005").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param(TiebaStatic.Params.OBJ_AD_LOCATE, 10).param("obj_id", this.l.h().d()).param("thread_type", this.l.O().getThreadType()).param("tid", this.l.O().getId()));
+        }
+    }
+
+    public View v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.m : (View) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: w */
+    public PbReplyTitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null || !(customMessage instanceof PbPageReadLocalRequestMessage)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d06e7, viewGroup, false);
+            this.m = inflate;
+            PbReplyTitleViewHolder pbReplyTitleViewHolder = new PbReplyTitleViewHolder(this.a.getPageContext(), inflate);
+            PbFragment pbFragment = this.b;
+            if (pbFragment != null) {
+                pbReplyTitleViewHolder.r(pbFragment.c0);
             }
-            PbPageReadLocalRequestMessage pbPageReadLocalRequestMessage = (PbPageReadLocalRequestMessage) customMessage;
-            byte[] a = ix7.b().a(pbPageReadLocalRequestMessage.getCacheKey(), pbPageReadLocalRequestMessage.isMarkCache());
-            PbPageReadLocalResponseMessage pbPageReadLocalResponseMessage = new PbPageReadLocalResponseMessage();
-            pbPageReadLocalResponseMessage.setPostId(pbPageReadLocalRequestMessage.getPostId());
-            pbPageReadLocalResponseMessage.setMarkCache(pbPageReadLocalRequestMessage.isMarkCache());
-            pbPageReadLocalResponseMessage.setUpdateType(pbPageReadLocalRequestMessage.getUpdateType());
-            try {
-                pbPageReadLocalResponseMessage.decodeInBackGround(2004003, a);
-            } catch (Exception e) {
-                e.printStackTrace();
+            pbReplyTitleViewHolder.v = false;
+            pbReplyTitleViewHolder.q(this.g);
+            pbReplyTitleViewHolder.p(this.h);
+            pbReplyTitleViewHolder.o(this.n);
+            if (getType() == wv7.i) {
+                pbReplyTitleViewHolder.n(this.i);
+            } else if (getType() == wv7.j) {
+                pbReplyTitleViewHolder.m(this.j);
             }
-            return pbPageReadLocalResponseMessage;
+            return pbReplyTitleViewHolder;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (PbReplyTitleViewHolder) invokeL.objValue;
+    }
+
+    public View x(int i, View view2, ViewGroup viewGroup, wv7 wv7Var, PbReplyTitleViewHolder pbReplyTitleViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wv7Var, pbReplyTitleViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, wv7Var, pbReplyTitleViewHolder);
+            if (pbReplyTitleViewHolder != null) {
+                u();
+                wv7Var.g = this.l.f;
+                pbReplyTitleViewHolder.h(wv7Var);
+            }
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public void y(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.n = z;
+        }
+    }
+
+    public void z(SortSwitchButton.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
+            this.h = fVar;
+        }
     }
 }

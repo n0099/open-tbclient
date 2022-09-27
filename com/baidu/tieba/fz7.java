@@ -1,112 +1,50 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.message.GameLaunchMessage;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.SubmitPbShowTipHttpResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes4.dex */
 public class fz7 {
     public static /* synthetic */ Interceptable $ic;
-    public static fz7 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public PbFragment a;
+    public x36 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947781510, "Lcom/baidu/tieba/fz7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947781510, "Lcom/baidu/tieba/fz7;");
-        }
-    }
-
-    public fz7() {
+    public fz7(PbFragment pbFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = pbFragment;
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SUBMIT_PB_SHOW_TIP, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
+        tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public static fz7 a() {
-        InterceptResult invokeV;
+    public void a() {
+        x36 x36Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (fz7.class) {
-                    if (a == null) {
-                        a = new fz7();
-                    }
-                }
-            }
-            return a;
-        }
-        return (fz7) invokeV.objValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? str != null && str.contains("bookcover:") : invokeL.booleanValue;
-    }
-
-    public final boolean b(String str) {
-        InterceptResult invokeL;
-        Map<String, String> paramPair;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (paramPair = UrlManager.getParamPair(UrlManager.getParamStr(str))) == null) {
-                return false;
-            }
-            String str2 = paramPair.get("url");
-            if (!TextUtils.isEmpty(str2)) {
-                return b(dj.getUrlDecode(str2));
-            }
-            String str3 = paramPair.get("tbgametype");
-            return !TextUtils.isEmpty(str3) && str3.equals("1");
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) && str.contains("xiaoying.tv") : invokeL.booleanValue;
-    }
-
-    public void e(TbPageContext tbPageContext, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, str) == null) || tbPageContext == null || TextUtils.isEmpty(str)) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (x36Var = this.b) == null) {
             return;
         }
-        str.contains("is_native_app=1");
-        if (b(str)) {
-            MessageManager.getInstance().dispatchResponsedMessage(new GameLaunchMessage(tbPageContext.getPageActivity(), null, str, null));
-        } else if (d(str)) {
-            UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, new String[]{str}, true);
-        } else {
-            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
-        }
+        x36Var.N();
     }
 }

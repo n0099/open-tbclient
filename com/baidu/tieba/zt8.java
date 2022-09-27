@@ -1,35 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.app.KeyguardManager;
-import android.app.WallpaperManager;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.os.PowerManager;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class zt8 {
+public class zt8 extends BdAsyncTask<String, String, Integer> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public KeyguardManager a;
-    public PowerManager b;
-    public PowerManager.WakeLock c;
-    public KeyguardManager.KeyguardLock d;
-    public Context e;
+    public String a;
+    public a b;
 
-    public zt8() {
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
+
+        void onError(String str);
+    }
+
+    public zt8(String str, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,102 +46,54 @@ public class zt8 {
                 return;
             }
         }
-        try {
-            Application app = TbadkCoreApplication.getInst().getApp();
-            this.e = app;
-            PowerManager powerManager = (PowerManager) app.getSystemService("power");
-            this.b = powerManager;
-            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
-            this.c = newWakeLock;
-            newWakeLock.setReferenceCounted(false);
-            KeyguardManager keyguardManager = (KeyguardManager) this.e.getSystemService("keyguard");
-            this.a = keyguardManager;
-            this.d = keyguardManager.newKeyguardLock("ScreenLockUtils");
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
+        this.a = "https://lookup.api.bsb.baidu.com/urlquery?url=" + URLEncoder.encode(str) + "&ver=2.0&key=Gar7ku5AswED&cid=" + TbadkCoreApplication.getInst().getCuid();
+        this.b = aVar;
     }
 
-    public static Drawable a() {
-        InterceptResult invokeV;
-        Bitmap bitmap;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public Integer doInBackground(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65537, null)) != null) {
-            return (Drawable) invokeV.objValue;
-        }
-        TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-        try {
-            Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
-            if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
-                return null;
-            }
-            int min = Math.min(ej.k(inst), bitmap.getWidth());
-            int min2 = Math.min(ej.i(inst), bitmap.getHeight());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
             try {
-                try {
-                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
-                } catch (Throwable unused) {
-                    return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                NetWork netWork = new NetWork(this.a);
+                netWork.getNetContext().getRequest().mIsNeedAddCommenParam = false;
+                netWork.getNetContext().getRequest().mIsUseCurrentBDUSS = false;
+                JSONArray optJSONArray = new JSONObject(new String(netWork.getNetData())).optJSONArray(TiebaStatic.LogFields.RESULT);
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            return Integer.valueOf(optJSONObject.optInt("main", -1));
+                        }
+                    }
+                    return -1;
                 }
-            } catch (Throwable th) {
-                BdLog.e(th.getMessage());
-                return null;
-            }
-        } catch (Exception unused2) {
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.a, new Object[0])).booleanValue();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
+                return -1;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
             }
         }
-        return invokeV.booleanValue;
+        return (Integer) invokeL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(Integer num) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.isScreenOn() : invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                this.d.reenableKeyguard();
-                if (this.c != null) {
-                    this.c.release();
-                    this.c = null;
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) || this.b == null || num == null) {
+            return;
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.c == null) {
-                    PowerManager.WakeLock newWakeLock = this.b.newWakeLock(268435462, "ScreenLockNotify");
-                    this.c = newWakeLock;
-                    newWakeLock.setReferenceCounted(false);
-                }
-                if (this.c != null) {
-                    this.c.acquire(10000L);
-                    this.d.disableKeyguard();
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
+        if (num.intValue() == -1) {
+            this.b.onError(null);
+        } else if (num.intValue() == 1) {
+            this.b.c();
+        } else if (num.intValue() != 2 && num.intValue() != 0) {
+            this.b.a();
+        } else {
+            this.b.b();
         }
     }
 }

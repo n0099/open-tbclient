@@ -1,71 +1,206 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.gk3;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dj3 extends yy2 {
+public class dj3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dj3 i;
     public transient /* synthetic */ FieldHolder $fh;
+    public ef3 a;
+    public String b;
+    public String c;
+    public lt2 d;
+    public r22 e;
+    public boolean f;
+    public String g;
+    public String h;
 
-    /* loaded from: classes3.dex */
-    public class a implements gk3.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dj3 a;
-
-        public a(dj3 dj3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947706428, "Lcom/baidu/tieba/dj3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dj3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = dj3Var;
-        }
-
-        @Override // com.baidu.tieba.gk3.c
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.d.putString(TiebaStatic.LogFields.RESULT, str);
-                this.a.c();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947706428, "Lcom/baidu/tieba/dj3;");
+                return;
             }
         }
+        boolean z = vj1.a;
     }
 
     public dj3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.f = true;
+        this.g = "-1";
+    }
+
+    public static dj3 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (i == null) {
+                synchronized (dj3.class) {
+                    if (i == null) {
+                        i = new dj3();
+                    }
+                }
+            }
+            return i;
+        }
+        return (dj3) invokeV.objValue;
+    }
+
+    public lt2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (lt2) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.f : invokeV.booleanValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ef3 ef3Var = this.a;
+            if (ef3Var != null) {
+                return ef3Var.h();
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            l02.i("SwanWebModeController", "getWebViewId: " + this.b);
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a = null;
+            this.b = "";
+            this.c = "";
+            this.d = null;
+            this.f = true;
         }
     }
 
-    @Override // com.baidu.tieba.yy2
-    public void b(@NonNull Bundle bundle) {
+    public void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            zi3.n(bundle.getString("key_result_client_id"), bundle.getStringArrayList("key_param_tpl_list"), new a(this));
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void n(ef3 ef3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, ef3Var) == null) {
+            this.a = ef3Var;
+        }
+    }
+
+    public void o(r22 r22Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, r22Var) == null) {
+            this.e = r22Var;
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            l02.i("SwanWebModeController", "setWebViewId: " + str);
+            this.b = str;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            l02.i("SwanWebModeController", "updateCurPageParam: pageUrl " + str);
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            lt2 lt2Var = this.d;
+            if (lt2Var == null) {
+                this.d = lt2.d(str, str);
+                return;
+            }
+            lt2Var.a = dh3.f(str);
+            this.d.b = dh3.o(str);
         }
     }
 }

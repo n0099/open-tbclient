@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
-import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
+import com.baidu.searchbox.fluency.BdTracesManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.mutiprocess.fps.ImageFpsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wa5 implements u95<SyncDataEvent> {
+public class wa5 implements ha5<ImageFpsEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,20 +29,17 @@ public class wa5 implements u95<SyncDataEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u95
+    @Override // com.baidu.tieba.ha5
     /* renamed from: a */
-    public boolean onEvent(SyncDataEvent syncDataEvent) {
+    public boolean onEvent(ImageFpsEvent imageFpsEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
-            if (syncDataEvent == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageFpsEvent)) == null) {
+            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                BdTracesManager.INSTANCE.getFpsTracer().endFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE);
+                return true;
             }
-            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
-            dg5.d().f(syncDataEvent.abtestExtraData);
-            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
-            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

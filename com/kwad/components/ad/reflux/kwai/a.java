@@ -42,7 +42,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
     public ImageView lm;
     public KsLogoView ln;
     public com.kwad.components.ad.reflux.a lo;
-    public b.InterfaceC0598b lp;
+    public b.InterfaceC0594b lp;
 
     static {
         InterceptResult invokeClinit;
@@ -94,14 +94,14 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
 
     private void br() {
         com.kwad.components.ad.reflux.a aVar;
-        b.InterfaceC0598b interfaceC0598b;
+        b.InterfaceC0594b interfaceC0594b;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (aVar = this.lo) == null) {
             return;
         }
         AdTemplate adTemplate = aVar.getAdTemplate();
-        if (!adTemplate.mPvReported && (interfaceC0598b = this.lp) != null) {
-            interfaceC0598b.onAdShow();
+        if (!adTemplate.mPvReported && (interfaceC0594b = this.lp) != null) {
+            interfaceC0594b.onAdShow();
         }
         f fVar = new f();
         com.kwad.components.ad.reflux.a aVar2 = this.lo;
@@ -118,7 +118,7 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
             return;
         }
         AdTemplate adTemplate = aVar.getAdTemplate();
-        com.kwad.components.core.c.a.a.a(new a.C0574a(com.kwad.sdk.b.kwai.a.x(this)).L(adTemplate).b(this.lo.getApkDownloadHelper()).ae(i).aj(true).a(new a.b(this, adTemplate) { // from class: com.kwad.components.ad.reflux.kwai.a.1
+        com.kwad.components.core.c.a.a.a(new a.C0570a(com.kwad.sdk.b.kwai.a.x(this)).L(adTemplate).b(this.lo.getApkDownloadHelper()).ae(i).aj(true).a(new a.b(this, adTemplate) { // from class: com.kwad.components.ad.reflux.kwai.a.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AdTemplate kp;
@@ -217,9 +217,9 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
                 b.aO(aVar.eQ());
             }
             com.kwad.sdk.core.report.a.a(adTemplate, b, (JSONObject) null);
-            b.InterfaceC0598b interfaceC0598b = this.lp;
-            if (interfaceC0598b != null) {
-                interfaceC0598b.onAdClicked();
+            b.InterfaceC0594b interfaceC0594b = this.lp;
+            if (interfaceC0594b != null) {
+                interfaceC0594b.onAdClicked();
             }
         }
     }
@@ -236,10 +236,10 @@ public abstract class a extends KSFrameLayout implements View.OnClickListener {
         }
     }
 
-    public void setAdClickListener(b.InterfaceC0598b interfaceC0598b) {
+    public void setAdClickListener(b.InterfaceC0594b interfaceC0594b) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC0598b) == null) {
-            this.lp = interfaceC0598b;
+        if (interceptable == null || interceptable.invokeL(1048581, this, interfaceC0594b) == null) {
+            this.lp = interfaceC0594b;
         }
     }
 }

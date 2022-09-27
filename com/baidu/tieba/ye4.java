@@ -1,181 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.swan.pms.node.Node;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ye4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> c;
-    public static volatile ye4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public volatile Set<String> b;
 
-    /* loaded from: classes6.dex */
-    public static class a extends ij4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("updatecore_node_nohistoryapps");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327265, "Lcom/baidu/tieba/ye4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948327265, "Lcom/baidu/tieba/ye4;");
-                return;
-            }
-        }
-        c = new HashSet();
-        d = null;
-        c.add("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
-        c.add("g4X7FfGEDt7G1ksLibU22o0wB2p49W0D");
-        c.add("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk");
-        c.add("pjwYb22xF6hUcKpZKsiqvnhUhsoUvLfT");
-    }
-
-    public ye4() {
+    public static JSONObject a(@Nullable ve4<JSONArray> ve4Var, @Nullable ve4<JSONObject> ve4Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        this.a = new a();
-        d();
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ve4Var, ve4Var2)) == null) ? b(Node.values(), ve4Var, ve4Var2) : (JSONObject) invokeLL.objValue;
     }
 
-    public static ye4 a() {
-        InterceptResult invokeV;
+    public static JSONObject b(Node[] nodeArr, @Nullable ve4<JSONArray> ve4Var, @Nullable ve4<JSONObject> ve4Var2) {
+        InterceptResult invokeLLL;
+        xe4 provider;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (ye4.class) {
-                    if (d == null) {
-                        d = new ye4();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, nodeArr, ve4Var, ve4Var2)) == null) {
+            if (nodeArr == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Node node : nodeArr) {
+                    if (node != null && (provider = Node.getProvider(node)) != null) {
+                        if (node.isDataArray()) {
+                            jSONObject.put(node.getName(), provider.b(ve4Var));
+                        } else {
+                            jSONObject.put(node.getName(), provider.a(ve4Var2));
+                        }
                     }
                 }
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
             }
-            return d;
         }
-        return (ye4) invokeV.objValue;
+        return (JSONObject) invokeLLL.objValue;
     }
 
-    public String[] b() {
-        InterceptResult invokeV;
+    public static void c(JSONObject jSONObject, gb4 gb4Var, @Nullable gb4 gb4Var2, @Nullable gb4 gb4Var3) {
+        ua4 b;
+        we4 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Set<String> set = c;
-            if (this.b != null) {
-                set = this.b;
-            }
-            String[] strArr = new String[set.size()];
-            int i = 0;
-            for (String str : set) {
-                strArr[i] = str;
-                i++;
-            }
-            return strArr;
+        if (!(interceptable == null || interceptable.invokeLLLL(65538, null, jSONObject, gb4Var, gb4Var2, gb4Var3) == null) || jSONObject == null) {
+            return;
         }
-        return (String[]) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getString("version", "0") : (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            String string = this.a.getString("appids", "");
-            if (TextUtils.isEmpty(string)) {
-                return;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(string);
-                HashSet hashSet = new HashSet();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    hashSet.add(jSONArray.optString(i));
+        Iterator<String> keys = jSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            Node nodeByConfigName = Node.getNodeByConfigName(next);
+            if (nodeByConfigName != null && (a = ze4.a(nodeByConfigName)) != null) {
+                if (nodeByConfigName.isDataArray()) {
+                    a.a(jSONObject.optJSONArray(next), gb4Var, gb4Var2, gb4Var3);
+                } else {
+                    a.b(jSONObject.optJSONObject(next), gb4Var, gb4Var2, gb4Var3);
                 }
-                this.b = hashSet;
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }
-    }
-
-    public void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        if (!rf4.a || (b = wa4.b()) == null) {
             return;
         }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appids")) == null) {
-            return;
-        }
-        f(optJSONArray, optString);
-    }
-
-    public final void f(JSONArray jSONArray, String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, jSONArray, str) == null) || jSONArray == null || TextUtils.isEmpty(str)) {
-            return;
-        }
-        HashSet hashSet = new HashSet();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            hashSet.add(jSONArray.optString(i));
-        }
-        this.b = hashSet;
-        SharedPreferences.Editor edit = this.a.edit();
-        edit.clear();
-        edit.putString("version", str);
-        edit.putString("appids", jSONArray.toString());
-        edit.apply();
+        b.C();
     }
 }

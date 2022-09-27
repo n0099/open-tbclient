@@ -1,135 +1,64 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class b02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static String c;
-    public static a02 d;
-    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public a02 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947591077, "Lcom/baidu/tieba/b02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947591077, "Lcom/baidu/tieba/b02;");
+    public b02(@NonNull Context context, @NonNull pi3 pi3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, pi3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ij1.a;
-        b = "";
-        c = "";
-        e = 0;
+        this.a = context;
+        this.b = new a02(pi3Var);
     }
 
-    public static String a() {
+    @NonNull
+    public a02 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (a02) invokeV.objValue;
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d != null) {
-                return d.c() + File.separator + b;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c : (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d != null) {
-                return d.c() + File.separator + c;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? e == 2 : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? e == 1 : invokeV.booleanValue;
-    }
-
-    public static void g(Bundle bundle) {
-        a02 a02Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65543, null, bundle) == null) || (a02Var = d) == null) {
-            return;
-        }
-        a02Var.b(bundle);
-    }
-
-    public static void h(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, bundle) == null) {
-            String i = xf3.i(bundle, "extraWSUrl");
-            String i2 = xf3.i(bundle, "adb_debug_path");
-            if (!TextUtils.isEmpty(i)) {
-                d = new t02();
-                e = 1;
-            } else if (!TextUtils.isEmpty(i2)) {
-                d = new d02();
-                e = 2;
-            } else {
-                if (a) {
-                    Log.d("UserDebugParams", "not debug mode");
-                }
-                e = 0;
-                d = null;
-                return;
-            }
-            d.a(bundle);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.c();
         }
     }
 
-    public static void i(String str) {
+    public void c(@NonNull Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            b = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.a = context;
         }
     }
 
-    public static void j(String str) {
+    @NonNull
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            c = str;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Context) invokeV.objValue;
     }
 }

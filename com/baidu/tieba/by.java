@@ -108,16 +108,16 @@ public class by extends ix implements xx, wx<ThreadData> {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j == null || this.a.l == null || this.a.k == null || this.a.l.isTransportThread() || !this.a.n) {
                 return;
             }
-            if (this.a.l.isMarkToDel() || !hg6.f().i()) {
-                if (this.a.l.isMarkToMove() || !gg6.h().j()) {
-                    hg6.f().l(this.a.l);
+            if (this.a.l.isMarkToDel() || !ug6.f().i()) {
+                if (this.a.l.isMarkToMove() || !tg6.h().j()) {
+                    ug6.f().l(this.a.l);
                     this.a.l.setMarkToDel(false);
-                    gg6.h().l(this.a.l);
+                    tg6.h().l(this.a.l);
                     this.a.l.setMarkToMove(false);
-                } else if (gg6.h().a(this.a.l)) {
+                } else if (tg6.h().a(this.a.l)) {
                     this.a.l.setMarkToMove(true);
                 }
-            } else if (hg6.f().a(this.a.l)) {
+            } else if (ug6.f().a(this.a.l)) {
                 this.a.l.setMarkToDel(true);
             }
             this.a.r();
@@ -184,19 +184,19 @@ public class by extends ix implements xx, wx<ThreadData> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
             if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080955, R.color.CAM_X0107, null);
+                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080957, R.color.CAM_X0107, null);
             } else {
-                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080952, R.color.CAM_X0304, null);
+                WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080954, R.color.CAM_X0304, null);
             }
-            uu4 d = uu4.d(this.h);
+            hv4 d = hv4.d(this.h);
             d.n(R.string.J_X06);
             d.m(this.m ? 2 : 1);
             d.f(R.color.CAM_X0201);
-            uu4 d2 = uu4.d(this.i);
+            hv4 d2 = hv4.d(this.i);
             d2.n(R.string.J_X06);
             d2.m(2);
             d2.f(R.color.CAM_X0201);
-            uu4.d(this.k).A(R.string.F_X01);
+            hv4.d(this.k).A(R.string.F_X01);
             SkinManager.setViewTextColor(this.k, (this.l.isMarkToDel() || this.l.isMarkToMove()) ? R.color.CAM_X0302 : R.drawable.selector_comment_and_prise_item_text_color);
         }
     }
@@ -209,7 +209,7 @@ public class by extends ix implements xx, wx<ThreadData> {
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
             this.l = threadData;
             this.n = threadData.getType() != ThreadData.TYPE_FAKE_VIDEO && (threadData == null || threadData.getAuthor() == null || !threadData.getAuthor().isForumBusinessAccount() || threadData.isSelf()) && threadData != null && (!threadData.isTiePlusCantDeleteUnion() || threadData.isSelf());
-            if (!hg6.f().i() && !gg6.h().j()) {
+            if (!ug6.f().i() && !tg6.h().j()) {
                 this.d.o(new dz.a(4, Boolean.TRUE));
                 this.g.setVisibility(8);
                 return;
@@ -244,9 +244,9 @@ public class by extends ix implements xx, wx<ThreadData> {
                 boolean isMarkToDel = this.l.isMarkToDel();
                 int i2 = R.color.CAM_X0304;
                 if (!isMarkToDel && !this.l.isMarkToMove()) {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080955, R.color.CAM_X0107, null);
+                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080957, R.color.CAM_X0107, null);
                 } else {
-                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080952, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.j, R.drawable.obfuscated_res_0x7f080954, R.color.CAM_X0304, null);
                 }
                 TextView textView = this.k;
                 if (!this.l.isMarkToDel() && !this.l.isMarkToMove()) {

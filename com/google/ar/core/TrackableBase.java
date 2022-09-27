@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xq9;
+import com.baidu.tieba.mr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class TrackableBase implements xq9 {
+public class TrackableBase implements mr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;

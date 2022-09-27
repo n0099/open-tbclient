@@ -12,9 +12,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lq4;
+import com.baidu.tieba.ny4;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -96,18 +96,18 @@ public class ExtraLayout extends RelativeLayout {
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f090968);
             this.a = tBSpecificationBtn;
             tBSpecificationBtn.setOnClickListener(this.e);
-            ay4 ay4Var = new ay4();
-            ay4Var.r(R.color.CAM_X0302);
-            this.a.setConfig(ay4Var);
+            ny4 ny4Var = new ny4();
+            ny4Var.r(R.color.CAM_X0302);
+            this.a.setConfig(ny4Var);
             this.a.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0518));
         }
     }
 
-    public void setData(lq4 lq4Var) {
+    public void setData(yq4 yq4Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lq4Var) == null) {
-            ThreadData threadData = lq4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yq4Var) == null) {
+            ThreadData threadData = yq4Var.getThreadData();
             boolean z2 = true;
             if (!TextUtils.isEmpty(threadData.extraText)) {
                 this.b.setVisibility(0);

@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b61;
-import com.baidu.tieba.d61;
+import com.baidu.tieba.o61;
+import com.baidu.tieba.q61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,10 +25,10 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     public double D;
     public SlideInterceptor E;
     public WeakReference<Activity> F;
-    public b61 G;
+    public o61 G;
 
     /* loaded from: classes2.dex */
-    public class a implements b61 {
+    public class a implements o61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -51,7 +51,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // com.baidu.tieba.b61
+        @Override // com.baidu.tieba.o61
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -64,7 +64,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b implements b61 {
+    public class b implements o61 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CustomSlidingPanelLayout a;
@@ -87,7 +87,7 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
             this.a = customSlidingPanelLayout;
         }
 
-        @Override // com.baidu.tieba.b61
+        @Override // com.baidu.tieba.o61
         public void onTranslucent(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -178,12 +178,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WeakReference<Activity> weakReference = this.F;
             if (weakReference != null && weakReference.get() != null) {
-                d61.c(this.F.get(), new b(this));
+                q61.c(this.F.get(), new b(this));
                 return;
             }
-            b61 b61Var = this.G;
-            if (b61Var != null) {
-                b61Var.onTranslucent(true);
+            o61 o61Var = this.G;
+            if (o61Var != null) {
+                o61Var.onTranslucent(true);
             }
         }
     }
@@ -194,12 +194,12 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             WeakReference<Activity> weakReference = this.F;
             if (weakReference != null && weakReference.get() != null) {
-                d61.d(this.F.get(), new a(this));
+                q61.d(this.F.get(), new a(this));
                 return;
             }
-            b61 b61Var = this.G;
-            if (b61Var != null) {
-                b61Var.onTranslucent(false);
+            o61 o61Var = this.G;
+            if (o61Var != null) {
+                o61Var.onTranslucent(false);
             }
         }
     }
@@ -217,10 +217,10 @@ public class CustomSlidingPanelLayout extends SlidingPaneLayout {
         }
     }
 
-    public void setOnTransparentListener(b61 b61Var) {
+    public void setOnTransparentListener(o61 o61Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, b61Var) == null) {
-            this.G = b61Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, o61Var) == null) {
+            this.G = o61Var;
         }
     }
 

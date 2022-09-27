@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.tieba.xx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -155,7 +155,7 @@ public class InterestForumTagView extends LinearLayout implements xx {
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                uu4 d = uu4.d(symbolEMTextView);
+                hv4 d = hv4.d(symbolEMTextView);
                 d.z(R.dimen.T_X09);
                 d.v(R.color.CAM_X0107);
                 d.w(R.dimen.tbds0);
@@ -165,7 +165,7 @@ public class InterestForumTagView extends LinearLayout implements xx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
             }
-            uu4 d2 = uu4.d(this);
+            hv4 d2 = hv4.d(this);
             d2.n(R.string.J_X01);
             d2.f(R.color.CAM_X0202);
         }

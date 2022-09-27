@@ -13,8 +13,8 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.lp4;
 import com.baidu.tieba.pb;
+import com.baidu.tieba.yp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,10 +52,10 @@ public class MainAPKFragmentActivityPageContext implements TbPageContext<BaseFra
     }
 
     @Override // com.baidu.tbadk.TbPageContext
-    public lp4 getLayoutMode() {
+    public yp4 getLayoutMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.activity.getLayoutMode() : (lp4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.activity.getLayoutMode() : (yp4) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.TbPageContext, com.baidu.tieba.r9

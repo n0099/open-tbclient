@@ -2,11 +2,10 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class zl1 implements mo1 {
+public class zl1 implements eo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -24,13 +23,10 @@ public class zl1 implements mo1 {
         }
     }
 
-    @Override // com.baidu.tieba.mo1
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.eo1
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeV.booleanValue;
     }
 }

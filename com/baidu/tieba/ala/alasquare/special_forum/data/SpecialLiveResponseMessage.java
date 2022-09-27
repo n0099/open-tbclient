@@ -4,9 +4,9 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.AlaUserInfoData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ev5;
-import com.baidu.tieba.kv5;
-import com.baidu.tieba.lv5;
+import com.baidu.tieba.rv5;
+import com.baidu.tieba.xv5;
+import com.baidu.tieba.yv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kv5 mData;
+    public xv5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SpecialLiveResponseMessage() {
@@ -47,13 +47,13 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            this.mData = new kv5();
+            this.mData = new xv5();
             jSONObject.optInt("concern_live_show");
             JSONObject optJSONObject = jSONObject.optJSONObject("head_live");
             if (optJSONObject != null) {
-                ev5 ev5Var = new ev5();
-                ev5Var.a(optJSONObject);
-                this.mData.a = ev5Var;
+                rv5 rv5Var = new rv5();
+                rv5Var.a(optJSONObject);
+                this.mData.a = rv5Var;
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("tab_info");
             if (optJSONArray != null && optJSONArray.length() > 0) {
@@ -77,16 +77,16 @@ public class SpecialLiveResponseMessage extends JsonHttpResponsedMessage {
             this.mData.c = jSONObject.optInt("is_like") == 1;
             JSONObject optJSONObject3 = jSONObject.optJSONObject("user_sign_info");
             if (optJSONObject2 != null) {
-                lv5 lv5Var = new lv5();
-                lv5Var.a(optJSONObject3);
-                this.mData.e = lv5Var;
+                yv5 yv5Var = new yv5();
+                yv5Var.a(optJSONObject3);
+                this.mData.e = yv5Var;
             }
         }
     }
 
-    public kv5 getData() {
+    public xv5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (kv5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (xv5) invokeV.objValue;
     }
 }

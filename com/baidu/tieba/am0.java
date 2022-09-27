@@ -1,107 +1,74 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public class am0 implements jm0 {
+public class am0 extends ff1<dm0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bm0 b;
-    public int c;
-    public long d;
-    public AtomicBoolean e;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public class a implements dm0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final zl0 b;
 
-    /* loaded from: classes3.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final am0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-943089017, "Lcom/baidu/tieba/am0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-943089017, "Lcom/baidu/tieba/am0$b;");
+        public a(am0 am0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {am0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new am0(null);
+            this.b = new zl0();
         }
-    }
 
-    public /* synthetic */ am0(a aVar) {
-        this();
-    }
-
-    public static am0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (am0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jm0
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.e.get()) {
-            return;
-        }
-        bm0 bm0Var = this.b;
-        if (bm0Var != null) {
-            bm0Var.d();
-            this.b = null;
-            this.c = -1;
-        }
-        if (z) {
-            if (this.d == 0 || System.currentTimeMillis() - this.d <= 300000) {
+        @Override // com.baidu.tieba.dm0
+        public <T extends cm0> void a(@Nullable T t) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, t) == null) || t == null) {
                 return;
             }
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new bm0(60, this.c + 1, true);
-            }
-        } else {
-            if (this.e.compareAndSet(false, true)) {
-                this.b = new bm0(60, this.c + 1, false);
-            }
-            xl0.d().f();
+            this.b.b(t);
         }
-        b();
-        this.d = System.currentTimeMillis();
-    }
 
-    public void b() {
-        bm0 bm0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int i = this.c + 1;
-            this.c = i;
-            if (i <= 2 && (bm0Var = this.b) != null) {
-                bm0Var.e();
+        @Override // com.baidu.tieba.dm0
+        public <T extends cm0> void b(@NonNull Object obj, @NonNull fm0<T> fm0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, fm0Var) == null) {
+                this.b.d(obj, fm0Var);
             }
         }
-    }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.set(false);
+        @Override // com.baidu.tieba.dm0
+        public <T extends cm0> void c(@NonNull Object obj, int i, @NonNull fm0<T> fm0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, fm0Var) == null) {
+                this.b.c(obj, i, fm0Var);
+            }
+        }
+
+        @Override // com.baidu.tieba.dm0
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+                this.b.g(obj);
+            }
         }
     }
 
@@ -115,11 +82,16 @@ public class am0 implements jm0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = -1;
-        this.d = 0L;
-        this.e = new AtomicBoolean(false);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ff1
+    /* renamed from: a */
+    public dm0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (dm0) invokeV.objValue;
     }
 }

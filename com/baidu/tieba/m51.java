@@ -1,119 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.graphics.Rect;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.ViewCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g21;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
-public class m51 implements ViewTreeObserver.OnGlobalLayoutListener {
+import com.qq.e.comm.constants.Constants;
+import java.util.Locale;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class m51 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public WeakReference<View> c;
+    public final o51 a;
+    public boolean b;
+    public int c;
+    public final JSONObject d;
 
-    /* loaded from: classes5.dex */
-    public class a implements Application.ActivityLifecycleCallbacks {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Application a;
-        public final /* synthetic */ m51 b;
-
-        public a(m51 m51Var, Application application) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m51Var, application};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = m51Var;
-            this.a = application;
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext()) {
-                this.b.a = false;
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(@NonNull Activity activity) {
-            View view2;
-            Application application;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) || (view2 = (View) this.b.c.get()) == null || activity != view2.getContext() || (application = this.a) == null) {
-                return;
-            }
-            application.unregisterActivityLifecycleCallbacks(this);
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(@NonNull Activity activity) {
-            View view2;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext()) {
-                this.b.a = true;
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(@NonNull Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-            }
-        }
-    }
-
-    public m51(View view2) {
+    public m51() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -123,51 +33,124 @@ public class m51 implements ViewTreeObserver.OnGlobalLayoutListener {
                 return;
             }
         }
-        this.a = false;
-        this.b = -1;
-        this.c = new WeakReference<>(view2);
-        c();
+        this.b = true;
+        this.c = -1;
+        this.d = new JSONObject();
+        o51 o51Var = new o51();
+        this.a = o51Var;
+        o51Var.a = System.currentTimeMillis();
     }
 
-    public final void c() {
-        Application application;
+    public String a(String str, long j, long j2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (p41.b() instanceof Application) {
-                application = (Application) p41.b();
-            } else {
-                application = (Application) p41.b().getApplicationContext();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)})) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(Constants.KEYS.AD_INFO, str);
+                jSONObject.put("isbrowser", String.valueOf(j));
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("aderrorcode", String.valueOf(j2));
+                jSONObject2.put("multipleaccess", String.valueOf(z));
+                jSONObject2.put(PrefetchEvent.MODULE, "0");
+                jSONObject.put("adext", jSONObject2.toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            application.registerActivityLifecycleCallbacks(new a(this, application));
+            return jSONObject.toString();
         }
+        return (String) invokeCommon.objValue;
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        View view2;
-        int measuredHeight;
+    public void b(String str, String str2, String str3, String str4, long j) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (view2 = this.c.get()) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) || this.a == null) {
             return;
         }
-        if (this.b < ((int) (g21.c.f(view2.getContext()) * 0.85f)) || this.a) {
-            if (ViewCompat.isAttachedToWindow(view2)) {
-                Rect rect = new Rect();
-                view2.getWindowVisibleDisplayFrame(rect);
-                int i = rect.top;
-                if (i == 0) {
-                    i = g21.c.g();
+        if (str3 == null) {
+            str3 = "";
+        }
+        o01 g = new o01().g("1006");
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("ext", str2);
+            g.b("f1", jSONObject.toString());
+            JSONObject jSONObject2 = new JSONObject();
+            jSONObject2.put("timing", str);
+            g.b("f2", jSONObject2.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        o51 o51Var = this.a;
+        g.b("f3", str4);
+        g.b("f4", String.valueOf(j));
+        g.b("f6", String.valueOf(this.c));
+        g.b("f7", LaunchStatsUtils.AD);
+        g.b("f14", "");
+        g.b("f15", String.valueOf(this.a.a));
+        g.b("f16", String.format(Locale.CHINA, "%.3f", Float.valueOf((((float) ((currentTimeMillis - o51Var.d) + o51Var.e)) * 1.0f) / 1000.0f)));
+        g.b("f17", str3);
+        g.b("f18", String.valueOf(this.a.b));
+        g.b("f19", String.valueOf(this.a.c));
+        g.b("f20", String.valueOf(this.a.d));
+        g.b("f21", String.valueOf(this.a.f));
+        g.c("f23", this.d);
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this) == null) {
+            o51 o51Var = this.a;
+            o51Var.a = 0L;
+            o51Var.e = 0L;
+            o51Var.f = 0L;
+            o51Var.d = 0L;
+            o51Var.c = 0L;
+            o51Var.b = 0L;
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.d = System.currentTimeMillis();
+            o51 o51Var = this.a;
+            long j = o51Var.d - o51Var.c;
+            if (j < 0) {
+                j = 0;
+            }
+            this.a.e += j;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.c = System.currentTimeMillis();
+            if (this.b) {
+                o51 o51Var = this.a;
+                long j = o51Var.c - o51Var.a;
+                if (j < 0) {
+                    j = 0;
                 }
-                measuredHeight = rect.bottom - i;
-            } else {
-                measuredHeight = view2.getMeasuredHeight();
+                this.a.e = j;
+                this.b = false;
             }
-            if (this.b == measuredHeight || measuredHeight <= 0) {
-                return;
-            }
-            this.b = measuredHeight;
-            view2.getLayoutParams().height = measuredHeight;
-            view2.requestLayout();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.b = System.currentTimeMillis();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a.f = System.currentTimeMillis();
         }
     }
 }

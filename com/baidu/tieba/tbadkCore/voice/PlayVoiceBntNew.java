@@ -22,12 +22,12 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.fa5;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.pp8;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.uu4;
 import com.baidu.tieba.view.AudioAnimationView;
 import com.baidu.tieba.w9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -214,7 +214,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            uu4 d = uu4.d(this.b);
+            hv4 d = hv4.d(this.b);
             d.n(R.string.J_X05);
             d.l(R.dimen.L_X03);
             d.k(R.color.CAM_X0302);
@@ -229,9 +229,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             return;
         }
         if (z) {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093d, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093f, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         } else {
-            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093e, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080940, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
         }
     }
 
@@ -335,13 +335,13 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048590, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d073c, (ViewGroup) this, true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09260d);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09260f);
             this.b = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919f8);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e9);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919fa);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0919eb);
             this.f = (AudioAnimationView) findViewById(R.id.obfuscated_res_0x7f0902e6);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091aba);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091abc);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
@@ -406,9 +406,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (s95.b().d()) {
-                s95.b().n(false);
-                s95.b().l(false);
+            if (fa5.b().d()) {
+                fa5.b().n(false);
+                fa5.b().l(false);
             }
             f(false);
             if (i == 1) {
@@ -583,7 +583,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             }
         }
         this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.Voice_play_type);
         obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         h(context);

@@ -1,132 +1,72 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cy2;
-import com.baidu.tieba.d83;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class z74 {
+public class z74 extends x74<xp2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements rh3<b83<d83.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public a(c cVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948312850, "Lcom/baidu/tieba/z74;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
-        /* renamed from: b */
-        public void a(b83<d83.e> b83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
-                if (w73.h(b83Var)) {
-                    z74.c(this.a);
-                } else {
-                    this.a.onFail();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements cy2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.cy2.a
-        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
-                if (i != 0) {
-                    this.a.onFail();
-                    return;
-                }
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        this.a.onFail();
-                        return;
-                    }
-                }
-                this.a.onSuccess();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onFail();
-
-        void onSuccess();
-    }
-
-    public static void b(Context context, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, cVar) == null) {
-            if (!(context instanceof Activity)) {
-                cVar.onFail();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948312850, "Lcom/baidu/tieba/z74;");
                 return;
             }
-            y23 M = y23.M();
-            if (M != null) {
-                M.e0().g((Activity) context, "mapp_location", new a(cVar));
+        }
+        boolean z = vj1.a;
+    }
+
+    public z74() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void c(c cVar) {
+    public static z74 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
-            y23 b0 = y23.b0();
-            if (sg3.M() && b0 != null) {
-                cVar.onSuccess();
-            } else {
-                b0.w().y(0, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, new b(cVar));
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new z74() : (z74) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.x74
+    public boolean b(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, xp2Var, up2Var, l33Var, jSONObject)) == null) ? e(context, xp2Var, up2Var, l33Var) : invokeLLLLL.booleanValue;
+    }
+
+    public final boolean e(Context context, xp2 xp2Var, up2 up2Var, l33 l33Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, xp2Var, up2Var, l33Var)) == null) {
+            l02.i("map", "MapRemoveAction start");
+            boolean g = u74.b().g(xp2Var);
+            l02.i("map", "MapRemoveAction end");
+            return g;
         }
+        return invokeLLLL.booleanValue;
     }
 }

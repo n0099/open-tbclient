@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tieba.Cdo;
-import com.baidu.tieba.mw5;
+import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,11 +62,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        mw5 mw5Var = new mw5();
+                        zw5 zw5Var = new zw5();
                         ThreadData threadData = new ThreadData();
                         threadData.parserJson(optJSONObject2);
-                        mw5Var.a = threadData;
-                        this.liveList.add(mw5Var);
+                        zw5Var.a = threadData;
+                        this.liveList.add(zw5Var);
                     }
                 }
             }
@@ -76,11 +76,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        mw5 mw5Var2 = new mw5();
+                        zw5 zw5Var2 = new zw5();
                         ThreadData threadData2 = new ThreadData();
                         threadData2.parserJson(optJSONObject3);
-                        mw5Var2.a = threadData2;
-                        this.recommandList.add(mw5Var2);
+                        zw5Var2.a = threadData2;
+                        this.recommandList.add(zw5Var2);
                     }
                 }
             }

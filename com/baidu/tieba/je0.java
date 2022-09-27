@@ -1,48 +1,29 @@
 package com.baidu.tieba;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.DuMixCallback;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class je0 implements DuMixCallback {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface je0 {
 
-    public je0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes4.dex */
+    public interface a {
+        void b(je0 je0Var);
     }
 
-    @Override // com.baidu.ar.DuMixCallback
-    public void onCaseCreate(boolean z, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-        }
+    /* loaded from: classes4.dex */
+    public interface b {
+        boolean d(je0 je0Var, int i, int i2);
     }
 
-    @Override // com.baidu.ar.DuMixCallback
-    public void onCaseDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+    /* loaded from: classes4.dex */
+    public interface c {
+        boolean e(je0 je0Var, int i, int i2, Object obj);
     }
 
-    @Override // com.baidu.ar.DuMixCallback
-    public void onRelease() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+    /* loaded from: classes4.dex */
+    public interface d {
+        void c(je0 je0Var);
+    }
+
+    /* loaded from: classes4.dex */
+    public interface e {
+        void a(je0 je0Var);
     }
 }

@@ -1,17 +1,79 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskHttpResMessage;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskReqMessage;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.SetTail.ResData;
 /* loaded from: classes4.dex */
 public class hn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public b a;
+    public int b;
+    public int c;
+    public long d;
+    public pb e;
+
+    /* loaded from: classes4.dex */
+    public class a extends pb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hn7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hn7 hn7Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hn7Var;
+        }
+
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof FinishMemberTaskHttpResMessage;
+            if (z || (responsedMessage instanceof FinishMemberTaskSocketMessage)) {
+                if (z) {
+                    this.a.b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
+                } else if (responsedMessage instanceof FinishMemberTaskSocketMessage) {
+                    this.a.b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
+                }
+                if (this.a.a != null) {
+                    this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c, this.a.d);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(int i, String str, int i2, int i3, long j);
+    }
 
     public hn7() {
         Interceptable interceptable = $ic;
@@ -23,22 +85,38 @@ public class hn7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.e = new a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
+        sm8.h(309429, FinishMemberTaskSocketMessage.class, false, false);
+        sm8.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
+        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void f(long j, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public void b(ResData resData) {
-        Long l;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) == null) || resData == null || (l = resData.tailId) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.d = j;
+            this.c = i;
+            FinishMemberTaskReqMessage finishMemberTaskReqMessage = new FinishMemberTaskReqMessage();
+            finishMemberTaskReqMessage.setTaskId(j);
+            MessageManager.getInstance().sendMessage(finishMemberTaskReqMessage);
         }
-        this.a = l.intValue();
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
+        }
+    }
+
+    public void h(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
+        }
     }
 }

@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import org.json.JSONObject;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
 /* loaded from: classes5.dex */
 public interface or3 {
-    void a(String str, JSONObject jSONObject);
+    void a();
 
-    boolean b();
+    void b(DownloadException downloadException);
 
-    boolean c(View view2);
+    void c();
 
-    boolean d(View view2, iq3 iq3Var);
+    void d();
 
-    void e();
+    void e(long j, long j2);
 
-    boolean f(View view2, iq3 iq3Var);
+    void f(long j, long j2);
 
-    boolean removeView(View view2);
+    void onStart();
 }

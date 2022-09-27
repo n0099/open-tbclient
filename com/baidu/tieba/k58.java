@@ -1,70 +1,116 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class k58 extends BaseCardInfo implements Cdo {
+public class k58 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a58> a;
+    public BdTypeListView a;
+    public i58 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864187, "Lcom/baidu/tieba/k58;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947864187, "Lcom/baidu/tieba/k58;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public k58() {
+    public k58(BdTypeListView bdTypeListView, TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdTypeListView, tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = bdTypeListView;
+        this.b = new i58(bdTypeListView, tbPageContext, bdUniqueId);
     }
 
-    public List<a58> c() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
-    }
-
-    public void f(List<a58> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.a();
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.c();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.c();
+        }
+    }
+
+    public void d() {
+        i58 i58Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (i58Var = this.b) == null) {
+            return;
+        }
+        i58Var.d();
+    }
+
+    public void e() {
+        i58 i58Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (i58Var = this.b) == null) {
+            return;
+        }
+        i58Var.e();
+    }
+
+    public void f(boolean z) {
+        i58 i58Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (i58Var = this.b) == null) {
+            return;
+        }
+        i58Var.f(z);
+    }
+
+    public void g() {
+        i58 i58Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (i58Var = this.b) == null) {
+            return;
+        }
+        i58Var.g();
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.h();
+        }
+    }
+
+    public void i(List<Cdo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
+            this.a.setData(list);
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.b.i();
+        }
     }
 }

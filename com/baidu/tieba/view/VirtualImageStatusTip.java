@@ -14,8 +14,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.ol8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,10 +74,10 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     private void setBackground(String str) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b3a)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, str) == null) || (drawable = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080b3c)) == null) {
             return;
         }
-        DrawableCompat.setTint(drawable, zk8.a(zk8.f(str), 0.3f));
+        DrawableCompat.setTint(drawable, ol8.a(ol8.f(str), 0.3f));
         this.d.setBackground(drawable);
         this.d.setPadding(f, 0, g, 0);
     }
@@ -147,7 +147,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             this.d.setSingleLine();
             this.d.setGravity(17);
             this.d.setPadding(f, 0, g, 0);
-            uu4.d(this.d).z(R.dimen.T_X08);
+            hv4.d(this.d).z(R.dimen.T_X08);
         }
     }
 
@@ -157,7 +157,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
         if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (textView = this.d) == null) {
             return;
         }
-        uu4.d(textView).v(R.color.CAM_X0105);
+        hv4.d(textView).v(R.color.CAM_X0105);
     }
 
     public void setData(String str, String str2, String str3) {

@@ -3,17 +3,17 @@ package rx.internal.util;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.cx9;
-import com.baidu.tieba.dx9;
+import com.baidu.tieba.az9;
+import com.baidu.tieba.fx9;
+import com.baidu.tieba.hx9;
 import com.baidu.tieba.ix9;
-import com.baidu.tieba.ly9;
-import com.baidu.tieba.qw9;
-import com.baidu.tieba.sw9;
-import com.baidu.tieba.tw9;
-import com.baidu.tieba.u0a;
-import com.baidu.tieba.ww9;
-import com.baidu.tieba.x0a;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.j1a;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.m1a;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.rx9;
+import com.baidu.tieba.sx9;
+import com.baidu.tieba.xx9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -24,27 +24,27 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes9.dex */
-public final class ScalarSynchronousObservable<T> extends qw9<T> {
+public final class ScalarSynchronousObservable<T> extends fx9<T> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
     public final T b;
 
     /* loaded from: classes9.dex */
-    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements sw9, dx9 {
+    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements hx9, sx9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = -2466317989629281651L;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ww9<? super T> actual;
-        public final ix9<dx9, xw9> onSchedule;
+        public final lx9<? super T> actual;
+        public final xx9<sx9, mx9> onSchedule;
         public final T value;
 
-        public ScalarAsyncProducer(ww9<? super T> ww9Var, T t, ix9<dx9, xw9> ix9Var) {
+        public ScalarAsyncProducer(lx9<? super T> lx9Var, T t, xx9<sx9, mx9> xx9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ww9Var, t, ix9Var};
+                Object[] objArr = {lx9Var, t, xx9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,33 +54,33 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
                     return;
                 }
             }
-            this.actual = ww9Var;
+            this.actual = lx9Var;
             this.value = t;
-            this.onSchedule = ix9Var;
+            this.onSchedule = xx9Var;
         }
 
-        @Override // com.baidu.tieba.dx9
+        @Override // com.baidu.tieba.sx9
         public void call() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ww9<? super T> ww9Var = this.actual;
-                if (ww9Var.isUnsubscribed()) {
+                lx9<? super T> lx9Var = this.actual;
+                if (lx9Var.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.value;
                 try {
-                    ww9Var.onNext(obj);
-                    if (ww9Var.isUnsubscribed()) {
+                    lx9Var.onNext(obj);
+                    if (lx9Var.isUnsubscribed()) {
                         return;
                     }
-                    ww9Var.onCompleted();
+                    lx9Var.onCompleted();
                 } catch (Throwable th) {
-                    cx9.g(th, ww9Var, obj);
+                    rx9.g(th, lx9Var, obj);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.sw9
+        @Override // com.baidu.tieba.hx9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
@@ -108,17 +108,17 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
     }
 
     /* loaded from: classes9.dex */
-    public class a implements ix9<dx9, xw9> {
+    public class a implements xx9<sx9, mx9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ly9 a;
+        public final /* synthetic */ az9 a;
 
-        public a(ScalarSynchronousObservable scalarSynchronousObservable, ly9 ly9Var) {
+        public a(ScalarSynchronousObservable scalarSynchronousObservable, az9 az9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {scalarSynchronousObservable, ly9Var};
+                Object[] objArr = {scalarSynchronousObservable, az9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -128,37 +128,37 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
                     return;
                 }
             }
-            this.a = ly9Var;
+            this.a = az9Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ix9
-        public xw9 call(dx9 dx9Var) {
+        @Override // com.baidu.tieba.xx9
+        public mx9 call(sx9 sx9Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dx9Var)) == null) ? this.a.a(dx9Var) : (xw9) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sx9Var)) == null) ? this.a.a(sx9Var) : (mx9) invokeL.objValue;
         }
     }
 
     /* loaded from: classes9.dex */
-    public class b implements ix9<dx9, xw9> {
+    public class b implements xx9<sx9, mx9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tw9 a;
+        public final /* synthetic */ ix9 a;
 
         /* loaded from: classes9.dex */
-        public class a implements dx9 {
+        public class a implements sx9 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ dx9 a;
-            public final /* synthetic */ tw9.a b;
+            public final /* synthetic */ sx9 a;
+            public final /* synthetic */ ix9.a b;
 
-            public a(b bVar, dx9 dx9Var, tw9.a aVar) {
+            public a(b bVar, sx9 sx9Var, ix9.a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, dx9Var, aVar};
+                    Object[] objArr = {bVar, sx9Var, aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -168,11 +168,11 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
                         return;
                     }
                 }
-                this.a = dx9Var;
+                this.a = sx9Var;
                 this.b = aVar;
             }
 
-            @Override // com.baidu.tieba.dx9
+            @Override // com.baidu.tieba.sx9
             public void call() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -185,46 +185,7 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
             }
         }
 
-        public b(ScalarSynchronousObservable scalarSynchronousObservable, tw9 tw9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {scalarSynchronousObservable, tw9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tw9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ix9
-        public xw9 call(dx9 dx9Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dx9Var)) == null) {
-                tw9.a createWorker = this.a.createWorker();
-                createWorker.b(new a(this, dx9Var, createWorker));
-                return createWorker;
-            }
-            return (xw9) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes9.dex */
-    public class c implements qw9.a<R> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ix9 a;
-        public final /* synthetic */ ScalarSynchronousObservable b;
-
-        public c(ScalarSynchronousObservable scalarSynchronousObservable, ix9 ix9Var) {
+        public b(ScalarSynchronousObservable scalarSynchronousObservable, ix9 ix9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -239,27 +200,66 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
                     return;
                 }
             }
-            this.b = scalarSynchronousObservable;
             this.a = ix9Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qw9.a, com.baidu.tieba.ex9
-        public void call(ww9<? super R> ww9Var) {
+        @Override // com.baidu.tieba.xx9
+        public mx9 call(sx9 sx9Var) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ww9Var) == null) {
-                qw9 qw9Var = (qw9) this.a.call(this.b.b);
-                if (qw9Var instanceof ScalarSynchronousObservable) {
-                    ww9Var.f(ScalarSynchronousObservable.D(ww9Var, ((ScalarSynchronousObservable) qw9Var).b));
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, sx9Var)) == null) {
+                ix9.a createWorker = this.a.createWorker();
+                createWorker.b(new a(this, sx9Var, createWorker));
+                return createWorker;
+            }
+            return (mx9) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements fx9.a<R> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xx9 a;
+        public final /* synthetic */ ScalarSynchronousObservable b;
+
+        public c(ScalarSynchronousObservable scalarSynchronousObservable, xx9 xx9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {scalarSynchronousObservable, xx9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = scalarSynchronousObservable;
+            this.a = xx9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
+        public void call(lx9<? super R> lx9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lx9Var) == null) {
+                fx9 fx9Var = (fx9) this.a.call(this.b.b);
+                if (fx9Var instanceof ScalarSynchronousObservable) {
+                    lx9Var.f(ScalarSynchronousObservable.D(lx9Var, ((ScalarSynchronousObservable) fx9Var).b));
                 } else {
-                    qw9Var.B(u0a.c(ww9Var));
+                    fx9Var.B(j1a.c(lx9Var));
                 }
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class d<T> implements qw9.a<T> {
+    public static final class d<T> implements fx9.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final T a;
@@ -282,32 +282,32 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
             this.a = t;
         }
 
-        @Override // com.baidu.tieba.qw9.a, com.baidu.tieba.ex9
+        @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((ww9) ((ww9) obj));
+            call((lx9) ((lx9) obj));
         }
 
-        public void call(ww9<? super T> ww9Var) {
+        public void call(lx9<? super T> lx9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ww9Var) == null) {
-                ww9Var.f(ScalarSynchronousObservable.D(ww9Var, this.a));
+            if (interceptable == null || interceptable.invokeL(1048576, this, lx9Var) == null) {
+                lx9Var.f(ScalarSynchronousObservable.D(lx9Var, this.a));
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class e<T> implements qw9.a<T> {
+    public static final class e<T> implements fx9.a<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final T a;
-        public final ix9<dx9, xw9> b;
+        public final xx9<sx9, mx9> b;
 
-        public e(T t, ix9<dx9, xw9> ix9Var) {
+        public e(T t, xx9<sx9, mx9> xx9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t, ix9Var};
+                Object[] objArr = {t, xx9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -318,36 +318,36 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
                 }
             }
             this.a = t;
-            this.b = ix9Var;
+            this.b = xx9Var;
         }
 
-        @Override // com.baidu.tieba.qw9.a, com.baidu.tieba.ex9
+        @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((ww9) ((ww9) obj));
+            call((lx9) ((lx9) obj));
         }
 
-        public void call(ww9<? super T> ww9Var) {
+        public void call(lx9<? super T> lx9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, ww9Var) == null) {
-                ww9Var.f(new ScalarAsyncProducer(ww9Var, this.a, this.b));
+            if (interceptable == null || interceptable.invokeL(1048576, this, lx9Var) == null) {
+                lx9Var.f(new ScalarAsyncProducer(lx9Var, this.a, this.b));
             }
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class f<T> implements sw9 {
+    public static final class f<T> implements hx9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ww9<? super T> a;
+        public final lx9<? super T> a;
         public final T b;
         public boolean c;
 
-        public f(ww9<? super T> ww9Var, T t) {
+        public f(lx9<? super T> lx9Var, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ww9Var, t};
+                Object[] objArr = {lx9Var, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -357,11 +357,11 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
                     return;
                 }
             }
-            this.a = ww9Var;
+            this.a = lx9Var;
             this.b = t;
         }
 
-        @Override // com.baidu.tieba.sw9
+        @Override // com.baidu.tieba.hx9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || this.c) {
@@ -373,19 +373,19 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
             } else if (i == 0) {
             } else {
                 this.c = true;
-                ww9<? super T> ww9Var = this.a;
-                if (ww9Var.isUnsubscribed()) {
+                lx9<? super T> lx9Var = this.a;
+                if (lx9Var.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.b;
                 try {
-                    ww9Var.onNext(obj);
-                    if (ww9Var.isUnsubscribed()) {
+                    lx9Var.onNext(obj);
+                    if (lx9Var.isUnsubscribed()) {
                         return;
                     }
-                    ww9Var.onCompleted();
+                    lx9Var.onCompleted();
                 } catch (Throwable th) {
-                    cx9.g(th, ww9Var, obj);
+                    rx9.g(th, lx9Var, obj);
                 }
             }
         }
@@ -409,7 +409,7 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScalarSynchronousObservable(T t) {
-        super(x0a.h(new d(t)));
+        super(m1a.h(new d(t)));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -419,7 +419,7 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((qw9.a) newInitContext.callArgs[0]);
+                super((fx9.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -434,16 +434,16 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, t)) == null) ? new ScalarSynchronousObservable<>(t) : (ScalarSynchronousObservable) invokeL.objValue;
     }
 
-    public static <T> sw9 D(ww9<? super T> ww9Var, T t) {
+    public static <T> hx9 D(lx9<? super T> lx9Var, T t) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, ww9Var, t)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, lx9Var, t)) == null) {
             if (c) {
-                return new SingleProducer(ww9Var, t);
+                return new SingleProducer(lx9Var, t);
             }
-            return new f(ww9Var, t);
+            return new f(lx9Var, t);
         }
-        return (sw9) invokeLL.objValue;
+        return (hx9) invokeLL.objValue;
     }
 
     public T E() {
@@ -452,24 +452,24 @@ public final class ScalarSynchronousObservable<T> extends qw9<T> {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (T) invokeV.objValue;
     }
 
-    public <R> qw9<R> F(ix9<? super T, ? extends qw9<? extends R>> ix9Var) {
+    public <R> fx9<R> F(xx9<? super T, ? extends fx9<? extends R>> xx9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ix9Var)) == null) ? qw9.a(new c(this, ix9Var)) : (qw9) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xx9Var)) == null) ? fx9.a(new c(this, xx9Var)) : (fx9) invokeL.objValue;
     }
 
-    public qw9<T> G(tw9 tw9Var) {
+    public fx9<T> G(ix9 ix9Var) {
         InterceptResult invokeL;
-        ix9 bVar;
+        xx9 bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tw9Var)) == null) {
-            if (tw9Var instanceof ly9) {
-                bVar = new a(this, (ly9) tw9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ix9Var)) == null) {
+            if (ix9Var instanceof az9) {
+                bVar = new a(this, (az9) ix9Var);
             } else {
-                bVar = new b(this, tw9Var);
+                bVar = new b(this, ix9Var);
             }
-            return qw9.a(new e(this.b, bVar));
+            return fx9.a(new e(this.b, bVar));
         }
-        return (qw9) invokeL.objValue;
+        return (fx9) invokeL.objValue;
     }
 }

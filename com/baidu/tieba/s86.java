@@ -1,83 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.FeedTabCardStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import tbclient.ForumGuide.LikeForum;
 /* loaded from: classes5.dex */
 public class s86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<q86> a;
 
-    public s86() {
+    public static void a(View view2, yq4 yq4Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<q86> it = this.a.iterator();
-            while (it.hasNext()) {
-                it.next().L(0);
-            }
-        }
-    }
-
-    public ArrayList<q86> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public void c(List<?> list) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65536, null, view2, yq4Var, str) == null) || yq4Var == null || yq4Var.getThreadData() == null) {
             return;
         }
-        d(list, null);
-    }
-
-    public void d(List<?> list, Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, list, context) == null) || list == null) {
+        ThreadData threadData = yq4Var.getThreadData();
+        if (threadData.isVideoThreadType()) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadVideoAreaStatisticLog(threadData, str));
             return;
         }
-        try {
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (!(list.get(i) instanceof LikeForum)) {
-                    return;
-                }
-                q86 q86Var = new q86();
-                q86Var.I((LikeForum) list.get(i));
-                if (!TextUtils.isEmpty(q86Var.r())) {
-                    this.a.add(q86Var);
-                }
-            }
-        } catch (Exception e) {
-            BdLog.detailException(e);
+        int id = view2.getId();
+        if (view2.getId() == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+        } else if (id == R.id.obfuscated_res_0x7f092488) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
+        } else if (id == R.id.obfuscated_res_0x7f0924b6) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadPotraitStatisticLog(threadData, str));
+        } else if (id == R.id.obfuscated_res_0x7f090a8f) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadEnterForumStatisticLog(threadData, str));
+        } else if (id == R.id.obfuscated_res_0x7f092194) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadTitleStatisticLog(threadData, str));
+        } else if (view2 instanceof TbImageView) {
+            TiebaStatic.log(FeedTabCardStatisticHelper.clickThreadBigPictureStatisticLog(threadData, str));
+        }
+    }
+
+    public static void b(yq4 yq4Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65537, null, yq4Var, str) == null) || yq4Var == null || yq4Var.getThreadData() == null) {
+            return;
+        }
+        if (yq4Var.getThreadData().isVideoThreadType()) {
+            b26.b().a(FeedTabCardStatisticHelper.showVideoThreadStatisticLog(yq4Var.getThreadData(), str));
+        } else {
+            b26.b().a(FeedTabCardStatisticHelper.showPictureTextThreadStatisticLog(yq4Var.getThreadData(), str));
         }
     }
 }

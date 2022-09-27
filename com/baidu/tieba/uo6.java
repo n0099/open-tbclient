@@ -1,64 +1,199 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemRecentUpdateLayout;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
+import com.baidu.tieba.frs.itemtab.FrsItemTabHttpResponseMessage;
+import com.baidu.tieba.frs.itemtab.FrsItemTabNetModel;
+import com.baidu.tieba.frs.itemtab.FrsItemTabRequestData;
+import com.baidu.tieba.frs.itemtab.FrsItemTabSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class uo6 extends gx<bp6> {
+public class uo6 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemRecentUpdateLayout f;
+    public FrsItemTabFragment a;
+    public vo6 b;
+    public FrsItemTabNetModel c;
+    public int d;
+    public String e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uo6(Context context) {
-        super(context);
+    public uo6(FrsItemTabFragment frsItemTabFragment, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {frsItemTabFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new CardItemRecentUpdateLayout(context);
+        if (frsItemTabFragment == null) {
+            return;
+        }
+        this.a = frsItemTabFragment;
+        FrsItemTabRequestData frsItemTabRequestData = new FrsItemTabRequestData();
+        frsItemTabRequestData.itemId = i;
+        FrsItemTabNetModel frsItemTabNetModel = new FrsItemTabNetModel(frsItemTabFragment.getPageContext(), frsItemTabRequestData);
+        this.c = frsItemTabNetModel;
+        frsItemTabNetModel.b0(this);
+        this.c.setUniqueId(frsItemTabFragment.getUniqueId());
     }
 
-    @Override // com.baidu.tieba.gx
-    public View h() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : (View) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            vo6 vo6Var = this.b;
+            return (vo6Var == null || vo6Var.a == null) ? false : true;
+        }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(this.d);
+            errorData.setError_msg(this.e);
+            if (this.d != 0) {
+                this.a.f(errorData);
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wx
-    /* renamed from: p */
-    public void a(bp6 bp6Var) {
+    public final boolean c(vo6 vo6Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bp6Var) == null) {
-            this.f.setData(bp6Var.c());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vo6Var)) == null) {
+            if (vo6Var == null) {
+                return false;
+            }
+            this.b = vo6Var;
+            vo6Var.c = e(vo6Var.c);
+            this.a.t1(this.b);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.c.T()) {
+            return;
+        }
+        this.c.loadData();
+        yu6.a();
+    }
+
+    public final ArrayList<Cdo> e(ArrayList<Cdo> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, arrayList)) == null) {
+            ArrayList<Cdo> arrayList2 = new ArrayList<>();
+            Iterator<Cdo> it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                Cdo next = it.next();
+                if (next instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) next;
+                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
+                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL && !threadData.isTop()) {
+                        bu4 bu4Var = new bu4();
+                        bu4Var.t = threadData;
+                        bu4Var.position = i;
+                        bu4Var.a = true;
+                        bu4Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(bu4Var);
+                        bu4 bu4Var2 = new bu4();
+                        bu4Var2.t = threadData;
+                        bu4Var2.position = i;
+                        if (threadData.picCount() == 1) {
+                            bu4Var2.d = true;
+                            bu4Var2.u = imageWidthAndHeight[0];
+                            bu4Var2.v = imageWidthAndHeight[1];
+                        } else if (threadData.picCount() >= 2) {
+                            bu4Var2.e = true;
+                        } else {
+                            bu4Var2.b = true;
+                        }
+                        bu4Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(bu4Var2);
+                        bu4 bu4Var3 = new bu4();
+                        bu4Var3.g = true;
+                        bu4Var3.t = threadData;
+                        bu4Var3.position = i;
+                        bu4Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(bu4Var3);
+                        i++;
+                    }
+                    threadData.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                } else {
+                    if (next instanceof BaseCardInfo) {
+                        ((BaseCardInfo) next).position = i;
+                    }
+                    arrayList2.add(next);
+                    i++;
+                }
+            }
+            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
+            return arrayList2;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void n(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048581, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        vo6 vo6Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof FrsItemTabSocketResponseMessage)) {
+            vo6Var = ((FrsItemTabSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (vo6Var == null || !c(vo6Var)) {
+            this.d = mvcSocketResponsedMessage.getError();
+            this.e = mvcSocketResponsedMessage.getErrorString();
+            b();
+        }
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void s(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) || mvcHttpResponsedMessage == null) {
+            return;
+        }
+        vo6 vo6Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof FrsItemTabHttpResponseMessage)) {
+            vo6Var = (vo6) ((FrsItemTabHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (vo6Var == null || !c(vo6Var)) {
+            this.d = mvcHttpResponsedMessage.getError();
+            this.e = mvcHttpResponsedMessage.getErrorString();
+            b();
         }
     }
 }

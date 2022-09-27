@@ -1,34 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.AbstractHttpManager;
+import com.baidu.searchbox.http.request.PostBodyRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ja4 {
+public class ja4 extends PostBodyRequest.PostBodyRequestBuilder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Inject
-    public static jf4 a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ja4(AbstractHttpManager abstractHttpManager) {
+        super(abstractHttpManager);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? im2.a() : (jf4) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abstractHttpManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((AbstractHttpManager) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    @Inject
-    public static ha4 b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.request.PostBodyRequest.PostBodyRequestBuilder, com.baidu.searchbox.http.request.HttpRequestBuilder
+    public PostBodyRequest build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? nm2.a() : (ha4) invokeV.objValue;
-    }
-
-    @Inject
-    public static qb4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? pm2.a() : (qb4) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            da4.b().j(this.httpUrl.toString(), this);
+            requestFrom(6);
+            return super.build();
+        }
+        return (PostBodyRequest) invokeV.objValue;
     }
 }

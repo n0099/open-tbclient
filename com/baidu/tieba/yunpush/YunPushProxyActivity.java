@@ -25,10 +25,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tieba.jv4;
-import com.baidu.tieba.np4;
-import com.baidu.tieba.nv4;
+import com.baidu.tieba.aq4;
+import com.baidu.tieba.aw4;
 import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tieba.wv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,13 +113,13 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PUSH_SCHEME_MID_ACTIVITY_ONCREATE_START_STAMP_KEY);
-            jv4.u(this);
+            wv4.u(this);
             super.onCreate(bundle);
             try {
                 Intent intent = getIntent();
                 if (intent != null) {
                     String uri = intent.getData().toString();
-                    jv4.s(uri, false);
+                    wv4.s(uri, false);
                     if (uri.contains("tbyunpushnotifybody=")) {
                         JSONObject jSONObject = new JSONObject(uri.substring(uri.indexOf("tbyunpushnotifybody=") + 20));
                         String string = !jSONObject.isNull("task_id") ? jSONObject.getString("task_id") : "";
@@ -127,7 +127,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         if (!jSONObject.isNull("jump_scheme")) {
                             str = jSONObject.getString("jump_scheme");
                             if (Uri.parse(str).isOpaque()) {
-                                if (np4.e()) {
+                                if (aq4.e()) {
                                     throw new IllegalStateException(str + "：scheme 格式非法");
                                 }
                             }
@@ -208,15 +208,15 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                         param.addParam("tid", matcher.group(1));
                                     }
                                     TiebaStatic.log(param);
-                                    TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !nv4.a().d() ? 1 : 2));
+                                    TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !aw4.a().d() ? 1 : 2));
                                     if (!TextUtils.isEmpty(str)) {
                                         try {
                                             str = Uri.parse(str).buildUpon().appendQueryParameter("from_yunpush", "1").build().toString();
                                         } catch (Exception e) {
                                             BdLog.e(e);
                                         }
-                                        if (nv4.a().d()) {
-                                            nv4.a().i(2);
+                                        if (aw4.a().d()) {
+                                            aw4.a().i(2);
                                         }
                                         if (z1(str)) {
                                             int i13 = -1;
@@ -307,7 +307,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                                 if (matcher.find()) {
                                 }
                                 TiebaStatic.log(param4);
-                                TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !nv4.a().d() ? 1 : 2));
+                                TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !aw4.a().d() ? 1 : 2));
                                 if (!TextUtils.isEmpty(str)) {
                                 }
                             }
@@ -338,7 +338,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                             if (matcher.find()) {
                             }
                             TiebaStatic.log(param42);
-                            TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !nv4.a().d() ? 1 : 2));
+                            TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !aw4.a().d() ? 1 : 2));
                             if (!TextUtils.isEmpty(str)) {
                             }
                         }
@@ -372,7 +372,7 @@ public class YunPushProxyActivity extends BaseActivity<YunPushProxyActivity> {
                         if (matcher.find()) {
                         }
                         TiebaStatic.log(param422);
-                        TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !nv4.a().d() ? 1 : 2));
+                        TiebaStatic.log(new StatisticItem("PushOptCount").param("obj_param1", !aw4.a().d() ? 1 : 2));
                         if (!TextUtils.isEmpty(str)) {
                         }
                     }

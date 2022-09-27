@@ -24,13 +24,13 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac6;
+import com.baidu.tieba.e15;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.g55;
-import com.baidu.tieba.j19;
-import com.baidu.tieba.r05;
-import com.baidu.tieba.u45;
-import com.baidu.tieba.zb6;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.mc6;
+import com.baidu.tieba.nc6;
+import com.baidu.tieba.t55;
+import com.baidu.tieba.y19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.regex.Matcher;
 /* loaded from: classes6.dex */
-public class VideoPlayInputContainer extends LinearLayout implements g55 {
+public class VideoPlayInputContainer extends LinearLayout implements t55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditorTools a;
@@ -84,7 +84,7 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.f = true;
-                this.a.K(new u45(1, 5, null));
+                this.a.K(new h55(1, 5, null));
             }
         }
     }
@@ -119,7 +119,7 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
             if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
                 if (editable != null && editable.toString().trim() != null) {
                     VideoPlayInputContainer videoPlayInputContainer = this.a;
-                    videoPlayInputContainer.K(new u45(4, -1, videoPlayInputContainer.b.getText().toString()));
+                    videoPlayInputContainer.K(new h55(4, -1, videoPlayInputContainer.b.getText().toString()));
                 }
                 this.a.c.setEnabled((editable == null || StringUtils.isNull(editable.toString().trim())) ? false : true);
                 this.a.i();
@@ -177,7 +177,7 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
-                    this.a.K(new u45(5, -1, null));
+                    this.a.K(new h55(5, -1, null));
                     this.a.b.requestFocus();
                 }
                 return false;
@@ -214,13 +214,13 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.K(new u45(8, -1, null));
+                this.a.K(new h55(8, -1, null));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class e implements ac6.h {
+    public class e implements nc6.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoPlayInputContainer a;
@@ -243,13 +243,13 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
             this.a = videoPlayInputContainer;
         }
 
-        @Override // com.baidu.tieba.ac6.h
+        @Override // com.baidu.tieba.nc6.h
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
                 this.a.b.setText(spannableStringBuilder);
                 this.a.b.setSelection(this.a.b.getText().length());
-                this.a.K(new u45(5, -1, null));
+                this.a.K(new h55(5, -1, null));
                 this.a.requestFocus();
             }
         }
@@ -276,18 +276,18 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.v45
-    public void B(u45 u45Var) {
+    @Override // com.baidu.tieba.i55
+    public void B(h55 h55Var) {
         Object obj;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, u45Var) == null) || u45Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) || h55Var == null) {
             return;
         }
-        int i = u45Var.a;
+        int i = h55Var.a;
         if (i == 3) {
             if (this.b.getSelectionStart() > 0) {
                 String substring = this.b.getText().toString().substring(0, this.b.getSelectionStart());
-                Matcher matcher = zb6.b.matcher(substring);
+                Matcher matcher = mc6.b.matcher(substring);
                 if (matcher.find()) {
                     this.b.getText().delete(this.b.getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), this.b.getSelectionStart());
                 } else {
@@ -295,43 +295,43 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
                 }
             }
         } else if (i == 6) {
-            Object obj2 = u45Var.c;
+            Object obj2 = h55Var.c;
             if (obj2 == null) {
                 this.b.setText((CharSequence) null);
             } else if (obj2 instanceof String) {
                 if (TextUtils.isEmpty((String) obj2)) {
                     this.b.setText((CharSequence) null);
                 } else {
-                    ac6.f(getContext(), (String) u45Var.c, new e(this));
+                    nc6.f(getContext(), (String) h55Var.c, new e(this));
                 }
             }
         } else if (i == 9) {
-            if (((Boolean) u45Var.c).booleanValue()) {
+            if (((Boolean) h55Var.c).booleanValue()) {
                 this.b.setText((CharSequence) null);
             }
             this.c.setEnabled(false);
             i();
-        } else if (i == 24 && (obj = u45Var.c) != null && (obj instanceof r05)) {
-            r05 r05Var = (r05) obj;
-            if (r05Var.getType() == EmotionGroupType.NET_SUG) {
-                o(r05Var);
+        } else if (i == 24 && (obj = h55Var.c) != null && (obj instanceof e15)) {
+            e15 e15Var = (e15) obj;
+            if (e15Var.getType() == EmotionGroupType.NET_SUG) {
+                o(e15Var);
             } else {
-                n(r05Var);
+                n(e15Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.g55
-    public void K(u45 u45Var) {
+    @Override // com.baidu.tieba.t55
+    public void K(h55 h55Var) {
         EditorTools editorTools;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u45Var) == null) || (editorTools = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h55Var) == null) || (editorTools = this.a) == null) {
             return;
         }
-        editorTools.A(u45Var);
+        editorTools.A(h55Var);
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -352,14 +352,14 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (EditText) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public int getToolId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void hide() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -378,7 +378,7 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -409,7 +409,7 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
             this.b.setGravity(16);
             this.b.setTextSize(0, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
             this.b.setBackgroundResource(R.color.common_color_10022);
-            j19.l(this.b, R.drawable.obfuscated_res_0x7f0804c2);
+            y19.l(this.b, R.drawable.obfuscated_res_0x7f0804c2);
             this.b.setPadding(0, ej.f(context, R.dimen.obfuscated_res_0x7f0701e8), ej.f(context, R.dimen.obfuscated_res_0x7f0702da), ej.f(context, R.dimen.obfuscated_res_0x7f0701e8));
             this.b.setFilters(new InputFilter[]{new InputFilter.LengthFilter(2000)});
             this.b.addTextChangedListener(new b(this));
@@ -445,34 +445,34 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.f : invokeV.booleanValue;
     }
 
-    public final void n(r05 r05Var) {
+    public final void n(e15 e15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, r05Var) == null) {
-            if (!this.e || r05Var.getType() == EmotionGroupType.LOCAL) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, e15Var) == null) {
+            if (!this.e || e15Var.getType() == EmotionGroupType.LOCAL) {
                 String obj = this.b.getText().toString();
-                if (this.j && zb6.a(obj) >= 10 && getContext() != null) {
+                if (this.j && mc6.a(obj) >= 10 && getContext() != null) {
                     CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1456);
                 } else {
-                    ac6.b(getContext(), r05Var, this.b);
+                    nc6.b(getContext(), e15Var, this.b);
                 }
             }
         }
     }
 
-    public final void o(r05 r05Var) {
+    public final void o(e15 e15Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, r05Var) == null) || r05Var == null || TextUtils.isEmpty(r05Var.d()) || TextUtils.isEmpty(r05Var.g())) {
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, e15Var) == null) || e15Var == null || TextUtils.isEmpty(e15Var.d()) || TextUtils.isEmpty(e15Var.g())) {
             return;
         }
         String obj = this.b.getText().toString();
-        if (this.j && zb6.a(obj) >= 10 && getContext() != null) {
+        if (this.j && mc6.a(obj) >= 10 && getContext() != null) {
             CustomToast.newInstance().showToast(R.string.obfuscated_res_0x7f0f1456);
         } else {
-            ac6.c(getContext(), r05Var, this.b);
+            nc6.c(getContext(), e15Var, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -481,10 +481,10 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
             SkinManager.setViewTextColor(this.b, R.color.CAM_X0106, 2, i);
             SkinManager.setBackgroundColor(this, R.color.CAM_X0207, i);
             if (i == 0) {
-                j19.l(this.b, R.drawable.obfuscated_res_0x7f0804c2);
+                y19.l(this.b, R.drawable.obfuscated_res_0x7f0804c2);
                 this.b.setHintTextColor(getContext().getResources().getColor(R.color.CAM_X0109));
             } else {
-                j19.l(this.b, R.drawable.obfuscated_res_0x7f0804c3);
+                y19.l(this.b, R.drawable.obfuscated_res_0x7f0804c3);
                 this.b.setHintTextColor(SkinManager.getColor(i, (int) R.color.CAM_X0109));
             }
             i();
@@ -492,7 +492,7 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void setEditorTools(EditorTools editorTools) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, editorTools) == null) {
@@ -507,7 +507,7 @@ public class VideoPlayInputContainer extends LinearLayout implements g55 {
         }
     }
 
-    @Override // com.baidu.tieba.g55
+    @Override // com.baidu.tieba.t55
     public void setToolId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {

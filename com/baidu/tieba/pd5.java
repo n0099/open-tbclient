@@ -1,298 +1,170 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NetWorkState;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.httpNet.ComplianceParmasHelper;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tbadk.switchs.EncSigNewSwitch;
-import com.baidu.tbadk.switchs.NetDeleteSwitch;
-import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.util.Base64Encoder;
-import com.fun.ad.sdk.FunAdSdk;
-import java.util.List;
-import java.util.Map;
-import org.apache.http.protocol.HTTP;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class pd5 extends hb {
+public class pd5 extends od5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long A;
+    public long B;
+    public long C;
+    public long D;
+    public HashMap<String, String> E;
+    public boolean b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public long h;
+    public long i;
+    public long j;
+    public long k;
+    public long l;
+    public long m;
+    public long n;
+    public long o;
+    public long p;
+    public long q;
+    public long r;
+    public boolean s;
+    public int t;
+    public long u;
+    public int v;
+    public long w;
+    public long x;
+    public boolean y;
+    public long z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pd5(int i) {
-        super(i);
+    public pd5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
     }
 
-    public final void a(HttpMessage httpMessage) {
-        String currentBduss;
+    public void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, httpMessage) == null) || (currentBduss = TbadkCoreApplication.getCurrentBduss()) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) || dj.isEmpty(str) || dj.isEmpty(str2)) {
             return;
         }
-        httpMessage.addParam(HttpRequest.BDUSS, currentBduss);
-        String a = aq4.a(TbadkCoreApplication.getCurrentAccountInfo());
-        if (StringUtils.isNull(a)) {
+        this.E.put(str, str2);
+    }
+
+    public void c() {
+        td5 td5Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (td5Var = (td5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
             return;
         }
-        httpMessage.addParam("stoken", a);
+        td5Var.b(this);
     }
 
-    public final void b(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
+    public void d(int i) {
+        td5 td5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpMessage, tbHttpMessageTask) == null) {
-            httpMessage.addParam(HttpRequest.CLIENT_TYPE, "2");
-            if (!TbadkCoreApplication.getInst().isOfficial()) {
-                httpMessage.addParam("apid", "sw");
-            }
-            httpMessage.addParam("_client_version", TbConfig.getVersion());
-            if (TbadkCoreApplication.getInst().getImei() != null) {
-                httpMessage.addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-            }
-            String clientId = TbadkCoreApplication.getClientId();
-            if (clientId != null) {
-                httpMessage.addParam(HttpRequest.CLIENT_ID, clientId);
-            }
-            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                httpMessage.addParam(HttpRequest.SUBAPP_TYPE, TbConfig.getSubappType());
-            }
-            String from = TbadkCoreApplication.getFrom();
-            if (from != null && from.length() > 0) {
-                httpMessage.addParam("from", from);
-            }
-            httpMessage.addParam("net_type", String.valueOf(BdNetTypeUtil.netType()));
-            String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            if (!TextUtils.isEmpty(lastCachedOid)) {
-                httpMessage.addParam("oaid", lastCachedOid);
-            }
-            if (tbHttpMessageTask.isNeedTbs()) {
-                httpMessage.addParam(HttpRequest.TBS, TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : y95.f());
-            }
-            httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
-            httpMessage.addParam("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            httpMessage.addParam("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
-            httpMessage.addParam(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
-            httpMessage.addParam("timestamp", Long.toString(System.currentTimeMillis()));
-            httpMessage.addParam("model", gj.g());
-            httpMessage.addParam(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
-            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
-            httpMessage.addParam("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
-            httpMessage.addParam(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, Build.BRAND);
-            if (ComplianceParmasHelper.isNeedChange(tbHttpMessageTask.getUrl())) {
-                httpMessage.addParam(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
-                httpMessage.addParam(ComplianceParmasHelper.getRenameKey(HttpRequest.ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
-                httpMessage.addParam(ComplianceParmasHelper.getRenameKey(HttpRequest.PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
-            } else {
-                httpMessage.addParam("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
-                httpMessage.addParam(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
-                httpMessage.addParam(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
-            }
-            httpMessage.addParam("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
-            httpMessage.addParam("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
-            httpMessage.addParam("swan_game_ver", TbadkCoreApplication.getInst().getSwan_game_ver());
-            httpMessage.addParam("active_timestamp", TbSingleton.getInstance().getActiveTimeStamp());
-            httpMessage.addParam("first_install_time", TbSingleton.getInstance().getAppFirstInstallTime());
-            httpMessage.addParam(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, TbSingleton.getInstance().getAppLastUpdateTime());
-            httpMessage.addParam("event_day", TbSingleton.getInstance().getData());
-            httpMessage.addParam("cmode", PermissionUtil.isAgreePrivacyPolicy() ? 1 : 2);
-            httpMessage.addParam("is_teenager", "0");
-            httpMessage.addParam("start_type", jv4.f);
-            httpMessage.addParam("start_scheme", jv4.e());
-            httpMessage.addParam("extra", bx4.k().q("key_sync_extra_field", ""));
-            httpMessage.addParam("personalized_rec_switch", String.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch()));
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (td5Var = (td5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+            return;
         }
+        td5Var.c(this, i);
     }
 
-    public final void c(HttpMessage httpMessage) {
+    public void e(boolean z) {
+        td5 td5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpMessage) == null) {
-            if (vz4.b().d()) {
-                httpMessage.addCookie("pub_env", String.valueOf(vz4.b().c()));
-            }
-            if (TbSingleton.getInstance().isVisitPreviewServer()) {
-                httpMessage.addCookie("pub_env", TbSingleton.getInstance().getPubEnvValue());
-            }
-            if (1 == BdNetTypeUtil.netType()) {
-                if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                    httpMessage.addCookie("ka", "open");
-                }
-            } else if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                httpMessage.addCookie("ka", "open");
-            }
-            httpMessage.addCookie("TBBRAND", gj.g());
-            httpMessage.addCookie("CUID", TbadkCoreApplication.getInst().getCuid());
-            httpMessage.addCookie("BAIDUID", TbSingleton.getInstance().getBaiduIdForAnti());
-            httpMessage.addCookie("BAIDUZID", TbadkCoreApplication.getInst().getZid());
-            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            if (!TextUtils.isEmpty(cuidGalaxy2)) {
-                httpMessage.addCookie("BAIDUCUID", new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())));
-            }
-            if (httpMessage.getCmd() == 1003510 || httpMessage.getCmd() == 1003533) {
-                httpMessage.addCookie(HttpRequest.BDUSS, TbadkCoreApplication.getCurrentBduss());
-            }
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (td5Var = (td5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) == null) {
+            return;
         }
+        td5Var.d(this, z);
     }
 
-    public final void d(HttpMessage httpMessage) {
+    public pd5(int i, boolean z, ResponsedMessage<?> responsedMessage, long j, long j2, long j3, boolean z2, long j4, long j5, long j6) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, httpMessage) == null) {
-            StringBuffer stringBuffer = new StringBuffer(1024);
-            List<Map.Entry<String, Object>> encodeInBackGround = httpMessage.encodeInBackGround();
-            for (int i = 0; encodeInBackGround != null && i < encodeInBackGround.size(); i++) {
-                Map.Entry<String, Object> entry = encodeInBackGround.get(i);
-                if (entry != null) {
-                    String key = entry.getKey();
-                    Object value = entry.getValue();
-                    if ((value instanceof String) && !"sign".equals(key)) {
-                        stringBuffer.append(key + "=");
-                        stringBuffer.append(value);
-                    }
-                }
-            }
-            stringBuffer.append("tiebaclient!!!");
-            httpMessage.addParam("sign", lj.c(stringBuffer.toString()));
-            if (httpMessage.getHeaders() != null && "1".equals(httpMessage.getHeaders().get("needSig")) && EncSigNewSwitch.isOn()) {
-                httpMessage.addParam(FunAdSdk.PLATFORM_SIG, StringU.b(stringBuffer.toString()));
-            }
-            httpMessage.getHeaders().remove("needSig");
-        }
-    }
-
-    public final void e(HttpMessage httpMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, httpMessage) == null) {
-            NetWorkState.StatisticsData delStatisticsData = NetWorkState.delStatisticsData();
-            if (delStatisticsData != null) {
-                httpMessage.addParam("stTime", String.valueOf(delStatisticsData.mTime));
-                httpMessage.addParam("stSize", String.valueOf(delStatisticsData.mSize));
-                httpMessage.addParam("stTimesNum", String.valueOf(delStatisticsData.mTimesNum));
-                httpMessage.addParam("stMode", String.valueOf(delStatisticsData.mMode));
-                httpMessage.addParam("stMethod", String.valueOf(delStatisticsData.mMethod));
-            }
-            int errorNumsAndSet = NetWorkState.getErrorNumsAndSet(0);
-            if (errorNumsAndSet == 0 && delStatisticsData != null) {
-                errorNumsAndSet = delStatisticsData.mTimesNum;
-            }
-            httpMessage.addParam("stErrorNums", String.valueOf(errorNumsAndSet));
-        }
-    }
-
-    public final void f(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, httpMessage, tbHttpMessageTask) == null) {
-            if ((tbHttpMessageTask.isNeedGzip() && !tbHttpMessageTask.isBDImage()) || tbHttpMessageTask.isFromCDN()) {
-                httpMessage.addHeader("Accept-Encoding", "gzip");
-            } else {
-                httpMessage.addHeader("Accept-Encoding", "");
-            }
-            httpMessage.addHeader(BOSTokenRequest.CHARSET, "UTF-8");
-            String userAgent = httpMessage.getUserAgent();
-            if (TextUtils.isEmpty(userAgent)) {
-                httpMessage.addHeader("User-Agent", fi5.b());
-            } else {
-                httpMessage.addHeader("User-Agent", userAgent);
-            }
-            if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                httpMessage.addHeader("client_user_token", TbadkCoreApplication.getCurrentAccount());
-            }
-            int netType = BdNetTypeUtil.netType();
-            if (!NetDeleteSwitch.isOn()) {
-                httpMessage.addHeader("net", String.valueOf(netType));
-            }
-            boolean z = false;
-            if (1 != netType ? TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1 : TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                z = true;
-            }
-            if (z) {
-                httpMessage.addHeader(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-            } else {
-                httpMessage.addHeader(HTTP.CONN_DIRECTIVE, "close");
-            }
-            httpMessage.addHeader("client_logid", String.valueOf(httpMessage.getClientLogID()));
-            httpMessage.addHeader("cuid", TbadkCoreApplication.getInst().getCuid());
-            httpMessage.addHeader("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
-            httpMessage.addHeader("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
-            httpMessage.addHeader(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
-        }
-    }
-
-    public final void g(HttpMessage httpMessage, TbHttpMessageTask tbHttpMessageTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, httpMessage, tbHttpMessageTask) == null) {
-            if (tbHttpMessageTask.isFromCDN()) {
-                httpMessage.removeAllParams();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), responsedMessage, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Boolean.valueOf(z2), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (tbHttpMessageTask.isUseCurrentBDUSS()) {
-                a(httpMessage);
-            }
-            if (tbHttpMessageTask.isNeedAddCommenParam()) {
-                b(httpMessage, tbHttpMessageTask);
-                c(httpMessage);
-            } else if (tbHttpMessageTask.isIsNeedCookie()) {
-                c(httpMessage);
-            }
-            if (tbHttpMessageTask.isNeedAddStatisticsParam()) {
-                e(httpMessage);
-            }
-            if (tbHttpMessageTask.getMethod() == HttpMessageTask.HTTP_METHOD.POST && tbHttpMessageTask.isBaiduServer()) {
-                d(httpMessage);
-            }
         }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.baidu.tieba.jb
-    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        process2(httpMessage2, httpMessageTask);
-        return httpMessage2;
-    }
-
-    /* renamed from: process  reason: avoid collision after fix types in other method */
-    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, httpMessage, httpMessageTask)) == null) {
-            if (httpMessageTask != null && (httpMessageTask instanceof TbHttpMessageTask)) {
-                TbHttpMessageTask tbHttpMessageTask = (TbHttpMessageTask) httpMessageTask;
-                g(httpMessage, tbHttpMessageTask);
-                f(httpMessage, tbHttpMessageTask);
-            }
-            return httpMessage;
+        this.i = 0L;
+        this.j = 0L;
+        this.n = 0L;
+        this.p = 0L;
+        this.q = 0L;
+        this.r = 0L;
+        this.w = 0L;
+        this.x = 0L;
+        this.y = false;
+        this.E = new HashMap<>();
+        if (responsedMessage == null) {
+            return;
         }
-        return (HttpMessage) invokeLL.objValue;
+        this.a = i;
+        this.s = z;
+        if (z) {
+            this.r = responsedMessage.getDownSize();
+            this.A = responsedMessage.getOrginalMessage().getClientLogID();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+            wb wbVar = responsedMessage.performanceData;
+            this.w = wbVar.k;
+            this.x = wbVar.l;
+            this.t = wbVar.i;
+            this.u = wbVar.j;
+        } else {
+            this.q = responsedMessage.getDownSize();
+            this.z = responsedMessage.getOrginalMessage().getSquencedId();
+        }
+        this.c = j;
+        this.d = j4;
+        this.e = j2;
+        this.o = j3;
+        this.m = j5;
+        this.b = !responsedMessage.hasError();
+        wb wbVar2 = responsedMessage.performanceData;
+        this.f = wbVar2.a;
+        this.g = wbVar2.b;
+        this.h = wbVar2.c;
+        this.i = wbVar2.d;
+        this.j = wbVar2.e;
+        this.k = wbVar2.f;
+        this.l = wbVar2.g;
+        long j7 = wbVar2.h;
+        this.n = j7;
+        this.n = j7 + (responsedMessage.getProcessTime() - responsedMessage.getStartTime());
+        this.v = responsedMessage.getError();
+        this.y = z2;
+        this.p = j6;
     }
 }

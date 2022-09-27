@@ -19,30 +19,30 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.g16;
-import com.baidu.tieba.lq4;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.v16;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.i26;
+import com.baidu.tieba.t16;
 import com.baidu.tieba.wx;
 import com.baidu.tieba.xx;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BjhArticleLayout extends RelativeLayout implements wx<lq4>, View.OnClickListener, xx {
+public class BjhArticleLayout extends RelativeLayout implements wx<yq4>, View.OnClickListener, xx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public TbImageView c;
     public View d;
-    public lq4 e;
+    public yq4 e;
     public float f;
     public float g;
     public float h;
-    public v16<lq4> i;
+    public i26<yq4> i;
     public View.OnClickListener j;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -72,13 +72,13 @@ public class BjhArticleLayout extends RelativeLayout implements wx<lq4>, View.On
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d015c, (ViewGroup) this, true);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             setId(R.id.obfuscated_res_0x7f090398);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092216);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
             this.a = textView;
-            uu4 d = uu4.d(textView);
+            hv4 d = hv4.d(textView);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X06);
             this.a.setOnClickListener(this);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090e21);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f090e20);
             this.b = textView2;
             textView2.setOnClickListener(this);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090718);
@@ -102,12 +102,12 @@ public class BjhArticleLayout extends RelativeLayout implements wx<lq4>, View.On
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: c */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         OriginalThreadInfo originalThreadInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq4Var) == null) {
-            this.e = lq4Var;
-            ThreadData threadData = lq4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq4Var) == null) {
+            this.e = yq4Var;
+            ThreadData threadData = yq4Var.getThreadData();
             if (threadData.isShareThread && (originalThreadInfo = threadData.originalThreadData) != null) {
                 if (!originalThreadInfo.m && !threadData.shouldShowBlockedState()) {
                     threadData = threadData.originalThreadData.b();
@@ -127,7 +127,7 @@ public class BjhArticleLayout extends RelativeLayout implements wx<lq4>, View.On
                 this.d.setVisibility(0);
                 this.c.K(threadData.getArticeCover(), 10, false);
             }
-            g16.l(this.a, threadData.getId(), this.c.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+            t16.l(this.a, threadData.getId(), this.c.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
@@ -147,9 +147,9 @@ public class BjhArticleLayout extends RelativeLayout implements wx<lq4>, View.On
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
-            lq4 lq4Var = this.e;
-            if (lq4Var != null && lq4Var.getThreadData() != null) {
-                g16.l(this.a, this.e.getThreadData().getId(), this.c.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
+            yq4 yq4Var = this.e;
+            if (yq4Var != null && yq4Var.getThreadData() != null) {
+                t16.l(this.a, this.e.getThreadData().getId(), this.c.getVisibility() == 0 ? R.color.CAM_X0101 : R.color.CAM_X0105, R.color.CAM_X0109);
             }
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0101);
             TBSelector.makeDrawableSelector().setShape(0).defaultColorNotAutoChangeSkinType(R.color.CAM_X0606).radius(this.f).into(this.b);
@@ -165,9 +165,9 @@ public class BjhArticleLayout extends RelativeLayout implements wx<lq4>, View.On
             if (onClickListener != null) {
                 onClickListener.onClick(view2);
             }
-            v16<lq4> v16Var = this.i;
-            if (v16Var != null) {
-                v16Var.a(view2, this.e);
+            i26<yq4> i26Var = this.i;
+            if (i26Var != null) {
+                i26Var.a(view2, this.e);
             }
         }
     }
@@ -179,10 +179,10 @@ public class BjhArticleLayout extends RelativeLayout implements wx<lq4>, View.On
         }
     }
 
-    public void setSubClickListener(v16<lq4> v16Var) {
+    public void setSubClickListener(i26<yq4> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v16Var) == null) {
-            this.i = v16Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i26Var) == null) {
+            this.i = i26Var;
         }
     }
 

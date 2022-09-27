@@ -1,15 +1,31 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
 import android.view.View;
-import android.view.Window;
-import tv.athena.revenue.payui.view.WindowParams;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface y4a {
-    void attachWindow(Window window);
+public class y4a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View getContentView();
+    public static void a(Context context, View view2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, context, view2) == null) || context == null || view2 == null) {
+            return;
+        }
+        ((InputMethodManager) context.getSystemService("input_method")).hideSoftInputFromWindow(view2.getWindowToken(), 0);
+    }
 
-    void refreshView();
-
-    void refreshWindow(WindowParams windowParams);
+    public static void b(Activity activity, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, activity, view2) == null) {
+            if (view2 == null && (view2 = activity.getCurrentFocus()) == null) {
+                return;
+            }
+            ((InputMethodManager) activity.getSystemService("input_method")).showSoftInput(view2, 1);
+        }
+    }
 }

@@ -3,14 +3,14 @@ package com.baidu.tieba.imMessageCenter.mention;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.pd7;
+import com.baidu.tieba.de7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ReplyMeCacheModel extends CacheModel<pd7, ReplyMessageFragment> {
+public class ReplyMeCacheModel extends CacheModel<de7, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,10 +35,10 @@ public class ReplyMeCacheModel extends CacheModel<pd7, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<pd7> K() {
+    public Class<de7> K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? pd7.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? de7.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel

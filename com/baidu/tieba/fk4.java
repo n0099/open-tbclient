@@ -1,177 +1,160 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.stat.ShareLoginStat;
-import com.baidu.searchbox.player.ubc.VideoPlayerUbcConstants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.vn2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import org.json.JSONObject;
+import java.io.ByteArrayInputStream;
+import java.io.CharArrayWriter;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes4.dex */
-public class fk4 extends dk4 {
+public class fk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fk4(ZeusPluginFactory.Invoker invoker, String str) {
-        super(invoker, str);
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {invoker, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ZeusPluginFactory.Invoker) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    @Override // com.baidu.tieba.dk4, com.baidu.tieba.jl2
-    public void C() {
+    public static long b(InputStream inputStream, OutputStream outputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dk4
-    public void C0(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, str) == null) {
-            try {
-                JSONObject J0 = J0();
-                JSONObject K0 = K0();
-                K0.put(ShareLoginStat.MakeShareLoginStat.KEY_ERRNO, i);
-                K0.put("sub_errorNo", i2);
-                K0.put("errorInfo", str);
-                J0.put("ext", K0.toString());
-                ei4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_ERROR, J0);
-            } catch (Exception e) {
-                if (dk4.x) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.dk4
-    public void D0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                JSONObject J0 = J0();
-                J0.put("type", "first_frame");
-                J0.put("ext", K0().toString());
-                ei4.l(VideoPlayerUbcConstants.UBC_VIDEO_PLAY_SUCCESS, J0);
-            } catch (Exception e) {
-                if (dk4.x) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.dk4, com.baidu.tieba.jl2
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    @NonNull
-    public final JSONObject J0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("from", "video");
-                jSONObject.put("network", SwanAppNetworkUtils.e());
-            } catch (Exception e) {
-                if (dk4.x) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @NonNull
-    public final JSONObject K0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext_from", "aiapp");
-                jSONObject.put("appid", y23.g0());
-                jSONObject.put("url", this.b);
-                jSONObject.put(TiebaStatic.Params.VID, this.b);
-                jSONObject.put("isInline", true);
-                String str = "";
-                y23 M = y23.M();
-                if (M != null) {
-                    str = M.w0() ? SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan";
-                    vn2.a Y = M.Y();
-                    if (Y != null && Y.u1() > 0) {
-                        jSONObject.put("ext_start", Y.u1());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
+            if (inputStream != null && outputStream != null) {
+                try {
+                    byte[] bArr = new byte[3072];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
+                        }
                     }
-                }
-                jSONObject.put("ext_page", str);
-            } catch (Exception e) {
-                if (dk4.x) {
+                } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            return jSONObject;
+            return 0L;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeLL.longValue;
     }
 
-    @Override // com.baidu.tieba.jl2
-    public void N(ZeusPluginFactory.Invoker invoker) {
+    public static String c(File file) {
+        InterceptResult invokeL;
+        FileReader fileReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, invoker) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dk4, com.baidu.tieba.jl2
-    public void U() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.jl2
-    public ZeusPluginFactory.Invoker f0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileReader fileReader2 = null;
+            if (file != null && file.exists()) {
+                try {
+                    fileReader = new FileReader(file);
+                } catch (Exception unused) {
+                    fileReader = null;
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    char[] cArr = new char[256];
+                    CharArrayWriter charArrayWriter = new CharArrayWriter();
+                    while (true) {
+                        int read = fileReader.read(cArr);
+                        if (read > 0) {
+                            charArrayWriter.write(cArr, 0, read);
+                        } else {
+                            String charArrayWriter2 = charArrayWriter.toString();
+                            a(fileReader);
+                            return charArrayWriter2;
+                        }
+                    }
+                } catch (Exception unused2) {
+                    a(fileReader);
+                    return null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileReader2 = fileReader;
+                    a(fileReader2);
+                    throw th;
+                }
+            }
             return null;
         }
-        return (ZeusPluginFactory.Invoker) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.dk4, com.baidu.tieba.jl2
-    public void n0() {
+    public static boolean d(String str, File file) {
+        InterceptResult invokeLL;
+        File parentFile;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, file)) == null) {
+            if (TextUtils.isEmpty(str) || (parentFile = file.getParentFile()) == null || !parentFile.isDirectory()) {
+                return false;
+            }
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
+            }
+            e(str.getBytes(), file);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void e(byte[] bArr, File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, file) == null) {
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+            f(byteArrayInputStream, file);
+            a(byteArrayInputStream);
+        }
+    }
+
+    public static void f(InputStream inputStream, File file) {
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, inputStream, file) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            }
+            try {
+                b(inputStream, fileOutputStream);
+                a(fileOutputStream);
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                fileOutputStream2 = fileOutputStream;
+                e.printStackTrace();
+                a(fileOutputStream2);
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                a(fileOutputStream2);
+                throw th;
+            }
         }
     }
 }

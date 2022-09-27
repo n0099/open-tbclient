@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.fb5;
-import com.baidu.tieba.uj6;
+import com.baidu.tieba.hk6;
+import com.baidu.tieba.sb5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestData, uj6, T> {
+public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestData, hk6, T> {
     public static /* synthetic */ Interceptable $ic = null;
     public static int n = 1;
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestDat
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (fb5) objArr2[1]);
+                super((TbPageContext) objArr2[0], (sb5) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -100,7 +100,7 @@ public class FrsCommonTabNetModel<T> extends NetAutoModel<FrsCommonTabRequestDat
     public Class getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? uj6.class : (Class) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? hk6.class : (Class) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel, com.baidu.adp.base.BdBaseModel

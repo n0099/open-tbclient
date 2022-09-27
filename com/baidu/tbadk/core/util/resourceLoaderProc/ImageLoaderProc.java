@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.dc;
+import com.baidu.tieba.dx4;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.hq4;
 import com.baidu.tieba.kc;
 import com.baidu.tieba.mc;
+import com.baidu.tieba.mh5;
 import com.baidu.tieba.on;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.u75;
-import com.baidu.tieba.up4;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.xg;
-import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +86,7 @@ public class ImageLoaderProc implements ah<on> {
                     }
                     if (B) {
                         BdLog.e("BIGIMAGE gif parse fail ");
-                        qw4.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
+                        dx4.a(GIF_PLAY_LOG_TYPE, -1L, -1, "readGifFromDisk", -1, "gif parse fail", "url", str2, "callpath", str3);
                     }
                     return new on(BitmapHelper.checkBitmapSize(BitmapHelper.Bytes2Bitmap(mcVar.getData()), i, i2), false, str2);
                 }
@@ -132,7 +132,7 @@ public class ImageLoaderProc implements ah<on> {
     public boolean isNeedLoad() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? up4.c().g() : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? hq4.c().g() : invokeV.booleanValue;
     }
 
     public void storeLocal(String str, byte[] bArr, Object... objArr) {
@@ -149,7 +149,7 @@ public class ImageLoaderProc implements ah<on> {
             if (onVar.u()) {
                 onVar.A(i);
                 onVar.z(i2);
-                u75.k().d(str, onVar);
+                h85.k().d(str, onVar);
             }
         }
     }
@@ -177,7 +177,7 @@ public class ImageLoaderProc implements ah<on> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            on m = u75.k().m(str);
+            on m = h85.k().m(str);
             if (z) {
                 wg.i(m != null, System.currentTimeMillis() - currentTimeMillis);
             }
@@ -199,8 +199,8 @@ public class ImageLoaderProc implements ah<on> {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), xgVar, objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             WebClient webClient = new WebClient();
-            zg5.e(true, str, str);
-            Pair<Boolean, String> d = zg5.d(str);
+            mh5.e(true, str, str);
+            Pair<Boolean, String> d = mh5.d(str);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -212,14 +212,14 @@ public class ImageLoaderProc implements ah<on> {
             boolean needCache = webClient.needCache();
             if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                 BdLog.e("BIGIMAGE imageLoaderProc too big");
-                qw4.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
+                dx4.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str);
             }
             NSGif nSGif = null;
             if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
                 Bitmap Bytes2Bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && Bytes2Bitmap == null) {
-                    zg5.b(str3);
-                    qw4.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
+                    mh5.b(str3);
+                    dx4.a(GIF_PLAY_LOG_TYPE, -1L, -1, "ImageLoaderProc.getFromRemote", webClient.errorCode, "webp decode fail ", "url", str);
                     downloadImageBytes = webClient.downloadImageBytes(str, false);
                     needCache = webClient.needCache();
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {
@@ -229,7 +229,7 @@ public class ImageLoaderProc implements ah<on> {
                 if (downloadImageBytes != null && Bytes2Bitmap != null) {
                     synchronized (BitmapHelper.lockForSyncImageDecoder) {
                         String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2);
-                        u75.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
+                        h85.k().i(TbConfig.getPbImageSize() + downloadImageBytes.length);
                         boolean B = ej.B(downloadImageBytes);
                         if (NSGif.f && B) {
                             nSGif = NSGif.f(downloadImageBytes, 0, downloadImageBytes.length);
@@ -241,7 +241,7 @@ public class ImageLoaderProc implements ah<on> {
                         } else {
                             if (B) {
                                 BdLog.e("BIGIMAGE gif parse fail ");
-                                qw4.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
+                                dx4.a(GIF_PLAY_LOG_TYPE, -1L, -1, "getFromRemote", -1, "gif parse fail", "url", str);
                             }
                             on onVar2 = new on(BitmapHelper.checkBitmapSize(Bytes2Bitmap, i, i2), false, str);
                             onVar2.y(needCache);

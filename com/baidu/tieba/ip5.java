@@ -1,71 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.util.UriUtil;
 import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ip5 extends nb {
+public class ip5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ip5() {
-        super(304001);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.kb
-    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        c(socketResponsedMessage2);
-        return socketResponsedMessage2;
-    }
-
-    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+    public static List<AdvertAppInfo> a(@NonNull String str) {
         InterceptResult invokeL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                qp5 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
-                if (addressListData != null) {
-                    for (up5 up5Var : addressListData.a()) {
-                        List<i25> a = up5Var.a();
-                        ArrayList arrayList = new ArrayList();
-                        for (i25 i25Var : a) {
-                            if (!this.a && i25Var.h() == 1) {
-                                arrayList.add(i25Var);
-                            }
-                        }
-                        a.removeAll(arrayList);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                JSONObject optJSONObject2 = new JSONObject(str).optJSONObject(UriUtil.LOCAL_RESOURCE_SCHEME);
+                if (optJSONObject2 == null) {
+                    return null;
+                }
+                JSONArray optJSONArray = optJSONObject2.optJSONArray(LaunchStatsUtils.AD);
+                ArrayList arrayList = new ArrayList();
+                if (optJSONArray == null) {
+                    return null;
+                }
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    JSONObject optJSONObject3 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("adInfo")) != null) {
+                        arrayList.add(AdvertAppInfo.t(optJSONObject));
                     }
                 }
+                return arrayList;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
             }
-            return socketResponsedMessage;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (List) invokeL.objValue;
     }
 }

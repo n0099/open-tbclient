@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.write.write.work.selectview.SelectBarView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -121,14 +121,14 @@ public class SelectBarView extends LinearLayout {
             setMCenterContentPos((TextView) findViewById4);
             getMCenterContentPos().setCompoundDrawablePadding(ej.f(getContext(), R.dimen.M_W_X002));
             getMCenterContentPos().setVisibility(8);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2c);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091c2e);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.obfuscated_res_0x7f0903ee);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.h79
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.w79
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -151,7 +151,7 @@ public class SelectBarView extends LinearLayout {
             WebPManager.setPureDrawable(getMRightArrow(), R.drawable.obfuscated_res_0x7f0807aa, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            uu4 d = uu4.d(getMCenterContent());
+            hv4 d = hv4.d(getMCenterContent());
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X09);
             d.v(R.color.CAM_X0105);
@@ -160,7 +160,7 @@ public class SelectBarView extends LinearLayout {
             d.l(R.dimen.L_X02);
             d.k(R.color.CAM_X0204);
             d.f(R.color.CAM_X0204);
-            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080924, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080926, SkinManager.getColor(R.color.CAM_X0110), WebPManager.ResourceStateType.NORMAL_PRESS);
             Intrinsics.checkNotNullExpressionValue(pureDrawable, "getPureDrawable(R.drawab…ceStateType.NORMAL_PRESS)");
             setMIconDrawable(pureDrawable);
             int f = ej.f(getContext(), R.dimen.tbds32);
@@ -168,7 +168,7 @@ public class SelectBarView extends LinearLayout {
             getMCenterContent().setCompoundDrawables(getMIconDrawable(), null, null, null);
             getMCenterContent().setCompoundDrawablePadding(ej.f(getContext(), R.dimen.M_W_X002));
             getMCenterContent().setPadding(ej.f(getContext(), R.dimen.M_W_X004), 0, ej.f(getContext(), R.dimen.M_W_X004), 0);
-            uu4 d2 = uu4.d(getMCenterContentPos());
+            hv4 d2 = hv4.d(getMCenterContentPos());
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0105);

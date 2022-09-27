@@ -15,10 +15,10 @@ import androidx.appcompat.content.res.AppCompatResources;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fm2;
-import com.baidu.tieba.i23;
-import com.baidu.tieba.j23;
-import com.baidu.tieba.m83;
+import com.baidu.tieba.sm2;
+import com.baidu.tieba.v23;
+import com.baidu.tieba.w23;
+import com.baidu.tieba.z83;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes2.dex */
-public class CommonOverflowMenuView extends LinearLayout implements i23.g {
+public class CommonOverflowMenuView extends LinearLayout implements v23.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -37,14 +37,14 @@ public class CommonOverflowMenuView extends LinearLayout implements i23.g {
     public ColorStateList c;
     public List<ImageView> d;
     public List<TextView> e;
-    public HashMap<j23, ImageView> f;
+    public HashMap<w23, ImageView> f;
     public View g;
     public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
     /* loaded from: classes2.dex */
-    public class a implements m83 {
+    public class a implements z83 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CommonOverflowMenuView a;
@@ -120,7 +120,7 @@ public class CommonOverflowMenuView extends LinearLayout implements i23.g {
             for (TextView textView : this.e) {
                 textView.setTextColor(this.c);
             }
-            for (Map.Entry<j23, ImageView> entry : this.f.entrySet()) {
+            for (Map.Entry<w23, ImageView> entry : this.f.entrySet()) {
                 entry.getValue().setImageDrawable(entry.getKey().b());
             }
         }
@@ -149,7 +149,7 @@ public class CommonOverflowMenuView extends LinearLayout implements i23.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onAttachedToWindow();
-            fm2.M().f(this.j, new a(this));
+            sm2.M().f(this.j, new a(this));
             b();
         }
     }
@@ -159,7 +159,7 @@ public class CommonOverflowMenuView extends LinearLayout implements i23.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            fm2.M().g(this.j);
+            sm2.M().g(this.j);
         }
     }
 

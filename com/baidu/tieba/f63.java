@@ -6,25 +6,54 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f63 extends v43 {
+public class f63 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(f63 f63Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f63Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d33.a();
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f63(v33 v33Var) {
-        super(v33Var, "/swanAPI/startPullDownRefresh");
+    public f63(i43 i43Var) {
+        super(i43Var, "/swanAPI/hideToast");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
+            Object[] objArr = {i43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,53 +67,22 @@ public class f63 extends v43 {
         }
     }
 
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            if (y23Var != null) {
-                y23Var.B().I(y23Var.getAppId());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (i53.b) {
+                Log.d("HideToastAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (y23Var != null && y23Var.n0()) {
-                if (v43.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            }
-            h22 V = lo2.U().V();
-            if (V == null) {
-                yz1.c("startPullDownRefresh", "manager is null");
+            if (l33Var == null) {
+                l02.c("hideToast", "aiapp is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!(V.m() instanceof g22)) {
-                yz1.c("startPullDownRefresh", "top fragment error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                g22 g22Var = (g22) V.m();
-                if (g22Var.h0() == null) {
-                    yz1.c("startPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                }
-                PullToRefreshBaseWebView h0 = g22Var.h0();
-                if (h0 == null) {
-                    yz1.c("startPullDownRefresh", "view is null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (h0.N()) {
-                    yz1.c("startPullDownRefresh", "prevent pull to refresh");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    yz1.i("startPullDownRefresh", "start pull refresh");
-                    g22Var.h0().k(true, 100L);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
             }
+            fh3.e0(new a(this));
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

@@ -20,9 +20,9 @@ import com.baidu.tieba.ej;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.face.data.FaceData;
 import com.baidu.tieba.faceshop.CollectEmotionData;
-import com.baidu.tieba.hr7;
-import com.baidu.tieba.jr7;
-import com.baidu.tieba.mc6;
+import com.baidu.tieba.vr7;
+import com.baidu.tieba.xr7;
+import com.baidu.tieba.zc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,9 +38,9 @@ public class FaceCollectFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
-    public jr7 b;
+    public xr7 b;
     public List<EmotionImageData> c;
-    public hr7 d;
+    public vr7 d;
     public NoDataView e;
     public Activity f;
 
@@ -75,7 +75,7 @@ public class FaceCollectFragment extends BaseFragment {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                List<CollectEmotionData> q = mc6.o().q(TbadkCoreApplication.getCurrentAccount());
+                List<CollectEmotionData> q = zc6.o().q(TbadkCoreApplication.getCurrentAccount());
                 if (q == null) {
                     return null;
                 }
@@ -144,9 +144,9 @@ public class FaceCollectFragment extends BaseFragment {
             this.e.setVisibility(8);
             this.a = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09133a);
             this.c = new ArrayList();
-            jr7 jr7Var = new jr7(this.c, 20);
-            this.b = jr7Var;
-            jr7Var.l(this.d);
+            xr7 xr7Var = new xr7(this.c, 20);
+            this.b = xr7Var;
+            xr7Var.l(this.d);
             if (getArguments() != null && (serializable = getArguments().getSerializable(PickFaceTabActivityConfig.CHOOSED_LIST)) != null && (serializable instanceof ArrayList)) {
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 Iterator it = ((ArrayList) serializable).iterator();
@@ -169,9 +169,9 @@ public class FaceCollectFragment extends BaseFragment {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            jr7 jr7Var = this.b;
-            if (jr7Var != null) {
-                return jr7Var.i();
+            xr7 xr7Var = this.b;
+            if (xr7Var != null) {
+                return xr7Var.i();
             }
             return null;
         }
@@ -185,13 +185,13 @@ public class FaceCollectFragment extends BaseFragment {
         }
     }
 
-    public void w1(hr7 hr7Var) {
+    public void w1(vr7 vr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hr7Var) == null) {
-            this.d = hr7Var;
-            jr7 jr7Var = this.b;
-            if (jr7Var != null) {
-                jr7Var.l(hr7Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, vr7Var) == null) {
+            this.d = vr7Var;
+            xr7 xr7Var = this.b;
+            if (xr7Var != null) {
+                xr7Var.l(vr7Var);
             }
         }
     }

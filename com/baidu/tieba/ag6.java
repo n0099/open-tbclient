@@ -1,128 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.FrsTabInfo;
-import tbclient.SearchPostForum.SearchForum;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes3.dex */
-public class ag6 extends BaseCardInfo {
+public class ag6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public List<FrsTabInfo> g;
+    public List<Cdo> a;
+    public List<RecommendForumInfo> b;
+    public Page c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947614265, "Lcom/baidu/tieba/ag6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947614265, "Lcom/baidu/tieba/ag6;");
-                return;
-            }
-        }
-        h = BdUniqueId.gen();
-    }
-
-    public ag6(String str) {
+    public ag6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = str;
+        this.a = new ArrayList();
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
     }
 
-    public String c() {
+    public List<Cdo> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public String f() {
-        InterceptResult invokeV;
+    public void b(h96 h96Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? h : (BdUniqueId) invokeV.objValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public List<FrsTabInfo> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.g : (List) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public void s(SearchForum searchForum) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, searchForum) == null) || searchForum == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, h96Var) == null) {
+            String str = h96Var.d;
+            this.c = h96Var.c;
+            List<RecommendForumInfo> list = h96Var.a;
+            this.b = list;
+            if (!ListUtils.isEmpty(list)) {
+                for (RecommendForumInfo recommendForumInfo : this.b) {
+                    zf6 zf6Var = new zf6();
+                    zf6Var.r(recommendForumInfo);
+                    this.a.add(zf6Var);
+                }
+            }
+            Page page = this.c;
+            if (page != null) {
+                this.d = page.has_more.intValue() == 1;
+                this.e = this.c.current_page.intValue();
+            }
         }
-        this.a = searchForum.forum_id.longValue();
-        this.b = searchForum.forum_name;
-        this.c = searchForum.avatar;
-        this.d = searchForum.post_num;
-        this.e = searchForum.concern_num;
-        String str = searchForum.slogan;
-        String str2 = searchForum.intro;
-        searchForum.has_concerned.intValue();
-        this.g = searchForum.tab_info;
     }
 }

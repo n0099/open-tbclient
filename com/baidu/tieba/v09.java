@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,127 +13,93 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class v09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r9 a;
-    public final fo b;
-    public Runnable c;
-    public boolean d;
+    public LruCache<String, Bitmap> a;
 
-    public v09(r9 r9Var, fo foVar) {
+    /* loaded from: classes6.dex */
+    public class a extends LruCache<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(v09 v09Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v09Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public void entryRemoved(boolean z, String str, Bitmap bitmap, Bitmap bitmap2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bitmap, bitmap2}) == null) || bitmap == null || bitmap.isRecycled()) {
+                return;
+            }
+            bitmap.recycle();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: b */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap)) == null) ? (bitmap.getRowBytes() * bitmap.getHeight()) / 1024 : invokeLL.intValue;
+        }
+    }
+
+    public v09(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {r9Var, foVar};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = r9Var;
-        this.b = foVar;
+        if (i > 0) {
+            this.a = new a(this, i);
+            return;
+        }
+        throw new IllegalArgumentException("maxSize <= 0");
     }
 
-    @NonNull
-    public final Rect a(View view2) {
+    public Bitmap a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            Rect rect = new Rect();
-            view2.getGlobalVisibleRect(rect);
-            return rect;
-        }
-        return (Rect) invokeL.objValue;
-    }
-
-    public final boolean b(Rect rect) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
-            float i = ej.i(TbadkCoreApplication.getInst());
-            return rect.top >= ((int) (0.0f * i)) && rect.bottom <= ((int) (i * 0.66f));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.c == null) {
-            return;
-        }
-        gh.a().removeCallbacks(this.c);
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.d) {
-            return;
-        }
-        if (this.c == null) {
-            this.c = new Runnable() { // from class: com.baidu.tieba.t09
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        v09.this.g();
-                    }
-                }
-            };
-        }
-        gh.a().postDelayed(this.c, 2000L);
-    }
-
-    public void e() {
-        fo foVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.a == null || (foVar = this.b) == null || foVar.getListView().getChildCount() == 0 || this.b.getContentViewsCount() == 0) {
-            return;
-        }
-        int childCount = this.b.getListView().getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = this.b.getListView().getChildAt(i);
-            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f092607) instanceof u09)) {
-                ((u09) childAt.getTag(R.id.obfuscated_res_0x7f092607)).b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
+            return this.a.get(str);
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public void f(View view2) {
+    public void b(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (view2.getTag(R.id.obfuscated_res_0x7f092607) instanceof u09)) {
-            ((u09) view2.getTag(R.id.obfuscated_res_0x7f092607)).b();
-            view2.setTag(R.id.obfuscated_res_0x7f092607, null);
-        }
-    }
-
-    public final void g() {
-        fo foVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || this.a == null || (foVar = this.b) == null || foVar.getListView().getChildCount() == 0 || this.b.getContentViewsCount() == 0) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bitmap) == null) || TextUtils.isEmpty(str) || bitmap == null || bitmap.isRecycled()) {
             return;
         }
-        int childCount = this.b.getListView().getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View childAt = this.b.getListView().getChildAt(i);
-            if (childAt != null && (childAt.getTag(R.id.obfuscated_res_0x7f092607) instanceof u09)) {
-                u09 u09Var = (u09) childAt.getTag(R.id.obfuscated_res_0x7f092607);
-                if (b(a(childAt))) {
-                    u09Var.play();
-                }
-            }
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.d = z;
-        }
+        this.a.put(str, bitmap);
     }
 }

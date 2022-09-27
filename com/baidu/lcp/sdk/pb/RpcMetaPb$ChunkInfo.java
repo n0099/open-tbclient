@@ -2,7 +2,7 @@ package com.baidu.lcp.sdk.pb;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o80;
+import com.baidu.tieba.b90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -146,7 +146,7 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this, (o80) null);
+                RpcMetaPb$ChunkInfo rpcMetaPb$ChunkInfo = new RpcMetaPb$ChunkInfo(this, (b90) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 rpcMetaPb$ChunkInfo.streamId_ = this.b;
@@ -329,7 +329,7 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         rpcMetaPb$ChunkInfo.initFields();
     }
 
-    public /* synthetic */ RpcMetaPb$ChunkInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, o80 o80Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$ChunkInfo(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b90 b90Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -458,7 +458,7 @@ public final class RpcMetaPb$ChunkInfo extends GeneratedMessageLite implements M
         }
     }
 
-    public /* synthetic */ RpcMetaPb$ChunkInfo(GeneratedMessageLite.Builder builder, o80 o80Var) {
+    public /* synthetic */ RpcMetaPb$ChunkInfo(GeneratedMessageLite.Builder builder, b90 b90Var) {
         this(builder);
     }
 

@@ -10,8 +10,8 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c61;
-import com.baidu.tieba.my0;
+import com.baidu.tieba.p61;
+import com.baidu.tieba.zy0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -238,11 +238,11 @@ public class BdPlayerProgressView extends View {
         this.c = com.baidu.searchbox.player.widget.BdPlayerProgressView.DEFAULT_PROGRESS_TIME_TEXT;
         this.h = 0;
         this.i = 0;
-        this.h = my0.a(this, 120.0f);
-        this.i = my0.a(this, 15.0f);
+        this.h = zy0.a(this, 120.0f);
+        this.i = zy0.a(this, 15.0f);
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, c61.nad_bdvideoplayer_bdPlayerProgressView);
+            typedArray = context.obtainStyledAttributes(attributeSet, p61.nad_bdvideoplayer_bdPlayerProgressView);
             this.a = typedArray.getDimension(3, 15.0f);
             this.b = typedArray.getColor(1, -1);
             this.f = typedArray.getInt(0, 1);

@@ -7,30 +7,30 @@ import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.l77;
+import com.baidu.tieba.z77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<l77> {
+public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<z77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a extends MsgCommonItemAdapter.MsgViewHolder<l77> {
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<z77> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(MsgMidViewItemAdapter msgMidViewItemAdapter, View view2, l77 l77Var) {
-            super(view2, l77Var);
+        public a(MsgMidViewItemAdapter msgMidViewItemAdapter, View view2, z77 z77Var) {
+            super(view2, z77Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {msgMidViewItemAdapter, view2, l77Var};
+                Object[] objArr = {msgMidViewItemAdapter, view2, z77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,12 +69,12 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<l77> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.qn
     /* renamed from: E */
-    public MsgCommonItemAdapter.MsgViewHolder<l77> onCreateViewHolder(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<z77> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            l77 l77Var = new l77(this.a);
-            return new a(this, l77Var.k(), l77Var);
+            z77 z77Var = new z77(this.a);
+            return new a(this, z77Var.k(), z77Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
@@ -87,7 +87,7 @@ public class MsgMidViewItemAdapter extends MsgCommonItemAdapter<l77> {
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<l77> msgViewHolder) {
+    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<z77> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {

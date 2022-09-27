@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tl1 implements so1 {
+public class tl1 implements yn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,20 +25,20 @@ public class tl1 implements so1 {
         }
     }
 
-    @Override // com.baidu.tieba.so1
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yn1
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.so1
-    public String b() {
+    @Override // com.baidu.tieba.yn1
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "-1" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

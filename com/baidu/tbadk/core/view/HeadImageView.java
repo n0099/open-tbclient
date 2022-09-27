@@ -448,7 +448,7 @@ public class HeadImageView extends TbClipImageView {
         this.C0 = null;
         this.D0 = null;
         this.E0 = null;
-        this.G0 = R.drawable.obfuscated_res_0x7f08123c;
+        this.G0 = R.drawable.obfuscated_res_0x7f081240;
         this.H0 = R.color.CAM_X0209;
         this.I0 = R.drawable.ic_icon_mask_shen20_n;
         this.J0 = 0;

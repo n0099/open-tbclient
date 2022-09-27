@@ -11,7 +11,7 @@ import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.ol8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -108,7 +108,7 @@ public class SelectorHelper {
     public static int getColor(@ColorRes int i, float f) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? zk8.a(SkinManager.getColor(i), f) : invokeCommon.intValue;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? ol8.a(SkinManager.getColor(i), f) : invokeCommon.intValue;
     }
 
     public static Drawable getColorDrawable(@ColorRes int i, float f) {

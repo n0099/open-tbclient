@@ -8,7 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co6;
+import com.baidu.tieba.qo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
     public transient /* synthetic */ FieldHolder $fh;
     public List<LiveFuseForumData> a;
     public Context b;
-    public co6 c;
+    public qo6 c;
 
     /* loaded from: classes4.dex */
     public static class a extends RecyclerView.ViewHolder {
@@ -98,10 +98,10 @@ public class HeaderComponentMultiAdapter extends RecyclerView.Adapter<a> {
         return (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) ? new a(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0316, (ViewGroup) null)) : (a) invokeLI.objValue;
     }
 
-    public void g(co6 co6Var) {
+    public void g(qo6 qo6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, co6Var) == null) {
-            this.c = co6Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qo6Var) == null) {
+            this.c = qo6Var;
         }
     }
 

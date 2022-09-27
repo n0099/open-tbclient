@@ -18,23 +18,23 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
-import com.baidu.tieba.e64;
+import com.baidu.tieba.a74;
+import com.baidu.tieba.b74;
+import com.baidu.tieba.c74;
 import com.baidu.tieba.f64;
-import com.baidu.tieba.fv1;
-import com.baidu.tieba.g64;
-import com.baidu.tieba.h64;
-import com.baidu.tieba.hx3;
-import com.baidu.tieba.i64;
-import com.baidu.tieba.ia2;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.j64;
-import com.baidu.tieba.n64;
-import com.baidu.tieba.o64;
-import com.baidu.tieba.p64;
-import com.baidu.tieba.s54;
-import com.baidu.tieba.sg3;
+import com.baidu.tieba.fh3;
+import com.baidu.tieba.i74;
+import com.baidu.tieba.ki3;
+import com.baidu.tieba.r64;
+import com.baidu.tieba.s64;
+import com.baidu.tieba.sv1;
+import com.baidu.tieba.t64;
+import com.baidu.tieba.u64;
+import com.baidu.tieba.ux3;
 import com.baidu.tieba.v64;
-import com.baidu.tieba.xh3;
+import com.baidu.tieba.va2;
+import com.baidu.tieba.vj1;
+import com.baidu.tieba.w64;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,18 +44,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Locale;
 /* loaded from: classes3.dex */
-public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f64.b, e64, xh3 {
+public class RecommendButtonApiProxy extends EventTargetImpl implements v64.a, s64.b, r64, ki3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public g64 a;
-    public h64 b;
+    public t64 a;
+    public u64 b;
     public int c;
     public RecommendButtonState d;
-    public n64 e;
-    public ia2 f;
+    public a74 e;
+    public va2 f;
     @V8JavascriptField
-    public final i64 style;
+    public final v64 style;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes3.dex */
@@ -170,7 +170,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                p64 c = o64.c(str);
+                c74 c = b74.c(str);
                 if (RecommendButtonApiProxy.g) {
                     Log.d("RecommendButtonApiProxy", "load: onSuccess-" + c.a());
                 }
@@ -179,7 +179,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
                 }
                 if (c.a()) {
                     this.b.d = RecommendButtonState.HIDE;
-                    this.b.e = o64.b(c.c);
+                    this.b.e = b74.b(c.c);
                     this.b.a.d(this.b.e);
                     this.b.J();
                     return;
@@ -357,17 +357,17 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
                 return;
             }
         }
-        g = ij1.a;
+        g = vj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RecommendButtonApiProxy(ia2 ia2Var, JsObject jsObject) {
-        super(ia2Var);
+    public RecommendButtonApiProxy(va2 va2Var, JsObject jsObject) {
+        super(va2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ia2Var, jsObject};
+            Object[] objArr = {va2Var, jsObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -378,20 +378,20 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
                 return;
             }
         }
-        this.b = new h64();
-        this.style = new i64();
-        this.f = ia2Var;
+        this.b = new u64();
+        this.style = new v64();
+        this.f = va2Var;
         if (N(jsObject)) {
-            s54.c(this);
+            f64.c(this);
         }
     }
 
     public final void I(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            hx3 hx3Var = new hx3();
-            hx3Var.errMsg = str;
-            dispatchEvent(new JSEvent("error", hx3Var));
+            ux3 ux3Var = new ux3();
+            ux3Var.errMsg = str;
+            dispatchEvent(new JSEvent("error", ux3Var));
         }
     }
 
@@ -414,19 +414,19 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
                 return;
             }
             this.d = recommendButtonState2;
-            g64 g64Var = this.a;
-            if (g64Var != null) {
-                g64Var.destroy();
+            t64 t64Var = this.a;
+            if (t64Var != null) {
+                t64Var.destroy();
             }
             this.e = null;
         }
     }
 
-    public final boolean L(fv1 fv1Var, String str) {
+    public final boolean L(sv1 sv1Var, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, fv1Var, str)) == null) {
-            int type = fv1Var != null ? fv1Var.getType(str) : 12;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, sv1Var, str)) == null) {
+            int type = sv1Var != null ? sv1Var.getType(str) : 12;
             return (type == 12 || type == 11) ? false : true;
         }
         return invokeLL.booleanValue;
@@ -448,9 +448,9 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jsObject)) == null) {
             this.d = RecommendButtonState.IDLE;
             this.style.b(this);
-            fv1 F = fv1.F(jsObject);
+            sv1 F = sv1.F(jsObject);
             if (F == null) {
-                F = new fv1();
+                F = new sv1();
             }
             String B = F.B("type");
             if (L(F, "type")) {
@@ -463,7 +463,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
                 return false;
             }
             if (L(F, "style")) {
-                fv1 w = F.w("style");
+                sv1 w = F.w("style");
                 if (w == null) {
                     Q("createRecommendationButton failed,parameter error: the 'style' is invalid.");
                     return false;
@@ -475,25 +475,25 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
             if (g) {
                 Log.d("RecommendButtonApiProxy", "init: style-" + this.style);
             }
-            this.a = new v64(this.c, this.style, this);
+            this.a = new i74(this.c, this.style, this);
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final boolean O(fv1 fv1Var) {
+    public final boolean O(sv1 sv1Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, fv1Var)) == null) {
-            if (fv1Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, sv1Var)) == null) {
+            if (sv1Var == null) {
                 return true;
             }
             try {
-                if (L(fv1Var, "left")) {
-                    this.style.left = (float) fv1Var.c("left");
+                if (L(sv1Var, "left")) {
+                    this.style.left = (float) sv1Var.c("left");
                 }
-                if (L(fv1Var, "top")) {
-                    this.style.top = (float) fv1Var.c("top");
+                if (L(sv1Var, "top")) {
+                    this.style.top = (float) sv1Var.c("top");
                 }
                 return true;
             } catch (Exception unused) {
@@ -509,8 +509,8 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
         if (!(interceptable == null || interceptable.invokeLL(1048583, this, recommendItemModel, str) == null) || recommendItemModel == null || TextUtils.isEmpty(recommendItemModel.appKey) || TextUtils.isEmpty(recommendItemModel.scheme)) {
             return;
         }
-        j64.d(this.c, recommendItemModel.appKey);
-        SchemeRouter.invokeScheme(s54.b(), Uri.parse(recommendItemModel.scheme), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
+        w64.d(this.c, recommendItemModel.appKey);
+        SchemeRouter.invokeScheme(f64.b(), Uri.parse(recommendItemModel.scheme), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
         this.b.d(this.c, str, recommendItemModel.appKey);
     }
 
@@ -544,26 +544,26 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.f64.b
+    @Override // com.baidu.tieba.s64.b
     @UiThread
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.b.d(this.c, "list", h64.b);
+            this.b.d(this.c, "list", u64.b);
         }
     }
 
-    @Override // com.baidu.tieba.e64
+    @Override // com.baidu.tieba.r64
     @JavascriptInterface
     public void destroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             K();
-            s54.e(this);
+            f64.e(this);
         }
     }
 
-    @Override // com.baidu.tieba.xh3
+    @Override // com.baidu.tieba.ki3
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -571,7 +571,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
         }
     }
 
-    @Override // com.baidu.tieba.e64
+    @Override // com.baidu.tieba.r64
     @JavascriptInterface
     public void hide() {
         Interceptable interceptable = $ic;
@@ -586,7 +586,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
         }
     }
 
-    @Override // com.baidu.tieba.xh3
+    @Override // com.baidu.tieba.ki3
     public void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
@@ -605,7 +605,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
                 return;
             }
             this.d = RecommendButtonState.LOADING;
-            j64.b(this.c, new a(this));
+            w64.b(this.c, new a(this));
         }
     }
 
@@ -616,18 +616,18 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
         }
     }
 
-    @Override // com.baidu.tieba.f64.b
+    @Override // com.baidu.tieba.s64.b
     @UiThread
     public void o() {
-        n64 n64Var;
+        a74 a74Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (n64Var = this.e) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (a74Var = this.e) == null) {
             return;
         }
-        P(n64Var.a, "game_center");
+        P(a74Var.a, "game_center");
     }
 
-    @Override // com.baidu.tieba.xh3
+    @Override // com.baidu.tieba.ki3
     public void onViewDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -635,7 +635,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
         }
     }
 
-    @Override // com.baidu.tieba.e64
+    @Override // com.baidu.tieba.r64
     @JavascriptInterface
     public void show() {
         Interceptable interceptable = $ic;
@@ -645,18 +645,18 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements i64.a, f
             }
             if (this.d == RecommendButtonState.HIDE) {
                 this.d = RecommendButtonState.SHOW;
-                sg3.e0(new b(this));
+                fh3.e0(new b(this));
                 this.a.show();
             }
         }
     }
 
-    @Override // com.baidu.tieba.f64.b
+    @Override // com.baidu.tieba.s64.b
     @UiThread
     public void u(int i) {
-        n64 n64Var;
+        a74 a74Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || (n64Var = this.e) == null || i < 0 || i >= n64Var.b.size()) {
+        if (!(interceptable == null || interceptable.invokeI(1048596, this, i) == null) || (a74Var = this.e) == null || i < 0 || i >= a74Var.b.size()) {
             return;
         }
         P(this.e.b.get(i), "game");

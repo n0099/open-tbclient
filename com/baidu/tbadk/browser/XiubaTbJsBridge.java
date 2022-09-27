@@ -20,9 +20,9 @@ import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a55;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.in8;
-import com.baidu.tieba.n45;
+import com.baidu.tieba.xn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class XiubaTbJsBridge implements in8 {
+public class XiubaTbJsBridge implements xn8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -341,7 +341,7 @@ public class XiubaTbJsBridge implements in8 {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            n45.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1625), -1, -1);
+            a55.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1625), -1, -1);
         }
     }
 
@@ -370,7 +370,7 @@ public class XiubaTbJsBridge implements in8 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.in8
+    @Override // com.baidu.tieba.xn8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;

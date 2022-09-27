@@ -1,119 +1,87 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.UcCard;
+import tbclient.UcCardInfo;
 /* loaded from: classes4.dex */
 public class h48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public NavigationBar b;
-    public BdTypeListView c;
-    public f48 d;
-    public v16<g58> e;
+    public List<a> a;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h48 a;
+        public String a;
+        public long b;
+        public boolean c;
 
-        public a(h48 h48Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h48Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = h48Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        public void a(UcCardInfo ucCardInfo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a.getPageActivity().finish();
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCardInfo) == null) || ucCardInfo == null) {
+                return;
             }
+            this.a = ucCardInfo.title;
+            String str = ucCardInfo.pic;
+            String str2 = ucCardInfo.jmp;
+            String str3 = ucCardInfo.tip;
+            this.b = ucCardInfo.st.intValue();
         }
     }
 
-    public h48(TbPageContext tbPageContext) {
+    public h48() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    public final void b() {
+    public void a(UcCard ucCard) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0e42));
-            this.b.showBottomLine();
-            this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, ucCard) == null) || ucCard == null) {
+            return;
         }
-    }
-
-    public void c(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            this.b = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f09197d);
-            BdTypeListView bdTypeListView = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09197c);
-            this.c = bdTypeListView;
-            this.d = new f48(this.a, bdTypeListView, this.e);
-            b();
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.d.a();
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
-            this.b.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-        }
-    }
-
-    public void e(List<Cdo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.setData(list);
-        }
-    }
-
-    public void f(v16<g58> v16Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v16Var) == null) {
-            this.e = v16Var;
+        String str = ucCard.name;
+        String str2 = ucCard.icon;
+        String str3 = ucCard.doc;
+        String str4 = ucCard.jmp;
+        this.a = new ArrayList();
+        List<UcCardInfo> list = ucCard.uc_cards;
+        if (list != null) {
+            for (UcCardInfo ucCardInfo : list) {
+                if (ucCardInfo != null) {
+                    a aVar = new a();
+                    aVar.a(ucCardInfo);
+                    this.a.add(aVar);
+                }
+            }
         }
     }
 }

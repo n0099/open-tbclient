@@ -1,39 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
 /* loaded from: classes5.dex */
 public class mb1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "https://etrade.baidu.com/sgw/common/pingd/trace";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LruCache<String, Bitmap> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947966797, "Lcom/baidu/tieba/mb1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends LruCache<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(mb1 mb1Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947966797, "Lcom/baidu/tieba/mb1;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mb1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
         }
-        if (ma1.a() != 1) {
-            a = "http://sandbox.y.nuomi.com/c/uniongw/o/common/pingd/trace";
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) ? bitmap.getByteCount() / 1024 : invokeLL.intValue;
         }
     }
 
@@ -41,70 +53,37 @@ public class mb1 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+    }
+
+    public void a(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            String b = rb1.b(str);
+            if (b(b) == null) {
+                this.a.put(b, bitmap);
             }
         }
     }
 
-    public void a(ha1 ha1Var, ga1 ga1Var, fa1 fa1Var) {
-        DataOutputStream dataOutputStream;
+    public final Bitmap b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLLL(1048576, this, ha1Var, ga1Var, fa1Var) != null) {
-            return;
-        }
-        try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a).openConnection();
-            for (Map.Entry<String, String> entry : ha1Var.c().entrySet()) {
-                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-            }
-            httpURLConnection.setDoInput(true);
-            httpURLConnection.setDoOutput(true);
-            httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setUseCaches(false);
-            httpURLConnection.setConnectTimeout(5000);
-            httpURLConnection.setReadTimeout(5000);
-            StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, String> entry2 : ga1Var.c().entrySet()) {
-                String encode = URLEncoder.encode(entry2.getValue(), IMAudioTransRequest.CHARSET);
-                sb.append(entry2.getKey());
-                sb.append("=");
-                sb.append(encode);
-                sb.append("&");
-            }
-            byte[] bytes = sb.toString().getBytes();
-            httpURLConnection.setRequestProperty("Content-Length", String.valueOf(bytes.length));
-            httpURLConnection.connect();
-            dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-            try {
-                dataOutputStream.write(bytes);
-                dataOutputStream.flush();
-                int responseCode = httpURLConnection.getResponseCode();
-                if (fa1Var != null) {
-                    if (responseCode >= 200 && responseCode <= 299) {
-                        fa1Var.c(null);
-                    } else {
-                        fa1Var.a(null, 119501, null);
-                    }
-                }
-                vb1.a(dataOutputStream);
-            } catch (Throwable unused) {
-                if (fa1Var != null) {
-                    try {
-                        fa1Var.a(null, 119501, null);
-                    } catch (Throwable th) {
-                        vb1.a(dataOutputStream);
-                        throw th;
-                    }
-                }
-                vb1.a(dataOutputStream);
-            }
-        } catch (Throwable unused2) {
-            dataOutputStream = null;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a.get(str) : (Bitmap) invokeL.objValue;
+    }
+
+    public Bitmap c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(rb1.b(str)) : (Bitmap) invokeL.objValue;
     }
 }

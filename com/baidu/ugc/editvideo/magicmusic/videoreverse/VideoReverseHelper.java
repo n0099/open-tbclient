@@ -12,9 +12,9 @@ import android.text.TextUtils;
 import android.view.Surface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bg9;
-import com.baidu.tieba.gg9;
-import com.baidu.tieba.mg9;
+import com.baidu.tieba.bh9;
+import com.baidu.tieba.qg9;
+import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -547,12 +547,12 @@ public class VideoReverseHelper {
         String str9 = new File(str).getParent() + File.separator + REVERSE_TEMP_SUFFIX + System.currentTimeMillis() + ".temp";
         String str10 = new File(str).getParent() + File.separator + REVERSE_TEMP_SUFFIX + System.currentTimeMillis() + ".temp_reverse";
         List<BuffeInfoWrapper> extractVideoToPath = extractVideoToPath(str, str9);
-        if (gg9.e(extractVideoToPath) || !FileUtils.checkFile(str9)) {
+        if (vg9.e(extractVideoToPath) || !FileUtils.checkFile(str9)) {
             FileUtils.deleteFile(str9);
             return false;
         }
         try {
-            long duration = mg9.d(str).getDuration() * 1000;
+            long duration = bh9.d(str).getDuration() * 1000;
             if (this.mMediaMuxer == null) {
                 this.mMediaMuxer = new MediaMuxer(str10, 0);
             }
@@ -591,7 +591,7 @@ public class VideoReverseHelper {
                                             e = e;
                                             str7 = str8;
                                             e.printStackTrace();
-                                            bg9.d(e.toString());
+                                            qg9.d(e.toString());
                                             FileUtils.deleteFile(str9);
                                             FileUtils.deleteFile(str7);
                                             WeakReference<OnTimeReverseListener> weakReference = this.mOnTimeReverseListenerWeakReference;
@@ -600,7 +600,7 @@ public class VideoReverseHelper {
                                             e = e2;
                                             str6 = str8;
                                             e.printStackTrace();
-                                            bg9.d(e.toString());
+                                            qg9.d(e.toString());
                                             FileUtils.deleteFile(str9);
                                             FileUtils.deleteFile(str6);
                                             WeakReference<OnTimeReverseListener> weakReference2 = this.mOnTimeReverseListenerWeakReference;
@@ -609,7 +609,7 @@ public class VideoReverseHelper {
                                             e = e3;
                                             str5 = str8;
                                             e.printStackTrace();
-                                            bg9.d(e.toString());
+                                            qg9.d(e.toString());
                                             FileUtils.deleteFile(str9);
                                             FileUtils.deleteFile(str5);
                                             WeakReference<OnTimeReverseListener> weakReference3 = this.mOnTimeReverseListenerWeakReference;
@@ -684,7 +684,7 @@ public class VideoReverseHelper {
                     e = e4;
                     str7 = str10;
                     e.printStackTrace();
-                    bg9.d(e.toString());
+                    qg9.d(e.toString());
                     FileUtils.deleteFile(str9);
                     FileUtils.deleteFile(str7);
                     WeakReference<OnTimeReverseListener> weakReference4 = this.mOnTimeReverseListenerWeakReference;
@@ -694,7 +694,7 @@ public class VideoReverseHelper {
                     e = e5;
                     str6 = str10;
                     e.printStackTrace();
-                    bg9.d(e.toString());
+                    qg9.d(e.toString());
                     FileUtils.deleteFile(str9);
                     FileUtils.deleteFile(str6);
                     WeakReference<OnTimeReverseListener> weakReference22 = this.mOnTimeReverseListenerWeakReference;
@@ -704,7 +704,7 @@ public class VideoReverseHelper {
                     e = e6;
                     str5 = str10;
                     e.printStackTrace();
-                    bg9.d(e.toString());
+                    qg9.d(e.toString());
                     FileUtils.deleteFile(str9);
                     FileUtils.deleteFile(str5);
                     WeakReference<OnTimeReverseListener> weakReference32 = this.mOnTimeReverseListenerWeakReference;
@@ -828,7 +828,7 @@ public class VideoReverseHelper {
                                                         e = e7;
                                                         i4 = i15;
                                                         i6 = i;
-                                                        bg9.d(e.toString());
+                                                        qg9.d(e.toString());
                                                         if (this.mOnTimeReverseListenerWeakReference != null && (onTimeReverseListener = this.mOnTimeReverseListenerWeakReference.get()) != null) {
                                                             onTimeReverseListener.onTimeReverseError(e);
                                                         }
@@ -851,7 +851,7 @@ public class VideoReverseHelper {
                                                 fileChannel2 = channel;
                                                 i4 = i15;
                                                 i6 = i;
-                                                bg9.d(e.toString());
+                                                qg9.d(e.toString());
                                                 if (this.mOnTimeReverseListenerWeakReference != null) {
                                                 }
                                                 if (bufferInfo4.size > byteBuffer.position()) {
@@ -895,7 +895,7 @@ public class VideoReverseHelper {
                                                         byteBuffer.put(uVPos4[0], b5);
                                                     } catch (Exception e10) {
                                                         e = e10;
-                                                        bg9.d(e.toString());
+                                                        qg9.d(e.toString());
                                                         if (this.mOnTimeReverseListenerWeakReference != null) {
                                                         }
                                                         if (bufferInfo4.size > byteBuffer.position()) {
@@ -913,7 +913,7 @@ public class VideoReverseHelper {
                                                         byteBuffer.put(uVPos4[1], b6);
                                                     } catch (Exception e11) {
                                                         e = e11;
-                                                        bg9.d(e.toString());
+                                                        qg9.d(e.toString());
                                                         if (this.mOnTimeReverseListenerWeakReference != null) {
                                                         }
                                                         if (bufferInfo4.size > byteBuffer.position()) {
@@ -939,7 +939,7 @@ public class VideoReverseHelper {
                                         } catch (Exception e12) {
                                             e = e12;
                                             i6 = i;
-                                            bg9.d(e.toString());
+                                            qg9.d(e.toString());
                                             if (this.mOnTimeReverseListenerWeakReference != null) {
                                                 onTimeReverseListener.onTimeReverseError(e);
                                             }
@@ -1041,20 +1041,20 @@ public class VideoReverseHelper {
                 this.mMediaMuxer.stop();
                 this.mMediaMuxer.release();
             } catch (Exception e13) {
-                bg9.g(e13);
+                qg9.g(e13);
             }
             try {
                 this.mMediaExtractor.release();
             } catch (Exception e14) {
-                bg9.g(e14);
+                qg9.g(e14);
             }
             try {
                 this.mVideoEncoder.stop();
                 this.mVideoEncoder.release();
             } catch (Exception e15) {
-                bg9.g(e15);
+                qg9.g(e15);
             }
-            bg9.d("finish:" + (System.currentTimeMillis() - j));
+            qg9.d("finish:" + (System.currentTimeMillis() - j));
             FileUtils.deleteFile(str9);
             new File(str8).renameTo(new File(str2));
             return true;

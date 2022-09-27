@@ -1,66 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class s05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public String i;
-    public String j;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-483950156, "Lcom/baidu/tieba/s05$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-483950156, "Lcom/baidu/tieba/s05$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[EmotionGroupType.values().length];
-            a = iArr;
-            try {
-                iArr[EmotionGroupType.LOCAL.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[EmotionGroupType.USER_COLLECT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[EmotionGroupType.USER_DIY.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-        }
-    }
+    public List<t05> a;
 
     public s05() {
         Interceptable interceptable = $ic;
@@ -72,40 +25,24 @@ public class s05 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public void c(@NonNull m55 m55Var, @Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, m55Var, str) == null) {
-            EmotionGroupType h = m55Var.h();
-            String b = str != null ? i95.b.b(str) : null;
-            int i = a.a[h.ordinal()];
-            if (i == 1) {
-                this.j = "1";
-                this.i = str;
-            } else if (i == 2) {
-                this.j = "2";
-                this.i = b;
-            } else if (i != 3) {
-                this.j = m55Var.f();
-                this.i = b;
-            } else {
-                this.j = "3";
-                this.i = b;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null || (optJSONArray = jSONObject.optJSONArray("applist")) == null || optJSONArray.length() == 0) {
+            return;
+        }
+        for (int i = 0; i < optJSONArray.length(); i++) {
+            JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+            if (jSONObject2 != null) {
+                t05 t05Var = new t05();
+                t05Var.a(jSONObject2);
+                this.a.add(t05Var);
             }
         }
     }

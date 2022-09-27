@@ -1,128 +1,125 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import java.util.ArrayList;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class m4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ProductInfo a;
+    public int b;
+    public boolean c;
+    public boolean d;
+    public int e;
 
-    public static int a(double d, double d2) {
-        InterceptResult invokeCommon;
+    public m4a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "countPayAmountMargin targetAmount:" + d + " accountAmount:" + d2);
-            double d3 = (d - d2) / 100.0d;
-            double d4 = 1.0d;
-            if (d3 > 1.0d) {
-                if (d3 <= 1.0d || d3 > 10.0d) {
-                    if (d3 % 10.0d > 0.0d) {
-                        d3 = (((int) (d3 / 10.0d)) + 1) * 10;
-                    }
-                    d4 = d3;
-                } else {
-                    d4 = Math.ceil(d3);
-                }
-            }
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMarginCount:" + d4);
-            return (int) d4;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int b(List<x3a> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2).b() == i) {
-                    return i2;
-                }
-            }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static x3a c(List<x3a> list, PayUIKitConfig payUIKitConfig, double d, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, payUIKitConfig, Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "createPayAmount targetAmount:" + d + " accountAmount:" + d2);
-            if (list == null || list.isEmpty()) {
-                return null;
-            }
-            int a = a(d, d2);
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMargin:" + a);
-            int b = b(list, a);
-            RLog.info("PayAmountHelper", "findPayAmountPositionFromConfigList position:" + b);
-            if (b >= 0) {
-                d(list, b);
-            } else {
-                f(list, payUIKitConfig, a);
-            }
-            return list.get(0);
-        }
-        return (x3a) invokeCommon.objValue;
-    }
-
-    public static void d(List<x3a> list, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, list, i) == null) {
-            RLog.info("PayAmountHelper", "movePayAmountList position:" + i);
-            RLog.debug("PayAmountHelper", "movePayAmountList configAmountList:" + list);
-            if (i != 0) {
-                list.add(0, list.remove(i));
-            }
-            if (list.get(0).a.giftBagTagInfos != null && !list.get(0).a.giftBagTagInfos.isEmpty()) {
-                list.get(0).a.giftBagTagInfos.get(0).tag = "推荐";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            list.get(0).a.giftBagTagInfos = new ArrayList();
-            list.get(0).a.giftBagTagInfos.add(giftBagTagInfo);
         }
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.c = z;
     }
 
-    public static boolean e(x3a x3aVar) {
-        InterceptResult invokeL;
-        ProductInfo productInfo;
-        List<GiftBagsInfo> list;
+    public double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x3aVar)) == null) ? (x3aVar == null || (productInfo = x3aVar.a) == null || (list = productInfo.giftbags) == null || list.isEmpty()) ? false : true : invokeL.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                return productInfo.destAmount / 100.0d;
+            }
+            return 0.0d;
+        }
+        return invokeV.doubleValue;
     }
 
-    public static void f(List<x3a> list, PayUIKitConfig payUIKitConfig, int i) {
+    public double b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, list, payUIKitConfig, i) == null) {
-            RLog.debug("PayAmountHelper", "replacePayAmountList configAmountList:" + list);
-            if (i > 500000) {
-                i = 500000;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ProductInfo productInfo = this.a;
+            if (productInfo != null) {
+                return productInfo.srcAmount;
             }
-            x3a a = h4a.a(i * 100, payUIKitConfig);
-            RLog.info("PayAmountHelper", "createPayAmount customPayAmount:" + a);
-            if (e(list.get(0))) {
-                list.remove(list.size() - 1);
-            } else if (e(list.get(list.size() - 1))) {
-                list.remove(0);
-            } else {
-                list.remove(0);
-            }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            a.a.giftBagTagInfos = new ArrayList();
-            a.a.giftBagTagInfos.add(giftBagTagInfo);
-            list.add(0, a);
+            return 0.0d;
         }
+        return invokeV.doubleValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("PayAmount{currencyType=");
+            sb.append(this.b);
+            sb.append(", srcAmount=");
+            ProductInfo productInfo = this.a;
+            sb.append(productInfo != null ? productInfo.srcAmount : 0.0d);
+            sb.append(", dstAmount=");
+            ProductInfo productInfo2 = this.a;
+            sb.append(productInfo2 != null ? productInfo2.destAmount : 0L);
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public m4a(ProductInfo productInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {productInfo};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.a = productInfo;
+    }
+
+    public m4a(ProductInfo productInfo, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {productInfo, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = Integer.MIN_VALUE;
+        this.e = -1;
+        this.a = productInfo;
+        this.b = i;
     }
 }

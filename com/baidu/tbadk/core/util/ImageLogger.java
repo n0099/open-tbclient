@@ -18,10 +18,10 @@ import com.baidu.tieba.dj;
 import com.baidu.tieba.eg;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.jh5;
 import com.baidu.tieba.lh;
-import com.baidu.tieba.u75;
 import com.baidu.tieba.we;
-import com.baidu.tieba.wg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -192,7 +192,7 @@ public class ImageLogger {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, ggVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && ej.D() && ggVar != null) {
             String str4 = "";
-            boolean a = wg5.a(str2);
+            boolean a = jh5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -311,7 +311,7 @@ public class ImageLogger {
     public static String memoryUsage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? u75.k().v() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) ? h85.k().v() : (String) invokeV.objValue;
     }
 
     public static String taskStatus() {

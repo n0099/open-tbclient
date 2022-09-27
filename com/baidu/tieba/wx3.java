@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes6.dex */
-public abstract class wx3 {
+public class wx3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public long c;
 
     public wx3() {
         Interceptable interceptable = $ic;
@@ -24,9 +25,4 @@ public abstract class wx3 {
             }
         }
     }
-
-    @NonNull
-    public abstract File a();
-
-    public abstract void b(@NonNull String str, long j);
 }

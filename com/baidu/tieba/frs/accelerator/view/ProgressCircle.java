@@ -9,7 +9,7 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ii6;
+import com.baidu.tieba.vi6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -322,7 +322,7 @@ public class ProgressCircle extends View {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, ii6.ProgressCircle, 0, 0);
+        TypedArray obtainStyledAttributes = context.getTheme().obtainStyledAttributes(attributeSet, vi6.ProgressCircle, 0, 0);
         try {
             this.a = obtainStyledAttributes.getBoolean(0, false);
             this.b = obtainStyledAttributes.getDimensionPixelSize(6, 5);

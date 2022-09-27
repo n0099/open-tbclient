@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,14 +9,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.GetCardByCategory.ThemeCardInMain;
-import tbclient.ThemeCardPropMain;
+import tbclient.GetBgByCategory.ThemeBgInMain;
+import tbclient.ThemeBgProp;
 /* loaded from: classes6.dex */
 public class vs8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public ArrayList<yr8> b;
+    public List<DressItemData> b;
 
     public vs8() {
         Interceptable interceptable = $ic;
@@ -31,10 +32,10 @@ public class vs8 {
         }
     }
 
-    public ArrayList<yr8> a() {
+    public List<DressItemData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 
     public String b() {
@@ -43,23 +44,15 @@ public class vs8 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public void c(ThemeCardInMain themeCardInMain) {
+    public void c(ThemeBgInMain themeBgInMain) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) == null) || themeCardInMain == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeBgInMain) == null) || themeBgInMain == null) {
             return;
         }
-        this.a = themeCardInMain.card_category;
-        List<ThemeCardPropMain> list = themeCardInMain.props;
-        if (list == null || list.size() <= 0) {
-            return;
-        }
-        this.b = new ArrayList<>();
-        for (ThemeCardPropMain themeCardPropMain : list) {
-            if (themeCardPropMain != null) {
-                yr8 yr8Var = new yr8();
-                yr8Var.k(themeCardPropMain);
-                this.b.add(yr8Var);
-            }
+        this.a = themeBgInMain.bg_category;
+        this.b = new ArrayList();
+        for (ThemeBgProp themeBgProp : themeBgInMain.props) {
+            this.b.add(new DressItemData(themeBgProp));
         }
     }
 }

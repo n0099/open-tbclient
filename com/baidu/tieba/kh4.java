@@ -1,498 +1,579 @@
 package com.baidu.tieba;
 
+import android.graphics.Rect;
+import android.transition.Transition;
+import android.transition.TransitionManager;
+import android.transition.TransitionSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class kh4<K, V> {
+public class kh4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object[] d;
-    public static int e;
-    public static Object[] f;
-    public static int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public Object[] b;
-    public int c;
 
-    public kh4() {
+    /* loaded from: classes4.dex */
+    public static class a extends Transition.EpicenterCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Rect a;
+
+        public a(Rect rect) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rect};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rect;
+        }
+
+        @Override // android.transition.Transition.EpicenterCallback
+        public Rect onGetEpicenter(Transition transition) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transition)) == null) ? this.a : (Rect) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements ViewTreeObserver.OnPreDrawListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ Transition b;
+        public final /* synthetic */ View c;
+        public final /* synthetic */ f d;
+        public final /* synthetic */ Map e;
+        public final /* synthetic */ Map f;
+        public final /* synthetic */ ArrayList g;
+
+        public b(View view2, Transition transition, View view3, f fVar, Map map, Map map2, ArrayList arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, transition, view3, fVar, map, map2, arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = transition;
+            this.c = view3;
+            this.d = fVar;
+            this.e = map;
+            this.f = map2;
+            this.g = arrayList;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnPreDrawListener
+        public boolean onPreDraw() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.a.getViewTreeObserver().removeOnPreDrawListener(this);
+                Transition transition = this.b;
+                if (transition != null) {
+                    transition.removeTarget(this.c);
+                }
+                View view2 = this.d.getView();
+                if (view2 != null) {
+                    if (!this.e.isEmpty()) {
+                        kh4.m(this.f, view2);
+                        this.f.keySet().retainAll(this.e.values());
+                        for (Map.Entry entry : this.e.entrySet()) {
+                            View view3 = (View) this.f.get((String) entry.getValue());
+                            if (view3 != null) {
+                                view3.setTransitionName((String) entry.getKey());
+                            }
+                        }
+                    }
+                    if (this.b != null) {
+                        kh4.h(this.g, view2);
+                        this.g.removeAll(this.f.values());
+                        this.g.add(this.c);
+                        kh4.c(this.b, this.g);
+                        return true;
+                    }
+                    return true;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c extends Transition.EpicenterCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Rect a;
+        public final /* synthetic */ e b;
+
+        public c(e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = eVar;
+        }
+
+        @Override // android.transition.Transition.EpicenterCallback
+        public Rect onGetEpicenter(Transition transition) {
+            InterceptResult invokeL;
+            View view2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, transition)) == null) {
+                if (this.a == null && (view2 = this.b.a) != null) {
+                    this.a = kh4.n(view2);
+                }
+                return this.a;
+            }
+            return (Rect) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d implements ViewTreeObserver.OnPreDrawListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ Transition b;
+        public final /* synthetic */ ArrayList c;
+        public final /* synthetic */ Transition d;
+        public final /* synthetic */ ArrayList e;
+        public final /* synthetic */ Transition f;
+        public final /* synthetic */ ArrayList g;
+        public final /* synthetic */ Map h;
+        public final /* synthetic */ ArrayList i;
+        public final /* synthetic */ Transition j;
+        public final /* synthetic */ View k;
+
+        public d(View view2, Transition transition, ArrayList arrayList, Transition transition2, ArrayList arrayList2, Transition transition3, ArrayList arrayList3, Map map, ArrayList arrayList4, Transition transition4, View view3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r3;
+                Object[] objArr = {view2, transition, arrayList, transition2, arrayList2, transition3, arrayList3, map, arrayList4, transition4, view3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+            this.b = transition;
+            this.c = arrayList;
+            this.d = transition2;
+            this.e = arrayList2;
+            this.f = transition3;
+            this.g = arrayList3;
+            this.h = map;
+            this.i = arrayList4;
+            this.j = transition4;
+            this.k = view3;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnPreDrawListener
+        public boolean onPreDraw() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.a.getViewTreeObserver().removeOnPreDrawListener(this);
+                Transition transition = this.b;
+                if (transition != null) {
+                    kh4.s(transition, this.c);
+                }
+                Transition transition2 = this.d;
+                if (transition2 != null) {
+                    kh4.s(transition2, this.e);
+                }
+                Transition transition3 = this.f;
+                if (transition3 != null) {
+                    kh4.s(transition3, this.g);
+                }
+                for (Map.Entry entry : this.h.entrySet()) {
+                    ((View) entry.getValue()).setTransitionName((String) entry.getKey());
+                }
+                int size = this.i.size();
+                for (int i = 0; i < size; i++) {
+                    this.j.excludeTarget((View) this.i.get(i), false);
+                }
+                this.j.excludeTarget(this.k, false);
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface f {
+        View getView();
+    }
+
+    public static void c(Object obj, ArrayList<View> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65538, null, obj, arrayList) == null) {
+            Transition transition = (Transition) obj;
+            int i = 0;
+            if (transition instanceof TransitionSet) {
+                TransitionSet transitionSet = (TransitionSet) transition;
+                int transitionCount = transitionSet.getTransitionCount();
+                while (i < transitionCount) {
+                    c(transitionSet.getTransitionAt(i), arrayList);
+                    i++;
+                }
+            } else if (p(transition) || !q(transition.getTargets())) {
+            } else {
+                int size = arrayList.size();
+                while (i < size) {
+                    transition.addTarget(arrayList.get(i));
+                    i++;
+                }
+            }
+        }
+    }
+
+    public static void d(Object obj, Object obj2, View view2, f fVar, View view3, e eVar, Map<String, String> map, ArrayList<View> arrayList, Map<String, View> map2, Map<String, View> map3, ArrayList<View> arrayList2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{obj, obj2, view2, fVar, view3, eVar, map, arrayList, map2, map3, arrayList2}) == null) {
+            if (obj == null && obj2 == null) {
                 return;
             }
+            Transition transition = (Transition) obj;
+            if (transition != null) {
+                transition.addTarget(view3);
+            }
+            if (obj2 != null) {
+                v(obj2, view3, map2, arrayList2);
+            }
+            if (fVar != null) {
+                view2.getViewTreeObserver().addOnPreDrawListener(new b(view2, transition, view3, fVar, map, map3, arrayList));
+            }
+            u(transition, eVar);
         }
-        this.a = gh4.a;
-        this.b = gh4.b;
-        this.c = 0;
     }
 
-    public static void c(int[] iArr, Object[] objArr, int i) {
+    public static void e(ViewGroup viewGroup, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, iArr, objArr, i) == null) {
-            if (iArr.length == 8) {
-                synchronized (fh4.class) {
-                    if (g < 10) {
-                        objArr[0] = f;
-                        objArr[1] = iArr;
-                        for (int i2 = (i << 1) - 1; i2 >= 2; i2--) {
-                            objArr[i2] = null;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, viewGroup, obj) == null) {
+            TransitionManager.beginDelayedTransition(viewGroup, (Transition) obj);
+        }
+    }
+
+    public static void f(List<View> list, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, list, view2) == null) {
+            int size = list.size();
+            if (k(list, view2, size)) {
+                return;
+            }
+            list.add(view2);
+            for (int i = size; i < list.size(); i++) {
+                View view3 = list.get(i);
+                if (view3 instanceof ViewGroup) {
+                    ViewGroup viewGroup = (ViewGroup) view3;
+                    int childCount = viewGroup.getChildCount();
+                    for (int i2 = 0; i2 < childCount; i2++) {
+                        View childAt = viewGroup.getChildAt(i2);
+                        if (!k(list, childAt, size)) {
+                            list.add(childAt);
                         }
-                        f = objArr;
-                        g++;
-                    }
-                }
-            } else if (iArr.length == 4) {
-                synchronized (fh4.class) {
-                    if (e < 10) {
-                        objArr[0] = d;
-                        objArr[1] = iArr;
-                        for (int i3 = (i << 1) - 1; i3 >= 2; i3--) {
-                            objArr[i3] = null;
-                        }
-                        d = objArr;
-                        e++;
                     }
                 }
             }
         }
     }
 
-    public final void a(int i) {
+    public static Object g(Object obj, View view2, ArrayList<View> arrayList, Map<String, View> map, View view3) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i == 8) {
-                synchronized (fh4.class) {
-                    if (f != null) {
-                        Object[] objArr = f;
-                        this.b = objArr;
-                        f = (Object[]) objArr[0];
-                        this.a = (int[]) objArr[1];
-                        objArr[1] = null;
-                        objArr[0] = null;
-                        g--;
-                        return;
-                    }
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65542, null, obj, view2, arrayList, map, view3)) == null) {
+            if (obj != null) {
+                h(arrayList, view2);
+                if (map != null) {
+                    arrayList.removeAll(map.values());
                 }
-            } else if (i == 4) {
-                synchronized (fh4.class) {
-                    if (d != null) {
-                        Object[] objArr2 = d;
-                        this.b = objArr2;
-                        d = (Object[]) objArr2[0];
-                        this.a = (int[]) objArr2[1];
-                        objArr2[1] = null;
-                        objArr2[0] = null;
-                        e--;
-                        return;
-                    }
+                if (arrayList.isEmpty()) {
+                    return null;
                 }
+                arrayList.add(view3);
+                c((Transition) obj, arrayList);
+                return obj;
             }
-            this.a = new int[i];
-            this.b = new Object[i << 1];
+            return obj;
+        }
+        return invokeLLLLL.objValue;
+    }
+
+    public static void h(ArrayList<View> arrayList, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, arrayList, view2) == null) && view2.getVisibility() == 0) {
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                if (viewGroup.isTransitionGroup()) {
+                    arrayList.add(viewGroup);
+                    return;
+                }
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    h(arrayList, viewGroup.getChildAt(i));
+                }
+                return;
+            }
+            arrayList.add(view2);
         }
     }
 
-    public void b(int i) {
+    public static void i(View view2, View view3, Object obj, ArrayList<View> arrayList, Object obj2, ArrayList<View> arrayList2, Object obj3, ArrayList<View> arrayList3, Object obj4, ArrayList<View> arrayList4, Map<String, View> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            int[] iArr = this.a;
-            if (iArr.length < i) {
-                Object[] objArr = this.b;
-                a(i);
-                int i2 = this.c;
-                if (i2 > 0) {
-                    System.arraycopy(iArr, 0, this.a, 0, i2);
-                    System.arraycopy(objArr, 0, this.b, 0, this.c << 1);
-                }
-                c(iArr, objArr, this.c);
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{view2, view3, obj, arrayList, obj2, arrayList2, obj3, arrayList3, obj4, arrayList4, map}) == null) {
+            Transition transition = (Transition) obj;
+            Transition transition2 = (Transition) obj2;
+            Transition transition3 = (Transition) obj3;
+            Transition transition4 = (Transition) obj4;
+            if (transition4 != null) {
+                view2.getViewTreeObserver().addOnPreDrawListener(new d(view2, transition, arrayList, transition2, arrayList2, transition3, arrayList3, map, arrayList4, transition4, view3));
             }
         }
     }
 
-    public void clear() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (i = this.c) == 0) {
-            return;
-        }
-        c(this.a, this.b, i);
-        this.a = gh4.a;
-        this.b = gh4.b;
-        this.c = 0;
-    }
-
-    public boolean containsKey(Object obj) {
+    public static Object j(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? e(obj) >= 0 : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65545, null, obj)) == null) ? obj != null ? ((Transition) obj).clone() : obj : invokeL.objValue;
     }
 
-    public boolean containsValue(Object obj) {
-        InterceptResult invokeL;
+    public static boolean k(List<View> list, View view2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) ? g(obj) >= 0 : invokeL.booleanValue;
-    }
-
-    public int d(Object obj, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, obj, i)) == null) {
-            int i2 = this.c;
-            if (i2 == 0) {
-                return -1;
-            }
-            int a = gh4.a(this.a, i2, i);
-            if (a >= 0 && !obj.equals(this.b[a << 1])) {
-                int i3 = a + 1;
-                while (i3 < i2 && this.a[i3] == i) {
-                    if (obj.equals(this.b[i3 << 1])) {
-                        return i3;
-                    }
-                    i3++;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65546, null, list, view2, i)) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                if (list.get(i2) == view2) {
+                    return true;
                 }
-                for (int i4 = a - 1; i4 >= 0 && this.a[i4] == i; i4--) {
-                    if (obj.equals(this.b[i4 << 1])) {
-                        return i4;
-                    }
-                }
-                return ~i3;
-            }
-            return a;
-        }
-        return invokeLI.intValue;
-    }
-
-    public int e(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) ? obj == null ? f() : d(obj, obj.hashCode()) : invokeL.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof Map) {
-                Map map = (Map) obj;
-                if (size() != map.size()) {
-                    return false;
-                }
-                for (int i = 0; i < this.c; i++) {
-                    try {
-                        K h = h(i);
-                        V k = k(i);
-                        Object obj2 = map.get(h);
-                        if (k == null) {
-                            if (obj2 != null || !map.containsKey(h)) {
-                                return false;
-                            }
-                        } else if (!k.equals(obj2)) {
-                            return false;
-                        }
-                    } catch (ClassCastException | NullPointerException unused) {
-                    }
-                }
-                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLI.booleanValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public static void l(Object obj, View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            int i = this.c;
-            if (i == 0) {
-                return -1;
-            }
-            int a = gh4.a(this.a, i, 0);
-            if (a >= 0 && this.b[a << 1] != null) {
-                int i2 = a + 1;
-                while (i2 < i && this.a[i2] == 0) {
-                    if (this.b[i2 << 1] == null) {
-                        return i2;
-                    }
-                    i2++;
-                }
-                for (int i3 = a - 1; i3 >= 0 && this.a[i3] == 0; i3--) {
-                    if (this.b[i3 << 1] == null) {
-                        return i3;
-                    }
-                }
-                return ~i2;
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeLLZ(65547, null, obj, view2, z) == null) {
+            ((Transition) obj).excludeTarget(view2, z);
         }
-        return invokeV.intValue;
     }
 
-    public int g(Object obj) {
+    public static void m(Map<String, View> map, View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65548, null, map, view2) == null) && view2.getVisibility() == 0) {
+            String transitionName = view2.getTransitionName();
+            if (transitionName != null) {
+                map.put(transitionName, view2);
+            }
+            if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                int childCount = viewGroup.getChildCount();
+                for (int i = 0; i < childCount; i++) {
+                    m(map, viewGroup.getChildAt(i));
+                }
+            }
+        }
+    }
+
+    public static Rect n(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, obj)) == null) {
-            int i = this.c * 2;
-            Object[] objArr = this.b;
-            if (obj == null) {
-                for (int i2 = 1; i2 < i; i2 += 2) {
-                    if (objArr[i2] == null) {
-                        return i2 >> 1;
-                    }
-                }
-                return -1;
-            }
-            for (int i3 = 1; i3 < i; i3 += 2) {
-                if (obj.equals(objArr[i3])) {
-                    return i3 >> 1;
-                }
-            }
-            return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, view2)) == null) {
+            Rect rect = new Rect();
+            int[] iArr = new int[2];
+            view2.getLocationOnScreen(iArr);
+            rect.set(iArr[0], iArr[1], iArr[0] + view2.getWidth(), iArr[1] + view2.getHeight());
+            return rect;
         }
-        return invokeL.intValue;
+        return (Rect) invokeL.objValue;
     }
 
-    public V get(Object obj) {
+    public static String o(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, obj)) == null) {
-            int e2 = e(obj);
-            if (e2 >= 0) {
-                return (V) this.b[(e2 << 1) + 1];
-            }
-            return null;
-        }
-        return (V) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65550, null, view2)) == null) ? view2.getTransitionName() : (String) invokeL.objValue;
     }
 
-    public K h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? (K) this.b[i << 1] : (K) invokeI.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int[] iArr = this.a;
-            Object[] objArr = this.b;
-            int i = this.c;
-            int i2 = 1;
-            int i3 = 0;
-            int i4 = 0;
-            while (i3 < i) {
-                Object obj = objArr[i2];
-                i4 += (obj == null ? 0 : obj.hashCode()) ^ iArr[i3];
-                i3++;
-                i2 += 2;
-            }
-            return i4;
-        }
-        return invokeV.intValue;
-    }
-
-    public V i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            Object[] objArr = this.b;
-            int i2 = i << 1;
-            V v = (V) objArr[i2 + 1];
-            int i3 = this.c;
-            if (i3 <= 1) {
-                c(this.a, objArr, i3);
-                this.a = gh4.a;
-                this.b = gh4.b;
-                this.c = 0;
-            } else {
-                int[] iArr = this.a;
-                if (iArr.length > 8 && i3 < iArr.length / 3) {
-                    int i4 = i3 > 8 ? i3 + (i3 >> 1) : 8;
-                    int[] iArr2 = this.a;
-                    Object[] objArr2 = this.b;
-                    a(i4);
-                    this.c--;
-                    if (i > 0) {
-                        System.arraycopy(iArr2, 0, this.a, 0, i);
-                        System.arraycopy(objArr2, 0, this.b, 0, i2);
-                    }
-                    int i5 = this.c;
-                    if (i < i5) {
-                        int i6 = i + 1;
-                        System.arraycopy(iArr2, i6, this.a, i, i5 - i);
-                        System.arraycopy(objArr2, i6 << 1, this.b, i2, (this.c - i) << 1);
-                    }
-                } else {
-                    int i7 = this.c - 1;
-                    this.c = i7;
-                    if (i < i7) {
-                        int[] iArr3 = this.a;
-                        int i8 = i + 1;
-                        System.arraycopy(iArr3, i8, iArr3, i, i7 - i);
-                        Object[] objArr3 = this.b;
-                        System.arraycopy(objArr3, i8 << 1, objArr3, i2, (this.c - i) << 1);
-                    }
-                    Object[] objArr4 = this.b;
-                    int i9 = this.c;
-                    objArr4[i9 << 1] = null;
-                    objArr4[(i9 << 1) + 1] = null;
-                }
-            }
-            return v;
-        }
-        return (V) invokeI.objValue;
-    }
-
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.c <= 0 : invokeV.booleanValue;
-    }
-
-    public V j(int i, V v) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048591, this, i, v)) == null) {
-            int i2 = (i << 1) + 1;
-            Object[] objArr = this.b;
-            V v2 = (V) objArr[i2];
-            objArr[i2] = v;
-            return v2;
-        }
-        return (V) invokeIL.objValue;
-    }
-
-    public V k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) ? (V) this.b[(i << 1) + 1] : (V) invokeI.objValue;
-    }
-
-    public V put(K k, V v) {
-        InterceptResult invokeLL;
-        int i;
-        int d2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, k, v)) == null) {
-            if (k == null) {
-                d2 = f();
-                i = 0;
-            } else {
-                int hashCode = k.hashCode();
-                i = hashCode;
-                d2 = d(k, hashCode);
-            }
-            if (d2 >= 0) {
-                int i2 = (d2 << 1) + 1;
-                Object[] objArr = this.b;
-                V v2 = (V) objArr[i2];
-                objArr[i2] = v;
-                return v2;
-            }
-            int i3 = ~d2;
-            int i4 = this.c;
-            if (i4 >= this.a.length) {
-                int i5 = 4;
-                if (i4 >= 8) {
-                    i5 = (i4 >> 1) + i4;
-                } else if (i4 >= 4) {
-                    i5 = 8;
-                }
-                int[] iArr = this.a;
-                Object[] objArr2 = this.b;
-                a(i5);
-                int[] iArr2 = this.a;
-                if (iArr2.length > 0) {
-                    System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
-                    System.arraycopy(objArr2, 0, this.b, 0, objArr2.length);
-                }
-                c(iArr, objArr2, this.c);
-            }
-            int i6 = this.c;
-            if (i3 < i6) {
-                int[] iArr3 = this.a;
-                int i7 = i3 + 1;
-                System.arraycopy(iArr3, i3, iArr3, i7, i6 - i3);
-                Object[] objArr3 = this.b;
-                System.arraycopy(objArr3, i3 << 1, objArr3, i7 << 1, (this.c - i3) << 1);
-            }
-            this.a[i3] = i;
-            Object[] objArr4 = this.b;
-            int i8 = i3 << 1;
-            objArr4[i8] = k;
-            objArr4[i8 + 1] = v;
-            this.c++;
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public V remove(Object obj) {
+    public static boolean p(Transition transition) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
-            int e2 = e(obj);
-            if (e2 >= 0) {
-                return i(e2);
-            }
-            return null;
-        }
-        return (V) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65551, null, transition)) == null) ? (q(transition.getTargetIds()) && q(transition.getTargetNames()) && q(transition.getTargetTypes())) ? false : true : invokeL.booleanValue;
     }
 
-    public int size() {
-        InterceptResult invokeV;
+    public static boolean q(List list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65552, null, list)) == null) ? list == null || list.isEmpty() : invokeL.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static Object r(Object obj, Object obj2, Object obj3, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (isEmpty()) {
-                return StringUtil.EMPTY_ARRAY;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65553, null, new Object[]{obj, obj2, obj3, Boolean.valueOf(z)})) == null) {
+            Transition transition = (Transition) obj;
+            Transition transition2 = (Transition) obj2;
+            Transition transition3 = (Transition) obj3;
+            if ((transition == null || transition2 == null) ? true : true) {
+                TransitionSet transitionSet = new TransitionSet();
+                if (transition != null) {
+                    transitionSet.addTransition(transition);
+                }
+                if (transition2 != null) {
+                    transitionSet.addTransition(transition2);
+                }
+                if (transition3 != null) {
+                    transitionSet.addTransition(transition3);
+                    return transitionSet;
+                }
+                return transitionSet;
             }
-            StringBuilder sb = new StringBuilder(this.c * 28);
-            sb.append('{');
-            for (int i = 0; i < this.c; i++) {
-                if (i > 0) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-                K h = h(i);
-                if (h != this) {
-                    sb.append(h);
-                } else {
-                    sb.append("(this Map)");
-                }
-                sb.append('=');
-                V k = k(i);
-                if (k != this) {
-                    sb.append(k);
-                } else {
-                    sb.append("(this Map)");
-                }
+            if (transition2 != null && transition != null) {
+                transition = new TransitionSet().addTransition(transition2).addTransition(transition).setOrdering(1);
+            } else if (transition2 != null) {
+                transition = transition2;
+            } else if (transition == null) {
+                transition = null;
             }
-            sb.append('}');
-            return sb.toString();
+            if (transition3 != null) {
+                TransitionSet transitionSet2 = new TransitionSet();
+                if (transition != null) {
+                    transitionSet2.addTransition(transition);
+                }
+                transitionSet2.addTransition(transition3);
+                return transitionSet2;
+            }
+            return transition;
         }
-        return (String) invokeV.objValue;
+        return invokeCommon.objValue;
+    }
+
+    public static void s(Object obj, ArrayList<View> arrayList) {
+        List<View> targets;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65554, null, obj, arrayList) == null) {
+            Transition transition = (Transition) obj;
+            if (transition instanceof TransitionSet) {
+                TransitionSet transitionSet = (TransitionSet) transition;
+                int transitionCount = transitionSet.getTransitionCount();
+                for (int i = 0; i < transitionCount; i++) {
+                    s(transitionSet.getTransitionAt(i), arrayList);
+                }
+            } else if (!p(transition) && (targets = transition.getTargets()) != null && targets.size() == arrayList.size() && targets.containsAll(arrayList)) {
+                for (int size = arrayList.size() - 1; size >= 0; size--) {
+                    transition.removeTarget(arrayList.get(size));
+                }
+            }
+        }
+    }
+
+    public static void t(Object obj, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65555, null, obj, view2) == null) {
+            ((Transition) obj).setEpicenterCallback(new a(n(view2)));
+        }
+    }
+
+    public static void u(Transition transition, e eVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65556, null, transition, eVar) == null) || transition == null) {
+            return;
+        }
+        transition.setEpicenterCallback(new c(eVar));
+    }
+
+    public static void v(Object obj, View view2, Map<String, View> map, ArrayList<View> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65557, null, obj, view2, map, arrayList) == null) {
+            TransitionSet transitionSet = (TransitionSet) obj;
+            arrayList.clear();
+            arrayList.addAll(map.values());
+            List<View> targets = transitionSet.getTargets();
+            targets.clear();
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                f(targets, arrayList.get(i));
+            }
+            arrayList.add(view2);
+            c(transitionSet, arrayList);
+        }
+    }
+
+    public static Object w(Object obj) {
+        InterceptResult invokeL;
+        Transition transition;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, obj)) == null) {
+            if (obj == null || (transition = (Transition) obj) == null) {
+                return null;
+            }
+            TransitionSet transitionSet = new TransitionSet();
+            transitionSet.addTransition(transition);
+            return transitionSet;
+        }
+        return invokeL.objValue;
     }
 }

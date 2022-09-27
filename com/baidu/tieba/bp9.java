@@ -1,94 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.components.core.response.model.AdResultData;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bp9 extends gp9 {
+public class bp9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ KsRewardVideoAd c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ ap9 e;
 
-    public bp9(ap9 ap9Var, KsRewardVideoAd ksRewardVideoAd, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bp9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ap9Var, ksRewardVideoAd, str};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = ap9Var;
-        this.c = ksRewardVideoAd;
-        this.d = str;
     }
 
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onAdClicked() {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        List<AdTemplate> adTemplateList;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.e.onAdClicked(this.c, this.b, this.d);
-            this.b = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                Field declaredField = obj.getClass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
+                }
+                AdResultData adResultData = obj2 instanceof AdResultData ? (AdResultData) obj2 : null;
+                if ((adResultData != null) && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
+                    AdTemplate adTemplate = adTemplateList.get(0);
+                    List<AdInfo> list = adTemplate == null ? null : adTemplate.adInfoList;
+                    if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                        return null;
+                    }
+                    return ep9.a(adInfo);
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onPageDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.e.onAdClose(this.c);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onRewardVerify() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.e.onRewardedVideo(this.c, this.d);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            LogPrinter.d();
-            this.e.onAdError(this.c, i, String.valueOf(i2));
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsRewardVideoAd.RewardAdInteractionListener
-    public void onVideoPlayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-            this.e.onAdShow(this.c, this.a, this.d);
-            this.a = true;
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

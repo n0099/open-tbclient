@@ -1,97 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executors;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.Socket;
 /* loaded from: classes5.dex */
 public class t80 {
     public static /* synthetic */ Interceptable $ic;
-    public static t80 c;
-    public static final int d;
-    public static final int e;
-    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public Context b;
+    public Boolean a;
+    public Boolean b;
+    public Socket c;
+    public InputStream d;
+    public OutputStream e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948134941, "Lcom/baidu/tieba/t80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948134941, "Lcom/baidu/tieba/t80;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        d = availableProcessors;
-        e = Math.max(2, Math.min(availableProcessors - 1, 4));
-        f = (d * 2) + 1;
-    }
-
-    public t80(Context context) {
+    public t80() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = context;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(e, f, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
-        this.a = threadPoolExecutor;
-        threadPoolExecutor.allowCoreThreadTimeOut(true);
-        Executors.newSingleThreadExecutor();
-    }
-
-    public static t80 a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            if (c == null) {
-                synchronized (t80.class) {
-                    if (c == null) {
-                        c = new t80(context);
-                    }
-                }
-            }
-            return c;
-        }
-        return (t80) invokeL.objValue;
-    }
-
-    public void b(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            try {
-                this.a.submit(runnable);
-            } catch (Throwable th) {
-                y80.c("TaskManager", "Exception ", th);
-            }
-        }
+        Boolean bool = Boolean.FALSE;
+        this.a = bool;
+        this.b = bool;
+        this.c = null;
+        this.d = null;
+        this.e = null;
     }
 }

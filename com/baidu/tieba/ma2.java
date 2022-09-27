@@ -1,34 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public final class ma2 {
+public class ma2 {
     public static /* synthetic */ Interceptable $ic;
+    public static Uri a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ga2 a(na2 na2Var, db2 db2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, na2Var, db2Var, v8ThreadDelegatePolicy)) == null) {
-            oa2 a = fm2.B0().a(na2Var);
-            ga2 a2 = a.a(na2Var.a(), db2Var, v8ThreadDelegatePolicy);
-            a2.I0(a.getUserAgent());
-            return a2;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
+            } catch (Exception e) {
+                l02.d("SwanLaunchBehaviorTable", "createTable", e);
+            }
         }
-        return (ga2) invokeLLL.objValue;
     }
 
-    public static ga2 b(na2 na2Var, db2 db2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
+    @NonNull
+    public static synchronized Uri b() {
+        InterceptResult invokeV;
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, na2Var, db2Var, v8ThreadDelegatePolicy)) == null) {
-            ga2 a = a(na2Var, db2Var, v8ThreadDelegatePolicy);
-            a.q0();
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ma2.class) {
+                if (a == null) {
+                    a = ka2.c.buildUpon().appendPath("user_behavior").build();
+                }
+                uri = a;
+            }
+            return uri;
         }
-        return (ga2) invokeLLL.objValue;
+        return (Uri) invokeV.objValue;
     }
 }

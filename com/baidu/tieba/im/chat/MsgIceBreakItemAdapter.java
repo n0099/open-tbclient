@@ -8,30 +8,30 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.k77;
+import com.baidu.tieba.y77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<k77> {
+public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<y77> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<k77> {
+    public static class MsgIceBreakViewHolder extends MsgCommonItemAdapter.MsgViewHolder<y77> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public MsgIceBreakViewHolder(View view2, k77 k77Var) {
-            super(view2, k77Var);
+        public MsgIceBreakViewHolder(View view2, y77 y77Var) {
+            super(view2, y77Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {view2, k77Var};
+                Object[] objArr = {view2, y77Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -70,12 +70,12 @@ public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<k77> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.qn
     /* renamed from: E */
-    public MsgCommonItemAdapter.MsgViewHolder<k77> onCreateViewHolder(ViewGroup viewGroup) {
+    public MsgCommonItemAdapter.MsgViewHolder<y77> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            k77 k77Var = new k77(this.a);
-            return new MsgIceBreakViewHolder(k77Var.k(), k77Var);
+            y77 y77Var = new y77(this.a);
+            return new MsgIceBreakViewHolder(y77Var.k(), y77Var);
         }
         return (MsgCommonItemAdapter.MsgViewHolder) invokeL.objValue;
     }
@@ -88,12 +88,12 @@ public class MsgIceBreakItemAdapter extends MsgCommonItemAdapter<k77> {
     }
 
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter
-    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<k77> msgViewHolder) {
+    public View v(int i, View view2, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<y77> msgViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, chatMessage, msgViewHolder})) == null) {
             super.onFillViewHolder(i, view2, viewGroup, chatMessage, msgViewHolder);
-            k77 a = msgViewHolder.a();
+            y77 a = msgViewHolder.a();
             a.p(this.b);
             a.q(chatMessage);
             a.o(TbadkCoreApplication.getInst().getSkinType());

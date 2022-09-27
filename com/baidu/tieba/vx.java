@@ -22,7 +22,7 @@ public class vx extends nx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NewGridImageLayout h;
-    public lq4 i;
+    public yq4 i;
     public int j;
     public String k;
     public int l;
@@ -93,9 +93,9 @@ public class vx extends nx {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.i != null && this.a.i.getThreadData() != null && !this.a.g().booleanValue()) {
-                    g16.a(this.a.i.getThreadData().getId());
-                    g16.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    g16.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    t16.a(this.a.i.getThreadData().getId());
+                    t16.l(this.a.h.b, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    t16.l(this.a.h.c, this.a.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -195,10 +195,10 @@ public class vx extends nx {
     }
 
     @Override // com.baidu.tieba.gx
-    public void m(v16<lq4> v16Var) {
+    public void m(i26<yq4> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, v16Var) == null) {
-            this.h.setSubClickListener(v16Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, i26Var) == null) {
+            this.h.setSubClickListener(i26Var);
         }
     }
 
@@ -220,14 +220,14 @@ public class vx extends nx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: v */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, lq4Var) == null) {
-            this.i = lq4Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, yq4Var) == null) {
+            this.i = yq4Var;
             this.h.setFrom(this.k);
             this.h.setFromForPb(this.l);
             this.h.setTransmit(g().booleanValue());
-            this.h.a(lq4Var);
+            this.h.a(yq4Var);
             this.h.setJumpToPbListener(new a(this));
         }
     }

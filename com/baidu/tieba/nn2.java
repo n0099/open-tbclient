@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.Context;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface nn2 {
-    boolean a(String str, String str2);
+    void a(Activity activity, String str, String str2);
 
-    String b();
+    boolean b(Context context);
 
-    @NonNull
-    JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject);
+    void c(Activity activity, String str, ga1 ga1Var);
 
-    boolean enable();
+    void d(Context context, JSONObject jSONObject, ga1 ga1Var);
+
+    void e(Activity activity, String str, ga1 ga1Var);
+
+    void f(Activity activity, String str, sa1<JSONObject> sa1Var);
 }

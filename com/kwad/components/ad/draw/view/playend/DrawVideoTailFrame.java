@@ -285,7 +285,7 @@ public class DrawVideoTailFrame extends FrameLayout implements View.OnClickListe
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0574a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
+            com.kwad.components.core.c.a.a.a(new a.C0570a(getContext()).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.cB ? 1 : 2).aj(view2 == this.cB).a(new a.b(this) { // from class: com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DrawVideoTailFrame cF;

@@ -17,8 +17,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea1;
-import com.baidu.tieba.xb1;
+import com.baidu.tieba.kc1;
+import com.baidu.tieba.ra1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -249,7 +249,7 @@ public class PopupWindow {
                 return;
             }
         }
-        P = xb1.d;
+        P = kc1.d;
         Q = new int[]{16842922};
     }
 
@@ -748,7 +748,7 @@ public class PopupWindow {
         this.M = new a(this);
         this.a = context;
         this.b = (WindowManager) context.getSystemService("window");
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ea1.PopupWindow, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ra1.PopupWindow, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;

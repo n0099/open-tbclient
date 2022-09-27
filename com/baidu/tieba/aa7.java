@@ -1,22 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryChangedMessage;
+import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import protobuf.Item;
 /* loaded from: classes3.dex */
-public class aa7 extends eb {
+public class aa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Long a;
+    public String b;
+    public Double c;
+    public String d;
+    public List<String> e;
+    public Double f;
+    public Integer g;
+    public String h;
+    public String i;
+    public String j;
+    public Integer k;
+    public Integer l;
+    public String m;
+    public String n;
+    public ApkDetailPojo o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public aa7() {
-        super(2016004);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,36 +36,65 @@ public class aa7 extends eb {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kb
-    /* renamed from: c */
-    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
+    public static aa7 a(Item item) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
-            if (customResponsedMessage == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
+            if (item == null) {
                 return null;
             }
-            if (customResponsedMessage instanceof MemoryChangedMessage) {
-                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
-                ImMessageCenterPojo data = memoryChangedMessage.getData();
-                if (data != null && data.getCustomGroupType() == -8) {
-                    return new MemoryChangedMessage(f77.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-                if (data != null && data.getCustomGroupType() == -7) {
-                    return new MemoryChangedMessage(g77.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
-                }
-            }
-            return customResponsedMessage;
+            aa7 aa7Var = new aa7();
+            aa7Var.a = item.itemId;
+            aa7Var.b = item.itemName;
+            aa7Var.c = item.iconSize;
+            aa7Var.d = item.iconUrl;
+            aa7Var.e = item.tags;
+            aa7Var.f = item.score;
+            aa7Var.g = item.star;
+            aa7Var.h = item.buttonName;
+            aa7Var.i = item.buttonLink;
+            aa7Var.j = item.itemAppid;
+            aa7Var.k = item.categoryId;
+            aa7Var.l = item.buttonLinkType;
+            aa7Var.m = item.apkName;
+            aa7Var.n = item.forumName;
+            aa7Var.o = ApkDetailPojo.z(item.apkDetail);
+            return aa7Var;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (aa7) invokeL.objValue;
+    }
+
+    public static aa7 b(tbclient.Item item) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
+            if (item == null) {
+                return null;
+            }
+            aa7 aa7Var = new aa7();
+            aa7Var.a = item.item_id;
+            aa7Var.b = item.item_name;
+            aa7Var.c = item.icon_size;
+            aa7Var.d = item.icon_url;
+            aa7Var.e = item.tags;
+            aa7Var.f = item.score;
+            aa7Var.g = item.star;
+            aa7Var.h = item.button_name;
+            aa7Var.i = item.button_link;
+            aa7Var.j = item.item_appid;
+            aa7Var.k = item.category_id;
+            aa7Var.l = item.button_link_type;
+            aa7Var.m = item.apk_name;
+            aa7Var.n = item.forum_name;
+            aa7Var.o = ApkDetailPojo.A(item.apk_detail);
+            return aa7Var;
+        }
+        return (aa7) invokeL.objValue;
     }
 }

@@ -2,20 +2,16 @@ package com.baidu.tieba;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.CartoonThread;
+import tbclient.ActivityInfo;
 /* loaded from: classes4.dex */
 public class gr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
 
     public gr4() {
         Interceptable interceptable = $ic;
@@ -31,37 +27,39 @@ public class gr4 {
         }
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         try {
-            this.a = jSONObject.optLong("cartoon_id");
-            this.b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+            jSONObject.optLong("activity_id");
+            jSONObject.optString("main_title");
+            jSONObject.optString("sub_title");
+            jSONObject.optInt("back_pic_width");
+            jSONObject.optInt("back_pic_height");
+            jSONObject.optString("back_pic");
+            jSONObject.optString("subpage_link");
         } catch (Exception e) {
-            BdLog.e(e.toString());
+            BdLog.e(e.getMessage());
         }
     }
 
-    public void d(CartoonThread cartoonThread) {
+    public void b(ActivityInfo activityInfo) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, cartoonThread) == null) || cartoonThread == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activityInfo) == null) || activityInfo == null) {
             return;
         }
-        this.a = cartoonThread.cartoon_id.longValue();
-        this.b = cartoonThread.chapter_id.intValue();
+        try {
+            activityInfo.activity_id.longValue();
+            String str = activityInfo.main_title;
+            String str2 = activityInfo.sub_title;
+            activityInfo.back_pic_width.intValue();
+            activityInfo.back_pic_height.intValue();
+            String str3 = activityInfo.back_pic;
+            String str4 = activityInfo.subpage_link;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
     }
 }

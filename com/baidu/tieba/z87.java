@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.x87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,53 +11,42 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class z87 {
     public static /* synthetic */ Interceptable $ic;
-    public static z87 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948313904, "Lcom/baidu/tieba/z87;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements x87.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948313904, "Lcom/baidu/tieba/z87;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        a = new z87();
-    }
 
-    public z87() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        @Override // com.baidu.tieba.x87.c
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return true;
             }
+            return invokeL.booleanValue;
         }
     }
 
-    public static z87 a() {
-        InterceptResult invokeV;
+    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, x87.b bVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (z87) invokeV.objValue;
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                za7.j().l();
-                ya7.j().l();
-                wa7.k().n();
-            }
+        if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
+            x87.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
         }
     }
 }

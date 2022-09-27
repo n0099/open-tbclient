@@ -8,11 +8,11 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.kt3;
-import com.baidu.tieba.qt3;
-import com.baidu.tieba.tt3;
-import com.baidu.tieba.ut3;
-import com.baidu.tieba.yf3;
+import com.baidu.tieba.du3;
+import com.baidu.tieba.gu3;
+import com.baidu.tieba.hu3;
+import com.baidu.tieba.lg3;
+import com.baidu.tieba.xt3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -129,7 +129,7 @@ public class InstallActivity extends Activity {
     public static boolean b(WeakReference<Activity> weakReference, String str, String str2, String str3) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? kt3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, weakReference, str, str2, str3)) == null) ? xt3.t().u(weakReference.get(), str, str2, str3) : invokeLLLL.booleanValue;
     }
 
     @Override // android.app.Activity
@@ -140,12 +140,12 @@ public class InstallActivity extends Activity {
             if (i == 1345431) {
                 if (i2 != -1 || TextUtils.isEmpty(this.d)) {
                     if (i2 == 0) {
-                        ut3.n().h("installCancel", new tt3(this.e), this.d, this.f, this.c);
+                        hu3.n().h("installCancel", new gu3(this.e), this.d, this.f, this.c);
                     } else if (i2 == 1 && intent != null) {
-                        ut3.n().g("installFailed", new tt3(this.e), this.d, this.f, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.c);
+                        hu3.n().g("installFailed", new gu3(this.e), this.d, this.f, intent.getIntExtra("android.intent.extra.INSTALL_RESULT", 31022), this.c);
                     }
-                } else if (qt3.g(AppRuntime.getAppContext(), this.d) && qt3.k(AppRuntime.getAppContext(), this.d)) {
-                    ut3.n().h("openAtOnce", new tt3(this.e), this.d, this.f, this.c);
+                } else if (du3.g(AppRuntime.getAppContext(), this.d) && du3.k(AppRuntime.getAppContext(), this.d)) {
+                    hu3.n().h("openAtOnce", new gu3(this.e), this.d, this.f, this.c);
                 }
             }
             finish();
@@ -161,7 +161,7 @@ public class InstallActivity extends Activity {
             if (extras != null) {
                 this.c = extras.getString("key_download_url");
                 this.d = extras.getString("key_download_package_name");
-                this.e = yf3.d(extras.getString("ubc_params", ""));
+                this.e = lg3.d(extras.getString("ubc_params", ""));
                 this.f = extras.getString("download_params");
             }
             g.execute(new b(this, this.c, this.d, this.f, null));
@@ -177,8 +177,8 @@ public class InstallActivity extends Activity {
                 int i = this.a + 1;
                 this.a = i;
                 if (i > 1) {
-                    if (!qt3.g(AppRuntime.getAppContext(), this.d)) {
-                        ut3.n().h("installCancel", new tt3(this.e), this.d, this.f, this.c);
+                    if (!du3.g(AppRuntime.getAppContext(), this.d)) {
+                        hu3.n().h("installCancel", new gu3(this.e), this.d, this.f, this.c);
                     }
                     finish();
                 }

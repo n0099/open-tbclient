@@ -1,19 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class iu3 {
+public class iu3 extends na3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile iu3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
 
     public iu3() {
         Interceptable interceptable = $ic;
@@ -25,40 +20,20 @@ public class iu3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
     }
 
-    public static iu3 a() {
-        InterceptResult invokeV;
+    public void g(gu3 gu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (iu3.class) {
-                    if (b == null) {
-                        b = new iu3();
-                    }
-                }
-            }
-            return b;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, gu3Var) == null) || gu3Var == null) {
+            return;
         }
-        return (iu3) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getBoolean("gamecenter_wifi_resume_download_flag", false) : invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putBoolean("gamecenter_wifi_resume_download_flag", z);
-            edit.apply();
+        if (na3.j) {
+            Log.d("GamenowAppEvent", "setCommonData: " + gu3Var.a());
         }
+        this.a = gu3Var.a;
+        this.f = gu3Var.c;
+        this.c = gu3Var.b;
     }
 }

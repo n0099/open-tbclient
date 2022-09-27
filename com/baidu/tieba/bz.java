@@ -11,10 +11,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bz extends gx<lq4> {
+public class bz extends gx<yq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h16 f;
+    public u16 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public bz(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -34,7 +34,7 @@ public class bz extends gx<lq4> {
                 return;
             }
         }
-        this.f = new h16(tbPageContext, bdUniqueId);
+        this.f = new u16(tbPageContext, bdUniqueId);
     }
 
     @Override // com.baidu.tieba.gx
@@ -55,10 +55,10 @@ public class bz extends gx<lq4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: p */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, lq4Var) == null) && (lq4Var instanceof m26)) {
-            this.f.a((m26) lq4Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, yq4Var) == null) && (yq4Var instanceof z26)) {
+            this.f.a((z26) yq4Var);
         }
     }
 }

@@ -9,20 +9,19 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.c30;
-import com.baidu.tieba.i50;
+import com.baidu.tieba.k50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i30 extends c30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i50.a f;
+    public k50.a f;
     public b g;
 
     /* loaded from: classes4.dex */
@@ -30,12 +29,12 @@ public class i30 extends c30 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static boolean a(i50.a aVar, i50 i50Var) {
+        public static boolean a(k50.a aVar, k50 k50Var) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, aVar, i50Var)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, aVar, k50Var)) == null) {
                 if (Build.VERSION.SDK_INT < 23) {
-                    while (aVar != null && !aVar.b().equals(i50Var.b())) {
+                    while (aVar != null && !aVar.b().equals(k50Var.b())) {
                         aVar.b().setExecutable(true, false);
                         aVar = aVar.e();
                     }
@@ -47,7 +46,7 @@ public class i30 extends c30 {
                     }
                     aVar = aVar.e();
                 }
-                return b(i50Var.b());
+                return b(k50Var.b());
             }
             return invokeLL.booleanValue;
         }
@@ -76,7 +75,7 @@ public class i30 extends c30 {
     public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public f50 a;
+        public h50 a;
         public long b;
         public String c;
         public boolean d;
@@ -99,38 +98,62 @@ public class i30 extends c30 {
                 }
             }
             this.f = i30Var;
-            this.a = new f50();
+            this.a = new h50();
             this.e = true;
         }
 
-        public String a() {
+        public long a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.longValue;
         }
 
-        public void b(long j, long j2) {
+        public void b(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && this.a.c(j, j2)) {
+            if (!(interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) || this.b == j) {
+                return;
+            }
+            this.b = j;
+            this.d = true;
+        }
+
+        public void c(long j, long j2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) && this.a.c(j, j2)) {
                 this.d = true;
             }
         }
 
-        public boolean c(PackageInfo packageInfo) {
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048579, this, str) == null) || str.equals(this.c)) {
+                return;
+            }
+            this.c = str;
+            this.d = true;
+        }
+
+        public boolean e(PackageInfo packageInfo) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, packageInfo)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, packageInfo)) == null) {
                 String g = this.f.f.h(new File(packageInfo.applicationInfo.dataDir)).g("pub.dat", true);
                 this.e = false;
-                return d(g);
+                return g(g);
             }
             return invokeL.booleanValue;
         }
 
-        public final boolean d(String str) {
+        public String f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.c : (String) invokeV.objValue;
+        }
+
+        public final boolean g(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
                 if (!TextUtils.isEmpty(str)) {
                     try {
                         JSONObject jSONObject = new JSONObject(str);
@@ -147,34 +170,10 @@ public class i30 extends c30 {
             return invokeL.booleanValue;
         }
 
-        public long e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.longValue;
-        }
-
-        public void f(long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeJ(1048581, this, j) == null) || this.b == j) {
-                return;
-            }
-            this.b = j;
-            this.d = true;
-        }
-
-        public void g(String str) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || str.equals(this.c)) {
-                return;
-            }
-            this.c = str;
-            this.d = true;
-        }
-
         public boolean h() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? i30.k(this.f.f.d("pub.dat"), true) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? g(this.f.f.g("pub.dat", true)) : invokeV.booleanValue;
         }
 
         public boolean i() {
@@ -204,7 +203,7 @@ public class i30 extends c30 {
         public boolean j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? d(this.f.f.g("pub.dat", true)) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? i30.k(this.f.f.d("pub.dat"), true) : invokeV.booleanValue;
         }
     }
 
@@ -231,7 +230,7 @@ public class i30 extends c30 {
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     Object[] objArr2 = newInitContext.callArgs;
-                    super((i50.a) objArr2[0], (String) objArr2[1]);
+                    super((k50.a) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -240,7 +239,7 @@ public class i30 extends c30 {
         }
 
         @Override // com.baidu.tieba.c30.c
-        public void c(JSONObject jSONObject) throws JSONException {
+        public void c(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
                 this.d = jSONObject.getString("pkg");
@@ -253,7 +252,7 @@ public class i30 extends c30 {
         }
 
         @Override // com.baidu.tieba.c30.c
-        public void e(JSONObject jSONObject) throws JSONException {
+        public void e(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
                 jSONObject.put("pkg", this.d);
@@ -268,14 +267,14 @@ public class i30 extends c30 {
         public String f() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
         }
 
         public void g(b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-                i(bVar.a());
-                k(bVar.e());
+                l(bVar.f());
+                k(bVar.a());
             }
         }
 
@@ -297,20 +296,20 @@ public class i30 extends c30 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                if (str.equals(this.h)) {
+                if (str.equals(this.d)) {
                     return false;
                 }
-                this.h = str;
+                this.d = str;
                 a(true);
                 return true;
             }
             return invokeL.booleanValue;
         }
 
-        public long j() {
+        public String j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.longValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (String) invokeV.objValue;
         }
 
         public boolean k(long j) {
@@ -331,20 +330,20 @@ public class i30 extends c30 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-                if (str.equals(this.d)) {
+                if (str.equals(this.h)) {
                     return false;
                 }
-                this.d = str;
+                this.h = str;
                 a(true);
                 return true;
             }
             return invokeL.booleanValue;
         }
 
-        public String m() {
+        public long m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.d : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.g : invokeV.longValue;
         }
 
         public boolean n(long j) {
@@ -410,7 +409,7 @@ public class i30 extends c30 {
     public c30.h b(String str, c30.g gVar) {
         InterceptResult invokeLL;
         PackageInfo packageInfo;
-        String a2;
+        String f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, gVar)) == null) {
             c cVar = null;
@@ -425,22 +424,22 @@ public class i30 extends c30 {
             if (gVar.a) {
                 cVar = new c(this, str);
                 cVar.d();
-                if (str.equals(cVar.m()) && packageInfo.lastUpdateTime == cVar.j()) {
-                    a2 = cVar.f();
-                    return c30.h.f(a2);
+                if (str.equals(cVar.f()) && packageInfo.lastUpdateTime == cVar.m()) {
+                    f = cVar.j();
+                    return c30.h.f(f);
                 }
             }
             b bVar = new b(this);
-            if (bVar.c(packageInfo)) {
+            if (bVar.e(packageInfo)) {
                 if (gVar.a && cVar != null) {
                     cVar.g(bVar);
                     cVar.h(System.currentTimeMillis());
                     cVar.n(packageInfo.lastUpdateTime);
-                    cVar.l(str);
+                    cVar.i(str);
                     cVar.b();
                 }
-                a2 = bVar.a();
-                return c30.h.f(a2);
+                f = bVar.f();
+                return c30.h.f(f);
             }
             return c30.h.b(-2);
         }
@@ -462,14 +461,14 @@ public class i30 extends c30 {
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
             Context context = this.a.a;
             if (Build.VERSION.SDK_INT < 28 || context.getApplicationInfo().targetSdkVersion < 28) {
-                this.g.j();
+                this.g.h();
                 try {
                     return h(eVar);
                 } finally {
                     this.g.i();
                     i();
                     this.g.i();
-                    this.g.h();
+                    this.g.j();
                 }
             }
             return c30.f.b(-100);
@@ -481,14 +480,14 @@ public class i30 extends c30 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eVar)) == null) {
-            this.g.j();
+            this.g.h();
             this.f.a();
             String c2 = this.a.c.a("aid").c();
-            if (c2.equals(this.g.a())) {
+            if (c2.equals(this.g.f())) {
                 return c30.f.d();
             }
-            this.g.g(c2);
-            this.g.f(System.currentTimeMillis());
+            this.g.d(c2);
+            this.g.b(System.currentTimeMillis());
             return c30.f.d();
         }
         return (c30.f) invokeL.objValue;
@@ -497,7 +496,7 @@ public class i30 extends c30 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.g.b(a.a(this.f, this.a.b) ? 1 : 2, 3L);
+            this.g.c(a.a(this.f, this.a.b) ? 1 : 2, 3L);
         }
     }
 }

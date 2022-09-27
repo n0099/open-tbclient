@@ -1,134 +1,105 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.concurrent.locks.ReadWriteLock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class ya3 implements cb3 {
+public class ya3 extends i53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ReadWriteLock c;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public final long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948323390, "Lcom/baidu/tieba/ya3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948323390, "Lcom/baidu/tieba/ya3;");
-                return;
-            }
-        }
-        c = new ReentrantReadWriteLock();
-    }
-
-    public ya3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ya3(i43 i43Var) {
+        super(i43Var, "/swanAPI/file/getInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = d();
-        this.b = getMaxSize();
     }
 
-    @Override // com.baidu.tieba.cb3
-    public boolean a(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
+        String L;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            c.readLock().lock();
-            try {
-                return e() + j > this.b;
-            } finally {
-                c.readLock().unlock();
-            }
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.cb3
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            c.writeLock().lock();
-            try {
-                try {
-                    if (this.a == null) {
-                        this.a = d();
-                    }
-                    File file = this.a;
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    cj4.O(String.valueOf(e() + j).getBytes(), file);
-                } catch (Exception e) {
-                    if (ij1.a) {
-                        e.printStackTrace();
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (context != null && callbackHandler != null && l33Var != null && l33Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    l02.c("fileInfo", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
                 }
-            } finally {
-                c.writeLock().unlock();
-            }
-        }
-    }
-
-    @NonNull
-    public abstract String c();
-
-    public final File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(c() + File.separator + "record.pro");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public final long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == null) {
-                this.a = d();
-            }
-            File file = this.a;
-            if (file.exists() && file.isFile()) {
-                String E = cj4.E(file);
+                String optString = optParamsAsJo.optString("filePath");
+                if (ta3.s(optString) == PathType.BD_FILE) {
+                    L = ta3.M(optString, l33.g0());
+                } else {
+                    L = ta3.s(optString) == PathType.RELATIVE ? ta3.L(optString, l33Var, l33Var.k0()) : "";
+                }
+                if (i53.b) {
+                    Log.d("GetFileInfoAction", "——> handle: fileUrl " + optString);
+                    Log.d("GetFileInfoAction", "——> handle: filePath " + L);
+                }
+                if (TextUtils.isEmpty(L)) {
+                    l02.c("fileInfo", "absolute filePath is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                File file = new File(L);
+                String b = dg3.b(TextUtils.equals(optParamsAsJo.optString("digestAlgorithm", PackageTable.MD5), PackageTable.MD5) ? "MD5" : "SHA-1", file, false);
+                if (TextUtils.isEmpty(b)) {
+                    l02.c("fileInfo", "hash is null");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, f43.a(2001)));
+                    if (i53.b) {
+                        Log.d("GetFileInfoAction", "——> handle: file not exist");
+                    }
+                    return false;
+                }
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
-                        return Long.parseLong(E.trim());
+                    jSONObject.put("digest", b);
+                    jSONObject.put("size", file.length());
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, f43.a(2003)));
+                    if (i53.b) {
+                        Log.d("GetFileInfoAction", "——> handle: jsonException ");
                     }
-                } catch (Exception e) {
-                    if (ij1.a) {
-                        e.printStackTrace();
-                    }
+                    return false;
                 }
             }
-            return 0L;
+            l02.c("fileInfo", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
-        return invokeV.longValue;
+        return invokeLLLL.booleanValue;
     }
 }

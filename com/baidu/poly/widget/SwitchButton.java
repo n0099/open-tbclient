@@ -27,8 +27,8 @@ import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ea1;
-import com.baidu.tieba.mc1;
+import com.baidu.tieba.ra1;
+import com.baidu.tieba.zc1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -381,7 +381,7 @@ public class SwitchButton extends CompoundButton {
             duration.setInterpolator(new AccelerateDecelerateInterpolator());
             this.H = new RectF();
             float f12 = getResources().getDisplayMetrics().density * 2.0f;
-            TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, ea1.SwitchButton);
+            TypedArray obtainStyledAttributes2 = attributeSet == null ? null : getContext().obtainStyledAttributes(attributeSet, ra1.SwitchButton);
             if (obtainStyledAttributes2 != null) {
                 drawable = obtainStyledAttributes2.getDrawable(11);
                 ColorStateList colorStateList4 = obtainStyledAttributes2.getColorStateList(10);
@@ -484,7 +484,7 @@ public class SwitchButton extends CompoundButton {
                 this.k = 3309506;
             }
             if (!this.C && this.d == null) {
-                ColorStateList b = mc1.b(this.k);
+                ColorStateList b = zc1.b(this.k);
                 this.d = b;
                 this.p = b.getDefaultColor();
             }
@@ -495,7 +495,7 @@ public class SwitchButton extends CompoundButton {
             boolean z5 = drawable2 != null;
             this.D = z5;
             if (!z5 && this.c == null) {
-                ColorStateList a2 = mc1.a(this.k);
+                ColorStateList a2 = zc1.a(this.k);
                 this.c = a2;
                 int defaultColor = a2.getDefaultColor();
                 this.q = defaultColor;
@@ -1362,8 +1362,8 @@ public class SwitchButton extends CompoundButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048634, this, i) == null) {
             this.k = i;
-            this.d = mc1.b(i);
-            this.c = mc1.a(this.k);
+            this.d = zc1.b(i);
+            this.c = zc1.a(this.k);
             this.D = false;
             this.C = false;
             refreshDrawableState();

@@ -5,22 +5,22 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumMemberActivityConfig;
+import com.baidu.tieba.ai6;
+import com.baidu.tieba.cf6;
+import com.baidu.tieba.ef6;
+import com.baidu.tieba.ff6;
 import com.baidu.tieba.frs.AbsDelegateAdapterList;
-import com.baidu.tieba.ie6;
-import com.baidu.tieba.je6;
-import com.baidu.tieba.ke6;
-import com.baidu.tieba.le6;
-import com.baidu.tieba.mh6;
-import com.baidu.tieba.nh6;
-import com.baidu.tieba.pe6;
-import com.baidu.tieba.re6;
-import com.baidu.tieba.se6;
-import com.baidu.tieba.te6;
-import com.baidu.tieba.tg6;
-import com.baidu.tieba.ue6;
+import com.baidu.tieba.gf6;
+import com.baidu.tieba.gh6;
+import com.baidu.tieba.hf6;
+import com.baidu.tieba.if6;
+import com.baidu.tieba.jf6;
+import com.baidu.tieba.kf6;
 import com.baidu.tieba.ve6;
 import com.baidu.tieba.we6;
 import com.baidu.tieba.xe6;
+import com.baidu.tieba.ye6;
+import com.baidu.tieba.zh6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,12 +64,12 @@ public class FrsMemberStatic {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003008 && (customResponsedMessage.getData() instanceof AbsDelegateAdapterList)) {
                 AbsDelegateAdapterList absDelegateAdapterList = (AbsDelegateAdapterList) customResponsedMessage.getData();
-                absDelegateAdapterList.add(new se6(null, te6.d));
-                absDelegateAdapterList.add(new ue6(null, ve6.c));
-                absDelegateAdapterList.add(new re6(null, tg6.c));
-                absDelegateAdapterList.add(new ie6(null, je6.b));
-                absDelegateAdapterList.add(new ke6(null, le6.g));
-                absDelegateAdapterList.add(new we6(null, xe6.e));
+                absDelegateAdapterList.add(new ff6(null, gf6.d));
+                absDelegateAdapterList.add(new hf6(null, if6.c));
+                absDelegateAdapterList.add(new ef6(null, gh6.c));
+                absDelegateAdapterList.add(new ve6(null, we6.b));
+                absDelegateAdapterList.add(new xe6(null, ye6.g));
+                absDelegateAdapterList.add(new jf6(null, kf6.e));
             }
         }
     }
@@ -103,11 +103,11 @@ public class FrsMemberStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof mh6)) {
-                mh6 mh6Var = (mh6) customResponsedMessage.getData();
-                pe6 pe6Var = new pe6();
-                pe6Var.E(mh6Var.a);
-                mh6Var.a(3, pe6Var);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2003011 && (customResponsedMessage.getData() instanceof zh6)) {
+                zh6 zh6Var = (zh6) customResponsedMessage.getData();
+                cf6 cf6Var = new cf6();
+                cf6Var.E(zh6Var.a);
+                zh6Var.a(3, cf6Var);
             }
         }
     }
@@ -126,7 +126,7 @@ public class FrsMemberStatic {
             }
         }
         TbadkCoreApplication.getInst().RegisterIntent(ForumMemberActivityConfig.class, ForumMemberActivity.class);
-        nh6.a().c(3);
+        ai6.a().c(3);
         MessageManager.getInstance().registerListener(new a(2003008));
         MessageManager.getInstance().registerListener(new b(2003011));
     }

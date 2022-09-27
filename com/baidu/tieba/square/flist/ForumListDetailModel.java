@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.jf;
+import com.baidu.tieba.mu4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.square.flist.ForumListModel;
-import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -141,8 +141,8 @@ public class ForumListDetailModel extends BdBaseModel<ForumListActivity> {
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 try {
                     if (this.b.e) {
-                        zt4.f();
-                        jf<String> g = zt4.g("tb.my_posts");
+                        mu4.f();
+                        jf<String> g = mu4.g("tb.my_posts");
                         if (g != null) {
                             str = g.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.b.b.menu_name + ForumListModel.KEY);
                         } else {

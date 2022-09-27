@@ -2,28 +2,33 @@ package com.huawei.hms.ads.identifier.aidl;
 
 import android.os.IBinder;
 import android.os.IInterface;
-import android.os.Parcel;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes7.dex */
 public interface OpenDeviceIdentifierService extends IInterface {
 
+    @Keep
     /* loaded from: classes7.dex */
     public static abstract class Stub {
         public static /* synthetic */ Interceptable $ic = null;
+        @Keep
         public static final String DESCRIPTOR = "com.uodis.opendevice.aidl.OpenDeviceIdentifierService";
+        @Keep
         public static final int TRANSACTION_GETOAID = 1;
+        @Keep
         public static final int TRANSACTION_ISOAIDTRACKLIMITED = 2;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Keep
         /* loaded from: classes7.dex */
         public static class Proxy implements OpenDeviceIdentifierService {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            @Keep
             public IBinder mRemote;
 
             public Proxy(IBinder iBinder) {
@@ -45,57 +50,19 @@ public interface OpenDeviceIdentifierService extends IInterface {
             }
 
             @Override // android.os.IInterface
-            public IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRemote : (IBinder) invokeV.objValue;
-            }
+            @Keep
+            public native IBinder asBinder();
 
-            public String getInterfaceDescriptor() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "com.uodis.opendevice.aidl.OpenDeviceIdentifierService" : (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getInterfaceDescriptor();
 
             @Override // com.huawei.hms.ads.identifier.aidl.OpenDeviceIdentifierService
-            public String getOaid() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(getInterfaceDescriptor());
-                        this.mRemote.transact(1, obtain, obtain2, 0);
-                        obtain2.readException();
-                        return obtain2.readString();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getOaid();
 
             @Override // com.huawei.hms.ads.identifier.aidl.OpenDeviceIdentifierService
-            public boolean isOaidTrackLimited() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(getInterfaceDescriptor());
-                        this.mRemote.transact(2, obtain, obtain2, 0);
-                        obtain2.readException();
-                        return obtain2.readInt() != 0;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return invokeV.booleanValue;
-            }
+            @Keep
+            public native boolean isOaidTrackLimited();
         }
 
         public Stub() {
@@ -112,14 +79,13 @@ public interface OpenDeviceIdentifierService extends IInterface {
             }
         }
 
-        public static OpenDeviceIdentifierService asInterface(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) ? new Proxy(iBinder) : (OpenDeviceIdentifierService) invokeL.objValue;
-        }
+        @Keep
+        public static native OpenDeviceIdentifierService asInterface(IBinder iBinder);
     }
 
+    @Keep
     String getOaid();
 
+    @Keep
     boolean isOaidTrackLimited();
 }

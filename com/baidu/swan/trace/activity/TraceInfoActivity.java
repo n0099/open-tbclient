@@ -10,10 +10,10 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wh4;
-import com.baidu.tieba.xh4;
-import com.baidu.tieba.yh4;
-import com.baidu.tieba.zh4;
+import com.baidu.tieba.ji4;
+import com.baidu.tieba.ki4;
+import com.baidu.tieba.li4;
+import com.baidu.tieba.mi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public Button b;
-    public List<wh4> c;
+    public List<ji4> c;
     public Set<String> d;
     public int e;
 
@@ -127,8 +127,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (wh4 wh4Var : this.c) {
-                this.d.add(wh4Var.f());
+            for (ji4 ji4Var : this.c) {
+                this.d.add(ji4Var.f());
             }
         }
     }
@@ -142,12 +142,12 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
             this.e = i + 1;
             String str = (String) arrayList.get(i % arrayList.size());
             ArrayList arrayList2 = new ArrayList();
-            for (wh4 wh4Var : this.c) {
-                if (TextUtils.equals(wh4Var.f(), str)) {
-                    arrayList2.add(wh4Var);
+            for (ji4 ji4Var : this.c) {
+                if (TextUtils.equals(ji4Var.f(), str)) {
+                    arrayList2.add(ji4Var);
                 }
             }
-            return zh4.c(arrayList2, null);
+            return mi4.c(arrayList2, null);
         }
         return (String) invokeV.objValue;
     }
@@ -155,8 +155,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092320);
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091fff);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092322);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092001);
             this.b = button;
             button.setOnClickListener(this);
             this.d = new HashSet();
@@ -173,12 +173,12 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            yh4<List<wh4>> c = xh4.b().c();
+            li4<List<ji4>> c = ki4.b().c();
             if (c == null) {
                 this.a.setText("NO DATA");
                 return;
             }
-            List<wh4> a2 = c.a();
+            List<ji4> a2 = c.a();
             if (a2 != null && a2.size() > 0) {
                 this.c = a2;
                 this.e = 0;
@@ -192,9 +192,9 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<wh4> list;
+        List<ji4> list;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f091fff || (list = this.c) == null || list.size() <= 0) {
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, view2) == null) || view2.getId() != R.id.obfuscated_res_0x7f092001 || (list = this.c) == null || list.size() <= 0) {
             return;
         }
         d();

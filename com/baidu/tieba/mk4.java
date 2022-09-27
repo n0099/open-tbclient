@@ -1,20 +1,54 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.swan.videoplayer.media.video.view.MediaGestureMode;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface mk4 {
-    boolean a(MotionEvent motionEvent);
+public abstract class mk4 implements lk4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode);
+    public mk4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+    @Override // com.baidu.tieba.lk4
+    public void onBufferingUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
 
-    boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+    @Override // com.baidu.tieba.lk4
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
 
-    boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2);
+    @Override // com.baidu.tieba.lk4
+    public void onSeekEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
-    boolean onDoubleTap(MotionEvent motionEvent);
-
-    boolean onDown(MotionEvent motionEvent);
+    @Override // com.baidu.tieba.lk4
+    public void onVideoSizeChanged(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+        }
+    }
 }

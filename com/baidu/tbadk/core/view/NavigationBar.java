@@ -33,10 +33,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.pp8;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.uu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -496,7 +496,7 @@ public class NavigationBar extends RelativeLayout {
             this.mContentLayout = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091659);
             this.mLeftBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0912c1);
             this.mCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905d8);
-            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c24);
+            this.mRightBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f091c26);
             this.mAbsoluteCenterBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090029);
             this.mCenterImgBox = (LinearLayout) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905e5);
             this.mCenterIcon = (ImageView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f0905e4);
@@ -505,10 +505,10 @@ public class NavigationBar extends RelativeLayout {
             View findViewById = this.mRootView.findViewById(R.id.obfuscated_res_0x7f091660);
             this.topCoverBgView = findViewById;
             boolean z2 = false;
-            findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.obfuscated_res_0x7f080e40));
+            findViewById.setBackgroundDrawable(SkinManager.getDrawable(0, (int) R.drawable.obfuscated_res_0x7f080e42));
             this.barBgView = this.mRootView.findViewById(R.id.obfuscated_res_0x7f09165f);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.NavigationBar);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.NavigationBar);
                 z = obtainStyledAttributes.getBoolean(0, true);
                 obtainStyledAttributes.recycle();
             } else {
@@ -538,10 +538,10 @@ public class NavigationBar extends RelativeLayout {
     private void initUnloginView() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65546, this) == null) && this.mUnloginView == null) {
-            View inflate = ((ViewStub) this.mRootView.findViewById(R.id.obfuscated_res_0x7f09246f)).inflate();
+            View inflate = ((ViewStub) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092471)).inflate();
             this.mUnloginView = inflate;
-            this.mRegisterView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922ab);
-            TextView textView = (TextView) this.mUnloginView.findViewById(R.id.obfuscated_res_0x7f0922aa);
+            this.mRegisterView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922ad);
+            TextView textView = (TextView) this.mUnloginView.findViewById(R.id.obfuscated_res_0x7f0922ac);
             this.mLoginView = textView;
             textView.setOnClickListener(this.mLoginListener);
             this.mRegisterView.setOnClickListener(this.mRegisterListener);
@@ -814,7 +814,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048611, this, r9Var, i) == null) {
             if (this.mIsCorner) {
-                uu4 d2 = uu4.d(this);
+                hv4 d2 = hv4.d(this);
                 d2.m(1);
                 d2.n(R.string.J_X14);
                 d2.f(this.mBackGroundColor);
@@ -1179,7 +1179,7 @@ public class NavigationBar extends RelativeLayout {
                 LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09164f);
                 if (linearLayout == null) {
                     LinearLayout linearLayout2 = (LinearLayout) getViewFromLayoutFile(R.layout.obfuscated_res_0x7f0d0920);
-                    ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f09267d);
+                    ImageView imageView = (ImageView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f09267f);
                     this.mBackImageView = imageView;
                     imageView.setContentDescription("返回");
                     onBackBtnOnChangeSkin();
@@ -1217,7 +1217,7 @@ public class NavigationBar extends RelativeLayout {
             if (i3 > 0 && (i2 = this.mBackImagelightResId) > 0) {
                 SkinManager.setNavbarIconSrc(this.mBackImageView, i3, i2, i);
             } else if (this.mIsClose) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080a10, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             } else {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080628, R.color.CAM_X0105, null);
             }
@@ -1242,7 +1242,7 @@ public class NavigationBar extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{controlAlign, str, onClickListener, Boolean.valueOf(z)})) == null) {
             View viewFromLayoutFile = getViewFromLayoutFile(R.layout.obfuscated_res_0x7f0d062b);
-            TextView textView = (TextView) viewFromLayoutFile.findViewById(R.id.obfuscated_res_0x7f091c41);
+            TextView textView = (TextView) viewFromLayoutFile.findViewById(R.id.obfuscated_res_0x7f091c43);
             textView.setText(str);
             if (ControlAlign.HORIZONTAL_RIGHT == controlAlign) {
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
@@ -1327,7 +1327,7 @@ public class NavigationBar extends RelativeLayout {
             if (i4 > 0 && (i3 = this.mBackImagelightResId) > 0) {
                 SkinManager.setNavbarIconSrc(this.mBackImageView, i4, i3, i);
             } else if (this.mIsClose) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080a10, i2, null);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080a12, i2, null);
             } else {
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.mBackImageView, R.drawable.obfuscated_res_0x7f080628, i2, null);
             }

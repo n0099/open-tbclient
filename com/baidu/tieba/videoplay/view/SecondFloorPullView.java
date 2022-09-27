@@ -287,7 +287,7 @@ public class SecondFloorPullView extends FrameLayout {
                 return;
             }
         }
-        h = UtilHelper.getDimenPixelSize(R.dimen.obfuscated_res_0x7f07089f);
+        h = UtilHelper.getDimenPixelSize(R.dimen.tbds507);
         i = UtilHelper.getScreenHeight(TbadkCoreApplication.getInst());
     }
 

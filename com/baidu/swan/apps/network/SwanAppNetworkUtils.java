@@ -11,12 +11,12 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.hz2;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.lu2;
-import com.baidu.tieba.lz2;
-import com.baidu.tieba.s92;
-import com.baidu.tieba.sg3;
+import com.baidu.tieba.fa2;
+import com.baidu.tieba.fh3;
+import com.baidu.tieba.uz2;
+import com.baidu.tieba.vj1;
+import com.baidu.tieba.yu2;
+import com.baidu.tieba.yz2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -109,7 +109,7 @@ public class SwanAppNetworkUtils {
     }
 
     /* loaded from: classes2.dex */
-    public static class a implements hz2<Bundle> {
+    public static class a implements uz2<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ b a;
@@ -133,7 +133,7 @@ public class SwanAppNetworkUtils {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.hz2
+        @Override // com.baidu.tieba.uz2
         /* renamed from: a */
         public void onResult(Bundle bundle) {
             b bVar;
@@ -163,7 +163,7 @@ public class SwanAppNetworkUtils {
                 return;
             }
         }
-        a = ij1.a;
+        a = vj1.a;
     }
 
     public static boolean a(OkHttpClient okHttpClient, String str) {
@@ -193,7 +193,7 @@ public class SwanAppNetworkUtils {
     public static void b(@NonNull b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, bVar) == null) {
-            lz2.a(lu2.class, null, new a(bVar));
+            yz2.a(yu2.class, null, new a(bVar));
         }
     }
 
@@ -330,7 +330,7 @@ public class SwanAppNetworkUtils {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            String f = sg3.f(s92.U().g0());
+            String f = fh3.f(fa2.U().g0());
             return TextUtils.isEmpty(f) ? "" : f;
         }
         return (String) invokeV.objValue;

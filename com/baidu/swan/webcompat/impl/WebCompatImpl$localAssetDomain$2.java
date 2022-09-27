@@ -1,7 +1,7 @@
 package com.baidu.swan.webcompat.impl;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x23;
+import com.baidu.tieba.k33;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,7 +61,7 @@ public final class WebCompatImpl$localAssetDomain$2 extends Lambda implements Fu
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             StringBuilder sb = new StringBuilder();
-            x23 K = x23.K();
+            k33 K = k33.K();
             Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
             sb.append(K.getPackageName());
             sb.append(".swanhost.smartapps.cn");

@@ -1,19 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.net.Uri;
+import java.util.List;
 /* loaded from: classes4.dex */
-public interface gr2 {
-    Point a(Context context, Bitmap bitmap) throws Exception;
+public interface gr2<T> {
+    void f(String str);
 
-    Bitmap decodeRegion(Rect rect, int i);
-
-    Point init(Context context, Uri uri) throws Exception;
-
-    boolean isReady();
-
-    void recycle();
+    void g(List<T> list);
 }

@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.annotation.SuppressLint;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.LinkedBlockingDeque;
+@SuppressLint({"MobilebdThread"})
 /* loaded from: classes5.dex */
-public class q54 {
+public final class q54 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String uuap_p_token;
-    @V8JavascriptField
-    public String uuap_p_token_offline;
-    @V8JavascriptField
-    public String uuap_s_token;
+    public LinkedBlockingDeque<h54> a;
+    public volatile boolean b;
 
     public q54() {
         Interceptable interceptable = $ic;
@@ -26,6 +26,42 @@ public class q54 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedBlockingDeque<>(1024);
+    }
+
+    public final LinkedBlockingDeque<h54> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (LinkedBlockingDeque) invokeV.objValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    this.a.take().a();
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                }
             }
         }
     }

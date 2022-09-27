@@ -1,96 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes5.dex */
-public class rt4 extends PostData {
+public class rt4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId V0;
     public transient /* synthetic */ FieldHolder $fh;
-    public String T0;
-    public String U0;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133143, "Lcom/baidu/tieba/rt4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948133143, "Lcom/baidu/tieba/rt4;");
-                return;
-            }
-        }
-        V0 = BdUniqueId.gen();
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
 
     public rt4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = -1;
     }
 
-    @Override // com.baidu.tieba.tbadkCore.data.PostData, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? V0 : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public String j1() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.T0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
     }
 
-    public String k1() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.U0 : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (String) invokeV.objValue;
     }
 
-    public void l1(JSONObject jSONObject) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) || jSONObject == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void f(SchoolRecomUserInfo schoolRecomUserInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, schoolRecomUserInfo) == null) || schoolRecomUserInfo == null) {
             return;
         }
-        try {
-            this.T0 = jSONObject.optString("news_link");
-            this.U0 = jSONObject.optString("summary");
-            jSONObject.optInt(CriusAttrConstants.POSITION, 0);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void m1(TopNews topNews) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, topNews) == null) || topNews == null) {
-            return;
-        }
-        this.T0 = topNews.news_link;
-        this.U0 = topNews.summary;
+        this.a = StringUtils.string(schoolRecomUserInfo.uid);
+        this.b = schoolRecomUserInfo.uname;
+        this.c = schoolRecomUserInfo.portrait;
+        this.d = schoolRecomUserInfo.institute;
+        this.e = schoolRecomUserInfo.is_liked.intValue();
     }
 }

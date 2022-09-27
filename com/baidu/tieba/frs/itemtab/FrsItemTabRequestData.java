@@ -4,8 +4,8 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.fb5;
-import com.baidu.tieba.fh5;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabRequestData extends OrmObject implements fb5 {
+public class FrsItemTabRequestData extends OrmObject implements sb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemId;
@@ -34,7 +34,7 @@ public class FrsItemTabRequestData extends OrmObject implements fb5 {
         }
     }
 
-    @Override // com.baidu.tieba.hb5
+    @Override // com.baidu.tieba.ub5
     public Object g(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
@@ -44,7 +44,7 @@ public class FrsItemTabRequestData extends OrmObject implements fb5 {
             builder.scr_h = Integer.valueOf(ej.i(TbadkCoreApplication.getInst()));
             builder.scr_w = Integer.valueOf(ej.k(TbadkCoreApplication.getInst()));
             builder.scr_dip = Integer.valueOf((int) ej.h(TbadkCoreApplication.getInst()));
-            fh5.c(builder, true, false, true);
+            sh5.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);
@@ -52,7 +52,7 @@ public class FrsItemTabRequestData extends OrmObject implements fb5 {
         return invokeZ.objValue;
     }
 
-    @Override // com.baidu.tieba.eb5
+    @Override // com.baidu.tieba.rb5
     public HashMap<String, Object> v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -62,7 +62,7 @@ public class FrsItemTabRequestData extends OrmObject implements fb5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.eb5
+    @Override // com.baidu.tieba.rb5
     public HashMap<String, String> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

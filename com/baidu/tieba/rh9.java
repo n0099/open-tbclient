@@ -1,37 +1,60 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.sapi2.share.ShareCallPacking;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class rh9 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<Integer> a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(File file, Object obj) {
-        InterceptResult invokeLL;
-        String b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, obj)) == null) {
-            synchronized (obj) {
-                b = sh9.b(file);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948121766, "Lcom/baidu/tieba/rh9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return b;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948121766, "Lcom/baidu/tieba/rh9;");
+                return;
+            }
         }
-        return (String) invokeLL.objValue;
+        ArrayList<Integer> arrayList = new ArrayList<>(4);
+        a = arrayList;
+        arrayList.add(10000);
+        a.add(10001);
+        a.add(10002);
+        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
+        a.add(-1);
     }
 
-    public static boolean b(String str, File file, boolean z, Object obj) {
-        InterceptResult invokeCommon;
-        boolean e;
+    public static int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, file, Boolean.valueOf(z), obj})) == null) {
-            synchronized (obj) {
-                e = sh9.e(str, file, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = fi9.a();
             }
-            return e;
+            if (TextUtils.isEmpty(b)) {
+                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            }
+            if (b.toUpperCase().contains("HUAWEI")) {
+                return 10001;
+            }
+            if (b.toUpperCase().contains("XIAOMI")) {
+                return 10002;
+            }
+            return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
         }
-        return invokeCommon.booleanValue;
+        return invokeV.intValue;
     }
 }

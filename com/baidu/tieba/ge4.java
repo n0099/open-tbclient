@@ -1,17 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class ge4 implements je4 {
+public class ge4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kc4 a;
+    public List<lc4> b;
+    public List<mc4> c;
+    public ic4 d;
+    public PMSAppInfo e;
+    public gc4 f;
 
     public ge4() {
         Interceptable interceptable = $ic;
@@ -24,20 +28,6 @@ public abstract class ge4 implements je4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.je4
-    public void a(JSONArray jSONArray, ta4 ta4Var, @Nullable ta4 ta4Var2, @Nullable ta4 ta4Var3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, ta4Var, ta4Var2, ta4Var3) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.je4
-    public void b(JSONObject jSONObject, ta4 ta4Var, @Nullable ta4 ta4Var2, @Nullable ta4 ta4Var3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, ta4Var, ta4Var2, ta4Var3) == null) {
         }
     }
 }

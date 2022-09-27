@@ -2,8 +2,8 @@ package com.baidu.tieba.forbidden.fans;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ms4;
-import com.baidu.tieba.vd6;
+import com.baidu.tieba.ie6;
+import com.baidu.tieba.zs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,8 +16,8 @@ import org.json.JSONObject;
 public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<vd6> fansList;
-    public ms4 pageData;
+    public ArrayList<ie6> fansList;
+    public zs4 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetForbiddenFansResponse(int i) {
@@ -52,29 +52,29 @@ public class GetForbiddenFansResponse extends JsonHttpResponsedMessage {
                     int length = optJSONArray.length();
                     this.fansList = new ArrayList<>();
                     for (int i2 = 0; i2 < length; i2++) {
-                        vd6 vd6Var = new vd6();
-                        vd6Var.a(optJSONArray.getJSONObject(i2));
-                        if (vd6Var.a != 0) {
-                            this.fansList.add(vd6Var);
+                        ie6 ie6Var = new ie6();
+                        ie6Var.a(optJSONArray.getJSONObject(i2));
+                        if (ie6Var.a != 0) {
+                            this.fansList.add(ie6Var);
                         }
                     }
                 }
-                ms4 ms4Var = new ms4();
-                this.pageData = ms4Var;
-                ms4Var.i(jSONObject.optJSONObject("page"));
+                zs4 zs4Var = new zs4();
+                this.pageData = zs4Var;
+                zs4Var.i(jSONObject.optJSONObject("page"));
             }
         }
     }
 
-    public ArrayList<vd6> getFansList() {
+    public ArrayList<ie6> getFansList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.fansList : (ArrayList) invokeV.objValue;
     }
 
-    public ms4 getPageData() {
+    public zs4 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (ms4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.pageData : (zs4) invokeV.objValue;
     }
 }

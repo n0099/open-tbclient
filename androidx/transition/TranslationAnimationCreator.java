@@ -55,10 +55,10 @@ public class TranslationAnimationCreator {
             this.mStartY = i2 - Math.round(this.mMovingView.getTranslationY());
             this.mTerminalX = f;
             this.mTerminalY = f2;
-            int[] iArr = (int[]) this.mViewInHierarchy.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092329);
+            int[] iArr = (int[]) this.mViewInHierarchy.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232b);
             this.mTransitionPosition = iArr;
             if (iArr != null) {
-                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092329, null);
+                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232b, null);
             }
         }
 
@@ -71,7 +71,7 @@ public class TranslationAnimationCreator {
                 }
                 this.mTransitionPosition[0] = Math.round(this.mStartX + this.mMovingView.getTranslationX());
                 this.mTransitionPosition[1] = Math.round(this.mStartY + this.mMovingView.getTranslationY());
-                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092329, this.mTransitionPosition);
+                this.mViewInHierarchy.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232b, this.mTransitionPosition);
             }
         }
 
@@ -157,7 +157,7 @@ public class TranslationAnimationCreator {
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{view2, transitionValues, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), timeInterpolator, transition})) == null) {
             float translationX = view2.getTranslationX();
             float translationY = view2.getTranslationY();
-            int[] iArr = (int[]) transitionValues.f1028view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092329);
+            int[] iArr = (int[]) transitionValues.f1028view.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09232b);
             if (iArr != null) {
                 f5 = (iArr[0] - i) + translationX;
                 f6 = (iArr[1] - i2) + translationY;

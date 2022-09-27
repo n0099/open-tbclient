@@ -1,122 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMTrackDatabase;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.MessageSyncMessage;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class ha7 extends nb {
+public class ha7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ha7() {
-        super(202003);
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
+        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final void c(GroupMsgData groupMsgData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) || groupMsgData == null || groupMsgData.getGroupInfo() == null) {
-            return;
-        }
-        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kb
-    /* renamed from: d */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
-            MessageSyncMessage messageSyncMessage = null;
-            if (socketResponsedMessage instanceof ResponsePullMessage) {
-                if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                    messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
-                }
-                if (messageSyncMessage != null) {
-                    qw4.a("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), IMTrackDatabase.AckEnum.TABLE_NAME, socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
-                }
-                if (socketResponsedMessage.getError() == 110000) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-                }
-                ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
-                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-                if (groupMsg != null && groupMsg.size() > 0) {
-                    for (GroupMsgData groupMsgData : groupMsg) {
-                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                            c(groupMsgData);
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
+            short b = b(i);
+            int i2 = R.string.obfuscated_res_0x7f0f0ae8;
+            if (b != 2) {
+                if (b != 9) {
+                    if (b == 4) {
+                        i2 = R.string.obfuscated_res_0x7f0f0aea;
+                    } else if (b != 5) {
+                        if (b == 6) {
+                            i2 = R.string.obfuscated_res_0x7f0f0ae9;
                         }
+                        i2 = -1;
+                    } else {
+                        i2 = R.string.obfuscated_res_0x7f0f0aeb;
                     }
                 }
-                if (!e(responsePullMessage)) {
-                    fa7.l().n();
-                }
-                return socketResponsedMessage;
             }
-            return null;
+            return i2 != -1 ? TbadkCoreApplication.getInst().getResources().getString(i2) : str;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (String) invokeIL.objValue;
     }
 
-    public final boolean e(ResponsePullMessage responsePullMessage) {
-        InterceptResult invokeL;
-        Long l;
-        Long l2;
+    public static short b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
-            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
-                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                    return false;
-                }
-                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
-                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
-                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-                    LongSparseArray<Long> r = y97.o().r();
-                    boolean z = false;
-                    for (GroupMsgData groupMsgData : groupMsg) {
-                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && z97.a(groupMsgData.getGroupInfo().getCustomType()) && (l = r.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
-                            if (l.longValue() > l2.longValue()) {
-                                z = true;
-                            }
-                            if (groupMsgData.hasMore()) {
-                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
-                            }
-                        }
-                    }
-                    if (z && longSparseArray.size() > 0) {
-                        fa7.l().r(longSparseArray);
-                        return true;
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case -100000306:
+                    return (short) 6;
+                case -100000303:
+                    return (short) 2;
+                case 3160010:
+                    return (short) 5;
+                case 3160011:
+                    return (short) 4;
+                default:
+                    return (short) 9;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        return invokeI.shortValue;
     }
 }

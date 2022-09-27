@@ -1,168 +1,166 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
+import com.baidu.swan.game.ad.utils.NetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.qq.e.comm.constants.Constants;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ws3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static ws3 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948281106, "Lcom/baidu/tieba/ws3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a extends ResponseCallback<dr3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zr3 a;
+
+        public a(zr3 zr3Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948281106, "Lcom/baidu/tieba/ws3;");
-                return;
-            }
-        }
-        a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
-        b = new ws3();
-    }
-
-    public ws3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static ws3 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (ws3) invokeV.objValue;
-    }
-
-    public synchronized void a(String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
-                    File file = new File(a);
-                    if (!file.exists() && !file.mkdirs()) {
-                        if (ij1.a) {
-                            Log.d("GameGuideConfigCache", "创建缓存目录失败");
-                        }
-                        return;
-                    }
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null && listFiles.length > 0) {
-                        for (File file2 : listFiles) {
-                            if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
-                                cj4.j(file2);
-                            }
-                        }
-                    }
-                    boolean N = cj4.N(str2, new File(a, b(str, j)));
-                    if (ij1.a) {
-                        Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zr3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                if (ij1.a) {
-                    Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
-                }
             }
+            this.a = zr3Var;
         }
-    }
 
-    public final String b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            return str + "_" + j;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(dr3 dr3Var, int i) {
+            zr3 zr3Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, dr3Var, i) == null) || dr3Var == null || (zr3Var = this.a) == null) {
+                return;
+            }
+            zr3Var.d(dr3Var.a, dr3Var.b);
         }
-        return (String) invokeLJ.objValue;
-    }
 
-    public final boolean d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            if (file != null && file.exists()) {
-                String[] split = file.getName().split("_");
-                if (split.length != 2) {
-                    return true;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public dr3 parseResponse(Response response, int i) {
+            InterceptResult invokeLI;
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                if (response == null || response.body() == null || !response.isSuccessful()) {
+                    return null;
                 }
                 try {
-                    if (Long.valueOf(split[1]).longValue() > SystemClock.elapsedRealtime()) {
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    if (ij1.a) {
-                        th.printStackTrace();
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    if (ij1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
-                    }
-                    return null;
-                }
-                File file = new File(a);
-                if (!file.exists()) {
-                    if (ij1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
-                    }
-                    return null;
-                }
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length > 0) {
-                    File file2 = null;
-                    for (File file3 : listFiles) {
-                        if (d(file3)) {
-                            cj4.j(file3);
-                        } else if (file3.getName().startsWith(str)) {
-                            file2 = file3;
+                    String string = response.body().string();
+                    if (!TextUtils.isEmpty(string)) {
+                        try {
+                            JSONObject jSONObject = new JSONObject(string);
+                            if (TextUtils.equals(jSONObject.optString(Constants.KEYS.RET, ""), "0") && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                                dr3 dr3Var = new dr3();
+                                dr3Var.a = optJSONObject.optString("clickid");
+                                dr3Var.b = optJSONObject.optString("dstlink");
+                                return dr3Var;
+                            }
+                            return null;
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
                     }
-                    if (file2 == null) {
-                        return null;
-                    }
-                    return cj4.E(file2);
-                }
-                if (ij1.a) {
-                    Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
+                } catch (Exception | OutOfMemoryError unused) {
                 }
                 return null;
             }
+            return (dr3) invokeLI.objValue;
         }
-        return (String) invokeL.objValue;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+            }
+        }
+    }
+
+    public static void a(ts3 ts3Var, AdElementInfo adElementInfo, cs3 cs3Var, zr3 zr3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(65536, null, ts3Var, adElementInfo, cs3Var, zr3Var) == null) || adElementInfo == null || TextUtils.isEmpty(adElementInfo.getClickUrl())) {
+            return;
+        }
+        String c = c(adElementInfo.getClickUrl(), ts3Var);
+        a aVar = new a(zr3Var);
+        if (!NetworkUtils.f(AppRuntime.getAppContext()) || cs3Var == null) {
+            return;
+        }
+        cs3Var.c(c, aVar);
+    }
+
+    public static void b(String str, cs3 cs3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, cs3Var) == null) {
+            cs3Var.e(str);
+        }
+    }
+
+    public static String c(String str, ts3 ts3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, ts3Var)) == null) ? ts3Var == null ? str : str.replaceAll("\\{REQ_WIDTH\\}", ts3Var.a).replaceAll("\\{REQ_HEIGHT\\}", ts3Var.b).replaceAll("\\{WIDTH\\}", ts3Var.c).replaceAll("\\{HEIGHT\\}", ts3Var.d).replaceAll("\\{DOWN_X\\}", ts3Var.e).replaceAll("\\{DOWN_Y\\}", ts3Var.f).replaceAll("\\{UP_X\\}", ts3Var.g).replaceAll("\\{UP_Y\\}", ts3Var.h).replaceAll("\\{VIDEO_TIME\\}", ts3Var.i).replaceAll("\\{BEGIN_TIME\\}", ts3Var.j).replaceAll("\\{END_TIME\\}", ts3Var.k).replaceAll("\\{PLAY_FIRST_FRAME\\}", ts3Var.l).replaceAll("\\{PLAY_LAST_FRAME\\}", ts3Var.m).replaceAll("\\{SCENE\\}", ts3Var.n).replaceAll("\\{TYPE\\}", ts3Var.o).replaceAll("\\{BEHAVIOR\\}", ts3Var.p).replaceAll("\\{STATUS\\}", ts3Var.q).replaceAll("\\{CONVERSION_ACTION\\}", ts3Var.r).replaceAll("\\{CLICK_ID\\}", ts3Var.s) : (String) invokeLL.objValue;
+    }
+
+    public static void d(AdElementInfo adElementInfo, cs3 cs3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, adElementInfo, cs3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getThirdClickTrackingUrls()) {
+            b(c(str, null), cs3Var);
+        }
+    }
+
+    public static void e(ts3 ts3Var, AdElementInfo adElementInfo, cs3 cs3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ts3Var, adElementInfo, cs3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getConversionUrls()) {
+            b(c(str, ts3Var), cs3Var);
+        }
+    }
+
+    public static void f(AdElementInfo adElementInfo, cs3 cs3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65541, null, adElementInfo, cs3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getImpressionUrls()) {
+            b(c(str, null), cs3Var);
+        }
+    }
+
+    public static void g(ts3 ts3Var, AdElementInfo adElementInfo, cs3 cs3Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65542, null, ts3Var, adElementInfo, cs3Var) == null) || adElementInfo == null) {
+            return;
+        }
+        for (String str : adElementInfo.getCloseTrackers()) {
+            b(c(str, ts3Var), cs3Var);
+        }
     }
 }

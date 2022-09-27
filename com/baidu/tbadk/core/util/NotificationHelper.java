@@ -19,9 +19,9 @@ import com.baidu.android.util.io.ActionJsonData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.v15;
+import com.baidu.tieba.i25;
+import com.baidu.tieba.k25;
 import com.baidu.tieba.wj;
-import com.baidu.tieba.x15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -215,19 +215,19 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             SwitchData switchData = new SwitchData();
-            if (!v15.L() && v15.R()) {
+            if (!i25.L() && i25.R()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                     AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                     boolean z = audioManager.getRingerMode() == 0;
                     boolean z2 = audioManager.getRingerMode() == 1;
-                    if (x15.d().z()) {
+                    if (k25.d().z()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (x15.d().A()) {
+                    if (k25.d().A()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -239,7 +239,7 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (x15.d().v()) {
+            if (k25.d().v()) {
                 switchData.isLight = true;
             }
             return switchData;
@@ -254,9 +254,9 @@ public class NotificationHelper {
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
             builder.setContentTitle(context.getString(R.string.obfuscated_res_0x7f0f0cd2));
             if (RomTypeUtil.isOnePlus()) {
-                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f081207).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
+                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08120b).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
             } else {
-                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f081206);
+                builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08120a);
             }
             return builder.build();
         }
@@ -296,9 +296,9 @@ public class NotificationHelper {
             return;
         }
         if (RomTypeUtil.isOnePlus()) {
-            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f081207).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
+            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08120b).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
         } else {
-            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f081206);
+            builder.setSmallIcon(R.drawable.obfuscated_res_0x7f08120a);
         }
     }
 

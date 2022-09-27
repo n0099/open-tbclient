@@ -1,69 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class en5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public int b;
+public interface en5 extends hn5<jn5> {
+    void a(int i);
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a(int i, int i2);
-    }
+    List<Integer> d();
 
-    public en5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 0;
-    }
+    void e(List<dn5> list, String str, String str2, String str3, String str4, boolean z, int i);
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
+    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
 
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
+    void i(List<dn5> list, int i);
 
-    public void c(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (i2 = this.b) == i) {
-            return;
-        }
-        a aVar = this.a;
-        if (aVar != null) {
-            aVar.a(i2, i);
-        }
-        this.b = i;
-    }
+    void k(List<Object> list);
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
-        }
-    }
+    View m(int i, View view2, ViewGroup viewGroup, Object obj);
+
+    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
+
+    void o(List<dn5> list, List<dn5> list2, boolean z, int i);
+
+    void p(String str);
 }

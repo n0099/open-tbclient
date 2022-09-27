@@ -1,10 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.Process;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Point;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,34 +8,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ze0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile ze0 f;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static float j = 0.0f;
+    public static float k = 0.0f;
+    public static float l = 1.0f;
+    public static float m = 1.0f;
+    public static float n;
+    public static List<Point> o;
+    public static List<Point> p;
+    public static List<Point> q;
+    public static List<Point> r;
+    public static List<List<Point>> s;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public Long b;
-    public RandomAccessFile c;
-    public RandomAccessFile d;
-    public String e;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public List<Point> f;
+    public List<Point> g;
+    public List<Point> h;
+    public List<Point> i;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948356932, "Lcom/baidu/tieba/ze0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948356932, "Lcom/baidu/tieba/ze0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948356932, "Lcom/baidu/tieba/ze0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948356932, "Lcom/baidu/tieba/ze0;");
-        }
+        a();
     }
 
     public ze0() {
@@ -52,308 +64,148 @@ public class ze0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = j;
+        this.b = k;
+        this.c = l;
+        this.d = m;
+        this.e = n;
+        this.f = o;
+        this.g = p;
+        this.h = q;
+        this.i = r;
     }
 
-    public static ze0 e() {
-        InterceptResult invokeV;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (ze0.class) {
-                    if (f == null) {
-                        f = new ze0();
-                    }
-                }
-            }
-            return f;
-        }
-        return (ze0) invokeV.objValue;
-    }
-
-    public double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            double g = g();
-            if (g <= 0.0d) {
-                g = b();
-            }
-            return g <= 0.0d ? d() : g;
-        }
-        return invokeV.doubleValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:15:0x002a A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:24:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public double b() {
-        InterceptResult invokeV;
-        double doubleValue;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) != null) {
-            return invokeV.doubleValue;
-        }
-        if (Build.VERSION.SDK_INT >= 26) {
-            String c = c(this.e);
-            if (!TextUtils.isEmpty(c)) {
-                try {
-                    doubleValue = Double.valueOf(c).doubleValue();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (doubleValue <= 0.0d) {
-                    return doubleValue;
-                }
-                return 0.0d;
-            }
-            doubleValue = 0.0d;
-            if (doubleValue <= 0.0d) {
-            }
-        } else {
-            return g();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            ArrayList arrayList = new ArrayList();
+            o = arrayList;
+            arrayList.add(new Point(0, 0));
+            o.add(new Point(255, 255));
+            ArrayList arrayList2 = new ArrayList();
+            p = arrayList2;
+            arrayList2.add(new Point(0, 0));
+            p.add(new Point(255, 255));
+            ArrayList arrayList3 = new ArrayList();
+            q = arrayList3;
+            arrayList3.add(new Point(0, 0));
+            q.add(new Point(255, 255));
+            ArrayList arrayList4 = new ArrayList();
+            r = arrayList4;
+            arrayList4.add(new Point(0, 0));
+            r.add(new Point(255, 255));
+            ArrayList arrayList5 = new ArrayList();
+            s = arrayList5;
+            arrayList5.add(o);
+            s.add(p);
+            s.add(q);
+            s.add(r);
         }
     }
 
-    public final String c(String str) {
+    public static ze0 b(JSONObject jSONObject) {
         InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        try {
-            Process exec = Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1"});
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
-            while (true) {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    String[] split = readLine.trim().split(" ");
-                    if (str != null && str.startsWith(split[split.length - 1].substring(0, split[split.length - 1].length() - 1))) {
-                        return split[16];
-                    }
-                } else {
-                    try {
-                        exec.waitFor();
-                        return "";
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                        return "";
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject == null || jSONObject.length() == 0) {
+                return null;
             }
-        } catch (IOException e2) {
-            e2.printStackTrace();
-            return "";
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00a1 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:86:0x0024 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:91:0x0071 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:95:0x0024 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:96:0x0024 */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0050, code lost:
-        r3 = r6[2].trim();
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x00a3  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x00ba A[Catch: Exception -> 0x00bd, TRY_LEAVE, TryCatch #4 {Exception -> 0x00bd, blocks: (B:63:0x00b5, B:65:0x00ba), top: B:78:0x00b5 }] */
-    /* JADX WARN: Removed duplicated region for block: B:78:0x00b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r3v10 */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v13 */
-    /* JADX WARN: Type inference failed for: r3v14, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public int d() {
-        InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        String str;
-        String str2;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int myPid = Process.myPid();
-            Process process = 0;
+            ze0 ze0Var = new ze0();
             try {
-                Process exec = Runtime.getRuntime().exec("top -n 1");
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(exec.getInputStream()));
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader.readLine();
-                            if (readLine == null) {
-                                break;
-                            } else if (readLine.trim().startsWith(String.valueOf(myPid)) && (split = readLine.split("\\s+")) != null) {
-                                if (split.length > 2 && split[2] != null && split[2].contains("%")) {
-                                    break;
-                                }
-                                int i = 0;
-                                while (true) {
-                                    if (i < split.length) {
-                                        if (split[i] != null && split[i].contains("%")) {
-                                            process = split[i].trim();
-                                            break;
-                                        }
-                                        i++;
-                                    } else {
-                                        break;
-                                    }
-                                }
+                JSONObject jSONObject2 = jSONObject.getJSONObject("female");
+                if (jSONObject2 != null) {
+                    jSONObject2.optDouble("intensity_smooth");
+                    jSONObject2.optDouble("intensity_white");
+                }
+                JSONObject jSONObject3 = jSONObject.getJSONObject("male");
+                if (jSONObject3 != null) {
+                    jSONObject3.optDouble("intensity_smooth");
+                    jSONObject3.optDouble("intensity_white");
+                }
+                ze0Var.a = (float) jSONObject.optDouble("intensity_sharpness");
+                ze0Var.b = (float) jSONObject.optDouble("intensity_brightness");
+                ze0Var.c = (float) jSONObject.optDouble("intensity_contrast");
+                ze0Var.d = (float) jSONObject.optDouble("intensity_saturation");
+                JSONObject optJSONObject = jSONObject.optJSONObject("curves");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    ze0Var.e = (float) optJSONObject.optDouble("intensity_curves");
+                    JSONArray jSONArray = optJSONObject.getJSONArray("composite");
+                    if (jSONArray != null && jSONArray.length() > 0) {
+                        ze0Var.f = new CopyOnWriteArrayList();
+                        for (int i9 = 0; i9 < jSONArray.length(); i9++) {
+                            JSONObject jSONObject4 = jSONArray.getJSONObject(i9);
+                            if (jSONObject4 == null || jSONObject4.length() <= 0) {
+                                i7 = 0;
+                                i8 = 0;
+                            } else {
+                                i8 = jSONObject4.optInt("x");
+                                i7 = jSONObject4.optInt("y");
                             }
-                        } catch (Exception e) {
-                            e = e;
-                            str = process;
-                            process = exec;
-                            try {
-                                e.printStackTrace();
-                                if (process != null) {
-                                    try {
-                                        process.destroy();
-                                    } catch (Exception unused) {
-                                        str2 = str;
-                                        if (str2 != null) {
-                                        }
-                                        return Integer.parseInt(str2);
-                                    }
-                                }
-                                if (bufferedReader != null) {
-                                    bufferedReader.close();
-                                }
-                                str2 = str;
-                                if (str2 != null) {
-                                }
-                                return Integer.parseInt(str2);
-                            } catch (Throwable th) {
-                                th = th;
-                                if (process != null) {
-                                    try {
-                                        process.destroy();
-                                    } catch (Exception unused2) {
-                                        throw th;
-                                    }
-                                }
-                                if (bufferedReader != null) {
-                                    bufferedReader.close();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            process = exec;
-                            if (process != null) {
-                            }
-                            if (bufferedReader != null) {
-                            }
-                            throw th;
+                            ze0Var.f.add(new Point(i8, i7));
                         }
                     }
-                    if (exec != null) {
-                        try {
-                            exec.destroy();
-                        } catch (Exception unused3) {
-                            str2 = process;
+                    JSONArray jSONArray2 = optJSONObject.getJSONArray("red");
+                    if (jSONArray2 != null && jSONArray2.length() > 0) {
+                        ze0Var.g = new CopyOnWriteArrayList();
+                        for (int i10 = 0; i10 < jSONArray2.length(); i10++) {
+                            JSONObject jSONObject5 = jSONArray2.getJSONObject(i10);
+                            if (jSONObject5 == null || jSONObject5.length() <= 0) {
+                                i5 = 0;
+                                i6 = 0;
+                            } else {
+                                i6 = jSONObject5.optInt("x");
+                                i5 = jSONObject5.optInt("y");
+                            }
+                            ze0Var.g.add(new Point(i6, i5));
                         }
                     }
-                    bufferedReader.close();
-                    str2 = process;
-                } catch (Exception e2) {
-                    e = e2;
-                    bufferedReader = null;
-                    process = exec;
-                    str = null;
-                } catch (Throwable th3) {
-                    th = th3;
-                    bufferedReader = null;
+                    JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
+                    if (jSONArray3 != null && jSONArray3.length() > 0) {
+                        ze0Var.h = new CopyOnWriteArrayList();
+                        for (int i11 = 0; i11 < jSONArray3.length(); i11++) {
+                            JSONObject jSONObject6 = jSONArray3.getJSONObject(i11);
+                            if (jSONObject6 == null || jSONObject6.length() <= 0) {
+                                i3 = 0;
+                                i4 = 0;
+                            } else {
+                                i4 = jSONObject6.optInt("x");
+                                i3 = jSONObject6.optInt("y");
+                            }
+                            ze0Var.h.add(new Point(i4, i3));
+                        }
+                    }
+                    JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
+                    if (jSONArray4 != null && jSONArray4.length() > 0) {
+                        ze0Var.i = new CopyOnWriteArrayList();
+                        for (int i12 = 0; i12 < jSONArray4.length(); i12++) {
+                            JSONObject jSONObject7 = jSONArray4.getJSONObject(i12);
+                            if (jSONObject7 == null || jSONObject7.length() <= 0) {
+                                i = 0;
+                                i2 = 0;
+                            } else {
+                                i2 = jSONObject7.optInt("x");
+                                i = jSONObject7.optInt("y");
+                            }
+                            ze0Var.i.add(new Point(i2, i));
+                        }
+                    }
                 }
-            } catch (Exception e3) {
-                e = e3;
-                str = null;
-                bufferedReader = null;
-            } catch (Throwable th4) {
-                th = th4;
-                bufferedReader = null;
-            }
-            if (str2 != null) {
-                String[] split2 = str2.split("%");
-                if (split2.length > 0) {
-                    str2 = split2[0];
-                }
-            }
-            try {
-                return Integer.parseInt(str2);
-            } catch (Exception unused4) {
-                return -1;
+                return ze0Var;
+            } catch (JSONException unused) {
+                return null;
             }
         }
-        return invokeV.intValue;
-    }
-
-    public ActivityManager.MemoryInfo f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-            ((ActivityManager) he0.getContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
-            return memoryInfo;
-        }
-        return (ActivityManager.MemoryInfo) invokeV.objValue;
-    }
-
-    public double g() {
-        InterceptResult invokeV;
-        long parseLong;
-        long parseLong2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            double d = 0.0d;
-            try {
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (this.c != null && this.d != null) {
-                this.c.seek(0L);
-                this.d.seek(0L);
-                String readLine = this.c.readLine();
-                String readLine2 = this.d.readLine();
-                String[] split = readLine.split(" ");
-                String[] split2 = readLine2.split(" ");
-                parseLong = Long.parseLong(split[2]) + Long.parseLong(split[3]) + Long.parseLong(split[4]) + Long.parseLong(split[5]) + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
-                parseLong2 = Long.parseLong(split2[13]) + Long.parseLong(split2[14]);
-                if (this.a != null && this.b == null) {
-                    this.a = Long.valueOf(parseLong);
-                    this.b = Long.valueOf(parseLong2);
-                    return 0.0d;
-                }
-                if (this.a != null && this.b != null) {
-                    d = ((parseLong2 - this.b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
-                }
-                this.a = Long.valueOf(parseLong);
-                this.b = Long.valueOf(parseLong2);
-                return d;
-            }
-            this.c = new RandomAccessFile("/proc/stat", "r");
-            this.d = new RandomAccessFile("/proc/" + Process.myPid() + "/stat", "r");
-            String readLine3 = this.c.readLine();
-            String readLine22 = this.d.readLine();
-            String[] split3 = readLine3.split(" ");
-            String[] split22 = readLine22.split(" ");
-            parseLong = Long.parseLong(split3[2]) + Long.parseLong(split3[3]) + Long.parseLong(split3[4]) + Long.parseLong(split3[5]) + Long.parseLong(split3[6]) + Long.parseLong(split3[7]) + Long.parseLong(split3[8]);
-            parseLong2 = Long.parseLong(split22[13]) + Long.parseLong(split22[14]);
-            if (this.a != null) {
-            }
-            if (this.a != null) {
-                d = ((parseLong2 - this.b.longValue()) / (parseLong - this.a.longValue())) * 100.0d;
-            }
-            this.a = Long.valueOf(parseLong);
-            this.b = Long.valueOf(parseLong2);
-            return d;
-        }
-        return invokeV.doubleValue;
+        return (ze0) invokeL.objValue;
     }
 }

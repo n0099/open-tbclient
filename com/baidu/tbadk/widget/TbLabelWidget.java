@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ih5;
-import com.baidu.tieba.lq4;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.ol8;
+import com.baidu.tieba.vh5;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -53,9 +53,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public BarImageView l;
     public TextView m;
     public b n;
-    public uu4 o;
-    public uu4 p;
-    public uu4 q;
+    public hv4 o;
+    public hv4 p;
+    public hv4 q;
     public int r;
     public boolean s;
     public int t;
@@ -99,7 +99,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                         return;
                     }
                     if (NewWebHotTopicPageSwitch.isOn() && this.b.u != null) {
-                        ih5.e(this.b.u, String.valueOf(j), null);
+                        vh5.e(this.b.u, String.valueOf(j), null);
                     } else {
                         new HotTopicActivityConfig(this.b.getContext()).createNormalConfig(String.valueOf(j), null, null, "2").start();
                     }
@@ -263,9 +263,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.o = uu4.d(this.e);
-            this.p = uu4.d(this.j);
-            this.q = uu4.d(this.k);
+            this.o = hv4.d(this.e);
+            this.p = hv4.d(this.j);
+            this.q = hv4.d(this.k);
         }
     }
 
@@ -274,14 +274,14 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0512, (ViewGroup) this, false);
             this.e = inflate;
-            this.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09202a);
+            this.f = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09202c);
             this.g = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091251);
             this.h = this.e.findViewById(R.id.obfuscated_res_0x7f09124a);
             this.i = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09124d);
             this.j = this.e.findViewById(R.id.obfuscated_res_0x7f09124c);
             this.k = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f09124f);
-            this.l = (BarImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091b94);
-            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091ba1);
+            this.l = (BarImageView) this.e.findViewById(R.id.obfuscated_res_0x7f091b96);
+            this.m = (TextView) this.e.findViewById(R.id.obfuscated_res_0x7f091ba3);
             this.e.setOnClickListener(this);
             addView(this.e);
         }
@@ -321,9 +321,9 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.o.n(R.string.J_X01);
             if (this.s) {
-                uu4 uu4Var = this.p;
-                uu4Var.n(R.string.J_X03);
-                uu4Var.f(R.color.CAM_X0108);
+                hv4 hv4Var = this.p;
+                hv4Var.n(R.string.J_X03);
+                hv4Var.f(R.color.CAM_X0108);
                 this.q.v(R.color.CAM_X0108);
                 int skinType = TbadkApplication.getInst().getSkinType();
                 if (skinType == this.r || (themeColorInfo = (dVar = this.c).b) == null || (themeColorInfo2 = dVar.c) == null || (themeColorInfo3 = dVar.d) == null || (themeColorInfo4 = dVar.a) == null) {
@@ -342,7 +342,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                 }
             }
             this.o.f(R.color.CAM_X0209);
-            uu4 d2 = uu4.d(this.m);
+            hv4 d2 = hv4.d(this.m);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0107);
@@ -353,16 +353,16 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048585, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
             if (g(themeElement)) {
-                this.g.setTextColor(zk8.f(themeElement.common_color));
+                this.g.setTextColor(ol8.f(themeElement.common_color));
             }
             if (g(themeElement2)) {
-                this.h.setBackgroundColor(zk8.f(themeElement2.common_color));
+                this.h.setBackgroundColor(ol8.f(themeElement2.common_color));
             }
             if (g(themeElement3)) {
-                this.i.setTextColor(zk8.f(themeElement3.common_color));
+                this.i.setTextColor(ol8.f(themeElement3.common_color));
             }
             if (g(themeElement4)) {
-                this.o.g(zk8.f(themeElement4.common_color));
+                this.o.g(ol8.f(themeElement4.common_color));
             }
         }
     }
@@ -377,12 +377,12 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         bVar.a(view2);
     }
 
-    public void setData(lq4 lq4Var) {
+    public void setData(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048587, this, lq4Var) == null) || lq4Var == null || lq4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, yq4Var) == null) || yq4Var == null || yq4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = lq4Var.getThreadData();
+        ThreadData threadData = yq4Var.getThreadData();
         if (threadData.getThreadRecommendInfoDataList() == null || threadData.getThreadRecommendInfoDataList().size() <= 0) {
             return;
         }

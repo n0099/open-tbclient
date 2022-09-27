@@ -1,147 +1,109 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.qc3;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
-public class oc3 extends v43 {
+public class oc3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
+    public static final Pattern b;
+    public static final Pattern c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements qc3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ oc3 d;
-
-        public a(oc3 oc3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948027402, "Lcom/baidu/tieba/oc3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oc3Var, callbackHandler, unitedSchemeEntity, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = oc3Var;
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.qc3.b
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.d.k(i, this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oc3(v33 v33Var) {
-        super(v33Var, "/swanAPI/startMediaVolumeListen");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948027402, "Lcom/baidu/tieba/oc3;");
                 return;
             }
         }
+        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+        b = Pattern.compile("^(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$");
+        c = Pattern.compile("^((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)::((?:[0-9A-Fa-f]{1,4}(?::[0-9A-Fa-f]{1,4})*)?)$");
     }
 
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
-        InterceptResult invokeLLLL;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            if (y23Var == null) {
-                yz1.c("startMediaVolumeListen", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                return false;
-            } else if (context == null) {
-                yz1.c("startMediaVolumeListen", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    yz1.c("startMediaVolumeListen", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    yz1.c("startMediaVolumeListen", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                String optString2 = optParamsAsJo.optString("id");
-                if (TextUtils.isEmpty(optString2)) {
-                    yz1.c("startMediaVolumeListen", "id is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                qc3.e().d(optString2, new a(this, callbackHandler, unitedSchemeEntity, optString));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(str) || d(str) : invokeL.booleanValue;
     }
 
-    public final void k(double d, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d), callbackHandler, unitedSchemeEntity, str}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            int f = (int) ((d / qc3.e().f()) * 100.0d);
-            if (f < 0) {
-                f = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            if (f > 100) {
-                f = 100;
-            }
-            try {
-                jSONObject.put("volume", f);
-                if (v43.b) {
-                    Log.d("startMediaVolumeListen", "NewVolume: " + f);
+            int length = str.length();
+            if (length > 2 && str.charAt(0) == '[') {
+                int i = length - 1;
+                if (str.charAt(i) == ']') {
+                    str = str.substring(1, i);
                 }
-                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
-            } catch (JSONException e) {
-                yz1.c("startMediaVolumeListen", "handle volume json error，" + e.toString());
-                UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, "Json error").toString(), str);
             }
+            return a(str);
         }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return a.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return f(str) || e(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return c.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return b.matcher(str).matches();
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -5,8 +5,8 @@ import android.text.TextUtils;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.s79;
-import com.baidu.tieba.w79;
+import com.baidu.tieba.h89;
+import com.baidu.tieba.l89;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -194,7 +194,7 @@ public final class CronetUrlRequest implements UrlRequest {
                     try {
                         this.b.k.b(this.b, this.b.D, this.a);
                     } catch (Exception e) {
-                        s79.c("ChromiumNetwork", "Exception in onError method", e);
+                        h89.c("ChromiumNetwork", "Exception in onError method", e);
                     }
                 }
             }
@@ -330,7 +330,7 @@ public final class CronetUrlRequest implements UrlRequest {
                     try {
                         this.a.k.f(this.a, this.a.D);
                     } catch (Exception e) {
-                        s79.c("ChromiumNetwork", "Exception in onComplete method", e);
+                        h89.c("ChromiumNetwork", "Exception in onComplete method", e);
                     }
                 }
             }
@@ -366,10 +366,10 @@ public final class CronetUrlRequest implements UrlRequest {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    s79.c("ChromiumNetwork", "****** onCanceled, url is: %s", this.a.D.h());
+                    h89.c("ChromiumNetwork", "****** onCanceled, url is: %s", this.a.D.h());
                     this.a.k.a(this.a, this.a.D);
                 } catch (Exception e) {
-                    s79.c("ChromiumNetwork", "Exception in onCanceled method", e);
+                    h89.c("ChromiumNetwork", "Exception in onCanceled method", e);
                 }
             }
         }
@@ -827,7 +827,7 @@ public final class CronetUrlRequest implements UrlRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
             UrlRequestException urlRequestException = new UrlRequestException("Exception received from UrlRequest.Callback", exc);
-            s79.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
+            h89.c("ChromiumNetwork", "Exception in CalledByNative method", exc);
             synchronized (this.f) {
                 if (C()) {
                     return;
@@ -836,7 +836,7 @@ public final class CronetUrlRequest implements UrlRequest {
                 try {
                     this.k.b(this, this.D, urlRequestException);
                 } catch (Exception e2) {
-                    s79.c("ChromiumNetwork", "Exception notifying of failed request", e2);
+                    h89.c("ChromiumNetwork", "Exception notifying of failed request", e2);
                 }
             }
         }
@@ -846,7 +846,7 @@ public final class CronetUrlRequest implements UrlRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
             UrlRequestException urlRequestException = new UrlRequestException("Exception received from UploadDataProvider", th);
-            s79.c("ChromiumNetwork", "Exception in upload method", th);
+            h89.c("ChromiumNetwork", "Exception in upload method", th);
             B(urlRequestException);
         }
     }
@@ -857,7 +857,7 @@ public final class CronetUrlRequest implements UrlRequest {
             try {
                 this.h.execute(runnable);
             } catch (RejectedExecutionException e2) {
-                s79.c("ChromiumNetwork", "Exception posting task to executor", e2);
+                h89.c("ChromiumNetwork", "Exception posting task to executor", e2);
                 A(false);
             }
         }
@@ -936,7 +936,7 @@ public final class CronetUrlRequest implements UrlRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             synchronized (this.f) {
-                s79.h("ChromiumNetwork", "****** Request cancel, url is: %s", this.m);
+                h89.h("ChromiumNetwork", "****** Request cancel, url is: %s", this.m);
                 if (!C() && this.b) {
                     A(true);
                 }
@@ -1055,8 +1055,8 @@ public final class CronetUrlRequest implements UrlRequest {
     public void read(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048599, this, byteBuffer) == null) {
-            w79.b(byteBuffer);
-            w79.a(byteBuffer);
+            l89.b(byteBuffer);
+            l89.a(byteBuffer);
             synchronized (this.f) {
                 if (this.d) {
                     this.d = false;
@@ -1079,7 +1079,7 @@ public final class CronetUrlRequest implements UrlRequest {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             synchronized (this.f) {
-                s79.h("ChromiumNetwork", "****** Request start, url is: %s", this.m);
+                h89.h("ChromiumNetwork", "****** Request start, url is: %s", this.m);
                 y();
                 try {
                     this.a = nativeCreateRequestAdapter(this.g.q(), this.m, this.n, this.q, this.r, this.s);

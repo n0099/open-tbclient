@@ -1,37 +1,82 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.ala.AlaCmdConfigHttp;
+import com.baidu.ala.AlaConfig;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpReqMessage;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.effectDetail.AlaEnterEffectEditHttpResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ElectionList;
-import tbclient.Myrecord;
 /* loaded from: classes6.dex */
 public class yz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public long c;
-    public long d;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public String l;
-    public boolean m;
-    public int n;
+    public b a;
+    public HttpMessageListener b;
 
-    public yz5() {
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yz5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yz5 yz5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yz5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yz5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaEnterEffectEditHttpResMessage)) {
+                AlaEnterEffectEditHttpResMessage alaEnterEffectEditHttpResMessage = (AlaEnterEffectEditHttpResMessage) httpResponsedMessage;
+                if (alaEnterEffectEditHttpResMessage.getError() != 0) {
+                    if (this.a.a != null) {
+                        this.a.a.a(alaEnterEffectEditHttpResMessage.getErrorString());
+                    }
+                } else if (!(alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) || this.a.a == null) {
+                } else {
+                    this.a.a.b(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(String str);
+
+        void b(boolean z);
+    }
+
+    public yz5(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,240 +86,24 @@ public class yz5 {
                 return;
             }
         }
-        this.m = false;
+        this.b = new a(this, AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT);
+        this.a = bVar;
+        sm8.e(AlaCmdConfigHttp.CMD_ALA_UPDATE_ENTER_EFFECT, AlaConfig.ALA_UPDATE_ENTER_EFFECT, AlaEnterEffectEditHttpResMessage.class, true, true, true, true);
+        this.b.setSelfListener(true);
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public static yz5 o(ElectionList electionList) {
-        InterceptResult invokeL;
+    public void b(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, electionList)) == null) {
-            if (electionList == null) {
-                return null;
-            }
-            yz5 yz5Var = new yz5();
-            yz5Var.D(electionList.vote_num.intValue());
-            yz5Var.v(electionList.name_show);
-            yz5Var.x(electionList.portrait);
-            yz5Var.u(electionList.forum_level.intValue());
-            yz5Var.r(electionList.apply_declaration);
-            yz5Var.z(electionList.rank.intValue());
-            yz5Var.s(electionList.apply_id.intValue());
-            yz5Var.y(electionList.post_num.intValue());
-            yz5Var.A(electionList.thread_num.intValue());
-            yz5Var.q(electionList.agree_num.intValue());
-            yz5Var.C(electionList.uid.longValue());
-            yz5Var.B(electionList.tid.longValue());
-            yz5Var.t(electionList.is_cheat.intValue() == 1);
-            yz5Var.w(electionList.is_pass_audit.intValue());
-            return yz5Var;
-        }
-        return (yz5) invokeL.objValue;
-    }
-
-    public static yz5 p(Myrecord myrecord) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, myrecord)) == null) {
-            if (myrecord == null) {
-                return null;
-            }
-            yz5 yz5Var = new yz5();
-            yz5Var.D(myrecord.vote_num.intValue());
-            yz5Var.v(myrecord.name_show);
-            yz5Var.x(myrecord.portrait);
-            yz5Var.u(myrecord.forum_level.intValue());
-            yz5Var.r(myrecord.apply_declaration);
-            yz5Var.z(myrecord.rank.intValue());
-            yz5Var.s(myrecord.apply_id.intValue());
-            yz5Var.y(myrecord.post_num.intValue());
-            yz5Var.A(myrecord.thread_num.intValue());
-            yz5Var.q(myrecord.agree_num.intValue());
-            yz5Var.C(myrecord.uid.longValue());
-            yz5Var.B(myrecord.tid.longValue());
-            return yz5Var;
-        }
-        return (yz5) invokeL.objValue;
-    }
-
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.j = i;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            MessageManager.getInstance().sendMessage(new AlaEnterEffectEditHttpReqMessage(str, z));
         }
     }
 
-    public void B(long j) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void C(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.l : (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.n : invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.k : invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.d : invokeV.longValue;
-    }
-
-    public long l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.c : invokeV.longValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.m : invokeV.booleanValue;
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.m = z;
-        }
-    }
-
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void v(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.n = i;
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
     }
 }

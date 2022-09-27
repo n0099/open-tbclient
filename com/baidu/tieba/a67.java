@@ -1,352 +1,202 @@
 package com.baidu.tieba;
 
-import android.database.DataSetObserver;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
-import android.widget.ListAdapter;
-import android.widget.WrapperListAdapter;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.horizonalList.widget.HListView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.card.Align;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.dz;
+import com.baidu.tieba.sy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes3.dex */
-public class a67 implements WrapperListAdapter, Filterable {
+public class a67 extends qn<x26, ThreadCardViewHolder<x26>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final ArrayList<HListView.c> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ListAdapter a;
-    public ArrayList<HListView.c> b;
-    public ArrayList<HListView.c> c;
-    public boolean d;
-    public final boolean e;
+    public TbPageContext a;
+    public BdUniqueId b;
+    public jo c;
+    public NEGFeedBackView.b d;
+    public i26<x26> e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947567207, "Lcom/baidu/tieba/a67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public class a extends i26<x26> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(a67 a67Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947567207, "Lcom/baidu/tieba/a67;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a67Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        f = new ArrayList<>();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.i26
+        /* renamed from: d */
+        public void a(View view2, x26 x26Var) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, x26Var) == null) || view2 == null || x26Var == null || x26Var.getThreadData() == null) {
+                return;
+            }
+            int id = view2.getId();
+            if (id == R.id.obfuscated_res_0x7f092180 || id == R.id.obfuscated_res_0x7f092194) {
+                e67.f(x26Var);
+            }
+        }
     }
 
-    public a67(ArrayList<HListView.c> arrayList, ArrayList<HListView.c> arrayList2, ListAdapter listAdapter) {
+    /* loaded from: classes3.dex */
+    public class b implements no {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a67 a;
+
+        public b(a67 a67Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a67Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a67Var;
+        }
+
+        @Override // com.baidu.tieba.no
+        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof x26) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                x26 x26Var = (x26) cdo;
+                x26Var.f = 1;
+                if (this.a.e != null) {
+                    this.a.e.a(threadCardViewHolder.getView(), x26Var);
+                }
+                e67.c(x26Var, view2.getContext(), 19, false, kx.a((jo) viewGroup, view2, i));
+                threadCardViewHolder.a().o(new dz.a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a67(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, arrayList2, listAdapter};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = listAdapter;
-        this.e = listAdapter instanceof Filterable;
-        if (arrayList == null) {
-            this.b = f;
-        } else {
-            this.b = arrayList;
-        }
-        if (arrayList2 == null) {
-            this.c = f;
-        } else {
-            this.c = arrayList2;
-        }
-        this.d = a(this.b) && a(this.c);
+        this.e = new a(this);
+        this.a = tbPageContext;
     }
 
-    public final boolean a(ArrayList<HListView.c> arrayList) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public ThreadCardViewHolder<x26> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
-            if (arrayList != null) {
-                Iterator<HListView.c> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    if (!it.next().c) {
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            sy.b bVar = new sy.b(this.a.getPageActivity(), false);
+            uy uyVar = new uy(this.a.getPageActivity());
+            er4 er4Var = new er4();
+            er4Var.b = 21;
+            er4Var.c = 2;
+            er4Var.h = 18;
+            uyVar.x(false);
+            uyVar.w(er4Var);
+            uyVar.y(16);
+            uyVar.D(10);
+            uyVar.z(19);
+            uyVar.c(32);
+            bVar.m(uyVar);
+            sy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.c);
+            k.r(19);
+            ThreadCardViewHolder<x26> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.b);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        return invokeL.booleanValue;
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    @Override // android.widget.ListAdapter
-    public boolean areAllItemsEnabled() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x26 x26Var, ThreadCardViewHolder<x26> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return this.d && listAdapter.areAllItemsEnabled();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x26Var, threadCardViewHolder})) == null) {
+            if (x26Var == null || threadCardViewHolder == null || threadCardViewHolder.getView() == null || x26Var.a == null) {
+                return null;
             }
-            return true;
+            x26Var.I(x26Var.position + 1);
+            threadCardViewHolder.a().q(i);
+            threadCardViewHolder.o(false).u(this.d);
+            threadCardViewHolder.p(false, Align.ALIGN_RIGHT_BOTTOM, this.d);
+            threadCardViewHolder.e(x26Var);
+            threadCardViewHolder.a().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+            threadCardViewHolder.a().p(this.e);
+            return threadCardViewHolder.getView();
         }
-        return invokeV.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void v(NEGFeedBackView.b bVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c.size() : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b.size() : invokeV.intValue;
-    }
-
-    public boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
-            boolean z = false;
-            for (int i = 0; i < this.c.size(); i++) {
-                if (this.c.get(i).a == view2) {
-                    this.c.remove(i);
-                    if (a(this.b) && a(this.c)) {
-                        z = true;
-                    }
-                    this.d = z;
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.d = bVar;
         }
-        return invokeL.booleanValue;
     }
 
-    public boolean e(View view2) {
-        InterceptResult invokeL;
+    public void w(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, view2)) == null) {
-            boolean z = false;
-            for (int i = 0; i < this.b.size(); i++) {
-                if (this.b.get(i).a == view2) {
-                    this.b.remove(i);
-                    if (a(this.b) && a(this.c)) {
-                        z = true;
-                    }
-                    this.d = z;
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.b = bdUniqueId;
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int b;
-        int c;
+    public void x(jo joVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.a != null) {
-                b = b() + c();
-                c = this.a.getCount();
-            } else {
-                b = b();
-                c = c();
-            }
-            return b + c;
+        if (interceptable == null || interceptable.invokeL(1048582, this, joVar) == null) {
+            this.c = joVar;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Filterable
-    public Filter getFilter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.e) {
-                return ((Filterable) this.a).getFilter();
-            }
-            return null;
-        }
-        return (Filter) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).b;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.getItem(i2);
-            }
-            return this.c.get(i2 - i3).b;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            int c = c();
-            ListAdapter listAdapter = this.a;
-            if (listAdapter == null || i < c || (i2 = i - c) >= listAdapter.getCount()) {
-                return -1L;
-            }
-            return this.a.getItemId(i2);
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            int c = c();
-            ListAdapter listAdapter = this.a;
-            if (listAdapter == null || i < c || (i2 = i - c) >= listAdapter.getCount()) {
-                return -2;
-            }
-            return this.a.getItemViewType(i2);
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048587, this, i, view2, viewGroup)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).a;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.getView(i2, view2, viewGroup);
-            }
-            return this.c.get(i2 - i3).a;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return listAdapter.getViewTypeCount();
-            }
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.WrapperListAdapter
-    public ListAdapter getWrappedAdapter() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a : (ListAdapter) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean hasStableIds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null) {
-                return listAdapter.hasStableIds();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            ListAdapter listAdapter = this.a;
-            return listAdapter == null || listAdapter.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.widget.ListAdapter
-    public boolean isEnabled(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            int c = c();
-            if (i < c) {
-                return this.b.get(i).c;
-            }
-            int i2 = i - c;
-            int i3 = 0;
-            ListAdapter listAdapter = this.a;
-            if (listAdapter != null && i2 < (i3 = listAdapter.getCount())) {
-                return this.a.isEnabled(i2);
-            }
-            return this.c.get(i2 - i3).c;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // android.widget.Adapter
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048593, this, dataSetObserver) == null) || (listAdapter = this.a) == null) {
-            return;
-        }
-        listAdapter.registerDataSetObserver(dataSetObserver);
-    }
-
-    @Override // android.widget.Adapter
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        ListAdapter listAdapter;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048594, this, dataSetObserver) == null) || (listAdapter = this.a) == null) {
-            return;
-        }
-        listAdapter.unregisterDataSetObserver(dataSetObserver);
     }
 }

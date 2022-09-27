@@ -1,163 +1,153 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 /* loaded from: classes6.dex */
-public class w91 implements y91 {
+public class w91 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948225306, "Lcom/baidu/tieba/w91;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948225306, "Lcom/baidu/tieba/w91;");
-                return;
-            }
-        }
-        a = SchemeConfig.getSchemeHead() + "://swan/";
-    }
-
-    public w91() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.y91
-    public void a(Activity activity, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            fm2.S().a(activity, str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.y91
-    public void aLiAuth(Activity activity, String str, fa1<JSONObject> fa1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, fa1Var) == null) {
-            fm2.S().f(activity, str, fa1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.y91
-    public boolean b(Context context) {
+    public static Class<?> a(String str) throws ClassNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) ? fm2.S().b(context) : invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? Class.forName(str) : (Class) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.y91
-    public void c(Activity activity, String str, t91 t91Var) {
+    public static Field b(Class<?> cls, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, t91Var) == null) {
-            fm2.S().c(activity, str, t91Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.y91
-    public void d(Context context, JSONObject jSONObject, t91 t91Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, t91Var) == null) {
-            fm2.S().d(context, jSONObject, t91Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.y91
-    public void e(Activity activity, String str, t91 t91Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, t91Var) == null) {
-            fm2.S().e(activity, str, t91Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.y91
-    public void f(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
-            if (jSONObject == null) {
-                PaymentManager.i(3, "支付信息不能为空");
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
+            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
+                try {
+                    Field declaredField = cls2.getDeclaredField(str);
+                    i(declaredField, true);
+                    return declaredField;
+                } catch (NoSuchFieldException unused) {
+                }
             }
-            String optString = jSONObject.optString("appKey");
-            String optString2 = jSONObject.optString("redirectUrl");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                SchemeRouter.invoke(context, a + optString + optString2);
-                return;
+            Field field = null;
+            for (Class<?> cls3 : cls.getInterfaces()) {
+                try {
+                    Field field2 = cls3.getField(str);
+                    z91.a(field == null, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
+                    field = field2;
+                } catch (NoSuchFieldException unused2) {
+                }
             }
-            PaymentManager.i(3, "支付信息不能为空");
+            return field;
         }
+        return (Field) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.y91
-    public void g(Bundle bundle) {
+    public static Method c(Class<?> cls, String str, Class<?>... clsArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            String str = mv2.b().a;
-            if (TextUtils.isEmpty(str)) {
-                q91.a(bundle);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, clsArr)) == null) {
+            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
+                try {
+                    Method declaredMethod = cls2.getDeclaredMethod(str, clsArr);
+                    i(declaredMethod, true);
+                    return declaredMethod;
+                } catch (NoSuchMethodException unused) {
+                }
             }
-            oz2 e = oz2.e();
-            qz2 qz2Var = new qz2(119, bundle);
-            qz2Var.c(str);
-            qz2Var.p(true);
-            e.h(qz2Var);
+            Method method = null;
+            for (Class<?> cls3 : cls.getInterfaces()) {
+                try {
+                    Method method2 = cls3.getMethod(str, clsArr);
+                    z91.a(method == null, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
+                    method = method2;
+                } catch (NoSuchMethodException unused2) {
+                }
+            }
+            return method;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Object d(Object obj, String str, Class<?>[] clsArr, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, obj, str, clsArr, objArr)) == null) {
+            Method c = c(obj.getClass(), str, clsArr);
+            c.setAccessible(true);
+            return c.invoke(obj, objArr);
+        }
+        return invokeLLLL.objValue;
+    }
+
+    public static Object e(Class<?> cls, Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, obj, str)) == null) ? g(b(cls, str), obj) : invokeLLL.objValue;
+    }
+
+    public static Object f(Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) ? e(obj.getClass(), obj, str) : invokeLL.objValue;
+    }
+
+    public static Object g(Field field, Object obj) throws IllegalAccessException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, field, obj)) == null) ? field.get(obj) : invokeLL.objValue;
+    }
+
+    public static void h(Field field) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, field) == null) {
+            z91.a(field != null, "The field must not be null", new Object[0]);
+            try {
+                if (Modifier.isFinal(field.getModifiers())) {
+                    Field declaredField = Field.class.getDeclaredField("modifiers");
+                    boolean z = !declaredField.isAccessible();
+                    if (z) {
+                        declaredField.setAccessible(true);
+                    }
+                    declaredField.setInt(field, field.getModifiers() & (-17));
+                    if (z) {
+                        declaredField.setAccessible(false);
+                    }
+                }
+            } catch (IllegalAccessException | NoSuchFieldException unused) {
+            }
         }
     }
 
-    @Override // com.baidu.tieba.y91
-    public void h(String str) {
+    public static void i(AccessibleObject accessibleObject, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            mv2.b().a = str;
+        if (!(interceptable == null || interceptable.invokeLZ(65544, null, accessibleObject, z) == null) || accessibleObject.isAccessible() == z) {
+            return;
+        }
+        accessibleObject.setAccessible(z);
+    }
+
+    public static void j(Class<?> cls, Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65545, null, cls, obj, str, obj2) == null) {
+            l(b(cls, str), obj, obj2);
         }
     }
 
-    @Override // com.baidu.tieba.y91
-    public void i(Activity activity, JSONObject jSONObject, t91 t91Var) {
+    public static void k(Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048585, this, activity, jSONObject, t91Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65546, null, obj, str, obj2) == null) {
+            j(obj.getClass(), obj, str, obj2);
         }
     }
 
-    @Override // com.baidu.tieba.y91
-    public String j(Context context) {
-        InterceptResult invokeL;
+    public static void l(Field field, Object obj, Object obj2) throws IllegalAccessException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) ? fm2.G0().a(context) : (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, field, obj, obj2) == null) {
+            field.set(obj, obj2);
+        }
     }
 }

@@ -1,144 +1,226 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.imMessageCenter.mention.MsgReminderHttpRespMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class ae7 {
     public static /* synthetic */ Interceptable $ic;
+    public static ae7 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public ArrayList<Cdo> b;
-    public List<qn> c;
-    public wd7 d;
-    public wd7 e;
-    public wd7 f;
-    public yd7 g;
-    public yd7 h;
-    public yd7 i;
+    public final HttpMessageListener a;
+    public long b;
+    public final Handler c;
 
-    public ae7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    /* loaded from: classes3.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ae7 ae7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ae7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            zd7 msgData;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002500 && (httpResponsedMessage instanceof MsgReminderHttpRespMessage) && (msgData = ((MsgReminderHttpRespMessage) httpResponsedMessage).getMsgData()) != null) {
+                if (msgData.b() >= 0) {
+                    i25.h0().Z(msgData.b());
+                }
+                if (msgData.e() >= 0) {
+                    i25.h0().f0(msgData.e());
+                }
+                if (msgData.d() >= 0) {
+                    i25.h0().c0(msgData.d());
+                }
+                if (msgData.a() >= 0) {
+                    i25.h0().Y(msgData.a());
+                }
+                if (msgData.c() >= 0) {
+                    i25.h0().a0(msgData.c());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ae7 a;
+
+        public b(ae7 ae7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ae7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ae7Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
+                int i = message.arg1;
+                this.a.b = System.currentTimeMillis();
+                boolean z = !MessageManager.getInstance().getSocketClient().u();
+                if (i == 2 || (z && BdNetTypeUtil.isNetWorkAvailable())) {
+                    this.a.h();
+                }
+                this.a.g(1, 600000L);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612374, "Lcom/baidu/tieba/ae7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947612374, "Lcom/baidu/tieba/ae7;");
+                return;
+            }
+        }
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_REMINDER_CMD, TbConfig.SERVER_ADDRESS + "c/s/msg");
+        tbHttpMessageTask.setResponsedClass(MsgReminderHttpRespMessage.class);
+        messageManager.registerTask(tbHttpMessageTask);
+    }
+
+    public ae7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new LinkedList();
-        if (tbPageContext == null || bdTypeRecyclerView == null) {
-            return;
-        }
-        this.a = bdTypeRecyclerView;
-        b(tbPageContext);
+        this.a = new a(this, CmdConfigHttp.MSG_REMINDER_CMD);
+        this.b = 0L;
+        this.c = new b(this);
+        MessageManager.getInstance().registerListener(this.a);
     }
 
-    public void a(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    public static synchronized ae7 e() {
+        InterceptResult invokeV;
+        ae7 ae7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (bdTypeRecyclerView = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            synchronized (ae7.class) {
+                if (d == null) {
+                    d = new ae7();
+                }
+                ae7Var = d;
+            }
+            return ae7Var;
         }
-        bdTypeRecyclerView.D(i);
-    }
-
-    public final void b(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            wd7 wd7Var = new wd7(tbPageContext, ud7.A);
-            this.d = wd7Var;
-            wd7Var.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            wd7 wd7Var2 = new wd7(tbPageContext, ud7.B);
-            this.e = wd7Var2;
-            wd7Var2.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            wd7 wd7Var3 = new wd7(tbPageContext, ud7.C);
-            this.f = wd7Var3;
-            wd7Var3.u(VideoRecommentPlayActivityConfig.FROM_AGREE_PAGE);
-            yd7 yd7Var = new yd7(tbPageContext, ud7.F);
-            this.g = yd7Var;
-            yd7Var.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            yd7 yd7Var2 = new yd7(tbPageContext, ud7.E);
-            this.h = yd7Var2;
-            yd7Var2.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            yd7 yd7Var3 = new yd7(tbPageContext, ud7.D);
-            this.i = yd7Var3;
-            yd7Var3.u(VideoRecommentPlayActivityConfig.FROM_REPLY_PAGE);
-            this.c.add(this.d);
-            this.c.add(this.e);
-            this.c.add(this.g);
-            this.c.add(this.h);
-            this.c.add(this.i);
-            this.c.add(this.f);
-            this.a.a(this.c);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.getAdapter().notifyDataSetChanged();
-        }
+        return (ae7) invokeV.objValue;
     }
 
     public void d() {
         Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.removeMessages(1);
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = 0L;
+            d();
+            i();
+        }
+    }
+
+    public final void g(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            Message obtainMessage = this.c.obtainMessage(1);
+            obtainMessage.arg1 = i;
+            this.c.sendMessageDelayed(obtainMessage, j);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            for (qn qnVar : this.c) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.MSG_REMINDER_CMD));
+        }
+    }
+
+    public void i() {
+        long j;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.b;
+            if (currentTimeMillis <= 0) {
+                currentTimeMillis = 0;
             }
-        }
-    }
-
-    public void e(no noVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, noVar) == null) {
-            for (qn qnVar : this.c) {
-                if (qnVar != null) {
-                    qnVar.setOnAdapterItemClickListener(noVar);
-                }
+            if (currentTimeMillis >= 600000) {
+                i = 2;
+                j = 10000;
+            } else {
+                j = 600000 - currentTimeMillis;
+                i = 1;
             }
-        }
-    }
-
-    public void f(ArrayList<Cdo> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, arrayList) == null) {
-            this.a.setData(arrayList);
-            this.b = arrayList;
-        }
-    }
-
-    public void g(oo ooVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ooVar) == null) {
-            for (qn qnVar : this.c) {
-                if (qnVar != null) {
-                    qnVar.setOnAdapterItemLongClickListener(ooVar);
-                }
-            }
-        }
-    }
-
-    public void h(v16 v16Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, v16Var) == null) {
-            this.i.v(v16Var);
-            this.h.v(v16Var);
-            this.g.v(v16Var);
+            g(i, j);
+            this.b = System.currentTimeMillis();
         }
     }
 }

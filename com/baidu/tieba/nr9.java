@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public final class nr9 implements Runnable {
+public final class nr9 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ mr9 b;
+    public final Context a;
+    public final xr9 b;
+    public volatile boolean c;
 
-    public nr9(mr9 mr9Var, AtomicBoolean atomicBoolean) {
+    public nr9(Context context, xr9 xr9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mr9Var, atomicBoolean};
+            Object[] objArr = {context, xr9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,19 +29,31 @@ public final class nr9 implements Runnable {
                 return;
             }
         }
-        this.b = mr9Var;
-        this.a = atomicBoolean;
+        this.a = context;
+        this.b = xr9Var;
     }
 
-    @Override // java.lang.Runnable
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = true;
+        }
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.getAndSet(true)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.c) {
+                if (qr9.d().h(this.a)) {
+                    this.b.a(com.google.ar.core.p.c);
+                    return;
+                }
+                try {
+                    Thread.sleep(200L);
+                } catch (InterruptedException unused) {
+                }
+            }
         }
-        Log.w("ARCore-InstallService", "requestInstall timed out, launching fullscreen.");
-        mr9 mr9Var = this.b;
-        hr9 hr9Var = mr9Var.c;
-        hr9.n(mr9Var.a, mr9Var.b);
     }
 }

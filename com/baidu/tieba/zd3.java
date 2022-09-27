@@ -1,136 +1,61 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
-import android.net.wifi.WifiInfo;
-import android.net.wifi.WifiManager;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class zd3 {
+public class zd3 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static WifiConfiguration a(wd3 wd3Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zd3(i43 i43Var) {
+        super(i43Var, "/swanAPI/vibrateShort");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wd3Var)) == null) {
-            int b = ae3.b(wd3Var);
-            if (f(wd3Var.a)) {
-                WifiConfiguration wifiConfiguration = new WifiConfiguration();
-                wifiConfiguration.SSID = "\"" + wd3Var.a + "\"";
-                if (!TextUtils.isEmpty(wd3Var.b)) {
-                    wifiConfiguration.BSSID = wd3Var.b;
-                }
-                if (b == 0) {
-                    ae3.d(wifiConfiguration, 0);
-                } else if (b == 1) {
-                    ae3.d(wifiConfiguration, 1);
-                    String[] strArr = wifiConfiguration.wepKeys;
-                    strArr[0] = "\"" + wd3Var.d + "\"";
-                } else if (b == 2) {
-                    ae3.d(wifiConfiguration, 2);
-                    wifiConfiguration.preSharedKey = "\"" + wd3Var.d + "\"";
-                } else if (b == 3) {
-                    ae3.d(wifiConfiguration, 3);
-                    WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
-                    wifiEnterpriseConfig.setEapMethod(0);
-                    wifiEnterpriseConfig.setIdentity(wd3Var.c);
-                    wifiEnterpriseConfig.setPassword(wd3Var.d);
-                    wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
-                }
-                return wifiConfiguration;
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeL.objValue;
-    }
-
-    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
-            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeLLL.objValue;
-    }
-
-    public static WifiConfiguration c(Context context, WifiManager wifiManager, wd3 wd3Var) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, wd3Var)) == null) {
-            if (wd3Var != null && f(wd3Var.a) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), wd3Var.a)) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeLLL.objValue;
-    }
-
-    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
-            if (wifiManager == null) {
-                return null;
-            }
-            try {
-                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) != 0) {
-                    return null;
-                }
-                return wifiManager.getConfiguredNetworks();
-            } catch (Exception e) {
-                yz1.b("SwanWifiUtils", Log.getStackTraceString(e));
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (List) invokeLL.objValue;
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        int length;
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (length = str.length()) <= 1 || str.charAt(0) != '\"') {
-                return str;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (i53.b) {
+                Log.d("ShortVibrateAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            int i = length - 1;
-            return str.charAt(i) == '\"' ? str.substring(1, i) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.equals("<unknown ssid>")) {
+            if (l33Var != null && l33Var.n0()) {
+                if (i53.b) {
+                    Log.d("ShortVibrateAction", "ShortVibrateAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
                 return false;
             }
-            return StandardCharsets.UTF_8.newEncoder().canEncode(str);
+            ae3.d().g();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

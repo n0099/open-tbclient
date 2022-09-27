@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -7,52 +8,197 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class rt2 extends pt2 {
+public class rt2 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean e;
-    public final hp1 f;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rt2(hp1 hp1Var, boolean z) {
-        super(6);
+    public rt2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hp1Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = z;
-        this.f = hp1Var;
+        this.e = false;
+        this.f = false;
+        this.g = false;
     }
 
-    @Override // com.baidu.tieba.pt2
-    public String d() {
+    public static rt2 a() {
         InterceptResult invokeV;
-        w63 params;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            hp1 hp1Var = this.f;
-            if (hp1Var == null || (params = hp1Var.getParams()) == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            rt2 rt2Var = new rt2();
+            rt2Var.o(true);
+            rt2Var.k(true);
+            rt2Var.n(-1);
+            rt2Var.j(-1);
+            return rt2Var;
+        }
+        return (rt2) invokeV.objValue;
+    }
+
+    public boolean b(rt2 rt2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rt2Var)) == null) ? !equals(rt2Var) || this.g : invokeL.booleanValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.clone() : invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return params.c;
+            if (obj instanceof rt2) {
+                rt2 rt2Var = (rt2) obj;
+                return this.a == rt2Var.a && this.b == rt2Var.b && this.d == rt2Var.d && this.c == rt2Var.c && this.h == rt2Var.h;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.h : invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            boolean z = false;
+            return (this.e || this.c >= 0) & ((this.f || this.d >= 0) ? true : true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return "Position{l=" + this.a + ", t=" + this.b + ", w=" + this.c + ", h=" + this.d + ", WAuto=" + this.e + ", HAuto=" + this.f + ", fixed=" + this.h + '}';
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    public rt2(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.booleanValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = false;
+        this.f = false;
+        this.g = false;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i4;
     }
 }

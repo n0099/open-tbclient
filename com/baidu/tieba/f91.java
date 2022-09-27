@@ -1,43 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f91 {
+public abstract class f91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
+    public f91() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            try {
-                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
-                if (connectivityManager == null) {
-                    return null;
-                }
-                return connectivityManager.getActiveNetworkInfo();
-            } catch (SecurityException unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (NetworkInfo) invokeL.objValue;
+        this.a = false;
     }
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            NetworkInfo a = a(context);
-            return a != null && a.isAvailable() && a.getType() == 1;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public abstract boolean b(SQLiteDatabase sQLiteDatabase);
+
+    public void c(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) != null) {
+            return;
         }
-        return invokeL.booleanValue;
+        this.a = false;
+        try {
+            sQLiteDatabase.beginTransaction();
+            if (b(sQLiteDatabase)) {
+                sQLiteDatabase.setTransactionSuccessful();
+                this.a = true;
+            }
+        } catch (Exception unused) {
+        } catch (Throwable th) {
+            try {
+                sQLiteDatabase.endTransaction();
+            } catch (Exception unused2) {
+            }
+            throw th;
+        }
+        try {
+            sQLiteDatabase.endTransaction();
+        } catch (Exception unused3) {
+        }
     }
 }

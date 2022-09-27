@@ -17,8 +17,8 @@ import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ih5;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.vh5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -108,7 +108,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            uu4 d2 = uu4.d(this);
+            hv4 d2 = hv4.d(this);
             d2.A(R.string.F_X01);
             d2.z(R.dimen.T_X09);
             d2.v(R.color.CAM_X0304);
@@ -116,7 +116,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             d2.n(R.string.J_X01);
             d2.l(R.dimen.L_X02);
             d2.k(R.color.CAM_X0304);
-            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808c5, WebPManager.ResourceStateType.NORMAL_PRESS);
+            Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f0808c7, WebPManager.ResourceStateType.NORMAL_PRESS);
             setCompoundDrawablePadding(b);
             if (maskDrawable != null) {
                 int i = c;
@@ -135,7 +135,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
         }
         if (NewWebHotTopicPageSwitch.isOn()) {
             if (view2.getContext() instanceof BaseActivity) {
-                ih5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+                vh5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
                 return;
             }
             return;

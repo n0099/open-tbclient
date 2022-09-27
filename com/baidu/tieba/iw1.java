@@ -1,60 +1,58 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class iw1 extends ew1 {
+public abstract class iw1 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
-    public boolean g;
 
-    public iw1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iw1(i43 i43Var, String str) {
+        super(i43Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = false;
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(fw1 fw1Var, Canvas canvas) {
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) && this.g) {
-            fw1Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, unitedSchemeEntity, callbackHandler, z) == null) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, z ? 0 : 1001);
         }
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void b(JSONArray jSONArray) {
+    public iy1 k(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 5) {
-            return;
-        }
-        this.a = pg3.g((float) jSONArray.optDouble(0));
-        this.b = pg3.g((float) jSONArray.optDouble(1));
-        this.c = pg3.g((float) jSONArray.optDouble(2));
-        this.d = pg3.g((float) jSONArray.optDouble(3));
-        this.e = pg3.g((float) jSONArray.optDouble(4));
-        this.f = pg3.g((float) jSONArray.optDouble(5));
-        this.g = true;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) ? new iy1(unitedSchemeEntity.getParams().get("params")) : (iy1) invokeL.objValue;
+    }
+
+    public JSONObject l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? UnitedSchemeUtility.wrapCallbackParams(i) : (JSONObject) invokeI.objValue;
     }
 }

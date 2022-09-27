@@ -1,194 +1,304 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestItemViewHolder;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.location.selectpoi.SelectLocationActivity;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wi7 extends qn<bj7, SearchSuggestItemViewHolder> {
+public class wi7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
+    public ArrayList<Object> a;
+    public TbPageContext<SelectLocationActivity> b;
+    public boolean c;
 
     /* loaded from: classes6.dex */
-    public class a implements no {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ wi7 b;
+    }
 
-        public a(wi7 wi7Var, Context context) {
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public TextView b;
+        public ImageView c;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wi7Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = wi7Var;
-            this.a = context;
         }
 
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof bj7)) {
-                HashMap hashMap = new HashMap();
-                StringBuilder sb = new StringBuilder();
-                bj7 bj7Var = (bj7) cdo;
-                sb.append(bj7Var.b());
-                sb.append("");
-                hashMap.put("itemID", sb.toString());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "GameItemDetailsPage", hashMap)));
-                this.b.u(bj7Var);
-            }
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wi7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public ImageView b;
+        public View c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    public wi7(TbPageContext<SelectLocationActivity> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this, context));
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bj7 bj7Var, SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
-        w(i, view2, viewGroup, bj7Var, searchSuggestItemViewHolder);
-        return view2;
-    }
-
-    public final void t(StatisticItem statisticItem, bj7 bj7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, statisticItem, bj7Var) == null) {
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("item_id", bj7Var.b().longValue());
+        this.b = tbPageContext;
+        LocationData b2 = ho8.a().b();
+        this.c = !ho8.a().c();
+        if (b2 == null) {
+            return;
         }
+        this.a = c(b2.getPoi_info(), b2.getFormatted_address());
     }
 
-    public final void u(bj7 bj7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bj7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_ITEM_CLICK);
-            t(statisticItem, bj7Var);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: v */
-    public SearchSuggestItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) ? new SearchSuggestItemViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07a2, viewGroup, false)) : (SearchSuggestItemViewHolder) invokeL.objValue;
-    }
-
-    public View w(int i, View view2, ViewGroup viewGroup, bj7 bj7Var, SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
+    public final View a(View view2, int i, boolean z) {
         InterceptResult invokeCommon;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bj7Var, searchSuggestItemViewHolder})) == null) {
-            if (bj7Var == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            Object item = getItem(i);
+            if (item instanceof LocationData.NearByAddressData) {
+                LocationData.NearByAddressData nearByAddressData = (LocationData.NearByAddressData) item;
+                if (view2 != null && (view2.getTag() instanceof c)) {
+                    bVar = (b) view2.getTag();
+                } else {
+                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07ae, (ViewGroup) null);
+                    bVar = new b(null);
+                    bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e48);
+                    bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e46);
+                    bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e49);
+                    view2.setTag(bVar);
+                }
+                bVar.b.setText(nearByAddressData.getAddr());
+                if (this.c && i == 1) {
+                    bVar.c.setVisibility(0);
+                    bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093b, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                    if (TextUtils.isEmpty(nearByAddressData.getAddr())) {
+                        bVar.b.setText(R.string.obfuscated_res_0x7f0f1111);
+                    }
+                } else {
+                    bVar.c.setVisibility(4);
+                }
+                bVar.a.setText(nearByAddressData.getName());
+                this.b.getLayoutMode().l(z);
+                this.b.getLayoutMode().k(view2);
+                SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
                 return view2;
             }
-            x(searchSuggestItemViewHolder);
-            searchSuggestItemViewHolder.b.setConrers(15);
-            searchSuggestItemViewHolder.b.setRadiusById(R.string.J_X06);
-            searchSuggestItemViewHolder.b.K(bj7Var.a(), 10, false);
-            searchSuggestItemViewHolder.c.setText(bj7Var.c());
-            searchSuggestItemViewHolder.f.setStarSpacing(ej.f(this.a, R.dimen.M_W_X002));
-            searchSuggestItemViewHolder.f.setStarCount(bj7Var.g().intValue());
-            TextView textView = searchSuggestItemViewHolder.d;
-            StringBuilder sb = new StringBuilder();
-            sb.append(bj7Var.f());
-            String str = "";
-            sb.append("");
-            textView.setText(sb.toString());
-            if (bj7Var.h() != null) {
-                for (String str2 : bj7Var.h()) {
-                    if (!StringUtils.isNull(str2)) {
-                        if (!StringUtils.isNull(str)) {
-                            str2 = str + " " + str2;
-                        }
-                        str = str2;
-                    }
-                }
-            }
-            searchSuggestItemViewHolder.e.setText(str);
-            y(bj7Var);
-            return view2;
+            return null;
         }
         return (View) invokeCommon.objValue;
     }
 
-    public final void x(SearchSuggestItemViewHolder searchSuggestItemViewHolder) {
+    public final View b(View view2, int i, boolean z) {
+        InterceptResult invokeCommon;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, searchSuggestItemViewHolder) == null) {
-            uu4 d = uu4.d(searchSuggestItemViewHolder.c);
-            d.A(R.string.F_X02);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            uu4 d2 = uu4.d(searchSuggestItemViewHolder.d);
-            d2.v(R.color.CAM_X0108);
-            d2.z(R.dimen.T_X09);
-            uu4 d3 = uu4.d(searchSuggestItemViewHolder.e);
-            d3.v(R.color.CAM_X0108);
-            d3.z(R.dimen.T_X09);
-            SkinManager.setBackgroundResource(searchSuggestItemViewHolder.a, R.drawable.addresslist_item_bg);
-            uu4.d(searchSuggestItemViewHolder.g).f(R.color.CAM_X0203);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            Object item = getItem(i);
+            if (item instanceof String) {
+                String str = (String) item;
+                if (view2 != null && (view2.getTag() instanceof c)) {
+                    cVar = (c) view2.getTag();
+                } else {
+                    view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07af, (ViewGroup) null);
+                    cVar = new c(null);
+                    cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e4a);
+                    cVar.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e49);
+                    cVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091e47);
+                    view2.setTag(cVar);
+                }
+                if (i == 0 && !this.c) {
+                    cVar.b.setVisibility(0);
+                    cVar.b.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f08093b, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL_PRESS));
+                } else {
+                    cVar.b.setVisibility(4);
+                }
+                cVar.a.setText(str);
+                SkinManager.setBackgroundColor(cVar.c, R.color.CAM_X0204);
+                SkinManager.setViewTextColor(cVar.a, R.color.CAM_X0302, 1);
+                SkinManager.setBackgroundResource(view2, R.drawable.home_recommend_item_bg);
+                return view2;
+            }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 
-    public final void y(bj7 bj7Var) {
+    public final ArrayList<Object> c(List<LocationData.NearByAddressData> list, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bj7Var) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_ITEM_SHOW);
-            t(statisticItem, bj7Var);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, str)) == null) {
+            LocationData.NearByAddressData nearByAddressData = null;
+            if (list == null || list.size() <= 0) {
+                return null;
+            }
+            ArrayList<Object> arrayList = new ArrayList<>();
+            for (LocationData.NearByAddressData nearByAddressData2 : list) {
+                if (nearByAddressData2 != null && !TextUtils.isEmpty(nearByAddressData2.getName())) {
+                    if (TextUtils.equals(nearByAddressData2.getName(), str)) {
+                        nearByAddressData = nearByAddressData2;
+                    } else {
+                        arrayList.add(nearByAddressData2);
+                    }
+                }
+            }
+            if (nearByAddressData != null) {
+                arrayList.add(0, nearByAddressData);
+            } else {
+                LocationData.NearByAddressData nearByAddressData3 = new LocationData.NearByAddressData();
+                nearByAddressData3.setName(str);
+                arrayList.add(0, nearByAddressData3);
+            }
+            TbPageContext<SelectLocationActivity> tbPageContext = this.b;
+            if (tbPageContext != null) {
+                arrayList.add(0, tbPageContext.getString(R.string.obfuscated_res_0x7f0f1112));
+            }
+            return arrayList;
         }
+        return (ArrayList) invokeLL.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList<Object> arrayList = this.a;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ArrayList<Object> arrayList = this.a;
+            if (arrayList == null || i < 0 || i >= arrayList.size()) {
+                return null;
+            }
+            return this.a.get(i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            Object item = getItem(i);
+            if (item instanceof String) {
+                return 0;
+            }
+            return item instanceof LocationData.NearByAddressData ? 1 : 2;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            int itemViewType = getItemViewType(i);
+            boolean z = TbadkCoreApplication.getInst().getSkinType() == 1;
+            if (itemViewType != 0) {
+                if (itemViewType != 1) {
+                    return null;
+                }
+                return a(view2, i, z);
+            }
+            return b(view2, i, z);
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
     }
 }

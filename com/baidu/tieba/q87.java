@@ -1,167 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tieba.im.chat.officialBar.MenuKeyboardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class q87 {
+public class q87 extends s55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public int e;
 
-    public q87() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q87(Context context) {
+        super(context, (String) null, 21);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static q87 g(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
-            if (obj instanceof Map) {
-                Map map = (Map) obj;
-                q87 q87Var = new q87();
-                try {
-                    q87Var.a = (String) map.get("user_id");
-                    q87Var.b = (String) map.get("username");
-                    q87Var.c = (String) map.get("avatar");
-                    q87Var.d = ((Boolean) map.get("is_free")).booleanValue();
-                    q87Var.e = ((Integer) map.get("pos")).intValue();
-                } catch (Exception unused) {
-                    Log.d("GameMatchUser", "Flutter Data Parser Error!");
-                }
-                if (q87Var.f()) {
-                    return q87Var;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (q87) invokeL.objValue;
-    }
-
-    @NonNull
-    public static List<q87> h(HashMap hashMap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Object obj = hashMap.get("imUserList");
-            if (obj instanceof List) {
-                int i = 0;
-                while (true) {
-                    List list = (List) obj;
-                    if (i >= list.size()) {
-                        break;
-                    }
-                    q87 g = g(list.get(i));
-                    if (g != null) {
-                        arrayList.add(g);
-                    }
-                    i++;
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || q87.class != obj.getClass()) {
-                return false;
-            }
-            String str = this.a;
-            String str2 = ((q87) obj).a;
-            return str != null ? str.equals(str2) : str2 == null;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? (TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.c)) ? false : true : invokeV.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String str = this.a;
-            if (str != null) {
-                return str.hashCode();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "GameMatchUser{userId='" + this.a + "', showName='" + this.b + "', avatar='" + this.c + "', isFree='" + this.d + "', pos='" + this.e + "'}";
-        }
-        return (String) invokeV.objValue;
+        this.o = false;
+        this.n = 1;
+        this.m = new MenuKeyboardView(getContext());
+        this.p = new int[]{1};
     }
 }

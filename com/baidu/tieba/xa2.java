@@ -1,10 +1,17 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.ValueCallback;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,21 +19,155 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
-import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xa2 implements wa2 {
+public class xa2 extends ta2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static volatile xa2 g;
+    public static final boolean o;
+    public static final Object p;
+    public static String q;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ya2> a;
-    public HashMap<String, ArrayList<ValueCallback<String>>> b;
-    public String c;
-    public HttpManager d;
-    public final Object e;
+
+    /* loaded from: classes6.dex */
+    public static class a extends EventTargetImpl {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public va2 a;
+        public mf2 b;
+        @V8JavascriptField
+        public ua2 env;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(va2 va2Var, String str) {
+            super(va2Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {va2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((JSRuntime) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = va2Var;
+            ua2 ua2Var = new ua2();
+            this.env = ua2Var;
+            ua2Var.basePath = str;
+        }
+
+        @JavascriptInterface
+        @SuppressLint({"BDThrowableCheck"})
+        public String getAPIs(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (xa2.o) {
+                    String d = kz2.p() ? yf3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8) : "";
+                    l02.b("SwanAppV8Engine", "getAPIs res:" + d);
+                    return d;
+                }
+                String d2 = yf3.d(i, SchemeCollecter.CLASSIFY_SWAN_V8);
+                l02.b("SwanAppV8Engine", "getAPIs description:" + d2);
+                if (TextUtils.isEmpty(d2)) {
+                    if (!xa2.o) {
+                        pf3.c(yf3.b(String.format("index: %d, desc: %s, isV8: %b", Integer.valueOf(i), d2, Boolean.TRUE)));
+                    } else {
+                        yf3.i();
+                        throw new RuntimeException(String.format("getAPIs cannot find index: %d, desc: %s", Integer.valueOf(i), d2));
+                    }
+                } else {
+                    pf3.d();
+                }
+                return d2;
+            }
+            return (String) invokeI.objValue;
+        }
+
+        @JavascriptInterface
+        public String getDevToolsResponse() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (xa2.o) {
+                    Log.d("SwanAppV8Engine", "getDevToolsResponse = " + xa2.q);
+                }
+                return xa2.q;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public String getEnvVariables() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? vn2.a(this.a) : (String) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public mf2 getFileSystemManager() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.b == null) {
+                    this.b = new mf2((ta2) this.a);
+                }
+                return this.b;
+            }
+            return (mf2) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public JSONObject getNACanIUseMap() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                JSONObject b = mu2.b();
+                l02.k("SwanAppV8Engine", "getNACanIUseMap - " + b.toString());
+                return b;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @JavascriptInterface
+        public boolean lockMaster() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                l02.k("SwanAppV8Engine", "lockMaster");
+                synchronized (xa2.p) {
+                    try {
+                        try {
+                            xa2.p.wait();
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                            return false;
+                        }
+                    } catch (Throwable th) {
+                        throw th;
+                    }
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @JavascriptInterface
+        public void setDevToolsResponse(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                if (xa2.o) {
+                    Log.d("SwanAppV8Engine", "setDevToolsResponse = " + str);
+                }
+                xa2.q = str;
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,153 +182,52 @@ public class xa2 implements wa2 {
                 return;
             }
         }
-        f = ij1.a;
+        o = vj1.a;
+        p = new Object();
+        q = "";
     }
 
-    public xa2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xa2(@NonNull String str, @NonNull qb2 qb2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        super(str, qb2Var, v8ThreadDelegatePolicy);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, qb2Var, v8ThreadDelegatePolicy};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (qb2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.d = gm2.l().a();
-        this.c = gm2.f().a();
     }
 
-    public static xa2 e() {
+    @Override // com.baidu.tieba.ta2
+    @NonNull
+    public EventTarget A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (xa2.class) {
-                    if (g == null) {
-                        g = new xa2();
-                    }
-                }
-            }
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            a aVar = new a(this, this.b.getInitBasePath());
+            aVar.env.config = rc3.b();
+            return aVar;
         }
-        return (xa2) invokeV.objValue;
+        return (EventTarget) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wa2
-    public void a(String str, String str2) {
-        ArrayList<ValueCallback<String>> arrayList;
+    @Override // com.baidu.tieba.va2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    public int getInvokeSourceType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).onReceiveValue(str2);
-                        if (f) {
-                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 0;
         }
-    }
-
-    public final void b(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(valueCallback);
-                return;
-            }
-            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
-            arrayList.add(valueCallback);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
-            }
-            ya2 ya2Var = new ya2(this.d, this.c, str, this);
-            this.a.put(str, ya2Var);
-            ya2Var.e();
-        }
-    }
-
-    public final String d(String str) throws MalformedURLException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.c + gm2.f().c(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) ? this.a.containsKey(str) : invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wa2
-    public void fail(int i, String str) {
-        ArrayList<ValueCallback<String>> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (f(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).onReceiveValue("");
-                    }
-                    this.a.remove(str);
-                }
-            }
-        }
-    }
-
-    public void g(String str, ValueCallback<String> valueCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
-            if (TextUtils.isEmpty(str)) {
-                valueCallback.onReceiveValue(null);
-                return;
-            }
-            try {
-                String d = d(str);
-                if (TextUtils.isEmpty(d)) {
-                    return;
-                }
-                File file = new File(d(str));
-                if (file.exists() && !file.isDirectory()) {
-                    if (valueCallback != null) {
-                        valueCallback.onReceiveValue(d);
-                        return;
-                    }
-                    return;
-                }
-                synchronized (this.e) {
-                    if (!f(str)) {
-                        c(str);
-                    }
-                    b(str, valueCallback);
-                }
-            } catch (Exception e) {
-                if (f) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        return invokeV.intValue;
     }
 }

@@ -1,141 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.collection.ArraySet;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class fc2 implements gc2, xb2 {
+public class fc2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public lb2 a;
-    public nk1 b;
-    public volatile xb2[] c;
-    public ec2 d;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fc2 a;
-
-        public a(fc2 fc2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947759252, "Lcom/baidu/tieba/fc2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fc2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = fc2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e();
-            }
-        }
-    }
-
-    public fc2(@NonNull ec2 ec2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ec2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947759252, "Lcom/baidu/tieba/fc2;");
                 return;
             }
         }
-        this.a = new lb2();
-        this.b = gm2.m();
-        this.c = new xb2[]{new bc2(), new zb2(), new yb2(), new ac2()};
-        this.d = ec2Var;
+        a = vj1.a;
     }
 
-    @Override // com.baidu.tieba.xb2
-    public synchronized ArraySet<String> a() {
-        InterceptResult invokeV;
-        ArraySet<String> arraySet;
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                yz1.k("RecoveryPolicy", "renameAllPlatformFiles start");
-                arraySet = new ArraySet<>();
-                for (xb2 xb2Var : this.c) {
-                    arraySet.addAll((ArraySet<? extends String>) xb2Var.a());
-                }
-                yz1.k("RecoveryPolicy", "renameAllPlatformFiles end");
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            return "frame_type_" + i + "_" + str;
+        }
+        return (String) invokeIL.objValue;
+    }
+
+    public static long b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            long j = zb3.a().getLong(a(i, "launch_time"), 0L);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + j);
             }
-            return arraySet;
+            return j;
         }
-        return (ArraySet) invokeV.objValue;
+        return invokeI.longValue;
     }
 
-    @Override // com.baidu.tieba.gc2
-    public void b() {
+    public static void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            sf3.k(new a(this), "performRecovery");
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            String a2 = a(i, "launch_time");
+            long currentTimeMillis = System.currentTimeMillis();
+            zb3.a().putLong(a2, currentTimeMillis);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + currentTimeMillis);
+            }
         }
-    }
-
-    public void c(ArraySet<String> arraySet) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arraySet) == null) || arraySet == null || arraySet.isEmpty()) {
-            return;
-        }
-        yz1.k("RecoveryPolicy", "deleteFiles start");
-        Iterator<String> it = arraySet.iterator();
-        while (it.hasNext()) {
-            cj4.k(it.next());
-        }
-        yz1.k("RecoveryPolicy", "deleteFiles end");
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            oz2 e = oz2.e();
-            qz2 qz2Var = new qz2(132);
-            qz2Var.d();
-            e.h(qz2Var);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void f(Collection<String> collection) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, collection) == null) || collection == null || collection.isEmpty()) {
-            return;
-        }
-        yz1.k("RecoveryPolicy", "resetAccredit appIds=" + collection);
-        this.a.g(new ArrayList(collection));
     }
 }

@@ -1,233 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.livesdk.sdk.service.IMLikeRequest;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.vn2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class ui3 {
+public class ui3 implements m94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Long> a;
-    public final HashMap<String, String> b;
-    public boolean c;
-    public boolean d;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vn2.a a;
-        public final /* synthetic */ ui3 b;
-
-        public a(ui3 ui3Var, vn2.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ui3Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ui3Var;
-            this.a = aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.j(this.a);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948211914, "Lcom/baidu/tieba/ui3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948211914, "Lcom/baidu/tieba/ui3;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
-    }
+    public FrameLayout a;
 
     public ui3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = false;
-        this.d = false;
+        this.a = null;
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.m94
+    public void a(BaseMenuView baseMenuView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
-            this.b.clear();
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, baseMenuView) == null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
+            return;
+        }
+        if (sm2.M().a()) {
+            b(baseMenuView);
+        } else {
+            c(baseMenuView);
         }
     }
 
-    public synchronized void c() {
+    public final void b(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.d = true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) && viewGroup != null && (viewGroup instanceof FrameLayout)) {
+            if (this.a == null) {
+                FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
+                this.a = frameLayout;
+                frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f0603de);
             }
+            viewGroup.removeView(this.a);
+            viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
         }
     }
 
-    public synchronized boolean d(@NonNull String str) {
-        InterceptResult invokeL;
-        boolean containsKey;
+    public final void c(ViewGroup viewGroup) {
+        FrameLayout frameLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                containsKey = this.a.containsKey(str);
-            }
-            return containsKey;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) || viewGroup == null || (frameLayout = this.a) == null) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean e() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                z = this.d;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            synchronized (this) {
-                if (!this.d) {
-                    this.b.put(str, str2);
-                }
-            }
-        }
-    }
-
-    public synchronized void g(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                if (!this.d && !this.a.containsKey(str)) {
-                    this.a.put(str, Long.valueOf(System.currentTimeMillis()));
-                }
-            }
-        }
-    }
-
-    public synchronized void h(@NonNull String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048582, this, str, j) == null) {
-            synchronized (this) {
-                if (!this.a.containsKey(str)) {
-                    this.a.put(str, Long.valueOf(j));
-                }
-            }
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d = false;
-            this.c = false;
-        }
-    }
-
-    public final synchronized void j(vn2.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                this.c = true;
-                dw2.r(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
-                HybridUbcFlow p = dw2.p(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB);
-                p.E("type", "naWebdegrade");
-                for (Map.Entry<String, Long> entry : this.a.entrySet()) {
-                    yz1.i("WebStaticRecorder", "submit: event key: " + entry.getKey() + " value " + entry.getValue());
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(entry.getKey());
-                    ubcFlowEvent.h(entry.getValue().longValue());
-                    p.F(ubcFlowEvent);
-                }
-                for (Map.Entry<String, String> entry2 : this.b.entrySet()) {
-                    yz1.i("WebStaticRecorder", "submit: ext key: " + entry2.getKey() + " value " + entry2.getValue());
-                    p.D(entry2.getKey(), entry2.getValue());
-                }
-                String h = p.h("fmpArrived");
-                if (TextUtils.isEmpty(h)) {
-                    h = "0";
-                }
-                p.D("fmpArrived", h);
-                p.D("launchID", aVar.V());
-                p.D("scheme", aVar.W());
-                p.D("appid", aVar.H());
-                p.D("page", qi3.c().b());
-                long j = aVar.s0().getLong("click_time", 0L);
-                if (j > 0) {
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("user_action");
-                    ubcFlowEvent2.h(j);
-                    p.F(ubcFlowEvent2);
-                }
-                p.A();
-                b();
-            }
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            sf3.d(new a(this, x23.K().q().W()), "WebStaticRecorder", IMLikeRequest.TIME_INTERVAL, TimeUnit.MILLISECONDS);
-        }
+        viewGroup.removeView(frameLayout);
+        this.a = null;
     }
 }

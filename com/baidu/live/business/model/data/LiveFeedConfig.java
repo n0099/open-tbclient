@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tieba.s90;
+import com.baidu.tieba.fa0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -188,10 +188,10 @@ public class LiveFeedConfig {
                     this.minorUfoUrl = optJSONObject.optString("ufo_url");
                 }
                 if (z && z2) {
-                    s90.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
+                    fa0.f(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, jSONObject.toString());
                 }
             } else if (z && z2) {
-                String b = s90.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
+                String b = fa0.b(LIVE_FEED_PAGE_CONFIG_CACHE_KEY, "");
                 if (TextUtils.isEmpty(b)) {
                     return;
                 }
@@ -208,7 +208,7 @@ public class LiveFeedConfig {
                         this.minorUfoUrl = optJSONObject2.optString("ufo_url");
                     }
                 } catch (JSONException unused) {
-                    s90.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
+                    fa0.g(LIVE_FEED_PAGE_CONFIG_CACHE_KEY);
                 }
             }
         }

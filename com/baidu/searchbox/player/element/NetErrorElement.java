@@ -88,7 +88,7 @@ public class NetErrorElement extends AbsElement {
             if (this.mRootView == null) {
                 this.mRootView = (LinearLayout) View.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0154, null);
             }
-            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092393);
+            this.mTextNetError = (TextView) this.mRootView.findViewById(R.id.obfuscated_res_0x7f092395);
             Button button = (Button) this.mRootView.findViewById(R.id.obfuscated_res_0x7f090418);
             this.mBtnRetry = button;
             button.setOnClickListener(this.mParent);

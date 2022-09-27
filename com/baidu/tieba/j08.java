@@ -1,42 +1,87 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import androidx.recyclerview.widget.LinearSmoothScroller;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.ItemCardView;
-import com.baidu.tieba.gx;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class j08 extends f08 {
+public class j08 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout f;
-    public ny g;
-    public ItemCardView h;
-    public ThreadData i;
-    public lq4 j;
 
     /* loaded from: classes4.dex */
-    public class a extends lq4 {
+    public static class a extends LinearSmoothScroller {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j08 a;
 
-        public a(j08 j08Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j08Var};
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // androidx.recyclerview.widget.LinearSmoothScroller
+        public int calculateDtToFit(int i, int i2, int i3, int i4, int i5) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)})) == null) {
+                int calculateDtToFit = super.calculateDtToFit(i, i2, i3, i4, i5);
+                return calculateDtToFit == 0 ? calculateDtToFit : calculateDtToFit - j08.a;
+            }
+            return invokeCommon.intValue;
+        }
+
+        @Override // androidx.recyclerview.widget.LinearSmoothScroller
+        public float calculateSpeedPerPixel(DisplayMetrics displayMetrics) {
+            InterceptResult invokeL;
+            int i;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, displayMetrics)) == null) ? (displayMetrics == null || (i = displayMetrics.densityDpi) == 0) ? super.calculateSpeedPerPixel(displayMetrics) : 300.0f / i : invokeL.floatValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BdTypeRecyclerView a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ LinearSmoothScroller c;
+
+        public b(BdTypeRecyclerView bdTypeRecyclerView, String str, LinearSmoothScroller linearSmoothScroller) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bdTypeRecyclerView, str, linearSmoothScroller};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,182 +91,69 @@ public class j08 extends f08 {
                     return;
                 }
             }
-            this.a = j08Var;
+            this.a = bdTypeRecyclerView;
+            this.b = str;
+            this.c = linearSmoothScroller;
         }
 
-        @Override // com.baidu.tieba.lq4
-        public is4 getNegFeedBackData() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
+            int a;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (a = j08.a(this.a, this.b)) < 0) {
+                return;
             }
-            return (is4) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.lq4
-        public ThreadData getThreadData() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.i : (ThreadData) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-        public BdUniqueId getType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
+            this.c.setTargetPosition(a);
+            RecyclerView.LayoutManager layoutManager = this.a.getLayoutManager();
+            if (layoutManager != null) {
+                layoutManager.startSmoothScroll(this.c);
             }
-            return (BdUniqueId) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j08 a;
-
-        public b(j08 j08Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947829591, "Lcom/baidu/tieba/j08;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j08Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947829591, "Lcom/baidu/tieba/j08;");
+                return;
+            }
+        }
+        a = ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds120);
+    }
+
+    public static int a(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdTypeRecyclerView, str)) == null) {
+            if (bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+                List<Cdo> data = bdTypeRecyclerView.getData();
+                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+                if (data != null && data.size() > 0) {
+                    int size = data.size();
+                    for (int i = 0; i < size; i++) {
+                        Cdo cdo = data.get(i);
+                        if ((cdo instanceof PostData) && cdo.getType() == PostData.L0 && str.equals(((PostData) cdo).L())) {
+                            return i + headerViewsCount;
+                        }
+                    }
                 }
             }
-            this.a = j08Var;
+            return -1;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            j08 j08Var;
-            gx.a aVar;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (aVar = (j08Var = this.a).c) == null) {
-                return;
-            }
-            aVar.a(j08Var.j);
-        }
+        return invokeLL.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j08(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public static void b(BdTypeRecyclerView bdTypeRecyclerView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.f08
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.f == null) {
-                LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
-                this.f = linearLayout;
-                linearLayout.setClipChildren(false);
-                this.f.setClipToPadding(false);
-                SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-                this.f.setOrientation(1);
-                this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
-            }
-            this.f.removeAllViews();
-            if (this.g == null) {
-                ny nyVar = new ny(this.a);
-                this.g = nyVar;
-                nyVar.o(Boolean.TRUE);
-            }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            this.f.addView(this.g.h(), layoutParams);
-            if (this.h == null) {
-                this.h = new ItemCardView(this.a.getPageActivity());
-            }
-            this.h.setBackGroundColor(R.color.CAM_X0205);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X004);
-            layoutParams2.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams2.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
-            layoutParams2.bottomMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
-            this.f.addView(this.h, layoutParams2);
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.f08
-    public void b(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) || this.e == i) {
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, bdTypeRecyclerView, str) == null) || bdTypeRecyclerView == null || TextUtils.isEmpty(str)) {
             return;
         }
-        this.e = i;
-        SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
-        ny nyVar = this.g;
-        if (nyVar != null) {
-            nyVar.onChangeSkinType(tbPageContext, i);
-        }
-        ItemCardView itemCardView = this.h;
-        if (itemCardView != null) {
-            itemCardView.G();
-        }
-    }
-
-    @Override // com.baidu.tieba.f08
-    public void c(OriginalThreadInfo originalThreadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
-            this.d = originalThreadInfo;
-            this.i = originalThreadInfo == null ? null : originalThreadInfo.b();
-            this.j = new a(this);
-            ItemCardView itemCardView = this.h;
-            if (itemCardView != null && originalThreadInfo != null) {
-                itemCardView.setData(originalThreadInfo.D, 17, originalThreadInfo.f);
-            }
-            ny nyVar = this.g;
-            if (nyVar != null) {
-                nyVar.a(this.j);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.f08
-    public void d(gx.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            super.d(aVar);
-            ny nyVar = this.g;
-            if (nyVar != null) {
-                nyVar.x(aVar);
-            }
-            LinearLayout linearLayout = this.f;
-            if (linearLayout != null) {
-                linearLayout.setOnClickListener(new b(this));
-            }
-        }
+        gh.a().post(new b(bdTypeRecyclerView, str, new a(bdTypeRecyclerView.getContext())));
     }
 }

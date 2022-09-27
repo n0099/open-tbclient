@@ -5,7 +5,7 @@ import android.media.MediaRecorder;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rz4;
+import com.baidu.tieba.e05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 /* loaded from: classes3.dex */
-public class MyAudioRecorder implements rz4 {
+public class MyAudioRecorder implements e05 {
     public static /* synthetic */ Interceptable $ic;
     public static final int[] n;
     public static Object o;
@@ -251,7 +251,7 @@ public class MyAudioRecorder implements rz4 {
         return (MyAudioRecorder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rz4
+    @Override // com.baidu.tieba.e05
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -259,14 +259,14 @@ public class MyAudioRecorder implements rz4 {
         }
     }
 
-    @Override // com.baidu.tieba.rz4
+    @Override // com.baidu.tieba.e05
     public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e == State.RECORDING : invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rz4
+    @Override // com.baidu.tieba.e05
     public boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -279,7 +279,7 @@ public class MyAudioRecorder implements rz4 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rz4
+    @Override // com.baidu.tieba.e05
     public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

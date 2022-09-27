@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.swan.bdprivate.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+@Service
 /* loaded from: classes4.dex */
-public class jj3 extends ActivityDelegation implements kj1 {
+public class jj3 implements cp3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,28 +31,39 @@ public class jj3 extends ActivityDelegation implements kj1 {
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dp3
+    public void a(i43 i43Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.mParams.getBoolean("key_login_force", false) && zi3.E(getAgent())) {
-                this.mResult.putInt("result_code", 0);
-                finish();
-                return true;
-            }
-            zi3.L(getAgent(), this.mParams.getBundle("key_login_params"), this);
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, i43Var) == null) {
+            i43Var.b(new bl3(i43Var));
+            i43Var.b(new fl3(i43Var));
+            i43Var.b(new zl3(i43Var));
+            i43Var.b(new yl3(i43Var));
+            i43Var.b(new ol3(i43Var));
+            i43Var.b(new gl3(i43Var));
+            i43Var.b(new dl3(i43Var));
+            i43Var.b(new ml3(i43Var));
+            i43Var.b(new cl3(i43Var));
+            i43Var.b(new al3(i43Var));
+            i43Var.b(new zk3(i43Var));
+            i43Var.b(new el3(i43Var));
+            i43Var.b(new dm3(i43Var));
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.kj1
-    public void onResult(int i) {
+    @Override // com.baidu.tieba.dp3
+    @Nullable
+    public Map<String, Object> b(@NonNull mr1 mr1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            finish();
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mr1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(mr1Var) : (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dp3
+    @Nullable
+    public Map<String, Object> c(@NonNull mr1 mr1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mr1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(mr1Var) : (Map) invokeL.objValue;
     }
 }

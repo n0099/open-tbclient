@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.in8;
+import com.baidu.tieba.bo8;
 import com.baidu.tieba.lj;
-import com.baidu.tieba.mn8;
+import com.baidu.tieba.xn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements in8 {
+public class CommonTbJsBridge implements xn8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements in8 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.in8
+    @Override // com.baidu.tieba.xn8
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements in8 {
         return invokeLLLL.booleanValue;
     }
 
-    public mn8 getSupplementInfo() {
+    public bo8 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            mn8 mn8Var = new mn8();
+            bo8 bo8Var = new bo8();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements in8 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                mn8Var.o(jSONObject.toString());
-                return mn8Var;
+                bo8Var.o(jSONObject.toString());
+                return bo8Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                mn8Var.o("");
-                return mn8Var;
+                bo8Var.o("");
+                return bo8Var;
             }
         }
-        return (mn8) invokeV.objValue;
+        return (bo8) invokeV.objValue;
     }
 }

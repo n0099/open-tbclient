@@ -1,112 +1,178 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
+import com.baidu.swan.apps.core.pms.PkgDownloadError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebResourceRequest;
-import com.baidu.webkit.sdk.WebResourceResponse;
-import java.util.Map;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes3.dex */
-public class a72 implements h72 {
+public class a72 extends l62 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CopyOnWriteArrayList<m72> b;
+    public b D;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ int a;
+        public final /* synthetic */ ef3 b;
+        public final /* synthetic */ a72 c;
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a72 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-992899569, "Lcom/baidu/tieba/a72$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-992899569, "Lcom/baidu/tieba/a72$b;");
+        public a(a72 a72Var, int i, ef3 ef3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a72Var, Integer.valueOf(i), ef3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new a72(null);
+            this.c = a72Var;
+            this.a = i;
+            this.b = ef3Var;
         }
-    }
 
-    public /* synthetic */ a72(a aVar) {
-        this();
-    }
-
-    public static a72 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (a72) invokeV.objValue;
-    }
-
-    public void a(m72 m72Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, m72Var) == null) || m72Var == null || this.b.contains(m72Var)) {
-            return;
-        }
-        this.b.add(m72Var);
-    }
-
-    @RequiresApi(api = 21)
-    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
-        InterceptResult invokeLZ;
-        Uri url;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
-            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
-                return null;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c.D == null) {
+                return;
             }
-            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
-        }
-        return (WebResourceResponse) invokeLZ.objValue;
-    }
-
-    public final WebResourceResponse d(String str, Map<String, String> map, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
-            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
-                return null;
+            int i = this.a;
+            if (i == -1) {
+                this.c.D.b(this.b);
+            } else if (i == 0) {
+                this.c.D.a();
+            } else if (i != 1) {
+            } else {
+                this.c.D.onSuccess();
             }
-            return new p72(this.b, str, map, 0, z).b(str, map, z);
         }
-        return (WebResourceResponse) invokeLLZ.objValue;
     }
 
-    public a72() {
+    /* loaded from: classes3.dex */
+    public interface b {
+        void a();
+
+        void b(ef3 ef3Var);
+
+        void onSuccess();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a72(String str, b bVar) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new CopyOnWriteArrayList<>();
+        this.D = bVar;
+    }
+
+    @Override // com.baidu.tieba.l62, com.baidu.tieba.gb4
+    public void C(fc4 fc4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, fc4Var) == null) {
+            super.C(fc4Var);
+            ef3 ef3Var = new ef3();
+            ef3Var.k(10L);
+            ef3Var.c(fc4Var);
+            J0(-1, ef3Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.gb4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.F();
+            I0(0);
+        }
+    }
+
+    public final void I0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            J0(i, null);
+        }
+    }
+
+    public final void J0(int i, ef3 ef3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, ef3Var) == null) {
+            fh3.a0(new a(this, i, ef3Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.p62
+    public int K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.l62
+    public PMSDownloadType k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return null;
+        }
+        return (PMSDownloadType) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.l62
+    public void v0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.v0();
+            ef3 F0 = F0();
+            if (F0 == null) {
+                I0(1);
+                A0("page_route_download", "0");
+                return;
+            }
+            J0(-1, F0);
+        }
+    }
+
+    @Override // com.baidu.tieba.l62
+    public void w0(Throwable th) {
+        ef3 ef3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, th) == null) {
+            if (th instanceof PkgDownloadError) {
+                ef3Var = ((PkgDownloadError) th).getErrCode();
+            } else {
+                ef3Var = new ef3();
+                ef3Var.k(10L);
+                ef3Var.i(0L);
+            }
+            J0(-1, ef3Var);
+        }
     }
 }

@@ -15,10 +15,10 @@ import com.baidu.nps.pm.BundleInfo;
 import com.baidu.nps.stub.ModuleInit;
 import com.baidu.nps.utils.Constant;
 import com.baidu.nps.utils.ContextHolder;
-import com.baidu.tieba.d91;
-import com.baidu.tieba.e91;
-import com.baidu.tieba.g91;
-import com.baidu.tieba.i81;
+import com.baidu.tieba.i91;
+import com.baidu.tieba.q91;
+import com.baidu.tieba.r91;
+import com.baidu.tieba.t91;
 import com.baidu.tieba.v81;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ public class Bundle {
     public transient /* synthetic */ FieldHolder $fh;
     public BundleInfo mBundleInfo;
     public IInvoker mInvoker;
-    public v81 mRuntime;
+    public i91 mRuntime;
 
     public Bundle(BundleInfo bundleInfo) {
         Interceptable interceptable = $ic;
@@ -100,7 +100,7 @@ public class Bundle {
                 }
                 return true;
             } catch (Exception e) {
-                i81.a().b().recordException(3, e.toString(), packageInfo.packageName);
+                v81.a().b().recordException(3, e.toString(), packageInfo.packageName);
                 return true;
             }
         }
@@ -115,13 +115,13 @@ public class Bundle {
                 if (this.mRuntime != null) {
                     return true;
                 }
-                v81 b = v81.b(this.mBundleInfo);
+                i91 b = i91.b(this.mBundleInfo);
                 this.mRuntime = b;
                 if (b == null) {
                     return false;
                 }
                 Application applicationContext = ContextHolder.getApplicationContext();
-                PackageInfo a = g91.a(e91.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
+                PackageInfo a = t91.a(r91.d(applicationContext, this.mBundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), 138);
                 initBundle(a);
                 bindProviders(a);
                 return true;
@@ -197,7 +197,7 @@ public class Bundle {
     public void loadOnly() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (d91.a() && this.mBundleInfo != null) {
+            if (q91.a() && this.mBundleInfo != null) {
                 Log.d("Bundle", "loadOnly pkg=" + this.mBundleInfo.getPackageName());
             }
             initIfNeed();
@@ -218,13 +218,13 @@ public class Bundle {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, cls)) == null) {
             initIfNeed();
-            v81 v81Var = this.mRuntime;
-            if (v81Var != null) {
+            i91 i91Var = this.mRuntime;
+            if (i91Var != null) {
                 try {
                     if (cls == null) {
-                        return v81Var.c().loadClass(str);
+                        return i91Var.c().loadClass(str);
                     }
-                    return v81Var.c().loadClass(str).asSubclass(cls);
+                    return i91Var.c().loadClass(str).asSubclass(cls);
                 } catch (ClassNotFoundException e) {
                     throw new InvokeException(18, Log.getStackTraceString(e));
                 }

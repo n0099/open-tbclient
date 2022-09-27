@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class nl1 implements xm2 {
+public class nl1 implements qn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,11 +26,10 @@ public class nl1 implements xm2 {
         }
     }
 
-    @Override // com.baidu.tieba.xm2
-    @Nullable
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qn1
+    public InputStream a(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, inputStream)) == null) ? new yt9(inputStream) : (InputStream) invokeL.objValue;
     }
 }

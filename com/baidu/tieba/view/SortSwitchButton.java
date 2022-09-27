@@ -25,10 +25,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap8;
-import com.baidu.tieba.en5;
-import com.baidu.tieba.xm8;
-import com.baidu.tieba.zk8;
+import com.baidu.tieba.mn8;
+import com.baidu.tieba.ol8;
+import com.baidu.tieba.pp8;
+import com.baidu.tieba.rn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,14 +40,14 @@ import java.util.List;
 public class SortSwitchButton extends View implements View.OnTouchListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public en5 A;
+    public rn5 A;
     public float B;
     public float C;
     public boolean D;
     public boolean E;
     public boolean F;
     public boolean G;
-    public List<xm8> H;
+    public List<mn8> H;
     public List<Float> I;
     public GestureDetector J;
     public f K;
@@ -60,7 +60,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public BdUniqueId R;
     public BdUniqueId S;
     public CustomMessageListener T;
-    public en5.a U;
+    public rn5.a U;
     public GestureDetector.SimpleOnGestureListener V;
     public float a;
     public float b;
@@ -139,7 +139,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements en5.a {
+    public class b implements rn5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SortSwitchButton a;
@@ -162,7 +162,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.a = sortSwitchButton;
         }
 
-        @Override // com.baidu.tieba.en5.a
+        @Override // com.baidu.tieba.rn5.a
         public void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -405,7 +405,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 this.p = paint2;
                 paint2.setStyle(Paint.Style.STROKE);
                 this.p.setStrokeWidth(this.f);
-                this.p.setColor(zk8.a(SkinManager.getColor(this.d), this.g));
+                this.p.setColor(ol8.a(SkinManager.getColor(this.d), this.g));
             }
             this.q = new Paint(1);
             Paint paint3 = new Paint(1);
@@ -432,7 +432,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
     public final void D(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ap8.SortSwitchButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, pp8.SortSwitchButton);
             int resourceId = obtainStyledAttributes.getResourceId(3, R.color.CAM_X0107);
             this.d = resourceId;
             this.e = obtainStyledAttributes.getResourceId(1, resourceId);
@@ -486,7 +486,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public final boolean F(List<xm8> list) {
+    public final boolean F(List<mn8> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
@@ -503,18 +503,18 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         return invokeL.booleanValue;
     }
 
-    public final boolean G(xm8 xm8Var, xm8 xm8Var2) {
+    public final boolean G(mn8 mn8Var, mn8 mn8Var2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, xm8Var, xm8Var2)) == null) {
-            if (xm8Var == null && xm8Var2 == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, mn8Var, mn8Var2)) == null) {
+            if (mn8Var == null && mn8Var2 == null) {
                 return true;
             }
-            if (xm8Var != null && xm8Var2 != null) {
-                if (xm8Var.a() == xm8Var2.a() && xm8Var.b() != null && xm8Var.b().equals(xm8Var2.b())) {
+            if (mn8Var != null && mn8Var2 != null) {
+                if (mn8Var.a() == mn8Var2.a() && mn8Var.b() != null && mn8Var.b().equals(mn8Var2.b())) {
                     return true;
                 }
-                if (xm8Var.a() == xm8Var2.a() && xm8Var.b() == null && xm8Var2.b() == null) {
+                if (mn8Var.a() == mn8Var2.a() && mn8Var.b() == null && mn8Var2.b() == null) {
                     return true;
                 }
             }
@@ -529,7 +529,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.o.setColor(SkinManager.getColor(this.d));
             Paint paint = this.p;
             if (paint != null) {
-                paint.setColor(zk8.a(SkinManager.getColor(this.d), this.g));
+                paint.setColor(ol8.a(SkinManager.getColor(this.d), this.g));
             }
             invalidate();
         }
@@ -599,9 +599,9 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             if (mode == Integer.MIN_VALUE) {
                 this.a = 0.0f;
                 for (int i3 = 0; i3 < count; i3++) {
-                    xm8 xm8Var = (xm8) ListUtils.getItem(this.H, i3);
-                    if (xm8Var != null) {
-                        float measureText = this.r.measureText(xm8Var.b() == null ? "" : xm8Var.b()) + (this.l * 2.0f);
+                    mn8 mn8Var = (mn8) ListUtils.getItem(this.H, i3);
+                    if (mn8Var != null) {
+                        float measureText = this.r.measureText(mn8Var.b() == null ? "" : mn8Var.b()) + (this.l * 2.0f);
                         if (this.G) {
                             this.I.add(Float.valueOf(this.a));
                         }
@@ -707,7 +707,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public void setData(List<xm8> list) {
+    public void setData(List<mn8> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, list) == null) && F(list)) {
             if (ListUtils.isEmpty(list)) {
@@ -738,7 +738,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
             this.o.setColor(SkinManager.getColor(0, this.d));
             Paint paint = this.p;
             if (paint != null) {
-                paint.setColor(zk8.a(SkinManager.getColor(0, this.e), this.g));
+                paint.setColor(ol8.a(SkinManager.getColor(0, this.e), this.g));
             }
         }
     }
@@ -906,7 +906,7 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
                 return;
             }
         }
-        this.A = new en5();
+        this.A = new rn5();
         this.D = false;
         this.E = true;
         this.F = false;
@@ -925,11 +925,11 @@ public class SortSwitchButton extends View implements View.OnTouchListener {
         }
     }
 
-    public void setData(List<xm8> list, int i) {
-        en5 en5Var;
+    public void setData(List<mn8> list, int i) {
+        rn5 rn5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048594, this, list, i) == null) {
-            if (F(list) || (en5Var = this.A) == null || en5Var.a() != i) {
+            if (F(list) || (rn5Var = this.A) == null || rn5Var.a() != i) {
                 if (ListUtils.isEmpty(list)) {
                     setVisibility(8);
                     return;

@@ -1,31 +1,102 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.player.message.HandlerMessenger;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ax0 {
+public class ax0 extends zw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public long d;
-    public int e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
+    @Nullable
+    public a e;
+    public final HandlerThread f;
+
+    /* loaded from: classes3.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ax0 a;
+
+        /* renamed from: com.baidu.tieba.ax0$a$a  reason: collision with other inner class name */
+        /* loaded from: classes3.dex */
+        public class RunnableC0205a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ut0 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0205a(a aVar, ut0 ut0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, ut0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = ut0Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.a.i(this.a)) {
+                    return;
+                }
+                this.b.a.g(this.a);
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ax0 ax0Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ax0Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ax0Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                Object obj = message.obj;
+                if (obj instanceof ut0) {
+                    nj0.b(new RunnableC0205a(this, (ut0) obj));
+                }
+            }
+        }
+    }
 
     public ax0() {
         Interceptable interceptable = $ic;
@@ -40,148 +111,40 @@ public class ax0 {
                 return;
             }
         }
-        this.g = "0";
-        this.h = 0;
-        this.i = "0";
+        HandlerThread handlerThread = new HandlerThread(HandlerMessenger.TAG);
+        this.f = handlerThread;
+        handlerThread.start();
+        this.e = new a(this, this.f.getLooper());
     }
 
-    @Nullable
-    public static String a(@Nullable String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zw0
+    public String getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? HandlerMessenger.TAG : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zw0
+    public void l(@NonNull ut0 ut0Var) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ut0Var) == null) || (aVar = this.e) == null) {
+            return;
+        }
+        aVar.obtainMessage(153, ut0Var).sendToTarget();
+    }
+
+    @Override // com.baidu.tieba.zw0, com.baidu.tieba.bx0
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.release();
+            this.f.quit();
+            a aVar = this.e;
+            if (aVar != null) {
+                aVar.removeMessages(153);
             }
-            return k21.b(str, false);
+            this.e = null;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.j : (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.h : invokeV.intValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (TextUtils.isEmpty(d()) || TextUtils.isEmpty(c()) || Long.parseLong(f()) == 0 || TextUtils.equals(h(), "-1") || TextUtils.equals(h(), "0")) ? false : true : invokeV.booleanValue;
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.d = j;
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void o(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void r(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void s(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return "VideoPlayHistoryItemInfo [mTitle=" + this.a + ", mPlayProgress=" + this.c + ", mStartPlayTime=" + this.d + ", mSourceType=" + this.e + ", mId=" + this.f + ", mVideoCurLength=" + this.g + ", mPositionMs=" + this.h + ", mVideoTotalLength=" + this.i + ", mVid=" + this.j + ", mVideoType=" + this.k + ", mIdx=" + this.l + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
     }
 }

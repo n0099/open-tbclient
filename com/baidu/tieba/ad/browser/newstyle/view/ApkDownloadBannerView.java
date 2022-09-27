@@ -14,9 +14,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bp5;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.yj0;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.op5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ApkDownloadBannerView extends LinearLayout implements bp5 {
+public class ApkDownloadBannerView extends LinearLayout implements op5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -101,7 +101,7 @@ public class ApkDownloadBannerView extends LinearLayout implements bp5 {
         }
     }
 
-    @Override // com.baidu.tieba.bp5
+    @Override // com.baidu.tieba.op5
     public boolean a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class ApkDownloadBannerView extends LinearLayout implements bp5 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.rk0
+    @Override // com.baidu.tieba.el0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) == null) {
@@ -155,7 +155,7 @@ public class ApkDownloadBannerView extends LinearLayout implements bp5 {
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.rk0
+    @Override // com.baidu.tieba.el0
     @NonNull
     public View getRealView() {
         InterceptResult invokeV;
@@ -188,12 +188,12 @@ public class ApkDownloadBannerView extends LinearLayout implements bp5 {
         }
     }
 
-    @Override // com.baidu.tieba.rk0
-    public void update(String str, @NonNull yj0 yj0Var) {
+    @Override // com.baidu.tieba.el0
+    public void update(String str, @NonNull lk0 lk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, str, yj0Var) == null) {
-            getActionBar().setState(d(yj0Var.c));
-            this.b.setProgress((int) (Math.max(yj0Var.i, yj0Var.j) * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048585, this, str, lk0Var) == null) {
+            getActionBar().setState(d(lk0Var.c));
+            this.b.setProgress((int) (Math.max(lk0Var.i, lk0Var.j) * 100.0f));
         }
     }
 

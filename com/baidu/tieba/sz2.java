@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sz2 {
+public abstract class sz2 implements qz2<oz2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     static {
         InterceptResult invokeClinit;
@@ -32,51 +30,42 @@ public class sz2 {
                 return;
             }
         }
-        a = ij1.a;
+        b = vj1.a;
     }
 
-    public static void a(@Nullable Bundle bundle, @NonNull Class<? extends yy2> cls) {
+    public sz2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, bundle, cls) == null) {
-            Iterator<xz2> it = zz2.k().q().iterator();
-            while (it.hasNext()) {
-                xz2 next = it.next();
-                if (next != null && next.T()) {
-                    b(next.b, bundle, cls, null);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends yy2> cls, @Nullable fz2 fz2Var) {
+    @Override // com.baidu.tieba.qz2
+    @SuppressLint({"BDThrowableCheck"})
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, fz2Var) == null) {
-            if (a) {
-                Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                return this.a;
             }
-            Message obtain = Message.obtain((Handler) null, 125);
-            obtain.replyTo = zz2.k().d;
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("ai_apps_delegation_name", cls.getName());
-            if (fz2Var != null) {
-                bundle2.putString("ai_apps_observer_id", fz2Var.b());
-                cz2.b().e(fz2Var);
+            String str = System.currentTimeMillis() + "" + hashCode();
+            this.a = str;
+            if (b && tz2.a(str)) {
+                throw new RuntimeException("illegal observer id");
             }
-            if (bundle != null) {
-                bundle2.putBundle("ai_apps_data", bundle);
-            }
-            obtain.obj = bundle2;
-            oz2 e = oz2.e();
-            qz2 qz2Var = new qz2(obtain);
-            qz2Var.b(swanAppProcessInfo);
-            e.h(qz2Var);
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void c(@Nullable Bundle bundle, @NonNull Class<? extends yy2> cls, @Nullable fz2 fz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, bundle, cls, fz2Var) == null) {
-            tz2.Q().X(bundle, cls, fz2Var);
-        }
-    }
+    @Override // com.baidu.tieba.qz2
+    public abstract /* synthetic */ void onEvent(@NonNull T t);
 }

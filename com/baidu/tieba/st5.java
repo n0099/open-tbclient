@@ -6,21 +6,23 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernEmptyViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ala.alasquare.live_tab.view.OfficialRecommendLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class st5 extends qn<iv5, LiveTabConcernEmptyViewHolder> {
+public class st5 extends qn<wt5, OfficialRecommendLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
+    public av5 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public st5(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), iv5.b);
+        super(tbPageContext.getPageActivity(), wt5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -43,25 +45,30 @@ public class st5 extends qn<iv5, LiveTabConcernEmptyViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.qn
     /* renamed from: s */
-    public LiveTabConcernEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public OfficialRecommendLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new LiveTabConcernEmptyViewHolder(new eu5(this.a, viewGroup)) : (LiveTabConcernEmptyViewHolder) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new av5(this.a, viewGroup);
+            return new OfficialRecommendLiveViewHolder(this.b);
+        }
+        return (OfficialRecommendLiveViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.qn
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, iv5 iv5Var, LiveTabConcernEmptyViewHolder liveTabConcernEmptyViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wt5 wt5Var, OfficialRecommendLiveViewHolder officialRecommendLiveViewHolder) {
         InterceptResult invokeCommon;
-        eu5 eu5Var;
+        av5 av5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, iv5Var, liveTabConcernEmptyViewHolder})) == null) {
-            if (liveTabConcernEmptyViewHolder == null || (eu5Var = liveTabConcernEmptyViewHolder.a) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wt5Var, officialRecommendLiveViewHolder})) == null) {
+            if (officialRecommendLiveViewHolder == null || (av5Var = officialRecommendLiveViewHolder.a) == null) {
                 return null;
             }
-            eu5Var.i(iv5Var);
-            return liveTabConcernEmptyViewHolder.getView();
+            av5Var.i(wt5Var);
+            officialRecommendLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return officialRecommendLiveViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

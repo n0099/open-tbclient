@@ -1,99 +1,98 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.module.frs.Frs$From;
-import com.baidu.tieba.frs.voiceroom.VoiceRoomListActivity;
-import com.baidu.tieba.frs.voiceroom.VoiceRoomStat;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class fh6 extends se1<j95> {
+public class fh6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static final class a implements j95 {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nu4 a;
 
-        public a() {
+        public a(nu4 nu4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nu4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = nu4Var;
         }
 
-        @Override // com.baidu.tieba.j95
-        public void a(TbPageContext<?> tbPageContext, long j) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLJ(1048576, this, tbPageContext, j) == null) {
-                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-                d(tbPageContext, Intrinsics.stringPlus("bdtiebalive://video/mixlive?room_id=", Long.valueOf(j)));
-            }
-        }
-
-        @Override // com.baidu.tieba.j95
-        public void b(Context context, Frs$From from, Long l, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, from, l, str) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-                Intrinsics.checkNotNullParameter(from, "from");
-                VoiceRoomListActivity.a.a(context, from, l, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.j95
-        public void c(Long l, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, l, str) == null) {
-                VoiceRoomStat.d(l, str);
-            }
-        }
-
-        public void d(TbPageContext<?> tbPageContext, String scheme) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, scheme) == null) {
-                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
-                Intrinsics.checkNotNullParameter(scheme, "scheme");
-                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{scheme});
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
             }
         }
     }
 
-    public fh6() {
+    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
+        int k;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) || activity == null || tbPageContext == null) {
+            return;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.se1
-    /* renamed from: a */
-    public j95 createService() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a() : (j95) invokeV.objValue;
+        View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d0310, (ViewGroup) null);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c96);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c93);
+        TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c94);
+        TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c95);
+        TextView textView5 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c92);
+        TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0922a0);
+        nu4 nu4Var = new nu4(activity);
+        nu4Var.setContentView(inflate);
+        nu4Var.setContentViewSize(2);
+        nu4Var.setCanceledOnTouchOutside(true);
+        nu4Var.setAutoNight(true);
+        nu4Var.setCancelable(true);
+        int f = ej.f(activity, R.dimen.tbds31);
+        SkinManager.setBackgroundShapeDrawable(inflate, f, R.color.CAM_X0201, R.color.CAM_X0101);
+        tbImageView.setRadius(f);
+        tbImageView.setConrers(3);
+        tbImageView.setIsBitmapPic(true);
+        int f2 = ej.f(activity, R.dimen.tbds44);
+        if (UtilHelper.getRealScreenOrientation(activity) == 2) {
+            k = ej.i(activity);
+        } else {
+            k = ej.k(activity);
+        }
+        int i = k - (f2 * 2);
+        ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+        layoutParams.width = -1;
+        layoutParams.height = (i * 556) / 988;
+        tbImageView.setLayoutParams(layoutParams);
+        SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080592);
+        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+        SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
+        SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
+        SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
+        textView5.setOnClickListener(new a(nu4Var));
+        nu4Var.create(tbPageContext).show();
     }
 }

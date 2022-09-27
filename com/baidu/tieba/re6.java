@@ -1,67 +1,51 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.forumMember.member.FrsEmpertyItemViewHolder;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class re6 extends qg6<tg6, FrsEmpertyItemViewHolder> {
+public class re6 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public re6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public re6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: E */
-    public FrsEmpertyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) ? new FrsEmpertyItemViewHolder(new View(this.mContext)) : (FrsEmpertyItemViewHolder) invokeL.objValue;
-    }
-
-    public View F(int i, View view2, ViewGroup viewGroup, tg6 tg6Var, FrsEmpertyItemViewHolder frsEmpertyItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, tg6Var, frsEmpertyItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, tg6Var, frsEmpertyItemViewHolder);
-            frsEmpertyItemViewHolder.b(tg6Var.b());
-            frsEmpertyItemViewHolder.a(tg6Var.a());
-            return view2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
+                return null;
+            }
+            byte[] a = new pe6().a(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
+            BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
+            try {
+                bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, a);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return bawuTeamReadCacheResponseMessage;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.qg6, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (tg6) obj, (FrsEmpertyItemViewHolder) viewHolder);
-        return view2;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

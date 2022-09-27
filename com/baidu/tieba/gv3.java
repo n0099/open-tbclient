@@ -1,74 +1,61 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gv3 implements to1 {
+public class gv3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gv3 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public bv3 a;
-    public fv3 b;
+    public String a;
+    public String b;
+    public int c;
 
-    public gv3() {
+    public gv3(String str, int i, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
+        this.a = str;
+        this.b = str2;
+        this.c = i;
     }
 
-    public static gv3 b() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (gv3.class) {
-                    if (c == null) {
-                        c = new gv3();
-                    }
-                }
-            }
-            return c;
-        }
-        return (gv3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.to1
-    public yu1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull cg2 cg2Var) {
-        InterceptResult invokeLLL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, cg2Var)) == null) {
-            if (this.a.e(str)) {
-                return this.a.a(str, jSONObject, cg2Var);
-            }
-            if (this.a.f()) {
-                return this.b.a(str, jSONObject, cg2Var);
-            }
-            return new yu1(10001, "authorize fail.");
-        }
-        return (yu1) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public final void c() {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new bv3();
-            this.b = new fv3();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TextUtils.equals(this.a, "onSuccess") : invokeV.booleanValue;
     }
 }

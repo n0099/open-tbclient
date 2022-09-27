@@ -1,85 +1,109 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.frs.FrsNoListItemViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public class xg6 extends qg6<yg6, FrsNoListItemViewHolder> {
+public class xg6 implements hi6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final AtomicReference<hi6> a;
+    public static final hi6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xg6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948299458, "Lcom/baidu/tieba/xg6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948299458, "Lcom/baidu/tieba/xg6;");
                 return;
             }
         }
-        this.l = (ej.i(TbadkCoreApplication.getInst()) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) - TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070308);
+        a = new AtomicReference<>(null);
+        b = new xg6();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: E */
-    public FrsNoListItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public xg6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d033e, viewGroup, false);
-            ViewGroup.LayoutParams generateLayoutParamsByParent = generateLayoutParamsByParent(viewGroup);
-            generateLayoutParamsByParent.width = -1;
-            generateLayoutParamsByParent.height = this.l;
-            inflate.setLayoutParams(generateLayoutParamsByParent);
-            return new FrsNoListItemViewHolder(inflate, viewGroup);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (FrsNoListItemViewHolder) invokeL.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, yg6 yg6Var, FrsNoListItemViewHolder frsNoListItemViewHolder) {
+    public static hi6 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            hi6 hi6Var = a.get();
+            return hi6Var == null ? b : hi6Var;
+        }
+        return (hi6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hi6
+    public qn<? extends bu4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
+        }
+        return (qn) invokeLLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.hi6
+    public dh6<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
+        }
+        return (dh6) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hi6
+    public qn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yg6Var, frsNoListItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, yg6Var, frsNoListItemViewHolder);
-            if (yg6Var.a() == 6) {
-                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f02bb);
-            } else {
-                frsNoListItemViewHolder.d.setText(R.string.obfuscated_res_0x7f0f0c72);
-            }
-            SkinManager.setViewTextColor(frsNoListItemViewHolder.d, R.color.CAM_X0107, 1);
-            SkinManager.setImageResource(frsNoListItemViewHolder.e, R.drawable.new_pic_emotion_06);
-            return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
         }
-        return (View) invokeCommon.objValue;
+        return (qn) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.qg6, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (yg6) obj, (FrsNoListItemViewHolder) viewHolder);
-        return view2;
+    @Override // com.baidu.tieba.hi6
+    public qn<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
+            BdLog.e("Frs extra project not loaded.");
+            return null;
+        }
+        return (qn) invokeLLL.objValue;
     }
 }

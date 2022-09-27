@@ -1,88 +1,63 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.annotation.SuppressLint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
 /* loaded from: classes4.dex */
-public class gj4 {
+public class gj4 extends vj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, inputStream)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        if (inputStream == null) {
-            return null;
-        }
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        byte[] bArr = new byte[1024];
-        while (true) {
-            try {
-                i = inputStream.read(bArr, 0, 1024);
-            } catch (IOException unused) {
-                i = 0;
-            }
-            if (i != -1) {
-                byteArrayOutputStream.write(bArr, 0, i);
-            } else {
-                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                cj4.d(byteArrayOutputStream);
-                return byteArray;
-            }
-        }
-    }
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final gj4 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                byte[] a = a(inputStream);
-                if (a != null) {
-                    String str = new String(a);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
-                    }
-                    cj4.d(inputStream);
-                    return str;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-773965541, "Lcom/baidu/tieba/gj4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                cj4.d(inputStream);
-                throw th;
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-773965541, "Lcom/baidu/tieba/gj4$a;");
+                    return;
+                }
             }
-            cj4.d(inputStream);
-            return null;
+            a = new gj4();
         }
-        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gj4() {
+        super("com.baidu.searchbox_aiapp_openstat");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static gj4 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (gj4) invokeV.objValue;
     }
 }

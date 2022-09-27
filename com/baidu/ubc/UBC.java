@@ -6,9 +6,9 @@ import android.os.RemoteException;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tieba.i99;
-import com.baidu.tieba.k89;
-import com.baidu.tieba.pa9;
+import com.baidu.tieba.eb9;
+import com.baidu.tieba.x99;
+import com.baidu.tieba.z89;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -57,7 +57,7 @@ public class UBC {
                 return;
             }
         }
-        DEBUG = i99.m();
+        DEBUG = x99.m();
     }
 
     public UBC() {
@@ -83,7 +83,7 @@ public class UBC {
     public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? i99.b() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) ? x99.b() : (Context) invokeV.objValue;
     }
 
     public static IRemoteUBCService getProxy() throws RemoteException {
@@ -93,7 +93,7 @@ public class UBC {
             if (sProxy == null) {
                 synchronized (UBC.class) {
                     if (sProxy == null) {
-                        IBinder e = i99.e(UBC_REMOTE_SERVICE_NAME);
+                        IBinder e = x99.e(UBC_REMOTE_SERVICE_NAME);
                         if (e == null) {
                             throw new RemoteException("UBC get remote service empty !");
                         }
@@ -118,11 +118,11 @@ public class UBC {
     public static void onMutilProcessEvent(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65556, null, str, str2, str3) == null) {
-            String a = pa9.a(str3);
+            String a = eb9.a(str3);
             if (DEBUG) {
                 Log.d(TAG, "on onMultiProcessEvent id:" + str + " value:" + str2 + " name: " + a);
             }
-            k89.w().z(str, str2, a, 8);
+            z89.w().z(str, str2, a, 8);
         }
     }
 

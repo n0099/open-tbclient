@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p31;
+import com.baidu.tieba.c41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -74,26 +74,26 @@ public class BdVideoSeekbarImageView extends View {
                 return;
             }
         }
-        p = p31.a(12.0f);
-        q = p31.d(30.0f);
-        r = p31.a(17.0f);
-        s = p31.a(13.0f);
-        t = p31.a(2.0f);
-        p31.a(9.0f);
-        u = p31.b(90.0f);
-        v = p31.b(90.0f);
-        w = p31.a(77.0f);
-        x = p31.a(7.0f);
-        y = p31.a(1.0f);
-        z = p31.a(23.0f);
-        A = p31.a(21.0f);
-        B = p31.a(64.0f);
-        C = p31.a(34.0f);
-        D = p31.a(27.0f);
-        E = p31.a(25.0f);
-        F = p31.a(11.0f);
-        G = p31.a(9.0f);
-        H = p31.a(60.0f);
+        p = c41.a(12.0f);
+        q = c41.d(30.0f);
+        r = c41.a(17.0f);
+        s = c41.a(13.0f);
+        t = c41.a(2.0f);
+        c41.a(9.0f);
+        u = c41.b(90.0f);
+        v = c41.b(90.0f);
+        w = c41.a(77.0f);
+        x = c41.a(7.0f);
+        y = c41.a(1.0f);
+        z = c41.a(23.0f);
+        A = c41.a(21.0f);
+        B = c41.a(64.0f);
+        C = c41.a(34.0f);
+        D = c41.a(27.0f);
+        E = c41.a(25.0f);
+        F = c41.a(11.0f);
+        G = c41.a(9.0f);
+        H = c41.a(60.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -150,7 +150,7 @@ public class BdVideoSeekbarImageView extends View {
             this.d.setTextSize(p);
             this.d.setColor(-7829368);
             this.k = new Rect();
-            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e29);
+            this.j = this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e2b);
             BdThumbSeekBar bdThumbSeekBar = new BdThumbSeekBar(this.b, y);
             this.a = bdThumbSeekBar;
             bdThumbSeekBar.setDragable(false);

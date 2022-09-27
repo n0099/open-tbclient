@@ -10,8 +10,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tieba.op9;
-import com.baidu.tieba.uk9;
+import com.baidu.tieba.dq9;
+import com.baidu.tieba.jl9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,7 +120,7 @@ public class AdReporter<A> {
                 return;
             }
         }
-        a = op9.a();
+        a = dq9.a();
     }
 
     public AdReporter(String str, String str2, String str3) {
@@ -318,12 +318,12 @@ public class AdReporter<A> {
             int i2 = i + 1;
             objArr[i] = "ab";
             int i3 = i2 + 1;
-            Boolean bool = uk9.a;
+            Boolean bool = jl9.a;
             objArr[i2] = Boolean.valueOf(Settings.Secure.getInt(FunAdSdk.getAppContext().getContentResolver(), "adb_enabled", 0) != 0);
             int i4 = i3 + 1;
             objArr[i3] = "rt";
             int i5 = i4 + 1;
-            if (uk9.a == null) {
+            if (jl9.a == null) {
                 String str2 = null;
                 try {
                     Object invoke = Class.forName("android.os.SystemProperties").getMethod("get", String.class).invoke(null, "ro.secure");
@@ -336,7 +336,7 @@ public class AdReporter<A> {
                     String str3 = System.getenv("PATH");
                     if (TextUtils.isEmpty(str3)) {
                         split = new String[]{"/sbin", "/system/bin", "/system/xbin", "/data/local/xbin", "/data/local/bin", "/system/sd/xbin", "/system/bin/failsafe", "/data/local"};
-                    } else if (!uk9.b && str3 == null) {
+                    } else if (!jl9.b && str3 == null) {
                         throw new AssertionError();
                     } else {
                         split = str3.split(":");
@@ -356,13 +356,13 @@ public class AdReporter<A> {
                     }
                     if (!z2) {
                         z = false;
-                        uk9.a = Boolean.valueOf(z);
+                        jl9.a = Boolean.valueOf(z);
                     }
                 }
                 z = true;
-                uk9.a = Boolean.valueOf(z);
+                jl9.a = Boolean.valueOf(z);
             }
-            objArr[i4] = Boolean.valueOf(uk9.a.booleanValue());
+            objArr[i4] = Boolean.valueOf(jl9.a.booleanValue());
             int i7 = i5 + 1;
             objArr[i5] = "vn";
             int i8 = i7 + 1;

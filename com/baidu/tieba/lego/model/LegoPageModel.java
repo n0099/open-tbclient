@@ -11,12 +11,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dm8;
-import com.baidu.tieba.eh7;
 import com.baidu.tieba.jf;
+import com.baidu.tieba.mu4;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.zt4;
+import com.baidu.tieba.sh7;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -101,8 +101,8 @@ public class LegoPageModel extends BdBaseModel {
                         this.a.b.a(j, str, dataRes, z);
                     } else {
                         if (z && dataRes != null) {
-                            zt4.f();
-                            jf<byte[]> d = zt4.d("tb.lego_update");
+                            mu4.f();
+                            jf<byte[]> d = mu4.d("tb.lego_update");
                             StringBuilder sb = new StringBuilder();
                             sb.append(j);
                             sb.append("_");
@@ -170,7 +170,7 @@ public class LegoPageModel extends BdBaseModel {
             legoPageRequest.setLastRank(str2);
             legoPageRequest.setTagCode(j);
             legoPageRequest.setPageType(i);
-            eh7 a2 = eh7.a(j, str);
+            sh7 a2 = sh7.a(j, str);
             if (a2 != null) {
                 legoPageRequest.setRn(a2.d);
                 legoPageRequest.setParams(a2.e);
@@ -211,7 +211,7 @@ public class LegoPageModel extends BdBaseModel {
     public final void registerHttpTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, dm8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_ENTERTAINMENT, sm8.a(TbConfig.ENTERTAINMENT_ADDRESS, 309312));
             tbHttpMessageTask.setIsNeedAddCommenParam(true);
             tbHttpMessageTask.setResponsedClass(LegoHttpResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);

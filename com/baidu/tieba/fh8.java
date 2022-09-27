@@ -1,99 +1,80 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import android.os.Environment;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes4.dex */
 public class fh8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(int i, ShareEntity shareEntity) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65536, null, i, shareEntity) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CANCEL);
-            int i2 = 6;
-            if (i == 2) {
-                i2 = 3;
-            } else if (i == 3) {
-                i2 = 2;
-            } else if (i == 4) {
-                i2 = 4;
-            } else if (i != 6) {
-                i2 = i != 8 ? 0 : 5;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            if (i2 != 0) {
-                statisticItem.param("obj_source", i2);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
-                return;
-            }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                statisticItem.param("tid", stats.getString("tid"));
-                statisticItem.param("uid", stats.getString("uid"));
-                statisticItem.param("fid", stats.getString("fid"));
-            }
-            TiebaStatic.log(statisticItem);
+            int lastIndexOf = str.lastIndexOf(File.separator);
+            return lastIndexOf == -1 ? "" : str.substring(0, lastIndexOf);
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void b(int i, ShareEntity shareEntity) {
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65537, null, i, shareEntity) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS);
-            int i2 = 6;
-            if (i == 2) {
-                i2 = 3;
-            } else if (i == 3) {
-                i2 = 2;
-            } else if (i == 4) {
-                i2 = 4;
-            } else if (i != 6) {
-                i2 = i != 8 ? 0 : 5;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
+            } catch (Exception e) {
+                BdLog.e(Log.getStackTraceString(e));
+                return null;
             }
-            if (i2 != 0) {
-                statisticItem.param("obj_source", i2);
-            }
-            if (shareEntity == null) {
-                TiebaStatic.log(statisticItem);
-                return;
-            }
-            Bundle stats = shareEntity.getStats();
-            if (stats != null) {
-                int i3 = stats.getInt("obj_param1");
-                if (i3 != 0) {
-                    statisticItem.param("obj_param1", i3);
-                    if (i3 == 2) {
-                        statisticItem.param("fid", stats.getString("fid"));
-                    } else if (i3 == 3) {
-                        int i4 = stats.getInt("obj_type");
-                        if (i4 != 0) {
-                            statisticItem.param("obj_type", i4);
-                        }
-                        statisticItem.param("tid", stats.getString("tid")).param("fid", stats.getString("fid"));
-                    }
-                }
-                String string = stats.getString(TiebaStatic.Params.OBJ_URL);
-                if (!dj.isEmpty(string)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_URL, string);
-                }
-                int i5 = stats.getInt("obj_locate");
-                int i6 = stats.getInt("source", 0);
-                if (i6 == 10 || i6 == 16 || i6 == 3) {
-                    i5 = i6;
-                }
-                statisticItem.param("obj_locate", i5);
-                if (i6 == 15) {
-                    return;
-                }
-            }
-            TiebaStatic.log(statisticItem);
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d() + "tieba/Logs/";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String path = Environment.getExternalStorageDirectory().getPath();
+            int length = path.length() - 1;
+            if (length <= 0 || path.substring(length).equals(File.separator)) {
+                return path;
+            }
+            return path + File.separator;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a)) {
+                return false;
+            }
+            File file = new File(a);
+            return (file.exists() && file.isDirectory()) || file.mkdirs();
+        }
+        return invokeL.booleanValue;
     }
 }

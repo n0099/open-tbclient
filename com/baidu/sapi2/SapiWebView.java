@@ -4181,7 +4181,7 @@ public class SapiWebView extends WebView {
                                         SapiAccountManager.getInstance().getAccountService().getUserInfo(new GetUserInfoCallback(this, cookieBduss, cookiePtoken) { // from class: com.baidu.sapi2.SapiWebView.2.2.1
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
-                                            public final /* synthetic */ RunnableC01302 this$2;
+                                            public final /* synthetic */ RunnableC01272 this$2;
                                             public final /* synthetic */ String val$bduss;
                                             public final /* synthetic */ String val$ptoken;
 

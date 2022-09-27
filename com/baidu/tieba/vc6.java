@@ -2,6 +2,10 @@ package com.baidu.tieba;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.gif.NSGif;
@@ -9,8 +13,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.EmotionUtil;
 import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tieba.faceshop.CollectEmotionData;
+import com.baidu.tieba.faceshop.DiyEmotionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,11 +30,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 /* loaded from: classes6.dex */
-public class vc6 extends m55 {
+public class vc6 extends z55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<String> e;
     public Set<String> f;
+    public int g;
 
     public vc6() {
         Interceptable interceptable = $ic;
@@ -46,10 +52,11 @@ public class vc6 extends m55 {
         }
         this.e = new ArrayList<>();
         this.f = new HashSet();
-        w();
+        this.g = 3;
+        x();
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public String b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -62,7 +69,7 @@ public class vc6 extends m55 {
         return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -76,35 +83,35 @@ public class vc6 extends m55 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public on e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? super.d() : (on) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? v75.a() : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? i85.b() : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "用户收藏表情" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "用户Diy表情" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public EmotionGroupType h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EmotionGroupType.USER_COLLECT : (EmotionGroupType) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? EmotionGroupType.USER_DIY : (EmotionGroupType) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public int i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -114,7 +121,7 @@ public class vc6 extends m55 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public boolean j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -124,7 +131,7 @@ public class vc6 extends m55 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public int l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -134,14 +141,14 @@ public class vc6 extends m55 {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public boolean m(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) ? this.f.contains(str) : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public on n(String str) {
         InterceptResult invokeL;
         ByteArrayOutputStream byteArrayOutputStream;
@@ -208,16 +215,17 @@ public class vc6 extends m55 {
         }
     }
 
-    @Override // com.baidu.tieba.m55
+    @Override // com.baidu.tieba.z55
     public on o(String str) {
         InterceptResult invokeL;
+        Bitmap image;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (v75.f.equals(str)) {
-                return new on(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
+            if ("#(meme,diysetting)".equals(str)) {
+                return new on(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f0808de)), false);
             }
-            Bitmap image = FileHelper.getImage(u(str).getAbsolutePath());
-            if (image == null) {
+            File u = u(str);
+            if (u == null || (image = FileHelper.getImage(u.getAbsolutePath())) == null) {
                 return null;
             }
             return new on(image, false, str);
@@ -225,27 +233,57 @@ public class vc6 extends m55 {
         return (on) invokeL.objValue;
     }
 
+    @Override // com.baidu.tieba.z55
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048588, this, i) == null) || i == this.g) {
+            return;
+        }
+        this.g = i;
+        on onVar = new on(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080949)), false);
+        super.s(onVar);
+        super.r(onVar);
+        h85.k().h(zg.h().g("#(meme,diysetting)", 20));
+    }
+
     public File u(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
             String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-            String replace2 = replace.substring(0, replace.indexOf(",")).replace("collect_", "");
+            String replace2 = replace.substring(0, replace.indexOf(",")).replace("diy_", "");
             if (replace2.contains("_")) {
                 replace2 = replace2.substring(replace2.indexOf("_") + 1);
             }
-            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + v75.d() + "/" + replace2 + "_s.jpg");
+            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + i85.c() + "/" + replace2 + "_s.jpg");
         }
         return (File) invokeL.objValue;
     }
 
-    public boolean v(String str) {
+    public final Bitmap v(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bitmap)) == null) {
+            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
+                Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+                PorterDuffColorFilter porterDuffColorFilter = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0105), PorterDuff.Mode.SRC_IN);
+                Paint paint = new Paint();
+                paint.setColorFilter(porterDuffColorFilter);
+                new Canvas(createBitmap).drawBitmap(bitmap, 0.0f, 0.0f, paint);
+                return createBitmap;
+            }
+            return bitmap;
+        }
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public boolean w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             if (this.e != null && !TextUtils.isEmpty(str)) {
                 Iterator<String> it = this.e.iterator();
                 while (it.hasNext()) {
@@ -259,27 +297,27 @@ public class vc6 extends m55 {
         return invokeL.booleanValue;
     }
 
-    public final void w() {
+    public final void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             t(2);
             q(4);
-            on onVar = new on(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_bar_collection), false);
+            on onVar = new on(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f080949)), false);
             super.s(onVar);
             super.r(onVar);
-            x();
+            y();
         }
     }
 
-    public void x() {
+    public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            List<CollectEmotionData> q = mc6.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            List<DiyEmotionData> r = zc6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
             this.e.clear();
             this.f.clear();
-            for (CollectEmotionData collectEmotionData : q) {
-                this.e.add(collectEmotionData.getSharpText());
-                this.f.add(collectEmotionData.getSharpText());
+            for (DiyEmotionData diyEmotionData : r) {
+                this.e.add(diyEmotionData.getSharpText());
+                this.f.add(diyEmotionData.getSharpText());
             }
         }
     }

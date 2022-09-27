@@ -4,15 +4,16 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes7.dex */
 public interface MsaIdInterface extends IInterface {
 
+    @Keep
     /* loaded from: classes7.dex */
     public static class Default implements MsaIdInterface {
         public static /* synthetic */ Interceptable $ic;
@@ -33,90 +34,62 @@ public interface MsaIdInterface extends IInterface {
         }
 
         @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (IBinder) invokeV.objValue;
-        }
+        @Keep
+        public native IBinder asBinder();
 
         @Override // com.bun.lib.MsaIdInterface
-        public String getAAID() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
+        @Keep
+        public native String getAAID();
 
         @Override // com.bun.lib.MsaIdInterface
-        public String getOAID() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
+        @Keep
+        public native String getOAID();
 
         @Override // com.bun.lib.MsaIdInterface
-        public String getVAID() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return null;
-            }
-            return (String) invokeV.objValue;
-        }
+        @Keep
+        public native String getVAID();
 
         @Override // com.bun.lib.MsaIdInterface
-        public boolean isDataArrived() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
+        @Keep
+        public native boolean isDataArrived();
 
         @Override // com.bun.lib.MsaIdInterface
-        public boolean isSupported() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
+        @Keep
+        public native boolean isSupported();
 
         @Override // com.bun.lib.MsaIdInterface
-        public void shutDown() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            }
-        }
+        @Keep
+        public native void shutDown();
     }
 
+    @Keep
     /* loaded from: classes7.dex */
     public static abstract class Stub extends Binder implements MsaIdInterface {
         public static /* synthetic */ Interceptable $ic = null;
+        @Keep
         public static final String DESCRIPTOR = "com.bun.lib.MsaIdInterface";
+        @Keep
         public static final int TRANSACTION_getAAID = 2;
+        @Keep
         public static final int TRANSACTION_getOAID = 1;
+        @Keep
         public static final int TRANSACTION_getVAID = 3;
+        @Keep
         public static final int TRANSACTION_isDataArrived = 4;
+        @Keep
         public static final int TRANSACTION_isSupported = 5;
+        @Keep
         public static final int TRANSACTION_shutDown = 6;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Keep
         /* loaded from: classes7.dex */
         public static class Proxy implements MsaIdInterface {
             public static /* synthetic */ Interceptable $ic;
+            @Keep
             public static MsaIdInterface sDefaultImpl;
             public transient /* synthetic */ FieldHolder $fh;
+            @Keep
             public IBinder mRemote;
 
             public Proxy(IBinder iBinder) {
@@ -138,156 +111,35 @@ public interface MsaIdInterface extends IInterface {
             }
 
             @Override // android.os.IInterface
-            public IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRemote : (IBinder) invokeV.objValue;
-            }
+            @Keep
+            public native IBinder asBinder();
 
             @Override // com.bun.lib.MsaIdInterface
-            public String getAAID() {
-                InterceptResult invokeV;
-                String readString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        if (this.mRemote.transact(2, obtain, obtain2, 0) || Stub.getDefaultImpl() == null) {
-                            obtain2.readException();
-                            readString = obtain2.readString();
-                        } else {
-                            readString = Stub.getDefaultImpl().getAAID();
-                        }
-                        return readString;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getAAID();
 
-            public String getInterfaceDescriptor() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getInterfaceDescriptor();
 
             @Override // com.bun.lib.MsaIdInterface
-            public String getOAID() {
-                InterceptResult invokeV;
-                String readString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        if (this.mRemote.transact(1, obtain, obtain2, 0) || Stub.getDefaultImpl() == null) {
-                            obtain2.readException();
-                            readString = obtain2.readString();
-                        } else {
-                            readString = Stub.getDefaultImpl().getOAID();
-                        }
-                        return readString;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getOAID();
 
             @Override // com.bun.lib.MsaIdInterface
-            public String getVAID() {
-                InterceptResult invokeV;
-                String readString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        if (this.mRemote.transact(3, obtain, obtain2, 0) || Stub.getDefaultImpl() == null) {
-                            obtain2.readException();
-                            readString = obtain2.readString();
-                        } else {
-                            readString = Stub.getDefaultImpl().getVAID();
-                        }
-                        return readString;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getVAID();
 
             @Override // com.bun.lib.MsaIdInterface
-            public boolean isDataArrived() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        if (this.mRemote.transact(4, obtain, obtain2, 0) || Stub.getDefaultImpl() == null) {
-                            obtain2.readException();
-                            return obtain2.readInt() != 0;
-                        }
-                        return Stub.getDefaultImpl().isDataArrived();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return invokeV.booleanValue;
-            }
+            @Keep
+            public native boolean isDataArrived();
 
             @Override // com.bun.lib.MsaIdInterface
-            public boolean isSupported() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        if (this.mRemote.transact(5, obtain, obtain2, 0) || Stub.getDefaultImpl() == null) {
-                            obtain2.readException();
-                            return obtain2.readInt() != 0;
-                        }
-                        return Stub.getDefaultImpl().isSupported();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return invokeV.booleanValue;
-            }
+            @Keep
+            public native boolean isSupported();
 
             @Override // com.bun.lib.MsaIdInterface
-            public void shutDown() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        if (this.mRemote.transact(6, obtain, obtain2, 0) || Stub.getDefaultImpl() == null) {
-                            obtain2.readException();
-                        } else {
-                            Stub.getDefaultImpl().shutDown();
-                        }
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-            }
+            @Keep
+            public native void shutDown();
         }
 
         public Stub() {
@@ -306,110 +158,39 @@ public interface MsaIdInterface extends IInterface {
             attachInterface(this, DESCRIPTOR);
         }
 
-        public static MsaIdInterface asInterface(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
-                if (iBinder == null) {
-                    return null;
-                }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof MsaIdInterface)) ? new Proxy(iBinder) : (MsaIdInterface) queryLocalInterface;
-            }
-            return (MsaIdInterface) invokeL.objValue;
-        }
+        @Keep
+        public static native MsaIdInterface asInterface(IBinder iBinder);
 
-        public static MsaIdInterface getDefaultImpl() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Proxy.sDefaultImpl : (MsaIdInterface) invokeV.objValue;
-        }
+        @Keep
+        public static native MsaIdInterface getDefaultImpl();
 
-        public static boolean setDefaultImpl(MsaIdInterface msaIdInterface) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, msaIdInterface)) == null) {
-                if (Proxy.sDefaultImpl == null) {
-                    if (msaIdInterface != null) {
-                        Proxy.sDefaultImpl = msaIdInterface;
-                        return true;
-                    }
-                    return false;
-                }
-                throw new IllegalStateException("setDefaultImpl() called twice");
-            }
-            return invokeL.booleanValue;
-        }
+        @Keep
+        public static native boolean setDefaultImpl(MsaIdInterface msaIdInterface);
 
         @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
-        }
+        @Keep
+        public native IBinder asBinder();
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
-                if (i == 1598968902) {
-                    parcel2.writeString(DESCRIPTOR);
-                    return true;
-                }
-                switch (i) {
-                    case 1:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        String oaid = getOAID();
-                        parcel2.writeNoException();
-                        parcel2.writeString(oaid);
-                        return true;
-                    case 2:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        String aaid = getAAID();
-                        parcel2.writeNoException();
-                        parcel2.writeString(aaid);
-                        return true;
-                    case 3:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        String vaid = getVAID();
-                        parcel2.writeNoException();
-                        parcel2.writeString(vaid);
-                        return true;
-                    case 4:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        boolean isDataArrived = isDataArrived();
-                        parcel2.writeNoException();
-                        parcel2.writeInt(isDataArrived ? 1 : 0);
-                        return true;
-                    case 5:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        boolean isSupported = isSupported();
-                        parcel2.writeNoException();
-                        parcel2.writeInt(isSupported ? 1 : 0);
-                        return true;
-                    case 6:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        shutDown();
-                        parcel2.writeNoException();
-                        return true;
-                    default:
-                        return super.onTransact(i, parcel, parcel2, i2);
-                }
-            }
-            return invokeCommon.booleanValue;
-        }
+        @Keep
+        public native boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2);
     }
 
+    @Keep
     String getAAID();
 
+    @Keep
     String getOAID();
 
+    @Keep
     String getVAID();
 
+    @Keep
     boolean isDataArrived();
 
+    @Keep
     boolean isSupported();
 
+    @Keep
     void shutDown();
 }

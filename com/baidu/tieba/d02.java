@@ -1,80 +1,61 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d02 implements a02 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
+public class d02 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947650659, "Lcom/baidu/tieba/d02;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947650659, "Lcom/baidu/tieba/d02;");
-        }
-    }
+    public c02 a;
 
     public d02() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new c02(501);
+    }
+
+    public boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? this.a.b(i) : invokeI.booleanValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.d(i);
+        }
+    }
+
+    public d02(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a02
-    public void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            a = xf3.i(bundle, "adb_debug_path");
-            b02.i(xf3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
-            b02.j(xf3.i(bundle, "slavePreload"));
-        }
-    }
-
-    @Override // com.baidu.tieba.a02
-    public void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("adb_debug_path", a);
-            bundle.putString("slavePreload", b02.c());
-            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, b02.a());
-        }
-    }
-
-    @Override // com.baidu.tieba.a02
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c02.b().getPath() : (String) invokeV.objValue;
+        this.a = new c02(501, z);
     }
 }

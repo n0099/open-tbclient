@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayDeque;
 import java.util.Queue;
 /* loaded from: classes5.dex */
-public class oh3 implements nh3 {
+public class oh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<mh3> a;
-    public mh3 b;
+    public final Queue<Runnable> a;
+    public Runnable b;
 
     public oh3() {
         Interceptable interceptable = $ic;
@@ -28,75 +28,35 @@ public class oh3 implements nh3 {
             }
         }
         this.a = new ArrayDeque();
+        this.b = null;
     }
 
-    @Override // com.baidu.tieba.nh3
-    public void a(mh3 mh3Var) {
+    public synchronized boolean a(Runnable runnable) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, mh3Var) == null) {
-            synchronized (this.a) {
-                if (mh3Var == this.b) {
-                    e();
-                }
-            }
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                if (this.b != null) {
-                    return;
-                }
-                e();
-            }
-        }
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
             synchronized (this) {
-                if (this.b != null) {
-                    this.b.a();
-                    this.b = null;
+                z = true;
+                boolean z2 = runnable == null;
+                if (!z2) {
+                    this.a.offer(runnable);
                 }
-                this.a.clear();
+                boolean z3 = this.b == null && !this.a.isEmpty();
+                if (z3) {
+                    while (!this.a.isEmpty()) {
+                        Runnable poll = this.a.poll();
+                        this.b = poll;
+                        if (poll != null) {
+                            poll.run();
+                        }
+                        this.b = null;
+                    }
+                }
+                z = (z2 || !z3) ? false : false;
             }
+            return z;
         }
-    }
-
-    public void d(mh3 mh3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mh3Var) == null) {
-            if (mh3Var != null) {
-                synchronized (this.a) {
-                    Queue<mh3> queue = this.a;
-                    mh3Var.b(this);
-                    queue.offer(mh3Var);
-                }
-            }
-            b();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this.a) {
-                this.b = null;
-                if (this.a.isEmpty()) {
-                    return;
-                }
-                mh3 poll = this.a.poll();
-                this.b = poll;
-                if (poll == null) {
-                    e();
-                } else {
-                    sg3.a0(poll);
-                }
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

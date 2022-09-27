@@ -1,145 +1,103 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.os.Bundle;
-import android.view.Display;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.WindowManager;
+import android.net.Uri;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.util.SparseIntArray;
 import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import android.widget.TextView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.switchs.HasUseGlideSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes5.dex */
-public class q38 extends Dialog {
+public class q38 {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseIntArray a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public LinearLayout c;
-    public float d;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q38 a;
-
-        public a(q38 q38Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948041011, "Lcom/baidu/tieba/q38;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q38Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = q38Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q38(Context context, View view2) {
-        super(context, 16973835);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948041011, "Lcom/baidu/tieba/q38;");
                 return;
             }
         }
-        this.d = 0.33f;
-        this.a = context;
-        this.b = view2;
+        a = new SparseIntArray();
     }
 
-    public void a(float f) {
+    public static void a(SmallTailInfo smallTailInfo, TextView textView, SimpleDraweeView simpleDraweeView, LinearLayout linearLayout, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.d = f;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{smallTailInfo, textView, simpleDraweeView, linearLayout, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || textView == null) {
+            return;
         }
+        LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) textView.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) simpleDraweeView.getLayoutParams();
+        int b = b(R.dimen.obfuscated_res_0x7f070207);
+        if (z2 && z3) {
+            layoutParams.setMargins(b, 0, b, b(R.dimen.obfuscated_res_0x7f07025f));
+            layoutParams2.setMargins(b, 0, 0, 0);
+        } else if (z) {
+            layoutParams.setMargins(0, 0, 0, 0);
+            layoutParams2.setMargins(0, 0, 0, 0);
+        } else if (!z2) {
+            layoutParams.setMargins(b(R.dimen.obfuscated_res_0x7f070231), 0, b(R.dimen.obfuscated_res_0x7f07020f), b(R.dimen.obfuscated_res_0x7f0701b2));
+            layoutParams2.setMargins(b(R.dimen.obfuscated_res_0x7f070231), 0, 0, 0);
+        } else {
+            layoutParams.setMargins(b, 0, b, b(R.dimen.obfuscated_res_0x7f0701b2));
+            layoutParams2.setMargins(b, 0, 0, 0);
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) smallTailInfo.tailSpannable);
+        textView.setLayoutParams(layoutParams);
+        textView.setText(spannableStringBuilder);
+        textView.setTextColor(smallTailInfo.showColorId);
+        if (HasUseGlideSwitch.isSwitchOn()) {
+            simpleDraweeView.setController(Fresco.newDraweeControllerBuilder().setUri(Uri.parse("res://drawable/" + R.drawable.obfuscated_res_0x7f080ee6)).setAutoPlayAnimations(true).build());
+            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
+            simpleDraweeView.setLayoutParams(layoutParams2);
+            simpleDraweeView.setPadding(0, 0, b(R.dimen.obfuscated_res_0x7f070201), 0);
+        }
+        textView.setVisibility(0);
+        simpleDraweeView.setVisibility(0);
+        linearLayout.setVisibility(0);
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            requestWindowFeature(1);
-            setContentView(R.layout.obfuscated_res_0x7f0d0715);
-            Display defaultDisplay = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay();
-            WindowManager.LayoutParams attributes = getWindow().getAttributes();
-            attributes.width = defaultDisplay.getWidth();
-            getWindow().setAttributes(attributes);
-            getWindow().setBackgroundDrawableResource(R.color.transparent);
-            getWindow().setDimAmount(this.d);
-            getWindow().setGravity(80);
-            getWindow().setWindowAnimations(R.style.obfuscated_res_0x7f1003d1);
-            setCanceledOnTouchOutside(true);
-            setCancelable(true);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c81);
-            this.c = linearLayout;
-            linearLayout.setOnClickListener(new a(this));
-            if (this.b == null) {
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = a.get(i, -1);
+            if (i2 == -1) {
+                int f = ej.f(TbadkCoreApplication.getInst().getContext(), i);
+                a.put(i, f);
+                return f;
             }
-            this.c.removeAllViews();
-            if (this.b.getParent() != null) {
-                if (this.b.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.b.getParent()).removeView(this.b);
-                    this.c.addView(this.b);
-                    return;
-                }
-                return;
-            }
-            this.c.addView(this.b);
+            return i2;
         }
+        return invokeI.intValue;
     }
 
-    @Override // android.app.Dialog
-    public void setContentView(View view2) {
+    public static void c(SmallTailInfo smallTailInfo, TextView textView, SimpleDraweeView simpleDraweeView, LinearLayout linearLayout, boolean z, boolean z2, boolean z3) {
+        SpannableString spannableString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.b = view2;
-            LinearLayout linearLayout = this.c;
-            if (linearLayout != null) {
-                linearLayout.removeAllViews();
-                if (this.b.getParent() != null) {
-                    if (this.b.getParent() instanceof ViewGroup) {
-                        ((ViewGroup) this.b.getParent()).removeView(this.b);
-                        this.c.addView(this.b);
-                        return;
-                    }
-                    return;
-                }
-                this.c.addView(this.b);
-            }
+        if (!(interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{smallTailInfo, textView, simpleDraweeView, linearLayout, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) || smallTailInfo == null || (spannableString = smallTailInfo.tailSpannable) == null || spannableString.length() == 0 || textView == null) {
+            return;
         }
+        smallTailInfo.updateShowInfo();
+        a(smallTailInfo, textView, simpleDraweeView, linearLayout, z, z2, z3);
     }
 }

@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.share.ShareEvent;
+import com.baidu.tbadk.mutiprocess.backbaidubox.BackBaiduBoxViewEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class sa5 implements u95<ShareEvent> {
+public class sa5 implements ha5<BackBaiduBoxViewEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,28 +26,17 @@ public class sa5 implements u95<ShareEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u95
+    @Override // com.baidu.tieba.ha5
     /* renamed from: a */
-    public boolean onEvent(ShareEvent shareEvent) {
+    public boolean onEvent(BackBaiduBoxViewEvent backBaiduBoxViewEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, shareEvent)) == null) {
-            if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-                int i = shareEvent.status;
-                if (shareEvent.from == 1) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921696, Integer.valueOf(i)));
-                }
-                if (i == 1) {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921406, shareEvent));
-                    String str = shareEvent.tid;
-                    if (!TextUtils.isEmpty(str)) {
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921417, str));
-                        return true;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, backBaiduBoxViewEvent)) == null) {
+            if (backBaiduBoxViewEvent == null) {
                 return false;
             }
-            return false;
+            yg5.m().u(backBaiduBoxViewEvent.isShow);
+            return true;
         }
         return invokeL.booleanValue;
     }

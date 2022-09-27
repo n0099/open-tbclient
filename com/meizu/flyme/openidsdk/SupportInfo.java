@@ -1,17 +1,18 @@
 package com.meizu.flyme.openidsdk;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public class SupportInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public Boolean support;
+    @Keep
     public String version;
 
     public SupportInfo() {
@@ -28,48 +29,18 @@ public class SupportInfo {
         }
     }
 
-    public boolean isCached() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.support != null : invokeV.booleanValue;
-    }
+    @Keep
+    public native boolean isCached();
 
-    public boolean isSameVersion(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return TextUtils.equals(this.version, str);
-        }
-        return invokeL.booleanValue;
-    }
+    @Keep
+    public native boolean isSameVersion(String str);
 
-    public boolean isSupport() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Boolean bool = this.support;
-            if (bool != null) {
-                return bool.booleanValue();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    @Keep
+    public native boolean isSupport();
 
-    public void setSupport(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.support = Boolean.valueOf(z);
-        }
-    }
+    @Keep
+    public native void setSupport(boolean z);
 
-    public void setVersionName(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.version = str;
-        }
-    }
+    @Keep
+    public native void setVersionName(String str);
 }

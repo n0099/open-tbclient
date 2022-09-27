@@ -1,23 +1,87 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BookInfo;
-import tbclient.TbBookrack;
 /* loaded from: classes3.dex */
 public class a48 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<b48> c;
-    public String d;
-    public String e;
-    public String f;
+
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b extends BdAsyncTask<String, Integer, ImageUploadResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public c b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ImageUploadResult doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) ? new ImageUploader("user_pics").uploadInBackground(FileHelper.getFileDireciory(this.a), false) : (ImageUploadResult) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ImageUploadResult imageUploadResult) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUploadResult) == null) {
+                super.onPostExecute(imageUploadResult);
+                if (this.b != null) {
+                    int i = 0;
+                    if (imageUploadResult != null) {
+                        i = imageUploadResult.error_code;
+                        str = imageUploadResult.error_msg;
+                    } else {
+                        str = "";
+                    }
+                    this.b.a(i, str, imageUploadResult);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a(int i, String str, ImageUploadResult imageUploadResult);
+    }
 
     public a48() {
         Interceptable interceptable = $ic;
@@ -33,26 +97,14 @@ public class a48 {
         }
     }
 
-    public void a(TbBookrack tbBookrack) {
+    public void a(String str, c cVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, tbBookrack) == null) || tbBookrack == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, str, cVar) == null) || StringUtils.isNull(str)) {
             return;
         }
-        this.a = tbBookrack.booktown;
-        this.b = tbBookrack.num.intValue();
-        this.d = tbBookrack.title;
-        this.e = tbBookrack.icon;
-        this.f = tbBookrack.tip;
-        this.c = new ArrayList();
-        List<BookInfo> list = tbBookrack.book_list;
-        if (list != null) {
-            for (BookInfo bookInfo : list) {
-                if (bookInfo != null) {
-                    b48 b48Var = new b48();
-                    b48Var.a(bookInfo);
-                    this.c.add(b48Var);
-                }
-            }
-        }
+        b bVar = new b(null);
+        bVar.a = str;
+        bVar.b = cVar;
+        bVar.execute("");
     }
 }

@@ -1,57 +1,51 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.JvmField;
 /* loaded from: classes6.dex */
-public class xo0 extends AdBaseModel {
+public final class xo0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @JvmField
+    public String a;
+    @JvmField
+    public String b;
+    @JvmField
+    public String c;
+    @JvmField
+    public String d;
+    @JvmField
+    public String e;
+    @JvmField
+    public String f;
+    @JvmField
+    public String g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xo0(@NonNull po0 po0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
-        super(po0Var, jSONObject, z);
+    public xo0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {po0Var, jSONObject, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((po0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xo0(@NonNull po0 po0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(po0Var, jSONObject);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {po0Var, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((po0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = null;
+            this.c = null;
+            this.e = null;
+            this.f = null;
+            this.g = null;
         }
     }
 }

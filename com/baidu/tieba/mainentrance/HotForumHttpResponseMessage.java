@@ -3,8 +3,8 @@ package com.baidu.tieba.mainentrance;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.li7;
-import com.baidu.tieba.mi7;
+import com.baidu.tieba.aj7;
+import com.baidu.tieba.zi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +21,9 @@ import tbclient.HotForum.HotTopicList;
 public class HotForumHttpResponseMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<li7> mForumInfoList;
+    public List<zi7> mForumInfoList;
     public HotSearchInfoData mHotSearchInfo;
-    public List<mi7> mTopicInfoList;
+    public List<aj7> mTopicInfoList;
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -46,7 +46,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         }
     }
 
-    public List<li7> getForumInfoList() {
+    public List<zi7> getForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumInfoList : (List) invokeV.objValue;
@@ -58,7 +58,7 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mHotSearchInfo : (HotSearchInfoData) invokeV.objValue;
     }
 
-    public List<mi7> getTopicInfoList() {
+    public List<aj7> getTopicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mTopicInfoList : (List) invokeV.objValue;
@@ -91,9 +91,9 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
         if (list != null) {
             for (ForumInfo forumInfo : list) {
                 if (forumInfo != null) {
-                    li7 li7Var = new li7();
-                    li7Var.a(forumInfo);
-                    this.mForumInfoList.add(li7Var);
+                    zi7 zi7Var = new zi7();
+                    zi7Var.a(forumInfo);
+                    this.mForumInfoList.add(zi7Var);
                 }
             }
         }
@@ -108,9 +108,9 @@ public class HotForumHttpResponseMessage extends HttpResponsedMessage {
             if (list2 != null) {
                 for (HotTopicList hotTopicList : list2) {
                     if (hotTopicList != null) {
-                        mi7 mi7Var = new mi7();
-                        mi7Var.d(hotTopicList);
-                        this.mTopicInfoList.add(mi7Var);
+                        aj7 aj7Var = new aj7();
+                        aj7Var.d(hotTopicList);
+                        this.mTopicInfoList.add(aj7Var);
                     }
                 }
             }

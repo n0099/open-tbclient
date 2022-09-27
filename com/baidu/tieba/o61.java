@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class o61 extends q61 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface o61 {
+    void onTranslucent(boolean z);
 }

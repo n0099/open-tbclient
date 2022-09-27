@@ -1,70 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanHttpResponse;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanSocketResponse;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ju7 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ju7() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                a = ox4.k().q("nick_name_activity_link", "");
             }
+            return a;
         }
-        a();
-        b();
+        return (String) invokeV.objValue;
     }
 
-    public final void a() {
+    public static SpannableStringBuilder b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, dm8.a(TbConfig.FINE_PB_PRAISE, 309095));
-            tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+            spannableStringBuilder.append((CharSequence) str);
+            int length = spannableStringBuilder.length();
+            Drawable drawable = context.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0808ad);
+            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
+            spannableStringBuilder.append((CharSequence) "tag");
+            spannableStringBuilder.setSpan(new fy4(drawable), length, spannableStringBuilder.length(), 33);
+            return spannableStringBuilder;
         }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            zd5 zd5Var = new zd5(309095);
-            zd5Var.setResponsedClass(ChosenPbZanSocketResponse.class);
-            zd5Var.g(true);
-            zd5Var.h(false);
-            MessageManager.getInstance().registerTask(zd5Var);
-        }
-    }
-
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
-            ChosenZanNetMessage chosenZanNetMessage = new ChosenZanNetMessage();
-            chosenZanNetMessage.setExcId(j);
-            chosenZanNetMessage.setAction(i);
-            chosenZanNetMessage.setThreadId(j2);
-            chosenZanNetMessage.setPostId(j3);
-            pbChosenActivity.sendMessage(chosenZanNetMessage);
-        }
+        return (SpannableStringBuilder) invokeLL.objValue;
     }
 }

@@ -32,13 +32,13 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     public int le;
     public int lf;
     public int lg;
-    public InterfaceC0543a lh;
+    public InterfaceC0539a lh;
     public c mApkDownloadHelper;
     public String title;
 
     /* renamed from: com.kwad.components.ad.reflux.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0543a {
+    public interface InterfaceC0539a {
         void eF();
     }
 
@@ -108,12 +108,12 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
     }
 
     private void eU() {
-        InterfaceC0543a interfaceC0543a;
+        InterfaceC0539a interfaceC0539a;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC0543a = this.lh) == null) {
+        if (!(interceptable == null || interceptable.invokeV(65539, this) == null) || (interfaceC0539a = this.lh) == null) {
             return;
         }
-        interfaceC0543a.eF();
+        interfaceC0539a.eF();
     }
 
     private void setApkDownloadHelper(c cVar) {
@@ -130,10 +130,10 @@ public final class a extends com.kwad.sdk.core.download.kwai.a {
         }
     }
 
-    public final void a(InterfaceC0543a interfaceC0543a) {
+    public final void a(InterfaceC0539a interfaceC0539a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0543a) == null) {
-            this.lh = interfaceC0543a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interfaceC0539a) == null) {
+            this.lh = interfaceC0539a;
         }
     }
 

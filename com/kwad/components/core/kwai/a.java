@@ -21,14 +21,14 @@ public final class a implements View.OnClickListener {
     @Nullable
     public ImageView CP;
     @Nullable
-    public InterfaceC0580a CQ;
+    public InterfaceC0576a CQ;
     @Nullable
     public TextView mTitle;
     public ViewGroup pV;
 
     /* renamed from: com.kwad.components.core.kwai.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public interface InterfaceC0580a {
+    public interface InterfaceC0576a {
         void r(View view2);
 
         void s(View view2);
@@ -72,10 +72,10 @@ public final class a implements View.OnClickListener {
         }
     }
 
-    public final void a(@Nullable InterfaceC0580a interfaceC0580a) {
+    public final void a(@Nullable InterfaceC0576a interfaceC0576a) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0580a) == null) {
-            this.CQ = interfaceC0580a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, interfaceC0576a) == null) {
+            this.CQ = interfaceC0576a;
         }
     }
 

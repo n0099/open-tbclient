@@ -1,13 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class r85 implements p85 {
+public abstract class r85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,19 +27,15 @@ public class r85 implements p85 {
         }
     }
 
-    @Override // com.baidu.tieba.p85
-    public void a(View view2, View view3, boolean z) {
+    public abstract String a();
+
+    public abstract Bitmap b(Bitmap bitmap, boolean z) throws Exception;
+
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            LinearLayout linearLayout = (LinearLayout) view2;
-            if (z) {
-                linearLayout.addView(view3, 0);
-            } else {
-                linearLayout.addView(view3);
-            }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.gravity = 1;
-            view3.setLayoutParams(layoutParams);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadBitmap(str), true) : (Bitmap) invokeL.objValue;
     }
+
+    public abstract void d(String str);
 }

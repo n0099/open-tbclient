@@ -1,75 +1,46 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
-import com.baidu.tieba.rf5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Page;
 /* loaded from: classes4.dex */
-public class kf5 extends m85 {
+public class kf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoDataView a;
+    public int a;
+    public boolean b;
+    public Object c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kf5(Context context) {
-        super(new NoDataView(context));
+    public kf5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (NoDataView) getView();
+        this.b = true;
     }
 
-    public void a(int i) {
+    public void a(Page page) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a.f(w9.a(getView().getContext()), i);
-        }
-    }
-
-    public void b(rf5.a aVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || aVar == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, page) == null) || page == null) {
             return;
         }
-        this.a.setVisibility(0);
-        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
-        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
-        aVar2.h(aVar.c);
-        aVar2.j(aVar.g);
-        this.a.setImgOption(aVar2.f());
-        String str = (!aVar.b || TextUtils.isEmpty(aVar.a)) ? aVar.d : aVar.a;
-        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
-        aVar3.g(str);
-        this.a.setTextOption(aVar3.f());
-        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
-            String str2 = aVar.e;
-            View.OnClickListener onClickListener = aVar.h;
-            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
-            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
-            this.a.setButtonOption(aVar4.e());
-        } else {
-            this.a.setButtonOption(null);
-        }
-        a(TbadkCoreApplication.getInst().getSkinType());
+        this.b = page.has_more.intValue() == 1;
+        page.has_prev.intValue();
+        this.a = page.current_page.intValue();
+        page.page_size.intValue();
+        page.total_page.intValue();
+        page.offset.intValue();
+        page.total_count.intValue();
+        fg5.b("parserProto--->currentPage=" + this.a + ",hasMore=" + this.b);
     }
 }

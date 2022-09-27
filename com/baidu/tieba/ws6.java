@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.frs.FrsFragment;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,20 +11,17 @@ public class ws6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
+    public static PackageInfo a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{frsFragment, str, str2, Boolean.valueOf(z)})) == null) {
-            if (z && frsFragment != null && !TextUtils.isEmpty(str) && frsFragment.isAdded() && zs6.j(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
-                Intent intent = new Intent();
-                intent.putExtra(DealIntentService.KEY_CLASS, 2);
-                intent.putExtra("fname", str);
-                intent.putExtra(str2, "short_cut");
-                frsFragment.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return null;
             }
-            return true;
         }
-        return invokeCommon.booleanValue;
+        return (PackageInfo) invokeL.objValue;
     }
 }

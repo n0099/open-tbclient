@@ -43,7 +43,7 @@ public class b {
                 return;
             }
         }
-        a = d.C0710d.a("yy.MM.dd.HH");
+        a = d.C0706d.a("yy.MM.dd.HH");
     }
 
     public b(File file, int i, int i2, int i3, String str, long j, int i4, String str2, long j2) {

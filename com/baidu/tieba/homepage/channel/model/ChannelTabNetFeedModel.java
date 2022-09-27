@@ -17,15 +17,15 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
-import com.baidu.tieba.aw6;
-import com.baidu.tieba.b47;
-import com.baidu.tieba.bw6;
-import com.baidu.tieba.c37;
-import com.baidu.tieba.d37;
-import com.baidu.tieba.dm8;
 import com.baidu.tieba.homepage.channel.message.HomePageChannelTabHttpResponsedMessage;
+import com.baidu.tieba.kf8;
+import com.baidu.tieba.ow6;
+import com.baidu.tieba.p47;
+import com.baidu.tieba.pw6;
+import com.baidu.tieba.q37;
+import com.baidu.tieba.r37;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.ve8;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,15 +34,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.gms.common.internal.ImagesContract;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
+public class ChannelTabNetFeedModel extends BdBaseModel implements r37 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public boolean b;
     public int c;
     public String d;
-    public c37 e;
-    public bw6 f;
+    public q37 e;
+    public pw6 f;
     public HttpMessageListener g;
 
     /* loaded from: classes4.dex */
@@ -81,7 +81,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
                 if (httpResponsedMessage == null || !(httpResponsedMessage instanceof HomePageChannelTabHttpResponsedMessage)) {
                     return;
                 }
-                aw6 aw6Var = ((HomePageChannelTabHttpResponsedMessage) httpResponsedMessage).channelTabRespData;
+                ow6 ow6Var = ((HomePageChannelTabHttpResponsedMessage) httpResponsedMessage).channelTabRespData;
                 this.a.mErrorCode = httpResponsedMessage.getError();
                 this.a.mErrorString = httpResponsedMessage.getErrorString();
                 ErrorData errorData = new ErrorData();
@@ -90,23 +90,23 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
                 if (this.a.e == null) {
                     return;
                 }
-                if (this.a.mErrorCode != 0 || aw6Var == null) {
+                if (this.a.mErrorCode != 0 || ow6Var == null) {
                     this.a.e.f(errorData);
                 } else {
-                    this.a.I(aw6Var);
+                    this.a.I(ow6Var);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChannelTabNetFeedModel(TbPageContext tbPageContext, c37 c37Var) {
+    public ChannelTabNetFeedModel(TbPageContext tbPageContext, q37 q37Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, c37Var};
+            Object[] objArr = {tbPageContext, q37Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -121,9 +121,9 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
         this.b = false;
         this.c = 1;
         this.g = new a(this, CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST);
-        dm8.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
-        this.f = new bw6();
-        this.e = c37Var;
+        sm8.e(CmdConfigHttp.CMD_HOME_CHANNEL_TAB_LIST, TbConfig.CMD_HMEPAGE_CHANNEL_LIST, HomePageChannelTabHttpResponsedMessage.class, true, true, true, true);
+        this.f = new pw6();
+        this.e = q37Var;
     }
 
     public final void H(int i) {
@@ -143,7 +143,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
             httpMessage.addParam("rn", 20);
             httpMessage.addParam("q_type", TbImageHelper.getInstance().getUrlQuality());
             if (ImagesContract.LOCAL.equals(this.d)) {
-                httpMessage.addParam("app_pos", ve8.e().b());
+                httpMessage.addParam("app_pos", kf8.e().b());
             }
             ChannelIconConfigFinalData c = TbSingleton.getInstance().getChannelConfigModel().c();
             if (c != null && !TextUtils.isEmpty(c.getTid())) {
@@ -155,33 +155,33 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
         }
     }
 
-    public final void I(aw6 aw6Var) {
+    public final void I(ow6 ow6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aw6Var) == null) || this.e == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ow6Var) == null) || this.e == null) {
             return;
         }
-        b47 b = this.f.b(this.c, this.a, aw6Var);
+        p47 b = this.f.b(this.c, this.a, ow6Var);
         if (b != null) {
             this.c = b.d;
         }
         this.e.l0(b);
     }
 
-    @Override // com.baidu.tieba.d37
+    @Override // com.baidu.tieba.r37
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            bw6 bw6Var = this.f;
-            if (bw6Var == null) {
+            pw6 pw6Var = this.f;
+            if (pw6Var == null) {
                 return false;
             }
-            return bw6Var.d();
+            return pw6Var.d();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.d37
+    @Override // com.baidu.tieba.r37
     public void b() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.b) {
@@ -191,7 +191,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
         H(2);
     }
 
-    @Override // com.baidu.tieba.d37
+    @Override // com.baidu.tieba.r37
     public void c(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
@@ -223,7 +223,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
         }
     }
 
-    @Override // com.baidu.tieba.d37
+    @Override // com.baidu.tieba.r37
     public void destory() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -233,16 +233,16 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
         }
     }
 
-    @Override // com.baidu.tieba.d37
+    @Override // com.baidu.tieba.r37
     public List<ThreadData> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            bw6 bw6Var = this.f;
-            if (bw6Var == null) {
+            pw6 pw6Var = this.f;
+            if (pw6Var == null) {
                 return null;
             }
-            return bw6Var.c();
+            return pw6Var.c();
         }
         return (List) invokeV.objValue;
     }
@@ -257,7 +257,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.d37
+    @Override // com.baidu.tieba.r37
     public void r(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(1048586, this, str, str2, i) == null) {
@@ -265,7 +265,7 @@ public class ChannelTabNetFeedModel extends BdBaseModel implements d37 {
         }
     }
 
-    @Override // com.baidu.tieba.d37
+    @Override // com.baidu.tieba.r37
     public void refresh() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || this.b) {

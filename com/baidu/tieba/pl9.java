@@ -1,104 +1,29 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import org.json.JSONObject;
+/* compiled from: lambda */
 /* loaded from: classes5.dex */
-public class pl9 implements TTNativeAd.AdInteractionListener {
+public final /* synthetic */ class pl9 implements RippedAd.Acceptor {
     public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ pl9 a = new pl9();
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ am9 c;
-    public final /* synthetic */ FunAdInteractionListener d;
-    public final /* synthetic */ String e;
-    public final /* synthetic */ nl9 f;
 
-    public pl9(nl9 nl9Var, am9 am9Var, FunAdInteractionListener funAdInteractionListener, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nl9Var, am9Var, funAdInteractionListener, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = nl9Var;
-        this.c = am9Var;
-        this.d = funAdInteractionListener;
-        this.e = str;
+    private /* synthetic */ pl9() {
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-    public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    @Override // com.fun.ad.sdk.internal.api.ripper.RippedAd.Acceptor
+    public final String accept(Object obj) {
+        InterceptResult invokeL;
+        String optString;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
-            LogPrinter.d();
-            this.f.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.d;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            optString = ((JSONObject) obj).optString("url");
+            return optString;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-    public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
-            LogPrinter.d();
-            this.f.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.d;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
-    public void onAdShow(TTNativeAd tTNativeAd) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
-            LogPrinter.d();
-            this.f.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.d;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

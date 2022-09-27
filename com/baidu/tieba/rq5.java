@@ -1,28 +1,51 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface rq5 {
-    public static final boolean a;
+public class rq5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public SharedPreferences a;
 
-    static {
-        a = TbadkCoreApplication.getInst().isDebugMode() || np4.h();
+    public rq5(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = TbadkCoreApplication.getInst().getContext().getSharedPreferences("bc_splash_info", 0);
     }
 
-    void a();
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.getString(SpeedStatsUtils.UBC_VALUE_SPLASH, "") : (String) invokeV.objValue;
+    }
 
-    boolean b();
-
-    String c();
-
-    AdLoadState d();
-
-    void destroy();
-
-    void e(ko4 ko4Var);
-
-    String f();
-
-    void show();
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putString(SpeedStatsUtils.UBC_VALUE_SPLASH, str);
+            edit.commit();
+        }
+    }
 }

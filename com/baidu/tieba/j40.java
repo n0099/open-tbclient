@@ -1,79 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class j40 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int b = 5;
-    public static int c = 40;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.helios.common.cc.a a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947833187, "Lcom/baidu/tieba/j40;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947833187, "Lcom/baidu/tieba/j40;");
-        }
-    }
+    public m40[] a;
 
     public j40() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(c);
-        this.a = aVar;
-        aVar.a(0, c, true);
+        this.a = new m40[]{new n40(8, 0), new o40(0, 1), new o40(1, 1), new n40(7, 1)};
     }
 
-    public void a(com.baidu.helios.common.cc.a aVar, int i, int i2, int i3) {
+    public byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, aVar, i, i2, i3) == null) {
-            com.baidu.helios.common.cc.a d = this.a.d(i, i + i2);
-            if (i3 != 0) {
-                if (i3 != 1) {
-                    if (i3 == 2) {
-                        d.e(aVar);
-                    } else if (i3 == 3) {
-                        d.c(aVar);
-                    }
-                }
-                d.d(aVar);
-            } else {
-                d.b(aVar);
-            }
-            for (int i4 = 0; i4 < i2; i4++) {
-                this.a.a(i + i4, d.d(i4));
-            }
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-    }
-
-    public byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (byte[]) invokeV.objValue;
+        l40 l40Var = new l40();
+        byte[] b = k40.b(bArr, bArr.length + ((this.a.length + 1) * l40.b));
+        k40.a(b, l40Var.b(), bArr.length);
+        int i = 0;
+        while (true) {
+            m40[] m40VarArr = this.a;
+            if (i >= m40VarArr.length) {
+                return Arrays.copyOf(l40Var.b(), l40.b);
+            }
+            m40 m40Var = m40VarArr[i];
+            i++;
+            int length = bArr.length + (l40.b * i);
+            l40Var.a(m40Var.b(b, 0, length), m40Var.a(), m40Var.c(), m40Var.d());
+            k40.a(b, l40Var.b(), length);
+        }
     }
 }

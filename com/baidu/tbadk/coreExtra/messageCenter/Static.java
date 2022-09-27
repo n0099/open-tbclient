@@ -7,7 +7,7 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.v15;
+import com.baidu.tieba.i25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,11 +27,11 @@ public class Static {
 
         /* renamed from: com.baidu.tbadk.coreExtra.messageCenter.Static$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0191a implements Runnable {
+        public class RunnableC0188a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public RunnableC0191a(a aVar) {
+            public RunnableC0188a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,7 +51,7 @@ public class Static {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    v15.h0().g();
+                    i25.h0().g();
                 }
             }
         }
@@ -76,10 +76,10 @@ public class Static {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (ej.C()) {
-                    v15.h0().g();
+                    i25.h0().g();
                     return null;
                 } else if (TbadkCoreApplication.getInst() != null) {
-                    TbadkCoreApplication.getInst().handler.post(new RunnableC0191a(this));
+                    TbadkCoreApplication.getInst().handler.post(new RunnableC0188a(this));
                     return null;
                 } else {
                     return null;
@@ -102,7 +102,7 @@ public class Static {
                 return;
             }
         }
-        v15.h0();
+        i25.h0();
         CustomMessageTask customMessageTask = new CustomMessageTask(2005006, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask);

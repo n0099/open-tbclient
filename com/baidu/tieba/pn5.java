@@ -2,104 +2,99 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class pn5 {
+public class pn5 extends nn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
+    public fo d;
+    public Map<String, String> e;
+    public Object f;
     public int g;
+    public int h;
 
-    public pn5(int i, int i2, int i3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pn5(TbPageContext tbPageContext, int i) {
+        super(tbPageContext, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
     }
 
-    public String a() {
+    public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.objValue;
     }
 
-    public String b() {
+    public fo e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (fo) invokeV.objValue;
     }
 
     public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.intValue;
     }
 
-    public int g() {
+    public Map<String, String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (Map) invokeV.objValue;
     }
 
-    public void h(String str) {
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.f = str;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.h : invokeV.intValue;
+    }
+
+    public void i(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, obj) == null) {
+            this.f = obj;
         }
     }
 
-    public void i(String str, String str2) {
+    public void j(fo foVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            this.d = str;
-            this.e = str2;
+        if (interceptable == null || interceptable.invokeL(1048582, this, foVar) == null) {
+            this.d = foVar;
         }
     }
 
-    public void j(int i) {
+    public void k(Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.g = i;
+        if (interceptable == null || interceptable.invokeL(1048583, this, map) == null) {
+            this.e = map;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.h = i;
         }
     }
 }

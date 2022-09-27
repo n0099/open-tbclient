@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.pg3;
+import com.baidu.tieba.ch3;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +78,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
                 return;
             }
         }
-        k = ij1.a;
+        k = vj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -176,7 +176,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
             if (view2 != null) {
                 return view2.getHeight();
             }
-            return pg3.f(getContext(), 50.0f);
+            return ch3.f(getContext(), 50.0f);
         }
         return invokeV.intValue;
     }
@@ -259,7 +259,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f091684);
-            int f = pg3.f(getContext(), 29.0f);
+            int f = ch3.f(getContext(), 29.0f);
             this.e = f;
             this.f = (int) (f * 2.4f);
             int i = (int) (f * 1.5f);

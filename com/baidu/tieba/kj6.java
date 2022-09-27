@@ -1,41 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.text.TextUtils;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.lj6;
+import com.baidu.tieba.frs.ad.FrsADFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class kj6 implements fj6 {
+public class kj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jj6 a;
-    public TbPageContext b;
-    public BdTypeListView c;
-    public List<Cdo> d;
-    public final List<qn> e;
-    public boolean f;
-    public int g;
+    public FrsADFragment a;
+    public BdTypeRecyclerView b;
+    public nj6 c;
+    public kh6 d;
+    public List<qn> e;
 
-    public kj6(TbPageContext tbPageContext, BdTypeListView bdTypeListView, boolean z) {
+    public kj6(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView, Boolean.valueOf(z)};
+            Object[] objArr = {frsADFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,172 +35,71 @@ public class kj6 implements fj6 {
                 return;
             }
         }
-        this.d = new ArrayList();
         this.e = new ArrayList();
-        this.f = false;
-        this.g = -1;
-        this.b = tbPageContext;
-        this.c = bdTypeListView;
-        this.f = z;
-        d();
+        this.a = frsADFragment;
+        this.b = bdTypeRecyclerView;
+        a();
     }
 
-    @Override // com.baidu.tieba.fj6
-    public void a(int i) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.g = i;
-            if (ListUtils.isEmpty(this.d) || this.c == null) {
-                return;
-            }
-            for (Cdo cdo : this.d) {
-                if (cdo instanceof lj6) {
-                    ((lj6) cdo).s = false;
-                }
-            }
-            if (BdNetTypeUtil.isWifiNet()) {
-                if (this.g < this.d.size() - 1) {
-                    List<Cdo> list = this.d;
-                    int i2 = this.g + 1;
-                    this.g = i2;
-                    if (list.get(i2) instanceof lj6) {
-                        ((lj6) this.d.get(this.g)).s = true;
-                        BdTypeListView bdTypeListView = this.c;
-                        bdTypeListView.smoothScrollToPositionFromTop(i + bdTypeListView.getHeaderViewsCount() + 1, 0);
-                        g();
-                    }
-                } else if (this.g == this.d.size() - 1 && (this.d.get(this.g) instanceof lj6)) {
-                    ((lj6) this.d.get(this.g)).s = false;
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c = new nj6(this.a.getPageContext(), mj6.h, this.a.getUniqueId());
+            this.d = new kh6(this.a.getPageContext(), lh6.b);
+            this.e.add(this.c);
+            this.e.add(this.d);
+            e();
+            this.b.a(this.e);
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || ListUtils.isEmpty(this.d)) {
-            return;
-        }
-        Iterator<Cdo> it = this.d.iterator();
-        while (it.hasNext()) {
-            ((lj6) it.next()).s = false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public int c() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.fj6
-    public void cancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            l();
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            jj6 jj6Var = new jj6(this.b, this, this.f);
-            this.a = jj6Var;
-            this.e.add(jj6Var);
-            this.c.a(this.e);
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.w() : invokeV.booleanValue;
-    }
-
-    public void f(String str, boolean z) {
-        lj6 lj6Var;
-        lj6.b bVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048582, this, str, z) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        boolean z2 = false;
-        for (Cdo cdo : this.d) {
-            if (cdo != null && (cdo instanceof lj6) && (bVar = (lj6Var = (lj6) cdo).m) != null && str.equals(bVar.a)) {
-                lj6Var.m.e = z;
-                z2 = true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            for (qn qnVar : this.e) {
+                if (qnVar instanceof dh6) {
+                    ((dh6) qnVar).v();
+                }
             }
         }
-        if (z2) {
-            g();
+    }
+
+    public void d(ArrayList<Cdo> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
+            this.b.setData(arrayList);
         }
     }
 
-    public void g() {
-        BdTypeListView bdTypeListView;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (bdTypeListView = this.c) == null || bdTypeListView.getAdapter2() == null || !(this.c.getAdapter2() instanceof BaseAdapter)) {
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || ListUtils.isEmpty(this.e) || this.a == null) {
             return;
         }
-        this.c.getAdapter2().notifyDataSetChanged();
-    }
-
-    public void h(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, configuration) == null) {
-            this.a.x(configuration);
+        for (qn qnVar : this.e) {
+            if (qnVar instanceof dh6) {
+                ((dh6) qnVar).C(this.a.getTbPageTag());
+            }
         }
     }
 
-    public void i() {
+    public void f(no noVar) {
+        List<qn> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a.onDestroy();
-        }
-    }
-
-    public boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? this.a.A(i) : invokeI.booleanValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.B();
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            b();
-            this.g = 0;
-            k();
-        }
-    }
-
-    public void m(List<lj6> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048589, this, list, z) == null) || list == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, noVar) == null) || (list = this.e) == null || list.size() == 0) {
             return;
         }
-        if (z) {
-            this.d.clear();
-        }
-        this.d.addAll(list);
-        this.c.setData(this.d);
-        if (z && list.size() > 0 && this.f && BdNetTypeUtil.isWifiNet()) {
-            l();
-            list.get(0).s = true;
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.C();
+        for (qn qnVar : this.e) {
+            if (qnVar != null && (qnVar instanceof dh6)) {
+                qnVar.setOnAdapterItemClickListener(noVar);
+            }
         }
     }
 }

@@ -1,47 +1,87 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TopicList.MediaTopic;
+import tbclient.VideoInfo;
 /* loaded from: classes3.dex */
-public class e77 {
+public class e77 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static yd5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
-            try {
-                yd5 yd5Var = new yd5(i, cls.newInstance());
-                MessageManager.getInstance().registerTask(yd5Var);
-                return yd5Var;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return null;
-            } catch (InstantiationException e2) {
-                e2.printStackTrace();
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947687332, "Lcom/baidu/tieba/e77;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947687332, "Lcom/baidu/tieba/e77;");
+                return;
             }
         }
-        return (yd5) invokeIL.objValue;
+        a = BdUniqueId.gen();
     }
 
-    public static zd5 b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
-        InterceptResult invokeCommon;
+    public e77() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
-            zd5 zd5Var = new zd5(i);
-            zd5Var.setResponsedClass(cls);
-            zd5Var.h(z);
-            zd5Var.setParallel(TiebaIMConfig.getParallel());
-            MessageManager.getInstance().registerTask(zd5Var);
-            return zd5Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (zd5) invokeCommon.objValue;
+    }
+
+    public void a(MediaTopic mediaTopic) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaTopic) == null) || mediaTopic == null) {
+            return;
+        }
+        mediaTopic.topic_id.longValue();
+        String str = mediaTopic.topic_name;
+        String str2 = mediaTopic.pic_url;
+        VideoInfo videoInfo = mediaTopic.video_info;
+        if (videoInfo == null || videoInfo.video_duration.intValue() <= 0) {
+            return;
+        }
+        b(mediaTopic.video_info);
+    }
+
+    public void b(VideoInfo videoInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
+            String str = videoInfo.video_md5;
+            String str2 = videoInfo.video_url;
+            videoInfo.video_duration.intValue();
+            videoInfo.video_width.intValue();
+            videoInfo.video_height.intValue();
+            String str3 = videoInfo.thumbnail_url;
+            videoInfo.thumbnail_width.intValue();
+            videoInfo.thumbnail_height.intValue();
+            videoInfo.video_length.intValue();
+            videoInfo.play_count.intValue();
+        }
+    }
+
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

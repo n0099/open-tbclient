@@ -8,15 +8,15 @@ import com.airbnb.lottie.L;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.tx4;
+import com.baidu.tieba.gy4;
+import com.baidu.tieba.hy4;
+import com.baidu.tieba.iy4;
+import com.baidu.tieba.jy4;
+import com.baidu.tieba.ky4;
+import com.baidu.tieba.ly4;
 import com.baidu.tieba.uf;
-import com.baidu.tieba.ux4;
 import com.baidu.tieba.vf;
-import com.baidu.tieba.vx4;
 import com.baidu.tieba.wf;
-import com.baidu.tieba.wx4;
-import com.baidu.tieba.xx4;
-import com.baidu.tieba.yx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,10 +31,10 @@ public class BreatheTipWidget {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public vf b;
-    public xx4 c;
+    public ky4 c;
     public BreatheTipView d;
     public View e;
-    public yx4 f;
+    public ly4 f;
     public final Runnable g;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -313,26 +313,26 @@ public class BreatheTipWidget {
         }
     }
 
-    public BreatheTipWidget f(ux4 ux4Var, tx4 tx4Var) {
+    public BreatheTipWidget f(hy4 hy4Var, gy4 gy4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ux4Var, tx4Var)) == null) {
-            PointType pointType = tx4Var.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy4Var, gy4Var)) == null) {
+            PointType pointType = gy4Var.a;
             if (pointType == PointType.LOTTIE) {
-                this.c = new vx4(this.a);
+                this.c = new iy4(this.a);
             } else if (pointType == PointType.DRAWABLE) {
-                this.c = new wx4(this.a);
+                this.c = new jy4(this.a);
             }
             if (this.d == null) {
                 this.d = new BreatheTipView(this.a);
             }
-            xx4 xx4Var = this.c;
-            if (xx4Var != null) {
-                xx4Var.a(tx4Var);
+            ky4 ky4Var = this.c;
+            if (ky4Var != null) {
+                ky4Var.a(gy4Var);
             }
             BreatheTipView breatheTipView = this.d;
             if (breatheTipView != null) {
-                breatheTipView.setData(ux4Var);
+                breatheTipView.setData(hy4Var);
             }
             return this;
         }
@@ -357,9 +357,9 @@ public class BreatheTipWidget {
                 return false;
             }
             h = true;
-            yx4 yx4Var = new yx4();
-            this.f = yx4Var;
-            yx4Var.h(this.d, this.c, this.e);
+            ly4 ly4Var = new ly4();
+            this.f = ly4Var;
+            ly4Var.h(this.d, this.c, this.e);
             wf wfVar = new wf();
             wfVar.c(0);
             wfVar.k(this.e);

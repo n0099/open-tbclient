@@ -4,23 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.DetailInfo;
 /* loaded from: classes3.dex */
 public class en8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public dn8 d;
-    public dn8 e;
-    public dn8 f;
 
-    public en8(String str, String str2, boolean z) {
+    public en8(DetailInfo detailInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
+            Object[] objArr = {detailInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,14 +25,10 @@ public class en8 {
                 return;
             }
         }
-        this.a = false;
-        this.b = null;
-        this.c = null;
-        this.d = new dn8();
-        this.e = new dn8();
-        this.f = new dn8();
-        this.c = str;
-        this.b = str2;
-        this.a = z;
+        if (detailInfo == null) {
+            return;
+        }
+        String str = detailInfo.text;
+        String str2 = detailInfo.url;
     }
 }

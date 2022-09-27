@@ -1,18 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.mv4;
 /* loaded from: classes5.dex */
-public final class pv4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pv4<T extends mv4> {
+    void a(int i, T t);
 
-    public static void a(Message<?> message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, message) == null) {
-            MessageManager.getInstance().sendMessage(message);
-        }
-    }
+    void b(int i, String str);
 }

@@ -1,73 +1,290 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.tieba.w33;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.CfgFileUtils;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class f34 extends v43 {
+public final class f34 extends u33 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String c;
+    public int b;
+    public b c;
+    public c d;
+    public String e;
+    public zz3 f;
+    public y14 g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f34(v33 v33Var, String str, String str2) {
-        super(v33Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var, str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static a b(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                a aVar = new a();
+                aVar.b = jSONObject.optString("root");
+                aVar.a = jSONObject.optString("name");
+                if (!TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
+                    if (aVar.b.endsWith(".js")) {
+                        String[] split = aVar.b.split(File.separator);
+                        if (split.length < 1) {
+                            return c();
+                        }
+                        aVar.d = split[split.length - 1];
+                        aVar.c = "";
+                        for (int i = 0; i < split.length - 1; i++) {
+                            aVar.c += split[i] + File.separator;
+                        }
+                    } else {
+                        String str = aVar.b;
+                        aVar.c = str;
+                        if (!str.endsWith(File.separator)) {
+                            aVar.c += File.separator;
+                        }
+                        aVar.d = "index.js";
+                    }
+                    return aVar;
+                }
+                return c();
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public static a c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new a() : (a) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<a> a;
+        public HashMap<String, Boolean> b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static b b(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return c();
+                }
+                JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    b bVar = new b();
+                    bVar.a = new ArrayList();
+                    bVar.b = new HashMap<>();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            bVar.a.add(a.b(optJSONObject));
+                        }
+                    }
+                    return bVar;
+                }
+                return c();
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public static b c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                b bVar = new b();
+                bVar.a = new ArrayList();
+                bVar.b = new HashMap<>();
+                return bVar;
+            }
+            return (b) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HashMap<String, String> a;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static c b(JSONObject jSONObject, b bVar) {
+            InterceptResult invokeLL;
+            List<a> list;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, bVar)) == null) {
+                if (jSONObject != null && bVar != null && (list = bVar.a) != null && list.size() > 0) {
+                    JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
+                    if (optJSONObject == null) {
+                        return c();
+                    }
+                    c cVar = new c();
+                    cVar.a = new HashMap<>();
+                    for (a aVar : bVar.a) {
+                        if (aVar != null && !TextUtils.isEmpty(aVar.b)) {
+                            HashMap<String, String> hashMap = cVar.a;
+                            String str = aVar.b;
+                            hashMap.put(str, optJSONObject.optString(str));
+                        }
+                    }
+                    return cVar;
+                }
+                return c();
+            }
+            return (c) invokeLL.objValue;
+        }
+
+        public static c c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                c cVar = new c();
+                cVar.a = new HashMap<>();
+                return cVar;
+            }
+            return (c) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713186, "Lcom/baidu/tieba/f34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947713186, "Lcom/baidu/tieba/f34;");
                 return;
             }
         }
-        this.c = str2;
+        h = vj1.a;
     }
 
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
-        InterceptResult invokeLLLL;
+    public f34() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            h22 V = lo2.U().V();
-            if (V == null) {
-                yz1.c(this.c, "fragment manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            j34 j34Var = (j34) V.n(vy3.class);
-            if (j34Var == null) {
-                yz1.c(this.c, "fragment is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            return k(j34Var.b(), unitedSchemeEntity, callbackHandler);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler) == null) {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }
 
-    public abstract boolean k(@NonNull i34 i34Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler);
+    public static f34 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            f34 f34Var = new f34();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                f34Var.a = w33.a.a(jSONObject);
+                String optString = jSONObject.optString("deviceOrientation", "portrait");
+                boolean z = false;
+                f34Var.b = 0;
+                if (TextUtils.equals(optString, "landscape")) {
+                    f34Var.b = 1;
+                }
+                jSONObject.optBoolean("showStatusBar", false);
+                jSONObject.optString("workers");
+                b b2 = b.b(jSONObject);
+                f34Var.c = b2;
+                f34Var.d = c.b(jSONObject, b2);
+                f34Var.e = jSONObject.optString("openDataContext");
+                f34Var.f = new zz3(jSONObject);
+                JSONArray optJSONArray = jSONObject.optJSONArray("preloadResources");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    z = true;
+                }
+                qw2.p("startup").D("preload_resources", z ? "1" : "0");
+                f34Var.g = new y14(optJSONArray);
+                JSONObject optJSONObject = jSONObject.optJSONObject("setting");
+                if (optJSONObject != null) {
+                    optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
+                }
+                return f34Var;
+            } catch (JSONException e) {
+                if (h) {
+                    Log.e("SwanGameConfigData", "buildConfigData json error: " + Log.getStackTraceString(e));
+                }
+                return null;
+            }
+        }
+        return (f34) invokeL.objValue;
+    }
 }

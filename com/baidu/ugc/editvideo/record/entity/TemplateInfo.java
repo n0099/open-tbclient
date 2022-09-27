@@ -7,8 +7,8 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.gg9;
-import com.baidu.tieba.nd9;
+import com.baidu.tieba.ce9;
+import com.baidu.tieba.kh9;
 import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -107,7 +107,7 @@ public class TemplateInfo implements Serializable {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (vg9.a(str)) {
+            if (kh9.a(str)) {
                 return null;
             }
             String str2 = str + File.separator + TEMPLATE_FILE_NAME;
@@ -141,15 +141,15 @@ public class TemplateInfo implements Serializable {
 
     public static void packageEffectConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || gg9.f(mediaTrackConfig.effectResourceMap)) {
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || vg9.f(mediaTrackConfig.effectResourceMap)) {
             return;
         }
         if (mediaTrackConfig.effectConfigMap == null) {
             mediaTrackConfig.effectConfigMap = new LinkedHashMap();
         }
-        nd9 nd9Var = new nd9();
+        ce9 ce9Var = new ce9();
         for (Map.Entry<String, String> entry : mediaTrackConfig.effectResourceMap.entrySet()) {
-            mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) nd9Var.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
+            mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) ce9Var.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
         }
         mediaTrackConfig.effectResourceMap = null;
     }
@@ -161,12 +161,12 @@ public class TemplateInfo implements Serializable {
             if (TextUtils.isEmpty(str) || mediaTrackConfig == null) {
                 return;
             }
-            nd9 nd9Var = new nd9();
+            ce9 ce9Var = new ce9();
             Map<String, String> map = mediaTrackConfig.shaderResourceMap;
             if (map != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     String str2 = str + File.separator + entry.getValue();
-                    ShaderConfig shaderConfig = (ShaderConfig) nd9Var.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
+                    ShaderConfig shaderConfig = (ShaderConfig) ce9Var.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
                     shaderConfig.resourcePath = new File(str2).getParent();
                     hashMap.put(entry.getKey(), shaderConfig);
                     List<MediaTextureData> list = shaderConfig.textures;
@@ -191,7 +191,7 @@ public class TemplateInfo implements Serializable {
                     ShaderConfig value = entry2.getValue();
                     if (value != null) {
                         List<MediaTextureData> list2 = value.textures;
-                        if (!gg9.e(list2)) {
+                        if (!vg9.e(list2)) {
                             for (MediaTextureData mediaTextureData2 : list2) {
                                 if (!TextUtils.isEmpty(mediaTextureData2.path) && mediaTextureData2.path.contains(File.separator)) {
                                     mediaTextureData2.path = str + mediaTextureData2.path;
@@ -208,14 +208,14 @@ public class TemplateInfo implements Serializable {
 
     public static void packageTransitionList(MediaTrackConfig mediaTrackConfig, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65542, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || gg9.e(mediaTrackConfig.transitionResourceList)) {
+        if (!(interceptable == null || interceptable.invokeLL(65542, null, mediaTrackConfig, str) == null) || TextUtils.isEmpty(str) || mediaTrackConfig == null || vg9.e(mediaTrackConfig.transitionResourceList)) {
             return;
         }
         ArrayList arrayList = new ArrayList();
-        nd9 nd9Var = new nd9();
-        int b = gg9.b(mediaTrackConfig.transitionResourceList);
+        ce9 ce9Var = new ce9();
+        int b = vg9.b(mediaTrackConfig.transitionResourceList);
         for (int i = 0; i < b; i++) {
-            arrayList.add((MediaTransition) nd9Var.b(FileUtils.readText(new File(str + File.separator + ((String) gg9.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
+            arrayList.add((MediaTransition) ce9Var.b(FileUtils.readText(new File(str + File.separator + ((String) vg9.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
         }
         mediaTrackConfig.transitionConfigs = arrayList;
         mediaTrackConfig.transitionResourceList = null;
@@ -230,7 +230,7 @@ public class TemplateInfo implements Serializable {
             if (str == null || "".equals(str) || (readText = FileUtils.readText((file = new File(str)))) == null || "".equals(readText)) {
                 return null;
             }
-            TemplateInfo templateInfo = (TemplateInfo) new nd9().b(readText, TemplateInfo.class);
+            TemplateInfo templateInfo = (TemplateInfo) new ce9().b(readText, TemplateInfo.class);
             if (templateInfo != null) {
                 templateInfo.resourcePath = file.getParent();
             }
@@ -247,7 +247,7 @@ public class TemplateInfo implements Serializable {
                 return null;
             }
             try {
-                return new nd9().a(templateInfo);
+                return new ce9().a(templateInfo);
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;

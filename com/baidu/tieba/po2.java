@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface po2 {
-    void onPause();
-
-    void onResume();
+    public static final boolean a = vj1.a;
 }

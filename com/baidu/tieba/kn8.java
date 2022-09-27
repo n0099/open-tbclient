@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
+import androidx.core.app.NotificationCompat;
+import com.baidu.tbadk.core.data.AbstractData;
+import com.baidu.tbadk.data.MetaData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class kn8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
-    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
+public class kn8 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, List<ln8>> mAsyncCallBackMethodList;
-    public HashSet<String> mNotificationNameList;
+    public MetaData a;
+    public List<AbstractData> b;
 
     public kn8() {
         Interceptable interceptable = $ic;
@@ -28,37 +29,33 @@ public abstract class kn8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new ArrayList();
     }
 
-    public mn8 addObserver(String str, mn8 mn8Var, boolean z) {
-        InterceptResult invokeLLZ;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, str, mn8Var, z)) == null) {
-            if (mn8Var == null) {
-                mn8Var = new mn8();
-            }
-            if (this.mNotificationNameList.contains(str)) {
-                mn8Var.n(false);
-                mn8Var.s(true);
-                List<ln8> list = this.mAsyncCallBackMethodList.get(str);
-                if (list == null) {
-                    list = new ArrayList<>();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            try {
+                jSONObject.optString("id");
+                MetaData metaData = new MetaData();
+                this.a = metaData;
+                metaData.parserJson(jSONObject.optJSONObject(NotificationCompat.CarExtender.KEY_AUTHOR));
+                JSONArray optJSONArray = jSONObject.optJSONArray("abstract");
+                this.b = new ArrayList();
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        AbstractData abstractData = new AbstractData();
+                        abstractData.parserJson(optJSONArray.getJSONObject(i));
+                        this.b.add(abstractData);
+                    }
                 }
-                ln8 ln8Var = new ln8();
-                ln8Var.e(mn8Var.c());
-                ln8Var.d(z);
-                ln8Var.f(mn8Var.e());
-                list.add(ln8Var);
-                this.mAsyncCallBackMethodList.put(str, list);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return mn8Var;
         }
-        return (mn8) invokeLLZ.objValue;
     }
-
-    public abstract mn8 dispatch(on8 on8Var, mn8 mn8Var);
-
-    public abstract List<mn8> processNotification(String str, HashMap hashMap);
 }

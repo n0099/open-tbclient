@@ -196,7 +196,7 @@ public final class R {
         public static final int flex_start = 0x7f0909e9;
 
         /* renamed from: hidden */
-        public static final int obfuscated = 0x7f090d5f;
+        public static final int obfuscated = 0x7f090d5e;
 
         /* renamed from: inherit */
         public static final int obfuscated = 0x7f090f2a;
@@ -207,24 +207,24 @@ public final class R {
         public static final int none = 0x7f0916ea;
 
         /* renamed from: relative */
-        public static final int obfuscated = 0x7f091bc9;
-        public static final int root = 0x7f091c6a;
+        public static final int obfuscated = 0x7f091bcb;
+        public static final int root = 0x7f091c6c;
 
         /* renamed from: row */
-        public static final int obfuscated = 0x7f091c8f;
-        public static final int row_reverse = 0x7f091c91;
+        public static final int obfuscated = 0x7f091c91;
+        public static final int row_reverse = 0x7f091c93;
 
         /* renamed from: rtl */
-        public static final int obfuscated = 0x7f091c92;
+        public static final int obfuscated = 0x7f091c94;
 
         /* renamed from: scroll */
-        public static final int obfuscated = 0x7f091dc7;
-        public static final int space_around = 0x7f091f1d;
-        public static final int space_between = 0x7f091f1e;
-        public static final int stretch = 0x7f091f8d;
-        public static final int text = 0x7f0920fd;
-        public static final int visible = 0x7f092609;
-        public static final int wrap = 0x7f0926a7;
+        public static final int obfuscated = 0x7f091dc9;
+        public static final int space_around = 0x7f091f1f;
+        public static final int space_between = 0x7f091f20;
+        public static final int stretch = 0x7f091f8f;
+        public static final int text = 0x7f0920ff;
+        public static final int visible = 0x7f09260b;
+        public static final int wrap = 0x7f0926a9;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

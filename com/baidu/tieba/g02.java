@@ -1,109 +1,90 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.zip.CRC32;
 /* loaded from: classes4.dex */
 public class g02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public JSONArray c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
+    public final long a;
+    public final long b;
+    public final String c;
+    public final Map<String, String> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740032, "Lcom/baidu/tieba/g02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740032, "Lcom/baidu/tieba/g02;");
-                return;
-            }
-        }
-        i = ij1.a;
-    }
-
-    public g02() {
+    public g02(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = new HashMap();
+        this.b = TimeUnit.MILLISECONDS.toSeconds(j);
+        this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
+        this.c = Long.toHexString(a(this.a + "#" + this.b));
+        this.d.put("timestamp", Long.toString(this.a));
+        this.d.put("delta", Long.toString(this.b));
+        this.d.put("rasign", this.c);
     }
 
-    @NonNull
-    public static g02 c(JSONObject jSONObject) {
+    public static g02 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new g02(0L) : (g02) invokeV.objValue;
+    }
+
+    public final long a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            g02 g02Var = new g02();
-            try {
-                g02Var.c = jSONObject.getJSONArray("host");
-                g02Var.b = jSONObject.getString("appKey");
-                g02Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                g02Var.d = jSONObject.getString("serverPort");
-                g02Var.f = jSONObject.getString("wsServerPort");
-                Uri.decode(jSONObject.optString("url"));
-                g02Var.g = jSONObject.optString("notInHistory", "1");
-                g02Var.h = jSONObject.optLong("coreVersion");
-            } catch (JSONException unused) {
-                if (i) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
-                }
-            }
-            return g02Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            CRC32 crc32 = new CRC32();
+            crc32.reset();
+            crc32.update(str.getBytes());
+            return crc32.getValue();
         }
-        return (g02) invokeL.objValue;
+        return invokeL.longValue;
     }
 
-    public String a(int i2) {
-        InterceptResult invokeI;
+    public String c(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.c;
-            return jSONArray == null ? "" : jSONArray.optString(i2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return Long.toHexString(a(j + "#smartapp_formid"));
         }
-        return (String) invokeI.objValue;
+        return (String) invokeJ.objValue;
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
+    public String d(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            return "http://" + str + ":" + this.d + "/app.zip";
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            return Long.toHexString(a(j + "#payid"));
         }
-        return (String) invokeL.objValue;
+        return (String) invokeJ.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.toString() + " serverTime:" + this.a + " delta:" + this.b + " rasign:" + this.c;
+        }
+        return (String) invokeV.objValue;
     }
 }

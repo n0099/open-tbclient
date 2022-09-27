@@ -1,152 +1,163 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.DecryptCode.DataRes;
 /* loaded from: classes6.dex */
 public class vl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String l;
+    public static final String m;
+    public static final String n;
+    public static final String o;
     public transient /* synthetic */ FieldHolder $fh;
-    public wl4 a;
-    public long b;
-    public CustomMessageListener c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public String j;
+    public Integer k;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vl4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vl4 vl4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948244619, "Lcom/baidu/tieba/vl4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vl4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = vl4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948244619, "Lcom/baidu/tieba/vl4;");
                 return;
             }
-            this.a.g();
         }
+        l = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f13b8);
+        m = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1397);
+        n = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0375);
+        o = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03b8);
     }
 
     public vl4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new a(this, 2001371);
-        this.a = new wl4();
-        MessageManager.getInstance().registerListener(this.c);
-        g();
-        this.b = bx4.k().m("key_redpacket_pop_last_time", 0L);
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && d() && e()) {
-            f();
-        }
-    }
-
-    public final boolean c(am4 am4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, am4Var)) == null) ? am4Var != null && this.b >= am4Var.b() && this.b <= am4Var.a() : invokeL.booleanValue;
-    }
-
-    public final boolean d() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Date date = new Date();
-            return date.getTime() >= this.a.b() && date.getTime() <= this.a.a();
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (String) invokeV.objValue;
     }
 
-    public final boolean e() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.isEmpty(this.a.c())) {
-                return false;
-            }
-            Date date = new Date();
-            Iterator<am4> it = this.a.c().iterator();
-            while (it.hasNext()) {
-                am4 next = it.next();
-                if (date.getTime() >= next.b() && date.getTime() <= next.a() && !c(next)) {
-                    return true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.i : invokeV.intValue;
+    }
+
+    public void h(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, dataRes) == null) {
+            int intValue = dataRes.type.intValue();
+            this.i = intValue;
+            if (intValue != 0 && intValue != 1) {
+                if (intValue == 2) {
+                    this.a = dataRes.title;
+                    this.d = dataRes.url;
+                    return;
+                } else if (intValue != 4 && intValue == 3) {
+                    this.d = dataRes.url;
+                    this.a = dataRes.title;
+                    this.b = dataRes.img;
+                    this.c = dataRes.tips;
+                    this.e = dataRes.btn_sure;
+                    this.f = dataRes.btn_cancel;
+                    return;
+                } else {
+                    return;
                 }
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || dj.isEmpty(this.a.d())) {
-            return;
-        }
-        this.b = System.currentTimeMillis();
-        bx4.k().x("key_redpacket_pop_last_time", this.b);
-        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RED_PACKET_POP_WINDOW_SHOW));
-        String str = this.a.d() + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
-        Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-        if (currentActivity != null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TbWebViewActivityConfig(currentActivity, "", str, true)));
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.e(bx4.k().q("key_redpacket_pop", ""));
+            this.a = StringUtils.isNull(dataRes.title) ? l : dataRes.title;
+            this.b = dataRes.img;
+            this.c = StringUtils.isNull(dataRes.tips) ? m : dataRes.tips;
+            if (!StringUtils.isNull(dataRes.url)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(dataRes.url);
+                    this.g = jSONObject.optString("appid");
+                    this.h = jSONObject.optString("appname");
+                    String optString = jSONObject.optString("url");
+                    Integer valueOf = Integer.valueOf(jSONObject.optInt("is_game"));
+                    this.k = valueOf;
+                    this.d = mr5.a(this.g, optString, "9104", valueOf);
+                    this.j = jSONObject.optString("swan_app_id");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            this.e = StringUtils.isNull(dataRes.btn_sure) ? o : dataRes.btn_sure;
+            this.f = StringUtils.isNull(dataRes.btn_cancel) ? n : dataRes.btn_cancel;
         }
     }
 }

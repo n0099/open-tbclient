@@ -6,8 +6,8 @@ import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.h85;
 import com.baidu.tieba.on;
-import com.baidu.tieba.u75;
 import com.baidu.tieba.wg;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -155,7 +155,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
             if (onVar.u()) {
                 onVar.A(i);
                 onVar.z(i2);
-                u75.k().b(str, onVar);
+                h85.k().b(str, onVar);
             }
         }
     }
@@ -186,7 +186,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            on l = u75.k().l(str);
+            on l = h85.k().l(str);
             if (z) {
                 wg.i(l != null, System.currentTimeMillis() - currentTimeMillis);
             }

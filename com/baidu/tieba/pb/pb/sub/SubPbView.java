@@ -19,8 +19,8 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.tieba.aw7;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.mv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -139,7 +139,7 @@ public class SubPbView extends LinearLayout {
                             this.g = rawY;
                             this.p = 1.0f - ((rawY - this.f) / ej.i(getContext()));
                             if ((this.m || this.n) && this.b.getTop() == 0 && this.d.getFirstVisiblePosition() == 0 && !this.i) {
-                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new mv7(this.g, this.f, this.k, this.p, this.i)));
+                                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new aw7(this.g, this.f, this.k, this.p, this.i)));
                             }
                         }
                     }
@@ -150,7 +150,7 @@ public class SubPbView extends LinearLayout {
                     this.i = z2;
                     if (z2) {
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new mv7(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new aw7(this.g, this.f, this.k, this.p, this.i)));
                         }
                         this.j.setIntValues((int) (this.g - this.f), ej.i(getContext()));
                         this.j.setDuration(300L);
@@ -160,7 +160,7 @@ public class SubPbView extends LinearLayout {
                         this.f = 0.0f;
                         this.g = 0.0f;
                         if (this.m || this.n) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new mv7(this.g, this.f, this.k, this.p, this.i)));
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new aw7(this.g, this.f, this.k, this.p, this.i)));
                         }
                         requestLayout();
                     }
@@ -217,7 +217,7 @@ public class SubPbView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.i = true;
             if (this.m || this.n) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new mv7(this.g, this.f, this.k, this.p, this.i)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921597, new aw7(this.g, this.f, this.k, this.p, this.i)));
             }
             this.j.setIntValues(0, ej.i(getContext()));
             this.j.setDuration(300L);
@@ -332,18 +332,18 @@ public class SubPbView extends LinearLayout {
         }
     }
 
-    public void setSubPbViewData(mv7 mv7Var) {
+    public void setSubPbViewData(aw7 aw7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048591, this, mv7Var) == null) || mv7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048591, this, aw7Var) == null) || aw7Var == null) {
             return;
         }
-        this.p = mv7Var.d;
-        float f = mv7Var.b;
+        this.p = aw7Var.d;
+        float f = aw7Var.b;
         this.f = f;
-        float f2 = mv7Var.a;
+        float f2 = aw7Var.a;
         this.g = f2;
-        this.k = mv7Var.c;
-        this.i = mv7Var.e;
+        this.k = aw7Var.c;
+        this.i = aw7Var.e;
         boolean z = f2 > f;
         if (this.i) {
             this.j.setIntValues((int) (this.g - this.f), ej.i(getContext()));

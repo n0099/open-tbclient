@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebResourceRequest;
 import java.util.Map;
 @TargetApi(21)
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebResourceRequestImpl implements WebResourceRequest {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

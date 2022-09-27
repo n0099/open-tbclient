@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.Window;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
 /* loaded from: classes6.dex */
-public interface z31 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "statusBarTool");
-    public static final z31 b = new a();
+public abstract class z31 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final z31 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements z31 {
+    public static class a extends z31 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,17 +36,51 @@ public interface z31 {
         }
 
         @Override // com.baidu.tieba.z31
-        public void a(@NonNull Activity activity) {
+        public void a(Context context, nx0 nx0Var, boolean z) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, activity) == null) || Build.VERSION.SDK_INT < 21) {
-                return;
+            if (interceptable == null || interceptable.invokeLLZ(1048576, this, context, nx0Var, z) == null) {
             }
-            Window window = activity.getWindow();
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            window.addFlags(Integer.MIN_VALUE);
-            window.setStatusBarColor(activity.getResources().getColor(R.color.obfuscated_res_0x7f060898));
+        }
+
+        @Override // com.baidu.tieba.z31
+        public void b(@Nullable String str, @Nullable String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            }
         }
     }
 
-    void a(@NonNull Activity activity);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948308913, "Lcom/baidu/tieba/z31;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948308913, "Lcom/baidu/tieba/z31;");
+                return;
+            }
+        }
+        a = new a();
+    }
+
+    public z31() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public abstract void a(Context context, nx0 nx0Var, boolean z);
+
+    public abstract void b(@Nullable String str, @Nullable String str2);
 }

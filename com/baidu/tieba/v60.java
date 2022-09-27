@@ -1,34 +1,30 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.RequestBody;
 import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.support.cookie.Cookie;
-import com.baidu.searchbox.network.support.cookie.CookieHandler;
-import com.baidu.searchbox.network.support.cookie.CookieJar;
-import com.baidu.tieba.k60;
+import com.baidu.tieba.h70;
+import com.baidu.tieba.x60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.util.List;
 /* loaded from: classes6.dex */
-public final class v60 implements k60 {
+public class v60 implements x60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CookieJar a;
-    public o60 b;
+    public final e70 a;
+    public c70 b;
+    public boolean c;
 
-    public v60(CookieJar cookieJar, o60 o60Var) {
+    public v60(b70 b70Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cookieJar, o60Var};
+            Object[] objArr = {b70Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,65 +34,49 @@ public final class v60 implements k60 {
                 return;
             }
         }
-        this.a = cookieJar;
-        this.b = o60Var;
+        h70.b b = h70.b();
+        b.c(b70Var);
+        this.a = b.b();
     }
 
-    @Override // com.baidu.tieba.k60
-    public Response a(k60.a aVar) throws IOException {
+    @Override // com.baidu.tieba.x60
+    public Response a(x60.a aVar) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            Request request = aVar.request();
-            request.getNetworkStatRecord().startTs = System.currentTimeMillis();
-            Request.Builder newBuilder = request.newBuilder();
-            newBuilder.removeHeader("bdapp-support-brotli");
-            RequestBody body = request.body();
-            if (body != null) {
-                MediaType contentType = body.contentType();
-                if (contentType != null) {
-                    newBuilder.header("Content-Type", contentType.toString());
-                }
-                long contentLength = body.contentLength();
-                if (contentLength != -1) {
-                    newBuilder.header("Content-Length", Long.toString(contentLength));
-                    newBuilder.removeHeader("Transfer-Encoding");
-                } else {
-                    newBuilder.header("Transfer-Encoding", "chunked");
-                    newBuilder.removeHeader("Content-Length");
-                }
+            if (!this.c) {
+                k70 k70Var = (k70) aVar;
+                Request request = aVar.request();
+                request.getNetworkStatRecord().requestBodyLength = request.body() == null ? 0L : request.body().contentLength();
+                c70 c = c(request);
+                this.b = c;
+                return k70Var.b(request, c);
             }
-            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
-            if (!loadForRequest.isEmpty()) {
-                newBuilder.header("Cookie", b(loadForRequest));
-            }
-            if (request.header("User-Agent") == null && this.b.y() != null) {
-                newBuilder.header("User-Agent", this.b.y());
-            }
-            Response a = aVar.a(newBuilder.build());
-            CookieHandler.receiveHeaders(this.a, request, a.headers());
-            return a.newBuilder().request(request).build();
+            throw new IOException("The request has been cancelled.");
         }
         return (Response) invokeL.objValue;
     }
 
-    public final String b(List<Cookie> list) {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = true;
+            c70 c70Var = this.b;
+            if (c70Var != null) {
+                c70Var.disconnect();
+            }
+        }
+    }
+
+    public final c70 c(Request request) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                if (i > 0) {
-                    sb.append("; ");
-                }
-                Cookie cookie = list.get(i);
-                sb.append(cookie.name());
-                sb.append('=');
-                sb.append(cookie.value());
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) ? this.a.a(request) : (c70) invokeL.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.booleanValue;
     }
 }

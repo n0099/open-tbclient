@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ax4;
+import com.baidu.tieba.nx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,9 +86,9 @@ public class MainSharedPrefProvider extends ContentProvider {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = ax4.k.length;
+                int length = nx4.k.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(ax4.k[i])) {
+                    if (str.equals(nx4.k[i])) {
                         return true;
                     }
                 }

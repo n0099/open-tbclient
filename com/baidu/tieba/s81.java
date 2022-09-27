@@ -1,65 +1,94 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
+import android.content.res.Resources;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IResourcesFetcher;
+import com.baidu.nps.interfa.IResourcesFetcher_ResourcesFetcherManager_Provider;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class s81 {
+public class s81 {
     public static /* synthetic */ Interceptable $ic;
+    public static s81 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    @Inject
+    public se1<IResourcesFetcher> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105181, "Lcom/baidu/tieba/s81;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948105181, "Lcom/baidu/tieba/s81;");
+                return;
+            }
+        }
+        b = new s81();
+    }
 
     public s81() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
+        e();
     }
 
-    public boolean a() {
+    public static s81 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (s81) invokeV.objValue;
     }
 
-    public abstract boolean b(SQLiteDatabase sQLiteDatabase);
-
-    public void c(SQLiteDatabase sQLiteDatabase) {
+    public Resources a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) != null) {
-            return;
-        }
-        this.a = false;
-        try {
-            sQLiteDatabase.beginTransaction();
-            if (b(sQLiteDatabase)) {
-                sQLiteDatabase.setTransactionSuccessful();
-                this.a = true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (q91.a()) {
+                Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.a.getClass());
             }
-        } catch (Exception unused) {
-        } catch (Throwable th) {
-            try {
-                sQLiteDatabase.endTransaction();
-            } catch (Exception unused2) {
-            }
-            throw th;
+            return this.a.get().getBaseContextResources();
         }
-        try {
-            sQLiteDatabase.endTransaction();
-        } catch (Exception unused3) {
+        return (Resources) invokeV.objValue;
+    }
+
+    public Resources b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.get().getGlobalResources() : (Resources) invokeV.objValue;
+    }
+
+    public Resources[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.get().getWrapperResources() : (Resources[]) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            qe1 b2 = qe1.b();
+            this.a = b2;
+            b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
         }
     }
 }

@@ -1,26 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class rd9 {
+public class rd9 implements yd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public String f;
-    public int g;
-    public String h;
+    public ed9 a;
+    public int b;
+    public int c;
+    public boolean d;
 
     public rd9() {
         Interceptable interceptable = $ic;
@@ -35,92 +29,127 @@ public class rd9 {
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.f = "";
-        this.g = 0;
+        this.d = true;
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.yd9
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            ed9 ed9Var = this.a;
+            if (ed9Var == null || bArr == null) {
+                return 0;
+            }
+            this.b += bArr.length;
+            ed9Var.putBytes(bArr, i);
+            return this.b;
+        }
+        return invokeLI.intValue;
+    }
+
+    @Override // com.baidu.tieba.yd9
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.d && this.a.available() : invokeV.booleanValue;
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.yd9
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (ed9) gh9.a("com.baidu.ugc.audioedit.AudioChangeOperator");
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                this.a = jSONObject.optString("name");
-                this.b = jSONObject.optString("id");
-                this.c = jSONObject.optString("image");
-                this.d = jSONObject.optString("url");
-                this.e = jSONObject.optInt("progress");
-                this.f = jSONObject.optString("downloadPerSize");
-                this.g = jSONObject.optInt("status");
-                this.h = jSONObject.optString("savePath");
-                return true;
-            } catch (JSONException unused) {
-                return false;
+            ed9 ed9Var = this.a;
+            if (ed9Var != null) {
+                ed9Var.initVoiceChanger(i, i2, i3, i4);
             }
+            return this.a != null;
         }
-        return invokeL.booleanValue;
+        return invokeIIII.booleanValue;
     }
 
-    public void c(String str) {
+    @Override // com.baidu.tieba.yd9
+    public byte[] a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            ed9 ed9Var = this.a;
+            if (ed9Var == null || ed9Var.availableBytes() <= 0) {
+                return new byte[0];
+            }
+            byte[] bArr = new byte[4096];
+            int bytes = this.a.getBytes(bArr, 4096);
+            this.c += bytes;
+            if (bytes == 0) {
+                return null;
+            }
+            if (4096 == bytes) {
+                return bArr;
+            }
+            byte[] bArr2 = new byte[bytes];
+            System.arraycopy(bArr, 0, bArr2, 0, bytes);
+            return bArr2;
         }
+        return (byte[]) invokeI.objValue;
     }
 
-    public void d(int i) {
+    public void b(int[] iArr) {
+        ed9 ed9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.e = i;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, iArr) == null) || (ed9Var = this.a) == null) {
+            return;
         }
+        ed9Var.setVoiceChangeType(iArr);
     }
 
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public JSONObject g() {
+    @Override // com.baidu.tieba.yd9
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", this.a);
-                jSONObject.put("id", this.b);
-                jSONObject.put("image", this.c);
-                jSONObject.put("url", this.d);
-                jSONObject.put("progress", this.e);
-                jSONObject.put("downloadPerSize", this.f);
-                jSONObject.put("status", this.g);
-                jSONObject.put("savePath", this.h);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yd9
+    public void c() {
+        ed9 ed9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ed9Var = this.a) == null) {
+            return;
         }
-        return (JSONObject) invokeV.objValue;
+        ed9Var.flush();
+    }
+
+    public void c(int[] iArr, int[] iArr2, double[] dArr) {
+        ed9 ed9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(1048583, this, iArr, iArr2, dArr) == null) || (ed9Var = this.a) == null) {
+            return;
+        }
+        ed9Var.setVoiceChangeType(iArr, iArr2, dArr);
+    }
+
+    @Override // com.baidu.tieba.yd9
+    public void d() {
+        ed9 ed9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (ed9Var = this.a) == null) {
+            return;
+        }
+        ed9Var.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.yd9
+    public void e() {
+        ed9 ed9Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (ed9Var = this.a) == null) {
+            return;
+        }
+        ed9Var.clearQueues();
     }
 }

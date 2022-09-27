@@ -1,13 +1,24 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import com.baidu.tieba.videoplay.verticalviewpager.fragment.VideoLoadingFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: lambda */
 /* loaded from: classes5.dex */
-public interface sy8 {
-    void J0(vy8 vy8Var);
+public final /* synthetic */ class sy8 implements View.OnLongClickListener {
+    public static /* synthetic */ Interceptable $ic;
+    public static final /* synthetic */ sy8 a = new sy8();
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void O0(String str, String str2, String str3, String str4);
+    private /* synthetic */ sy8() {
+    }
 
-    void c(int i);
-
-    void onError(int i, String str);
-
-    void onFinish();
+    @Override // android.view.View.OnLongClickListener
+    public final boolean onLongClick(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) ? VideoLoadingFragment.v1(view2) : invokeL.booleanValue;
+    }
 }

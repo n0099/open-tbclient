@@ -1,61 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.pb.chosen.cache.ReadChosenPbCacheResponse;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.security.RSAUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.ExcPbPage.DataRes;
-import tbclient.ExcPbPage.ExcPbPageResIdl;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes4.dex */
-public class gu7 implements CustomMessageTask.CustomRunnable<Object> {
+public class gu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public gu7() {
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            try {
+                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(wi.d(b(str2))));
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, generatePublic);
+                return wi.j(cipher.doFinal(str.getBytes("GBK")));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
             }
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public static String b(String str) {
         InterceptResult invokeL;
-        ExcPbPageResIdl excPbPageResIdl;
-        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            fu7 fu7Var = null;
-            if (customMessage != null && customMessage.getCmd() == 2001314) {
-                zt4.f();
-                byte[] bArr = zt4.d("tb.pb_normal").get("chosen_pb_page_cache");
-                if (bArr != null) {
-                    try {
-                        excPbPageResIdl = (ExcPbPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcPbPageResIdl.class);
-                    } catch (Exception unused) {
-                        excPbPageResIdl = null;
-                    }
-                    if (excPbPageResIdl != null && (dataRes = excPbPageResIdl.data) != null) {
-                        fu7Var = new fu7(dataRes.user_info, dataRes.thread_info, dataRes.post_list, dataRes.user_list);
-                    }
-                }
-                return new ReadChosenPbCacheResponse(fu7Var);
-            }
-            return null;
-        }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? StringUtils.isNull(str) ? "" : str.replace("-----BEGIN PUBLIC KEY-----", "").replace("-----END PUBLIC KEY-----", "") : (String) invokeL.objValue;
     }
 }

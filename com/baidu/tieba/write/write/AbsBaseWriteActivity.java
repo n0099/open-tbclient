@@ -70,40 +70,40 @@ import com.baidu.tbadk.editortools.emotiontool.RequestStaticEmotionMessage;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac6;
-import com.baidu.tieba.au4;
-import com.baidu.tieba.b39;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.bx4;
+import com.baidu.tieba.c65;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.e15;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.FrsTabItemData;
-import com.baidu.tieba.fx4;
-import com.baidu.tieba.h19;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.hh5;
+import com.baidu.tieba.i55;
 import com.baidu.tieba.ih;
-import com.baidu.tieba.ii5;
-import com.baidu.tieba.jx4;
-import com.baidu.tieba.ky8;
-import com.baidu.tieba.l15;
+import com.baidu.tieba.m39;
+import com.baidu.tieba.mc6;
+import com.baidu.tieba.mp8;
+import com.baidu.tieba.n29;
+import com.baidu.tieba.nc6;
+import com.baidu.tieba.nu4;
+import com.baidu.tieba.o55;
 import com.baidu.tieba.on;
-import com.baidu.tieba.p55;
-import com.baidu.tieba.r05;
+import com.baidu.tieba.ox4;
+import com.baidu.tieba.q39;
+import com.baidu.tieba.sx4;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.u45;
-import com.baidu.tieba.ug5;
-import com.baidu.tieba.v45;
+import com.baidu.tieba.vi5;
 import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
+import com.baidu.tieba.w19;
 import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.tieba.write.view.PostCategoryView;
-import com.baidu.tieba.x29;
-import com.baidu.tieba.xo8;
-import com.baidu.tieba.y19;
-import com.baidu.tieba.zb6;
+import com.baidu.tieba.wx4;
+import com.baidu.tieba.y15;
+import com.baidu.tieba.zy8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +113,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.regex.Matcher;
 /* loaded from: classes6.dex */
-public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements h19.a, PopupWindow.OnDismissListener {
+public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements w19.a, PopupWindow.OnDismissListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public EditText A;
@@ -126,23 +126,23 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     public RelativeLayout H;
     public Toast I;
     public TextView J;
-    public h19 K;
+    public w19 K;
     public ImageView L;
     public View M;
     public PostCategoryView N;
     public ScrollView O;
-    public fx4 P;
+    public sx4 P;
     public ForumTabSelectedView Q;
     public GestureDetector R;
     public EditorTools S;
     public InputMethodManager T;
-    public y19 U;
-    public b39 V;
+    public n29 U;
+    public q39 V;
     public TextWatcher W;
     public TextWatcher X;
     public TbFaceManager.a Y;
     public final AntiHelper.k Z;
-    public final x29 a;
+    public final m39 a;
     public final NewWriteModel.d a0;
     public final KeyEvent b;
     public final CustomMessageListener b0;
@@ -151,9 +151,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     public PostPrefixData d;
     public final View.OnFocusChangeListener d0;
     public String e;
-    public final v45 e0;
+    public final i55 e0;
     public String f;
-    public ky8 f0;
+    public zy8 f0;
     public String g;
     public String h;
     public int i;
@@ -176,7 +176,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     public TextView z;
 
     /* loaded from: classes6.dex */
-    public class a implements v45 {
+    public class a implements i55 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsBaseWriteActivity a;
@@ -199,14 +199,14 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             this.a = absBaseWriteActivity;
         }
 
-        @Override // com.baidu.tieba.v45
-        public void B(u45 u45Var) {
+        @Override // com.baidu.tieba.i55
+        public void B(h55 h55Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, u45Var) == null) || u45Var == null) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, h55Var) == null) || h55Var == null) {
                 return;
             }
-            this.a.p2(u45Var);
-            int i = u45Var.a;
+            this.a.p2(h55Var);
+            int i = h55Var.a;
             if (i == 16) {
                 if (!this.a.o2()) {
                     this.a.F2();
@@ -217,21 +217,21 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 this.a.P1();
             } else if (i != 29) {
                 if (i == 55) {
-                    Object obj = u45Var.c;
+                    Object obj = h55Var.c;
                     if (obj instanceof Boolean) {
                         this.a.m = ((Boolean) obj).booleanValue();
                     }
                 }
             } else {
-                this.a.S.A(new u45(2, 19, null));
-                this.a.S.A(new u45(1, 2, null));
+                this.a.S.A(new h55(2, 19, null));
+                this.a.S.A(new h55(1, 2, null));
                 this.a.v2();
                 SpanGroupEditText spanGroupEditText = this.a.E;
                 if (spanGroupEditText != null) {
                     spanGroupEditText.requestFocus();
                 }
                 this.a.S.q();
-                this.a.S.A(new u45(5, -1, null));
+                this.a.S.A(new h55(5, -1, null));
                 AbsBaseWriteActivity absBaseWriteActivity = this.a;
                 absBaseWriteActivity.ShowSoftKeyPad(absBaseWriteActivity.T, absBaseWriteActivity.E);
             }
@@ -314,7 +314,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 view2.requestFocus();
-                this.a.S.A(new u45(5, -1, null));
+                this.a.S.A(new h55(5, -1, null));
                 this.a.E.requestFocus();
                 AbsBaseWriteActivity absBaseWriteActivity = this.a;
                 absBaseWriteActivity.ShowSoftKeyPadDelay(absBaseWriteActivity.E);
@@ -569,7 +569,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                     bitmapDrawable.setBounds(0, 0, r, r);
                 }
                 bitmapDrawable.setGravity(119);
-                return new jx4(bitmapDrawable, 0);
+                return new wx4(bitmapDrawable, 0);
             }
             return (ImageSpan) invokeL.objValue;
         }
@@ -600,17 +600,17 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(au4 au4Var) {
+        public void onNavigationButtonClick(nu4 nu4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(au4 au4Var) {
+        public void onPositiveButtonClick(nu4 nu4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, au4Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nu4Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_WRITE));
             }
         }
@@ -623,7 +623,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         public final /* synthetic */ AbsBaseWriteActivity a;
 
         /* loaded from: classes6.dex */
-        public class a implements au4.e {
+        public class a implements nu4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -643,17 +643,17 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 }
             }
 
-            @Override // com.baidu.tieba.au4.e
-            public void onClick(au4 au4Var) {
+            @Override // com.baidu.tieba.nu4.e
+            public void onClick(nu4 nu4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
-                    au4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
+                    nu4Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes6.dex */
-        public class b implements au4.e {
+        public class b implements nu4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ j a;
@@ -676,11 +676,11 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 this.a = jVar;
             }
 
-            @Override // com.baidu.tieba.au4.e
-            public void onClick(au4 au4Var) {
+            @Override // com.baidu.tieba.nu4.e
+            public void onClick(nu4 nu4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
-                    au4Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
+                    nu4Var.dismiss();
                     this.a.a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.a.a.getActivity(), 0, 26, 1)));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 1));
                 }
@@ -706,9 +706,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, l15 l15Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, y15 y15Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, l15Var, writeData, antiData}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, y15Var, writeData, antiData}) == null) {
                 this.a.J1();
                 this.a.closeLoadingDialog();
                 if (postWriteCallBackData != null) {
@@ -733,28 +733,28 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                             DefaultNavigationBarCoverTip.t(this.a.getActivity(), postWriteCallBackData.getErrorString(), null).v();
                         }
                     } else if (postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                        au4 au4Var = new au4(this.a.getActivity());
+                        nu4 nu4Var = new nu4(this.a.getActivity());
                         if (dj.isEmpty(postWriteCallBackData.getErrorString())) {
-                            au4Var.setMessage(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f0d11));
+                            nu4Var.setMessage(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f0d11));
                         } else {
-                            au4Var.setMessage(postWriteCallBackData.getErrorString());
+                            nu4Var.setMessage(postWriteCallBackData.getErrorString());
                         }
-                        au4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new a(this));
-                        au4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0d13, new b(this));
-                        au4Var.create(this.a.getPageContext()).show();
+                        nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new a(this));
+                        nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0d13, new b(this));
+                        nu4Var.create(this.a.getPageContext()).show();
                         TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 1));
-                    } else if ((l15Var == null || writeData == null || l15Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData.getErrorCode() != 227001 && this.a.R1(postWriteCallBackData)) {
+                    } else if ((y15Var == null || writeData == null || y15Var.c() == null || AntiHelper.h(antiData)) && postWriteCallBackData.getErrorCode() != 227001 && this.a.R1(postWriteCallBackData)) {
                         this.a.H2(false, postWriteCallBackData);
-                    } else if (l15Var != null && writeData != null && l15Var.c() != null) {
+                    } else if (y15Var != null && writeData != null && y15Var.c() != null) {
                         if (writeData.isCanNoForum()) {
                             writeData.setForumName("");
                             writeData.setForumId("0");
                         }
-                        writeData.setVcodeMD5(l15Var.b());
-                        writeData.setVcodeUrl(l15Var.c());
-                        writeData.setVcodeExtra(l15Var.a());
-                        if (ii5.b(l15Var.d())) {
-                            this.a.sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.getPageContext().getPageActivity(), 12006, writeData, false, l15Var.d())));
+                        writeData.setVcodeMD5(y15Var.b());
+                        writeData.setVcodeUrl(y15Var.c());
+                        writeData.setVcodeExtra(y15Var.a());
+                        if (vi5.b(y15Var.d())) {
+                            this.a.sendMessage(new CustomMessage(2002001, new NewVcodeActivityConfig(this.a.getPageContext().getPageActivity(), 12006, writeData, false, y15Var.d())));
                         } else {
                             this.a.sendMessage(new CustomMessage(2002001, new VcodeActivityConfig(this.a.getPageContext().getPageActivity(), writeData, 12006)));
                         }
@@ -831,7 +831,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.S.A(new u45(5, -1, null));
+                this.a.S.A(new h55(5, -1, null));
                 int Q1 = this.a.Q1();
                 if (Q1 < 0 || Q1 >= this.a.E.getText().length()) {
                     return;
@@ -990,7 +990,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 return;
             }
         }
-        this.a = new x29();
+        this.a = new m39();
         this.b = new KeyEvent(0, 67);
         this.c = new Handler();
         this.e = null;
@@ -1180,7 +1180,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             showToast(errorString);
         } else if (N1(postWriteCallBackData)) {
         } else {
-            xo8.b(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
+            mp8.b(getPageContext().getPageActivity(), postWriteCallBackData.getErrorString(), postWriteCallBackData.getPreMsg(), postWriteCallBackData.getColorMsg());
         }
     }
 
@@ -1293,7 +1293,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             return;
         }
         String substring = V1().getText().toString().substring(0, V1().getSelectionStart());
-        Matcher matcher = zb6.b.matcher(substring);
+        Matcher matcher = mc6.b.matcher(substring);
         if (matcher.find()) {
             V1().getText().delete(V1().getSelectionStart() - (substring.length() - matcher.replaceFirst("").length()), V1().getSelectionStart());
             return;
@@ -1334,7 +1334,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         }
     }
 
-    @Override // com.baidu.tieba.h19.a
+    @Override // com.baidu.tieba.w19.a
     public void T0(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048605, this, i2) == null) {
@@ -1372,19 +1372,19 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             } else if ("from_title".equals(str)) {
                 this.g = "from_title";
             }
-            if (ug5.f(String.valueOf(charSequence.charAt(i2)))) {
+            if (hh5.f(String.valueOf(charSequence.charAt(i2)))) {
                 t2(false);
             }
         }
     }
 
     public void Z1() {
-        b39 b39Var;
+        q39 q39Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (b39Var = this.V) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048612, this) == null) || (q39Var = this.V) == null) {
             return;
         }
-        b39Var.b();
+        q39Var.b();
     }
 
     @CallSuper
@@ -1453,16 +1453,16 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             }
             c2();
             this.S.j();
-            b55 m2 = this.S.m(6);
+            o55 m2 = this.S.m(6);
             if (m2 != null && !TextUtils.isEmpty(this.e)) {
                 ((View) m2).setOnClickListener(new n(this));
             }
-            this.S.A(new u45(34, 5, 1));
+            this.S.A(new h55(34, 5, 1));
             this.S.q();
-            if (bx4.k().h("hot_topic_has_click", false)) {
+            if (ox4.k().h("hot_topic_has_click", false)) {
                 return;
             }
-            this.S.A(new u45(2, 26, " "));
+            this.S.A(new h55(2, 26, " "));
         }
     }
 
@@ -1492,12 +1492,12 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
 
     @Override // com.baidu.tbadk.BaseActivity
     public void closeLoadingDialog() {
-        fx4 fx4Var;
+        sx4 sx4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || (fx4Var = this.P) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048616, this) == null) || (sx4Var = this.P) == null) {
             return;
         }
-        fx4Var.h(false);
+        sx4Var.h(false);
     }
 
     public void d2() {
@@ -1522,7 +1522,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     public void e2() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048619, this) == null) && D2()) {
-            ForumTabSelectedView forumTabSelectedView = (ForumTabSelectedView) findViewById(R.id.obfuscated_res_0x7f090c0a);
+            ForumTabSelectedView forumTabSelectedView = (ForumTabSelectedView) findViewById(R.id.obfuscated_res_0x7f090c09);
             this.Q = forumTabSelectedView;
             forumTabSelectedView.setBgColor(R.color.CAM_X0205);
             this.Q.setData(this.r);
@@ -1542,10 +1542,10 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     public void g2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
-            this.M = findViewById(R.id.obfuscated_res_0x7f091a48);
-            this.J = (TextView) findViewById(R.id.obfuscated_res_0x7f091a47);
-            this.F = findViewById(R.id.obfuscated_res_0x7f091a67);
-            this.L = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a68);
+            this.M = findViewById(R.id.obfuscated_res_0x7f091a4a);
+            this.J = (TextView) findViewById(R.id.obfuscated_res_0x7f091a49);
+            this.F = findViewById(R.id.obfuscated_res_0x7f091a69);
+            this.L = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a6a);
             h2();
         }
     }
@@ -1556,9 +1556,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         if (!(interceptable == null || interceptable.invokeV(1048622, this) == null) || (postPrefixData = this.d) == null || postPrefixData.getPrefixs().size() <= 1) {
             return;
         }
-        h19 h19Var = new h19(getPageContext().getPageActivity());
-        this.K = h19Var;
-        h19Var.e(this);
+        w19 w19Var = new w19(getPageContext().getPageActivity());
+        this.K = w19Var;
+        w19Var.e(this);
         this.K.d(ej.f(getActivity(), R.dimen.obfuscated_res_0x7f0702d6));
         this.K.setOutsideTouchable(true);
         this.K.setFocusable(true);
@@ -1572,11 +1572,11 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
     public void j2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048624, this) == null) {
-            this.P = new fx4((TbPageContext<?>) getPageContext());
+            this.P = new sx4((TbPageContext<?>) getPageContext());
             View inflate = LayoutInflater.from(getActivity()).inflate(R.layout.obfuscated_res_0x7f0d0937, (ViewGroup) null);
             this.v = inflate;
             setContentView(inflate);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
             this.w = navigationBar;
             navigationBar.showBottomLine();
             this.x = this.w.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -1584,19 +1584,19 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             this.z = centerTextTitle;
             SkinManager.setViewTextColor(centerTextTitle, (int) R.color.CAM_X0105);
             C2();
-            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f0926be);
+            ScrollView scrollView = (ScrollView) findViewById(R.id.obfuscated_res_0x7f0926c0);
             this.O = scrollView;
             scrollView.setOnTouchListener(new b(this));
             addGlobalLayoutListener();
             adjustResizeForSoftInput();
             this.H = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091792);
-            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092283);
+            LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092285);
             this.B = linearLayout;
             linearLayout.setContentDescription(IStringUtil.TOP_PATH);
-            this.C = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f092248);
+            this.C = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f09224a);
             l2();
             k2();
-            LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a3d);
+            LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091a3f);
             this.D = linearLayout2;
             linearLayout2.setDrawingCacheEnabled(false);
             this.D.setOnClickListener(new c(this));
@@ -1615,9 +1615,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
 
     public abstract void l2();
 
-    public void m2(r05 r05Var) {
+    public void m2(e15 e15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048627, this, r05Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048627, this, e15Var) == null) {
             if (((ImageSpan[]) V1().getText().getSpans(0, V1().getText().length(), ImageSpan.class)).length >= 10) {
                 if (this.I == null) {
                     this.I = Toast.makeText(getPageContext().getPageActivity(), (int) R.string.obfuscated_res_0x7f0f1456, 0);
@@ -1628,7 +1628,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
                 this.I.show();
                 return;
             }
-            ac6.b(this, r05Var, V1());
+            nc6.b(this, e15Var, V1());
         }
     }
 
@@ -1659,9 +1659,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
             }
             J2();
             K2();
-            x29 x29Var = this.a;
-            if (x29Var != null) {
-                x29Var.l(W1(), V1());
+            m39 m39Var = this.a;
+            if (m39Var != null) {
+                m39Var.l(W1(), V1());
             }
             ForumTabSelectedView forumTabSelectedView = this.Q;
             if (forumTabSelectedView != null) {
@@ -1695,9 +1695,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048632, this, i2)) == null) {
-            ky8 ky8Var = new ky8(getPageContext().getPageActivity(), new e(this), new Date().getHours(), new Date().getMinutes(), false);
-            this.f0 = ky8Var;
-            ky8Var.setTitle(R.string.obfuscated_res_0x7f0f0c77);
+            zy8 zy8Var = new zy8(getPageContext().getPageActivity(), new e(this), new Date().getHours(), new Date().getMinutes(), false);
+            this.f0 = zy8Var;
+            zy8Var.setTitle(R.string.obfuscated_res_0x7f0f0c77);
             this.f0.setButton(-1, getPageContext().getString(R.string.obfuscated_res_0x7f0f026a), this.f0);
             this.f0.setButton(-2, getPageContext().getString(R.string.obfuscated_res_0x7f0f0375), this.f0);
             return this.f0;
@@ -1747,9 +1747,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048636, this, z) == null) {
             this.o = z;
-            y19 y19Var = this.U;
-            if (y19Var != null && !z) {
-                y19Var.g();
+            n29 n29Var = this.U;
+            if (n29Var != null && !z) {
+                n29Var.g();
             }
             if (this.V == null || z) {
                 return;
@@ -1823,9 +1823,9 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         }
     }
 
-    public void p2(@NonNull u45 u45Var) {
+    public void p2(@NonNull h55 h55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048642, this, u45Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048642, this, h55Var) == null) {
         }
     }
 
@@ -1833,8 +1833,8 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
-            h19 h19Var = this.K;
-            if (h19Var != null && h19Var.isShowing()) {
+            w19 w19Var = this.K;
+            if (w19Var != null && w19Var.isShowing()) {
                 ih.d(this.K, getPageContext().getPageActivity());
                 return true;
             } else if (this.S.u()) {
@@ -1865,12 +1865,12 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
 
     @Override // com.baidu.tbadk.BaseActivity
     public void showLoadingDialog(String str, DialogInterface.OnCancelListener onCancelListener) {
-        fx4 fx4Var;
+        sx4 sx4Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048646, this, str, onCancelListener) == null) || (fx4Var = this.P) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048646, this, str, onCancelListener) == null) || (sx4Var = this.P) == null) {
             return;
         }
-        fx4Var.e(null);
+        sx4Var.e(null);
         this.P.i(R.string.obfuscated_res_0x7f0f1133);
         this.P.h(true);
     }
@@ -1904,7 +1904,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         if (!(interceptable == null || interceptable.invokeV(1048650, this) == null) || (editorTools = this.S) == null) {
             return;
         }
-        editorTools.A(new u45(54, 15, null));
+        editorTools.A(new h55(54, 15, null));
     }
 
     public void x2(int i2) {
@@ -1924,7 +1924,7 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         if (!(interceptable == null || interceptable.invokeV(1048652, this) == null) || (editorTools = this.S) == null) {
             return;
         }
-        editorTools.A(new u45(9, -1, Boolean.TRUE));
+        editorTools.A(new h55(9, -1, Boolean.TRUE));
     }
 
     public boolean z2() {
@@ -1933,8 +1933,8 @@ public abstract class AbsBaseWriteActivity<T> extends BaseActivity<T> implements
         if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
             EditorTools editorTools = this.S;
             if (editorTools != null) {
-                editorTools.A(new u45(12, -1, new p55(this.q, true)));
-                this.S.A(new u45(12, 11, new p55(this.q, true)));
+                editorTools.A(new h55(12, -1, new c65(this.q, true)));
+                this.S.A(new h55(12, 11, new c65(this.q, true)));
             }
             return true;
         }

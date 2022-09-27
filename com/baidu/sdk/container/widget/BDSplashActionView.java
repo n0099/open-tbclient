@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g21;
+import com.baidu.tieba.t21;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -215,9 +215,9 @@ public class BDSplashActionView extends RelativeLayout {
             layoutParams.addRule(12);
             layoutParams.addRule(14);
             if (this.c) {
-                layoutParams.bottomMargin = g21.c.a(this.a, this.d);
+                layoutParams.bottomMargin = t21.c.a(this.a, this.d);
             } else {
-                layoutParams.bottomMargin = g21.c.a(this.a, this.d);
+                layoutParams.bottomMargin = t21.c.a(this.a, this.d);
             }
             baseActionLayout.addView(this, layoutParams);
         }
@@ -269,7 +269,7 @@ public class BDSplashActionView extends RelativeLayout {
             layoutParams.gravity = 16;
             linearLayout.addView(textView, layoutParams);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams2.leftMargin = g21.c.a(this.a, 10.0f);
+            layoutParams2.leftMargin = t21.c.a(this.a, 10.0f);
             layoutParams2.gravity = 16;
             linearLayout.addView(textView2, layoutParams2);
             return linearLayout;

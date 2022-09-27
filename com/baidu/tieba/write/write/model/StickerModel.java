@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.g69;
 import com.baidu.tieba.pb;
-import com.baidu.tieba.r59;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.sm8;
 import com.baidu.tieba.write.write.message.RequestGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseHttpGetStickerMessage;
 import com.baidu.tieba.write.write.message.ResponseSocketGetStickerMessage;
@@ -24,7 +24,7 @@ import java.util.List;
 public class StickerModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r59 a;
+    public g69 a;
     public pb b;
 
     /* loaded from: classes6.dex */
@@ -99,10 +99,10 @@ public class StickerModel extends BdBaseModel {
         registerListener(aVar);
     }
 
-    public void A(r59 r59Var) {
+    public void A(g69 g69Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, r59Var) == null) {
-            this.a = r59Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, g69Var) == null) {
+            this.a = g69Var;
         }
     }
 
@@ -130,8 +130,8 @@ public class StickerModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                dm8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
-                dm8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
+                sm8.h(309475, ResponseSocketGetStickerMessage.class, false, false);
+                sm8.c(309475, CmdConfigHttp.CMD_GET_STICKET_LIST, TbConfig.URL_GET_STICKER_LIST, ResponseHttpGetStickerMessage.class, false, false, true, false);
                 RequestGetStickerMessage requestGetStickerMessage = new RequestGetStickerMessage();
                 requestGetStickerMessage.setTag(this.unique_id);
                 sendMessage(requestGetStickerMessage);

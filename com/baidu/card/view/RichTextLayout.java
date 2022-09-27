@@ -16,15 +16,15 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lq4;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.tieba.wx;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class RichTextLayout extends LinearLayout implements wx<lq4>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements wx<yq4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -136,27 +136,27 @@ public class RichTextLayout extends LinearLayout implements wx<lq4>, View.OnClic
             setClipToPadding(false);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092171);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09217f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092173);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092181);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: d */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq4Var) == null) || lq4Var == null || lq4Var.getThreadData() == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq4Var) == null) || yq4Var == null || yq4Var.getThreadData() == null) {
             return;
         }
-        ThreadData threadData = lq4Var.getThreadData();
+        ThreadData threadData = yq4Var.getThreadData();
         OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
         if (originalThreadInfo != null && this.e) {
             this.b.setVisibility(8);
-            uu4 d = uu4.d(this.c);
+            hv4 d = hv4.d(this.c);
             d.A(R.string.F_X01);
             d.z(R.dimen.T_X07);
-            if (!originalThreadInfo.m && !lq4Var.getThreadData().shouldShowBlockedState()) {
+            if (!originalThreadInfo.m && !yq4Var.getThreadData().shouldShowBlockedState()) {
                 SpannableString c = originalThreadInfo.c();
                 ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                 if (c != null) {

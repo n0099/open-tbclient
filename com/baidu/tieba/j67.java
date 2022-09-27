@@ -1,109 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.annotation.TargetApi;
+import android.view.ActionMode;
+import android.view.Menu;
+import android.view.MenuItem;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.TopicInfo;
-import tbclient.VideoInfo;
 /* loaded from: classes4.dex */
-public class j67 implements Cdo {
+public class j67 implements i67 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public long d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public long i;
-    public l67 j;
-    public boolean k;
+    public i67 a;
+    public AbsHListView b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835326, "Lcom/baidu/tieba/j67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947835326, "Lcom/baidu/tieba/j67;");
-                return;
-            }
-        }
-        l = BdUniqueId.gen();
-    }
-
-    public j67() {
+    public j67(AbsHListView absHListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {absHListView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = absHListView;
+    }
+
+    @Override // com.baidu.tieba.i67
+    @TargetApi(11)
+    public void a(ActionMode actionMode, int i, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.a.a(actionMode, i, j, z);
+            if (this.b.getCheckedItemCount() == 0) {
+                actionMode.finish();
             }
         }
     }
 
-    public void a(TopicInfo topicInfo) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, topicInfo) == null) || topicInfo == null) {
-            return;
-        }
-        this.a = String.valueOf(topicInfo.topic_id);
-        this.b = topicInfo.topic_name;
-        this.c = topicInfo.desc;
-        this.d = topicInfo.total_post_num.longValue();
-        this.e = topicInfo.head_photo_url;
-        this.f = topicInfo.head_background_url;
-        this.g = StringUtils.isNull(topicInfo.share_title) ? "" : topicInfo.share_title;
-        this.h = topicInfo.share_pic;
-        this.i = topicInfo.idx_num.longValue();
-        Long l2 = topicInfo.pmy_topic_id;
-        String str = topicInfo.head_photo_jump_url;
-        Integer num = topicInfo.pmy_source;
-        this.k = topicInfo.is_deleted.longValue() == 1;
-        VideoInfo videoInfo = topicInfo.video_info;
-        if (videoInfo != null && !StringUtils.isNull(videoInfo.video_url) && topicInfo.video_info.video_duration.intValue() > 0) {
-            VideoInfo videoInfo2 = topicInfo.video_info;
-            String str2 = videoInfo2.video_md5;
-            String str3 = videoInfo2.video_url;
-            videoInfo2.video_duration.intValue();
-            topicInfo.video_info.video_width.intValue();
-            topicInfo.video_info.video_height.intValue();
-            VideoInfo videoInfo3 = topicInfo.video_info;
-            String str4 = videoInfo3.thumbnail_url;
-            videoInfo3.thumbnail_width.intValue();
-            topicInfo.video_info.thumbnail_height.intValue();
-            topicInfo.video_info.video_length.intValue();
-            topicInfo.video_info.play_count.intValue();
-        }
-        String str5 = topicInfo.tag_list_type;
-        if (topicInfo.join_info != null) {
-            l67 l67Var = new l67();
-            this.j = l67Var;
-            l67Var.a(topicInfo.join_info);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    public void c(i67 i67Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i67Var) == null) {
+            this.a = i67Var;
         }
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? l : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) ? this.a.onActionItemClicked(actionMode, menuItem) : invokeLL.booleanValue;
+    }
+
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
+            if (this.a.onCreateActionMode(actionMode, menu)) {
+                this.b.setLongClickable(false);
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public void onDestroyActionMode(ActionMode actionMode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
+            this.a.onDestroyActionMode(actionMode);
+            AbsHListView absHListView = this.b;
+            absHListView.mChoiceActionMode = null;
+            absHListView.clearChoices();
+            AbsHListView absHListView2 = this.b;
+            absHListView2.mDataChanged = true;
+            absHListView2.rememberSyncState();
+            this.b.requestLayout();
+            this.b.setLongClickable(true);
+        }
+    }
+
+    @Override // android.view.ActionMode.Callback
+    @TargetApi(11)
+    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) ? this.a.onPrepareActionMode(actionMode, menu) : invokeLL.booleanValue;
     }
 }

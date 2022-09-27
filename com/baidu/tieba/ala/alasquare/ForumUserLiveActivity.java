@@ -11,15 +11,15 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.xs5;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.kt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements xs5 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements kt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -74,7 +74,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements xs5 {
         }
     }
 
-    @Override // com.baidu.tieba.xs5
+    @Override // com.baidu.tieba.kt5
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,7 +86,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements xs5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
-            uu4.d(this.b).f(R.color.CAM_X0202);
+            hv4.d(this.b).f(R.color.CAM_X0202);
             LiveTabYYSubFragment liveTabYYSubFragment = this.c;
             if (liveTabYYSubFragment != null) {
                 liveTabYYSubFragment.changeSkinType(i);
@@ -116,7 +116,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements xs5 {
         }
     }
 
-    @Override // com.baidu.tieba.xs5
+    @Override // com.baidu.tieba.kt5
     public boolean x0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

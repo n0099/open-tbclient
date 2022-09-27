@@ -13,10 +13,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.facade.provider.processor.ProcessorInfo;
-import com.baidu.tieba.en3;
-import com.baidu.tieba.ep3;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.kp3;
+import com.baidu.tieba.rn3;
+import com.baidu.tieba.rp3;
+import com.baidu.tieba.vj1;
+import com.baidu.tieba.xp3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,7 +49,7 @@ public class SwanContentProvider extends ContentProvider {
                 return;
             }
         }
-        a = ij1.a;
+        a = vj1.a;
         b = AppRuntime.getAppContext().getPackageName() + ".provider";
         c = new UriMatcher(-1);
         d = new HashSet<>();
@@ -92,8 +92,8 @@ public class SwanContentProvider extends ContentProvider {
             if (d.contains(callingPackage)) {
                 return true;
             }
-            String a2 = kp3.a(callingPackage);
-            Set<String> a3 = en3.e().a();
+            String a2 = xp3.a(callingPackage);
+            Set<String> a3 = rn3.e().a();
             z = (a3 == null || !a3.contains(a2)) ? false : false;
             if (z) {
                 d.add(callingPackage);
@@ -115,11 +115,11 @@ public class SwanContentProvider extends ContentProvider {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a() : invokeV.booleanValue;
     }
 
-    public final ep3 d(int i) {
+    public final rp3 d(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            Class<? extends ep3> processorClass = ProcessorInfo.getProcessorClass(i);
+            Class<? extends rp3> processorClass = ProcessorInfo.getProcessorClass(i);
             if (processorClass != null) {
                 try {
                     return processorClass.newInstance();
@@ -133,13 +133,13 @@ public class SwanContentProvider extends ContentProvider {
             }
             return null;
         }
-        return (ep3) invokeI.objValue;
+        return (rp3) invokeI.objValue;
     }
 
     @Override // android.content.ContentProvider
     public int delete(@NonNull Uri uri, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLL;
-        ep3 d2;
+        rp3 d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, uri, str, strArr)) == null) {
             if (!c() || (d2 = d(c.match(uri))) == null) {
@@ -165,7 +165,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Uri insert(@NonNull Uri uri, @Nullable ContentValues contentValues) {
         InterceptResult invokeLL;
-        ep3 d2;
+        rp3 d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, uri, contentValues)) == null) {
             if (!c() || (d2 = d(c.match(uri))) == null) {
@@ -190,7 +190,7 @@ public class SwanContentProvider extends ContentProvider {
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
-        ep3 d2;
+        rp3 d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, uri, strArr, str, strArr2, str2)) == null) {
             if (!b() || (d2 = d(c.match(uri))) == null) {
@@ -204,7 +204,7 @@ public class SwanContentProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(@NonNull Uri uri, @Nullable ContentValues contentValues, @Nullable String str, @Nullable String[] strArr) {
         InterceptResult invokeLLLL;
-        ep3 d2;
+        rp3 d2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, uri, contentValues, str, strArr)) == null) {
             if (!c() || (d2 = d(c.match(uri))) == null) {

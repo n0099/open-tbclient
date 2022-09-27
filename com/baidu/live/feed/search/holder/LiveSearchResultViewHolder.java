@@ -10,7 +10,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -92,24 +92,24 @@ public final class LiveSearchResultViewHolder extends RecyclerView.ViewHolder {
                 this.a.setTypeface(Typeface.DEFAULT_BOLD);
                 this.a.setTextSize(1, 16.0f);
             }
-            this.e.getHierarchy().setPlaceholderImage(hc0.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
+            this.e.getHierarchy().setPlaceholderImage(uc0.f().l(this.j), ScalingUtils.ScaleType.FIT_XY);
             TextView textView = this.a;
-            hc0 f = hc0.f();
+            uc0 f = uc0.f();
             View itemView = this.itemView;
             Intrinsics.checkExpressionValueIsNotNull(itemView, "itemView");
             textView.setTextColor(f.a(itemView.getContext(), this.j, "color_1F1F1F"));
             TextView textView2 = this.g;
-            hc0 f2 = hc0.f();
+            uc0 f2 = uc0.f();
             View itemView2 = this.itemView;
             Intrinsics.checkExpressionValueIsNotNull(itemView2, "itemView");
             textView2.setTextColor(f2.a(itemView2.getContext(), this.j, "color_white3"));
-            hc0 f3 = hc0.f();
+            uc0 f3 = uc0.f();
             Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
             String r = f3.r();
             if (Intrinsics.areEqual(r, "day")) {
-                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3a);
+                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3c);
             } else if (Intrinsics.areEqual(r, "night")) {
-                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3b);
+                this.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d3d);
             }
         }
     }

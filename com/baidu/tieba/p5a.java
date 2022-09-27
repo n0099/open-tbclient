@@ -1,45 +1,15 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
 /* loaded from: classes5.dex */
-public final class p5a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p5a extends n5a {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948014413, "Lcom/baidu/tieba/p5a;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948014413, "Lcom/baidu/tieba/p5a;");
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
     }
 
-    @JvmStatic
-    public static final void a(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            if (webView != null) {
-                webView.removeJavascriptInterface("searchBoxJavaBridge_");
-            }
-            if (webView != null) {
-                webView.removeJavascriptInterface("accessibility");
-            }
-            if (webView != null) {
-                webView.removeJavascriptInterface("accessibilityTraversal");
-            }
-        }
-    }
+    void setCallback(a aVar);
+
+    void setGiftBagsInfo(GiftBagsInfo giftBagsInfo);
 }

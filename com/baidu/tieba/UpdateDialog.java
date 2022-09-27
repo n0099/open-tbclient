@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tieba.ko5;
 import com.baidu.tieba.service.TiebaUpdateService;
-import com.baidu.tieba.xn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,7 +50,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public VersionData g;
     public CombineDownload h;
     public String i;
-    public xn5 j;
+    public ko5 j;
     public f k;
     public PermissionJudgePolicy l;
 
@@ -122,7 +122,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.g.forceUpdate()) {
-                    ww4.e(this.a.a.getPageContext().getPageActivity(), 200);
+                    jx4.e(this.a.a.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -228,7 +228,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements xn5.f {
+    public class e implements ko5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateDialog a;
@@ -251,14 +251,14 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             this.a = updateDialog;
         }
 
-        @Override // com.baidu.tieba.xn5.f
+        @Override // com.baidu.tieba.ko5.f
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 1));
                 this.a.a = true;
                 UpdateDialog updateDialog = this.a;
-                if (updateDialog.Q1(true, false, z && ao5.c(updateDialog.getPageContext().getPageActivity(), this.a.h))) {
+                if (updateDialog.Q1(true, false, z && no5.c(updateDialog.getPageContext().getPageActivity(), this.a.h))) {
                     this.a.j.t(false);
                     this.a.showToast(R.string.obfuscated_res_0x7f0f050b);
                     if (this.a.f) {
@@ -270,7 +270,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.xn5.f
+        @Override // com.baidu.tieba.ko5.f
         public void b(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
@@ -280,7 +280,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
                 UpdateDialog updateDialog = this.a;
-                updateDialog.Q1(false, true, z && ao5.c(updateDialog.getPageContext().getPageActivity(), this.a.h));
+                updateDialog.Q1(false, true, z && no5.c(updateDialog.getPageContext().getPageActivity(), this.a.h));
                 if (this.a.f) {
                     return;
                 }
@@ -289,7 +289,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.xn5.f
+        @Override // com.baidu.tieba.ko5.f
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -298,7 +298,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.xn5.f
+        @Override // com.baidu.tieba.ko5.f
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -308,7 +308,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.xn5.f
+        @Override // com.baidu.tieba.ko5.f
         public void stopService() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -474,9 +474,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (versionData3 != null) {
                 this.f = versionData3.forceUpdate();
             }
-            xn5 xn5Var = new xn5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a8);
-            this.j = xn5Var;
-            xn5Var.setCancelable(false);
+            ko5 ko5Var = new ko5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003a8);
+            this.j = ko5Var;
+            ko5Var.setCancelable(false);
             this.j.q(this.g, this.h, new e(this, null));
             this.j.setOnCancelListener(new a(this));
             this.j.setOnDismissListener(new b(this));
@@ -574,9 +574,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            xn5 xn5Var = this.j;
-            if (xn5Var != null) {
-                xn5Var.m(getPageContext(), i);
+            ko5 ko5Var = this.j;
+            if (ko5Var != null) {
+                ko5Var.m(getPageContext(), i);
             }
         }
     }
@@ -601,9 +601,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            xn5 xn5Var = this.j;
-            if (xn5Var != null) {
-                xn5Var.dismiss();
+            ko5 ko5Var = this.j;
+            if (ko5Var != null) {
+                ko5Var.dismiss();
             }
             f fVar = this.k;
             if (fVar != null) {

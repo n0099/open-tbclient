@@ -8,8 +8,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.b77;
-import com.baidu.tieba.l79;
+import com.baidu.tieba.a89;
+import com.baidu.tieba.p77;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.write.write.work.topic.model.GetRecommendTopicReqMessage;
@@ -28,7 +28,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
     public final pb a;
     public b b;
     public boolean c;
-    public List<b77> d;
+    public List<p77> d;
 
     /* loaded from: classes6.dex */
     public class a extends pb {
@@ -63,8 +63,8 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
                 this.a.c = false;
-                if (responsedMessage != null && (responsedMessage instanceof l79)) {
-                    this.a.D(((l79) responsedMessage).getTopicList());
+                if (responsedMessage != null && (responsedMessage instanceof a89)) {
+                    this.a.D(((a89) responsedMessage).getTopicList());
                 }
             }
         }
@@ -72,7 +72,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(@NonNull List<b77> list);
+        void a(@NonNull List<p77> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -119,7 +119,7 @@ public class SelectTopicModel extends BdBaseModel<BaseFragmentActivity> {
         }
         this.d = new ArrayList();
         for (TopicList topicList : list) {
-            this.d.add(new b77(topicList));
+            this.d.add(new p77(topicList));
         }
         b bVar = this.b;
         if (bVar != null) {

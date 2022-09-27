@@ -1,58 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.ala.utils.AlaStringHelper;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
-import com.baidu.tieba.wallet.CurrencySwitchUtil;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.personcenter.privilege.AlaTDouBuyPrivilegeResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class kz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public TextView f;
-    public LinearLayout g;
-    public LinearLayout h;
-    public TextView i;
-    public b j;
-    public AlaEnterEffectData k;
-    public Context l;
+    public TbPageContext a;
+    public b b;
+    public HttpMessageListener c;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kz5 a;
 
-        public a(kz5 kz5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kz5 kz5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kz5Var};
+                Object[] objArr = {kz5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -61,27 +46,32 @@ public class kz5 {
             this.a = kz5Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.a.j == null) {
-                return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && (httpResponsedMessage instanceof AlaTDouBuyPrivilegeResponsedMessage)) {
+                AlaTDouBuyPrivilegeResponsedMessage alaTDouBuyPrivilegeResponsedMessage = (AlaTDouBuyPrivilegeResponsedMessage) httpResponsedMessage;
+                boolean z = alaTDouBuyPrivilegeResponsedMessage.getError() == 0;
+                String errorString = alaTDouBuyPrivilegeResponsedMessage.getErrorString();
+                if (this.a.b != null) {
+                    this.a.b.a(z, errorString);
+                }
             }
-            this.a.j.a();
         }
     }
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a();
+        void a(boolean z, String str);
     }
 
-    public kz5(Context context, AlaEnterEffectData alaEnterEffectData) {
+    public kz5(TbPageContext tbPageContext, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, alaEnterEffectData};
+            Object[] objArr = {tbPageContext, bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,110 +81,32 @@ public class kz5 {
                 return;
             }
         }
-        if (alaEnterEffectData == null || context == null) {
-            return;
-        }
-        this.l = context;
-        this.k = alaEnterEffectData;
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00ec, (ViewGroup) null);
-        this.a = relativeLayout;
-        this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09088c);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0912d8);
-        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091392);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906c7);
-        this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092005);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f092006);
-        this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090741);
-        this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090740);
-        c(alaEnterEffectData);
+        a aVar = new a(this, AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+        this.c = aVar;
+        this.a = tbPageContext;
+        this.b = bVar;
+        tbPageContext.registerListener(aVar);
     }
 
-    public RelativeLayout b() {
-        InterceptResult invokeV;
+    public void b(String str, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (RelativeLayout) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+            httpMessage.addParam("props_id", i);
+            httpMessage.addParam("effect_id", str);
+            httpMessage.addParam("buy_action", 0);
+            this.a.sendMessage(httpMessage);
+        }
     }
 
-    public void c(AlaEnterEffectData alaEnterEffectData) {
+    public void c(int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) == null) || alaEnterEffectData == null) {
-            return;
-        }
-        this.k = alaEnterEffectData;
-        this.e.setEnabled(true);
-        int i = this.k.categoryType;
-        if (3 != i) {
-            if (2 == i) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801d5);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.CAM_X0201));
-                this.g.setVisibility(0);
-                this.f.setText(AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price));
-                Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215);
-                normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
-                this.f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07023b));
-                this.f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
-                this.h.setVisibility(0);
-                this.i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));
-                Drawable normalSkinMoneyIcon2 = CurrencySwitchUtil.getNormalSkinMoneyIcon();
-                int dimensionPixelSize2 = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-                normalSkinMoneyIcon2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
-                this.i.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-                this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
-            } else {
-                this.d.setVisibility(0);
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4f);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607af));
-            }
-        }
-        AlaEnterEffectData alaEnterEffectData2 = this.k;
-        if (alaEnterEffectData2.isOwn) {
-            if (alaEnterEffectData2.isUsing()) {
-                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d4c);
-                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607ae));
-                this.e.setText(R.string.obfuscated_res_0x7f0f024e);
-                if (2 == this.k.categoryType) {
-                    this.h.setVisibility(8);
-                }
-            } else {
-                this.e.setText(R.string.obfuscated_res_0x7f0f0220);
-            }
-        } else {
-            int i2 = alaEnterEffectData2.categoryType;
-            if (3 == i2) {
-                this.e.setText(R.string.obfuscated_res_0x7f0f0239);
-                this.c.setText(this.l.getString(R.string.obfuscated_res_0x7f0f0212, alaEnterEffectData.nobilityName));
-            } else if (2 == i2) {
-                if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.k.price) {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f0217);
-                } else {
-                    this.e.setText(R.string.obfuscated_res_0x7f0f0210);
-                }
-            } else {
-                this.e.setBackgroundDrawable(null);
-                this.e.setTextColor(this.l.getResources().getColor(R.color.white_alpha60));
-                this.e.setText(R.string.obfuscated_res_0x7f0f0214);
-                this.e.setEnabled(false);
-            }
-        }
-        this.e.setOnClickListener(new a(this));
-        if (!StringUtils.isNull(alaEnterEffectData.name)) {
-            this.b.setText(alaEnterEffectData.name);
-        }
-        long currentTimeMillis = (alaEnterEffectData.end_time * 1000) - System.currentTimeMillis();
-        if (currentTimeMillis >= 0) {
-            this.c.setText(this.l.getResources().getString(R.string.obfuscated_res_0x7f0f0223, StringHelper.formatDayOrHourTime(currentTimeMillis)));
-        }
-        if (StringUtils.isNull(alaEnterEffectData.effect_range_name)) {
-            return;
-        }
-        this.d.setText(alaEnterEffectData.effect_range_name);
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.j = bVar;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_ENTER_EFFECT_BUY_PROP);
+            httpMessage.addParam("props_id", i2);
+            httpMessage.addParam("mark_id", i);
+            httpMessage.addParam("buy_action", z ? 1 : 0);
+            this.a.sendMessage(httpMessage);
         }
     }
 }

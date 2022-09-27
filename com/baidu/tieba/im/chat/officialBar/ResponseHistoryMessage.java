@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
 import com.baidu.tieba.dj;
 import com.baidu.tieba.jf;
-import com.baidu.tieba.zt4;
+import com.baidu.tieba.mu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,8 +91,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 }
             }
             if (!this.msg.isEmpty()) {
-                zt4.f();
-                jf<byte[]> d = zt4.d("tb.im_official_history");
+                mu4.f();
+                jf<byte[]> d = mu4.d("tb.im_official_history");
                 RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
                 if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
                     d.g(TbadkCoreApplication.getCurrentAccount() + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);

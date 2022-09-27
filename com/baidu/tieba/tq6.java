@@ -1,55 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class tq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PriorityOrganizer a;
+    public mq6 b;
+    public nq6 c;
+    public pq6 d;
+    public qq6 e;
+    public oq6 f;
+    public uq6 g;
+    public vq6 h;
+    public rq6 i;
+    public sq6 j;
 
-    public static void a(@NonNull StatisticItem statisticItem) {
+    public tq6(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, statisticItem) == null) {
-            statisticItem.param("obj_param1", c());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = PriorityOrganizer.n();
+        this.b = new mq6(frsActivity, frsFragment);
+        this.c = new nq6(frsActivity, frsFragment);
+        this.d = new pq6(frsActivity, frsFragment);
+        this.e = new qq6(frsActivity, frsFragment);
+        this.f = new oq6(frsActivity, frsFragment);
+        this.g = new uq6(frsActivity, frsFragment);
+        this.h = new vq6(frsActivity, frsFragment);
+        this.i = new rq6(frsActivity, frsFragment);
+        sq6 sq6Var = new sq6(frsActivity, frsFragment);
+        this.j = sq6Var;
+        PriorityOrganizer.s(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, sq6Var);
     }
 
-    public static void b(@NonNull StatisticItem statisticItem, @NonNull String str, @NonNull String str2) {
+    public void a(boolean z) {
+        qq6 qq6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, statisticItem, str, str2) == null) {
-            statisticItem.param("fid", str);
-            statisticItem.param("fname", str2);
+        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (qq6Var = this.e) == null) {
+            return;
         }
+        qq6Var.H(z);
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public void b() {
+        mq6 mq6Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "100465_3" : (String) invokeV.objValue;
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            StatisticItem param = new StatisticItem("c14564").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId());
-            a(param);
-            TiebaStatic.log(param);
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (mq6Var = this.b) == null || mq6Var.w(true)) {
+            return;
         }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 11);
-            a(param);
-            TiebaStatic.log(param);
-        }
+        this.b.F(true);
+        this.a.v(this.b);
     }
 }

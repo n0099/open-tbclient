@@ -44,12 +44,12 @@ public class a extends ViewGroup {
 
     /* renamed from: com.baidu.sapi2.views.logindialog.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0141a implements TextWatcher {
+    public class C0138a implements TextWatcher {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0141a(a aVar) {
+        public C0138a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -349,7 +349,7 @@ public class a extends ViewGroup {
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            C0141a c0141a = new C0141a(this);
+            C0138a c0138a = new C0138a(this);
             b bVar = new b(this);
             this.j.clear();
             for (int i = 0; i < this.b; i++) {
@@ -380,7 +380,7 @@ public class a extends ViewGroup {
                 }
                 editText.setId(i);
                 editText.setEms(1);
-                editText.addTextChangedListener(c0141a);
+                editText.addTextChangedListener(c0138a);
                 addView(editText, i);
                 this.j.add(editText);
             }

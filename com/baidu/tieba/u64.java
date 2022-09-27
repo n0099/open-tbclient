@@ -1,71 +1,167 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.t64;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class u64 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b = null;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
 
-    /* loaded from: classes6.dex */
-    public static class a implements t64.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.t64.a
-        public void a(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null) {
-                return;
-            }
-            view2.setAlpha(1.0f);
-        }
-
-        @Override // com.baidu.tieba.t64.a
-        public void b(View view2) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) || view2 == null) {
-                return;
-            }
-            view2.setAlpha(0.2f);
-        }
-    }
-
-    public static void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, view2) == null) {
-            b(view2, null);
-        }
-    }
-
-    public static void b(View view2, Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, view2, drawable) == null) || view2 == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948162934, "Lcom/baidu/tieba/u64;")) == null) {
             return;
         }
-        t64 t64Var = drawable == null ? new t64() : new t64(drawable);
-        t64Var.b(view2);
-        t64Var.a(new a());
-        view2.setBackground(t64Var);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948162934, "Lcom/baidu/tieba/u64;");
+        }
+    }
+
+    public u64() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+    }
+
+    public final String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) ? String.format("%s_%s:%s", str, str2, str3) : (String) invokeLLL.objValue;
+    }
+
+    public void b(int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String g = g(i);
+            String O = l33.M() == null ? null : l33.M().O();
+            na3 na3Var = new na3();
+            na3Var.b = "click";
+            na3Var.g = g;
+            na3Var.e = str;
+            if (str2 != null) {
+                na3Var.a("target_appkey", str2);
+            }
+            na3Var.a("current_appkey", O);
+            if (!TextUtils.isEmpty(str3)) {
+                na3Var.a("location", str3);
+            }
+            ea3.g(na3Var);
+        }
+    }
+
+    public void c(int i, a74 a74Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, a74Var) == null) {
+            String g = g(i);
+            JSONArray f = f(a74Var);
+            na3 na3Var = new na3();
+            na3Var.b = "show";
+            na3Var.g = g;
+            if (f != null) {
+                na3Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
+            }
+            ea3.g(na3Var);
+        }
+    }
+
+    public void d(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
+            String g = g(i);
+            String a = a(g, str, str2);
+            if (this.a.contains(a)) {
+                return;
+            }
+            String O = l33.M() == null ? null : l33.M().O();
+            na3 na3Var = new na3();
+            na3Var.b = "click";
+            na3Var.g = g;
+            na3Var.e = str;
+            if (str2 != null) {
+                na3Var.a("target_appkey", str2);
+            }
+            na3Var.a("current_appkey", O);
+            ea3.g(na3Var);
+            this.a.add(a);
+        }
+    }
+
+    public void e(int i, a74 a74Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, a74Var) == null) {
+            String g = g(i);
+            JSONArray f = f(a74Var);
+            na3 na3Var = new na3();
+            na3Var.b = "show";
+            na3Var.g = g;
+            if (f != null) {
+                na3Var.a(GameGuideConfigInfo.KEY_GAME_LIST, f);
+            }
+            ea3.g(na3Var);
+            this.a.clear();
+        }
+    }
+
+    public final JSONArray f(a74 a74Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, a74Var)) == null) {
+            if (a74Var == null || a74Var.b == null) {
+                return null;
+            }
+            JSONArray jSONArray = new JSONArray();
+            for (RecommendItemModel recommendItemModel : a74Var.b) {
+                jSONArray.put(recommendItemModel.appKey);
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public final String g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return "popview";
+                }
+                return "list";
+            }
+            return "carousel";
+        }
+        return (String) invokeI.objValue;
     }
 }

@@ -65,8 +65,8 @@ public class BdToast {
                     return;
                 }
             }
-            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.obfuscated_res_0x7f0809ff, true);
-            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.obfuscated_res_0x7f0809fd, true);
+            SUCCESS = new ToastIcon("SUCCESS", 0, R.drawable.obfuscated_res_0x7f080a01, true);
+            FAILURE = new ToastIcon("FAILURE", 1, R.drawable.obfuscated_res_0x7f0809ff, true);
             ToastIcon toastIcon = new ToastIcon("NOT", 2, 0, false);
             NOT = toastIcon;
             $VALUES = new ToastIcon[]{SUCCESS, FAILURE, toastIcon};
@@ -128,8 +128,8 @@ public class BdToast {
         this.a = context;
         ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0226, (ViewGroup) null);
         this.c = viewGroup;
-        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092274);
-        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092277);
+        this.d = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092276);
+        this.e = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f092279);
     }
 
     public static BdToast b(Context context, CharSequence charSequence) {

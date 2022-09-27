@@ -2,7 +2,7 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bx4;
+import com.baidu.tieba.ox4;
 import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -56,7 +56,7 @@ public class PicReqSwitch extends qf {
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? bx4.k().l("key_pic_req_switch", 0) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ox4.k().l("key_pic_req_switch", 0) : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.qf

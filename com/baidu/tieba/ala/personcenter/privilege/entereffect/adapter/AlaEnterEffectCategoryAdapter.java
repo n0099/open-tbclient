@@ -11,15 +11,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jz5;
 import com.baidu.tieba.qn;
+import com.baidu.tieba.wz5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectCategoryAdapter extends qn<jz5, ViewHolder> {
+public class AlaEnterEffectCategoryAdapter extends qn<wz5, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -55,7 +55,7 @@ public class AlaEnterEffectCategoryAdapter extends qn<jz5, ViewHolder> {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaEnterEffectCategoryAdapter(Context context) {
-        super(context, jz5.b);
+        super(context, wz5.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -96,12 +96,12 @@ public class AlaEnterEffectCategoryAdapter extends qn<jz5, ViewHolder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.qn
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, jz5 jz5Var, ViewHolder viewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wz5 wz5Var, ViewHolder viewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, jz5Var, viewHolder})) == null) {
-            if (jz5Var != null) {
-                viewHolder.a.setText(jz5Var.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wz5Var, viewHolder})) == null) {
+            if (wz5Var != null) {
+                viewHolder.a.setText(wz5Var.a);
             }
             if (i == 0) {
                 viewHolder.b.setVisibility(8);

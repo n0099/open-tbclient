@@ -1,104 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.ExcPbPage.ExcContent;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
-import tbclient.ExcPbPage.UserInfo;
-import tbclient.Post;
-import tbclient.User;
 /* loaded from: classes4.dex */
-public class fu7 implements hu7 {
+public class fu7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserInfo a;
-    public ExcellentPbThreadInfo b;
-    public List<Post> c;
-    public List<User> d;
 
-    public fu7(UserInfo userInfo, ExcellentPbThreadInfo excellentPbThreadInfo, List<Post> list, List<User> list2) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {userInfo, excellentPbThreadInfo, list, list2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            int i = TbadkCoreApplication.getCurrentMemberType() > 0 ? 1 : 0;
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_type", i);
+            TiebaStatic.log(statisticItem);
         }
-        this.a = userInfo;
-        this.b = excellentPbThreadInfo;
-        this.c = list;
-        this.d = list2;
-    }
-
-    @Override // com.baidu.tieba.hu7
-    public int getErroCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.hu7
-    public String getErrorText() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hu7
-    public List<Post> getPostList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hu7
-    public ExcellentPbThreadInfo getThreadInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : (ExcellentPbThreadInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hu7
-    public UserInfo getUserInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a : (UserInfo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hu7
-    public List<User> getUserList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.d : (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hu7
-    public boolean isEmpty() {
-        InterceptResult invokeV;
-        List<ExcContent> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ExcellentPbThreadInfo excellentPbThreadInfo = this.b;
-            return excellentPbThreadInfo == null || (list = excellentPbThreadInfo.content) == null || list.size() <= 0;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -1,63 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.annotation.TargetApi;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.h67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.HotThread;
 /* loaded from: classes4.dex */
-public class k67 implements Cdo {
+public class k67 extends h67.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865117, "Lcom/baidu/tieba/k67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947865117, "Lcom/baidu/tieba/k67;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public k67() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k67(View view2) {
+        super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(HotThread hotThread) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, hotThread) == null) || hotThread == null) {
-            return;
-        }
-        String str = hotThread.hot_title;
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    @Override // com.baidu.tieba.h67.b, com.baidu.tieba.h67.a
+    @TargetApi(11)
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.isHardwareAccelerated() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.h67.b, com.baidu.tieba.h67.a
+    @TargetApi(14)
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.a.setScrollX(i);
+        }
     }
 }

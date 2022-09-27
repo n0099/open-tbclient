@@ -1,63 +1,103 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class eb1 {
+public class eb1 implements gb1 {
     public static /* synthetic */ Interceptable $ic;
+    public static eb1 b;
+    public static ib1 c;
+    public static mb1 d;
+    public static lb1 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static String a(byte[] bArr) {
+    public eb1(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context.getApplicationContext();
+        d = new mb1();
+        e = new lb1(context);
+        c = new ib1();
+    }
+
+    public static lb1 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (hexString.length() == 1) {
-                    sb.append('0');
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (e == null) {
+                e = new lb1(context);
+            }
+            return e;
+        }
+        return (lb1) invokeL.objValue;
+    }
+
+    public static mb1 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                d = new mb1();
+            }
+            return d;
+        }
+        return (mb1) invokeV.objValue;
+    }
+
+    public static eb1 d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (b == null) {
+                synchronized (eb1.class) {
+                    if (b == null) {
+                        b = new eb1(context);
+                    }
                 }
-                sb.append(hexString);
             }
-            return sb.toString();
+            return b;
         }
-        return (String) invokeL.objValue;
+        return (eb1) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gb1
+    public void a(ImageView imageView, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(str.getBytes());
-                return a(messageDigest.digest());
-            } catch (NoSuchAlgorithmException unused) {
-                return String.valueOf(str.hashCode());
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) {
+            e(imageView, str, 0, 0);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public void e(ImageView imageView, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(str.getBytes());
-                return a(messageDigest.digest());
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
+        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, str, i, i2) == null) {
+            imageView.setTag(str);
+            Bitmap c2 = d.c(str);
+            if (c2 != null) {
+                imageView.setImageBitmap(c2);
+            } else {
+                cc1.a(new kb1(this.a, c, str, imageView, i, i2));
             }
         }
-        return (String) invokeL.objValue;
     }
 }

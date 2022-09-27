@@ -1,5 +1,10 @@
 package com.baidu.tieba;
+
+import android.content.ContentValues;
+import androidx.annotation.Nullable;
+import java.util.List;
 /* loaded from: classes3.dex */
 public interface bo1 {
-    mi4 l();
+    @Nullable
+    List<ContentValues> a();
 }

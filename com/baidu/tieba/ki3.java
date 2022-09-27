@@ -1,64 +1,9 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import android.view.View;
-import android.widget.PopupWindow;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.view.menu.SwanContextMenuView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class ki3 extends i23 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ki3 {
+    void e();
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ki3(View view2) {
-        super(view2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        s(pg3.f(view2.getContext(), 178.0f));
-        p(true);
-        q(true);
-    }
+    void l();
 
-    @Override // com.baidu.tieba.i23
-    public void l(View view2, List<j23> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
-            ((SwanContextMenuView) view2).c(list);
-        }
-    }
-
-    @Override // com.baidu.tieba.i23
-    public View m(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new SwanContextMenuView(context) : (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.i23
-    public void u(PopupWindow popupWindow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, popupWindow) == null) {
-            popupWindow.showAtLocation(this.a, 17, 0, 0);
-        }
-    }
+    void onViewDestroy();
 }

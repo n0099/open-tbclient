@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,24 +10,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
 public class nf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Cdo> a;
-    public List<RecommendForumInfo> b;
-    public Page c;
-    public boolean d;
-    public int e;
-    public int f;
-    public int g;
+    public List<qn> a;
+    public BdTypeListView b;
+    public jf6 c;
+    public lf6 d;
 
-    public nf6() {
+    public nf6(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,38 +34,42 @@ public class nf6 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        this.b = bdTypeListView;
+        arrayList.add(new ff6(baseActivity.getPageContext(), gf6.d));
+        this.a.add(new hf6(baseActivity.getPageContext(), if6.c));
+        this.a.add(new ef6(baseActivity.getPageContext(), gh6.c));
+        this.a.add(new ve6(baseActivity.getPageContext(), we6.b));
+        this.a.add(new xe6(baseActivity.getPageContext(), ye6.g));
+        this.a.add(new ze6(baseActivity.getPageContext()));
+        jf6 jf6Var = new jf6(baseActivity.getPageContext(), kf6.e);
+        this.c = jf6Var;
+        this.a.add(jf6Var);
+        lf6 lf6Var = new lf6(baseActivity.getPageContext(), mf6.d);
+        this.d = lf6Var;
+        this.a.add(lf6Var);
     }
 
-    public List<Cdo> a() {
+    public List<qn> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public void b(u86 u86Var) {
+    public void b() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u86Var) == null) {
-            String str = u86Var.d;
-            this.c = u86Var.c;
-            List<RecommendForumInfo> list = u86Var.a;
-            this.b = list;
-            if (!ListUtils.isEmpty(list)) {
-                for (RecommendForumInfo recommendForumInfo : this.b) {
-                    mf6 mf6Var = new mf6();
-                    mf6Var.r(recommendForumInfo);
-                    this.a.add(mf6Var);
-                }
-            }
-            Page page = this.c;
-            if (page != null) {
-                this.d = page.has_more.intValue() == 1;
-                this.e = this.c.current_page.intValue();
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof un)) {
+            this.b.getAdapter2().notifyDataSetChanged();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.onDestroy();
+            this.d.onDestroy();
         }
     }
 }

@@ -1,107 +1,112 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.s83;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ze3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public View c;
+    public int d;
+    public ye3 e;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ ze3 b;
 
-        public a(int i, int i2) {
+        public a(ze3 ze3Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {ze3Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i;
-            this.b = i2;
+            this.b = ze3Var;
+            this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ze3.b(this.a, this.b);
+                if (this.b.e != null) {
+                    this.b.e.c(this.a);
+                }
+                Rect rect = new Rect();
+                this.b.c.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.b.d == this.b.a) {
+                    this.b.d = height;
+                } else if (this.b.d == height) {
+                } else {
+                    if (this.b.d - height > this.b.b) {
+                        if (this.b.e != null) {
+                            this.b.e.b(this.a, this.b.d - height);
+                        }
+                        this.b.d = height;
+                    } else if (height - this.b.d > this.b.b) {
+                        if (this.b.e != null) {
+                            this.b.e.a(this.a, height - this.b.d);
+                        }
+                        this.b.d = height;
+                    }
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948357025, "Lcom/baidu/tieba/ze3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948357025, "Lcom/baidu/tieba/ze3;");
+    public ze3(String str, Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ij1.a;
-        b = 0;
+        this.a = 0;
+        this.b = 200;
+        View decorView = activity.getWindow().getDecorView();
+        this.c = decorView;
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
     }
 
-    public static void b(int i, int i2) {
+    public static void g(String str, Activity activity, ye3 ye3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            if (i == 0) {
-                b = 2;
-            } else if (i2 > i) {
-                b = 1;
-                ld2.d().e(i, i2);
-                lf3.h();
-                gm2.m().i();
-                s83.a.a();
-                y82.d();
-            }
-            if (a) {
-                Log.d("SwanAppUpgradeManager", "App onUpgrade on thread: " + Thread.currentThread());
-            }
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, activity, ye3Var) == null) {
+            new ze3(str, activity).h(ye3Var);
         }
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    public final void h(ye3 ye3Var) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b : invokeV.intValue;
-    }
-
-    public static void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
-            if (i != 0 && fm2.g0().l()) {
-                sf3.k(new a(i, i2), "onUpgradeOperation");
-            } else {
-                b(i, i2);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, ye3Var) == null) {
+            this.e = ye3Var;
         }
     }
 }

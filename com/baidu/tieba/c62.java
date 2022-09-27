@@ -1,65 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class c62 extends ta4 implements sc2 {
+public class c62 extends n52 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
 
-    public c62() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626634, "Lcom/baidu/tieba/c62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947626634, "Lcom/baidu/tieba/c62;");
                 return;
             }
         }
-        int K = K();
-        this.a = K;
-        this.b = K;
+        l = vj1.a;
     }
 
-    public int J() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c62(boolean z, boolean z2) {
+        super(z, z2);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.b;
-            return i == 0 ? this.a : i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int K() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public c62 L(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = this.b;
-            if ((i2 == 0 || this.a == i2) && i != 0 && i != this.b) {
-                this.b = i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return this;
         }
-        return (c62) invokeI.objValue;
+        if (l) {
+            Log.d("PreloadMasterManagerMulti", "PreloadMasterManagerMulti created");
+        }
+    }
+
+    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pMSAppInfo, cVar)) == null) {
+            if (this.e == null || this.e.b == null) {
+                return false;
+            }
+            return (pMSAppInfo.versionCode == this.e.b.versionCode && TextUtils.equals(pMSAppInfo.appId, this.e.a) && !m(cVar, this.e.c)) ? false : true;
+        }
+        return invokeLL.booleanValue;
     }
 }

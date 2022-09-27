@@ -2,7 +2,7 @@ package com.baidu.tieba.homepage.tabfeed.message;
 
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.z37;
+import com.baidu.tieba.n47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.Error;
 public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z37 tabFeedData;
+    public n47 tabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListSocketResponsedMessage() {
@@ -53,9 +53,9 @@ public class TabFeedListSocketResponsedMessage extends TbSocketReponsedMessage {
                 setErrorString(activityPageResIdl.error.usermsg);
             }
             if (getError() == 0 && activityPageResIdl.data != null) {
-                z37 z37Var = new z37();
-                this.tabFeedData = z37Var;
-                z37Var.j(activityPageResIdl.data);
+                n47 n47Var = new n47();
+                this.tabFeedData = n47Var;
+                n47Var.j(activityPageResIdl.data);
                 return activityPageResIdl;
             }
             return activityPageResIdl;

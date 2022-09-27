@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class dm7 {
+public class dm7 implements ThirdPartAliRechargeService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
 
     public dm7() {
         Interceptable interceptable = $ic;
@@ -28,48 +28,18 @@ public class dm7 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
+    public String aliRecharge(Activity activity, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
+            zn4 zn4Var = new zn4();
+            zn4Var.a = activity;
+            zn4Var.b = str;
+            zn4Var.c = z;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, zn4Var);
+            return runTask == null ? "" : (String) runTask.getData();
         }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b = str;
-        }
+        return (String) invokeLLZ.objValue;
     }
 }

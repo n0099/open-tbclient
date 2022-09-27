@@ -1,38 +1,29 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.g32;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class t32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public final g32 c;
 
     /* loaded from: classes5.dex */
-    public class a implements g32.b {
+    public class a implements SwanAppNetworkUtils.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ t32 a;
+        public final /* synthetic */ b a;
 
-        public a(t32 t32Var) {
+        public a(t32 t32Var, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t32Var};
+                Object[] objArr = {t32Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,143 +33,50 @@ public class t32 {
                     return;
                 }
             }
-            this.a = t32Var;
+            this.a = bVar;
         }
 
-        @Override // com.baidu.tieba.g32.b
-        public void a(NetworkStatus networkStatus) {
+        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
+        public void onResult(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                a32.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
-                z22.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
-                this.a.e(networkStatus);
-                if (t32.d) {
-                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == 1) {
+                    this.a.a(NetworkStatus.NETWORK_GOOD);
+                } else if (i == 2) {
+                    this.a.a(NetworkStatus.NETWORK_BAD);
+                } else if (i != 3) {
+                    this.a.a(NetworkStatus.NETWORK_UNKNOWN);
+                } else {
+                    this.a.a(NetworkStatus.NETWORK_OFFLINE);
                 }
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-452639784, "Lcom/baidu/tieba/t32$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-452639784, "Lcom/baidu/tieba/t32$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[NetworkStatus.values().length];
-            a = iArr;
-            try {
-                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948130198, "Lcom/baidu/tieba/t32;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948130198, "Lcom/baidu/tieba/t32;");
-                return;
-            }
-        }
-        d = ij1.a;
+    public interface b {
+        void a(NetworkStatus networkStatus);
     }
 
     public t32() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = new g32();
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.a(new a(this));
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
-            if (this.a == 0) {
-                if (d) {
-                    Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
-                }
-                this.a = System.currentTimeMillis();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.a > 2000) {
-                if (d) {
-                    Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
-                }
-                c();
-                g();
-            }
-            this.a = currentTimeMillis;
-        }
-    }
-
-    public final void e(NetworkStatus networkStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
-            int i = b.a[networkStatus.ordinal()];
-            if (i != 1 && i != 2) {
-                y22.f(R.string.obfuscated_res_0x7f0f1334);
-            } else {
-                y22.f(R.string.obfuscated_res_0x7f0f132a);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void f() {
+    public void a(@NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = x23.K().k() != 1;
-            this.a = 0L;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
+            return;
         }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b = false;
-            if (d) {
-                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
-            }
-        }
+        SwanAppNetworkUtils.b(new a(this, bVar));
     }
 }

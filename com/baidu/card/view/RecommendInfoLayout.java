@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ih5;
-import com.baidu.tieba.lq4;
+import com.baidu.tieba.vh5;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -73,7 +73,7 @@ public class RecommendInfoLayout extends RelativeLayout {
             }
             if (NewWebHotTopicPageSwitch.isOn()) {
                 if (view2.getContext() instanceof BaseActivity) {
-                    ih5.e(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
+                    vh5.e(((BaseActivity) view2.getContext()).getPageContext(), String.valueOf(this.a), null);
                 } else {
                     new HotTopicActivityConfig(this.c.getContext()).createNormalConfig(String.valueOf(this.a), null, null, "2").start();
                 }
@@ -113,16 +113,16 @@ public class RecommendInfoLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0887, (ViewGroup) this, true);
-            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ba5);
-            this.b = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b94);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba1);
+            this.a = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091ba7);
+            this.b = (BarImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091b96);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba3);
         }
     }
 
-    public void setData(lq4 lq4Var) {
+    public void setData(yq4 yq4Var) {
         ThreadRecommendInfoData threadRecommendInfoData;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lq4Var) == null) || lq4Var == null || lq4Var.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(lq4Var.getThreadData().getThreadRecommendInfoDataList(), 0)) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yq4Var) == null) || yq4Var == null || yq4Var.getThreadData() == null || (threadRecommendInfoData = (ThreadRecommendInfoData) ListUtils.getItem(yq4Var.getThreadData().getThreadRecommendInfoDataList(), 0)) == null) {
             return;
         }
         String str = threadRecommendInfoData.forumAvatar;

@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.hz5;
 import com.baidu.tieba.on;
+import com.baidu.tieba.uz5;
 import com.baidu.tieba.xi;
 import com.baidu.tieba.yg;
 import com.baidu.tieba.zg;
@@ -43,7 +43,7 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public hz5.c f;
+    public uz5.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
@@ -317,7 +317,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         }
     }
 
-    public void setAnimCompleteCallback(hz5.c cVar) {
+    public void setAnimCompleteCallback(uz5.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;

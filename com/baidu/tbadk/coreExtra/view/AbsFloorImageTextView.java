@@ -14,8 +14,8 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.atomData.PbActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.wh5;
-import com.baidu.tieba.xv7;
+import com.baidu.tieba.ji5;
+import com.baidu.tieba.lw7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,11 +34,11 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
     public ImageUrlData a;
-    public xv7.a b;
-    public xv7 c;
+    public lw7.a b;
+    public lw7 c;
 
     /* loaded from: classes3.dex */
-    public class a implements xv7.a {
+    public class a implements lw7.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsFloorImageTextView a;
@@ -61,7 +61,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             this.a = absFloorImageTextView;
         }
 
-        @Override // com.baidu.tieba.xv7.a
+        @Override // com.baidu.tieba.lw7.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -71,7 +71,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.xv7.a
+        @Override // com.baidu.tieba.lw7.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -82,7 +82,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.xv7.a
+        @Override // com.baidu.tieba.lw7.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -94,13 +94,13 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b extends xv7 {
+    public class b extends lw7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsFloorImageTextView d;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(AbsFloorImageTextView absFloorImageTextView, xv7.a aVar) {
+        public b(AbsFloorImageTextView absFloorImageTextView, lw7.a aVar) {
             super(aVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -111,7 +111,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((xv7.a) newInitContext.callArgs[0]);
+                    super((lw7.a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -120,7 +120,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             this.d = absFloorImageTextView;
         }
 
-        @Override // com.baidu.tieba.xv7, android.view.GestureDetector.OnGestureListener
+        @Override // com.baidu.tieba.lw7, android.view.GestureDetector.OnGestureListener
         public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
             return invokeCommon.booleanValue;
         }
 
-        @Override // com.baidu.tieba.xv7, android.view.GestureDetector.OnGestureListener
+        @Override // com.baidu.tieba.lw7, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
@@ -228,7 +228,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     public Pair<Integer, Integer> d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? wh5.i(str, i, h) : (Pair) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? ji5.i(str, i, h) : (Pair) invokeL.objValue;
     }
 
     public abstract void e(boolean z);

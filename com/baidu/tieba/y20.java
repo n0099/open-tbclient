@@ -71,7 +71,7 @@ public class y20 extends v20 {
         v20 z20Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            if (this.d ? i() : j()) {
+            if (this.d ? j() : i()) {
                 z20Var = new x20();
             } else {
                 z20Var = new z20(this.d ? ".helios.ipc.default" : ".helios.ipc.isolate");
@@ -92,30 +92,30 @@ public class y20 extends v20 {
     public final String h() {
         InterceptResult invokeV;
         BufferedReader bufferedReader;
+        Throwable th;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            BufferedReader bufferedReader2 = null;
             try {
                 bufferedReader = new BufferedReader(new FileReader(new File(ProcessUtils.CMD_LINE_NAME)));
                 try {
                     String readLine = bufferedReader.readLine();
                     if (!TextUtils.isEmpty(readLine)) {
-                        d50.b(bufferedReader);
+                        f50.b(bufferedReader);
                         return readLine;
                     }
                 } catch (IOException unused) {
-                } catch (Throwable th) {
-                    th = th;
-                    bufferedReader2 = bufferedReader;
-                    d50.b(bufferedReader2);
+                } catch (Throwable th2) {
+                    th = th2;
+                    f50.b(bufferedReader);
                     throw th;
                 }
             } catch (IOException unused2) {
                 bufferedReader = null;
-            } catch (Throwable th2) {
-                th = th2;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
             }
-            d50.b(bufferedReader);
+            f50.b(bufferedReader);
             List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.a.c.getSystemService("activity")).getRunningAppProcesses();
             if (runningAppProcesses != null) {
                 for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
@@ -135,6 +135,16 @@ public class y20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             String h = h();
+            return h != null && h.contains(":helios");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String h = h();
             if (h == null) {
                 return true;
             }
@@ -147,16 +157,6 @@ public class y20 extends v20 {
                 return h.length() == str.length() || h.charAt(str.length()) != ':';
             }
             return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String h = h();
-            return h != null && h.contains(":helios");
         }
         return invokeV.booleanValue;
     }

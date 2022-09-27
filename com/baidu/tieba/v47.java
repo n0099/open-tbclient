@@ -1,50 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.EditText;
-import com.baidu.tieba.homepage.topic.topicdetail.view.TopicDetaiInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v47 extends f55 {
+public class v47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText t;
+    public t47 a;
+    public ArrayList<u47> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v47(Context context) {
-        super(context, (String) null, 29);
+    public v47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        TopicDetaiInputContainer topicDetaiInputContainer = new TopicDetaiInputContainer(context);
-        this.m = topicDetaiInputContainer;
-        this.t = topicDetaiInputContainer.getInputView();
-        ((TopicDetaiInputContainer) this.m).setHint(context.getString(R.string.obfuscated_res_0x7f0f10b3));
-        this.p = new int[]{4, 13, 24, 3, 9, 6, 12};
     }
 
-    public EditText g() {
-        InterceptResult invokeV;
+    public static v47 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.t : (EditText) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            v47 v47Var = new v47();
+            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
+            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
+            v47Var.a = t47.a(optJSONObject);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                v47Var.b = new ArrayList<>();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    try {
+                        u47 a = u47.a(optJSONArray.getJSONObject(i));
+                        if (a != null) {
+                            v47Var.b.add(a);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return v47Var;
+        }
+        return (v47) invokeL.objValue;
     }
 }

@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.tieba.gg9;
+import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -148,7 +148,7 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (gg9.e(this.multiMediaDataList) || this.multiMediaDataList.size() < 1) {
+            if (vg9.e(this.multiMediaDataList) || this.multiMediaDataList.size() < 1) {
                 return false;
             }
             List<MultiMediaData> list = this.multiMediaDataList;
@@ -161,7 +161,7 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (gg9.e(this.multiMediaDataList) || this.multiMediaDataList.get(0) == null) {
+            if (vg9.e(this.multiMediaDataList) || this.multiMediaDataList.get(0) == null) {
                 return false;
             }
             return MediaSegment.SEG_TYPE_INPUT_HEADER.equals(this.multiMediaDataList.get(0).inputType);

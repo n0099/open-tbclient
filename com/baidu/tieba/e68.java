@@ -1,336 +1,210 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbHistoryActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.mvc.message.ReadCacheMessage;
+import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tbadk.mvc.model.CacheModel;
+import com.baidu.tieba.myCollection.baseHistory.PbHistoryCacheModel;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Date;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class e68 {
+public class e68 extends i16<p58> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ForumData> a;
-    public ArrayList<ForumData> b;
-    public ArrayList<ForumData> c;
-    public ArrayList<ForumData> d;
-    public ArrayList<ForumData> e;
-    public ArrayList<ForumData> f;
-    public ms4 g;
-    public int h;
-    public int i;
-    public int j;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public TextView o;
+    public TextView p;
+    public LinearLayout q;
+    public LinearLayout r;
+    public LinearLayout s;
+    public LinearLayout t;
+    public UserData u;
+    public int v;
+    public int w;
 
-    public e68() {
+    /* loaded from: classes3.dex */
+    public class a implements CacheModel.c<dq7> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e68 a;
+
+        public a(e68 e68Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {e68Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = e68Var;
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
+        public void f(WriteCacheRespMsg<List<dq7>> writeCacheRespMsg, WriteCacheMessage<dq7> writeCacheMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, writeCacheRespMsg, writeCacheMessage) == null) {
+            }
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.CacheModel.c
+        public void h(ReadCacheRespMsg<List<dq7>> readCacheRespMsg, ReadCacheMessage<dq7> readCacheMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, readCacheRespMsg, readCacheMessage) == null) || readCacheRespMsg == null || readCacheRespMsg.getData() == null) {
+                return;
+            }
+            this.a.m.setText(Integer.toString(readCacheRespMsg.getData().size()));
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e68(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = 0;
-        this.j = 0;
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new ArrayList<>();
-        this.d = new ArrayList<>();
-        this.f = new ArrayList<>();
-        this.e = new ArrayList<>();
-        this.g = new ms4();
-        s(false);
+        this.v = 3;
+        this.w = 0;
+        View h = h();
+        this.i = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902d6);
+        this.j = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0902d7);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921a2);
+        this.l = (TextView) h.findViewById(R.id.obfuscated_res_0x7f0921b9);
+        this.m = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090d6b);
+        this.n = (TextView) h.findViewById(R.id.obfuscated_res_0x7f090d6c);
+        this.o = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09066d);
+        this.p = (TextView) h.findViewById(R.id.obfuscated_res_0x7f09066e);
+        this.q = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0902d5);
+        this.r = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09216f);
+        this.t = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f090d6a);
+        this.s = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f09066c);
     }
 
-    public void a(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, arrayList, arrayList2) == null) {
-            if (this.d == null) {
-                this.d = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.e;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.f;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.addAll(arrayList2);
-            }
-            if (this.e == null && this.f == null) {
-                return;
-            }
-            this.d.clear();
-            ArrayList<ForumData> arrayList5 = this.e;
-            if (arrayList5 != null) {
-                this.d.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.f;
-            if (arrayList6 != null) {
-                this.d.addAll(arrayList6);
-            }
-        }
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.j += i;
-        }
-    }
-
-    public void c(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, arrayList, arrayList2) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.b;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.c;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.addAll(arrayList2);
-            }
-            if (this.b == null && this.c == null) {
-                return;
-            }
-            this.a.clear();
-            ArrayList<ForumData> arrayList5 = this.b;
-            if (arrayList5 != null) {
-                this.a.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.c;
-            if (arrayList6 != null) {
-                this.a.addAll(arrayList6);
-            }
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.i += i;
-        }
-    }
-
-    public ArrayList<ForumData> e() {
+    @Override // com.baidu.tieba.i16
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (ArrayList) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d06f5 : invokeV.intValue;
     }
 
-    public ArrayList<ForumData> f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i16
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.f : (ArrayList) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.j : invokeV.intValue;
-    }
-
-    public ArrayList<ForumData> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.e : (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<ForumData> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public ArrayList<ForumData> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.i : invokeV.intValue;
-    }
-
-    public ArrayList<ForumData> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.b : (ArrayList) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.h == 1 : invokeV.booleanValue;
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048589, this, str) == null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.v == i) {
             return;
         }
-        try {
-            o(new JSONObject(str));
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        SkinManager.setBackgroundColor(h(), R.color.CAM_X0204);
+        SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0109);
+        SkinManager.setViewTextColor(this.o, (int) R.color.CAM_X0105);
+        SkinManager.setViewTextColor(this.p, (int) R.color.CAM_X0109);
+        this.v = i;
     }
 
-    public void o(JSONObject jSONObject) {
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
-            try {
-                this.g.i(jSONObject.optJSONObject("page"));
-                this.h = jSONObject.optInt("has_more", 1);
-                long optLong = jSONObject.optLong("ctime", 0L);
-                if (optLong > 0) {
-                    new Date(optLong);
-                } else {
-                    new Date();
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("forum_list");
-                if (optJSONObject == null) {
-                    return;
-                }
-                JSONArray optJSONArray = optJSONObject.optJSONArray("gconforum");
-                if (optJSONArray != null) {
-                    this.i = optJSONArray.length();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        ForumData forumData = new ForumData();
-                        forumData.parserJson(optJSONArray.getJSONObject(i));
-                        this.b.add(forumData);
-                    }
-                }
-                JSONArray optJSONArray2 = optJSONObject.optJSONArray("non-gconforum");
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        ForumData forumData2 = new ForumData();
-                        forumData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        this.c.add(forumData2);
-                    }
-                }
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("common_forum_list");
-                if (optJSONObject2 == null) {
-                    return;
-                }
-                JSONArray optJSONArray3 = optJSONObject2.optJSONArray("gconforum");
-                if (optJSONArray3 != null) {
-                    this.j = optJSONArray3.length();
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        ForumData forumData3 = new ForumData();
-                        forumData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.e.add(forumData3);
-                    }
-                }
-                JSONArray optJSONArray4 = optJSONObject2.optJSONArray("non-gconforum");
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        ForumData forumData4 = new ForumData();
-                        forumData4.parserJson(optJSONArray4.getJSONObject(i4));
-                        this.f.add(forumData4);
-                    }
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || view2 == null) {
+            return;
         }
-    }
-
-    public void p(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, arrayList, arrayList2) == null) {
-            if (this.d == null) {
-                this.d = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.e;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.clear();
-                this.e.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.f;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.clear();
-                this.f.addAll(arrayList2);
-            }
-            if (this.e == null && this.f == null) {
+        if (view2.getId() == R.id.obfuscated_res_0x7f090995) {
+            if (this.u == null) {
                 return;
             }
-            this.d.clear();
-            ArrayList<ForumData> arrayList5 = this.e;
-            if (arrayList5 != null) {
-                this.d.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.f;
-            if (arrayList6 != null) {
-                this.d.addAll(arrayList6);
-            }
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void r(ArrayList<ForumData> arrayList, ArrayList<ForumData> arrayList2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, arrayList, arrayList2) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
-            }
-            ArrayList<ForumData> arrayList3 = this.b;
-            if (arrayList3 != null && arrayList != null) {
-                arrayList3.clear();
-                this.b.addAll(arrayList);
-            }
-            ArrayList<ForumData> arrayList4 = this.c;
-            if (arrayList4 != null && arrayList2 != null) {
-                arrayList4.clear();
-                this.c.addAll(arrayList2);
-            }
-            if (this.b == null && this.c == null) {
+            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 6));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), false, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0906b4) {
+            if (this.u == null) {
                 return;
             }
-            this.a.clear();
-            ArrayList<ForumData> arrayList5 = this.b;
-            if (arrayList5 != null) {
-                this.a.addAll(arrayList5);
-            }
-            ArrayList<ForumData> arrayList6 = this.c;
-            if (arrayList6 != null) {
-                this.a.addAll(arrayList6);
-            }
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 5));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.b.getPageActivity(), true, this.u.getUserId(), this.u.getSex()).updateBjhUser(this.u.isBaijiahaoUser()).updateFollowNum(this.w, this.u.getPortrait())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f0902d5) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 7));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.b.getPageActivity(), this.u.getLike_bars(), this.u.getUserId(), this.u.getSex())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09216f) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 8));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.b.getPageActivity(), this.u.getUserId(), this.u.getSex(), this.u.getPortrait())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f09066c) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 9));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015005, new IntentConfig(getContext())));
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f090d6a) {
+            TiebaStatic.log(new StatisticItem("c12523").param("obj_locate", 10));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PbHistoryActivityConfig(getContext())));
         }
     }
 
-    public void s(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i16
+    /* renamed from: s */
+    public void i(p58 p58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.h = z ? 1 : 0;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.i = i;
+        if (interceptable == null || interceptable.invokeL(1048580, this, p58Var) == null) {
+            this.u = p58Var.e;
+            this.w = p58Var.a;
+            this.i.setText(Integer.toString(p58Var.b));
+            this.k.setText(StringHelper.longNumFormatOver9999wan(p58Var.c));
+            PbHistoryCacheModel pbHistoryCacheModel = new PbHistoryCacheModel(this.b);
+            pbHistoryCacheModel.R(new a(this));
+            pbHistoryCacheModel.O();
+            this.o.setText(Integer.toString(this.u.getFavoriteNum()));
+            this.q.setOnClickListener(this);
+            this.r.setOnClickListener(this);
+            this.t.setOnClickListener(this);
+            this.s.setOnClickListener(this);
+            j(g(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

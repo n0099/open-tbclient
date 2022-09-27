@@ -12,9 +12,9 @@ import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.business.model.data.LiveTabWrapData;
 import com.baidu.live.business.util.GrParasmUtil;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
-import com.baidu.tieba.jb0;
-import com.baidu.tieba.k90;
-import com.baidu.tieba.kb0;
+import com.baidu.tieba.wb0;
+import com.baidu.tieba.x90;
+import com.baidu.tieba.xb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -120,7 +120,7 @@ public class LiveFeedModel implements ILiveFeedModel {
             hashMap.put("refresh_index", String.valueOf(i2));
             hashMap.put("start_time", System.currentTimeMillis() + "");
             hashMap.put("source", this.mSource);
-            kb0.f(FEED_PAGE_URL, hashMap, new jb0<LiveFeedData>(this, i, str, onDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedModel.1
+            xb0.f(FEED_PAGE_URL, hashMap, new wb0<LiveFeedData>(this, i, str, onDataLoadCallback) { // from class: com.baidu.live.business.model.LiveFeedModel.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ LiveFeedModel this$0;
@@ -150,7 +150,7 @@ public class LiveFeedModel implements ILiveFeedModel {
                 }
 
                 /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.searchbox.live.interfaces.net.NetResponse, java.lang.Object, java.util.Map, java.util.List] */
-                @Override // com.baidu.tieba.jb0
+                @Override // com.baidu.tieba.wb0
                 public /* bridge */ /* synthetic */ void onNetResponse(NetResponse netResponse, LiveFeedData liveFeedData, Map map, List list2) {
                     onNetResponse2(netResponse, liveFeedData, (Map<String, String>) map, (List<String>) list2);
                 }
@@ -207,7 +207,7 @@ public class LiveFeedModel implements ILiveFeedModel {
                             str8 = "网络不给力，请稍后重试";
                             i3 = -100;
                         }
-                        String n = k90.n(this.this$0.mPage);
+                        String n = x90.n(this.this$0.mPage);
                         if (map != null) {
                             String str15 = map.get("tab");
                             String str16 = map.get("subtab");
@@ -227,7 +227,7 @@ public class LiveFeedModel implements ILiveFeedModel {
                                     str13 = (liveFeedData == null || (liveTabWrapData = liveFeedData.tabWrapData) == null || (list3 = liveTabWrapData.tabList) == null || list3.isEmpty()) ? "1" : "0";
                                 }
                                 str14 = URLEncoder.encode(str10, "UTF-8");
-                                k90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str14, str9, str11, str12, str13);
+                                x90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str14, str9, str11, str12, str13);
                             }
                             str9 = str15;
                             str11 = str16;
@@ -242,13 +242,13 @@ public class LiveFeedModel implements ILiveFeedModel {
                         if (str10.contains("tab")) {
                         }
                         str14 = URLEncoder.encode(str10, "UTF-8");
-                        k90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str14, str9, str11, str12, str13);
+                        x90.t(LiveFeedPageSdk.getInstance().getApplication(), this.this$0.mSource, n, j, i3, str8, str7, str14, str9, str11, str12, str13);
                     }
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX WARN: Can't rename method to resolve collision */
-                @Override // com.baidu.tieba.jb0
+                @Override // com.baidu.tieba.wb0
                 public LiveFeedData onParseResponseInBackground(NetResponse netResponse) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;

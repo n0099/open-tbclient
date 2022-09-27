@@ -1,53 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mq8 extends CustomMessageListener {
+public class mq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final ip8 b;
+    public boolean b;
+    public Runnable c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mq8(MainTabActivity mainTabActivity, ip8 ip8Var) {
-        super(2921348);
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mq8 a;
+
+        public a(mq8 mq8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mq8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mq8Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                    this.a.b = true;
+                } else {
+                    this.a.a();
+                }
+            }
+        }
+    }
+
+    public mq8(MainTabActivity mainTabActivity, xp8 xp8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ip8Var};
+            Object[] objArr = {mainTabActivity, xp8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = false;
+        this.c = new a(this);
         this.a = mainTabActivity;
-        this.b = ip8Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ip8 ip8Var;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Boolean) || (ip8Var = this.b) == null || ip8Var.B() == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TbSingleton.getInstance().getNewUserRedPackageData() == null) {
             return;
         }
-        if (!((Boolean) customResponsedMessage.getData()).booleanValue()) {
-            this.b.B().getTabWrapper().animate().translationY(this.b.B().getTabWrapper().getHeight()).setDuration(200L).start();
-        } else {
-            this.b.B().getTabWrapper().animate().translationY(0.0f).setDuration(400L).start();
+        TbSingleton.getInstance().setNewUserRedPackageShowed(true);
+        this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
+        TbSingleton.getInstance().setNewUserRedPackageData(null);
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
+            this.b = false;
+            gh.a().removeCallbacks(this.c);
+            gh.a().postDelayed(this.c, 200L);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            gh.a().removeCallbacks(this.c);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            gh.a().removeCallbacks(this.c);
+            gh.a().postDelayed(this.c, 200L);
         }
     }
 }

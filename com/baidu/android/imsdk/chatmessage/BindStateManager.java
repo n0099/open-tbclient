@@ -14,7 +14,7 @@ import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tieba.o70;
+import com.baidu.tieba.b80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -358,7 +358,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        o70.g(context).f(context, creatMethodIntent);
+                        b80.g(context).f(context, creatMethodIntent);
                     } catch (Exception e) {
                         ListenerManager.getInstance().removeListener(addListener);
                         onRegisterNotifyResult(context, addListener, 1003, Constants.ERROR_MSG_SERVICE_ERROR, false);
@@ -508,7 +508,7 @@ public class BindStateManager {
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_USER_ID, str2);
                     creatMethodIntent.putExtra(Constants.EXTRA_PUSH_APP_ID, str3);
                     try {
-                        o70.g(context).f(context, creatMethodIntent);
+                        b80.g(context).f(context, creatMethodIntent);
                         return;
                     } catch (Exception e) {
                         LogUtils.e(TAG, "Exception ", e);

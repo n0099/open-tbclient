@@ -21,18 +21,18 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag7;
-import com.baidu.tieba.ci5;
-import com.baidu.tieba.eh7;
-import com.baidu.tieba.if7;
+import com.baidu.tieba.eg7;
+import com.baidu.tieba.hh7;
+import com.baidu.tieba.jm8;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.tieba.lego.card.view.BaseCardView;
 import com.baidu.tieba.lego.view.LegoBottomView;
-import com.baidu.tieba.qf7;
-import com.baidu.tieba.tg7;
-import com.baidu.tieba.ul8;
-import com.baidu.tieba.yg7;
+import com.baidu.tieba.mh7;
+import com.baidu.tieba.og7;
+import com.baidu.tieba.pi5;
+import com.baidu.tieba.sh7;
+import com.baidu.tieba.wf7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,12 +43,12 @@ import java.net.URLDecoder;
 import org.json.JSONObject;
 import tbclient.Lego.DataRes;
 /* loaded from: classes4.dex */
-public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.j, if7 {
+public class LegoListActivity extends BaseFragmentActivity implements SwipeBackLayout.c, VoiceManager.j, wf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public LegoListFragment a;
     public LegoTabFragment b;
-    public qf7 c;
+    public eg7 c;
     public RelativeLayout d;
     public long e;
     public int f;
@@ -64,7 +64,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public String p;
     public String q;
     public WeakReference<Context> r;
-    public tg7 s;
+    public hh7 s;
     public LegoBottomView t;
     public CustomMessageListener u;
     public final View.OnClickListener v;
@@ -152,7 +152,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || TextUtils.isEmpty(this.a)) {
                 return;
             }
-            ul8.c(this.b.getPageContext(), this.a);
+            jm8.c(this.b.getPageContext(), this.a);
         }
     }
 
@@ -217,8 +217,8 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         this.v = new c(this);
     }
 
-    @Override // com.baidu.tieba.if7
-    public yg7 C0() {
+    @Override // com.baidu.tieba.wf7
+    public mh7 C0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -228,7 +228,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             }
             return null;
         }
-        return (yg7) invokeV.objValue;
+        return (mh7) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.widget.SwipeBackLayout.c
@@ -247,10 +247,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
                 if (optJSONObject == null) {
                     return;
                 }
-                ag7.h();
-                ICardInfo j = ag7.j(optJSONObject);
+                og7.h();
+                ICardInfo j = og7.j(optJSONObject);
                 if (j != null && j.isValid()) {
-                    this.t.b((BaseCardView) ag7.h().a(getPageContext(), j, 5), j);
+                    this.t.b((BaseCardView) og7.h().a(getPageContext(), j, 5), j);
                     this.t.setVisibility(0);
                     this.t.setIsShow(true);
                     if (this.a != null) {
@@ -287,11 +287,11 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         this.m.setOnClickListener(new b(this, optString3));
     }
 
-    @Override // com.baidu.tieba.if7
-    public tg7 W() {
+    @Override // com.baidu.tieba.wf7
+    public hh7 W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.s : (tg7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.s : (hh7) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.widget.SwipeBackLayout.c
@@ -302,7 +302,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
         }
     }
 
-    @Override // com.baidu.tieba.if7
+    @Override // com.baidu.tieba.wf7
     public LegoListFragment c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -419,22 +419,22 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d051d);
             registerListener(this.u);
-            eh7 eh7Var = new eh7();
-            eh7Var.a = this.e;
-            eh7Var.b = this.g;
-            eh7Var.d = this.k;
-            eh7Var.e = this.l;
-            eh7Var.b();
+            sh7 sh7Var = new sh7();
+            sh7Var.a = this.e;
+            sh7Var.b = this.g;
+            sh7Var.d = this.k;
+            sh7Var.e = this.l;
+            sh7Var.b();
             VoiceManager t0 = t0();
             this.w = t0;
             t0.onCreate(getPageContext());
-            this.c = new qf7(this);
+            this.c = new eg7(this);
             this.m = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0909ec);
             this.t = (LegoBottomView) findViewById(R.id.obfuscated_res_0x7f0912dd);
             this.d = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09163d);
-            tg7 tg7Var = new tg7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09128d));
-            this.s = tg7Var;
-            tg7Var.C0(this);
+            hh7 hh7Var = new hh7(getPageContext(), findViewById(R.id.obfuscated_res_0x7f09128d));
+            this.s = hh7Var;
+            hh7Var.C0(this);
             this.s.h0();
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
             if (this.f == 1) {
@@ -474,9 +474,9 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            tg7 tg7Var = this.s;
-            if (tg7Var != null) {
-                tg7Var.T();
+            hh7 hh7Var = this.s;
+            if (hh7Var != null) {
+                hh7Var.T();
             }
             VoiceManager t0 = t0();
             this.w = t0;
@@ -494,10 +494,10 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         InterceptResult invokeIL;
-        tg7 tg7Var;
+        hh7 hh7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048589, this, i, keyEvent)) == null) {
-            if (i == 4 && (tg7Var = this.s) != null && tg7Var.k0() && !this.s.c0()) {
+            if (i == 4 && (hh7Var = this.s) != null && hh7Var.k0() && !this.s.c0()) {
                 this.s.O0();
                 return true;
             }
@@ -528,7 +528,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             System.currentTimeMillis();
             WeakReference<Context> weakReference = new WeakReference<>(TbadkCoreApplication.getInst());
             this.r = weakReference;
-            ci5.e(weakReference, true);
+            pi5.e(weakReference, true);
         }
     }
 
@@ -566,7 +566,7 @@ public class LegoListActivity extends BaseFragmentActivity implements SwipeBackL
             if (t0 != null) {
                 t0.onStop(getPageContext());
             }
-            ci5.e(this.r, false);
+            pi5.e(this.r, false);
         }
     }
 

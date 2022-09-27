@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.text.TextPaint;
-import android.text.TextUtils;
+import android.graphics.DashPathEffect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -12,15 +9,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class sx1 extends ew1 {
+public class sx1 extends rw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public float d;
-    public float e;
-    public float f;
+    public DashPathEffect a;
 
     public sx1() {
         Interceptable interceptable = $ic;
@@ -32,75 +24,40 @@ public class sx1 extends ew1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = -1.0f;
-        this.e = 0.0f;
-        this.f = 1.0f;
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(fw1 fw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rw1
+    public void a(sw1 sw1Var, Canvas canvas) {
+        DashPathEffect dashPathEffect;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) || (dashPathEffect = this.a) == null) {
             return;
         }
-        TextPaint textPaint = fw1Var.e;
-        int i = fw1Var.k;
-        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-        float f = fontMetrics.top;
-        int i2 = this.c;
-        float f2 = i2 + f;
-        float f3 = fontMetrics.ascent + i2;
-        float f4 = fontMetrics.bottom;
-        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
-        if (this.e == 0.0d) {
-            Rect rect = new Rect();
-            String str = this.a;
-            textPaint.getTextBounds(str, 0, str.length(), rect);
-            if (this.d != -1.0f) {
-                float f6 = this.d;
-                if (rect.width() > f6) {
-                    this.e = f6 / rect.width();
-                }
-            }
-            this.e = 1.0f;
-        }
-        canvas.save();
-        int alpha = textPaint.getAlpha();
-        int color = textPaint.getColor();
-        textPaint.setStyle(Paint.Style.STROKE);
-        textPaint.setStrokeWidth(this.f);
-        textPaint.setColor(fw1Var.m);
-        fw1Var.c(textPaint);
-        canvas.scale(this.e, 1.0f);
-        canvas.drawText(this.a, this.b, f5, textPaint);
-        textPaint.setStyle(Paint.Style.FILL);
-        textPaint.setAlpha(alpha);
-        textPaint.setColor(color);
-        canvas.restore();
+        sw1Var.c.setPathEffect(dashPathEffect);
     }
 
-    @Override // com.baidu.tieba.ew1
+    @Override // com.baidu.tieba.rw1
     public void b(JSONArray jSONArray) {
+        float[] fArr;
+        JSONArray optJSONArray;
+        int length;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 2) {
-                    this.a = jSONArray.optString(0);
-                    this.b = pg3.g((float) jSONArray.optDouble(1));
-                    this.c = pg3.g((float) jSONArray.optDouble(2));
-                    if (jSONArray.length() > 3) {
-                        this.d = pg3.g((float) jSONArray.optDouble(3));
-                    }
-                    this.f = pg3.g(1.0f);
-                }
-            } catch (Exception e) {
-                if (ij1.a) {
-                    e.printStackTrace();
+            if (jSONArray.length() <= 0 || (optJSONArray = jSONArray.optJSONArray(0)) == null || (length = optJSONArray.length()) <= 0) {
+                fArr = null;
+            } else {
+                fArr = new float[length];
+                for (int i = 0; i < length; i++) {
+                    fArr[i] = ch3.g((float) optJSONArray.optDouble(i));
                 }
             }
+            int g = jSONArray.length() > 1 ? ch3.g((float) jSONArray.optDouble(1)) : 0;
+            if (fArr == null || g < 0) {
+                return;
+            }
+            this.a = new DashPathEffect(fArr, g);
         }
     }
 }

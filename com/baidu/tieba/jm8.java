@@ -1,58 +1,195 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
 /* loaded from: classes4.dex */
 public class jm8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<hm8> a;
-    public ArrayList<im8> b;
 
-    public jm8() {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? BdNetTypeUtil.isWifiNet() ? TbadkCoreApplication.getInst().getAutoPlaySwitch() != 3 : tm5.a().i() && BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 : invokeV.booleanValue;
     }
 
-    public void a(ActPost actPost) {
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, actPost) == null) || actPost == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            l05 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
+            if (!(adAdSense != null && adAdSense.f())) {
+                return BdNetTypeUtil.isWifiNet();
+            } else if (BdNetTypeUtil.isMobileNet() && TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2) {
+                return true;
+            } else {
+                return BdNetTypeUtil.isWifiNet() && TbadkCoreApplication.getInst().getAutoPlaySwitch() != 3;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int c(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+            if (tbPageContext == null || TextUtils.isEmpty(str)) {
+                return 0;
+            }
+            if (!str.startsWith("tieba://deeplink?")) {
+                return d(tbPageContext, str) ? 3 : 0;
+            }
+            Uri parse = Uri.parse(str);
+            if (ce8.j(tbPageContext.getPageActivity(), Uri.parse(parse.getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT))) != 1000) {
+                return d(tbPageContext, parse.getQueryParameter("wap")) ? 2 : 0;
+            }
+            return 1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static boolean d(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, tbPageContext, str)) == null) {
+            String[] strArr = {str};
+            if (UrlManager.getInstance().UrlValidated(str)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext<?>) tbPageContext, strArr, true);
+                return true;
+            }
+            return UrlManager.getInstance().dealOneLink(tbPageContext, strArr);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:30:0x0075  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x007b A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void e(List<Object> list, int i) {
+        int i2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, list, i) == null) || list == null || list.size() == 0) {
             return;
         }
-        String str = actPost.list_head;
-        for (ActHot actHot : actPost.act_hot) {
-            if (actHot != null) {
-                hm8 hm8Var = new hm8();
-                hm8Var.g(actHot);
-                this.a.add(hm8Var);
+        boolean z2 = MessageManager.getInstance().findTask(2016447) != null;
+        int i3 = 0;
+        while (i3 < list.size()) {
+            if (list.get(i3) instanceof ICardInfo) {
+                if (z2) {
+                    ICardInfo iCardInfo = (ICardInfo) list.get(i3);
+                    int viewCount = iCardInfo.getViewCount();
+                    ArrayList arrayList = new ArrayList();
+                    for (int i4 = 0; i4 < viewCount; i4++) {
+                        ICardInfo viewItem = iCardInfo.getViewItem(i4, i);
+                        if (viewItem != null) {
+                            viewItem.setBdUniqueId(qg7.b.get(viewItem.getCardType()));
+                            arrayList.add(viewItem);
+                        }
+                    }
+                    if (arrayList.size() != 0) {
+                        list.remove(i3);
+                        list.addAll(i3, arrayList);
+                        i2 = arrayList.size();
+                        z = false;
+                        if (!z) {
+                            list.remove(i3);
+                            i2 = 0;
+                        }
+                    }
+                }
+                i2 = 1;
+                z = true;
+                if (!z) {
+                }
+            } else {
+                i2 = 1;
             }
+            i3 += i2;
         }
-        List<LinkInfo> list = actPost.link_info;
-        for (LinkInfo linkInfo : list) {
-            if (list != null) {
-                im8 im8Var = new im8();
-                im8Var.a(linkInfo);
-                this.b.add(im8Var);
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:36:0x009b  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00a1 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void f(List<Cdo> list, int i) {
+        int i2;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(65541, null, list, i) == null) || list == null || list.size() == 0) {
+            return;
+        }
+        boolean z2 = MessageManager.getInstance().findTask(2016447) != null;
+        int i3 = 0;
+        while (i3 < list.size()) {
+            if (list.get(i3) instanceof os4) {
+                if (z2) {
+                    if (!((os4) list.get(i3)).isValid()) {
+                        ((os4) list.get(i3)).f();
+                    }
+                    if (((os4) list.get(i3)).isValid()) {
+                        ICardInfo c = ((os4) list.get(i3)).c();
+                        int viewCount = c.getViewCount();
+                        ArrayList arrayList = new ArrayList();
+                        for (int i4 = 0; i4 < viewCount; i4++) {
+                            ICardInfo viewItem = c.getViewItem(i4, i);
+                            if (viewItem != null) {
+                                viewItem.setBdUniqueId(qg7.b.get(viewItem.getCardType()));
+                                arrayList.add(viewItem);
+                            }
+                        }
+                        if (arrayList.size() != 0) {
+                            list.remove(i3);
+                            list.addAll(i3, arrayList);
+                            i2 = arrayList.size();
+                            z = false;
+                            if (!z) {
+                                list.remove(i3);
+                                i2 = 0;
+                            }
+                        }
+                    }
+                }
+                i2 = 1;
+                z = true;
+                if (!z) {
+                }
+            } else {
+                i2 = 1;
             }
+            i3 += i2;
         }
+    }
+
+    public static ArrayList<BdUniqueId> g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int size = qg7.b.size();
+            ArrayList<BdUniqueId> arrayList = new ArrayList<>();
+            for (int i = 0; i < size; i++) {
+                arrayList.add(qg7.b.valueAt(i));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

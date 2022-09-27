@@ -1,50 +1,116 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.growth.ActivityChangeSchemeModel;
+import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d85 extends e85 {
+public class d85 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public d85() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public static class a extends di5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // com.baidu.tieba.di5
+        public Boolean doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Boolean.valueOf(sl4.D().F()) : (Boolean) invokeV.objValue;
         }
     }
 
-    @Override // com.baidu.tieba.e85
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CloudControlRequest.REQUEST_KEY_FILTER : (String) invokeV.objValue;
+    /* loaded from: classes3.dex */
+    public static class b implements ih5<Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ih5
+        /* renamed from: a */
+        public void onReturnDataInUI(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, bool) == null) || bool == null || bool.booleanValue()) {
+                return;
+            }
+            d85.c();
+        }
     }
 
-    @Override // com.baidu.tieba.e85
-    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947658440, "Lcom/baidu/tieba/d85;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947658440, "Lcom/baidu/tieba/d85;");
+        }
     }
 
-    @Override // com.baidu.tieba.e85
-    public void d(String str) {
+    public static void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
+        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || a) {
+            return;
+        }
+        if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
+            hi5.b(new a(), new b());
+        } else if (sl4.D().F()) {
+        } else {
+            c();
+        }
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && BdNetTypeUtil.isNetWorkAvailable()) {
+            ActivityChangeSchemeModel activityChangeSchemeModel = new ActivityChangeSchemeModel();
+            e85.a();
+            activityChangeSchemeModel.request();
         }
     }
 }

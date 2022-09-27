@@ -1,160 +1,191 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.pms.model.PMSPkgStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.IOException;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ETAG;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class eg4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ag4 a;
+    public static volatile eg4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947733367, "Lcom/baidu/tieba/eg4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947733367, "Lcom/baidu/tieba/eg4;");
-                return;
+    public eg4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = ag4.d();
     }
 
-    public static String a(String... strArr) {
-        InterceptResult invokeL;
+    public static eg4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (strArr != null) {
-                try {
-                    if (strArr.length > 0 && strArr.length % 2 == 0) {
-                        for (int i = 0; i < strArr.length; i += 2) {
-                            String str = strArr[i];
-                            String str2 = strArr[i + 1];
-                            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                                jSONObject.put(str, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (eg4.class) {
+                    if (a == null) {
+                        a = new eg4();
+                    }
+                }
+            }
+            return a;
+        }
+        return (eg4) invokeV.objValue;
+    }
+
+    public static void b(jc4 jc4Var, tg4 tg4Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65538, null, jc4Var, tg4Var) == null) || jc4Var == null) {
+            return;
+        }
+        tg4Var.a(jc4Var, PMSPkgStatus.WAIT);
+    }
+
+    public void c(JSONArray jSONArray, gb4 gb4Var, gb4 gb4Var2, gb4 gb4Var3) {
+        char c;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, gb4Var, gb4Var2, gb4Var3) == null) || jSONArray == null || jSONArray.length() == 0) {
+            return;
+        }
+        dg4 dg4Var = new dg4();
+        dg4 dg4Var2 = new dg4();
+        dg4 dg4Var3 = new dg4();
+        tg4 tg4Var = new tg4();
+        tg4 tg4Var2 = new tg4();
+        tg4 tg4Var3 = new tg4();
+        fg4 w = gb4Var3 != null ? gb4Var3.w("so") : null;
+        for (int i = 0; i < jSONArray.length(); i++) {
+            try {
+                JSONObject jSONObject = jSONArray.getJSONObject(i);
+                String string = jSONObject.getString("type");
+                if (!TextUtils.isEmpty(string)) {
+                    JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+                    if (!TextUtils.isEmpty(jSONObject2.getString("version_name"))) {
+                        switch (string.hashCode()) {
+                            case -612557761:
+                                if (string.equals(ETAG.KEY_EXTENSION)) {
+                                    c = 2;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 3676:
+                                if (string.equals("so")) {
+                                    c = 4;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 99308:
+                                if (string.equals("ddl")) {
+                                    c = 5;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 54573042:
+                                if (string.equals("extension_game")) {
+                                    c = 3;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 714512640:
+                                if (string.equals("bbasp_core")) {
+                                    c = 0;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            case 714618195:
+                                if (string.equals("bbasp_game")) {
+                                    c = 1;
+                                    break;
+                                }
+                                c = 65535;
+                                break;
+                            default:
+                                c = 65535;
+                                break;
+                        }
+                        if (c == 0) {
+                            ic4 ic4Var = (ic4) sg4.j(jSONObject2, new ic4());
+                            if (ic4Var != null) {
+                                b(ic4Var, tg4Var);
+                                dg4Var.b = ic4Var;
                             }
+                        } else if (c == 1) {
+                            ic4 ic4Var2 = (ic4) sg4.j(jSONObject2, new ic4());
+                            if (ic4Var2 != null) {
+                                b(ic4Var2, tg4Var2);
+                                dg4Var2.a = ic4Var2;
+                            }
+                        } else if (c == 2) {
+                            gc4 gc4Var = (gc4) sg4.j(jSONObject2, new gc4());
+                            if (gc4Var != null) {
+                                b(gc4Var, tg4Var);
+                                dg4Var.c = gc4Var;
+                            }
+                        } else if (c == 3) {
+                            gc4 gc4Var2 = (gc4) sg4.j(jSONObject2, new gc4());
+                            if (gc4Var2 != null) {
+                                b(gc4Var2, tg4Var2);
+                                dg4Var2.c = gc4Var2;
+                            }
+                        } else if (c != 4) {
+                            if (c == 5) {
+                                if (dg4Var3.e == null) {
+                                    dg4Var3.e = new ArrayList();
+                                }
+                                mc4 mc4Var = (mc4) sg4.j(jSONObject2, new mc4());
+                                b(mc4Var, tg4Var3);
+                                dg4Var3.e.add(mc4Var);
+                            }
+                        } else if (w != null) {
+                            w.l(jSONObject2);
                         }
                     }
-                } catch (Exception e) {
-                    ja4.b().G("PMSFileUtil", "#createErrorJson put异常", e);
                 }
+            } catch (JSONException unused) {
             }
-            return "errmsg:" + jSONObject.toString();
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public static zb4 b(String str, long j, long j2, @Nullable List<zb4> list) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
-            List<zb4> s = va4.i().s(str, j, j2);
-            if (s != null) {
-                while (!s.isEmpty()) {
-                    zb4 remove = s.remove(0);
-                    if (ja4.b().r(remove)) {
-                        return remove;
-                    }
-                    if (list != null) {
-                        list.add(remove);
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (zb4) invokeCommon.objValue;
-    }
-
-    public static File c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                a.i("PMSFileUtil", "#generateFilePath parentDir为空 fileName=" + str2);
-                return null;
-            }
-            File file = new File(str);
-            if (!file.exists() && !file.mkdirs()) {
-                ja4.b().y("PMSFileUtil", "cannot mkdir in : " + file);
-                return null;
-            }
-            String e = e(str, str2);
-            String str3 = e;
-            for (int i = 0; i < 1000; i++) {
-                File file2 = new File(str3);
-                try {
-                    if (!file2.exists() && file2.createNewFile()) {
-                        return file2;
-                    }
-                } catch (IOException e2) {
-                    a.g("PMSFileUtil", "#generateFilePath 失败", e2);
-                }
-                str3 = e + "_" + i;
-            }
-            a.i("PMSFileUtil", "#generateFilePath 创建临时路径失败");
-            return null;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public static File d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            File dir = context.getDir("pms_dir", 0);
-            if (!dir.exists()) {
-                dir.mkdir();
-            }
-            return dir;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) ? f(str, str2, File.separator) : (String) invokeLL.objValue;
-    }
-
-    public static String f(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return str;
-            }
-            if (str.endsWith(str3)) {
-                if (str2.startsWith(str3)) {
-                    return str.concat(str2.substring(str3.length()));
-                }
-                return str.concat(str2);
-            } else if (str2.startsWith(str3)) {
-                return str.concat(str2);
+        if (gb4Var != null) {
+            if (tg4Var.n() == 0) {
+                gb4Var.F();
             } else {
-                return str.concat(str3).concat(str2);
+                gb4Var.G(tg4Var);
+                wc4.e(dg4Var, gb4Var);
             }
         }
-        return (String) invokeLLL.objValue;
+        if (gb4Var2 != null) {
+            if (tg4Var2.n() == 0) {
+                gb4Var2.F();
+            } else {
+                gb4Var2.G(tg4Var2);
+                wc4.e(dg4Var2, gb4Var2);
+            }
+        }
+        if (w != null) {
+            w.o();
+        }
+        if (tg4Var3.n() <= 0 || wa4.b() == null) {
+            return;
+        }
+        wa4.b().t(dg4Var3, tg4Var3);
     }
 }

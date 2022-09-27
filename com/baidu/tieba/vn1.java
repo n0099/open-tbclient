@@ -1,19 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.os.Message;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.http.request.HttpRequest;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public interface vn1 {
-    void a(String str);
+    @Nullable
+    String A();
 
-    void b();
+    String B();
 
-    void c(String str);
+    String C();
 
-    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable vn2 vn2Var);
+    String D();
 
-    void e(String str);
+    long E();
 
-    void f(String str);
+    HttpRequest F(Context context, Map<String, String> map);
+
+    String G();
+
+    String H();
+
+    String I();
+
+    boolean J();
+
+    String K();
+
+    String L();
+
+    HttpRequest M(Context context, Map<String, String> map);
+
+    boolean N();
+
+    String O();
+
+    HttpRequest a(Context context, Map<String, String> map);
+
+    String b();
+
+    String c();
+
+    void d();
+
+    String e();
+
+    String f();
+
+    HttpRequest g(Context context, Map<String, String> map);
+
+    String h();
+
+    String i();
+
+    boolean isDebug();
+
+    String j();
+
+    void k();
+
+    String l();
+
+    String m(String str);
+
+    String n();
+
+    HttpRequest o(Context context, Map<String, String> map);
+
+    String p();
+
+    String q();
+
+    int r();
+
+    HttpRequest s(Context context, Map<String, String> map);
+
+    String t();
+
+    HttpRequest u(Context context, Map<String, String> map);
+
+    String v();
+
+    String w();
+
+    void x(Message message, lq2 lq2Var);
+
+    String y();
+
+    String z(Context context);
 }

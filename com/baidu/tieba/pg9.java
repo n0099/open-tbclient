@@ -1,30 +1,35 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.media.MediaMetadataRetriever;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes5.dex */
 public class pg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void a(MediaMetadataRetriever mediaMetadataRetriever) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? b() : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, mediaMetadataRetriever) == null) || mediaMetadataRetriever == null) {
+            return;
+        }
+        try {
+            mediaMetadataRetriever.release();
+        } catch (Exception e) {
+            qg9.g(e);
+        }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static void b(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.MODEL;
-            if (vg9.a(str)) {
-                return false;
-            }
-            return str.equalsIgnoreCase("OPPO R9sk");
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        try {
+            closeable.close();
+        } catch (Throwable th) {
+            qg9.d(th.getMessage());
+        }
     }
 }

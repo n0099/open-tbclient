@@ -5,7 +5,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.fh5;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public class UEGCancelRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.user_id = Long.valueOf(dh.g(this.uId, 0L));
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                fh5.a(builder, true);
+                sh5.a(builder, true);
             }
             QueryBlockAndAppealInfoReqIdl.Builder builder2 = new QueryBlockAndAppealInfoReqIdl.Builder();
             builder2.data = builder.build(false);

@@ -5,7 +5,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.fh5;
+import com.baidu.tieba.sh5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public class RequestGetTopicRelateThreadMessage extends NetMessage {
                 builder.pmy_source = getPmy_source();
                 builder.sort_type = getSort_type();
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    fh5.a(builder, true);
+                    sh5.a(builder, true);
                 }
                 GetTopicRelateThreadReqIdl.Builder builder2 = new GetTopicRelateThreadReqIdl.Builder();
                 builder2.data = builder.build(false);

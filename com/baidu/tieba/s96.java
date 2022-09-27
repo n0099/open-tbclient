@@ -1,76 +1,144 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.enterForum.hotuserrank.RankListViewController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class s96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public View b;
+    public RankListViewController.RankListViewHolder c;
+    public TextView d;
+    public TextView e;
+    public String f;
+    public int g;
+    public View.OnClickListener h;
 
-    public s96() {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s96 a;
+
+        public a(s96 s96Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s96Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s96Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (TextUtils.isEmpty(this.a.f)) {
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0a51);
+                    return;
+                }
+                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{this.a.f});
+                if (this.a.g == 0) {
+                    return;
+                }
+                if (this.a.g != 2) {
+                    if (this.a.g == 1) {
+                        StatisticItem statisticItem = new StatisticItem("c13669");
+                        statisticItem.param("obj_locate", 2);
+                        TiebaStatic.log(statisticItem);
+                        return;
+                    }
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13658");
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem2.param("obj_locate", 2);
+                TiebaStatic.log(statisticItem2);
+            }
+        }
+    }
+
+    public s96(TbPageContext tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.h = new a(this);
+        this.a = tbPageContext;
+        this.b = view2;
+        RankListViewController.RankListViewHolder rankListViewHolder = new RankListViewController.RankListViewHolder(view2.findViewById(R.id.obfuscated_res_0x7f0924da));
+        this.c = rankListViewHolder;
+        rankListViewHolder.i(1);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c9b);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091b52);
+        this.e = textView;
+        textView.setTextSize(0, ej.f(this.a.getPageActivity(), R.dimen.tbfontsize46));
+        this.d.setOnClickListener(this.h);
     }
 
-    public static s96 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.c.f(i);
+            SkinManager.setBackgroundColor(this.c.itemView, R.color.CAM_X0207);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
+        }
+    }
+
+    public void e(v96 v96Var) {
+        u96 u96Var;
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v96Var) == null) {
+            if (v96Var != null && (u96Var = v96Var.c) != null && (metaData = u96Var.f) != null && !metaData.isMask && TbadkCoreApplication.isLogin()) {
+                this.b.setVisibility(0);
+                this.c.c(v96Var.c);
+                this.c.e();
+                this.f = v96Var.e;
+                return;
             }
-            s96 s96Var = new s96();
-            s96Var.b(jSONObject.optString("common_color"));
-            s96Var.c(jSONObject.optString("dark_color"));
-            s96Var.d(jSONObject.optString("font_color"));
-            s96Var.e(jSONObject.optString("light_color"));
-            s96Var.f(jSONObject.optString("pattern_image"));
-            return s96Var;
-        }
-        return (s96) invokeL.objValue;
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.b.setVisibility(8);
         }
     }
 
-    public void c(String str) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.g = i;
         }
     }
 }

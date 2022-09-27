@@ -1,71 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSPkgStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Objects;
-import java.util.Set;
+import com.baidu.webkit.internal.ETAG;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gg4 {
+public class gg4 extends ue4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Set<a> a;
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public wb4 a;
-        public PMSPkgStatus b;
-
-        public a(wb4 wb4Var, PMSPkgStatus pMSPkgStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wb4Var, pMSPkgStatus};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wb4Var;
-            this.b = pMSPkgStatus;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (super.equals(obj)) {
-                    return true;
-                }
-                if (obj != null && (obj instanceof a)) {
-                    return this.a.equals(((a) obj).a);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a) : invokeV.intValue;
-        }
-    }
 
     public gg4() {
         Interceptable interceptable = $ic;
@@ -77,217 +27,75 @@ public class gg4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = Collections.synchronizedSet(new HashSet());
     }
 
-    public void a(wb4 wb4Var, PMSPkgStatus pMSPkgStatus) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, wb4Var, pMSPkgStatus) == null) {
-            this.a.add(new a(wb4Var, pMSPkgStatus));
-        }
-    }
-
-    public boolean b() {
+    @Override // com.baidu.tieba.ue4
+    public JSONArray c() {
         InterceptResult invokeV;
+        List<mc4> w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof zb4)) {
-                    return true;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "bbasp_core");
+                jSONObject.put("version_name", wa4.b().J(0));
+                jSONObject.put("version_code", wa4.b().w(0));
+                jSONArray.put(jSONObject);
+            } catch (JSONException unused) {
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                for (a aVar : this.a) {
-                    if (aVar != null && (aVar.a instanceof zb4) && aVar.b == PMSPkgStatus.WAIT) {
-                        return true;
-                    }
-                }
-                return false;
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "bbasp_game");
+                jSONObject2.put("version_name", wa4.b().J(1));
+                jSONObject2.put("version_code", wa4.b().w(1));
+                jSONArray.put(jSONObject2);
+            } catch (JSONException unused2) {
             }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof tb4)) {
-                    return true;
-                }
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("type", ETAG.KEY_EXTENSION);
+                jSONObject3.put("version_name", wa4.b().v(0));
+                jSONObject3.put("version_code", wa4.b().j(0));
+                jSONArray.put(jSONObject3);
+            } catch (JSONException unused3) {
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof vb4)) {
-                    return true;
-                }
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject4.put("type", "extension_game");
+                jSONObject4.put("version_name", wa4.b().v(1));
+                jSONObject4.put("version_code", wa4.b().j(1));
+                jSONArray.put(jSONObject4);
+            } catch (JSONException unused4) {
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof xb4)) {
-                    return true;
-                }
+            try {
+                w = ib4.i().w(f(10));
+            } catch (JSONException unused5) {
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof ac4)) {
-                    return true;
-                }
+            if (w == null) {
+                return jSONArray;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            for (a aVar : this.a) {
-                if (aVar != null && (aVar.a instanceof yb4)) {
-                    return true;
-                }
+            for (mc4 mc4Var : w) {
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("type", "ddl");
+                jSONObject5.put("bundle_id", mc4Var.g);
+                jSONObject5.put("version_code", mc4Var.i);
+                jSONObject5.put("version_name", mc4Var.j);
+                jSONArray.put(jSONObject5);
             }
-            return false;
+            return jSONArray;
         }
-        return invokeV.booleanValue;
+        return (JSONArray) invokeV.objValue;
     }
 
-    public synchronized boolean i() {
-        InterceptResult invokeV;
+    public final String f(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            synchronized (this) {
-                for (a aVar : this.a) {
-                    if (aVar != null && (aVar.a instanceof yb4) && aVar.b == PMSPkgStatus.WAIT) {
-                        return true;
-                    }
-                }
-                return false;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ParamableElem.DIVIDE_PARAM;
         }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized Set<wb4> j() {
-        InterceptResult invokeV;
-        HashSet hashSet;
-        a[] aVarArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (this) {
-                hashSet = new HashSet();
-                for (a aVar : (a[]) this.a.toArray(new a[0])) {
-                    if (aVar != null && aVar.a != null) {
-                        hashSet.add(aVar.a);
-                    }
-                }
-            }
-            return hashSet;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.isEmpty() : invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
-        r1.b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void l(wb4 wb4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, wb4Var) == null) {
-            synchronized (this) {
-                if (wb4Var == null) {
-                    return;
-                }
-                Iterator<a> it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    a next = it.next();
-                    if (next != null && next.a.equals(wb4Var)) {
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
-        r1.b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void m(wb4 wb4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, wb4Var) == null) {
-            synchronized (this) {
-                if (wb4Var == null) {
-                    return;
-                }
-                Iterator<a> it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    a next = it.next();
-                    if (next != null && next.a.equals(wb4Var)) {
-                        break;
-                    }
-                }
-            }
-        }
-    }
-
-    public int n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.a.size() : invokeV.intValue;
+        return (String) invokeI.objValue;
     }
 }

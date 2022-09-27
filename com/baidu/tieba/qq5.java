@@ -1,39 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.BearTimeoutTryShowSwitch;
-import com.baidu.tieba.advert.sdk.data.AdLoadState;
-import com.baidu.tieba.advert.sdk.stretagy.SplashNativePolicy;
-import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.tieba.advert.sdk.data.AdInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
-import java.io.PrintStream;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.tencent.connect.share.QzonePublish;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class qq5 {
     public static /* synthetic */ Interceptable $ic;
-    public static qq5 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public boolean c;
-    public long d;
-    public SplashNativePolicy e;
-    public ho4 f;
-    public final ArrayList<rq5> g;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public long j;
+    public long k;
 
     public qq5() {
         Interceptable interceptable = $ic;
@@ -48,314 +40,98 @@ public class qq5 {
                 return;
             }
         }
-        this.c = false;
-        this.d = -1L;
-        this.f = null;
-        this.g = new ArrayList<>();
-        this.a = bx4.k().l("splash_ad_strategy_key", 0);
-        m();
+        this.d = "";
+        this.c = "";
+        this.e = "";
+        this.f = "";
+        this.b = "";
+        this.a = "";
     }
 
-    public static qq5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (h == null) {
-                synchronized (qq5.class) {
-                    if (h == null) {
-                        h = new qq5();
-                    }
-                }
-            }
-            return h;
-        }
-        return (qq5) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Iterator<rq5> it = this.g.iterator();
-            while (it.hasNext()) {
-                rq5 next = it.next();
-                if (next != null) {
-                    next.destroy();
-                }
-            }
-            this.g.clear();
-            SplashNativePolicy splashNativePolicy = this.e;
-            if (splashNativePolicy != null) {
-                splashNativePolicy.releaseSplash();
-                this.e = null;
-            }
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Iterator<rq5> it = this.g.iterator();
-            while (it.hasNext()) {
-                rq5 next = it.next();
-                if (next instanceof aq5) {
-                    aq5 aq5Var = (aq5) next;
-                    boolean v = aq5Var.v();
-                    if (v && BearTimeoutTryShowSwitch.isOn()) {
-                        StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, this.c ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.d);
-                        if (!StringUtils.isNull(next.c())) {
-                            param.param(TiebaStatic.Params.OBJ_TO, next.c());
-                        }
-                        param.eventStat();
-                        aq5Var.t();
-                        return;
-                    }
-                    StatisticItem.make("fail_splash").param("obj_param1", v ? "1" : "0").eventStat();
-                }
-            }
-            ho4 ho4Var = this.f;
-            if (ho4Var != null) {
-                ho4Var.b("");
-            }
-        }
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public final byte e(rq5 rq5Var) {
+    public static qq5 a(AdInfo adInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, rq5Var)) == null) {
-            if (rq5Var == null) {
-                return (byte) 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adInfo)) == null) {
+            qq5 qq5Var = new qq5();
+            if (adInfo == null) {
+                return qq5Var;
             }
-            String f = rq5Var.f();
-            char c = 65535;
-            int hashCode = f.hashCode();
-            if (hashCode != -1348168235) {
-                if (hashCode == 3019700 && f.equals("bear")) {
-                    c = 0;
-                }
-            } else if (f.equals("prologue_gd")) {
-                c = 1;
-            }
-            if (c != 0) {
-                return c != 1 ? (byte) 0 : (byte) 5;
-            }
-            return (byte) 6;
+            qq5Var.a = adInfo.adImgUrl;
+            qq5Var.b = adInfo.redirectUrl;
+            qq5Var.j = adInfo.startShowTime;
+            qq5Var.k = adInfo.endShowTime;
+            qq5Var.d = adInfo.videoLocalPath;
+            qq5Var.e = adInfo.videoJumpUrl;
+            qq5Var.f = adInfo.videoMd5;
+            qq5Var.g = adInfo.videoDuration;
+            qq5Var.h = adInfo.videoWidth;
+            qq5Var.i = adInfo.videoHight;
+            qq5Var.c = adInfo.adVideoUrl;
+            return qq5Var;
         }
-        return invokeL.byteValue;
+        return (qq5) invokeL.objValue;
     }
 
-    public final synchronized void f() {
+    public static qq5 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.g.isEmpty()) {
-                    bq5 bq5Var = new bq5(this.e);
-                    aq5 aq5Var = new aq5(this.e);
-                    this.g.clear();
-                    if (eg5.w()) {
-                        this.g.add(bq5Var);
-                    } else {
-                        BaseVM.m(27);
-                    }
-                    if (eg5.q()) {
-                        this.g.add(aq5Var);
-                    }
-                    if (bx4.k().h("key_is_jump_splash_ad", false)) {
-                        h();
-                        this.g.clear();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            qq5 qq5Var = new qq5();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                qq5Var.a = jSONObject.optString("adImgUrl");
+                qq5Var.b = jSONObject.optString("redirectUrl");
+                qq5Var.d = jSONObject.optString("videoLocalPath");
+                qq5Var.j = jSONObject.optLong("startShowTime");
+                qq5Var.k = jSONObject.optLong("endShowTime");
+                qq5Var.e = jSONObject.optString("videoJumpUrl");
+                qq5Var.f = jSONObject.optString("videoMd5");
+                qq5Var.g = jSONObject.optInt(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION);
+                qq5Var.h = jSONObject.optInt("videoWidth");
+                qq5Var.i = jSONObject.optInt("videoHeight");
+                qq5Var.c = jSONObject.optString("adVideoUrl");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return qq5Var;
         }
+        return (qq5) invokeL.objValue;
     }
 
-    public boolean g() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Iterator<rq5> it = this.g.iterator();
-            while (it.hasNext()) {
-                rq5 next = it.next();
-                if (next != null && next.b()) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (System.currentTimeMillis() / 1000 >= this.j && System.currentTimeMillis() / 1000 <= this.k) || (this.j == 0 && this.k == 0) : invokeV.booleanValue;
     }
 
-    public final void h() {
-        UBCManager uBCManager;
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)) == null) {
-            return;
-        }
-        uBCManager.onEvent("5088");
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.d) : invokeV.booleanValue;
     }
 
-    public void i(int i) {
-        ho4 ho4Var;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (ho4Var = this.f) == null) {
-            return;
-        }
-        ho4Var.a(i);
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b = false;
-            f();
-            Iterator<rq5> it = this.g.iterator();
-            while (it.hasNext()) {
-                rq5 next = it.next();
-                if (i == 5 && (next instanceof bq5)) {
-                    if (wq5.g()) {
-                        BaseVM.m(29);
-                    } else {
-                        next.a();
-                        return;
-                    }
-                } else if (i == 6 && (next instanceof aq5)) {
-                    Iterator<rq5> it2 = this.g.iterator();
-                    while (it2.hasNext()) {
-                        rq5 next2 = it2.next();
-                        if (next2 instanceof bq5) {
-                            StatisticItem statisticItem = new StatisticItem("preload_bear");
-                            bq5 bq5Var = (bq5) next2;
-                            statisticItem.param("obj_param1", bq5Var.v() ? "1" : "0");
-                            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, bq5Var.w() ? "1" : "0");
-                            TiebaStatic.log(statisticItem);
-                        }
-                    }
-                    next.a();
-                    return;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("adImgUrl", this.a);
+                jSONObject.put("redirectUrl", this.b);
+                jSONObject.put("videoLocalPath", this.d);
+                jSONObject.put("startShowTime", this.j);
+                jSONObject.put("endShowTime", this.k);
+                jSONObject.put("videoMd5", this.f);
+                jSONObject.put("videoJumpUrl", this.e);
+                jSONObject.put(QzonePublish.PUBLISH_TO_QZONE_VIDEO_DURATION, this.g);
+                jSONObject.put("videoWidth", this.h);
+                jSONObject.put("videoHeight", this.i);
+                jSONObject.put("adVideoUrl", this.c);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject.toString();
         }
-    }
-
-    public synchronized void k(ko4 ko4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ko4Var) == null) {
-            synchronized (this) {
-                this.b = false;
-                this.d = ko4Var.c();
-                this.f = ko4Var.a();
-                this.c = ko4Var.d();
-                if (this.e != null) {
-                    this.e.onSplashEvent(96);
-                }
-                f();
-                vq5.c();
-                Iterator<rq5> it = this.g.iterator();
-                while (it.hasNext()) {
-                    rq5 next = it.next();
-                    if ((next instanceof bq5) && wq5.g()) {
-                        BaseVM.m(29);
-                    } else {
-                        next.e(ko4Var);
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            synchronized (this) {
-                if (this.b) {
-                    return;
-                }
-                Iterator<rq5> it = this.g.iterator();
-                while (it.hasNext()) {
-                    rq5 next = it.next();
-                    if (next != null) {
-                        if ((z ? next instanceof aq5 : next instanceof bq5) && next.d() == AdLoadState.SUCCEED) {
-                            this.b = true;
-                            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.SHOW_AD_TIME).param("obj_source", (int) e(next)).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.OBJ_PARAM2, this.c ? 2 : 1).param(TiebaStatic.Params.SPLASH_UNI, this.d);
-                            if (!StringUtils.isNull(next.c())) {
-                                param.param(TiebaStatic.Params.OBJ_TO, next.c());
-                            }
-                            param.eventStat();
-                            if (String.valueOf((int) e(next)).equals(wq5.c)) {
-                                BaseVM.m(28);
-                            }
-                            dp8.a(MainTabScheduleStrategy.UNSCHEDULE);
-                            if (this.f != null) {
-                                this.f.c(next instanceof bq5 ? ((bq5) next).k : null);
-                            }
-                            next.show();
-                            if (this.f != null) {
-                                this.f.d(String.valueOf((int) e(next)));
-                            }
-                            vq5.d(String.valueOf((int) e(next)));
-                            return;
-                        }
-                    }
-                }
-                if (this.f != null) {
-                    this.f.b("");
-                }
-            }
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            SplashNativePolicy splashNativePolicy = this.e;
-            if (splashNativePolicy == null) {
-                SplashNativePolicy splashNativePolicy2 = new SplashNativePolicy();
-                this.e = splashNativePolicy2;
-                boolean initSplashPolicy = splashNativePolicy2.initSplashPolicy(eg5.u(), eg5.w(), eg5.v(), eg5.k(), eg5.l());
-                PrintStream printStream = System.out;
-                printStream.println("SplashPolicy init result = " + initSplashPolicy);
-                if (initSplashPolicy) {
-                    return;
-                }
-                this.e = null;
-                return;
-            }
-            boolean updateSplashConfig = splashNativePolicy.updateSplashConfig(eg5.u(), eg5.w(), eg5.v(), eg5.k(), eg5.l());
-            PrintStream printStream2 = System.out;
-            printStream2.println("SplashPolicy update result = " + updateSplashConfig);
-            if (updateSplashConfig) {
-                return;
-            }
-            this.e = null;
-        }
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            this.a = dh.e(jSONObject.optString("ad_sdk_priority"), 0);
-            bx4.k().w("splash_ad_strategy_key", this.a);
-            bx4.k().w("splash_origin_ad_strategy_key", dh.e(jSONObject.optString("ad_origin_config_switch"), 1));
-            JSONObject optJSONObject = jSONObject.optJSONObject("screen_fill_data_result");
-            if (optJSONObject != null) {
-                int e = dh.e(optJSONObject.optString("screen_fill_advertisement_first_switch", com.tencent.connect.common.Constants.DEFAULT_UIN), 1000);
-                int e2 = dh.e(optJSONObject.optString("screen_fill_advertisement_second_switch", "1400"), 1400);
-                int e3 = dh.e(optJSONObject.optString("screen_fill_advertisement_bear_switch", "1"), 1);
-                int e4 = dh.e(optJSONObject.optString("screen_fill_advertisement_plj_switch", "1"), 1);
-                int e5 = dh.e(optJSONObject.optString("screen_fill_advertisement_plj_cpc_switch", "1"), 1);
-                bx4.k().w("key_splash_new_policy_bear_enable", e3);
-                bx4.k().w("key_splash_new_policy_plg_enable", e4);
-                bx4.k().w("key_splash_new_policy_plg_cpc_enable", e5);
-                bx4.k().w("key_splash_new_policy_first_timeout", e);
-                bx4.k().w("key_splash_new_policy_second_timeout", e2);
-            }
-            aq5.x(dh.e(jSONObject.optString("bear_sid_type"), 0));
-        }
+        return (String) invokeV.objValue;
     }
 }

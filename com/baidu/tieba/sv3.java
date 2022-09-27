@@ -11,15 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sv3 extends ev3 {
+public class sv3 implements gp1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, rv3> a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,12 +33,10 @@ public class sv3 extends ev3 {
                 return;
             }
         }
-        c = ij1.a;
+        b = vj1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sv3() {
-        super("ReservationGame");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,94 +44,75 @@ public class sv3 extends ev3 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap<>();
+        c();
     }
 
-    @Override // com.baidu.tieba.ev3
-    public yu1 a(@NonNull JSONObject jSONObject, @NonNull cg2 cg2Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.gp1
+    public lv1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull pg2 pg2Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cg2Var)) == null) {
-            if (jSONObject == null) {
-                cg2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (c) {
-                Log.e("ReservationGameAction", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("apkId");
-            int optInt = jSONObject.optInt("isReservation");
-            if (TextUtils.isEmpty(optString)) {
-                cg2Var.onFail(31023, "reservation apk id is empty");
-                return null;
-            } else if (optInt == 0) {
-                cg2Var.onFail(31024, "reservation status error");
-                return null;
-            } else {
-                String string = mb3.a().getString("reservation_apk_ids", "");
-                if (optInt == 1) {
-                    d(string, optString);
-                    cg2Var.a(null);
-                } else if (optInt == 2) {
-                    if (b(string, optString)) {
-                        cg2Var.a(null);
-                    } else {
-                        cg2Var.onFail(31025, "reservation cancel fail");
-                    }
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, pg2Var)) == null) ? b(str, jSONObject, pg2Var) : (lv1) invokeLLL.objValue;
+    }
+
+    public final lv1 b(String str, JSONObject jSONObject, pg2 pg2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, pg2Var)) == null) {
+            rv3 rv3Var = this.a.get(str);
+            if (rv3Var != null) {
+                if (b) {
+                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
                 }
-                return null;
+                return rv3Var.a(jSONObject, pg2Var);
             }
+            if (b) {
+                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
+            }
+            return new lv1(10002, "no such api.");
         }
-        return (yu1) invokeLL.objValue;
+        return (lv1) invokeLLL.objValue;
     }
 
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(str.split(",")));
-            boolean remove = arrayList.remove(str2);
-            if (remove) {
-                c(arrayList);
-            }
-            return remove;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void c(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < arrayList.size(); i++) {
-                stringBuffer.append(arrayList.get(i));
-                if (i < arrayList.size() - 1) {
-                    stringBuffer.append(",");
-                }
-            }
-            mb3.a().putString("reservation_apk_ids", stringBuffer.toString());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d(new pv3());
+            d(new qv3());
+            d(new nu3());
+            d(new ru3());
+            d(new ou3());
+            d(new gw3());
+            d(new pu3());
+            d(new wv3());
+            d(new dw3());
+            d(new mu3());
+            d(new tu3());
+            d(new qu3());
+            d(new su3());
+            d(new zv3());
+            d(new fw3());
+            d(new aw3());
+            d(new cw3());
+            d(new bw3());
         }
     }
 
-    public final void d(String str, String str2) {
-        HashSet hashSet;
+    public void d(rv3 rv3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str)) {
-                hashSet = new HashSet();
-            } else {
-                hashSet = new HashSet(Arrays.asList(str.split(",")));
+        if (interceptable == null || interceptable.invokeL(1048579, this, rv3Var) == null) {
+            if (b && TextUtils.isEmpty(rv3Var.a)) {
+                throw new IllegalArgumentException("action name is null");
             }
-            hashSet.add(str2);
-            c(new ArrayList<>(hashSet));
+            if (b && this.a.containsKey(rv3Var.a)) {
+                throw new IllegalArgumentException("duplicate action: " + rv3Var);
+            }
+            this.a.put(rv3Var.a, rv3Var);
         }
     }
 }

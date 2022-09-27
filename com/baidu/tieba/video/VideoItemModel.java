@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qu8;
+import com.baidu.tieba.fv8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class VideoItemModel implements Serializable, Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public final int dataType;
     public final int mHashCode;
-    public qu8 videoAdData;
+    public fv8 videoAdData;
     public final VideoItemData videoItemData;
 
     /* loaded from: classes6.dex */
@@ -142,10 +142,10 @@ public class VideoItemModel implements Serializable, Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mHashCode : invokeV.intValue;
     }
 
-    public qu8 getVideoAdData() {
+    public fv8 getVideoAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.videoAdData : (qu8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.videoAdData : (fv8) invokeV.objValue;
     }
 
     public VideoItemData getVideoItemData() {
@@ -184,10 +184,10 @@ public class VideoItemModel implements Serializable, Parcelable {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.dataType == 3 : invokeV.booleanValue;
     }
 
-    public void setVideoAdData(qu8 qu8Var) {
+    public void setVideoAdData(fv8 fv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, qu8Var) == null) {
-            this.videoAdData = qu8Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, fv8Var) == null) {
+            this.videoAdData = fv8Var;
         }
     }
 

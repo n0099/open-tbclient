@@ -1,56 +1,17 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.view.View;
-import androidx.annotation.ColorInt;
-import androidx.annotation.FloatRange;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import tv.athena.revenue.payui.activity.immersion.BarHide;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes3.dex */
-public class a2a implements Cloneable {
+public final class a2a implements mx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentObserver A;
-    @ColorInt
-    public int a;
-    @ColorInt
-    public int b;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float c;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float d;
-    public boolean e;
-    public boolean f;
-    public BarHide g;
-    public boolean h;
-    public boolean i;
-    @ColorInt
-    public int j;
-    @ColorInt
-    public int k;
-    public Map<View, Map<Integer, Integer>> l;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float m;
-    public boolean n;
-    public View o;
-    public View p;
-    public View q;
-    @ColorInt
-    public int r;
-    public boolean s;
-    public boolean t;
-    public int u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public d2a y;
-    public f2a z;
+    public final SequentialSubscription a;
 
     public a2a() {
         Interceptable interceptable = $ic;
@@ -65,41 +26,32 @@ public class a2a implements Cloneable {
                 return;
             }
         }
-        this.a = 0;
-        this.b = -16777216;
-        this.c = 0.0f;
-        this.d = 0.0f;
-        this.e = false;
-        this.f = false;
-        this.g = BarHide.FLAG_SHOW_BAR;
-        this.h = false;
-        this.i = true;
-        this.j = -16777216;
-        this.k = -16777216;
-        this.l = new HashMap();
-        this.m = 0.0f;
-        this.n = false;
-        this.s = false;
-        this.t = false;
-        this.u = 18;
-        this.v = true;
-        this.w = true;
-        this.x = false;
+        this.a = new SequentialSubscription();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public a2a clone() {
+    public void a(mx9 mx9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mx9Var) == null) {
+            if (mx9Var != null) {
+                this.a.replace(mx9Var);
+                return;
+            }
+            throw new IllegalArgumentException("Subscription can not be null");
+        }
+    }
+
+    @Override // com.baidu.tieba.mx9
+    public boolean isUnsubscribed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (a2a) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.isUnsubscribed() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.mx9
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
-        return (a2a) invokeV.objValue;
     }
 }

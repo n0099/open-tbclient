@@ -1,54 +1,54 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class y46 extends u46 {
+public abstract class y46 extends r0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
+    public final v46 d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y46(boolean z) {
-        super(64);
+    public y46(v46 danmakuContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {danmakuContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = z;
+        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
+        this.d = danmakuContext;
     }
 
-    @Override // com.baidu.tieba.u46
-    public boolean b(d46 item, g66 timer, x36 config) {
-        InterceptResult invokeLLL;
-        Long o;
+    @Override // com.baidu.tieba.r0
+    @CallSuper
+    public void g(o0 engine) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            return this.b && (o = item.e().o()) != null && o.longValue() == 0;
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            super.g(engine);
+            j();
         }
-        return invokeLLL.booleanValue;
     }
 
-    public /* synthetic */ y46(boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? false : z);
+    public final v46 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.d : (v46) invokeV.objValue;
     }
+
+    public abstract void j();
 }

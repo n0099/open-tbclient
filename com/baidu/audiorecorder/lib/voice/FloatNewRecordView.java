@@ -15,15 +15,15 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.i77;
 import com.baidu.tieba.sj;
+import com.baidu.tieba.w77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class FloatNewRecordView extends RelativeLayout implements i77 {
+public class FloatNewRecordView extends RelativeLayout implements w77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -154,14 +154,14 @@ public class FloatNewRecordView extends RelativeLayout implements i77 {
         this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b13), Integer.valueOf(((sj.b - i) / 1000) + 1)));
     }
 
-    @Override // com.baidu.tieba.i77
+    @Override // com.baidu.tieba.w77
     public void closeRecordCancel() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.i77
+    @Override // com.baidu.tieba.w77
     public void closeRecordTooShort() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -178,7 +178,7 @@ public class FloatNewRecordView extends RelativeLayout implements i77 {
         this.b.setVisibility(0);
         this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b17));
         SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0310);
-        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080963, R.color.CAM_X0310, null);
+        WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080965, R.color.CAM_X0310, null);
         this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0310));
         WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_out, null);
         this.f = true;
@@ -193,7 +193,7 @@ public class FloatNewRecordView extends RelativeLayout implements i77 {
             this.b.setVisibility(0);
             this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0b18));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0319);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080964, R.color.CAM_X0319, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f080966, R.color.CAM_X0319, null);
             this.g = false;
         }
     }
@@ -214,7 +214,7 @@ public class FloatNewRecordView extends RelativeLayout implements i77 {
         this.g = true;
     }
 
-    @Override // com.baidu.tieba.i77
+    @Override // com.baidu.tieba.w77
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {

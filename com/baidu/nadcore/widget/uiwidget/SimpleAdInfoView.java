@@ -16,9 +16,9 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ap0;
-import com.baidu.tieba.c61;
-import com.baidu.tieba.vh0;
+import com.baidu.tieba.ii0;
+import com.baidu.tieba.np0;
+import com.baidu.tieba.p61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +32,7 @@ public class SimpleAdInfoView extends FrameLayout {
     public TextView b;
     public TextView c;
     public TextView d;
-    public ap0 e;
+    public np0 e;
     public c f;
     public View.OnClickListener g;
     public int h;
@@ -71,7 +71,7 @@ public class SimpleAdInfoView extends FrameLayout {
             int id = view2.getId();
             String str2 = "";
             if (id == R.id.obfuscated_res_0x7f0915d0) {
-                ap0.b bVar = this.a.e.g;
+                np0.b bVar = this.a.e.g;
                 if (bVar != null) {
                     str2 = bVar.b;
                     str = ClogBuilder.Area.APP_PRIVACY.type;
@@ -79,7 +79,7 @@ public class SimpleAdInfoView extends FrameLayout {
                 str = "";
             } else {
                 if (id == R.id.obfuscated_res_0x7f0915cf) {
-                    ap0.a aVar = this.a.e.h;
+                    np0.a aVar = this.a.e.h;
                     if (aVar != null) {
                         str2 = aVar.b;
                         str = ClogBuilder.Area.APP_PERMISSION.type;
@@ -93,7 +93,7 @@ public class SimpleAdInfoView extends FrameLayout {
                 }
                 str = "";
             }
-            vh0.c(str2, this.a.getContext());
+            ii0.c(str2, this.a.getContext());
             c cVar = this.a.f;
             if (cVar != null) {
                 cVar.a(str);
@@ -184,7 +184,7 @@ public class SimpleAdInfoView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeL(65539, this, attributeSet) == null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, c61.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, p61.SimpleAdInfoView);
         this.h = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
     }
@@ -227,14 +227,14 @@ public class SimpleAdInfoView extends FrameLayout {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : invokeV.intValue;
     }
 
-    public void setAdInfo(ap0 ap0Var) {
+    public void setAdInfo(np0 np0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ap0Var) == null) {
-            if (ap0Var != null && ap0Var.k) {
-                this.e = ap0Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, np0Var) == null) {
+            if (np0Var != null && np0Var.k) {
+                this.e = np0Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(ap0Var.f)) {
-                        this.a.setText(ap0Var.f);
+                    if (!TextUtils.isEmpty(np0Var.f)) {
+                        this.a.setText(np0Var.f);
                         this.a.setVisibility(0);
                         b(this.a);
                     } else {
@@ -242,8 +242,8 @@ public class SimpleAdInfoView extends FrameLayout {
                     }
                 }
                 if (this.b != null) {
-                    if (!TextUtils.isEmpty(ap0Var.d)) {
-                        this.b.setText(ap0Var.d);
+                    if (!TextUtils.isEmpty(np0Var.d)) {
+                        this.b.setText(np0Var.d);
                         this.b.setVisibility(0);
                         b(this.b);
                     } else {
@@ -251,18 +251,18 @@ public class SimpleAdInfoView extends FrameLayout {
                     }
                 }
                 if (this.c != null) {
-                    ap0.b bVar = ap0Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(ap0Var.g.a)) {
-                        this.c.setText(ap0Var.g.a);
+                    np0.b bVar = np0Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(np0Var.g.a)) {
+                        this.c.setText(np0Var.g.a);
                         this.c.setVisibility(0);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    ap0.a aVar = ap0Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(ap0Var.h.a)) {
-                        this.d.setText(ap0Var.h.a);
+                    np0.a aVar = np0Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(np0Var.h.a)) {
+                        this.d.setText(np0Var.h.a);
                         this.d.setVisibility(0);
                         return;
                     }

@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.e68;
 import com.baidu.tieba.jf;
+import com.baidu.tieba.mu4;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.zt4;
+import com.baidu.tieba.s68;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class PersonBarModel extends BdBaseModel {
     public static final String e;
     public static TbHttpMessageTask f;
     public transient /* synthetic */ FieldHolder $fh;
-    public e68 a;
+    public s68 a;
     public boolean b;
     public String c;
     public int d;
@@ -73,7 +73,7 @@ public class PersonBarModel extends BdBaseModel {
                 return;
             }
         }
-        this.a = new e68();
+        this.a = new s68();
         this.b = z;
     }
 
@@ -112,8 +112,8 @@ public class PersonBarModel extends BdBaseModel {
             String id = TbadkCoreApplication.getCurrentAccountObj() != null ? TbadkCoreApplication.getCurrentAccountObj().getID() : "";
             if (str != null) {
                 try {
-                    zt4.f();
-                    jf<String> g = zt4.g("tb.my_pages");
+                    mu4.f();
+                    jf<String> g = mu4.g("tb.my_pages");
                     if (g != null) {
                         g.e(id, str, 604800000L);
                     }
@@ -170,9 +170,9 @@ public class PersonBarModel extends BdBaseModel {
         }
     }
 
-    public e68 z() {
+    public s68 z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (e68) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a : (s68) invokeV.objValue;
     }
 }

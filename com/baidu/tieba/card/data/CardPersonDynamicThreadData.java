@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.is4;
-import com.baidu.tieba.lq4;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.vs4;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends lq4 {
+public class CardPersonDynamicThreadData extends yq4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -687,17 +687,17 @@ public class CardPersonDynamicThreadData extends lq4 {
         }
     }
 
-    @Override // com.baidu.tieba.lq4
-    public is4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.yq4
+    public vs4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (is4) invokeV.objValue;
+        return (vs4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lq4
+    @Override // com.baidu.tieba.yq4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

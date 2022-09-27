@@ -1,181 +1,82 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
 import java.io.IOException;
-import java.io.InterruptedIOException;
-import java.util.HashMap;
-import java.util.Map;
-import kotlinx.coroutines.DebugKt;
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
 /* loaded from: classes5.dex */
-public class qu2 implements Interceptor {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
+public final class qu2 extends RequestBody {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MediaType a;
+    public final FormBody b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948104251, "Lcom/baidu/tieba/qu2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948104251, "Lcom/baidu/tieba/qu2;");
-        }
-    }
-
-    public qu2() {
+    public qu2(FormBody formBody) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {formBody};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = formBody;
     }
 
-    public static Map<String, String> a(String str, String str2) {
+    public static qu2 a(FormBody formBody, MediaType mediaType) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            HashMap hashMap = new HashMap();
-            if (a) {
-                if (str == null) {
-                    str = "";
-                }
-                if (str2 == null) {
-                    str2 = "";
-                }
-                hashMap.put("___check_redirect___", DebugKt.DEBUG_PROPERTY_VALUE_ON);
-                hashMap.put("___request_type___", str);
-                hashMap.put("___plugin_id___", str2);
-                return hashMap;
-            }
-            return hashMap;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
+            qu2 qu2Var = new qu2(formBody);
+            qu2Var.b(mediaType);
+            return qu2Var;
         }
-        return (Map) invokeLL.objValue;
+        return (qu2) invokeLL.objValue;
     }
 
-    public static HttpRequest e(HttpRequest httpRequest, String str, String str2) {
-        InterceptResult invokeLLL;
+    public void b(MediaType mediaType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, httpRequest, str, str2)) == null) {
-            if (a && httpRequest != null) {
-                if (str == null) {
-                    str = "";
-                }
-                if (str2 == null) {
-                    str2 = "";
-                }
-                return httpRequest.newBuilder().addHeader("___check_redirect___", DebugKt.DEBUG_PROPERTY_VALUE_ON).addHeader("___request_type___", str).addHeader("___plugin_id___", str2).build();
-            }
-            return httpRequest;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
+            this.a = mediaType;
         }
-        return (HttpRequest) invokeLLL.objValue;
     }
 
-    public static Request f(Request request, String str, String str2) {
-        InterceptResult invokeLLL;
+    @Override // okhttp3.RequestBody
+    public long contentLength() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, request, str, str2)) == null) {
-            if (a && request != null) {
-                if (str == null) {
-                    str = "";
-                }
-                if (str2 == null) {
-                    str2 = "";
-                }
-                return request.newBuilder().addHeader("___check_redirect___", DebugKt.DEBUG_PROPERTY_VALUE_ON).addHeader("___request_type___", str).addHeader("___plugin_id___", str2).build();
-            }
-            return request;
-        }
-        return (Request) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.contentLength() : invokeV.longValue;
     }
 
-    public final boolean b(Response response) {
-        InterceptResult invokeL;
+    @Override // okhttp3.RequestBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, response)) == null) {
-            if (response == null) {
-                return false;
-            }
-            int code = response.code();
-            if (TextUtils.isEmpty(response.header(Headers.LOCATION))) {
-                return false;
-            }
-            return (307 <= code && code <= 308) || (300 <= code && code <= 303);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            MediaType mediaType = this.a;
+            return mediaType == null ? this.b.contentType() : mediaType;
         }
-        return invokeL.booleanValue;
+        return (MediaType) invokeV.objValue;
     }
 
-    public final boolean c(Request request) {
-        InterceptResult invokeL;
+    @Override // okhttp3.RequestBody
+    public void writeTo(BufferedSink bufferedSink) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request)) == null) {
-            if (request == null) {
-                return false;
-            }
-            return TextUtils.equals(request.headers().get("___check_redirect___"), DebugKt.DEBUG_PROPERTY_VALUE_ON);
+        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
+            this.b.writeTo(bufferedSink);
         }
-        return invokeL.booleanValue;
-    }
-
-    public final Request d(Request request) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) ? request == null ? request : request.newBuilder().removeHeader("___check_redirect___").removeHeader("___request_type___").removeHeader("___plugin_id___").build() : (Request) invokeL.objValue;
-    }
-
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        HttpUrl resolve;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, chain)) == null) {
-            Request request = chain.request();
-            if (!a) {
-                return chain.proceed(request);
-            }
-            if (!c(request)) {
-                return chain.proceed(request);
-            }
-            okhttp3.Headers headers = request.headers();
-            String str = headers.get("___request_type___");
-            String str2 = headers.get("___plugin_id___");
-            Response proceed = chain.proceed(d(request));
-            if (b(proceed)) {
-                String header = proceed.header(Headers.LOCATION);
-                if (TextUtils.isEmpty(header) || (resolve = proceed.request().url().resolve(header)) == null || p33.c(str, resolve.toString(), str2) == 0) {
-                    return proceed;
-                }
-                String str3 = "redirect error:" + resolve.toString() + " scheme illegal or not in domain list";
-                yz1.o("SafeRedirectCheck", str3);
-                throw new InterruptedIOException(str3);
-            }
-            return proceed;
-        }
-        return (Response) invokeL.objValue;
     }
 }

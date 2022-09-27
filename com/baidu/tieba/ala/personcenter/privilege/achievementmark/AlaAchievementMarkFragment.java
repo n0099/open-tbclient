@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.message.AlaAchievementMarkResponsedMessage;
 import com.baidu.tieba.ala.personcenter.privilege.achievementmark.model.AlaPersonCenterPrivilegeMarkModel;
-import com.baidu.tieba.cz5;
-import com.baidu.tieba.fz5;
-import com.baidu.tieba.s85;
-import com.baidu.tieba.zy5;
+import com.baidu.tieba.f95;
+import com.baidu.tieba.mz5;
+import com.baidu.tieba.pz5;
+import com.baidu.tieba.sz5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,16 +32,16 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     public static /* synthetic */ Interceptable $ic;
     public static final String h;
     public transient /* synthetic */ FieldHolder $fh;
-    public fz5 a;
+    public sz5 a;
     public AlaPersonCenterPrivilegeMarkModel b;
-    public s85 c;
-    public zy5 d;
+    public f95 c;
+    public mz5 d;
     public AlaPersonCenterPrivilegeMarkModel.b e;
     public View.OnClickListener f;
-    public fz5.c g;
+    public sz5.c g;
 
     /* loaded from: classes3.dex */
-    public class a implements zy5.h {
+    public class a implements mz5.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
@@ -64,10 +64,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             this.a = alaAchievementMarkFragment;
         }
 
-        @Override // com.baidu.tieba.zy5.h
-        public void a(boolean z, cz5 cz5Var) {
+        @Override // com.baidu.tieba.mz5.h
+        public void a(boolean z, pz5 pz5Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, cz5Var) == null) && z) {
+            if ((interceptable == null || interceptable.invokeZL(1048576, this, z, pz5Var) == null) && z) {
                 this.a.u1();
             }
         }
@@ -163,7 +163,7 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     }
 
     /* loaded from: classes3.dex */
-    public class d implements fz5.c {
+    public class d implements sz5.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaAchievementMarkFragment a;
@@ -186,10 +186,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             this.a = alaAchievementMarkFragment;
         }
 
-        @Override // com.baidu.tieba.fz5.c
-        public void a(cz5 cz5Var) {
+        @Override // com.baidu.tieba.sz5.c
+        public void a(pz5 pz5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cz5Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, pz5Var) == null) {
             }
         }
     }
@@ -246,9 +246,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
     }
 
     public final void m() {
-        fz5 fz5Var;
+        sz5 sz5Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.c == null || (fz5Var = this.a) == null || fz5Var.c() == null) {
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.c == null || (sz5Var = this.a) == null || sz5Var.c() == null) {
             return;
         }
         this.c.dettachView(this.a.c());
@@ -259,9 +259,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            s85 s85Var = this.c;
-            if (s85Var != null) {
-                s85Var.onChangeSkinType();
+            f95 f95Var = this.c;
+            if (f95Var != null) {
+                f95Var.onChangeSkinType();
             }
         }
     }
@@ -272,10 +272,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new fz5(getPageContext(), this.g);
+            this.a = new sz5(getPageContext(), this.g);
             v1();
             u1();
-            this.d = new zy5(getPageContext(), new a(this));
+            this.d = new mz5(getPageContext(), new a(this));
             return this.a.c();
         }
         return (View) invokeLLL.objValue;
@@ -290,9 +290,9 @@ public class AlaAchievementMarkFragment extends AbsFragment {
             if (alaPersonCenterPrivilegeMarkModel != null) {
                 alaPersonCenterPrivilegeMarkModel.destory();
             }
-            zy5 zy5Var = this.d;
-            if (zy5Var != null) {
-                zy5Var.p();
+            mz5 mz5Var = this.d;
+            if (mz5Var != null) {
+                mz5Var.p();
             }
             m();
         }
@@ -323,10 +323,10 @@ public class AlaAchievementMarkFragment extends AbsFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (this.c == null) {
-                this.c = new s85(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
+                this.c = new f95(getPageContext().getPageActivity(), getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b2));
             }
-            fz5 fz5Var = this.a;
-            if (fz5Var == null || fz5Var.c() == null) {
+            sz5 sz5Var = this.a;
+            if (sz5Var == null || sz5Var.c() == null) {
                 return;
             }
             this.c.attachView(this.a.c(), false);

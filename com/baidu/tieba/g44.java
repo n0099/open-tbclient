@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class g44 extends hx3 {
+public class g44 implements bl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public Object data;
 
     public g44() {
         Interceptable interceptable = $ic;
@@ -23,6 +24,14 @@ public class g44 extends hx3 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.bl1
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            i44.a(str);
         }
     }
 }

@@ -1,6 +1,8 @@
 package com.bun.miitmdid.core;
 
 import android.content.Context;
+import androidx.annotation.Keep;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +12,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bun.miitmdid.e;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
+@Keep
 /* loaded from: classes7.dex */
 public class MdidSdkHelper {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
     public static final int SDK_VERSION_CODE;
+    @Keep
+    public static long globalTimeout;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,8 +36,10 @@ public class MdidSdkHelper {
             }
         }
         SDK_VERSION_CODE = e.a();
+        globalTimeout = 5000L;
     }
 
+    @Keep
     public MdidSdkHelper() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -46,15 +54,59 @@ public class MdidSdkHelper {
         }
     }
 
+    @Keep
     public static boolean InitCert(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) ? e.a(context, str) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            try {
+                return e.a(context, str);
+            } catch (AbstractMethodError | Error unused) {
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 
+    @Keep
     public static int InitSdk(Context context, boolean z, IIdentifierListener iIdentifierListener) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Boolean.valueOf(z), iIdentifierListener})) == null) ? new e(z).a(context, iIdentifierListener) : invokeCommon.intValue;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, Boolean.valueOf(z), iIdentifierListener})) == null) {
+            try {
+                return new e(z, globalTimeout).a(context, iIdentifierListener);
+            } catch (UnsatisfiedLinkError unused) {
+                return 1008615;
+            }
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Keep
+    public static int InitSdk(Context context, boolean z, boolean z2, boolean z3, boolean z4, IIdentifierListener iIdentifierListener) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), iIdentifierListener})) == null) {
+            try {
+                return new e(z, globalTimeout, z2, z3, z4).a(context, iIdentifierListener);
+            } catch (UnsatisfiedLinkError unused) {
+                return 1008615;
+            }
+        }
+        return invokeCommon.intValue;
+    }
+
+    @Keep
+    public static boolean setGlobalTimeout(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
+            if (j > 0) {
+                globalTimeout = j;
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
     }
 }

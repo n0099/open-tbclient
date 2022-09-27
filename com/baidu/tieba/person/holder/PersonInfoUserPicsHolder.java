@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d48;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
-import com.baidu.tieba.p38;
-import com.baidu.tieba.y38;
-import com.baidu.tieba.z38;
+import com.baidu.tieba.m48;
+import com.baidu.tieba.n48;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public View b;
     public TextView c;
     public HTypeListView d;
-    public y38 e;
+    public m48 e;
     public int f;
     public TbPageContext g;
 
@@ -56,18 +56,18 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.a = view2;
         this.g = tbPageContext;
         this.b = view2.findViewById(R.id.obfuscated_res_0x7f090822);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092140);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092142);
         HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09133e);
         this.d = hTypeListView;
-        this.e = new y38(this.g, hTypeListView);
+        this.e = new m48(this.g, hTypeListView);
     }
 
-    public void a(z38 z38Var) {
+    public void a(n48 n48Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, z38Var) == null) || z38Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, n48Var) == null) || n48Var == null) {
             return;
         }
-        this.e.c(c(z38Var.a()));
+        this.e.c(c(n48Var.a()));
     }
 
     public void b() {
@@ -90,9 +90,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            p38 p38Var = new p38(ej.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), ej.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c));
-            ListUtils.add(arrayList, 0, p38Var);
-            ListUtils.add(arrayList, p38Var);
+            d48 d48Var = new d48(ej.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), ej.f(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023c));
+            ListUtils.add(arrayList, 0, d48Var);
+            ListUtils.add(arrayList, d48Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

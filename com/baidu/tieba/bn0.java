@@ -1,7 +1,30 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
-public interface bn0 extends an0 {
-    void b(zm0 zm0Var);
 
-    void d(zm0 zm0Var);
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
+public interface bn0 {
+
+    @Autowired
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Singleton
+        @Inject(force = false)
+        public static bn0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? ov0.a() : (bn0) invokeV.objValue;
+        }
+    }
+
+    float getLaunchSpeedScore();
+
+    float getStaticDeviceScore();
 }

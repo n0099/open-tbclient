@@ -2,220 +2,229 @@ package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.SystemProperties;
-import android.text.TextUtils;
+import android.net.SSLCertificateSocketFactory;
+import android.net.SSLSessionCache;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.down.utils.Constants;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.tieba.u70;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataInputStream;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.lang.reflect.InvocationTargetException;
+import java.net.Inet4Address;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.KeyManagementException;
+import java.security.KeyStoreException;
 import java.security.NoSuchAlgorithmException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONObject;
+import java.security.cert.CertificateException;
+import java.util.concurrent.TimeoutException;
+import javax.net.ssl.SSLHandshakeException;
+import javax.net.ssl.SSLSocket;
 /* loaded from: classes6.dex */
-public class v80 {
+public class v80 extends s80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Socket c;
+    public InputStream d;
+    public OutputStream e;
+    public String f;
 
-    public static void a(Context context, long j, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v80(Context context, String str) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
-            try {
-                u70.c cVar = new u70.c(context);
-                cVar.e(str);
-                cVar.f("1");
-                cVar.c(j);
-                cVar.d(str2);
-                cVar.a(501112L);
-                cVar.b();
-            } catch (Exception e) {
-                y80.c("LCPCommon", "businessEvent exception ", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = str;
+    }
+
+    @Override // com.baidu.tieba.s80
+    public InputStream b() throws EOFException, IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new DataInputStream(this.d) : (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.s80
+    public void c(t80 t80Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t80Var) == null) {
+            this.b = t80Var;
+            if (t80Var != null) {
+                this.d = t80Var.d;
+                this.e = t80Var.e;
+                return;
+            }
+            this.d = null;
+            this.e = null;
         }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.s80
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                y80.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? k(this.b) : invokeV.booleanValue;
     }
 
-    public static Object c(Context context, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.s80
+    public t80 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String str = Build.VERSION.RELEASE;
-            String str2 = Build.MANUFACTURER;
-            String str3 = Build.MODEL;
-            String b = TextUtils.isEmpty(b(context)) ? "" : b(context);
-            long currentTimeMillis = System.currentTimeMillis();
-            String b2 = z80.b(context);
-            String e = z80.e(context);
-            try {
-                if (z) {
-                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
-                        jSONObject.put("cuid", e);
-                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
-                        jSONObject.put(HttpConstants.OS_VERSION, str);
-                        jSONObject.put("manufacture", str2);
-                        jSONObject.put(ARPMessageType.ARPMessageParamKeys.MODEL_TYPE_KEY, str3);
-                        jSONObject.put("app_id", z80.b(context));
-                        jSONObject.put("app_version", b);
-                        jSONObject.put("sdk_version", "2280016");
-                        jSONObject.put("ts", currentTimeMillis);
-                        jSONObject.put("sign", f(b2, e, "android", currentTimeMillis));
-                        return jSONObject;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) ? g(str, i) : (t80) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.s80
+    public void f(r80 r80Var) throws IOException {
+        OutputStream outputStream;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, r80Var) == null) || this.c == null || (outputStream = this.e) == null) {
+            return;
+        }
+        outputStream.write(r80Var.a);
+        this.e.flush();
+    }
+
+    public final t80 g(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
+            l90.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i + "-----------------");
+            this.c = h(str, i);
+            t80 t80Var = new t80();
+            Socket socket = this.c;
+            if (socket == null) {
+                return t80Var;
+            }
+            t80Var.c = socket;
+            t80Var.d = socket.getInputStream();
+            t80Var.e = this.c.getOutputStream();
+            Boolean bool = Boolean.TRUE;
+            t80Var.a = bool;
+            t80Var.b = bool;
+            return t80Var;
+        }
+        return (t80) invokeLI.objValue;
+    }
+
+    public final Socket h(String str, int i) throws UnknownHostException, IOException, KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
+            if (this.f.equals("tcp")) {
+                return j(str, i);
+            }
+            return i(str, i);
+        }
+        return (Socket) invokeLI.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x003c, code lost:
+        r9 = r6.getHostAddress();
+     */
+    @SuppressLint({"NewApi"})
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Socket i(String str, int i) throws UnknownHostException, IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, KeyManagementException, TimeoutException, SSLHandshakeException, AssertionError {
+        InterceptResult invokeLI;
+        SSLCertificateSocketFactory sSLCertificateSocketFactory;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
+            SSLSessionCache sSLSessionCache = new SSLSessionCache(this.a);
+            if (str.contains("baidu.com")) {
+                l90.a("TcpMessageHandler", "localdns begin...,domain:" + str);
+                try {
+                    InetAddress[] allByName = InetAddress.getAllByName(str);
+                    if (allByName != null && allByName.length > 0) {
+                        int length = allByName.length;
+                        int i2 = 0;
+                        while (true) {
+                            if (i2 >= length) {
+                                break;
+                            }
+                            InetAddress inetAddress = allByName[i2];
+                            if (inetAddress instanceof Inet4Address) {
+                                break;
+                            }
+                            i2++;
+                        }
                     }
-                    y80.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
-                    return null;
+                } catch (Exception e) {
+                    l90.c("TcpMessageHandler", "createSocketOnLine", e);
                 }
-                String str4 = "nonNet";
-                if (RequsetNetworkUtils.isNetworkAvailable(context)) {
-                    str4 = RequsetNetworkUtils.isWifiConnected(context) ? "wifi" : RequsetNetworkUtils.getMobileType(context);
-                }
-                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
-                newBuilder.w(e);
-                newBuilder.x("android");
-                newBuilder.B(str);
-                newBuilder.y(str2);
-                newBuilder.z(str3);
-                newBuilder.u(b2);
-                newBuilder.v(b);
-                newBuilder.D("2280016");
-                newBuilder.A(str4);
-                newBuilder.C(d(context));
-                return newBuilder.build();
-            } catch (Exception e2) {
-                y80.c("LCPCommon", "getData :", e2);
-                return null;
             }
-        }
-        return invokeLZ.objValue;
-    }
-
-    public static String d(Context context) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            String upperCase = Build.MANUFACTURER.toUpperCase();
-            String str3 = "";
-            if (upperCase.contains("XIAOMI")) {
-                str = "ro.miui.ui.version.code";
-            } else if (upperCase.contains("HUAWEI")) {
-                str = "ro.build.version.emui";
-            } else if (upperCase.contains("MEIZU")) {
-                str = RomUtils.PROP_RO_BUILD_DISPLAY_ID;
-            } else if (upperCase.contains("OPPO")) {
-                str = "ro.build.version.opporom";
+            if (str.contains("baidu.com")) {
+                sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(10000, sSLSessionCache);
             } else {
-                str = upperCase.contains("VIVO") ? "ro.vivo.os.version" : "";
+                sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getInsecure(10000, sSLSessionCache);
             }
-            try {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    str2 = SystemProperties.get(str);
-                } else {
-                    Class<?> cls = Class.forName("android.os.SystemProperties");
-                    str2 = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, str);
-                }
-                str3 = str2;
-            } catch (Throwable unused) {
-                if (Build.VERSION.SDK_INT >= 21 && upperCase.contains("HUAWEI")) {
-                    return Constants.SDK_VER;
-                }
-                if (upperCase.contains("HUAWEI")) {
-                    return "1.0";
-                }
-                if (upperCase.contains("XIAOMI")) {
-                    return "4.0";
-                }
-                if (upperCase.contains("MEIZU")) {
-                    return "6.0";
-                }
-                if (upperCase.contains("OPPO")) {
-                    return "3.0";
-                }
-                if (upperCase.contains("VIVO")) {
-                    return "3.2";
-                }
+            if (sSLCertificateSocketFactory != null) {
+                SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
+                sSLSocket.setEnabledCipherSuites(sSLSocket.getEnabledCipherSuites());
+                sSLSocket.setEnabledProtocols(sSLSocket.getEnabledProtocols());
+                sSLCertificateSocketFactory.setUseSessionTickets(sSLSocket, true);
+                sSLSocket.startHandshake();
+                return sSLSocket;
             }
-            if (upperCase.contains("HUAWEI") && !TextUtils.isEmpty(str3)) {
-                String substring = str3.substring(str3.indexOf("_") + 1, str3.length());
-                return (substring.matches("\\d+\\.\\d+$") || Build.VERSION.SDK_INT < 21) ? substring : Constants.SDK_VER;
-            }
-            if (upperCase.contains("MEIZU")) {
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = Build.DISPLAY;
-                }
-                Matcher matcher = Pattern.compile("\\d+(\\.\\d+)?").matcher(str3);
-                if (matcher.find()) {
-                    str3 = matcher.group();
-                }
-            } else if (upperCase.contains("OPPO") && !TextUtils.isEmpty(str3)) {
-                Matcher matcher2 = Pattern.compile("^V(\\d+\\.\\d+)").matcher(str3);
-                if (matcher2.find()) {
-                    str3 = matcher2.group(1);
-                }
-            } else if (upperCase.contains("VIVO") && !TextUtils.isEmpty(str3)) {
-                Matcher matcher3 = Pattern.compile("^\\d+(\\.\\d+)?").matcher(str3);
-                if (matcher3.find()) {
-                    return matcher3.group();
-                }
-            }
-            return str3;
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (Socket) invokeLI.objValue;
     }
 
-    public static String e(String str) {
+    public final Socket j(String str, int i) throws UnknownHostException, IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) ? new Socket(str, i) : (Socket) invokeLI.objValue;
+    }
+
+    public boolean k(t80 t80Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append(0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, t80Var)) == null) {
+            if (t80Var != null && t80Var.a.booleanValue()) {
+                try {
+                    if (t80Var.c != null) {
+                        t80Var.c.close();
+                        t80Var.c = null;
                     }
-                    sb.append(Integer.toHexString(i));
+                    if (t80Var.d != null) {
+                        t80Var.d.close();
+                        t80Var.d = null;
+                    }
+                    if (t80Var.e != null) {
+                        t80Var.e.close();
+                        t80Var.e = null;
+                        return true;
+                    }
+                    return true;
+                } catch (IOException e) {
+                    l90.c("TcpMessageHandler", "destroy:", e);
+                    return false;
                 }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
             }
+            return true;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @SuppressLint({"DefaultLocale"})
-    public static String f(String str, String str2, String str3, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) ? e(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j))) : (String) invokeCommon.objValue;
+        return invokeL.booleanValue;
     }
 }

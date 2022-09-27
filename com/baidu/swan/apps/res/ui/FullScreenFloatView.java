@@ -16,8 +16,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ij1;
-import com.baidu.tieba.pg3;
+import com.baidu.tieba.ch3;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -110,7 +110,7 @@ public class FullScreenFloatView extends FrameLayout {
                 return;
             }
         }
-        n = ij1.a;
+        n = vj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -224,7 +224,7 @@ public class FullScreenFloatView extends FrameLayout {
         }
         int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070658);
         int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070659);
-        this.a.animate().x((pg3.o(getContext()) - dimensionPixelOffset) - this.b).y((pg3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+        this.a.animate().x((ch3.o(getContext()) - dimensionPixelOffset) - this.b).y((ch3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
     }
 
     public c getDragImageListener() {

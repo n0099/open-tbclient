@@ -11,11 +11,11 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.eo;
+import com.baidu.tieba.fs9;
 import com.baidu.tieba.gh;
 import com.baidu.tieba.ho;
 import com.baidu.tieba.ll;
 import com.baidu.tieba.po;
-import com.baidu.tieba.qr9;
 import com.baidu.tieba.rn;
 import com.baidu.tieba.sn;
 import com.baidu.tieba.un;
@@ -458,10 +458,10 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                 int i3 = 0;
                 int i4 = -1;
-                if (this.this$0.mAdapter instanceof qr9) {
-                    int c = firstVisiblePosition - ((qr9) this.this$0.mAdapter).c();
+                if (this.this$0.mAdapter instanceof fs9) {
+                    int c = firstVisiblePosition - ((fs9) this.this$0.mAdapter).c();
                     i4 = c < 0 ? 0 : c;
-                    int c2 = lastVisiblePosition - ((qr9) this.this$0.mAdapter).c();
+                    int c2 = lastVisiblePosition - ((fs9) this.this$0.mAdapter).c();
                     if (c2 >= this.this$0.mAdapter.getCount()) {
                         c2 = this.this$0.mAdapter.getCount() - 1;
                     }
@@ -625,8 +625,8 @@ public class BdMultiColumnListView extends MultiColumnListView {
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, this)) == null) {
             if (this.mPrePage != null) {
                 ListAdapter listAdapter = this.mAdapter;
-                if (listAdapter instanceof qr9) {
-                    return ((qr9) listAdapter).c() - 1;
+                if (listAdapter instanceof fs9) {
+                    return ((fs9) listAdapter).c() - 1;
                 }
                 return -1;
             }
@@ -702,7 +702,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 public void onItemClick(PLA_AdapterView<?> pLA_AdapterView, View view2, int i, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        int c = this.this$0.mAdapter instanceof qr9 ? ((qr9) this.this$0.mAdapter).c() : 0;
+                        int c = this.this$0.mAdapter instanceof fs9 ? ((fs9) this.this$0.mAdapter).c() : 0;
                         if (i < c) {
                             if (this.this$0.mPrePage == null || view2 != this.this$0.mPrePage.b()) {
                                 if (this.this$0.mOnHeaderClickListener != null) {
@@ -715,7 +715,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                             return;
                         }
                         int i2 = i - c;
-                        ListAdapter wrappedAdapter = this.this$0.mAdapter instanceof qr9 ? ((qr9) this.this$0.mAdapter).getWrappedAdapter() : this.this$0.mAdapter;
+                        ListAdapter wrappedAdapter = this.this$0.mAdapter instanceof fs9 ? ((fs9) this.this$0.mAdapter).getWrappedAdapter() : this.this$0.mAdapter;
                         if (wrappedAdapter == null || i2 >= wrappedAdapter.getCount()) {
                             if (this.this$0.mNextPage == null || view2 != this.this$0.mNextPage.b()) {
                                 if (this.this$0.mOnFooterClickListener != null) {
@@ -1042,7 +1042,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                     InterceptResult invokeCommon;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-                        int c = this.this$0.mAdapter instanceof qr9 ? ((qr9) this.this$0.mAdapter).c() : 0;
+                        int c = this.this$0.mAdapter instanceof fs9 ? ((fs9) this.this$0.mAdapter).c() : 0;
                         if (i < c) {
                             return true;
                         }
@@ -1098,7 +1098,7 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 public void onItemSelected(PLA_AdapterView<?> pLA_AdapterView, View view2, int i, long j) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                        int c = this.this$0.mAdapter instanceof qr9 ? ((qr9) this.this$0.mAdapter).c() : 0;
+                        int c = this.this$0.mAdapter instanceof fs9 ? ((fs9) this.this$0.mAdapter).c() : 0;
                         if (i < c) {
                             return;
                         }
@@ -1337,10 +1337,10 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                 int i3 = 0;
                 int i4 = -1;
-                if (this.this$0.mAdapter instanceof qr9) {
-                    int c = firstVisiblePosition - ((qr9) this.this$0.mAdapter).c();
+                if (this.this$0.mAdapter instanceof fs9) {
+                    int c = firstVisiblePosition - ((fs9) this.this$0.mAdapter).c();
                     i4 = c < 0 ? 0 : c;
-                    int c2 = lastVisiblePosition - ((qr9) this.this$0.mAdapter).c();
+                    int c2 = lastVisiblePosition - ((fs9) this.this$0.mAdapter).c();
                     if (c2 >= this.this$0.mAdapter.getCount()) {
                         c2 = this.this$0.mAdapter.getCount() - 1;
                     }
@@ -1567,10 +1567,10 @@ public class BdMultiColumnListView extends MultiColumnListView {
                 int lastVisiblePosition = this.this$0.getLastVisiblePosition();
                 int i32 = 0;
                 int i4 = -1;
-                if (this.this$0.mAdapter instanceof qr9) {
-                    int c = firstVisiblePosition - ((qr9) this.this$0.mAdapter).c();
+                if (this.this$0.mAdapter instanceof fs9) {
+                    int c = firstVisiblePosition - ((fs9) this.this$0.mAdapter).c();
                     i4 = c < 0 ? 0 : c;
-                    int c2 = lastVisiblePosition - ((qr9) this.this$0.mAdapter).c();
+                    int c2 = lastVisiblePosition - ((fs9) this.this$0.mAdapter).c();
                     if (c2 >= this.this$0.mAdapter.getCount()) {
                         c2 = this.this$0.mAdapter.getCount() - 1;
                     }

@@ -1,17 +1,22 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bu7<T> {
+public class bu7 implements h05 {
     public static /* synthetic */ Interceptable $ic;
+    public static bu7 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public T b;
 
     public bu7() {
         Interceptable interceptable = $ic;
@@ -27,29 +32,69 @@ public class bu7<T> {
         }
     }
 
-    public T a() {
+    public static synchronized bu7 d() {
         InterceptResult invokeV;
+        bu7 bu7Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (T) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (bu7.class) {
+                if (a == null) {
+                    a = new bu7();
+                }
+                bu7Var = a;
+            }
+            return bu7Var;
+        }
+        return (bu7) invokeV.objValue;
     }
 
-    public void b(T t) {
+    @Override // com.baidu.tieba.h05
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            this.b = t;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                SapiAccountManager.getInstance().logout();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public void c(int i) {
+    @Override // com.baidu.tieba.h05
+    public void b(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (TextUtils.isEmpty(accountData.getID()) || loginAccounts == null || loginAccounts.size() <= 0) {
+                return;
+            }
+            for (SapiAccount sapiAccount : loginAccounts) {
+                if (accountData.getID().equals(sapiAccount.uid)) {
+                    SapiAccountManager.getInstance().validate(sapiAccount);
+                    return;
+                }
+            }
         }
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.h05
+    public void c(AccountData accountData) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
+                SapiAccountManager.getInstance().logout();
+                return;
+            }
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (loginAccounts == null || loginAccounts.size() <= 0) {
+                return;
+            }
+            for (SapiAccount sapiAccount : loginAccounts) {
+                if (accountData.getID().equals(sapiAccount.uid)) {
+                    SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
+                    return;
+                }
+            }
+        }
     }
 }

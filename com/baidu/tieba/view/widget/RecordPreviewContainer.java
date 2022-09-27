@@ -14,8 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.fz8;
-import com.baidu.tieba.sg9;
+import com.baidu.tieba.hh9;
+import com.baidu.tieba.uz8;
 import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -263,11 +263,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.c || x < sg9.k(R.dimen.obfuscated_res_0x7f070258)) {
+                if (y > this.c || x < hh9.k(R.dimen.obfuscated_res_0x7f070258)) {
                     return true;
                 }
-                int a2 = fz8.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
-                int a3 = fz8.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
+                int a2 = uz8.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
+                int a3 = uz8.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
                 e eVar = this.u;
                 if (eVar != null) {
                     eVar.b(motionEvent, 308, 308, a2, a3);
@@ -366,7 +366,7 @@ public class RecordPreviewContainer extends FrameLayout {
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.s == null) {
             ImageView imageView = new ImageView(getContext());
             this.s = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a5d);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f080a5f);
             if (this.s != null) {
                 int width = getWidth();
                 int width2 = this.s.getWidth();

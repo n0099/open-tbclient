@@ -5,15 +5,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hd7 {
+public class hd7 extends xb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public String d;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public hd7() {
+        super(nb7.j(), 2001143);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -21,8 +19,11 @@ public class hd7 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((jb7) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }

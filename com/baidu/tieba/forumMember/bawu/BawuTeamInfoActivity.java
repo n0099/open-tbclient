@@ -6,12 +6,12 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.de6;
-import com.baidu.tieba.dm8;
-import com.baidu.tieba.ee6;
-import com.baidu.tieba.fe6;
-import com.baidu.tieba.he6;
-import com.baidu.tieba.xe6;
+import com.baidu.tieba.kf6;
+import com.baidu.tieba.qe6;
+import com.baidu.tieba.re6;
+import com.baidu.tieba.se6;
+import com.baidu.tieba.sm8;
+import com.baidu.tieba.ue6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,14 +21,14 @@ import java.util.ArrayList;
 public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fe6 a;
-    public de6 b;
+    public se6 a;
+    public qe6 b;
     public long c;
-    public de6.c d;
+    public qe6.c d;
     public NoNetworkView.b e;
 
     /* loaded from: classes4.dex */
-    public class a implements de6.c {
+    public class a implements qe6.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BawuTeamInfoActivity a;
@@ -51,15 +51,15 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             this.a = bawuTeamInfoActivity;
         }
 
-        @Override // com.baidu.tieba.de6.c
-        public void a(ArrayList<he6> arrayList, xe6 xe6Var, boolean z, int i, String str) {
+        @Override // com.baidu.tieba.qe6.c
+        public void a(ArrayList<ue6> arrayList, kf6 kf6Var, boolean z, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, xe6Var, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, kf6Var, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
                 if (!z) {
                     if (arrayList != null && arrayList.size() > 0) {
                         BawuTeamInfoActivity bawuTeamInfoActivity = this.a;
                         bawuTeamInfoActivity.hideLoadingView(bawuTeamInfoActivity.a.d());
-                        this.a.a.k(arrayList, xe6Var, false);
+                        this.a.a.k(arrayList, kf6Var, false);
                     }
                     this.a.b.l(this.a.c);
                     return;
@@ -67,7 +67,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                 BawuTeamInfoActivity bawuTeamInfoActivity2 = this.a;
                 bawuTeamInfoActivity2.hideLoadingView(bawuTeamInfoActivity2.a.d());
                 if (i == 0) {
-                    this.a.a.k(arrayList, xe6Var, true);
+                    this.a.a.k(arrayList, kf6Var, true);
                     return;
                 }
                 this.a.showToast(str);
@@ -130,9 +130,9 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            fe6 fe6Var = new fe6(this, this.c);
-            this.a = fe6Var;
-            fe6Var.h(this.e);
+            se6 se6Var = new se6(this, this.c);
+            this.a = se6Var;
+            se6Var.h(this.e);
         }
     }
 
@@ -147,16 +147,16 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            dm8.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-            dm8.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
-            dm8.b(2003005, ee6.class);
+            sm8.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+            sm8.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, false, false);
+            sm8.b(2003005, re6.class);
         }
     }
 
     public void initData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = new de6();
+            this.b = new qe6();
             a aVar = new a(this);
             this.d = aVar;
             this.b.n(aVar);
@@ -193,13 +193,13 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDestroy();
-            de6 de6Var = this.b;
-            if (de6Var != null) {
-                de6Var.h();
+            qe6 qe6Var = this.b;
+            if (qe6Var != null) {
+                qe6Var.h();
             }
-            fe6 fe6Var = this.a;
-            if (fe6Var != null) {
-                fe6Var.g();
+            se6 se6Var = this.a;
+            if (se6Var != null) {
+                se6Var.g();
             }
         }
     }

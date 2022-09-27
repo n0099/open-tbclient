@@ -1,60 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.sapi2.share.ShareCallPacking;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
 public class ch9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<Integer> a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947674901, "Lcom/baidu/tieba/ch9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static float a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            long[] b = b();
+            if (b[0] <= 0) {
+                return 0.0f;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947674901, "Lcom/baidu/tieba/ch9;");
-                return;
-            }
+            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
         }
-        ArrayList<Integer> arrayList = new ArrayList<>(4);
-        a = arrayList;
-        arrayList.add(10000);
-        a.add(10001);
-        a.add(10002);
-        a.add(Integer.valueOf((int) ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT));
-        a.add(-1);
+        return invokeV.floatValue;
     }
 
-    public static int a() {
+    public static long[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                b = qh9.a();
+            long[] jArr = new long[4];
+            try {
+                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
+                long[] jArr2 = {30, -30};
+                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
+                if (method != null) {
+                    method.invoke(null, objArr);
+                    for (int i = 0; i < 4; i++) {
+                        jArr[i] = jArr2[i] / 1024;
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (TextUtils.isEmpty(b)) {
-                return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
-            }
-            if (b.toUpperCase().contains("HUAWEI")) {
-                return 10001;
-            }
-            if (b.toUpperCase().contains("XIAOMI")) {
-                return 10002;
-            }
-            return ShareCallPacking.REQUEST_CODE_V2_SHARE_ACCOUNT;
+            return jArr;
         }
-        return invokeV.intValue;
+        return (long[]) invokeV.objValue;
     }
 }

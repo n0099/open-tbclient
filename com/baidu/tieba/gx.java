@@ -7,25 +7,25 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.card.view.ThreadCardView;
 import com.baidu.tieba.dz;
-import com.baidu.tieba.lq4;
+import com.baidu.tieba.yq4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class gx<T extends lq4> implements xx, wx<T> {
+public abstract class gx<T extends yq4> implements xx, wx<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public sy a;
     public Context b;
     public Boolean c;
-    public v16<T> d;
+    public i26<T> d;
     public a e;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void a(lq4 lq4Var);
+        void a(yq4 yq4Var);
     }
 
     public gx(Context context) {
@@ -59,10 +59,10 @@ public abstract class gx<T extends lq4> implements xx, wx<T> {
         }
     }
 
-    public v16<T> e() {
+    public i26<T> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (v16) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (i26) invokeV.objValue;
     }
 
     public final ThreadCardView f(View view2, int i) {
@@ -119,10 +119,10 @@ public abstract class gx<T extends lq4> implements xx, wx<T> {
         }
     }
 
-    public void m(v16<T> v16Var) {
+    public void m(i26<T> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, v16Var) == null) {
-            this.d = v16Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, i26Var) == null) {
+            this.d = i26Var;
         }
     }
 
@@ -132,7 +132,7 @@ public abstract class gx<T extends lq4> implements xx, wx<T> {
         if (!(interceptable == null || interceptable.invokeLI(1048587, this, view2, i) == null) || (f = f(view2, i)) == null) {
             return;
         }
-        uu4 d = uu4.d(f);
+        hv4 d = hv4.d(f);
         d.n(R.string.J_X06);
         d.f(R.color.CAM_X0205);
     }

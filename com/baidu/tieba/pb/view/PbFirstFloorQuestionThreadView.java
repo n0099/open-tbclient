@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.k36;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.v18;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.j28;
 import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tieba.x36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,7 +36,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public TbPageContext e;
     public boolean f;
     public boolean g;
-    public k36 h;
+    public x36 h;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -68,9 +68,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.h != null && this.a.h.O()) {
                     this.a.h.N();
-                    v18.p("c14884");
+                    j28.p("c14884");
                 }
-                v18.p("c14885");
+                j28.p("c14885");
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921724));
             }
         }
@@ -187,10 +187,10 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d06bf, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091b32);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b2f);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091b33);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b34);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091b34);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091b31);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091b35);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091b36);
             h();
         }
     }
@@ -200,7 +200,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
-            uu4.d(this.c).v(R.color.CAM_X0302);
+            hv4.d(this.c).v(R.color.CAM_X0302);
             this.d.setAllCornerRound(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
             SkinManager.setBackgroundColorWithAlpha(this.d, R.color.CAM_X0304, 0.08f, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -209,9 +209,9 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            k36 k36Var = new k36(this.e, this.c);
-            this.h = k36Var;
-            k36Var.q0(R.drawable.obfuscated_res_0x7f08065c);
+            x36 x36Var = new x36(this.e, this.c);
+            this.h = x36Var;
+            x36Var.q0(R.drawable.obfuscated_res_0x7f08065c);
             this.h.c0(true);
             this.h.r0(true);
             this.h.Q(2);
@@ -228,7 +228,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
             String string = getContext().getString(R.string.obfuscated_res_0x7f0f0ddc);
             this.h.R(new b(this));
             this.h.w0(string);
-            v18.p("c14883");
+            j28.p("c14883");
         }
     }
 

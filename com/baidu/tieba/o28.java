@@ -1,81 +1,229 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.layout.FlowLabelLayout;
-import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumAndTopicViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.pb.video.PbVideoFullUserInfoLikeButton;
+import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o28 extends qn<pv7, VideoPbEnterForumAndTopicViewHolder> {
+public class o28 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public View b;
+    public HeadImageView c;
+    public TextView d;
+    public RelativeLayout e;
+    public TextView f;
+    public ImageView g;
+    public PbVideoFullUserInfoLikeButton h;
+    public n28 i;
+    public View.OnClickListener j;
+    public LinearLayout k;
+    public View.OnClickListener l;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o28(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o28 a;
+
+        public a(o28 o28Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o28Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o28Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.c || view2 == this.a.d || view2 == this.a.g) {
+                    this.a.l(view2);
+                }
+            }
+        }
+    }
+
+    public o28(TbPageContext tbPageContext, FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext, frameLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.l = new a(this);
+        this.a = tbPageContext;
+        this.b = g(tbPageContext);
+        h();
+        frameLayout.addView(this.b);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pv7 pv7Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
-        t(i, view2, viewGroup, pv7Var, videoPbEnterForumAndTopicViewHolder);
-        return view2;
+    public final void e(PostData postData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, postData) == null) {
+            this.g.setVisibility(8);
+            this.c.setUserId(postData.s().getUserId());
+            this.c.setUserName(postData.s().getUserName());
+            this.c.setIsBigV(postData.s().isBigV());
+            this.d.setText(postData.s().getName_show());
+            this.d.setTag(postData.s().getUserId());
+            this.c.K(postData.s().getAvater(), 28, false);
+            this.i.n(postData.s());
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public VideoPbEnterForumAndTopicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public View f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.e : (View) invokeV.objValue;
+    }
+
+    public final View g(TbPageContext<?> tbPageContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            FlowLabelLayout flowLabelLayout = new FlowLabelLayout(this.mContext);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.leftMargin = ej.f(this.mContext, R.dimen.M_W_X007);
-            layoutParams.topMargin = ej.f(this.mContext, R.dimen.M_W_X004);
-            layoutParams.rightMargin = ej.f(this.mContext, R.dimen.M_W_X007);
-            layoutParams.bottomMargin = ej.f(this.mContext, R.dimen.M_W_X004);
-            frameLayout.addView(flowLabelLayout, layoutParams);
-            return new VideoPbEnterForumAndTopicViewHolder(this.mContext, frameLayout);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext)) == null) {
+            if (tbPageContext == null) {
+                return null;
+            }
+            return LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08de, (ViewGroup) null);
         }
-        return (VideoPbEnterForumAndTopicViewHolder) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, pv7 pv7Var, VideoPbEnterForumAndTopicViewHolder videoPbEnterForumAndTopicViewHolder) {
-        InterceptResult invokeCommon;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pv7Var, videoPbEnterForumAndTopicViewHolder})) == null) {
-            if (pv7Var != null) {
-                videoPbEnterForumAndTopicViewHolder.setData(pv7Var.a);
-            }
-            videoPbEnterForumAndTopicViewHolder.a();
-            return view2;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.e = (RelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0917d6);
+            HeadImageView headImageView = (HeadImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917d5);
+            this.c = headImageView;
+            headImageView.setOnClickListener(this.l);
+            LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0917d4);
+            this.k = linearLayout;
+            SkinManager.setBackgroundResource(linearLayout, R.drawable.video_author_bg);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917d7);
+            this.d = textView;
+            textView.setOnClickListener(this.l);
+            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0917d1);
+            this.f = textView2;
+            textView2.setOnClickListener(this.l);
+            this.g = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0917d2);
+            PbVideoFullUserInfoLikeButton pbVideoFullUserInfoLikeButton = (PbVideoFullUserInfoLikeButton) this.b.findViewById(R.id.obfuscated_res_0x7f0917d3);
+            this.h = pbVideoFullUserInfoLikeButton;
+            pbVideoFullUserInfoLikeButton.setTextSize(0, ej.f(this.a.getPageActivity(), R.dimen.tbds30));
+            this.i = new n28(this.a, this.h);
+            this.c.setRadius(ej.f(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070225));
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public final boolean i(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, threadData)) == null) {
+            if (threadData == null || threadData.getAuthor() == null || threadData.getAuthor().getUserId() == null) {
+                return false;
+            }
+            return TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), threadData.getAuthor().getUserId());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            PbVideoFullUserInfoLikeButton pbVideoFullUserInfoLikeButton = this.h;
+            if (pbVideoFullUserInfoLikeButton != null) {
+                pbVideoFullUserInfoLikeButton.g(i);
+            }
+            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
+            TextView textView = this.d;
+            if (textView != null) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            }
+            ImageView imageView = this.g;
+            if (imageView != null) {
+                SkinManager.setBackgroundResource(imageView, R.drawable.obfuscated_res_0x7f080b4e);
+            }
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public final void l(View view2) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, view2) == null) || (onClickListener = this.j) == null) {
+            return;
+        }
+        onClickListener.onClick(view2);
+    }
+
+    public void m(PostData postData, ThreadData threadData, xv7 xv7Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, postData, threadData, xv7Var) == null) {
+            this.h.setVisibility(0);
+            this.f.setVisibility(8);
+            e(postData);
+            if (i(threadData)) {
+                this.f.setVisibility(8);
+                this.h.setVisibility(8);
+            }
+        }
+    }
+
+    public void n(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048585, this, f) == null) {
+            this.e.setAlpha(f);
+        }
+    }
+
+    public void o(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
+            this.j = onClickListener;
+        }
     }
 }

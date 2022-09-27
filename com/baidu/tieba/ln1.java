@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface ln1 {
-    void a();
+    xm1 a();
 
-    boolean b();
+    en1 b();
 }

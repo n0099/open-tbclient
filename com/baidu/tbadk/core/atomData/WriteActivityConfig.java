@@ -22,13 +22,13 @@ import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.switchs.NewWritePageSwitch;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.ep8;
+import com.baidu.tieba.fp8;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.i19;
-import com.baidu.tieba.po8;
-import com.baidu.tieba.qo8;
-import com.baidu.tieba.ro8;
+import com.baidu.tieba.gp8;
+import com.baidu.tieba.x19;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -108,7 +108,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ro8.h = new Intent(getIntent());
+            gp8.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -304,7 +304,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (NewWritePageSwitch.getIsOn() && UbsABTestHelper.isHomeTabModifyABTestA() && i19.l.equals(str)) {
+            if (NewWritePageSwitch.getIsOn() && UbsABTestHelper.isHomeTabModifyABTestA() && x19.l.equals(str)) {
                 setType(11);
             }
             return this;
@@ -615,8 +615,8 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean q = po8.k().q();
-            qo8.a("发帖阻拦状态 = " + q);
+            boolean q = ep8.k().q();
+            fp8.a("发帖阻拦状态 = " + q);
             if (q && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 ej.N(currentActivity, "正在发布，请稍后");
             }

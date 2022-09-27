@@ -1,71 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bi9 {
-    public static /* synthetic */ Interceptable $ic;
+public class bi9 extends yh9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String h = "XMUnionID";
+    public static boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public String c;
 
-    public bi9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947646071, "Lcom/baidu/tieba/bi9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947646071, "Lcom/baidu/tieba/bi9;");
                 return;
             }
         }
-        this.c = null;
+        i = qh9.e();
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public bi9(boolean z, int i, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bi9(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.a = z;
-        this.b = i;
-        this.c = str;
+        if (i) {
+            Log.e(h, "xiaomi XMUnionID !!");
+        }
+        this.d = "";
+        this.b = false;
+        this.c = false;
+        this.g = -200;
+    }
+
+    @Override // com.baidu.tieba.xh9
+    public xh9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                this.c = hs9.b();
+                this.d = hs9.a(this.a);
+                this.g = 0;
+            } catch (Exception e) {
+                if (i) {
+                    Log.e(h, "xiaomi init4UnionId error", e);
+                }
+            }
+            return this;
+        }
+        return (xh9) invokeV.objValue;
     }
 }

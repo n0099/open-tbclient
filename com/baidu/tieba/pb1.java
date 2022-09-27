@@ -3,57 +3,17 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 /* loaded from: classes5.dex */
-public class pb1 {
+public final class pb1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Executor a;
-    public static final int b;
-    public static final int c;
-    public static final ThreadFactory d;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -68,52 +28,39 @@ public class pb1 {
                 return;
             }
         }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        b = availableProcessors;
-        c = (availableProcessors * 2) + 1;
-        d = new a();
+        a = Charset.forName("US-ASCII");
+        Charset.forName("UTF-8");
     }
 
-    public pb1() {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
+            return;
+        }
+        try {
+            closeable.close();
+        } catch (RuntimeException e) {
+            throw e;
+        } catch (Exception unused) {
         }
     }
 
-    public static void a(Runnable runnable) {
+    public static void b(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            b().execute(runnable);
-        }
-    }
-
-    public static synchronized Executor b() {
-        InterceptResult invokeV;
-        Executor executor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (pb1.class) {
-                if (a == null) {
-                    synchronized (pb1.class) {
-                        if (a == null) {
-                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
-                            threadPoolExecutor.allowCoreThreadTimeOut(true);
-                            a = threadPoolExecutor;
-                        }
+        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        b(file2);
+                    }
+                    if (!file2.delete()) {
+                        throw new IOException("failed to delete file: " + file2);
                     }
                 }
-                executor = a;
+                return;
             }
-            return executor;
+            throw new IOException("not a readable directory: " + file);
         }
-        return (Executor) invokeV.objValue;
     }
 }

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.nv2;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface ek1 {
-    void a(String str, nv2.k kVar);
+    void a(int i);
+
+    void b(JSONObject jSONObject);
 }

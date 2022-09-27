@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay4;
-import com.baidu.tieba.by4;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.ny4;
+import com.baidu.tieba.oy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,19 +65,19 @@ public class PublishButton extends TBSpecificationBtn {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (TbadkApplication.getInst().isUseLuckyHeader()) {
-                by4 by4Var = new by4();
-                by4Var.p(R.color.CAM_X0101);
-                by4Var.v(R.dimen.tbds6);
-                by4Var.u(R.string.A_X01);
-                by4Var.i(R.drawable.obfuscated_res_0x7f080968, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                by4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                setConfig(by4Var);
+                oy4 oy4Var = new oy4();
+                oy4Var.p(R.color.CAM_X0101);
+                oy4Var.v(R.dimen.tbds6);
+                oy4Var.u(R.string.A_X01);
+                oy4Var.i(R.drawable.obfuscated_res_0x7f08096a, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                oy4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                setConfig(oy4Var);
             } else {
-                ay4 ay4Var = new ay4();
-                ay4Var.i(R.drawable.obfuscated_res_0x7f080968, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                ay4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
-                ay4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(ay4Var);
+                ny4 ny4Var = new ny4();
+                ny4Var.i(R.drawable.obfuscated_res_0x7f08096a, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                ny4Var.g(ej.f(TbadkCoreApplication.getInst(), R.dimen.tbds42));
+                ny4Var.p(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(ny4Var);
             }
             k();
         }

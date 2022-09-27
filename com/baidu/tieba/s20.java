@@ -76,7 +76,7 @@ public class s20 {
                     JSONArray jSONArray = new JSONArray(str);
                     int length = jSONArray.length();
                     for (int i = 0; i < length; i++) {
-                        arrayList.add(new k50(this.b.a, jSONArray.getJSONObject(i).getString("pkg")));
+                        arrayList.add(new m50(this.b.a, jSONArray.getJSONObject(i).getString("pkg")));
                     }
                 } catch (Exception unused) {
                 }
@@ -347,12 +347,12 @@ public class s20 {
             }
         }
         this.a = context.getApplicationContext();
-        w20 w20Var = new w20(new r50());
+        w20 w20Var = new w20(new e60());
         this.c = w20Var;
         this.b = w20Var.a();
         v20.a aVar = new v20.a();
-        aVar.a = new t50();
-        aVar.b = new s50();
+        aVar.a = new g60();
+        aVar.b = new f60();
         aVar.c = this.a;
         aVar.d = new ThreadPoolExecutor(0, 1, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue());
         aVar.e = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 5L, TimeUnit.SECONDS, new LinkedBlockingQueue());
@@ -413,10 +413,10 @@ public class s20 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.e(this.a.getPackageName()) : invokeV.booleanValue;
     }
 
-    public void i(u20<j50> u20Var, Looper looper) {
+    public void i(u20<l50> u20Var, Looper looper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, u20Var, looper) == null) {
-            new d(u20Var, looper).b(new j50(), new Bundle());
+            new d(u20Var, looper).b(new l50(), new Bundle());
         }
     }
 
@@ -441,7 +441,7 @@ public class s20 {
         }
     }
 
-    public void m(u20<List<k50>> u20Var, Looper looper) {
+    public void m(u20<List<m50>> u20Var, Looper looper) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, u20Var, looper) == null) {
             this.b.a("sids", null, new a(this, new d(u20Var, looper)));

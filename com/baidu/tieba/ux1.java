@@ -8,11 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class ux1 extends ew1 {
+public class ux1 extends rw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
 
     public ux1() {
         Interceptable interceptable = $ic;
@@ -24,28 +23,28 @@ public class ux1 extends ew1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(fw1 fw1Var, Canvas canvas) {
+    @Override // com.baidu.tieba.rw1
+    public void a(sw1 sw1Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) {
-            if (fw1Var.a() == 0) {
-                fw1Var.b(canvas.save());
-            }
-            canvas.translate(this.a, this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.ew1
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 1) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) || (i = this.a) < 0) {
             return;
         }
-        this.a = pg3.g((float) jSONArray.optDouble(0));
-        this.b = pg3.g((float) jSONArray.optDouble(1));
+        sw1Var.c.setStrokeWidth(i);
+    }
+
+    @Override // com.baidu.tieba.rw1
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
+            return;
+        }
+        this.a = ch3.g((float) jSONArray.optDouble(0));
     }
 }

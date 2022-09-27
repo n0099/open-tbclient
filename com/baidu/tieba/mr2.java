@@ -1,74 +1,253 @@
 package com.baidu.tieba;
 
-import android.telephony.PhoneStateListener;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
+import android.os.Handler;
+import android.os.Message;
+import android.provider.MediaStore;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class mr2 extends PhoneStateListener {
+public class mr2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<lr2> a;
+    public ArrayList<MediaModel> b;
+    public String c;
+    public Handler d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982204, "Lcom/baidu/tieba/mr2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947982204, "Lcom/baidu/tieba/mr2;");
-                return;
-            }
-        }
-        a = ij1.a;
-    }
-
-    public mr2() {
+    public mr2(String str, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, handler};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = str;
+        this.d = handler;
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.equals(this.c, "video")) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            try {
+                cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+            } catch (Exception e) {
+                if (ar2.a) {
+                    e.printStackTrace();
+                }
+            }
+            if (cursor == null) {
+                return;
+            }
+            while (cursor.moveToNext()) {
+                String string = cursor.getString(cursor.getColumnIndex("_data"));
+                long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                File file = new File(string);
+                if (file.exists() && (ar2.d || !br2.d(string))) {
+                    ImageModel imageModel = new ImageModel(string);
+                    imageModel.setAddDate(j);
+                    imageModel.setSize(j2);
+                    d(file, imageModel);
+                }
+            }
+        } finally {
+            pj4.d(null);
         }
     }
 
-    @Override // android.telephony.PhoneStateListener
-    public void onCallStateChanged(int i, String str) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:50:0x00e3 */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x009f, code lost:
+        if (r11 != null) goto L30;
+     */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r15v0, types: [com.baidu.tieba.mr2, java.lang.Object] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.Closeable] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b() {
+        Throwable th;
+        Cursor cursor;
+        Exception e;
+        MediaMetadataRetriever mediaMetadataRetriever;
+        Throwable th2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            super.onCallStateChanged(i, str);
-            if (i == 0) {
-                or2.k().o();
-                if (a) {
-                    Log.i("PhoneStateListener", "挂断");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ?? r1 = "Image";
+            if (TextUtils.equals(this.c, "Image")) {
+                return;
+            }
+            try {
+                try {
+                    cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
+                } catch (Throwable th3) {
+                    th = th3;
+                    pj4.d(r1);
+                    throw th;
                 }
-            } else if (i == 1) {
-                or2.k().n();
-                if (a) {
-                    Log.i("PhoneStateListener", "响铃:" + str);
+            } catch (Exception e2) {
+                cursor = null;
+                e = e2;
+            } catch (Throwable th4) {
+                r1 = 0;
+                th = th4;
+                pj4.d(r1);
+                throw th;
+            }
+            if (cursor == null) {
+                pj4.d(cursor);
+                return;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
+                    long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
+                    long j2 = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
+                    long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
+                    int i = cursor.getInt(cursor.getColumnIndexOrThrow("width"));
+                    int i2 = cursor.getInt(cursor.getColumnIndexOrThrow("height"));
+                    if (i <= 0 || i2 <= 0) {
+                        try {
+                            mediaMetadataRetriever = new MediaMetadataRetriever();
+                            try {
+                                try {
+                                    mediaMetadataRetriever.setDataSource(string);
+                                    String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
+                                    String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
+                                    i = Integer.parseInt(extractMetadata);
+                                    i2 = Integer.parseInt(extractMetadata2);
+                                } catch (Exception e3) {
+                                    e = e3;
+                                    if (ar2.a) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } catch (Throwable th5) {
+                                th2 = th5;
+                                if (mediaMetadataRetriever != null) {
+                                    mediaMetadataRetriever.release();
+                                }
+                                throw th2;
+                            }
+                        } catch (Exception e4) {
+                            e = e4;
+                            mediaMetadataRetriever = null;
+                        } catch (Throwable th6) {
+                            mediaMetadataRetriever = null;
+                            th2 = th6;
+                        }
+                        mediaMetadataRetriever.release();
+                    }
+                    File file = new File(string);
+                    if (file.exists()) {
+                        VideoModel videoModel = new VideoModel(string);
+                        videoModel.setAddDate(j);
+                        videoModel.setDuration(j2);
+                        videoModel.setSize(j3);
+                        videoModel.setWidth(i);
+                        videoModel.setHeight(i2);
+                        d(file, videoModel);
+                    }
+                } catch (Exception e5) {
+                    e = e5;
+                    if (ar2.a) {
+                        e.printStackTrace();
+                    }
+                    pj4.d(cursor);
                 }
-            } else if (i != 2) {
-                if (a) {
-                    Log.e("PhoneStateListener", "invalid state");
-                }
+            }
+            pj4.d(cursor);
+        }
+    }
+
+    public final void c(ArrayList<lr2> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            Iterator<lr2> it = arrayList.iterator();
+            while (it.hasNext()) {
+                lr2 next = it.next();
+                next.i(new File(next.b()).lastModified());
+            }
+            Collections.sort(arrayList);
+        }
+    }
+
+    public final void d(File file, MediaModel mediaModel) {
+        String name;
+        String path;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, file, mediaModel) == null) {
+            if (file.getParentFile() != null) {
+                name = file.getParentFile().getName();
+                path = file.getParent();
             } else {
-                or2.k().n();
-                if (a) {
-                    Log.i("PhoneStateListener", "接听");
-                }
+                name = file.getName();
+                path = file.getPath();
+            }
+            lr2 lr2Var = new lr2();
+            lr2Var.h(name);
+            lr2Var.g(path);
+            int indexOf = this.a.indexOf(lr2Var);
+            if (indexOf >= 0) {
+                this.a.get(indexOf).a(mediaModel);
+            } else {
+                lr2Var.a(mediaModel);
+                this.a.add(lr2Var);
+            }
+            this.b.add(mediaModel);
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            a();
+            b();
+            c(this.a);
+            lr2 lr2Var = new lr2();
+            lr2Var.h(br2.b(AppRuntime.getAppContext(), this.c));
+            lr2Var.d = this.b;
+            this.a.add(0, lr2Var);
+            Iterator<lr2> it = this.a.iterator();
+            while (it.hasNext()) {
+                Collections.sort(it.next().f());
+            }
+            Handler handler = this.d;
+            if (handler != null) {
+                Message obtainMessage = handler.obtainMessage(0);
+                obtainMessage.obj = this.a;
+                this.d.sendMessage(obtainMessage);
             }
         }
     }

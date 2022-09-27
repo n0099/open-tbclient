@@ -1,48 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.CookieManager;
+import com.baidu.webkit.sdk.CookieSyncManager;
 /* loaded from: classes5.dex */
-public abstract class mh3 implements Runnable {
+public class mh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nh3 a;
 
-    public mh3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                CookieManager.getInstance().setCookie(".baidu.com", dh3.k(".baidu.com", "SP_FW_VER", qc3.h(0), 2937600L));
+                CookieManager.getInstance().setCookie(".baidu.com", dh3.k(".baidu.com", "SG_FW_VER", qc3.h(1), 2937600L));
+                mh3.b();
             }
         }
     }
 
-    public void a() {
-        nh3 nh3Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nh3Var = this.a) == null) {
-            return;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947972625, "Lcom/baidu/tieba/mh3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947972625, "Lcom/baidu/tieba/mh3;");
+                return;
+            }
         }
-        nh3Var.a(this);
-        this.a = null;
+        sm2.g0().getSwitch("swan_env_init_thread_pool_optimize", true);
     }
 
-    public mh3 b(nh3 nh3Var) {
-        InterceptResult invokeL;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nh3Var)) == null) {
-            this.a = nh3Var;
-            return this;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            k33.M().post(new a());
         }
-        return (mh3) invokeL.objValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            if (sf3.f()) {
+                CookieManager.getInstance().flush();
+                return;
+            }
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+            CookieSyncManager.getInstance().sync();
+        }
     }
 }

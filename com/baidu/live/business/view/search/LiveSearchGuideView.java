@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dc0;
+import com.baidu.tieba.qc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -59,16 +59,16 @@ public class LiveSearchGuideView extends FrameLayout {
             return;
         }
         if (z) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cfe);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfc);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d00);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfe);
             this.b.setTextColor(-1);
         } else if ("day".equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cfd);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfb);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cff);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfd);
             this.b.setTextColor(-1);
         } else if ("night".equals(str)) {
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080cfe);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfc);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d00);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080cfe);
             this.b.setTextColor(-1);
         }
     }
@@ -79,7 +79,7 @@ public class LiveSearchGuideView extends FrameLayout {
         if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (textView = this.b) == null) {
             return;
         }
-        dc0.h(textView, 1, 12.0f);
+        qc0.h(textView, 1, 12.0f);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */

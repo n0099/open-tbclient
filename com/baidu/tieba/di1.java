@@ -1,70 +1,47 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
+import android.content.Context;
+import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@TargetApi(9)
 /* loaded from: classes3.dex */
-public abstract class di1 implements bi1<di1> {
+public class di1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public ei1 a;
+    public Context b;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public di1() {
-        this(5);
+    public di1(Context context, Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ei1(context, handler);
+        this.b = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(di1 di1Var) {
-        InterceptResult invokeL;
+    public String a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, di1Var)) == null) ? di1Var.a - this.a : invokeL.intValue;
-    }
-
-    public abstract void b();
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b();
-        }
-    }
-
-    public di1(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            if (str != null) {
+                return this.a.b(str, bArr, null);
             }
+            throw new IllegalArgumentException("postToServerForm request null");
         }
-        this.a = i;
+        return (String) invokeLL.objValue;
     }
 }

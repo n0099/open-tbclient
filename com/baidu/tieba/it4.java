@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.SeniorLottery;
+import tbclient.FrsPage.PrivateForumShareinfo;
+import tbclient.FrsPage.PrivateForumTotalInfo;
+import tbclient.PrivateForumInfo;
+import tbclient.PrivatePopInfo;
 /* loaded from: classes4.dex */
 public class it4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gs4 a;
-    public List<vq4> b;
-    public List<wq4> c;
-    public List<fs4> d;
+    public PrivatePopInfo a;
+    public PrivateForumInfo b;
+    public Integer c;
 
     public it4() {
         Interceptable interceptable = $ic;
@@ -26,40 +29,44 @@ public class it4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
     }
 
-    public void a(SeniorLottery seniorLottery) {
+    public PrivateForumInfo a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, seniorLottery) == null) || seniorLottery == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (PrivateForumInfo) invokeV.objValue;
+    }
+
+    public Integer b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (Integer) invokeV.objValue;
+    }
+
+    public PrivatePopInfo c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (PrivatePopInfo) invokeV.objValue;
+    }
+
+    public void d(PrivateForumTotalInfo privateForumTotalInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, privateForumTotalInfo) == null) || privateForumTotalInfo == null) {
             return;
         }
-        gs4 gs4Var = new gs4();
-        this.a = gs4Var;
-        gs4Var.a(seniorLottery.theme);
-        this.b = new ArrayList();
-        int size = seniorLottery.award_info.size();
-        for (int i = 0; i < size; i++) {
-            vq4 vq4Var = new vq4();
-            vq4Var.a(seniorLottery.award_info.get(i));
-            this.b.add(vq4Var);
-        }
-        String str = seniorLottery.myaward;
-        this.c = new ArrayList();
-        int size2 = seniorLottery.luck_users.size();
-        for (int i2 = 0; i2 < size2; i2++) {
-            wq4 wq4Var = new wq4();
-            wq4Var.a(seniorLottery.luck_users.get(i2));
-            this.c.add(wq4Var);
-        }
-        String str2 = seniorLottery.act_desc;
-        this.d = new ArrayList();
-        int size3 = seniorLottery.act_regular.size();
-        for (int i3 = 0; i3 < size3; i3++) {
-            fs4 fs4Var = new fs4();
-            fs4Var.a(seniorLottery.act_regular.get(i3));
-            this.d.add(fs4Var);
+        try {
+            PrivateForumShareinfo privateForumShareinfo = privateForumTotalInfo.private_forum_shareinfo;
+            this.b = privateForumTotalInfo.private_forum_info;
+            this.c = privateForumTotalInfo.private_forum_taskpercent;
+            this.a = privateForumTotalInfo.private_forum_popinfo;
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
     }
 }

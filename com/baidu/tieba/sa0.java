@@ -1,269 +1,454 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.feedpage.interfaces.ILiveFeedOther;
-import com.baidu.live.feedpage.interfaces.ILiveFeedPageView;
-import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.feed.search.model.data.LiveErrorInfo;
+import com.baidu.live.feed.search.model.data.LiveSearchHotRankData;
+import com.baidu.live.feed.search.model.data.LiveSearchHotWordListData;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestionsBean;
+import com.baidu.live.feed.search.model.data.RequestSearchData;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import com.baidu.pass.biometrics.face.liveness.PassFaceRecogManager;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.engine.GlideException;
+import com.meizu.cloud.pushsdk.notification.model.ActVideoSetting;
+import java.util.List;
+import java.util.Map;
+import kotlin.Pair;
+import kotlin.TuplesKt;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sa0 implements ILiveFeedPageView {
+public final class sa0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e90 a;
-    public final int b;
-    public boolean c;
+    public boolean a;
+    public AppInfoService b;
+
+    /* loaded from: classes5.dex */
+    public interface a<T> {
+        void onFail(int i, String str);
+
+        void onSuccess(T t);
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b implements wb0<List<? extends LiveRoomEntity>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, List<? extends LiveRoomEntity> list, Map<String, String> map, List<String> list2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, list, map, list2) == null) {
+                if (netResponse != null && netResponse.isSuccessful() && list != null) {
+                    this.a.onSuccess(list);
+                } else if (netResponse == null) {
+                    this.a.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: b */
+        public List<LiveRoomEntity> onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                if (netResponse == null || (str = netResponse.decodedResponseStr) == null) {
+                    return null;
+                }
+                if (!netResponse.isSuccessful()) {
+                    str = null;
+                }
+                if (str != null) {
+                    return LiveSearchHotRankData.parse(str);
+                }
+                return null;
+            }
+            return (List) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c implements wb0<LiveSearchHotWordListData> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sa0 a;
+        public final /* synthetic */ a b;
+
+        public c(sa0 sa0Var, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sa0Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sa0Var;
+            this.b = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, LiveSearchHotWordListData liveSearchHotWordListData, Map<String, String> map, List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, liveSearchHotWordListData, map, list) == null) {
+                this.a.a = false;
+                if (netResponse != null && netResponse.isSuccessful() && liveSearchHotWordListData != null) {
+                    this.b.onSuccess(liveSearchHotWordListData);
+                } else if (netResponse == null) {
+                    this.b.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.b.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: b */
+        public LiveSearchHotWordListData onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                this.a.a = false;
+                if (netResponse == null || (str = netResponse.decodedResponseStr) == null) {
+                    return null;
+                }
+                if (!netResponse.isSuccessful()) {
+                    str = null;
+                }
+                if (str != null) {
+                    LiveSearchHotWordListData liveSearchHotWordListData = new LiveSearchHotWordListData(null, 1, null);
+                    liveSearchHotWordListData.parseJson(str);
+                    return liveSearchHotWordListData;
+                }
+                return null;
+            }
+            return (LiveSearchHotWordListData) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class d implements wb0<SearchResultBean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public d(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, SearchResultBean searchResultBean, Map<String, String> map, List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, searchResultBean, map, list) == null) {
+                if (netResponse != null && netResponse.isSuccessful() && searchResultBean != null) {
+                    this.a.onSuccess(searchResultBean);
+                } else if (netResponse == null) {
+                    this.a.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: b */
+        public SearchResultBean onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                JSONObject jSONObject = null;
+                if (netResponse == null || !netResponse.isSuccessful()) {
+                    return null;
+                }
+                try {
+                    String str = netResponse.decodedResponseStr;
+                    if (str == null) {
+                        str = "";
+                    }
+                    jSONObject = new JSONObject(str);
+                } catch (JSONException unused) {
+                }
+                SearchResultBean searchResultBean = new SearchResultBean();
+                if (jSONObject != null) {
+                    searchResultBean.parse(jSONObject);
+                }
+                return searchResultBean;
+            }
+            return (SearchResultBean) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class e implements wb0<LiveSearchSuggestionsBean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+
+        public e(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, LiveSearchSuggestionsBean liveSearchSuggestionsBean, Map<String, String> map, List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, liveSearchSuggestionsBean, map, list) == null) {
+                if (liveSearchSuggestionsBean != null) {
+                    this.a.onSuccess(liveSearchSuggestionsBean);
+                } else if (netResponse == null) {
+                    this.a.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: b */
+        public LiveSearchSuggestionsBean onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                if (netResponse != null && netResponse.isSuccessful() && netResponse.netErrorCode == 0 && (str = netResponse.decodedResponseStr) != null && !TextUtils.isEmpty(str)) {
+                    JSONObject jSONObject = new JSONObject(str);
+                    LiveSearchSuggestionsBean liveSearchSuggestionsBean = new LiveSearchSuggestionsBean();
+                    liveSearchSuggestionsBean.parse(jSONObject);
+                    LiveErrorInfo liveErrorInfo = liveSearchSuggestionsBean.liveErrorInfo;
+                    if (liveErrorInfo != null && liveErrorInfo.errno == 0) {
+                        return liveSearchSuggestionsBean;
+                    }
+                }
+                return null;
+            }
+            return (LiveSearchSuggestionsBean) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class f implements wb0<Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a a;
+        public final /* synthetic */ boolean b;
+
+        public f(a aVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: a */
+        public void onNetResponse(NetResponse netResponse, Integer num, Map<String, String> map, List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048576, this, netResponse, num, map, list) == null) {
+                if (netResponse != null && !netResponse.isSuccessful()) {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                } else if (num != null && num.intValue() == 0) {
+                    this.a.onSuccess(Boolean.valueOf(this.b));
+                } else if (netResponse == null) {
+                    this.a.onFail(-111, "网络不给力，请稍后重试");
+                } else {
+                    this.a.onFail(netResponse.responseCode, netResponse.exception);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wb0
+        /* renamed from: b */
+        public Integer onParseResponseInBackground(NetResponse netResponse) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netResponse)) == null) {
+                if (netResponse == null || !netResponse.isSuccessful()) {
+                    return null;
+                }
+                String str = netResponse.decodedResponseStr;
+                Intrinsics.checkExpressionValueIsNotNull(str, "res.decodedResponseStr");
+                if (!StringsKt__StringsJVMKt.isBlank(str)) {
+                    int optInt = new JSONObject(netResponse.decodedResponseStr).optInt("errno");
+                    int i = netResponse.netErrorCode;
+                    return Integer.valueOf(optInt);
+                }
+                return null;
+            }
+            return (Integer) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948144551, "Lcom/baidu/tieba/sa0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948144551, "Lcom/baidu/tieba/sa0;");
+        }
+    }
 
     public sa0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = pb0.a().b();
+        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
     }
 
-    public final void a(String str) {
+    public final void b(a<List<LiveRoomEntity>> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            LiveFeedPageSdk.liveLog("LiveFeedPageViewImpl " + str + GlideException.IndentedAppendable.INDENT + this.a);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            Pair[] pairArr = new Pair[3];
+            pairArr[0] = TuplesKt.to("client_type", "2");
+            AppInfoService appInfoService = this.b;
+            pairArr[1] = TuplesKt.to("subapp_version", (appInfoService == null || (r1 = appInfoService.getVersionName()) == null) ? "" : "");
+            pairArr[2] = TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION);
+            xb0.h("https://tiebac.baidu.com/bdlive/room/hot_rank", MapsKt__MapsKt.mapOf(pairArr), new b(aVar), 17, 223, null);
         }
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public void addLiveFeedStatusListener(ILiveFeedOther.LiveFeedStatusListener liveFeedStatusListener) {
-        e90 e90Var;
+    public final void c(a<LiveSearchHotWordListData> aVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, liveFeedStatusListener) == null) || (e90Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) || this.a) {
             return;
         }
-        e90Var.v(liveFeedStatusListener);
+        this.a = true;
+        xb0.h("https://tiebac.baidu.com/bdlive/search/hotWord", MapsKt__MapsKt.mapOf(TuplesKt.to("scene", "tab"), TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION)), new c(this, aVar), 17, 223, null);
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public boolean canSlideDown() {
-        InterceptResult invokeV;
+    public final void d(String str, String str2, a<SearchResultBean> aVar, RequestSearchData requestSearchData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            e90 e90Var = this.a;
-            if (e90Var != null) {
-                return e90Var.w();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, aVar, requestSearchData) == null) {
+            xb0.f("https://tiebac.baidu.com/livefeed/search?", MapsKt__MapsKt.mapOf(TuplesKt.to("scene", "tab"), TuplesKt.to("tab", "rec"), TuplesKt.to("word", str), TuplesKt.to("pn", str2), TuplesKt.to("resource", requestSearchData.resource), TuplesKt.to("refresh_index", requestSearchData.refreshIndex), TuplesKt.to("refresh_type", requestSearchData.refreshType), TuplesKt.to("session_id", requestSearchData.sessionId), TuplesKt.to("upload_ids", requestSearchData.uploadIds), TuplesKt.to("channel_id", requestSearchData.channelId), TuplesKt.to("request_type", requestSearchData.requestType), TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION)), new d(aVar), (r16 & 8) != 0 ? 0 : 17, (r16 & 16) != 0 ? 0 : PassFaceRecogManager.k, (r16 & 32) != 0 ? null : null, (r16 & 64) != 0 ? null : null);
+        }
+    }
+
+    public final void e(String str, a<LiveSearchSuggestionsBean> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, aVar) == null) {
+            xb0.f("https://tiebac.baidu.com/livefeed/search/querysug", MapsKt__MapsKt.mapOf(TuplesKt.to(ActVideoSetting.WIFI_DISPLAY, str), TuplesKt.to("scene", "tab"), TuplesKt.to("sdk_version", LiveFeedPageSdk.LIVE_SDK_VERSION)), new e(aVar), (r16 & 8) != 0 ? 0 : 17, (r16 & 16) != 0 ? 0 : 225, (r16 & 32) != 0 ? null : null, (r16 & 64) != 0 ? null : null);
+        }
+    }
+
+    public final void f(String str, String str2, String str3, String str4, boolean z, String str5, a<Boolean> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, str3, str4, Boolean.valueOf(z), str5, aVar}) == null) {
+            if ((str5.length() > 0) && !StringsKt__StringsJVMKt.startsWith$default(str5, "sv_", false, 2, null)) {
+                str5 = "sv_" + str5;
             }
-            return false;
+            xb0.h(z ? "https://tiebac.baidu.com/bdlive/user/follow" : "https://tiebac.baidu.com/bdlive/user/unfollow", MapsKt__MapsKt.mapOf(TuplesKt.to("uk", str3), TuplesKt.to("third_id", str2), TuplesKt.to("source", "star_live_float_android"), TuplesKt.to("room_id", str), TuplesKt.to("type", str4), TuplesKt.to("nid", str5), TuplesKt.to("scene", "tab")), new f(aVar, z), 17, 112, null);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public boolean canSlideUp() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            e90 e90Var = this.a;
-            if (e90Var != null) {
-                return e90Var.x();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public boolean hasMore() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            e90 e90Var = this.a;
-            if (e90Var != null) {
-                return e90Var.M();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void lazyLoad() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.Q();
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public View onCreateView(FragmentActivity fragmentActivity, Fragment fragment, String str, String str2, String str3, String str4, boolean z) {
-        InterceptResult invokeCommon;
-        FragmentManager supportFragmentManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{fragmentActivity, fragment, str, str2, str3, str4, Boolean.valueOf(z)})) == null) {
-            a("onCreateView hostType:   page: " + str);
-            if (this.a == null) {
-                int i = this.b;
-                if (fragment != null) {
-                    supportFragmentManager = fragment.getChildFragmentManager();
-                } else {
-                    supportFragmentManager = fragmentActivity.getSupportFragmentManager();
-                }
-                this.a = new e90(fragmentActivity, i, supportFragmentManager, str, str2, this.c, str3, str4, z);
-                k90.u(fragmentActivity, "", "zhibopindao");
-            }
-            return this.a.A();
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void onDarkModeChange(String str) {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048583, this, str) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.S(str);
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedRefresh
-    public void onExternalLoadMore(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onLoadMoreListener) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.U(onLoadMoreListener);
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedRefresh
-    public void onExternalRefresh() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048585, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.W(null);
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void onFontSizeChanged(int i) {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048587, this, i) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.X(i);
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedRefresh
-    public void onSelectedRefresh() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void onTabSelectedEvent(String str, String str2) {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048589, this, str, str2) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.d0(str, str2);
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageView
-    public void onUserVisibleHint(boolean z) {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048590, this, z) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.e0(z);
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewCreate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewDestroy() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.T();
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewPause() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.a0();
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewResume() {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048594, this) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.b0();
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedLifecycle
-    public void onViewStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedOther
-    public void setIsHKTopBar(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedRefresh
-    public void onExternalRefresh(ILiveFeedRefresh.OnRefreshListener onRefreshListener) {
-        e90 e90Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, onRefreshListener) == null) || (e90Var = this.a) == null) {
-            return;
-        }
-        e90Var.W(onRefreshListener);
     }
 }

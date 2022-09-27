@@ -22,9 +22,9 @@ import com.baidu.live.business.model.data.ThirdLabelInfo;
 import com.baidu.live.business.util.LiveBaseLottieView;
 import com.baidu.live.business.view.LiveStatusAnimView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dc0;
-import com.baidu.tieba.hc0;
-import com.baidu.tieba.q90;
+import com.baidu.tieba.da0;
+import com.baidu.tieba.qc0;
+import com.baidu.tieba.uc0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -153,38 +153,38 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(hc0.f().a(getContext(), this.c, "color_white2"));
-            gradientDrawable.setCornerRadius(q90.b(getContext(), 10.0f));
+            gradientDrawable.setColor(uc0.f().a(getContext(), this.c, "color_white2"));
+            gradientDrawable.setCornerRadius(da0.b(getContext(), 10.0f));
             setBackgroundDrawable(gradientDrawable);
             SimpleDraweeView simpleDraweeView = this.h;
             if (simpleDraweeView != null) {
-                simpleDraweeView.getHierarchy().setPlaceholderImage(hc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-                this.h.getHierarchy().setFailureImage(hc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+                simpleDraweeView.getHierarchy().setPlaceholderImage(uc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+                this.h.getHierarchy().setFailureImage(uc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
             }
             SimpleDraweeView simpleDraweeView2 = this.i;
             if (simpleDraweeView2 != null) {
-                simpleDraweeView2.getHierarchy().setPlaceholderImage(hc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
-                this.i.getHierarchy().setFailureImage(hc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+                simpleDraweeView2.getHierarchy().setPlaceholderImage(uc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
+                this.i.getHierarchy().setFailureImage(uc0.f().l(this.c), ScalingUtils.ScaleType.FIT_XY);
             }
             TextView textView = this.k;
             if (textView != null) {
-                textView.setTextColor(hc0.f().a(getContext(), this.c, "color_white3"));
+                textView.setTextColor(uc0.f().a(getContext(), this.c, "color_white3"));
             }
             TextView textView2 = this.n;
             if (textView2 != null) {
-                textView2.setTextColor(hc0.f().a(getContext(), this.c, "color_white3"));
+                textView2.setTextColor(uc0.f().a(getContext(), this.c, "color_white3"));
             }
             TextView textView3 = this.l;
             if (textView3 != null) {
-                textView3.setTextColor(hc0.f().a(getContext(), this.c, "color_white3"));
+                textView3.setTextColor(uc0.f().a(getContext(), this.c, "color_white3"));
             }
             TextView textView4 = this.m;
             if (textView4 != null) {
-                textView4.setTextColor(hc0.f().a(getContext(), this.c, "color_white3"));
+                textView4.setTextColor(uc0.f().a(getContext(), this.c, "color_white3"));
             }
             TextView textView5 = this.v;
             if (textView5 != null) {
-                textView5.setTextColor(hc0.f().a(getContext(), this.c, "color_white3"));
+                textView5.setTextColor(uc0.f().a(getContext(), this.c, "color_white3"));
             }
         }
     }
@@ -217,27 +217,27 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                         }
                     }
                 }
-                dc0.h(this.k, 1, 14.0f);
+                qc0.h(this.k, 1, 14.0f);
                 this.k.setText(liveRoomEntity.title);
-                dc0.h(this.n, 1, 14.0f);
+                qc0.h(this.n, 1, 14.0f);
                 LiveHostInfo liveHostInfo = liveRoomEntity.hostInfo;
                 if (liveHostInfo != null) {
                     this.n.setText(liveHostInfo.name);
                     this.i.setImageURI(liveRoomEntity.hostInfo.avatar);
                 }
-                dc0.h(this.l, 1, 10.0f);
-                dc0.h(this.m, 1, 10.0f);
+                qc0.h(this.l, 1, 10.0f);
+                qc0.h(this.m, 1, 10.0f);
                 if (liveRoomEntity.liveStatus == 0) {
                     this.l.setVisibility(8);
                     this.m.setVisibility(0);
                     this.m.setText(liveRoomEntity.formatReserveStartTime());
                 } else {
-                    this.l.setText(q90.a(this.y, liveRoomEntity.audienceCount));
+                    this.l.setText(da0.a(this.y, liveRoomEntity.audienceCount));
                     this.l.setVisibility(0);
                     this.m.setVisibility(8);
                 }
-                this.t.getLayoutParams().height = q90.b(getContext(), 61.0f);
-                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cf3));
+                this.t.getLayoutParams().height = da0.b(getContext(), 61.0f);
+                this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cf5));
                 LiveFeedConfig liveFeedConfig = this.d;
                 if (liveFeedConfig != null && (abSwitchConfig = liveFeedConfig.abSwitchConfig) != null && abSwitchConfig.otherNewStyle) {
                     this.x = true;
@@ -254,8 +254,8 @@ public class Live4Ratio5ItemView extends LiveBaseItemView {
                     this.i.setVisibility(8);
                     this.k.setVisibility(8);
                     this.n.setTypeface(Typeface.defaultFromStyle(1));
-                    this.t.getLayoutParams().height = q90.b(getContext(), 35.0f);
-                    this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ced));
+                    this.t.getLayoutParams().height = da0.b(getContext(), 35.0f);
+                    this.t.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080cef));
                 }
                 RightLableInfo rightLableInfo = liveRoomEntity.rightLabel;
                 if (rightLableInfo != null && rightLableInfo.canShowLabel()) {

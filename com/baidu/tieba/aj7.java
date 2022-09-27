@@ -1,109 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RecommendForumInfo;
+import tbclient.HotForum.HotTopicList;
 /* loaded from: classes3.dex */
-public class aj7 implements Cdo {
+public class aj7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
+    public long a;
     public String b;
-    public String c;
-    public Integer d;
-    public Integer e;
-    public String f;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947617179, "Lcom/baidu/tieba/aj7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947617179, "Lcom/baidu/tieba/aj7;");
-                return;
-            }
-        }
-        g = BdUniqueId.gen();
-    }
+    public int c;
 
     public aj7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public String a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.longValue;
     }
 
-    public Long b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Long) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public String c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public Integer f() {
-        InterceptResult invokeV;
+    public void d(HotTopicList hotTopicList) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : (Integer) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? g : (BdUniqueId) invokeV.objValue;
-    }
-
-    public Integer h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (Integer) invokeV.objValue;
-    }
-
-    public void j(RecommendForumInfo recommendForumInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, recommendForumInfo) == null) {
-            this.c = recommendForumInfo.avatar;
-            this.a = recommendForumInfo.forum_id;
-            this.b = recommendForumInfo.forum_name;
-            this.d = recommendForumInfo.thread_count;
-            this.e = recommendForumInfo.member_count;
-            this.f = recommendForumInfo.slogan;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, hotTopicList) == null) || hotTopicList == null) {
+            return;
         }
+        this.a = hotTopicList.topic_id.longValue();
+        this.b = hotTopicList.topic_name;
+        this.c = hotTopicList.tag.intValue();
     }
 }

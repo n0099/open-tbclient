@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ay4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ez4;
+import com.baidu.tieba.ny4;
+import com.baidu.tieba.rz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class FollowUserDecorView extends FollowUserButton {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId r;
-    public ez4 s;
+    public rz4 s;
     public boolean t;
     public boolean u;
 
@@ -58,15 +58,15 @@ public class FollowUserDecorView extends FollowUserButton {
             if (!this.t || z) {
                 return;
             }
-            ay4 ay4Var = new ay4();
+            ny4 ny4Var = new ny4();
             if (this.u) {
-                ay4Var.i(R.drawable.obfuscated_res_0x7f080950, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                ay4Var.h(R.color.CAM_X0304);
-                ay4Var.g(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
-                ay4Var.f(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+                ny4Var.i(R.drawable.obfuscated_res_0x7f080952, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                ny4Var.h(R.color.CAM_X0304);
+                ny4Var.g(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26));
+                ny4Var.f(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
             }
-            ay4Var.r(R.color.CAM_X0304);
-            setConfig(ay4Var);
+            ny4Var.r(R.color.CAM_X0304);
+            setConfig(ny4Var);
         }
     }
 
@@ -75,9 +75,9 @@ public class FollowUserDecorView extends FollowUserButton {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) {
             if (threadData != null && threadData.getAuthor() != null) {
                 if (this.s == null) {
-                    ez4 ez4Var = new ez4(t(getContext()), this);
-                    this.s = ez4Var;
-                    ez4Var.l(this.r);
+                    rz4 rz4Var = new rz4(t(getContext()), this);
+                    this.s = rz4Var;
+                    rz4Var.l(this.r);
                 }
                 setVisibility(0);
                 this.s.q(true);
@@ -100,9 +100,9 @@ public class FollowUserDecorView extends FollowUserButton {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
             this.r = bdUniqueId;
-            ez4 ez4Var = this.s;
-            if (ez4Var != null) {
-                ez4Var.l(bdUniqueId);
+            rz4 rz4Var = this.s;
+            if (rz4Var != null) {
+                rz4Var.l(bdUniqueId);
             }
         }
     }

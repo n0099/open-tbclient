@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class j44 extends aa3 {
+public class j44 extends m44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int k;
-    public String l;
-    public int m;
-    public int n;
-    public long o;
+    public String b;
+    public int c;
+    public int d;
 
     public j44() {
         Interceptable interceptable = $ic;
@@ -32,26 +30,20 @@ public class j44 extends aa3 {
         }
     }
 
-    @Override // com.baidu.tieba.aa3
-    public JSONObject f() {
+    @Override // com.baidu.tieba.m44
+    public JSONObject a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == null) {
-                this.h = new JSONObject();
-            }
+            JSONObject jSONObject = new JSONObject();
             try {
-                this.h.put("stage", this.k);
-                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
-                this.h.put("netStatus", this.m);
-                this.h.put("touch", this.n);
-                this.h.put("stuck_interval", this.o);
-            } catch (JSONException e) {
-                if (aa3.j) {
-                    e.printStackTrace();
-                }
+                jSONObject.put("url", this.b);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
+                jSONObject.put("net", this.d);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+            } catch (JSONException unused) {
             }
-            return super.f();
+            return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
     }

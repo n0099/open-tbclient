@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class zp3 {
+public class zp3 implements oo1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yp3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized yp3 a() {
-        InterceptResult invokeV;
-        yp3 yp3Var;
+    public zp3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (zp3.class) {
-                if (a == null) {
-                    a = new yp3();
-                }
-                yp3Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return yp3Var;
         }
-        return (yp3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.oo1
+    public zi4 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new yp3() : (zi4) invokeV.objValue;
     }
 }

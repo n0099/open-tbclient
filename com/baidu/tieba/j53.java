@@ -1,31 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c33;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.mcssdk.PushManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class j53 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j53(b33 b33Var) {
-        super(b33Var);
+    public j53(i43 i43Var) {
+        super(i43Var, "/swanAPI/checkAppInstalled");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {b33Var};
+            Object[] objArr = {i43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((b33) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -34,44 +43,44 @@ public class j53 extends i53 {
     }
 
     @Override // com.baidu.tieba.i53
-    public void I(String str) {
-        String str2;
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && M() && (str2 = this.d) != null && str2.equals(str)) {
-            x23 K = x23.K();
-            if (K.E()) {
-                if (K.q().n0()) {
-                    K.n("flag_finish_activity", "flag_remove_task");
-                    return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            JSONObject a = i53.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal parameter");
+                l02.i("SwanCheckAppInstalledAction", "params parse error");
+                return false;
+            }
+            String optString = a.optString("name");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "parameter error");
+                l02.i("SwanCheckAppInstalledAction", "packageName empty");
+                return false;
+            }
+            PackageInfo packageInfo = null;
+            try {
+                packageInfo = context.getPackageManager().getPackageInfo(optString, 0);
+            } catch (PackageManager.NameNotFoundException e) {
+                l02.d("SwanCheckAppInstalledAction", e.getMessage(), e);
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                if (packageInfo != null) {
+                    jSONObject.put("hasApp", true);
+                    jSONObject.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
+                    jSONObject.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
+                } else {
+                    jSONObject.put("hasApp", false);
                 }
-                re3 re3Var = new re3();
-                re3Var.k(10L);
-                re3Var.i(2107L);
-                re3Var.d("app forbidden");
-                e33.y0(va4.i().u(str), fm2.c(), K.q().W(), false, null, re3Var);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success"));
+            } catch (JSONException e2) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, e2.getMessage());
+                l02.d("SwanCheckAppInstalledAction", e2.getMessage(), e2);
             }
+            return true;
         }
-    }
-
-    public boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (y23.b0() == null || this.b == 0) ? false : true : invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rh3
-    /* renamed from: N */
-    public void a(c33.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            if (kz2.J(aVar.D(), "swan_forbidden_kill_on_client")) {
-                this.b = aVar.j("ipc_forbidden_flag", 1);
-                this.d = aVar.o("mAppId", x23.K().getAppId());
-            }
-            if (kz2.J(aVar.D(), "swan_kill_to_client")) {
-                x23.K().n("flag_finish_activity", "flag_remove_task");
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 }

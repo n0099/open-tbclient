@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.my4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -120,10 +120,10 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
         gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
         gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
         setBackgroundDrawable(gradientDrawable);
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092216);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f092218);
         this.a = textView;
         if (textView != null) {
-            uu4 d = uu4.d(textView);
+            hv4 d = hv4.d(textView);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X05);
             d.A(R.string.F_X02);
@@ -131,20 +131,20 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
         TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f0907a3);
         this.b = textView2;
         if (textView2 != null) {
-            uu4 d2 = uu4.d(textView2);
+            hv4 d2 = hv4.d(textView2);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.T_X07);
             d2.A(R.string.F_X01);
         }
         this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0908ac);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b19);
-        this.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08090d));
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b1b);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b1b);
+        this.c.setImageDrawable(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08090f));
+        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091b1d);
         this.e = tBSpecificationBtn;
         if (tBSpecificationBtn != null) {
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
             this.e.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0f72));
-            this.e.setConfig(new zx4());
+            this.e.setConfig(new my4());
         }
         this.f = skinType;
     }

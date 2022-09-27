@@ -13,16 +13,16 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
 import com.baidu.tieba.by;
+import com.baidu.tieba.i26;
 import com.baidu.tieba.ix;
 import com.baidu.tieba.iy;
 import com.baidu.tieba.ky;
-import com.baidu.tieba.lq4;
 import com.baidu.tieba.lx;
 import com.baidu.tieba.px;
 import com.baidu.tieba.ry;
 import com.baidu.tieba.sy;
 import com.baidu.tieba.ty;
-import com.baidu.tieba.v16;
+import com.baidu.tieba.yq4;
 import com.baidu.tieba.yy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class ThreadCardViewHolder<T extends lq4> extends TypeAdapter.ViewHolder {
+public class ThreadCardViewHolder<T extends yq4> extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
@@ -181,10 +181,10 @@ public class ThreadCardViewHolder<T extends lq4> extends TypeAdapter.ViewHolder 
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b.j() : (View) invokeV.objValue;
     }
 
-    public void h(v16<T> v16Var) {
+    public void h(i26<T> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v16Var) == null) {
-            this.b.p(v16Var);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i26Var) == null) {
+            this.b.p(i26Var);
         }
     }
 

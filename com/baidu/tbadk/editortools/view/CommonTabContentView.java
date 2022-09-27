@@ -15,7 +15,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g75;
+import com.baidu.tieba.t75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -156,10 +156,10 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         public transient /* synthetic */ FieldHolder $fh;
         public final int a;
         public final int b;
-        public g75.a c;
+        public t75.a c;
         public final /* synthetic */ CommonTabContentView d;
 
-        public b(CommonTabContentView commonTabContentView, Context context, int i, int i2, g75.a aVar) {
+        public b(CommonTabContentView commonTabContentView, Context context, int i, int i2, t75.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -244,11 +244,11 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e8, (ViewGroup) this, true);
-            ViewPager viewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091aa1);
+            ViewPager viewPager = (ViewPager) findViewById(R.id.obfuscated_res_0x7f091aa3);
             this.a = viewPager;
             viewPager.setFadingEdgeLength(0);
             this.a.setOnPageChangeListener(this);
-            this.b = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f091a9f);
+            this.b = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f091aa1);
         }
     }
 
@@ -264,14 +264,14 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         }
     }
 
-    public void e(g75 g75Var) {
+    public void e(t75 t75Var) {
         GridView gridView;
         int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g75Var) == null) || g75Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t75Var) == null) || t75Var == null) {
             return;
         }
-        int c2 = g75Var.c();
+        int c2 = t75Var.c();
         if (this.a.getChildCount() > 0 && this.c == c2) {
             for (int i2 = 0; i2 < this.a.getChildCount(); i2++) {
                 View childAt = this.a.getChildAt(i2);
@@ -283,8 +283,8 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         }
         this.a.setAdapter(null);
         this.c = c2;
-        int b2 = g75Var.b();
-        int k = g75Var.k();
+        int b2 = t75Var.b();
+        int k = t75Var.k();
         if (c2 == 0 || b2 == 0 || k == 0) {
             return;
         }
@@ -302,21 +302,21 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
         } else {
             this.b.setVisibility(4);
         }
-        this.g = g75Var.g();
+        this.g = t75Var.g();
         ArrayList arrayList = new ArrayList();
         for (int i6 = 0; i6 < i5; i6++) {
-            if (g75Var.d() == 0) {
+            if (t75Var.d() == 0) {
                 gridView = new GridView(getContext());
-                gridView.setVerticalSpacing(g75Var.l());
+                gridView.setVerticalSpacing(t75Var.l());
                 gridView.setGravity(17);
-                gridView.setHorizontalSpacing(g75Var.e());
-                if (g75Var.i() != 0 || g75Var.j() != 0) {
-                    gridView.setPadding(g75Var.i(), 0, g75Var.j(), 0);
+                gridView.setHorizontalSpacing(t75Var.e());
+                if (t75Var.i() != 0 || t75Var.j() != 0) {
+                    gridView.setPadding(t75Var.i(), 0, t75Var.j(), 0);
                 }
                 gridView.setSelector(R.color.common_color_10022);
                 gridView.setSelection(-1);
             } else {
-                gridView = (GridView) LayoutInflater.from(getContext()).inflate(g75Var.d(), (ViewGroup) null);
+                gridView = (GridView) LayoutInflater.from(getContext()).inflate(t75Var.d(), (ViewGroup) null);
             }
             GridView gridView2 = gridView;
             if (this.g != null) {
@@ -329,7 +329,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
             } else {
                 i = c2 - (this.e * i7);
             }
-            gridView2.setAdapter((ListAdapter) new b(this, getContext(), i, i6 * this.e, g75Var.m()));
+            gridView2.setAdapter((ListAdapter) new b(this, getContext(), i, i6 * this.e, t75Var.m()));
             arrayList.add(gridView2);
         }
         CommonViewPagerAdapter commonViewPagerAdapter = new CommonViewPagerAdapter(this, arrayList);

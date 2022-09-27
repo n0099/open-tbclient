@@ -1,12 +1,12 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dx9;
-import com.baidu.tieba.i1a;
+import com.baidu.tieba.ay9;
+import com.baidu.tieba.fx9;
+import com.baidu.tieba.hx9;
 import com.baidu.tieba.lx9;
-import com.baidu.tieba.qw9;
-import com.baidu.tieba.sw9;
-import com.baidu.tieba.ww9;
+import com.baidu.tieba.sx9;
+import com.baidu.tieba.x1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,24 +20,24 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import rx.subjects.UnicastSubject;
 /* loaded from: classes9.dex */
-public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implements dx9 {
+public final class OperatorWindowWithSize$WindowOverlap<T> extends lx9<T> implements sx9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ww9<? super qw9<T>> e;
+    public final lx9<? super fx9<T>> e;
     public final int f;
     public final int g;
     public final AtomicInteger h;
-    public final ArrayDeque<i1a<T, T>> i;
+    public final ArrayDeque<x1a<T, T>> i;
     public final AtomicLong j;
     public final AtomicInteger k;
-    public final Queue<i1a<T, T>> l;
+    public final Queue<x1a<T, T>> l;
     public Throwable m;
     public volatile boolean n;
     public int o;
     public int p;
 
     /* loaded from: classes9.dex */
-    public final class WindowOverlapProducer extends AtomicBoolean implements sw9 {
+    public final class WindowOverlapProducer extends AtomicBoolean implements hx9 {
         public static /* synthetic */ Interceptable $ic = null;
         public static final long serialVersionUID = 4625807964358024108L;
         public transient /* synthetic */ FieldHolder $fh;
@@ -61,7 +61,7 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implem
             this.this$0 = operatorWindowWithSize$WindowOverlap;
         }
 
-        @Override // com.baidu.tieba.sw9
+        @Override // com.baidu.tieba.hx9
         public void request(long j) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -71,18 +71,18 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implem
                 } else if (i != 0) {
                     OperatorWindowWithSize$WindowOverlap operatorWindowWithSize$WindowOverlap = this.this$0;
                     if (!get() && compareAndSet(false, true)) {
-                        operatorWindowWithSize$WindowOverlap.e(lx9.a(lx9.c(operatorWindowWithSize$WindowOverlap.g, j - 1), operatorWindowWithSize$WindowOverlap.f));
+                        operatorWindowWithSize$WindowOverlap.e(ay9.a(ay9.c(operatorWindowWithSize$WindowOverlap.g, j - 1), operatorWindowWithSize$WindowOverlap.f));
                     } else {
-                        this.this$0.e(lx9.c(operatorWindowWithSize$WindowOverlap.g, j));
+                        this.this$0.e(ay9.c(operatorWindowWithSize$WindowOverlap.g, j));
                     }
-                    lx9.b(operatorWindowWithSize$WindowOverlap.j, j);
+                    ay9.b(operatorWindowWithSize$WindowOverlap.j, j);
                     operatorWindowWithSize$WindowOverlap.j();
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.dx9
+    @Override // com.baidu.tieba.sx9
     public void call() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.h.decrementAndGet() == 0) {
@@ -90,21 +90,21 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implem
         }
     }
 
-    public boolean i(boolean z, boolean z2, ww9<? super i1a<T, T>> ww9Var, Queue<i1a<T, T>> queue) {
+    public boolean i(boolean z, boolean z2, lx9<? super x1a<T, T>> lx9Var, Queue<x1a<T, T>> queue) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), ww9Var, queue})) == null) {
-            if (ww9Var.isUnsubscribed()) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), lx9Var, queue})) == null) {
+            if (lx9Var.isUnsubscribed()) {
                 queue.clear();
                 return true;
             } else if (z) {
                 Throwable th = this.m;
                 if (th != null) {
                     queue.clear();
-                    ww9Var.onError(th);
+                    lx9Var.onError(th);
                     return true;
                 } else if (z2) {
-                    ww9Var.onCompleted();
+                    lx9Var.onCompleted();
                     return true;
                 } else {
                     return false;
@@ -126,8 +126,8 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implem
             if (atomicInteger.getAndIncrement() != 0) {
                 return;
             }
-            ww9<? super qw9<T>> ww9Var = this.e;
-            Queue<i1a<T, T>> queue = this.l;
+            lx9<? super fx9<T>> lx9Var = this.e;
+            Queue<x1a<T, T>> queue = this.l;
             int i2 = 1;
             do {
                 long j = this.j.get();
@@ -138,18 +138,18 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implem
                         break;
                     }
                     boolean z = this.n;
-                    i1a<T, T> poll = queue.poll();
+                    x1a<T, T> poll = queue.poll();
                     boolean z2 = poll == null;
-                    if (i(z, z2, ww9Var, queue)) {
+                    if (i(z, z2, lx9Var, queue)) {
                         return;
                     }
                     if (z2) {
                         break;
                     }
-                    ww9Var.onNext(poll);
+                    lx9Var.onNext(poll);
                     j2++;
                 }
-                if (i == 0 && i(this.n, queue.isEmpty(), ww9Var, queue)) {
+                if (i == 0 && i(this.n, queue.isEmpty(), lx9Var, queue)) {
                     return;
                 }
                 if (j2 != 0 && j != Long.MAX_VALUE) {
@@ -160,11 +160,11 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implem
         }
     }
 
-    @Override // com.baidu.tieba.rw9
+    @Override // com.baidu.tieba.gx9
     public void onCompleted() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Iterator<i1a<T, T>> it = this.i.iterator();
+            Iterator<x1a<T, T>> it = this.i.iterator();
             while (it.hasNext()) {
                 it.next().onCompleted();
             }
@@ -174,11 +174,11 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implem
         }
     }
 
-    @Override // com.baidu.tieba.rw9
+    @Override // com.baidu.tieba.gx9
     public void onError(Throwable th) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, th) == null) {
-            Iterator<i1a<T, T>> it = this.i.iterator();
+            Iterator<x1a<T, T>> it = this.i.iterator();
             while (it.hasNext()) {
                 it.next().onError(th);
             }
@@ -189,12 +189,12 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implem
         }
     }
 
-    @Override // com.baidu.tieba.rw9
+    @Override // com.baidu.tieba.gx9
     public void onNext(T t) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, t) == null) {
             int i = this.o;
-            ArrayDeque<i1a<T, T>> arrayDeque = this.i;
+            ArrayDeque<x1a<T, T>> arrayDeque = this.i;
             if (i == 0 && !this.e.isUnsubscribed()) {
                 this.h.getAndIncrement();
                 UnicastSubject D = UnicastSubject.D(16, this);
@@ -202,14 +202,14 @@ public final class OperatorWindowWithSize$WindowOverlap<T> extends ww9<T> implem
                 this.l.offer(D);
                 j();
             }
-            Iterator<i1a<T, T>> it = this.i.iterator();
+            Iterator<x1a<T, T>> it = this.i.iterator();
             while (it.hasNext()) {
                 it.next().onNext(t);
             }
             int i2 = this.p + 1;
             if (i2 == this.f) {
                 this.p = i2 - this.g;
-                i1a<T, T> poll = arrayDeque.poll();
+                x1a<T, T> poll = arrayDeque.poll();
                 if (poll != null) {
                     poll.onCompleted();
                 }

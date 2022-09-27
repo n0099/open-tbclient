@@ -3,8 +3,8 @@ package com.baidu.tieba.im.message;
 import com.baidu.adp.framework.message.SocketMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.websockt.TbSocketMessage;
+import com.baidu.tieba.fb7;
 import com.baidu.tieba.ma;
-import com.baidu.tieba.ra7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class RequestPersonalMsgReadMessage extends TbSocketMessage implements ma
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                builder.groupId = ra7.j;
+                builder.groupId = fb7.j;
                 builder.msgType = 22;
                 builder.msgId = Long.valueOf(this.hasSentMsgId);
                 builder.toUid = Long.valueOf(this.toUid);

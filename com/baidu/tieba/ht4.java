@@ -1,69 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GeneralResource;
 /* loaded from: classes4.dex */
-public class ht4 extends BaseCardInfo {
+public class ht4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835233, "Lcom/baidu/tieba/ht4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947835233, "Lcom/baidu/tieba/ht4;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-    }
+    public View a;
+    public View b;
+    public View c;
+    public View d;
+    public View e;
+    public View f;
+    public View g;
+    public View h;
+    public View i;
+    public View j;
+    public View k;
+    public View l;
+    public View m;
+    public View n;
+    public View o;
+    public View p;
+    public View q;
+    public View r;
+    public View s;
 
     public ht4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public void c(GeneralResource generalResource) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, generalResource) == null) || generalResource == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
+            this.f = null;
+            this.g = null;
+            this.h = null;
+            this.i = null;
+            this.k = null;
+            this.l = null;
+            this.m = null;
+            this.n = null;
+            this.o = null;
+            this.p = null;
+            this.q = null;
+            this.r = null;
+            this.s = null;
         }
-        this.a = generalResource.res_image;
-        this.b = generalResource.res_link;
-        this.c = generalResource.res_floor.intValue();
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 }

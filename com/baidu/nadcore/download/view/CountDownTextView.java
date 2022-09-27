@@ -12,13 +12,13 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jl0;
+import com.baidu.tieba.wl0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class CountDownTextView extends LinearLayout implements jl0 {
+public class CountDownTextView extends LinearLayout implements wl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -46,7 +46,7 @@ public class CountDownTextView extends LinearLayout implements jl0 {
         }
     }
 
-    @Override // com.baidu.tieba.jl0
+    @Override // com.baidu.tieba.wl0
     public void a(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
@@ -54,7 +54,7 @@ public class CountDownTextView extends LinearLayout implements jl0 {
         }
     }
 
-    @Override // com.baidu.tieba.jl0
+    @Override // com.baidu.tieba.wl0
     public void b(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -62,7 +62,7 @@ public class CountDownTextView extends LinearLayout implements jl0 {
         }
     }
 
-    @Override // com.baidu.tieba.jl0
+    @Override // com.baidu.tieba.wl0
     public void c(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -79,7 +79,7 @@ public class CountDownTextView extends LinearLayout implements jl0 {
         }
     }
 
-    @Override // com.baidu.tieba.jl0
+    @Override // com.baidu.tieba.wl0
     public void onProgress(long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {

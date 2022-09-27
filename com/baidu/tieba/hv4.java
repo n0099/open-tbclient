@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.Direction;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,141 +16,401 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class hv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public Drawable b;
 
     /* loaded from: classes4.dex */
-    public static class a extends ob {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ hv4 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
+        public a(hv4 hv4Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
+                Object[] objArr = {hv4Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.b = hv4Var;
+            this.a = i;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jb
-        public SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-            InterceptResult invokeLL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
-                if (socketMessage == null || socketMessage.getSelf() == null || !(socketMessage.getSelf() instanceof NetMessage) || f35.a().c(socketMessage.getCmd())) {
-                    return socketMessage;
-                }
-                ((NetMessage) socketMessage.getSelf()).setSocketErrNo(f35.a().b());
-                return null;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hv4 hv4Var = this.b;
+                hv4Var.b = fv4.C(hv4Var.b, this.a, this.b.a.getMeasuredHeight());
+                this.b.a.setBackgroundDrawable(this.b.b);
             }
-            return (SocketMessage) invokeLL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b extends nb {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ hv4 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(int i) {
-            super(i);
+        public b(hv4 hv4Var, int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
+                Object[] objArr = {hv4Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.c = hv4Var;
+            this.a = i;
+            this.b = i2;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-        @Override // com.baidu.tieba.kb
-        public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-            SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-            c(socketResponsedMessage2);
-            return socketResponsedMessage2;
-        }
-
-        public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-                if (socketResponsedMessage != null) {
-                    f35.a().e(socketResponsedMessage.getCmd());
-                }
-                return socketResponsedMessage;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hv4 hv4Var = this.c;
+                hv4Var.b = fv4.D(hv4Var.b, this.a, this.b, this.c.a.getMeasuredHeight());
+                this.c.a.setBackgroundDrawable(this.c.b);
             }
-            return (SocketResponsedMessage) invokeL.objValue;
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getData() == null || !(customResponsedMessage.getData() instanceof Integer)) {
+    public hv4(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            f35.a().d(((Integer) customResponsedMessage.getData()).intValue());
         }
+        this.a = view2;
+        this.b = fv4.d(view2);
     }
 
-    public static void a() {
+    public static hv4 d(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            a aVar = new a(0);
-            aVar.setPriority(Integer.MIN_VALUE);
-            MessageManager.getInstance().addMessageRule(aVar);
-            MessageManager.getInstance().addResponsedMessageRule(new b(0));
-            c cVar = new c(2000999);
-            cVar.setPriority(Integer.MIN_VALUE);
-            MessageManager.getInstance().registerListener(cVar);
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2)) == null) ? new hv4(view2) : (hv4) invokeL.objValue;
+    }
+
+    public hv4 A(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            View view2 = this.a;
+            if (view2 instanceof TextView) {
+                ((TextView) view2).setTypeface(fv4.H(fv4.E(i)));
+                return this;
+            }
+            return this;
         }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (this.a == null) {
+                return this;
+            }
+            this.b = fv4.b(this.b, i);
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public void f(int i) {
+        Drawable i2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.a == null || (i2 = fv4.i(this.b, i)) == null) {
+            return;
+        }
+        this.b = i2;
+        this.a.setBackgroundDrawable(i2);
+    }
+
+    public void g(int i) {
+        Drawable w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || this.a == null || (w = fv4.w(this.b, i)) == null) {
+            return;
+        }
+        this.b = w;
+        this.a.setBackgroundDrawable(w);
+    }
+
+    public void h(int i) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048580, this, i) == null) || (view2 = this.a) == null) {
+            return;
+        }
+        view2.post(new a(this, i));
+    }
+
+    public void i(int i, int i2) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) || (view2 = this.a) == null) {
+            return;
+        }
+        view2.post(new b(this, i, i2));
+    }
+
+    public hv4 j(int i) {
+        InterceptResult invokeI;
+        Drawable e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            if (this.a == null || (e = fv4.e(this.b, i)) == null) {
+                return this;
+            }
+            this.b = e;
+            this.a.setBackgroundDrawable(e);
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 k(int i) {
+        InterceptResult invokeI;
+        Drawable f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            if (this.a == null || (f = fv4.f(this.b, i)) == null) {
+                return this;
+            }
+            this.b = f;
+            this.a.setBackgroundDrawable(f);
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            if (this.a == null) {
+                return this;
+            }
+            this.b = fv4.g(this.b, i);
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            if (this.a == null) {
+                return this;
+            }
+            this.b = fv4.l(this.b, i);
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            if (this.a == null) {
+                return this;
+            }
+            this.b = fv4.k(this.b, i);
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public void o(int[] iArr) {
+        Drawable p;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048587, this, iArr) == null) || this.a == null || (p = fv4.p(this.b, Direction.BOTTOM, iArr)) == null) {
+            return;
+        }
+        this.b = p;
+        this.a.setBackgroundDrawable(p);
+    }
+
+    public void p(int[] iArr, Direction direction) {
+        Drawable p;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048588, this, iArr, direction) == null) || this.a == null || (p = fv4.p(this.b, direction, iArr)) == null) {
+            return;
+        }
+        this.b = p;
+        this.a.setBackgroundDrawable(p);
+    }
+
+    public hv4 q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            View view2 = this.a;
+            if (view2 == null) {
+                return this;
+            }
+            view2.setLayerType(i, null);
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 r(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            View view2 = this.a;
+            if (view2 instanceof TextView) {
+                ((TextView) view2).setLinkTextColor(fv4.h(i));
+                return this;
+            }
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public void s(int i) {
+        Drawable t;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048591, this, i) == null) || this.a == null || (t = fv4.t(this.b, fv4.F(i))) == null) {
+            return;
+        }
+        this.b = t;
+        this.a.setBackgroundDrawable(t);
+    }
+
+    public hv4 t(int i) {
+        InterceptResult invokeI;
+        Drawable v;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            if (this.a == null || (v = fv4.v(this.b, i)) == null) {
+                return this;
+            }
+            this.b = v;
+            this.a.setBackgroundDrawable(v);
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 u(int i) {
+        InterceptResult invokeI;
+        Drawable A;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+            View view2 = this.a;
+            if (view2 == null || (A = fv4.A(view2, this.b, fv4.F(i))) == null) {
+                return this;
+            }
+            this.b = A;
+            this.a.setBackgroundDrawable(A);
+            q(1);
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
+            View view2 = this.a;
+            if (view2 instanceof TextView) {
+                ((TextView) view2).setTextColor(fv4.h(i));
+                return this;
+            }
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 w(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            View view2 = this.a;
+            if (view2 instanceof EMTextView) {
+                ((EMTextView) view2).setLineSpacing(fv4.m(i), ((EMTextView) this.a).getLineSpacingMultiplier());
+                return this;
+            }
+            throw new ClassCastException("When setting line spacing, use EMTextView to ensure UI effect.");
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 x(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            View view2 = this.a;
+            if (view2 instanceof TextView) {
+                ((TextView) view2).setTextColor(fv4.G(i));
+                return this;
+            }
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 y(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            if (this.a instanceof TextView) {
+                float[] B = fv4.B(i);
+                ((TextView) this.a).setShadowLayer(B[1], B[2], B[3], (int) B[0]);
+                return this;
+            }
+            return this;
+        }
+        return (hv4) invokeI.objValue;
+    }
+
+    public hv4 z(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            View view2 = this.a;
+            if (view2 instanceof TextView) {
+                ((TextView) view2).setTextSize(0, fv4.m(i));
+                return this;
+            }
+            return this;
+        }
+        return (hv4) invokeI.objValue;
     }
 }

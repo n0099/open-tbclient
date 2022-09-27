@@ -61,7 +61,7 @@ public class bg {
         public XMPushService f930a;
 
         /* renamed from: a  reason: collision with other field name */
-        public final C0714b f931a;
+        public final C0710b f931a;
 
         /* renamed from: a  reason: collision with other field name */
         public c f932a;
@@ -99,7 +99,7 @@ public class bg {
 
         /* renamed from: com.xiaomi.push.service.bg$b$b  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public class C0714b extends XMPushService.j {
+        public class C0710b extends XMPushService.j {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ b a;
@@ -113,7 +113,7 @@ public class bg {
             public int c;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0714b(b bVar) {
+            public C0710b(b bVar) {
                 super(0);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -229,7 +229,7 @@ public class bg {
             this.f938b = false;
             this.f929a = new XMPushService.c(this);
             this.f927a = null;
-            this.f931a = new C0714b(this);
+            this.f931a = new C0710b(this);
         }
 
         public b(XMPushService xMPushService) {
@@ -254,7 +254,7 @@ public class bg {
             this.f938b = false;
             this.f929a = new XMPushService.c(this);
             this.f927a = null;
-            this.f931a = new C0714b(this);
+            this.f931a = new C0710b(this);
             this.f930a = xMPushService;
             a(new bh(this));
         }

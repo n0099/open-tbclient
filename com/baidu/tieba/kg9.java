@@ -1,79 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
 public class kg9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947912268, "Lcom/baidu/tieba/kg9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947912268, "Lcom/baidu/tieba/kg9;");
-                return;
-            }
-        }
-        a = new char[]{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-    }
-
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static double a(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
+            if (byteBuffer == null || i == 0) {
+                return 0.0d;
             }
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(a[(bArr[i] & 240) >>> 4]);
-                sb.append(a[bArr[i] & 15]);
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            byte[] bArr = new byte[i];
+            byteBuffer.get(bArr);
+            byteBuffer.position(i);
+            byteBuffer.flip();
+            double d = 0.0d;
+            for (int i2 = 0; i2 < i; i2 += 2) {
+                int i3 = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8);
+                if (i3 >= 32768) {
+                    i3 = 65535 - i3;
+                }
+                d += i3 * i3;
             }
-            return sb.toString();
+            double d2 = (d / i) / 2.0d;
+            return Math.abs(d2 > 0.0d ? Math.log10(d2) * 10.0d : 0.0d);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                return c(str.getBytes("UTF-8"));
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(bArr);
-                return a(messageDigest.digest());
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
+        return invokeLI.doubleValue;
     }
 }

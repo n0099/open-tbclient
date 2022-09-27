@@ -223,8 +223,8 @@ public class co {
                 if (B instanceof BaseCardInfo) {
                     return ((BaseCardInfo) B).position;
                 }
-                if (B instanceof zr4) {
-                    return ((zr4) B).i();
+                if (B instanceof ms4) {
+                    return ((ms4) B).i();
                 }
             }
             return -1;
@@ -249,7 +249,7 @@ public class co {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i > 0) {
-                return eg5.p(this.a.B(i - this.a.getHeaderViewsCount()));
+                return rg5.p(this.a.B(i - this.a.getHeaderViewsCount()));
             }
             return false;
         }

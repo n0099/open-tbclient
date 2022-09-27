@@ -1,22 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class dj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
+    public static final ConcurrentHashMap<String, String> f;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public String c;
+    public JSONObject d;
+    public List<ti4> e;
 
     static {
         InterceptResult invokeClinit;
@@ -31,70 +42,113 @@ public class dj4 {
                 return;
             }
         }
-        a = Arrays.asList("TAH-AN00", "TET-AN00");
+        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
+        f = concurrentHashMap;
+        concurrentHashMap.put("1415", "66");
     }
 
-    public static int a(Activity activity) {
-        InterceptResult invokeL;
+    public dj4(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            double b = b(activity) * 0.5199999809265137d;
-            if (b < 1148.0d) {
-                return 1148;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return (int) b;
         }
-        return invokeL.intValue;
+        this.e = new ArrayList();
+        this.c = str;
+        this.d = jSONObject;
     }
 
-    public static double b(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (c(activity)) {
-                DisplayMetrics displayMetrics = new DisplayMetrics();
-                activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-                return displayMetrics.widthPixels;
-            }
-            return 0.0d;
-        }
-        return invokeL.doubleValue;
-    }
-
-    public static boolean c(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) ? (activity == null || activity.isDestroyed() || activity.isFinishing()) ? false : true : invokeL.booleanValue;
-    }
-
-    public static boolean d() {
+    public List<ti4> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String str = Build.MANUFACTURER;
-            String str2 = Build.MODEL;
-            if (TextUtils.equals("HUAWEI", str) && !TextUtils.isEmpty(str2)) {
-                for (String str3 : a) {
-                    if (str2.contains(str3)) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (List) invokeV.objValue;
     }
 
-    public static boolean e(Activity activity) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            activity.getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-            double d = displayMetrics.widthPixels;
-            double d2 = displayMetrics.heightPixels;
-            return (d == 0.0d || d2 == 0.0d || d2 / d >= 1.5d) ? false : true;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public boolean e() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                JSONObject jSONObject = this.d;
+                this.a = jSONObject.getInt("threshold");
+                this.b = jSONObject.getInt("timeup");
+                JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
+                    String string = jSONObject2.getString("ubcid");
+                    if (TextUtils.isEmpty(string) || !f.containsKey(string)) {
+                        str = string;
+                    } else {
+                        String optString = jSONObject2.optString("bizid");
+                        f.get(string);
+                        str = optString;
+                    }
+                    String string2 = jSONObject2.getString(SetImageWatermarkTypeReqMsg.SWITCH);
+                    String string3 = jSONObject2.getString(Constant.IS_REAL);
+                    String string4 = jSONObject2.getString("isAbtest");
+                    int parseInt = Integer.parseInt(jSONObject2.getString("timeout"));
+                    String string5 = jSONObject2.getString("type");
+                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
+                        ti4 ti4Var = new ti4(str, string2, string3, parseInt, string5, string4);
+                        if (jSONObject2.has("rate")) {
+                            ti4Var.g = Integer.parseInt(jSONObject2.getString("rate"));
+                        }
+                        if (jSONObject2.has("bizid")) {
+                            jSONObject2.getString("bizid");
+                        }
+                        if (jSONObject2.has("c")) {
+                            ti4Var.h = jSONObject2.getString("c");
+                        }
+                        if (jSONObject2.has("limitUnit")) {
+                            ti4Var.i = Integer.parseInt(jSONObject2.getString("limitUnit"));
+                        }
+                        if (jSONObject2.has("limitCnt")) {
+                            ti4Var.j = Integer.parseInt(jSONObject2.getString("limitCnt"));
+                        }
+                        if (jSONObject2.has(Constant.ID_TYPE)) {
+                            ti4Var.k = jSONObject2.getString(Constant.ID_TYPE);
+                        }
+                        if (jSONObject2.has("appblacklist")) {
+                            jSONObject2.getString("appblacklist");
+                        }
+                        this.e.add(ti4Var);
+                    }
+                }
+                return true;
+            } catch (NumberFormatException | JSONException unused) {
+                return false;
+            }
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

@@ -31,11 +31,11 @@ import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lo4;
-import com.baidu.tieba.lx4;
-import com.baidu.tieba.mx4;
+import com.baidu.tieba.jk8;
 import com.baidu.tieba.rb;
-import com.baidu.tieba.uj8;
+import com.baidu.tieba.yo4;
+import com.baidu.tieba.yx4;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,14 +63,14 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
     public boolean mHasMore;
     public boolean mIsLoading;
     public CustomMessageListener mLikeForumListener;
-    public uj8 mListAdapter;
+    public jk8 mListAdapter;
     public final List<ForumSpaceForumInfo> mListData;
     public View mListFooter;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
     public int mPageNum;
     public int mPageType;
-    public mx4 mPullView;
+    public zx4 mPullView;
     public View mRootView;
     public CustomMessageListener mUnlikeForumListener;
 
@@ -292,13 +292,13 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
                     TiebaStatic.log("c10585");
                     str = SquareForumListActivity.RULE_URL_NEW;
                 }
-                lo4.o(this.a.getBaseContext(), str);
+                yo4.o(this.a.getBaseContext(), str);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements lx4.g {
+    public class f implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareForumListActivity a;
@@ -321,7 +321,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             this.a = squareForumListActivity;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -411,7 +411,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d07ea);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091f41);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f091f43);
             int i = this.mPageType == 1 ? R.string.obfuscated_res_0x7f0f11ee : R.string.obfuscated_res_0x7f0f11ef;
             e eVar = new e(this);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091657);
@@ -419,7 +419,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(i));
             this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.obfuscated_res_0x7f0f08a7), eVar);
-            this.mPullView = new mx4(getPageContext());
+            this.mPullView = new zx4(getPageContext());
             BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f090a87);
             this.mForumListView = bdListView;
             bdListView.setPullRefresh(this.mPullView);
@@ -433,9 +433,9 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             this.mListFooter.setOnClickListener(new g(this));
             this.mForumListView.addFooterView(this.mListFooter);
             this.mListFooter.setVisibility(8);
-            uj8 uj8Var = new uj8(getPageContext(), this.mPageType);
-            this.mListAdapter = uj8Var;
-            this.mForumListView.setAdapter((ListAdapter) uj8Var);
+            jk8 jk8Var = new jk8(getPageContext(), this.mPageType);
+            this.mListAdapter = jk8Var;
+            this.mForumListView.setAdapter((ListAdapter) jk8Var);
         }
     }
 

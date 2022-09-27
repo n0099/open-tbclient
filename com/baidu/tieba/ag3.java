@@ -1,35 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.zg3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class ag3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@NonNull Context context, @NonNull String str) {
-        InterceptResult invokeLL;
-        String[] strArr;
+    @Nullable
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            try {
-                strArr = context.getPackageManager().getPackageInfo(context.getPackageName(), 4096).requestedPermissions;
-            } catch (PackageManager.NameNotFoundException unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            List<zg3.a> d = do2.d();
+            if (d == null || d.size() <= 0) {
+                return null;
             }
-            if (strArr == null) {
-                return false;
+            File file = new File(d.get(0).a, "/debug/");
+            if (!file.exists()) {
+                file.mkdirs();
             }
-            for (String str2 : strArr) {
-                if (str.equals(str2)) {
-                    return true;
-                }
-            }
-            return false;
+            return file;
         }
-        return invokeLL.booleanValue;
+        return (File) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new File(do2.d().get(0).a, "/debug/").getAbsolutePath() : (String) invokeV.objValue;
     }
 }

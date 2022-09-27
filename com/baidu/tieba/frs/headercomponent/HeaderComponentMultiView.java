@@ -13,9 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.co6;
-import com.baidu.tieba.do6;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.qo6;
+import com.baidu.tieba.ro6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentMultiView extends FrameLayout implements do6 {
+public class HeaderComponentMultiView extends FrameLayout implements ro6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -54,7 +54,7 @@ public class HeaderComponentMultiView extends FrameLayout implements do6 {
         c();
     }
 
-    @Override // com.baidu.tieba.do6
+    @Override // com.baidu.tieba.ro6
     public void a() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;
@@ -64,13 +64,13 @@ public class HeaderComponentMultiView extends FrameLayout implements do6 {
         headerComponentMultiAdapter.e();
     }
 
-    @Override // com.baidu.tieba.do6
-    public void b(List<LiveFuseForumData> list, co6 co6Var) {
+    @Override // com.baidu.tieba.ro6
+    public void b(List<LiveFuseForumData> list, qo6 qo6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, co6Var) == null) || ListUtils.isEmpty(list)) {
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, qo6Var) == null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.g(co6Var);
+        this.d.g(qo6Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();

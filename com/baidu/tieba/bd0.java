@@ -1,112 +1,109 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.SurfaceTexture;
+import android.view.Surface;
+import android.view.SurfaceHolder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bd0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "bd0";
+public class bd0 extends dd0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Surface d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947640987, "Lcom/baidu/tieba/bd0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bd0(cd0 cd0Var, Surface surface, boolean z) {
+        super(cd0Var);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cd0Var, surface, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((cd0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947640987, "Lcom/baidu/tieba/bd0;");
+        a(surface);
+        this.d = surface;
+        this.e = z;
+    }
+
+    public void f(cd0 cd0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cd0Var) == null) {
+            Surface surface = this.d;
+            if (surface != null) {
+                this.a = cd0Var;
+                a(surface);
+                return;
+            }
+            throw new RuntimeException("not yet implemented for SurfaceTexture");
         }
     }
 
-    public static void a(String str) {
-        int glGetError;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || (glGetError = GLES20.glGetError()) == 0) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c();
+            Surface surface = this.d;
+            if (surface != null) {
+                if (this.e) {
+                    surface.release();
+                }
+                this.d = null;
+            }
         }
-        Log.e(a, str + ": glError 0x" + Integer.toHexString(glGetError));
     }
 
-    public static FloatBuffer b(float[] fArr) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bd0(cd0 cd0Var, SurfaceTexture surfaceTexture) {
+        super(cd0Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fArr)) == null) {
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(fArr.length * 4);
-            allocateDirect.order(ByteOrder.nativeOrder());
-            FloatBuffer asFloatBuffer = allocateDirect.asFloatBuffer();
-            asFloatBuffer.put(fArr);
-            asFloatBuffer.position(0);
-            return asFloatBuffer;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cd0Var, surfaceTexture};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((cd0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (FloatBuffer) invokeL.objValue;
+        a(surfaceTexture);
     }
 
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
-        int d;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bd0(cd0 cd0Var, SurfaceHolder surfaceHolder) {
+        super(cd0Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            int d2 = d(35633, str);
-            if (d2 == 0 || (d = d(35632, str2)) == 0) {
-                return -1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cd0Var, surfaceHolder};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((cd0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            int glCreateProgram = GLES20.glCreateProgram();
-            a("glCreateProgram");
-            if (glCreateProgram == 0) {
-                Log.e(a, "Could not create program");
-            }
-            GLES20.glAttachShader(glCreateProgram, d2);
-            a("glAttachShader");
-            GLES20.glAttachShader(glCreateProgram, d);
-            a("glAttachShader");
-            GLES20.glLinkProgram(glCreateProgram);
-            int[] iArr = new int[1];
-            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-            if (iArr[0] != 1) {
-                Log.e(a, "Could not link program: ");
-                Log.e(a, GLES20.glGetProgramInfoLog(glCreateProgram));
-                GLES20.glDeleteProgram(glCreateProgram);
-                return -1;
-            }
-            return glCreateProgram;
         }
-        return invokeLL.intValue;
-    }
-
-    public static int d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            int glCreateShader = GLES20.glCreateShader(i);
-            a("glCreateShader type=" + i);
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            int[] iArr = new int[1];
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 0) {
-                String str2 = a;
-                Log.e(str2, "Could not compile shader " + i + ":");
-                String str3 = a;
-                Log.e(str3, " " + GLES20.glGetShaderInfoLog(glCreateShader));
-                GLES20.glDeleteShader(glCreateShader);
-                return 0;
-            }
-            return glCreateShader;
-        }
-        return invokeIL.intValue;
+        a(surfaceHolder);
     }
 }

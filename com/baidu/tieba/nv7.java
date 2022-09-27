@@ -1,30 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.data.ThreadPublishHttpResMeesage;
-import com.baidu.tieba.pb.data.ThreadPublishReqMessage;
-import com.baidu.tieba.pb.data.ThreadPublishSocketResMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes5.dex */
 public class nv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+    public String a;
+    public String b;
 
-    public nv7(TbPageContext tbPageContext) {
+    public nv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,23 +27,32 @@ public class nv7 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        SocketMessageTask socketMessageTask = new SocketMessageTask(309644);
-        socketMessageTask.setResponsedClass(ThreadPublishSocketResMessage.class);
-        MessageManager.getInstance().registerTask(socketMessageTask);
-        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_VOTE_THREAD_PULISH, dm8.a(TbConfig.URL_THREAD_PUBLISH, 309644));
-        tbHttpMessageTask.setResponsedClass(ThreadPublishHttpResMeesage.class);
-        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        this.a = "";
+        this.b = "";
     }
 
-    public void a(long j, long j2) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            ThreadPublishReqMessage threadPublishReqMessage = new ThreadPublishReqMessage();
-            threadPublishReqMessage.tid = j;
-            threadPublishReqMessage.fid = j2;
-            threadPublishReqMessage.setTag(this.a.getUniqueId());
-            MessageManager.getInstance().sendMessage(threadPublishReqMessage);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void c(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
+            return;
         }
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        forumHeadlineImgInfo.rank_num.intValue();
+        String str2 = forumHeadlineImgInfo.rank_up_info;
+        this.b = forumHeadlineImgInfo.rank_url;
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.frs.gamerecommend.message.AlaGameRecommendReponseMessage;
-import com.baidu.tieba.jn6;
-import com.baidu.tieba.ln6;
+import com.baidu.tieba.wn6;
+import com.baidu.tieba.yn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public BdUniqueId e;
     public HttpMessageListener f;
     public b g;
-    public ln6 h;
+    public yn6 h;
 
     /* loaded from: classes4.dex */
     public class a extends HttpMessageListener {
@@ -73,7 +73,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
                         this.a.g.b(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.d);
                     }
                 } else {
-                    jn6 data = alaGameRecommendReponseMessage.getData();
+                    wn6 data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
@@ -116,7 +116,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
         this.a = str;
         this.g = bVar;
         this.e = BdUniqueId.gen();
-        this.h = new ln6();
+        this.h = new yn6();
         I();
         registerListener();
     }

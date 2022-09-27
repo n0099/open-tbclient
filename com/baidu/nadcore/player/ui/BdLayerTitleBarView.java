@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.video.videoplayer.ui.full.BdVideoBattery;
 import com.baidu.nadcore.video.videoplayer.widget.BdTextProgressView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.oy0;
+import com.baidu.tieba.bz0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -66,7 +66,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (z) {
-                startAnimation(oy0.d());
+                startAnimation(bz0.d());
             }
             setVisibility(4);
         }
@@ -83,10 +83,10 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
             this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091491);
             BdVideoBattery bdVideoBattery = (BdVideoBattery) findViewById(R.id.obfuscated_res_0x7f091481);
             this.e = bdVideoBattery;
-            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e2b);
+            bdVideoBattery.setImage(R.drawable.obfuscated_res_0x7f080e2d);
             this.f = (BdTextProgressView) findViewById(R.id.obfuscated_res_0x7f09148b);
             f();
-            this.h = findViewById(R.id.obfuscated_res_0x7f09229d);
+            this.h = findViewById(R.id.obfuscated_res_0x7f09229f);
         }
     }
 
@@ -94,7 +94,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                startAnimation(oy0.c());
+                startAnimation(bz0.c());
             }
             f();
             setVisibility(0);
@@ -107,7 +107,7 @@ public class BdLayerTitleBarView extends FrameLayout implements View.OnClickList
             if (z2) {
                 this.b.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06088a));
             } else {
-                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e04));
+                this.b.setBackground(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e06));
             }
             c(z);
         }

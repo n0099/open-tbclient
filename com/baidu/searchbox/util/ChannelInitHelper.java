@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.bx4;
+import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,7 +62,7 @@ public class ChannelInitHelper {
     public static String getFromByShare() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? bx4.k().q("from_id", null) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ox4.k().q("from_id", null) : (String) invokeV.objValue;
     }
 
     public static boolean hasInitFinish() {
@@ -172,6 +172,6 @@ public class ChannelInitHelper {
         if (!(interceptable == null || interceptable.invokeL(65542, null, str) == null) || str == null || str.length() <= 0 || !TbadkCoreApplication.getInst().isMainProcess(true)) {
             return;
         }
-        bx4.k().y("from_id", str);
+        ox4.k().y("from_id", str);
     }
 }

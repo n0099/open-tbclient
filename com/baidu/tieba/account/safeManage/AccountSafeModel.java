@@ -4,8 +4,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.cg8;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.rg8;
 import com.baidu.tieba.setting.im.more.PrivateInfoNetMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -18,7 +18,7 @@ public class AccountSafeModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public cg8 b;
+    public rg8 b;
     public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -42,10 +42,10 @@ public class AccountSafeModel extends BdBaseModel {
         this.a = false;
     }
 
-    public cg8 A() {
+    public rg8 A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (cg8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (rg8) invokeV.objValue;
     }
 
     public String B() {
@@ -58,8 +58,8 @@ public class AccountSafeModel extends BdBaseModel {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            cg8 cg8Var = this.b;
-            if (cg8Var == null || cg8Var.f() == null) {
+            rg8 rg8Var = this.b;
+            if (rg8Var == null || rg8Var.f() == null) {
                 return null;
             }
             return this.b.f();
@@ -98,10 +98,10 @@ public class AccountSafeModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void G(cg8 cg8Var) {
+    public void G(rg8 rg8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cg8Var) == null) {
-            this.b = cg8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, rg8Var) == null) {
+            this.b = rg8Var;
             E();
         }
     }

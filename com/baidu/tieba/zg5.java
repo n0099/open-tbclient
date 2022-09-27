@@ -1,133 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.res.AssetManager;
-import android.graphics.BitmapFactory;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbadkSettings;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.WebpForceSwitch;
-import com.baidu.tbadk.switchs.WebpSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class zg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? TbadkCoreApplication.getInst().getCapabilityOfWebp() : invokeV.booleanValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
 
-    public static void b(@Nullable String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            int loadInt = TbadkSettings.getInst().loadInt("webp_failure_count", 0) + 1;
-            if (loadInt > 5) {
-                TbadkCoreApplication.getInst().setCapableOfWebp(false);
-                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", false);
-                return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            TbadkSettings.getInst().saveInt("webp_failure_count", loadInt);
         }
-    }
 
-    /* JADX WARN: Removed duplicated region for block: B:19:0x003b  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void c() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            int i = 0;
-            if (TbadkSettings.getInst().loadInt("webp_failure_count", -1) == -1) {
-                AssetManager assets = TbadkCoreApplication.getInst().getContext().getAssets();
-                if (assets != null) {
-                    InputStream inputStream = null;
-                    try {
-                        inputStream = assets.open("webp_test/test.webp");
-                    } catch (IOException e) {
-                        e.printStackTrace();
+        public static a a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (StringUtils.isNull(str)) {
+                    return null;
+                }
+                a aVar = new a();
+                if (str.contains("#")) {
+                    String[] split = str.split("#");
+                    if (split.length == 1) {
+                        aVar.a = split[0];
+                    } else if (split.length == 2) {
+                        aVar.a = split[0];
+                        aVar.b = dh.e(split[1], -1);
                     }
-                    if (inputStream != null && BitmapFactory.decodeStream(inputStream) != null) {
-                        z = true;
-                        if (!z) {
-                            TiebaStatic.log("LocalWebpUnSupport");
-                            i = 6;
-                        }
-                        TbadkCoreApplication.getInst().setCapableOfWebp(z);
-                        TbadkSettings.getInst().saveInt("webp_failure_count", i);
-                        TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
-                        return;
-                    }
+                } else {
+                    aVar.a = str;
                 }
-                z = false;
-                if (!z) {
-                }
-                TbadkCoreApplication.getInst().setCapableOfWebp(z);
-                TbadkSettings.getInst().saveInt("webp_failure_count", i);
-                TbadkSettings.getInst().saveBoolean("capable_of_webp_format", z);
-                return;
+                return aVar;
             }
-            TbadkCoreApplication.getInst().setCapableOfWebp(TbadkSettings.getInst().loadBoolean("capable_of_webp_format", false));
+            return (a) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (StringUtils.isNull(this.a)) {
+                    return "";
+                }
+                return this.a + "#" + this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = i;
         }
     }
 
-    @NonNull
-    public static Pair<Boolean, String> d(@Nullable String str) {
-        InterceptResult invokeL;
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (!f()) {
-                return new Pair<>(Boolean.FALSE, str);
-            }
-            if (str != null && str.length() != 0) {
-                int indexOf = str.indexOf("hiphotos.baidu.com");
-                if (indexOf <= 0) {
-                    indexOf = str.indexOf("tiebapic.baidu.com");
-                }
-                if (indexOf > 0 && (lastIndexOf = str.lastIndexOf(".jpg")) > 0) {
-                    return new Pair<>(Boolean.TRUE, str.substring(0, lastIndexOf) + ".webp" + str.substring(lastIndexOf + 4));
-                }
-                return new Pair<>(Boolean.FALSE, str);
-            }
-            return new Pair<>(Boolean.FALSE, str);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static void e(boolean z, @Nullable String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), str, str2}) == null) {
-        }
-    }
-
-    public static boolean f() {
+    public static String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? WebpForceSwitch.isOn() || (a() && h()) : invokeV.booleanValue;
-    }
-
-    public static void g(@NonNull String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String q = ox4.k().q("shared_key_forum_sort" + TbadkCoreApplication.getCurrentAccount(), "");
+            if (StringUtils.isNull(q)) {
+                return new String[0];
+            }
+            String[] split = q.split("\\^");
+            if (split == null || split.length <= 0) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (String str : split) {
+                a a2 = a.a(str);
+                if (a2 != null && !StringUtils.isNull(a2.a)) {
+                    arrayList.add(a2.a);
+                }
+            }
+            return (String[]) arrayList.toArray(new String[arrayList.size()]);
         }
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? SwitchManager.getInstance().findType(WebpSwitch.WEBP_ENABLE) == 1 : invokeV.booleanValue;
+        return (String[]) invokeV.objValue;
     }
 }

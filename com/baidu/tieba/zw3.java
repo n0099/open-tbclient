@@ -1,44 +1,36 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.arplay.core.message.ARPMessageType;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Request;
-import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class zw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public f14 a;
-    public String b;
-    public String c;
-    public xw3 d;
 
     /* loaded from: classes6.dex */
-    public class a implements Callback {
+    public static class a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zw3 a;
+        public final /* synthetic */ d a;
 
-        public a(zw3 zw3Var) {
+        public a(d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zw3Var};
+                Object[] objArr = {dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,177 +40,261 @@ public class zw3 {
                     return;
                 }
             }
-            this.a = zw3Var;
+            this.a = dVar;
         }
 
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (zw3.e) {
-                    Log.e("AudioDownloader", this.a.b + " load failed");
-                    iOException.printStackTrace();
-                }
-                if (this.a.d != null) {
-                    this.a.d.fail(-1, this.a.b);
-                }
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            FileOutputStream fileOutputStream;
-            File file;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                byte[] bArr = new byte[2048];
-                InputStream inputStream = null;
-                try {
-                    InputStream byteStream = response.body().byteStream();
-                    try {
-                        try {
-                            String d = uw3.d(this.a.b);
-                            String str = this.a.c + d.substring(0, d.lastIndexOf("/"));
-                            File file2 = new File(str);
-                            if (!file2.exists() || !file2.isDirectory()) {
-                                file2.mkdirs();
-                            }
-                            String substring = d.substring(d.lastIndexOf("/") + 1);
-                            file = new File(str, substring + ".bddownload");
-                            try {
-                                fileOutputStream = new FileOutputStream(file);
-                                while (true) {
-                                    try {
-                                        int read = byteStream.read(bArr);
-                                        if (read == -1) {
-                                            break;
-                                        }
-                                        fileOutputStream.write(bArr, 0, read);
-                                    } catch (Exception e) {
-                                        e = e;
-                                        inputStream = byteStream;
-                                        try {
-                                            if (zw3.e) {
-                                                Log.e("AudioDownloader", this.a.b + " load failed", e);
-                                            }
-                                            if (file != null) {
-                                                file.delete();
-                                            }
-                                            if (this.a.d != null) {
-                                                this.a.d.fail(-1, this.a.b);
-                                            }
-                                            cj4.d(inputStream);
-                                            cj4.d(fileOutputStream);
-                                            cj4.d(response);
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            cj4.d(inputStream);
-                                            cj4.d(fileOutputStream);
-                                            cj4.d(response);
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        inputStream = byteStream;
-                                        cj4.d(inputStream);
-                                        cj4.d(fileOutputStream);
-                                        cj4.d(response);
-                                        throw th;
-                                    }
-                                }
-                                fileOutputStream.flush();
-                                File file3 = new File(str, substring);
-                                if (file3.exists() && !file3.isDirectory()) {
-                                    file3.delete();
-                                }
-                                String absolutePath = file3.getAbsolutePath();
-                                if (file.renameTo(file3)) {
-                                    if (zw3.e) {
-                                        Log.e("AudioDownloader", this.a.b + " load rename success path = " + absolutePath);
-                                    }
-                                    if (this.a.d != null) {
-                                        this.a.d.a(this.a.b, absolutePath);
-                                    }
-                                } else {
-                                    if (zw3.e) {
-                                        Log.e("AudioDownloader", this.a.b + " load rename error path = " + absolutePath);
-                                    }
-                                    file.delete();
-                                    if (this.a.d != null) {
-                                        this.a.d.fail(-1, absolutePath);
-                                    }
-                                }
-                                cj4.d(byteStream);
-                            } catch (Exception e2) {
-                                e = e2;
-                                fileOutputStream = null;
-                            }
-                        } catch (Exception e3) {
-                            e = e3;
-                            file = null;
-                            fileOutputStream = null;
-                        }
-                    } catch (Throwable th3) {
-                        th = th3;
-                        fileOutputStream = null;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    JSONObject e = zw3.e(str, this.a);
+                    if (e == null) {
+                        return;
                     }
-                } catch (Exception e4) {
-                    e = e4;
-                    file = null;
-                    fileOutputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    fileOutputStream = null;
+                    this.a.onSuccess(bx3.a(e));
+                    return;
                 }
-                cj4.d(fileOutputStream);
-                cj4.d(response);
+                this.a.onFail(ADConfigError.REASON_NULL_RESPONSE);
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                this.a.onFail(exc.getMessage());
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948374323, "Lcom/baidu/tieba/zw3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class b extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public b(d dVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948374323, "Lcom/baidu/tieba/zw3;");
-                return;
+            this.a = dVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (!TextUtils.isEmpty(str)) {
+                    JSONObject e = zw3.e(str, this.a);
+                    if (e == null) {
+                        return;
+                    }
+                    this.a.onSuccess(ax3.a(e));
+                    return;
+                }
+                this.a.onFail(ADConfigError.REASON_NULL_RESPONSE);
             }
         }
-        e = ij1.a;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                this.a.onFail(exc.getMessage());
+            }
+        }
     }
 
-    public zw3(f14 f14Var, String str, String str2, xw3 xw3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f14Var, str, str2, xw3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class c extends StringResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l33 a;
+
+        public c(l33 l33Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l33Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l33Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                try {
+                    if (new JSONObject(str).getInt("errno") != 0) {
+                        tb3 a = zb3.a();
+                        a.putInt("swangame_valid__" + this.a.O(), 0);
+                        return;
+                    }
+                    tb3 a2 = zb3.a();
+                    a2.putInt("swangame_valid__" + this.a.O(), 1);
+                    zw3.g("1");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
-        this.b = "";
-        this.c = "";
-        this.a = f14Var;
-        this.c = str;
-        this.b = str2;
-        this.d = xw3Var;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+            }
+        }
     }
 
-    public void e() {
+    /* loaded from: classes6.dex */
+    public interface d {
+        void onFail(String str);
+
+        void onSuccess(Object obj);
+    }
+
+    public static void b() {
+        l33 b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.call(new Request.Builder().url(this.b).build(), new a(this));
+        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (b0 = l33.b0()) == null || c() || !sm2.h0().e(sm2.c())) {
+            return;
         }
+        if (d()) {
+            g("1");
+        } else {
+            s14.a().getRequest().cookieManager(sm2.q().a()).url(c04.b().a()).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new c(b0));
+        }
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            l33 b0 = l33.b0();
+            if (b0 == null) {
+                return true;
+            }
+            tb3 a2 = zb3.a();
+            StringBuilder sb = new StringBuilder();
+            sb.append("swangame_valid__");
+            sb.append(b0.O());
+            return a2.getInt(sb.toString(), -1) == 0;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            l33 b0 = l33.b0();
+            if (b0 == null) {
+                return false;
+            }
+            tb3 a2 = zb3.a();
+            StringBuilder sb = new StringBuilder();
+            sb.append("swangame_valid__");
+            sb.append(b0.O());
+            return 1 == a2.getInt(sb.toString(), -1);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static JSONObject e(String str, d dVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, dVar)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                if (jSONObject.optInt("errno", -1) != 0) {
+                    dVar.onFail(jSONObject.optString("errmsg"));
+                    return null;
+                }
+                return jSONObject.optJSONObject("data");
+            } catch (Exception e) {
+                dVar.onFail(e.getMessage());
+                return null;
+            }
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static void f() {
+        l33 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (b0 = l33.b0()) != null && d() && sm2.h0().e(sm2.c())) {
+            s14.a().getRequest().cookieManager(sm2.q().a()).url(c04.b().i()).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
+        }
+    }
+
+    public static void g(String str) {
+        l33 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && (b0 = l33.b0()) != null && d() && sm2.h0().e(sm2.c())) {
+            String h = sm2.h0().h(sm2.c());
+            if (TextUtils.isEmpty(h)) {
+                return;
+            }
+            String d2 = rj4.d(Base64.encode(h.getBytes(), 0), false);
+            String i = sm2.h0().i(sm2.c());
+            if (!TextUtils.isEmpty(i) && i.length() > 32) {
+                i = i.substring(0, 32);
+            }
+            s14.a().getRequest().cookieManager(sm2.q().a()).url(c04.b().q()).addUrlParam("sessionId", d2).addUrlParam("deviceId", i).addUrlParam("behaviorType", str).addUrlParam("behaviorTime", String.valueOf(System.currentTimeMillis() / 1000)).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
+        }
+    }
+
+    public static void h(String str, d dVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65543, null, str, dVar) == null) || dVar == null) {
+            return;
+        }
+        l33 b0 = l33.b0();
+        if (b0 == null) {
+            dVar.onFail("swan app is null");
+            return;
+        }
+        s14.a().getRequest().cookieManager(sm2.q().a()).url(c04.b().j()).addUrlParam("appkey", b0.O()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new b(dVar));
+    }
+
+    public static void i(long j, d dVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeJL(65544, null, j, dVar) == null) || dVar == null) {
+            return;
+        }
+        l33 b0 = l33.b0();
+        if (b0 == null) {
+            dVar.onFail("swan app is null");
+            return;
+        }
+        s14.a().getRequest().cookieManager(sm2.q().a()).url(c04.b().h()).addUrlParam("appkey", b0.O()).addUrlParam("duration", String.valueOf(j)).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new a(dVar));
     }
 }

@@ -1,129 +1,217 @@
 package com.baidu.tieba;
 
-import android.hardware.Camera;
-import android.os.AsyncTask;
-import android.os.Build;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.postsearch.PostSearchActivity;
+import com.baidu.tieba.postsearch.PostSearchListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gc8 extends AsyncTask<Void, Void, String> {
+public class gc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Camera a;
-    public byte[] b;
-    public a c;
-    public int d;
+    public PostSearchActivity a;
+    public View b;
+    public FragmentTabHost c;
+    public ViewPager.OnPageChangeListener d;
+    public PostSearchListFragment e;
+    public PostSearchListFragment f;
+    public PostSearchListFragment g;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        String a(byte[] bArr, int i, int i2, boolean z);
-    }
-
-    public gc8(Camera camera, byte[] bArr, a aVar, int i) {
+    public gc8(PostSearchActivity postSearchActivity, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {camera, bArr, aVar, Integer.valueOf(i)};
+            Object[] objArr = {postSearchActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = camera;
-        this.b = bArr;
-        this.c = aVar;
-        this.d = i;
+        this.a = postSearchActivity;
+        this.b = view2;
     }
 
-    public void a() {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getStatus() == AsyncTask.Status.FINISHED) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.q1();
+            this.f.q1();
+            this.g.q1();
         }
-        cancel(true);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        Camera.Parameters parameters;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-            Camera camera = this.a;
-            if (camera == null) {
-                return null;
-            }
-            try {
-                parameters = camera.getParameters();
-            } catch (RuntimeException e) {
-                BdLog.e(e);
-                parameters = null;
-            }
-            if (parameters == null) {
-                return null;
-            }
-            Camera.Size previewSize = parameters.getPreviewSize();
-            int i = previewSize.width;
-            int i2 = previewSize.height;
-            byte[] bArr = this.b;
-            if (this.d == 0) {
-                bArr = new byte[bArr.length];
-                for (int i3 = 0; i3 < i2; i3++) {
-                    for (int i4 = 0; i4 < i; i4++) {
-                        bArr[(((i4 * i2) + i2) - i3) - 1] = this.b[(i3 * i) + i4];
-                    }
-                }
-                i = i2;
-                i2 = i;
-            }
-            try {
-                try {
-                    if (this.c == null) {
-                        return null;
-                    }
-                    return this.c.a(bArr, i, i2, false);
-                } catch (Exception unused) {
-                    return null;
-                }
-            } catch (Exception unused2) {
-                return this.c.a(bArr, i, i2, true);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            FragmentTabHost.b bVar = new FragmentTabHost.b();
+            PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
+            this.e = postSearchListFragment;
+            bVar.c = postSearchListFragment;
+            bVar.b = c(R.string.obfuscated_res_0x7f0f10eb);
+            bVar.a = 1;
+            this.c.a(bVar);
+            FragmentTabHost.b bVar2 = new FragmentTabHost.b();
+            PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
+            this.f = postSearchListFragment2;
+            bVar2.c = postSearchListFragment2;
+            bVar2.b = c(R.string.obfuscated_res_0x7f0f10ea);
+            bVar2.a = 2;
+            this.c.a(bVar2);
+            FragmentTabHost.b bVar3 = new FragmentTabHost.b();
+            PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
+            this.g = postSearchListFragment3;
+            bVar3.c = postSearchListFragment3;
+            bVar3.b = c(R.string.obfuscated_res_0x7f0f10e9);
+            bVar3.a = 3;
+            this.c.a(bVar3);
         }
-        return (String) invokeL.objValue;
     }
 
-    public gc8 c() {
+    public final FragmentTabIndicator c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02ee, (ViewGroup) null);
+            fragmentTabIndicator.setText(i);
+            fragmentTabIndicator.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
+            fragmentTabIndicator.h = R.color.s_actionbar_text_color;
+            fragmentTabIndicator.setContentTvTopMargin(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
+            fragmentTabIndicator.setWidth((ej.k(this.a.getPageContext().getContext()) - (this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f) * 2)) / 3);
+            return fragmentTabIndicator;
+        }
+        return (FragmentTabIndicator) invokeI.objValue;
+    }
+
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (Build.VERSION.SDK_INT >= 11) {
-                executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
-            } else {
-                execute(new Void[0]);
-            }
-            return this;
-        }
-        return (gc8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c.getCurrentTabType() : invokeV.intValue;
     }
 
-    @Override // android.os.AsyncTask
-    public void onCancelled() {
+    public final PostSearchListFragment e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onCancelled();
-            this.c = null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return this.g;
+                }
+                return this.f;
+            }
+            return this.e;
+        }
+        return (PostSearchListFragment) invokeI.objValue;
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091e12)).inflate();
+            inflate.setVisibility(0);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091a4e);
+            this.c = fragmentTabHost;
+            fragmentTabHost.setup(this.a.getSupportFragmentManager());
+            this.c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
+            this.c.setShouldDrawIndicatorLine(true);
+            b();
+            this.c.k(3);
+            this.c.setCurrentTabByType(i);
+            this.c.setNeedShowThemeStyle(false);
+            this.c.getFragmentTabWidget().setBackGroundDrawableResId(0);
+            this.c.p(TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
+            this.c.setOnPageChangeListener(this.d);
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            FragmentTabHost fragmentTabHost = this.c;
+            if (fragmentTabHost != null) {
+                fragmentTabHost.p(i);
+            }
+            FragmentTabHost fragmentTabHost2 = this.c;
+            if (fragmentTabHost2 == null || fragmentTabHost2.getFragmentTabWidget() == null) {
+                return;
+            }
+            SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
+        }
+    }
+
+    public void h(int i, cc8 cc8Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), cc8Var, Boolean.valueOf(z)}) == null) {
+            j(true);
+            PostSearchListFragment e = e(i);
+            if (e != null) {
+                e.u1(cc8Var, z);
+            }
+        }
+    }
+
+    public void i(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
+            this.d = onPageChangeListener;
+            FragmentTabHost fragmentTabHost = this.c;
+            if (fragmentTabHost != null) {
+                fragmentTabHost.setOnPageChangeListener(onPageChangeListener);
+            }
+        }
+    }
+
+    public void j(boolean z) {
+        FragmentTabHost fragmentTabHost;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048585, this, z) == null) || (fragmentTabHost = this.c) == null) {
+            return;
+        }
+        if (z) {
+            fragmentTabHost.setVisibility(0);
+        } else {
+            fragmentTabHost.setVisibility(8);
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (this.c == null) {
+                f(1);
+                return;
+            }
+            a();
+            if (this.c.getCurrentTabType() == i) {
+                PostSearchListFragment e = e(i);
+                if (e != null) {
+                    e.v1(true);
+                    return;
+                }
+                return;
+            }
+            this.c.setCurrentTabByType(i);
         }
     }
 }

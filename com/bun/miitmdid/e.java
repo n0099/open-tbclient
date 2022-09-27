@@ -1,8 +1,7 @@
 package com.bun.miitmdid;
 
 import android.content.Context;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,22 +9,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bun.miitmdid.core.CertChecker;
-import com.bun.miitmdid.core.InfoCode;
-import com.bun.miitmdid.interfaces.IIdProvider;
 import com.bun.miitmdid.interfaces.IIdentifierListener;
 import com.bun.miitmdid.interfaces.IdSupplier;
+import java.util.concurrent.atomic.AtomicLong;
+@Keep
 /* loaded from: classes7.dex */
 public class e {
     public static /* synthetic */ Interceptable $ic;
+    @Keep
+    public static boolean a;
+    @Keep
     public static boolean b;
-    public static boolean c;
+    @Keep
+    public static AtomicLong c;
+    @Keep
+    public static boolean d;
+    @Keep
+    public static boolean e;
+    @Keep
+    public static boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public IIdentifierListener a;
 
+    @Keep
     /* loaded from: classes7.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        @Keep
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -73,48 +82,60 @@ public class e {
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                a[c.l.ordinal()] = 8;
+                a[c.v.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
-                a[c.f.ordinal()] = 9;
+                a[c.w.ordinal()] = 9;
             } catch (NoSuchFieldError unused9) {
             }
             try {
-                a[c.n.ordinal()] = 10;
+                a[c.l.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
             }
             try {
-                a[c.r.ordinal()] = 11;
+                a[c.f.ordinal()] = 11;
             } catch (NoSuchFieldError unused11) {
             }
             try {
-                a[c.j.ordinal()] = 12;
+                a[c.n.ordinal()] = 12;
             } catch (NoSuchFieldError unused12) {
             }
             try {
-                a[c.e.ordinal()] = 13;
+                a[c.r.ordinal()] = 13;
             } catch (NoSuchFieldError unused13) {
             }
             try {
-                a[c.d.ordinal()] = 14;
+                a[c.j.ordinal()] = 14;
             } catch (NoSuchFieldError unused14) {
             }
             try {
-                a[c.o.ordinal()] = 15;
+                a[c.e.ordinal()] = 15;
             } catch (NoSuchFieldError unused15) {
             }
             try {
-                a[c.m.ordinal()] = 16;
+                a[c.d.ordinal()] = 16;
             } catch (NoSuchFieldError unused16) {
             }
             try {
-                a[c.q.ordinal()] = 17;
+                a[c.o.ordinal()] = 17;
             } catch (NoSuchFieldError unused17) {
             }
             try {
-                a[c.t.ordinal()] = 18;
+                a[c.m.ordinal()] = 18;
             } catch (NoSuchFieldError unused18) {
+            }
+            try {
+                a[c.q.ordinal()] = 19;
+            } catch (NoSuchFieldError unused19) {
+            }
+            try {
+                a[c.t.ordinal()] = 20;
+            } catch (NoSuchFieldError unused20) {
+            }
+            try {
+                a[c.u.ordinal()] = 21;
+            } catch (NoSuchFieldError unused21) {
             }
         }
     }
@@ -122,24 +143,29 @@ public class e {
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-2134063330, "Lcom/bun/miitmdid/e;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-2134063330, "Lcom/bun/miitmdid/e;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-2134063330, "Lcom/bun/miitmdid/e;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(-2134063330, "Lcom/bun/miitmdid/e;");
-        }
+        c = new AtomicLong(5000L);
+        d = true;
+        e = true;
+        f = true;
     }
 
-    public e(boolean z) {
+    public e(boolean z, long j) {
+        AtomicLong atomicLong;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
+            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -149,143 +175,55 @@ public class e {
                 return;
             }
         }
-        e0.a(z);
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return 20210301;
+        f0.a(z);
+        if (j <= 0) {
+            atomicLong = c;
+            j = 5000;
+        } else {
+            atomicLong = c;
         }
-        return invokeV.intValue;
+        atomicLong.set(j);
     }
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
-        boolean verifyCert;
+    public e(boolean z, long j, boolean z2, boolean z3, boolean z4) {
+        AtomicLong atomicLong;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            synchronized (e.class) {
-                verifyCert = CertChecker.a().verifyCert(context, str);
-                b = verifyCert;
-                c = true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Long.valueOf(j), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return verifyCert;
         }
-        return invokeLL.booleanValue;
+        f0.a(z);
+        if (j <= 0) {
+            atomicLong = c;
+            j = 5000;
+        } else {
+            atomicLong = c;
+        }
+        atomicLong.set(j);
+        a(z2, z3, z4);
     }
 
-    public final int a(int i, IdSupplier idSupplier) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, idSupplier)) == null) {
-            e0.c("MainMdidSdk", "initResult: infoCode:" + i);
-            if (idSupplier instanceof IIdProvider) {
-                ((IIdProvider) idSupplier).shutDown();
-            }
-            return i;
-        }
-        return invokeIL.intValue;
-    }
+    @Keep
+    public static native int a();
 
-    public int a(Context context, IIdentifierListener iIdentifierListener) {
-        InterceptResult invokeLL;
-        IIdProvider iVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, iIdentifierListener)) == null) {
-            if (c && b) {
-                this.a = iIdentifierListener;
-                Context applicationContext = context.getApplicationContext();
-                com.bun.miitmdid.a.a(applicationContext);
-                StringBuilder sb = new StringBuilder();
-                sb.append("OnInit: manufacturer: ");
-                String str = Build.MANUFACTURER;
-                sb.append(str);
-                e0.c("MainMdidSdk", sb.toString());
-                c a2 = c.a(str);
-                c cVar = c.b;
-                if (a2 == cVar && (a2 = d.a(applicationContext)) == cVar) {
-                    e0.d("MainMdidSdk", "OnInit: manufacturer not support");
-                    return a(InfoCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, (IdSupplier) null);
-                }
-                e0.c("MainMdidSdk", "OnInit: final manufacturer: " + a2);
-                int a3 = f.a().a(applicationContext);
-                if (a3 != 0) {
-                    e0.d("MainMdidSdk", "OnInit: manufacturer (emulator " + a3 + " ) not support");
-                    return a(InfoCode.INIT_ERROR_MANUFACTURER_NOSUPPORT, (IdSupplier) null);
-                }
-                b a4 = b.a(applicationContext);
-                if (a4 == null) {
-                    e0.d("MainMdidSdk", "OnInit: config file not loaded");
-                    return a(InfoCode.INIT_ERROR_LOAD_CONFIGFILE, (IdSupplier) null);
-                }
-                switch (a.a[a2.ordinal()]) {
-                    case 1:
-                        iVar = new i(applicationContext);
-                        break;
-                    case 2:
-                        iVar = new k(applicationContext);
-                        break;
-                    case 3:
-                    case 4:
-                        iVar = new o(applicationContext);
-                        break;
-                    case 5:
-                    case 6:
-                        iVar = new p(applicationContext);
-                        break;
-                    case 7:
-                        iVar = new q(applicationContext);
-                        break;
-                    case 8:
-                        iVar = new r(applicationContext);
-                        break;
-                    case 9:
-                    case 10:
-                    case 11:
-                        iVar = new s(applicationContext);
-                        break;
-                    case 12:
-                        iVar = new u(applicationContext);
-                        break;
-                    case 13:
-                        iVar = new w(applicationContext, a4.getVivoAppID());
-                        break;
-                    case 14:
-                    case 15:
-                        iVar = new x(applicationContext);
-                        break;
-                    case 16:
-                        iVar = new b0(applicationContext);
-                        break;
-                    case 17:
-                        iVar = new t(applicationContext);
-                        break;
-                    case 18:
-                        iVar = new j(applicationContext);
-                        break;
-                    default:
-                        iVar = null;
-                        break;
-                }
-                if (iVar == null) {
-                    e0.d("MainMdidSdk", "OnInit: device not support");
-                    return a(InfoCode.INIT_ERROR_DEVICE_NOSUPPORT, (IdSupplier) null);
-                } else if (iVar.isSync()) {
-                    e0.c("MainMdidSdk", "OnInit: " + iVar.getClass().getSimpleName() + ": Sync mode");
-                    iVar.doStartSync(iIdentifierListener);
-                    e0.c("MainMdidSdk", "OnInit: result ok");
-                    return a(InfoCode.INIT_INFO_RESULT_OK, iVar);
-                } else {
-                    e0.c("MainMdidSdk", "OnInit: " + iVar.getClass().getSimpleName() + ": Async mode");
-                    iVar.doStartInThreadPool(iIdentifierListener);
-                    e0.c("MainMdidSdk", "OnInit: result delay");
-                    return a(InfoCode.INIT_INFO_RESULT_DELAY, (IdSupplier) null);
-                }
-            }
-            return a(InfoCode.INIT_ERROR_CERT_ERROR, (IdSupplier) null);
-        }
-        return invokeLL.intValue;
-    }
+    @Keep
+    public static native boolean a(Context context, String str);
+
+    @Keep
+    public final native int a(int i, IdSupplier idSupplier);
+
+    @Keep
+    public native int a(Context context, IIdentifierListener iIdentifierListener);
+
+    @Keep
+    public native void a(boolean z, boolean z2, boolean z3);
 }

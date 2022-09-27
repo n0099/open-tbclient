@@ -1,149 +1,60 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class uq3 implements dr3 {
+public class uq3<ContenT> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public final ar3 b;
+    public final Map<String, uq3<ContenT>.a> a;
 
     /* loaded from: classes6.dex */
-    public class a extends Handler {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final ContenT b;
+        public final /* synthetic */ uq3 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(uq3 uq3Var, Looper looper) {
-            super(looper);
+        public a(uq3 uq3Var, String str, ContenT content) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uq3Var, looper};
+                Object[] objArr = {uq3Var, str, content};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.c = uq3Var;
+            this.a = str;
+            this.b = content;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                DownloadInfo downloadInfo = (DownloadInfo) message.obj;
-                int status = downloadInfo.getStatus();
-                if (downloadInfo.getDownloadListener() == null) {
-                    return;
-                }
-                switch (b.a[DownloadState.convert(status).ordinal()]) {
-                    case 1:
-                        downloadInfo.getDownloadListener().e(downloadInfo.getProgress(), downloadInfo.getSize());
-                        return;
-                    case 2:
-                        downloadInfo.getDownloadListener().onStart();
-                        return;
-                    case 3:
-                        downloadInfo.getDownloadListener().d();
-                        return;
-                    case 4:
-                        downloadInfo.getDownloadListener().f(downloadInfo.getProgress(), downloadInfo.getSize());
-                        return;
-                    case 5:
-                        downloadInfo.getDownloadListener().a();
-                        return;
-                    case 6:
-                        downloadInfo.getDownloadListener().b(downloadInfo.getException());
-                        return;
-                    case 7:
-                        downloadInfo.getDownloadListener().c();
-                        return;
-                    default:
-                        return;
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.d(this.a);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-366722540, "Lcom/baidu/tieba/uq3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-366722540, "Lcom/baidu/tieba/uq3$b;");
-                    return;
-                }
-            }
-            int[] iArr = new int[DownloadState.values().length];
-            a = iArr;
-            try {
-                iArr[DownloadState.DOWNLOADING.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[DownloadState.PREPARE_DOWNLOAD.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[DownloadState.WAIT.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[DownloadState.DOWNLOAD_PAUSED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[DownloadState.DOWNLOADED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[DownloadState.DOWNLOAD_FAILED.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[DownloadState.DELETED.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-        }
-    }
-
-    public uq3(ar3 ar3Var) {
+    public uq3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ar3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -153,27 +64,69 @@ public class uq3 implements dr3 {
                 return;
             }
         }
-        this.b = ar3Var;
-        this.a = new a(this, Looper.getMainLooper());
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.dr3
-    public void a(DownloadException downloadException) {
+    public synchronized ContenT a(String str, ContenT content, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.dr3
-    public void b(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
-            if (downloadInfo.getStatus() != DownloadState.DELETED.value()) {
-                this.b.a(downloadInfo);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
+            synchronized (this) {
+                d(str);
+                if (content == null) {
+                    return null;
+                }
+                uq3<ContenT>.a aVar = new a(this, str, content);
+                this.a.put(str, aVar);
+                if (j > 0) {
+                    k33.M().postDelayed(aVar, j);
+                }
+                return content;
             }
-            Message obtainMessage = this.a.obtainMessage(downloadInfo.getId().hashCode());
-            obtainMessage.obj = downloadInfo;
-            obtainMessage.sendToTarget();
         }
+        return (ContenT) invokeCommon.objValue;
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                for (uq3<ContenT>.a aVar : this.a.values()) {
+                    if (aVar != null) {
+                        k33.M().removeCallbacks(aVar);
+                    }
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    public ContenT c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            uq3<ContenT>.a aVar = this.a.get(str);
+            if (aVar == null) {
+                return null;
+            }
+            return aVar.b;
+        }
+        return (ContenT) invokeL.objValue;
+    }
+
+    public synchronized ContenT d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            synchronized (this) {
+                uq3<ContenT>.a remove = this.a.remove(str);
+                if (remove != null) {
+                    k33.M().removeCallbacks(remove);
+                    return remove.b;
+                }
+                return null;
+            }
+        }
+        return (ContenT) invokeL.objValue;
     }
 }

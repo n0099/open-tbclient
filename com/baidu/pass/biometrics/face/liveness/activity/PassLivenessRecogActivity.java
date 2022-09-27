@@ -457,7 +457,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
     }
 
     /* loaded from: classes2.dex */
-    public class g implements b.InterfaceC0121b {
+    public class g implements b.InterfaceC0118b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PassLivenessRecogActivity a;
@@ -480,7 +480,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             this.a = passLivenessRecogActivity;
         }
 
-        @Override // com.baidu.pass.biometrics.face.liveness.c.b.InterfaceC0121b
+        @Override // com.baidu.pass.biometrics.face.liveness.c.b.InterfaceC0118b
         public void a(float f) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
@@ -863,7 +863,7 @@ public class PassLivenessRecogActivity extends LivenessBaseActivity implements N
             }
             this.N = passFaceRecogDTO.extraParamsMap.get("yyOrderId");
             this.M = Boolean.FALSE;
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f091d8a)).setText(R.string.home_face_yy_title);
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f091d8c)).setText(R.string.home_face_yy_title);
             this.K = (ImageView) findViewById(R.id.pass_bio_circle_image_yy_view);
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.pass_bio_liveness_recog_yy_bottom);
             this.L = relativeLayout;

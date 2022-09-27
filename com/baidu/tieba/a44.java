@@ -1,14 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.oz3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class a44 extends fb2 {
+public class a44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public int i;
+    public String j;
+    public String k;
+    public String l;
+    public int m;
 
     public a44() {
         Interceptable interceptable = $ic;
@@ -24,13 +37,12 @@ public class a44 extends fb2 {
         }
     }
 
-    @Override // com.baidu.tieba.hb2
-    public void a(String str) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            oz3.d.d(str);
-            if2.k(str);
-            c44.k(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "{ clipMaxDuration=" + this.a + " , clipMinDuration=" + this.b + " , topicSource=" + this.c + " , publishURL=" + this.e + " , publishType=" + this.k + " , publishTitle=" + this.d + " , atURL=" + this.g + " , topicURL=" + this.h + " , musicURL=" + this.f + " , sourceFrom=" + this.j + " , sourceType=" + this.i + ",target=" + this.l + ",showToast=" + this.m + " }";
         }
+        return (String) invokeV.objValue;
     }
 }

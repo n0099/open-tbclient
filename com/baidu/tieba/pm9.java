@@ -1,31 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
 /* loaded from: classes5.dex */
-public class pm9 {
+public class pm9 extends km9<TTNativeAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948066989, "Lcom/baidu/tieba/pm9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948066989, "Lcom/baidu/tieba/pm9;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pm9(TTNativeAd tTNativeAd) {
+        super(tTNativeAd);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTNativeAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
+    }
+
+    @Override // com.baidu.tieba.km9
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTNativeAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

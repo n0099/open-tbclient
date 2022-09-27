@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,14 +13,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nr1 extends br1 {
+public abstract class nr1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public or1 b;
 
     /* loaded from: classes5.dex */
-    public class a implements or1 {
+    public class a implements b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ nr1 b;
 
         public a(nr1 nr1Var, String str) {
             Interceptable interceptable = $ic;
@@ -33,211 +39,126 @@ public class nr1 extends br1 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.b = nr1Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.tieba.nr1.b
+        public void a(lv1 lv1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lv1Var) == null) {
+                if (nr1.c) {
+                    Log.d("SwanAutoSyncApiHandler", this.b.a + " async callback: " + lv1Var.toString());
+                }
+                this.b.b.d(this.a, lv1Var);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements or1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(nr1 nr1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nr1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    public interface b {
+        void a(lv1 lv1Var);
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements or1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(nr1 nr1Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011964, "Lcom/baidu/tieba/nr1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nr1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948011964, "Lcom/baidu/tieba/nr1;");
+                return;
             }
         }
+        c = vj1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nr1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
+    public nr1(@NonNull String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    @Override // com.baidu.tieba.br1
-    public String h() {
-        InterceptResult invokeV;
+    @NonNull
+    public abstract lv1 d(@NonNull JSONObject jSONObject, @NonNull b bVar);
+
+    @NonNull
+    public abstract lv1 e(@NonNull JSONObject jSONObject);
+
+    public lv1 f(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull or1 or1Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HostDownloadManager" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, or1Var)) == null) {
+            this.b = or1Var;
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " is called, can use sync mode: " + i() + ", params" + jSONObject.toString() + ", callback: " + str);
+            }
+            return i() ? h(jSONObject) : g(jSONObject, str);
+        }
+        return (lv1) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.br1
-    public String j() {
-        InterceptResult invokeV;
+    public final lv1 g(@NonNull JSONObject jSONObject, @Nullable String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "HostDownloadManagerApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle async");
+            }
+            lv1 d = d(jSONObject, new a(this, str));
+            if (!d.h("isSync", Boolean.FALSE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleAsync encounter error, json exception");
+                }
+                return new lv1(1001, "make result json error");
+            }
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle async, processing in other thread, sync result: " + d.toString());
+            }
+            return d;
+        }
+        return (lv1) invokeLL.objValue;
     }
 
-    public yu1 query(String str) {
+    public final lv1 h(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
-        Object obj;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#query", false);
-            if (y23.b0() == null) {
-                return new yu1(1001);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, jSONObject)) == null) {
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " start handle sync");
             }
-            Pair<yu1, JSONObject> s = s(str);
-            yu1 yu1Var = (yu1) s.first;
-            if (yu1Var.isSuccess() && (obj = s.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("taskID");
-                if (TextUtils.isEmpty(optString)) {
-                    return new yu1(202, "taskId is empty");
+            lv1 e = e(jSONObject);
+            if (!e.h("isSync", Boolean.TRUE)) {
+                if (c) {
+                    Log.e("SwanAutoSyncApiHandler", this.a + " handleSync encounter error, json exception");
                 }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new yu1(202, "cb is empty");
-                }
-                qn1 z = fm2.z();
-                if (z != null) {
-                    z.b(optString, new b(this, optString2));
-                }
-                return yu1.f();
+                return new lv1(1001, "make result json error");
             }
-            yz1.c("HostDownloadManagerApi", "parse fail");
-            return yu1Var;
+            if (c) {
+                Log.d("SwanAutoSyncApiHandler", this.a + " end handle sync, result: " + e.toString());
+            }
+            return e;
         }
-        return (yu1) invokeL.objValue;
+        return (lv1) invokeL.objValue;
     }
 
-    public yu1 x(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            y23 b0 = y23.b0();
-            if (b0 == null) {
-                return new yu1(1001);
-            }
-            if (b0.w() == null) {
-                return new yu1(1001);
-            }
-            Pair<yu1, JSONObject> s = s(str);
-            yu1 yu1Var = (yu1) s.first;
-            if (yu1Var.isSuccess() && (obj = s.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("url");
-                if (TextUtils.isEmpty(optString)) {
-                    return new yu1(202, "url is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new yu1(202, "cb is empty");
-                }
-                String optString3 = jSONObject.optString("name");
-                JSONObject optJSONObject = jSONObject.optJSONObject("header");
-                qn1 z = fm2.z();
-                if (z != null) {
-                    z.d(optString, optString3, optJSONObject, new a(this, optString2));
-                }
-                return yu1.f();
-            }
-            yz1.c("HostDownloadManagerApi", "parse fail");
-            return yu1Var;
-        }
-        return (yu1) invokeL.objValue;
-    }
-
-    public yu1 y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            q("#openDownloadCenter", false);
-            if (y23.b0() == null) {
-                return new yu1(1001);
-            }
-            qn1 z = fm2.z();
-            if (z != null) {
-                z.a();
-            }
-            return yu1.f();
-        }
-        return (yu1) invokeV.objValue;
-    }
-
-    public yu1 z(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#openFile", false);
-            if (y23.b0() == null) {
-                return new yu1(1001);
-            }
-            Pair<yu1, JSONObject> s = s(str);
-            yu1 yu1Var = (yu1) s.first;
-            if (yu1Var.isSuccess() && (obj = s.second) != null) {
-                JSONObject jSONObject = (JSONObject) obj;
-                String optString = jSONObject.optString("taskID");
-                if (TextUtils.isEmpty(optString)) {
-                    return new yu1(202, "taskId is empty");
-                }
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new yu1(202, "cb is empty");
-                }
-                SwanAppActivity activity = lo2.U().getActivity();
-                if (activity == null) {
-                    return new yu1(1001);
-                }
-                qn1 z = fm2.z();
-                if (z != null) {
-                    z.c(activity, optString, new c(this, optString2));
-                }
-                return yu1.f();
-            }
-            yz1.c("HostDownloadManagerApi", "parse fail");
-            return yu1Var;
-        }
-        return (yu1) invokeL.objValue;
-    }
+    public abstract boolean i();
 }

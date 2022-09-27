@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.net.Uri;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class w42 extends SwanAppWebViewManager implements Object<NgWebView>, u42 {
+public class w42 implements z42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean x;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String w;
 
     static {
         InterceptResult invokeClinit;
@@ -32,90 +33,82 @@ public class w42 extends SwanAppWebViewManager implements Object<NgWebView>, u42
                 return;
             }
         }
-        x = ij1.a;
+        a = vj1.a;
+        HashSet hashSet = new HashSet();
+        b = hashSet;
+        hashSet.add("https");
+        b.add("http");
+        b.add(LoginConstants.SMS_LOGIN);
+        b.add("tel");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w42(Context context) {
-        super(context);
+    public w42() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.w = e52.b();
     }
 
-    @Override // com.baidu.tieba.u42
-    public void D(m92 m92Var) {
+    @Override // com.baidu.tieba.z42
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, m92Var) == null) || m92Var == null) {
-            return;
-        }
-        if (x) {
-            Log.d("SwanAppMasterManager", "pathList item: " + m92Var.b);
-        }
-        this.b.getSettings().setCodeCacheSetting(r12.a("appjs", m92Var.b));
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void L0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void V0() {
+    @Override // com.baidu.tieba.z42
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null || (parse = Uri.parse(str)) == null) {
+                return true;
+            }
+            boolean contains = b.contains(parse.getScheme());
+            if (a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(contains ? "legal schemes : " : "illegal schemes : ");
+                sb.append(parse.getScheme());
+                Log.d("WebViewWidgetListener", sb.toString());
+            }
+            return !contains;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.z42
+    public void c(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gp1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.z42
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.w : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.u42
-    public w12 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? r() : (w12) invokeV.objValue;
-    }
-
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gp1
-    public void loadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            super.loadUrl(str);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.gp1
-    public void onJSLoaded() {
+    @Override // com.baidu.tieba.z42
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            s92.U().w0(true);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.u42
-    public void p(int i) {
+    @Override // com.baidu.tieba.z42
+    public void goBack() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 }

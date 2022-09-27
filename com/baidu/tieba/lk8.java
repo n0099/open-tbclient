@@ -1,32 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.StampShareDialogConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lk8 {
+public class lk8 extends bk8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public mk8 b;
+    public ArrayList<nk8> c;
 
-    public lk8(Context context, mk8 mk8Var) {
+    public lk8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, mk8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,40 +28,37 @@ public class lk8 {
                 return;
             }
         }
-        this.a = context;
-        this.b = mk8Var;
+        this.c = new ArrayList<>();
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.bk8
+    public void d(JSONObject jSONObject) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ShareItem shareItem = new ShareItem();
-            Bundle e = shareItem.e();
-            if (e == null) {
-                e = new Bundle();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            ArrayList<nk8> arrayList = new ArrayList<>();
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    nk8 nk8Var = new nk8();
+                    nk8Var.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(nk8Var);
+                }
             }
-            e.putInt("obj_locate", 20);
-            shareItem.k(e);
-            shareItem.r0 = true;
-            shareItem.h0 = 1;
-            StampShareDialogConfig stampShareDialogConfig = new StampShareDialogConfig(this.a, shareItem, true, this.b);
-            stampShareDialogConfig.setIsCopyLink(false);
-            stampShareDialogConfig.setHideMode(stampShareDialogConfig.hideMode | 32);
-            this.b.e(b("https://tieba.baidu.com/mo/q/icon/home"));
-            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, stampShareDialogConfig));
+            i(arrayList);
         }
     }
 
-    public final Bitmap b(String str) {
-        InterceptResult invokeL;
-        CustomResponsedMessage runTask;
+    public ArrayList<nk8> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
-                return null;
-            }
-            return (Bitmap) runTask.getData();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ArrayList) invokeV.objValue;
+    }
+
+    public void i(ArrayList<nk8> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
+            this.c = arrayList;
+            g(null);
         }
-        return (Bitmap) invokeL.objValue;
     }
 }

@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.bx4;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.ox4;
+import com.baidu.tieba.sm8;
 import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
 import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
@@ -123,7 +123,7 @@ public class ThemeStatic {
                             indexOf = substring.length();
                         }
                         int e = dh.e(substring.substring(0, indexOf), 0);
-                        bx4 k = bx4.k();
+                        ox4 k = ox4.k();
                         StringBuilder sb = new StringBuilder();
                         sb.append("current_used_personal_background_");
                         sb.append(TbadkCoreApplication.getCurrentAccount());
@@ -274,8 +274,8 @@ public class ThemeStatic {
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardCategoryActivityConfig.class, PersonalCardCategoryActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(PersonalCardDetailActivityConfig.class, PersonalCardDetailActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AvatarPendantActivityConfig.class, AvatarPendantActivity.class);
-        dm8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
-        dm8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
+        sm8.h(309022, BackgroundSetSocketResponseMessage.class, false, false);
+        sm8.c(309022, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_SET, TbConfig.PERSONAL_BACKGROUND_SET, BackgroundSetHttpResponseMessage.class, false, false, false, false);
     }
 
     public ThemeStatic() {

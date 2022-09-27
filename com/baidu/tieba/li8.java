@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class li8 extends ni8 {
+public class li8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ki8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String n;
 
-    public li8(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.n = str;
-    }
-
-    public String x() {
+    public static synchronized ki8 a() {
         InterceptResult invokeV;
+        ki8 ki8Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.n : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (li8.class) {
+                if (a == null) {
+                    a = new ki8();
+                }
+                ki8Var = a;
+            }
+            return ki8Var;
+        }
+        return (ki8) invokeV.objValue;
     }
 }

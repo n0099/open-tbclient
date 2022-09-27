@@ -1,112 +1,92 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.MapStatusUpdateFactory;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.Overlay;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class i94 {
+public abstract class i94 implements BaiduMap.OnMarkerClickListener, BaiduMap.OnPolylineClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<g94> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaiduMap a;
+    public List<OverlayOptions> b;
+    public List<Overlay> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947808325, "Lcom/baidu/tieba/i94;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947808325, "Lcom/baidu/tieba/i94;");
+    public i94(BaiduMap baiduMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        SparseArray<g94> sparseArray = new SparseArray<>();
-        a = sparseArray;
-        sparseArray.put(5, new g94(5, R.string.obfuscated_res_0x7f0f00fc, R.drawable.obfuscated_res_0x7f0800f5, true));
-        a.put(35, new g94(35, R.string.obfuscated_res_0x7f0f00ef, R.drawable.obfuscated_res_0x7f0800d5, true));
-        a.put(39, new g94(39, R.string.obfuscated_res_0x7f0f00f6, R.drawable.obfuscated_res_0x7f0800f8, true));
-        a.put(4, new g94(4, R.string.obfuscated_res_0x7f0f00fd, R.drawable.obfuscated_res_0x7f0800fb, true));
-        a.put(37, new g94(37, R.string.obfuscated_res_0x7f0f00f1, R.drawable.obfuscated_res_0x7f0800d8, true));
-        a.put(38, new g94(38, R.string.obfuscated_res_0x7f0f00fa, R.drawable.obfuscated_res_0x7f0800d4, true));
-        a.put(42, new g94(42, R.string.obfuscated_res_0x7f0f00f2, R.drawable.obfuscated_res_0x7f0800f8, true));
-        a.put(49, new g94(49, R.string.obfuscated_res_0x7f0f126a, R.drawable.obfuscated_res_0x7f081153, true));
-        a.put(50, new g94(50, R.string.obfuscated_res_0x7f0f12ee, R.drawable.obfuscated_res_0x7f081152, true));
-        a.put(43, new g94(43, R.string.obfuscated_res_0x7f0f00f0, R.drawable.obfuscated_res_0x7f0800d9, true));
-        a.put(9, new g94(9, R.string.obfuscated_res_0x7f0f00fb, R.drawable.obfuscated_res_0x7f0800e5, true));
-        a.put(46, new g94(46, R.string.obfuscated_res_0x7f0f00f3, R.drawable.obfuscated_res_0x7f0800ea, true));
-        a.put(47, new g94(47, R.string.obfuscated_res_0x7f0f00f4, R.drawable.obfuscated_res_0x7f0800ed, true));
-    }
-
-    public static g94 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? g94.k(a.get(i)) : (g94) invokeI.objValue;
-    }
-
-    public static List<g94> b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i != 0) {
-                if (i != 12) {
-                    if (i != 13) {
-                        switch (i) {
-                            case 16:
-                                arrayList.add(g94.k(a.get(5)));
-                                break;
-                            case 17:
-                            case 18:
-                                arrayList.add(g94.k(a.get(38)));
-                                arrayList.add(g94.k(a.get(4)));
-                                arrayList.add(g94.k(a.get(39)));
-                                arrayList.add(g94.k(a.get(35)));
-                                arrayList.add(g94.k(a.get(5)));
-                                arrayList.add(g94.k(a.get(49)));
-                                break;
-                            case 19:
-                                arrayList.add(g94.l(a.get(38), false));
-                                arrayList.add(g94.l(a.get(4), false));
-                                arrayList.add(g94.k(a.get(39)));
-                                arrayList.add(g94.l(a.get(35), false));
-                                arrayList.add(g94.k(a.get(5)));
-                                arrayList.add(g94.l(a.get(49), false));
-                                break;
-                            case 20:
-                                arrayList.add(g94.k(a.get(38)));
-                                arrayList.add(g94.k(a.get(4)));
-                                arrayList.add(g94.k(a.get(39)));
-                                arrayList.add(g94.k(a.get(35)));
-                                arrayList.add(g94.k(a.get(5)));
-                                arrayList.add(g94.k(a.get(49)));
-                                break;
-                        }
-                    } else {
-                        arrayList.add(g94.k(a.get(43)));
-                    }
-                }
-                arrayList.add(g94.k(a.get(38)));
-                arrayList.add(g94.k(a.get(4)));
-                arrayList.add(g94.k(a.get(39)));
-                arrayList.add(g94.k(a.get(35)));
-                arrayList.add(g94.k(a.get(5)));
-                arrayList.add(g94.k(a.get(49)));
-            } else {
-                arrayList.add(g94.k(a.get(38)));
-                arrayList.add(g94.k(a.get(5)));
-                arrayList.add(g94.k(a.get(4)));
-                arrayList.add(g94.k(a.get(35)));
-                arrayList.add(g94.k(a.get(42)));
-            }
-            return arrayList;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.a = baiduMap;
+        if (0 == 0) {
+            this.b = new ArrayList();
         }
-        return (List) invokeI.objValue;
+        if (this.c == null) {
+            this.c = new ArrayList();
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a == null) {
+            return;
+        }
+        c();
+        if (b() != null) {
+            this.b.addAll(b());
+        }
+        for (OverlayOptions overlayOptions : this.b) {
+            this.c.add(this.a.addOverlay(overlayOptions));
+        }
+    }
+
+    public abstract List<OverlayOptions> b();
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
+            return;
+        }
+        for (Overlay overlay : this.c) {
+            overlay.remove();
+        }
+        this.b.clear();
+        this.c.clear();
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || this.a == null || this.c.size() <= 0) {
+            return;
+        }
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        for (Overlay overlay : this.c) {
+            if (overlay instanceof Marker) {
+                builder.include(((Marker) overlay).getPosition());
+            }
+        }
+        this.a.setMapStatus(MapStatusUpdateFactory.newLatLngBounds(builder.build()));
     }
 }

@@ -57,12 +57,12 @@ public class py extends nx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: t */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         SmartAppBottomLayout smartAppBottomLayout;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, lq4Var) == null) || (smartAppBottomLayout = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, yq4Var) == null) || (smartAppBottomLayout = this.h) == null) {
             return;
         }
-        smartAppBottomLayout.a(lq4Var);
+        smartAppBottomLayout.a(yq4Var);
     }
 }

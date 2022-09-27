@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class or4 {
+public abstract class or4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public kr4 c;
 
     public or4() {
         Interceptable interceptable = $ic;
@@ -26,41 +21,20 @@ public class or4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
-        this.b = "";
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void parserJson(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                parserJson(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
     }
 
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) == null) || forumHeadlineImgInfo == null) {
-            return;
-        }
-        forumHeadlineImgInfo.thread_id.longValue();
-        forumHeadlineImgInfo.thread_user_id.longValue();
-        String str = forumHeadlineImgInfo.thread_user_name;
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str2 = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        this.b = forumHeadlineImgInfo.headline_url;
-        this.c = new kr4();
-        ArrayList<nr4> arrayList = new ArrayList<>();
-        String str3 = this.a;
-        if (str3 == null) {
-            str3 = "";
-        }
-        String str4 = this.b;
-        nr4 nr4Var = new nr4(str3, str4 != null ? str4 : "", null);
-        nr4Var.r(true);
-        arrayList.add(nr4Var);
-        this.c.g(arrayList);
-    }
+    public abstract void parserJson(JSONObject jSONObject);
 }

@@ -1,34 +1,104 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.NetMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class g86 {
+public class g86 extends hb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a86 a;
+    public HashMap<String, String> b;
+    public Gson c;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g86(int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? bx4.k().h("like_forum_sort_level", false) ? 2 : 1 : invokeI.intValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new Gson();
     }
 
-    public static void b(TbPageContext<?> tbPageContext, String str) {
-        ForumSquareActivityConfig forumSquareActivityConfig;
+    public String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, tbPageContext, str) == null) || tbPageContext == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str.contains("?")) {
+                str = str.split("[?]")[0];
+            }
+            String replace = str.replace(TbConfig.SERVER_ADDRESS, "");
+            HashMap<String, String> hashMap = this.b;
+            if (hashMap != null) {
+                return hashMap.get(replace);
+            }
+            return null;
         }
-        if (!StringUtils.isNull(str)) {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity(), str);
-        } else {
-            forumSquareActivityConfig = new ForumSquareActivityConfig(tbPageContext.getPageActivity());
+        return (String) invokeL.objValue;
+    }
+
+    public void b(a86 a86Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a86Var) == null) {
+            this.a = a86Var;
         }
-        tbPageContext.sendMessage(new CustomMessage(2002001, forumSquareActivityConfig));
+    }
+
+    public void c(HashMap<String, String> hashMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) {
+            this.b = hashMap;
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.baidu.tieba.jb
+    public /* bridge */ /* synthetic */ HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        HttpMessage httpMessage2 = httpMessage;
+        process2(httpMessage2, httpMessageTask);
+        return httpMessage2;
+    }
+
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public HttpMessage process2(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
+        InterceptResult invokeLL;
+        String json;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, httpMessage, httpMessageTask)) == null) {
+            String a = a(httpMessageTask.getUrl());
+            if (a != null && this.a != null) {
+                if (httpMessage.getExtra() instanceof NetMessage) {
+                    NetMessage netMessage = (NetMessage) httpMessage.getExtra();
+                    json = netMessage.getSocketMessage() != null ? this.c.toJson(netMessage.getSocketMessage().getData()) : "";
+                } else {
+                    json = this.c.toJson(httpMessage.getParams());
+                }
+                this.a.a(httpMessageTask.getUrl(), this.c.toJson(a), this.c.toJson(json));
+            }
+            return httpMessage;
+        }
+        return (HttpMessage) invokeLL.objValue;
     }
 }

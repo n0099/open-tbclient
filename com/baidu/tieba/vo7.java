@@ -1,27 +1,40 @@
 package com.baidu.tieba;
+
+import android.graphics.Color;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface vo7 {
-    void a(long j, long j2, long j3);
+public class vo7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(boolean z);
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            try {
+                return Color.parseColor(b(str));
+            } catch (Exception unused) {
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
 
-    void c(boolean z, boolean z2);
-
-    boolean d(String str, String str2);
-
-    String e(String str, String str2);
-
-    void f();
-
-    void g(long j, int i);
-
-    void h(int i);
-
-    void i(int i);
-
-    void j();
-
-    void k(String str, String str2);
-
-    void l(int i);
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            if (TbadkCoreApplication.getInst().getSkinType() == 1) {
+                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0405) + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f137f) + str;
+            }
+            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0405) + str;
+        }
+        return (String) invokeL.objValue;
+    }
 }

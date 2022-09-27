@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hp extends f55 {
+public class hp extends s55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,7 +34,7 @@ public class hp extends f55 {
                 return;
             }
         }
-        this.d = R.drawable.obfuscated_res_0x7f0809d3;
+        this.d = R.drawable.obfuscated_res_0x7f0809d5;
         this.e = R.drawable.obfuscated_res_0x7f08082b;
         this.i = true;
         this.n = 6;
@@ -43,7 +43,7 @@ public class hp extends f55 {
         this.p = new int[]{1, 9};
     }
 
-    @Override // com.baidu.tieba.f55
+    @Override // com.baidu.tieba.s55
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

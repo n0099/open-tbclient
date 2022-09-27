@@ -1,31 +1,21 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.security.RSAUtil;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.android.util.io.JSONUtils;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.nio.channels.Channels;
-import java.nio.channels.ReadableByteChannel;
-import java.security.GeneralSecurityException;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class lg3 {
+public final class lg3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,109 +33,105 @@ public class lg3 {
                 return;
             }
         }
-        a = ij1.a;
+        a = vj1.a;
     }
 
-    public static boolean a(File file, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) ? b(file, str, null) : invokeLL.booleanValue;
-    }
-
-    public static boolean b(File file, String str, fh3 fh3Var) {
+    public static <T> T a(JSONObject jSONObject, String str, Class<T> cls) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, fh3Var)) == null) {
-            boolean z = file == null;
-            if (z || !file.exists() || TextUtils.isEmpty(str)) {
-                if (fh3Var != null) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("zipfile: isEmpty=");
-                    sb.append(z);
-                    sb.append("; exists=");
-                    sb.append(z ? "" : Boolean.valueOf(file.exists()));
-                    fh3Var.a = sb.toString();
-                }
-                return false;
-            }
-            ReadableByteChannel readableByteChannel = null;
-            try {
-                readableByteChannel = Channels.newChannel(new FileInputStream(file));
-                return d(readableByteChannel, str, fh3Var);
-            } catch (IOException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return false;
-            } finally {
-                cj4.d(readableByteChannel);
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) ? d(readableByteChannel, str, null) : invokeLL.booleanValue;
-    }
-
-    public static boolean d(ReadableByteChannel readableByteChannel, String str, fh3 fh3Var) throws IOException {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, fh3Var)) == null) {
-            boolean z = readableByteChannel == null;
-            if (z || TextUtils.isEmpty(str)) {
-                if (fh3Var != null) {
-                    fh3Var.a = "zipSource isNullIs=" + z;
-                }
-                return false;
-            }
-            String c = ej4.c(false, readableByteChannel);
-            if (fh3Var != null) {
-                fh3Var.a = c;
-            }
-            try {
-                String str2 = new String(e(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), IMAudioTransRequest.CHARSET);
-                if (fh3Var != null) {
-                    fh3Var.b = str2;
-                }
-                return TextUtils.equals(str2, c);
-            } catch (Exception e) {
-                if (a) {
-                    Log.i("SwanAppSignChecker", e.toString());
-                    e.printStackTrace();
-                }
-                if (fh3Var != null) {
-                    fh3Var.b = e.getLocalizedMessage();
-                }
-                return false;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(2, publicKey);
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static PublicKey f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
-            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, jSONObject, str, cls)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
+            T t = (T) jSONObject.opt(str);
+            if (cls.isInstance(t)) {
+                if (a) {
+                    String obj = t.toString();
+                    if (((t instanceof JSONObject) || (t instanceof JSONArray)) && obj.length() > 30) {
+                        obj = obj.substring(0, 30) + StringHelper.STRING_MORE;
+                    }
+                    if (a) {
+                        Log.d(JSONUtils.TAG, "json: " + str + "=" + obj);
+                    }
+                }
+                return t;
+            }
+            if (a) {
+                if (t == null) {
+                    Log.w(JSONUtils.TAG, "Json has no value by name: '" + str + "'!");
+                } else {
+                    Log.w(JSONUtils.TAG, "Value of '" + str + "' is not a instance of '" + cls.getSimpleName() + "'!");
+                }
+            }
+            return null;
         }
-        return (PublicKey) invokeL.objValue;
+        return (T) invokeLLL.objValue;
+    }
+
+    public static float b(JSONObject jSONObject, String str, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{jSONObject, str, Float.valueOf(f)})) == null) ? jSONObject == null ? f : (float) jSONObject.optDouble(str, f) : invokeCommon.floatValue;
+    }
+
+    public static JSONArray c(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, jSONObject, str)) == null) ? (JSONArray) a(jSONObject, str, JSONArray.class) : (JSONArray) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static JSONObject d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONObject();
+            }
+            try {
+                return new JSONObject(str);
+            } catch (JSONException e) {
+                if (a) {
+                    Log.w(JSONUtils.TAG, "JSONObject parsed error!!", e);
+                }
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static JSONArray e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new JSONArray();
+            }
+            try {
+                return new JSONArray(str);
+            } catch (JSONException e) {
+                if (a) {
+                    Log.w(JSONUtils.TAG, "JSONArray parsed error!!", e);
+                }
+                return new JSONArray();
+            }
+        }
+        return (JSONArray) invokeL.objValue;
+    }
+
+    public static JSONObject f(JSONObject jSONObject, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, jSONObject, str, obj)) == null) {
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            try {
+                jSONObject.put(str, obj);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLLL.objValue;
     }
 }

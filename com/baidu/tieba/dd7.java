@@ -1,15 +1,23 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class dd7 extends od7 {
+public class dd7 implements bd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, Integer> a;
 
     public dd7() {
         Interceptable interceptable = $ic;
@@ -21,31 +29,46 @@ public class dd7 extends od7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        HashMap<String, Integer> hashMap = new HashMap<>(3);
+        this.a = hashMap;
+        hashMap.put("#(滑稽)", Integer.valueOf(ImEmojiUtil.a));
+        this.a.put("#(香槟)", Integer.valueOf(ImEmojiUtil.b));
+        this.a.put("#(炸药)", Integer.valueOf(ImEmojiUtil.c));
     }
 
-    @Override // com.baidu.tieba.od7, com.baidu.tieba.bb5
-    public String getCacheKey() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bd7
+    public boolean a(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "atme_cache" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) ? this.a.containsKey(c(chatMessageArr)) : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.od7, com.baidu.tieba.cb5
-    public boolean o() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bd7
+    public void b(ListView listView, ChatMessage... chatMessageArr) {
+        View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) == null) || listView == null || (childAt = listView.getChildAt(listView.getLastVisiblePosition() - listView.getFirstVisiblePosition())) == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.obfuscated_res_0x7f0920fb);
+        if (chatMessageArr == null || chatMessageArr.length <= 1) {
+            return;
+        }
+        ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, null);
     }
 
-    @Override // com.baidu.tieba.od7, com.baidu.tieba.cb5
-    public String y() {
-        InterceptResult invokeV;
+    public final String c(ChatMessage... chatMessageArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "tb_user_atme" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
+            if (chatMessageArr == null || chatMessageArr.length <= 0 || chatMessageArr[0] == null) {
+                return null;
+            }
+            return chatMessageArr[0].getContent();
+        }
+        return (String) invokeL.objValue;
     }
 }

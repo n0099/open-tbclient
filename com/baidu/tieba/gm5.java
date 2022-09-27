@@ -1,206 +1,448 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.graphics.Typeface;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gm5 {
+public class gm5<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final gm5 l;
     public transient /* synthetic */ FieldHolder $fh;
-    public AtomicBoolean a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
+    public View a;
+    public WheelView b;
+    public WheelView c;
+    public WheelView d;
+    public List<T> e;
+    public List<List<T>> f;
+    public List<List<List<T>>> g;
+    public boolean h;
+    public boolean i;
+    public lm5 j;
+    public lm5 k;
+    public yl5 l;
+    public int m;
+    public int n;
+    public int o;
+    public WheelView.DividerType p;
+    public float q;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947798746, "Lcom/baidu/tieba/gm5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements lm5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gm5 a;
+
+        public a(gm5 gm5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947798746, "Lcom/baidu/tieba/gm5;");
-                return;
+            this.a = gm5Var;
+        }
+
+        @Override // com.baidu.tieba.lm5
+        public void onItemSelected(int i) {
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.f == null) {
+                    if (this.a.l != null) {
+                        this.a.l.a(this.a.b.getCurrentItem(), 0, 0);
+                        return;
+                    }
+                    return;
+                }
+                if (this.a.i) {
+                    i2 = 0;
+                } else {
+                    i2 = this.a.c.getCurrentItem();
+                    if (i2 >= ((List) this.a.f.get(i)).size() - 1) {
+                        i2 = ((List) this.a.f.get(i)).size() - 1;
+                    }
+                }
+                this.a.c.setAdapter(new rl5((List) this.a.f.get(i)));
+                this.a.c.setCurrentItem(i2);
+                if (this.a.g != null) {
+                    this.a.k.onItemSelected(i2);
+                } else if (this.a.l != null) {
+                    this.a.l.a(i, i2, 0);
+                }
             }
         }
-        l = new gm5();
     }
 
-    public gm5() {
+    /* loaded from: classes4.dex */
+    public class b implements lm5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gm5 a;
+
+        public b(gm5 gm5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gm5Var;
+        }
+
+        @Override // com.baidu.tieba.lm5
+        public void onItemSelected(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                int i2 = 0;
+                if (this.a.g != null) {
+                    int currentItem = this.a.b.getCurrentItem();
+                    if (currentItem >= this.a.g.size() - 1) {
+                        currentItem = this.a.g.size() - 1;
+                    }
+                    if (i >= ((List) this.a.f.get(currentItem)).size() - 1) {
+                        i = ((List) this.a.f.get(currentItem)).size() - 1;
+                    }
+                    if (!this.a.i) {
+                        i2 = this.a.d.getCurrentItem() >= ((List) ((List) this.a.g.get(currentItem)).get(i)).size() + (-1) ? ((List) ((List) this.a.g.get(currentItem)).get(i)).size() - 1 : this.a.d.getCurrentItem();
+                    }
+                    this.a.d.setAdapter(new rl5((List) ((List) this.a.g.get(this.a.b.getCurrentItem())).get(i)));
+                    this.a.d.setCurrentItem(i2);
+                    if (this.a.l != null) {
+                        this.a.l.a(this.a.b.getCurrentItem(), i, i2);
+                    }
+                } else if (this.a.l != null) {
+                    this.a.l.a(this.a.b.getCurrentItem(), i, 0);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements lm5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gm5 a;
+
+        public c(gm5 gm5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gm5Var;
+        }
+
+        @Override // com.baidu.tieba.lm5
+        public void onItemSelected(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.l.a(this.a.b.getCurrentItem(), this.a.c.getCurrentItem(), i);
+            }
+        }
+    }
+
+    public gm5(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new AtomicBoolean(false);
+        this.h = true;
+        this.i = z;
+        this.a = view2;
+        this.b = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f091749);
+        this.c = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09174a);
+        this.d = (WheelView) view2.findViewById(R.id.obfuscated_res_0x7f09174b);
     }
 
-    public static gm5 a() {
-        InterceptResult invokeV;
+    public final void A() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? l : (gm5) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("tieba_pic_ad_req_num", 3) : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_first_floor", -1) : invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("video_flow_floor_interval", -1) : invokeV.intValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g == 1 : invokeV.booleanValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0).getInt("ad_photo_browser_insert_mode", -1) == 1 : invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b == 1 : invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.k == 1 : invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.h == 1 : invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.i == 1 : invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d == 1 : invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? this.j == 1 : invokeV.booleanValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
-            boolean z = this.a.get();
-            if (jSONObject == null || z) {
-                return;
-            }
-            this.a.set(true);
-            this.b = jSONObject.optInt("tieba_lazy_launch_switch", 1);
-            this.c = jSONObject.optInt("tieba_lazy_launch_internal", 60);
-            jSONObject.optInt("tieba_max_fake_progress", 50);
-            jSONObject.optInt("tieba_max_fake_time", 60);
-            jSONObject.optLong("tieba_max_fake_speed", 768000L);
-            SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("ad_sp_workplace", 0);
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putInt("pic_page_insert_mode", jSONObject.optInt("pic_page_insert_mode", 2));
-            edit.putInt("pic_page_request_num", jSONObject.optInt("pic_page_request_num", 5));
-            edit.putInt("pic_page_cache_time", jSONObject.optInt("pic_page_cache_time", 20));
-            edit.putInt("pic_page_first_floor", jSONObject.optInt("pic_page_first_floor", 2));
-            edit.putInt("pic_page_floor_interval", jSONObject.optInt("pic_page_floor_interval", 5));
-            edit.putInt("pic_page_pre_load_num", jSONObject.optInt("pic_page_pre_load_num", 5));
-            edit.putInt("pic_page_max_ad_num", jSONObject.optInt("pic_page_max_ad_num", 5));
-            edit.putInt("pic_page_req_gap_time", jSONObject.optInt("pic_page_req_gap_time", 30));
-            edit.commit();
-            this.k = jSONObject.optInt("tieba_video_mobile_net_autoplay", 1);
-            this.g = jSONObject.optInt("tieba_12.4_download_path", 1);
-            jSONObject.optInt("tieba_landing_page_type_switch", -1);
-            this.d = jSONObject.optInt("tieba_fix_apk_install_status_switch", 1);
-            this.e = jSONObject.optInt("tieba_12.2_download_ad_discard", -1);
-            this.f = jSONObject.optInt("tieba_12.3_ad_discard_optimize", -1);
-            jSONObject.optString("tieba_follow_up_cmatch_switchs", "");
-            jSONObject.optInt("tieba_follow_up_expire_time", 7);
-            jSONObject.optInt("tieba_follow_up_max_remind_times", 3);
-            jSONObject.optInt("tieba_follow_up_gap_time", 5);
-            this.h = jSONObject.optInt("tieba_video_ad_jump_switch", 0);
-            this.i = jSONObject.optInt("tieba_video_load_optimize_switch", 0);
-            this.j = jSONObject.optInt("hide_landing_page_ad_download_tip", 0);
-            SharedPreferences.Editor edit2 = sharedPreferences.edit();
-            edit2.putInt("video_flow_first_floor", jSONObject.optInt("video_flow_first_floor", -1));
-            edit2.putInt("video_flow_floor_interval", jSONObject.optInt("video_flow_floor_interval", -1));
-            int optInt = jSONObject.optInt("ad_photo_browser_insert_mode", -1);
-            if (optInt != -1) {
-                edit2.putInt("ad_photo_browser_insert_mode", optInt);
-            }
-            int optInt2 = jSONObject.optInt("tieba_pic_ad_req_num", -1);
-            if (optInt2 != -1) {
-                edit2.putInt("tieba_pic_ad_req_num", optInt2);
-            }
-            edit2.commit();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.setTextColorOut(this.m);
+            this.c.setTextColorOut(this.m);
+            this.d.setTextColorOut(this.m);
         }
     }
 
-    public boolean o() {
-        InterceptResult invokeV;
+    public void B(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? this.f == 1 : invokeV.booleanValue;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.m = i;
+            A();
+        }
     }
 
-    public boolean p() {
+    public void C(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            float f = i;
+            this.b.setTextSize(f);
+            this.c.setTextSize(f);
+            this.d.setTextSize(f);
+        }
+    }
+
+    public int[] i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.e == 1 : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int[] iArr = new int[3];
+            iArr[0] = this.b.getCurrentItem();
+            List<List<T>> list = this.f;
+            if (list != null && list.size() > 0) {
+                iArr[1] = this.c.getCurrentItem() > this.f.get(iArr[0]).size() - 1 ? 0 : this.c.getCurrentItem();
+            } else {
+                iArr[1] = this.c.getCurrentItem();
+            }
+            List<List<List<T>>> list2 = this.g;
+            if (list2 != null && list2.size() > 0) {
+                iArr[2] = this.d.getCurrentItem() <= this.g.get(iArr[0]).get(iArr[1]).size() - 1 ? this.d.getCurrentItem() : 0;
+            } else {
+                iArr[2] = this.d.getCurrentItem();
+            }
+            return iArr;
+        }
+        return (int[]) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.invalidate();
+            this.c.invalidate();
+            this.d.invalidate();
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.b.h(z);
+            this.c.h(z);
+            this.d.h(z);
+        }
+    }
+
+    public final void l(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
+            if (this.e != null) {
+                this.b.setCurrentItem(i);
+            }
+            List<List<T>> list = this.f;
+            if (list != null) {
+                this.c.setAdapter(new rl5(list.get(i)));
+                this.c.setCurrentItem(i2);
+            }
+            List<List<List<T>>> list2 = this.g;
+            if (list2 != null) {
+                this.d.setAdapter(new rl5(list2.get(i).get(i2)));
+                this.d.setCurrentItem(i3);
+            }
+        }
+    }
+
+    public void m(Typeface typeface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, typeface) == null) {
+            this.b.setCenterTypeface(typeface);
+            this.c.setCenterTypeface(typeface);
+            this.d.setCenterTypeface(typeface);
+        }
+    }
+
+    public void n(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
+            if (this.h) {
+                l(i, i2, i3);
+                return;
+            }
+            this.b.setCurrentItem(i);
+            this.c.setCurrentItem(i2);
+            this.d.setCurrentItem(i3);
+        }
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.b.setCyclic(z);
+            this.c.setCyclic(z);
+            this.d.setCyclic(z);
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.b.setDividerColor(this.o);
+            this.c.setDividerColor(this.o);
+            this.d.setDividerColor(this.o);
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.o = i;
+            p();
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.b.setDividerType(this.p);
+            this.c.setDividerType(this.p);
+            this.d.setDividerType(this.p);
+        }
+    }
+
+    public void s(WheelView.DividerType dividerType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, dividerType) == null) {
+            this.p = dividerType;
+            r();
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.b.setItemsVisible(i);
+            this.c.setItemsVisible(i);
+            this.d.setItemsVisible(i);
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.b.setLineSpacingMultiplier(this.q);
+            this.c.setLineSpacingMultiplier(this.q);
+            this.d.setLineSpacingMultiplier(this.q);
+        }
+    }
+
+    public void v(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048592, this, f) == null) {
+            this.q = f;
+            u();
+        }
+    }
+
+    public void w(yl5 yl5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, yl5Var) == null) {
+            this.l = yl5Var;
+        }
+    }
+
+    public void x(List<T> list, List<List<T>> list2, List<List<List<T>>> list3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048594, this, list, list2, list3) == null) {
+            this.e = list;
+            this.f = list2;
+            this.g = list3;
+            this.b.setAdapter(new rl5(list));
+            this.b.setCurrentItem(0);
+            List<List<T>> list4 = this.f;
+            if (list4 != null) {
+                this.c.setAdapter(new rl5(list4.get(0)));
+            }
+            WheelView wheelView = this.c;
+            wheelView.setCurrentItem(wheelView.getCurrentItem());
+            List<List<List<T>>> list5 = this.g;
+            if (list5 != null) {
+                this.d.setAdapter(new rl5(list5.get(0).get(0)));
+            }
+            WheelView wheelView2 = this.d;
+            wheelView2.setCurrentItem(wheelView2.getCurrentItem());
+            this.b.setIsOptions(true);
+            this.c.setIsOptions(true);
+            this.d.setIsOptions(true);
+            if (this.f == null) {
+                this.c.setVisibility(8);
+            } else {
+                this.c.setVisibility(0);
+            }
+            if (this.g == null) {
+                this.d.setVisibility(8);
+            } else {
+                this.d.setVisibility(0);
+            }
+            this.j = new a(this);
+            this.k = new b(this);
+            if (list != null && this.h) {
+                this.b.setOnItemSelectedListener(this.j);
+            }
+            if (list2 != null && this.h) {
+                this.c.setOnItemSelectedListener(this.k);
+            }
+            if (list3 == null || !this.h || this.l == null) {
+                return;
+            }
+            this.d.setOnItemSelectedListener(new c(this));
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            this.b.setTextColorCenter(this.n);
+            this.c.setTextColorCenter(this.n);
+            this.d.setTextColorCenter(this.n);
+        }
+    }
+
+    public void z(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.n = i;
+            y();
+        }
     }
 }

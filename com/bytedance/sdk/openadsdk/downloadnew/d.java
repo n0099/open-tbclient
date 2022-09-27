@@ -348,10 +348,10 @@ public class d {
 
     /* renamed from: com.bytedance.sdk.openadsdk.downloadnew.d$d  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0509d implements k {
+    public static class C0506d implements k {
         public final WeakReference<Context> a;
 
-        public C0509d(Context context) {
+        public C0506d(Context context) {
             this.a = new WeakReference<>(context);
         }
 
@@ -359,18 +359,18 @@ public class d {
             return DialogBuilder.builder().setTitle(bVar.b).setMessage(bVar.c).setNegativeBtnText(bVar.e).setPositiveBtnText(bVar.d).setIcon(bVar.g).setDialogStatusChangedListener(new IDialogStatusChangedListener() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.d.1
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    b.InterfaceC0656b interfaceC0656b = bVar.h;
-                    if (interfaceC0656b != null) {
-                        interfaceC0656b.c(dialogInterface);
+                    b.InterfaceC0652b interfaceC0652b = bVar.h;
+                    if (interfaceC0652b != null) {
+                        interfaceC0652b.c(dialogInterface);
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onNegativeBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC0656b interfaceC0656b = bVar.h;
-                    if (interfaceC0656b != null) {
+                    b.InterfaceC0652b interfaceC0652b = bVar.h;
+                    if (interfaceC0652b != null) {
                         try {
-                            interfaceC0656b.b(dialogInterface);
+                            interfaceC0652b.b(dialogInterface);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -379,9 +379,9 @@ public class d {
 
                 @Override // com.bytedance.sdk.openadsdk.downloadnew.core.IDialogStatusChangedListener
                 public void onPositiveBtnClick(DialogInterface dialogInterface) {
-                    b.InterfaceC0656b interfaceC0656b = bVar.h;
-                    if (interfaceC0656b != null) {
-                        interfaceC0656b.a(dialogInterface);
+                    b.InterfaceC0652b interfaceC0652b = bVar.h;
+                    if (interfaceC0652b != null) {
+                        interfaceC0652b.a(dialogInterface);
                     }
                 }
             });
@@ -427,7 +427,7 @@ public class d {
         if (a2 == null) {
             return false;
         }
-        com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C0509d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
+        com.ss.android.download.api.a a3 = a2.a(new c()).a(new a()).a(new C0506d(applicationContext)).a(new b()).a(new com.ss.android.download.api.config.i() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.3
             @Override // com.ss.android.download.api.config.i
             public JSONObject a() {
                 if (d.e() != null) {
@@ -443,7 +443,7 @@ public class d {
                 }
                 return false;
             }
-        }).a(new a.C0655a().b("143").a(TTAdConstant.APP_NAME).c("4.5.2.6").d(String.valueOf(4526)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
+        }).a(new a.C0651a().b("143").a(TTAdConstant.APP_NAME).c("4.5.2.6").d(String.valueOf(4526)).a()).a(new p() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.1
             @Override // com.ss.android.download.api.config.p
             public byte[] a(byte[] bArr, int i) {
                 return new byte[0];
@@ -575,8 +575,8 @@ public class d {
     }
 
     public static boolean a(Activity activity, final ExitInstallListener exitInstallListener) {
-        return com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC0661a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
-            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC0661a
+        return com.ss.android.downloadlib.addownload.a.a.a().a(activity, false, new a.InterfaceC0657a() { // from class: com.bytedance.sdk.openadsdk.downloadnew.d.7
+            @Override // com.ss.android.downloadlib.addownload.a.a.InterfaceC0657a
             public void a() {
                 ExitInstallListener exitInstallListener2 = ExitInstallListener.this;
                 if (exitInstallListener2 != null) {

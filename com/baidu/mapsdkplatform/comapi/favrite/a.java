@@ -39,12 +39,12 @@ public class a {
 
     /* renamed from: com.baidu.mapsdkplatform.comapi.favrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0111a implements Comparator<String> {
+    public class C0108a implements Comparator<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a a;
 
-        public C0111a(a aVar) {
+        public C0108a(a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -533,7 +533,7 @@ public class a {
                         }
                         if (this.f.size() > 0) {
                             try {
-                                Collections.sort(this.f, new C0111a(this));
+                                Collections.sort(this.f, new C0108a(this));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -581,7 +581,7 @@ public class a {
                         }
                         if (this.e.size() > 0) {
                             try {
-                                Collections.sort(this.e, new C0111a(this));
+                                Collections.sort(this.e, new C0108a(this));
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }

@@ -10,9 +10,9 @@ import android.view.Surface;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oo7;
-import com.baidu.tieba.uo7;
-import com.baidu.tieba.yo7;
+import com.baidu.tieba.cp7;
+import com.baidu.tieba.ip7;
+import com.baidu.tieba.mp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class VideoEncoderCore {
     public long mLastFrameSyncTime;
     public MediaMuxerWrapper mMuxer;
     public boolean mMuxerStarted;
-    public uo7 mPostMonitorManager;
+    public ip7 mPostMonitorManager;
     public boolean mRequestStop;
     public int mTrackIndex;
     public Bundle params;
@@ -56,10 +56,10 @@ public class VideoEncoderCore {
         this.params = new Bundle();
         this.mLastFrameSyncTime = 0L;
         this.mRequestStop = false;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, yo7.class);
-        yo7 yo7Var = runTask != null ? (yo7) runTask.getData() : null;
-        if (yo7Var != null) {
-            this.mPostMonitorManager = yo7Var.get();
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, mp7.class);
+        mp7 mp7Var = runTask != null ? (mp7) runTask.getData() : null;
+        if (mp7Var != null) {
+            this.mPostMonitorManager = mp7Var.get();
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
         MediaFormat createVideoFormat = MediaFormat.createVideoFormat("video/avc", i, i2);
@@ -180,9 +180,9 @@ public class VideoEncoderCore {
                 try {
                     mediaMuxerWrapper.stop();
                 } catch (IllegalStateException e) {
-                    uo7 uo7Var = this.mPostMonitorManager;
-                    if (uo7Var != null) {
-                        uo7Var.b(17, oo7.a(e));
+                    ip7 ip7Var = this.mPostMonitorManager;
+                    if (ip7Var != null) {
+                        ip7Var.b(17, cp7.a(e));
                     }
                 }
                 this.mMuxer = null;

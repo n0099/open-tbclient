@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,68 +14,67 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class za7 extends va7 {
+public class za7 {
     public static /* synthetic */ Interceptable $ic;
-    public static za7 b;
+    public static za7 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public List<Long> b;
+    public final CustomMessageListener c;
 
     /* loaded from: classes6.dex */
-    public class a extends qh5<Void> {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PersonalSettingItemData a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ za7 c;
+        public final /* synthetic */ za7 a;
 
-        public a(za7 za7Var, PersonalSettingItemData personalSettingItemData, String str) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(za7 za7Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {za7Var, personalSettingItemData, str};
+                Object[] objArr = {za7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = za7Var;
-            this.a = personalSettingItemData;
-            this.b = str;
+            this.a = za7Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.qh5
-        /* renamed from: a */
-        public Void doInBackground() {
-            InterceptResult invokeV;
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                this.c.b().g(this.b, OrmObject.jsonStrWithObject(this.a));
-                return null;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                this.a.b();
             }
-            return (Void) invokeV.objValue;
         }
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948353305, "Lcom/baidu/tieba/za7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948353305, "Lcom/baidu/tieba/za7;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948353305, "Lcom/baidu/tieba/za7;")) == null) {
+            return;
         }
-        b = new za7();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948353305, "Lcom/baidu/tieba/za7;");
+        }
     }
 
     public za7() {
@@ -88,112 +87,174 @@ public class za7 extends va7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 0L;
+        this.b = new ArrayList();
+        this.c = new a(this, 2005016);
+        MessageManager.getInstance().registerListener(this.c);
     }
 
-    public static za7 j() {
+    public static za7 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (za7) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (za7.class) {
+                    if (d == null) {
+                        d = new za7();
+                    }
+                }
+            }
+            return d;
+        }
+        return (za7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.va7
-    public jf<String> b() {
+    public synchronized void a(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+            synchronized (this) {
+                if (this.a != 0 && this.a != j) {
+                    this.b.clear();
+                    ua.c("PushIdsCacheManager", null, 0, "addPushId", -1, "not equal original gid:" + j + "-" + this.a);
+                }
+                this.a = j;
+                for (Long l : this.b) {
+                    if (l != null && l.longValue() == j2) {
+                        return;
+                    }
+                }
+                this.b.add(Long.valueOf(j2));
+            }
+        }
+    }
+
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.a = 0L;
+                this.b.clear();
+            }
+        }
+    }
+
+    public synchronized boolean c(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            synchronized (this) {
+                for (Long l : this.b) {
+                    if (l != null && l.longValue() == j) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    public long d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            zt4.f();
-            return zt4.g("tb.im_personal_chat_setting");
-        }
-        return (jf) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.va7
-    public void h(ChatSetting chatSetting) {
+    public Long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
-            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
-            String myUid = personalSettingItemData.getMyUid();
-            String toUid = personalSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                jf<String> b2 = b();
-                String str = myUid + "@" + toUid;
-                String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
-                synchronized (this.a) {
-                    this.a.put(str, personalSettingItemData);
-                }
-                b2.g(str, jsonStrWithObject);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? ma7.o().r().get(this.a) : (Long) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.va7
-    public void i(ChatSetting chatSetting, vg5<Void> vg5Var) {
+    public synchronized List<Long> g() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, chatSetting, vg5Var) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
-            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
-            String myUid = personalSettingItemData.getMyUid();
-            String toUid = personalSettingItemData.getToUid();
-            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
-                String str = myUid + "@" + toUid;
-                synchronized (this.a) {
-                    this.a.put(str, personalSettingItemData);
-                }
-                uh5.c(new a(this, personalSettingItemData, str), vg5Var);
-            } else if (TbConfig.getDebugSwitch()) {
-                throw new RuntimeException("key param is null");
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.va7
-    /* renamed from: k */
-    public PersonalSettingItemData a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            PersonalSettingItemData personalSettingItemData = null;
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            String str3 = str + "@" + str2;
-            synchronized (this.a) {
-                ChatSetting chatSetting = this.a.get(str3);
-                if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
-                    personalSettingItemData = (PersonalSettingItemData) chatSetting;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                for (Long l : this.b) {
+                    if (l != null) {
+                        arrayList.add(Long.valueOf(sc7.c(l.longValue())));
+                    }
                 }
             }
-            if (personalSettingItemData == null) {
-                PersonalSettingItemData personalSettingItemData2 = new PersonalSettingItemData();
-                personalSettingItemData2.setMyUid(str);
-                personalSettingItemData2.setToUid(str2);
-                personalSettingItemData2.setAcceptNotify(true);
-                return personalSettingItemData2;
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized String h() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                str = "";
+                for (Long l : this.b) {
+                    if (l != null && l.longValue() != 0) {
+                        str = (str + l.longValue()) + ",";
+                    }
+                }
             }
-            return personalSettingItemData;
+            return str;
         }
-        return (PersonalSettingItemData) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void l() {
+    public synchronized boolean i() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.e(PersonalSettingItemData.class);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                if (this.a > 0) {
+                    z = this.b.size() > 0;
+                }
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            synchronized (this) {
+                b();
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                try {
+                    this.a = dh.g(str, 0L);
+                    try {
+                        String[] split = str2.split(",");
+                        if (split != null && split.length > 0) {
+                            for (int i = 0; i < split.length; i++) {
+                                if (!TextUtils.isEmpty(split[i])) {
+                                    this.b.add(Long.valueOf(Long.parseLong(split[i])));
+                                }
+                            }
+                        }
+                    } catch (Exception e) {
+                        BdLog.e(e);
+                    }
+                } catch (Exception e2) {
+                    BdLog.e(e2);
+                }
+            }
         }
     }
 
-    public void m(String str, String str2, UserData userData) {
-        PersonalSettingItemData a2;
+    public synchronized void k() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, userData) == null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || userData == null || (a2 = a(str, str2)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+            }
         }
-        a2.setToPortrait(userData.getPortrait());
-        a2.setToName(userData.getUserName());
-        h(a2);
     }
 }

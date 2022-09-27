@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,194 +13,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ld2 {
+public abstract class ld2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile ld2 b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
     /* loaded from: classes4.dex */
-    public class a implements rh3<Exception> {
+    public class a extends jd2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rh3 a;
-        public final /* synthetic */ int b;
+        public final /* synthetic */ j22 c;
+        public final /* synthetic */ String d;
 
-        /* renamed from: com.baidu.tieba.ld2$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0321a implements rh3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public C0321a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rh3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                    yz1.l("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
-                    rh3 rh3Var = this.a.a;
-                    if (rh3Var != null) {
-                        rh3Var.a(exc);
-                    }
-                }
-            }
-        }
-
-        public a(ld2 ld2Var, rh3 rh3Var, int i) {
+        public a(ld2 ld2Var, j22 j22Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ld2Var, rh3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rh3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc == null) {
-                    yz1.k("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
-                    rh3 rh3Var = this.a;
-                    if (rh3Var != null) {
-                        rh3Var.a(null);
-                        return;
-                    }
-                    return;
-                }
-                yz1.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
-                dc3.o(this.b, new C0321a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements rh3<Exception> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rh3 a;
-        public final /* synthetic */ int b;
-
-        /* loaded from: classes4.dex */
-        public class a implements rh3<Exception> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rh3
-            /* renamed from: b */
-            public void a(Exception exc) {
-                rh3 rh3Var;
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) || (rh3Var = this.a.a) == null) {
-                    return;
-                }
-                rh3Var.a(exc);
-            }
-        }
-
-        public b(ld2 ld2Var, rh3 rh3Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ld2Var, rh3Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rh3Var;
-            this.b = i;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
-        /* renamed from: b */
-        public void a(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                if (exc != null) {
-                    rh3 rh3Var = this.a;
-                    if (rh3Var != null) {
-                        rh3Var.a(exc);
-                        return;
-                    }
-                    return;
-                }
-                hd2.h(this.b, new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ld2 a;
-
-        public c(ld2 ld2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ld2Var};
+                Object[] objArr = {ld2Var, j22Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -208,14 +48,60 @@ public class ld2 {
                     return;
                 }
             }
-            this.a = ld2Var;
+            this.c = j22Var;
+            this.d = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.jd2
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
+                if (this.c.isDestroyed()) {
+                    if (ld2.b) {
+                        Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + this.d)));
+                        return;
+                    }
+                    return;
+                }
+                this.c.evaluateJavascript(this.d, null);
+                pw2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends jd2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j22 c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ ld2 e;
+
+        public b(ld2 ld2Var, j22 j22Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ld2Var, j22Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = ld2Var;
+            this.c = j22Var;
+            this.d = str;
+        }
+
+        @Override // com.baidu.tieba.jd2
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.l(this.c, this.d);
             }
         }
     }
@@ -233,7 +119,7 @@ public class ld2 {
                 return;
             }
         }
-        a = ij1.a;
+        b = vj1.a;
     }
 
     public ld2() {
@@ -250,62 +136,252 @@ public class ld2 {
         }
     }
 
-    public static ld2 d() {
-        InterceptResult invokeV;
+    public final void b(@NonNull JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (ld2.class) {
-                    if (b == null) {
-                        b = new ld2();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            try {
+                jSONObject.put("type", this.a);
+            } catch (JSONException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public String c(j22 j22Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j22Var)) == null) ? d("event", j22Var) : (String) invokeL.objValue;
+    }
+
+    public String d(String str, j22 j22Var) {
+        InterceptResult invokeLL;
+        String format;
+        String b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, j22Var)) == null) {
+            if (j22Var == null || TextUtils.isEmpty(this.a)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "event";
+            }
+            Locale locale = Locale.getDefault();
+            if (j22Var.isWebView()) {
+                format = String.format(locale, "var %s = new Event('%s');", str, this.a);
+                b2 = "";
+            } else {
+                format = String.format(locale, "var %s = new Object();", str);
+                b2 = hd2.b(str, "type", this.a);
+            }
+            return format + (b2 + o(str)) + String.format(locale, "%s.dispatchEvent(%s);", hd2.c(j22Var), str);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public JSEvent e(j22 j22Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, j22Var)) == null) {
+            if (j22Var == null || TextUtils.isEmpty(this.a)) {
+                return null;
+            }
+            JSEvent jSEvent = new JSEvent(this.a);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                n(jSONObject);
+            } catch (Exception e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+            }
+            b(jSONObject);
+            jSEvent.data = jSONObject;
+            return jSEvent;
+        }
+        return (JSEvent) invokeL.objValue;
+    }
+
+    public boolean f(j22 j22Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, j22Var)) == null) ? (j22Var == null || j22Var.isWebView() || !(j22Var instanceof va2)) ? false : true : invokeL.booleanValue;
+    }
+
+    public void g(j22 j22Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, j22Var) == null) || j22Var == null) {
+            return;
+        }
+        pw2.a("postMessage", "dispatchJSEvent start.");
+        if (kd2.b) {
+            r(j22Var);
+        } else {
+            q(j22Var);
+        }
+        pw2.a("postMessage", "dispatchJSEvent buildEvent");
+    }
+
+    public void h(j22 j22Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, j22Var) == null) || j22Var == null) {
+            return;
+        }
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
+        }
+        JSEvent e = e(j22Var);
+        if (e == null) {
+            return;
+        }
+        j(j22Var, e);
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
+        }
+    }
+
+    public void i(j22 j22Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048583, this, j22Var) == null) || j22Var == null) {
+            return;
+        }
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on webView");
+        }
+        String c = c(j22Var);
+        if (TextUtils.isEmpty(c)) {
+            return;
+        }
+        String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
+        k(j22Var, format);
+        if (b) {
+            Log.d("JSEventDispatcher", "dispatchJSEvent action on webView: " + format);
+        }
+    }
+
+    public void j(j22 j22Var, JSEvent jSEvent) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, j22Var, jSEvent) == null) || j22Var.isDestroyed()) {
+            return;
+        }
+        if (j22Var instanceof va2) {
+            ((va2) j22Var).dispatchEvent(jSEvent);
+        }
+        pw2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+    }
+
+    public void k(j22 j22Var, String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048585, this, j22Var, str) == null) || j22Var == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        id2.b().c(new a(this, j22Var, str), null);
+    }
+
+    public final void l(j22 j22Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, j22Var, str) == null) {
+            if (j22Var.isDestroyed()) {
+                if (b) {
+                    Log.e("JSEventDispatcher", Log.getStackTraceString(new Exception("webview is destroyed. dispatch action:" + str)));
+                    return;
+                }
+                return;
+            }
+            j22Var.evaluateJavascript(str, null);
+            pw2.a("postMessage", "dispatchJSEvent evaluateJavascript");
+        }
+    }
+
+    public abstract void m(Map<String, Object> map);
+
+    public void n(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
+            HashMap hashMap = new HashMap();
+            m(hashMap);
+            for (String str : hashMap.keySet()) {
+                if (!TextUtils.isEmpty(str)) {
+                    Object obj = hashMap.get(str);
+                    if (p(obj)) {
+                        jSONObject.put(str, obj);
                     }
                 }
             }
-            return b;
-        }
-        return (ld2) invokeV.objValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            hc3.b().e(null, 0);
-            hc3.b().e(null, 1);
-            hd2.h(0, null);
-            hd2.h(1, null);
         }
     }
 
-    public void c(@Nullable rh3<Exception> rh3Var, int i) {
+    public String o(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rh3Var, i) == null) {
-            yz1.k("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i);
-            g(new a(this, rh3Var, i), i);
-        }
-    }
-
-    public void e(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            if (a) {
-                Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            Map<String, Object> hashMap = new HashMap<>();
+            m(hashMap);
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : hashMap.keySet()) {
+                if (!TextUtils.isEmpty(str2)) {
+                    Object obj = hashMap.get(str2);
+                    if (p(obj)) {
+                        if (obj instanceof String) {
+                            obj = JSONObject.quote((String) obj);
+                        }
+                        sb.append(str);
+                        sb.append(".");
+                        sb.append(str2);
+                        sb.append("=");
+                        sb.append(obj);
+                        sb.append(ParamableElem.DIVIDE_PARAM);
+                    }
+                }
             }
-            dc3.l(i, i2);
-            hd2.g(i, i2);
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean p(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            if (obj == null) {
+                return false;
+            }
+            if (obj instanceof String) {
+                return !TextUtils.isEmpty((String) obj);
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void q(j22 j22Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, j22Var) == null) {
+            String c = c(j22Var);
+            if (TextUtils.isEmpty(c)) {
+                return;
+            }
+            String format = String.format(Locale.getDefault(), "javascript:(function(){%s})();", c);
+            if (b) {
+                Log.d("JSEventDispatcher", "dispatchJSEvent action: " + format);
+            }
+            if (j22Var.isWebView()) {
+                id2.b().c(new b(this, j22Var, format), null);
+            } else {
+                l(j22Var, format);
+            }
         }
     }
 
-    public void f() {
+    public final void r(@NonNull j22 j22Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ExecutorUtilsExt.postOnElastic(new c(this), "tryUpdateAllPresetCoresAsync", 2);
-        }
-    }
-
-    public final void g(@Nullable rh3<Exception> rh3Var, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, rh3Var, i) == null) {
-            hc3.b().e(new b(this, rh3Var, i), i);
+        if (interceptable == null || interceptable.invokeL(1048592, this, j22Var) == null) {
+            if (f(j22Var)) {
+                h(j22Var);
+            } else {
+                i(j22Var);
+            }
         }
     }
 }

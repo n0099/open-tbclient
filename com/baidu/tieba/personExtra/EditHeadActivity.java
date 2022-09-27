@@ -48,8 +48,8 @@ import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.fx4;
-import com.baidu.tieba.w75;
+import com.baidu.tieba.j85;
+import com.baidu.tieba.sx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,7 +83,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public View j;
     public Button k;
     public Button l;
-    public fx4 m;
+    public sx4 m;
     public k n;
     public j o;
     public RadioButton p;
@@ -309,7 +309,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public final /* synthetic */ EditHeadActivity a;
 
         /* loaded from: classes5.dex */
-        public class a implements w75.d {
+        public class a implements j85.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ g a;
@@ -332,7 +332,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.a = gVar;
             }
 
-            @Override // com.baidu.tieba.w75.d
+            @Override // com.baidu.tieba.j85.d
             public void a(String str, ImageUploadResult imageUploadResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, str, imageUploadResult) == null) {
@@ -428,11 +428,11 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     this.a.closeActivity();
                     return;
                 }
-                w75 w75Var = new w75(FileHelper.getFileDireciory(str), "head");
-                w75Var.j();
-                w75Var.l(new a(this));
-                w75Var.n(this.a.z);
-                w75Var.g(false);
+                j85 j85Var = new j85(FileHelper.getFileDireciory(str), "head");
+                j85Var.j();
+                j85Var.l(new a(this));
+                j85Var.n(this.a.z);
+                j85Var.g(false);
                 EditHeadActivity editHeadActivity = this.a;
                 editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f14f5));
             }
@@ -988,9 +988,9 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.D = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091657);
-            fx4 fx4Var = new fx4(getPageContext());
-            this.m = fx4Var;
-            fx4Var.e(new a(this));
+            sx4 sx4Var = new sx4(getPageContext());
+            this.m = sx4Var;
+            sx4Var.e(new a(this));
             this.m.h(false);
             this.d = (EditHeadsImageTopLayerView) findViewById(R.id.obfuscated_res_0x7f090eac);
             if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.b)) {
@@ -999,8 +999,8 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     this.d.setmCutHeightScale(f2);
                 }
             }
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a6d);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091a6e);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a6f);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091a70);
             int[] q = ej.q(getPageContext().getPageActivity());
             this.f.setY((int) (((q[1] - q[0]) * 0.4d) + q[0] + getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fc)));
             EditHeadsImageView editHeadsImageView = (EditHeadsImageView) findViewById(R.id.obfuscated_res_0x7f090e94);
@@ -1013,10 +1013,10 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.c.setOnSizeChangedListener(new b(this));
             this.c.setOnImageScrollListener(new c(this));
             this.i = this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091ec3);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f091ec5);
             this.l = button;
             button.setOnClickListener(new e(this));
-            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f090d60);
+            Button button2 = (Button) findViewById(R.id.obfuscated_res_0x7f090d5f);
             this.k = button2;
             button2.setVisibility(0);
             this.k.setOnClickListener(new f(this));
@@ -1024,7 +1024,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.j = addCustomView;
             addCustomView.setOnClickListener(new g(this));
             this.j.setEnabled(false);
-            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091daa);
+            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091dac);
             this.E = textView;
             textView.setText(R.string.obfuscated_res_0x7f0f0505);
             if (!EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
@@ -1034,17 +1034,17 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.u.setText(R.string.obfuscated_res_0x7f0f03ce);
             }
             this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090377);
-            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c83);
+            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c85);
             this.p = (RadioButton) findViewById(R.id.obfuscated_res_0x7f090376);
-            this.q = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091c84);
+            this.q = (RadioButton) findViewById(R.id.obfuscated_res_0x7f091c86);
             h hVar = new h(this);
             this.p.setOnCheckedChangeListener(hVar);
             this.q.setOnCheckedChangeListener(hVar);
             this.p.setChecked(true);
-            Button button3 = (Button) findViewById(R.id.obfuscated_res_0x7f091c86);
-            Button button4 = (Button) findViewById(R.id.obfuscated_res_0x7f091c88);
-            Button button5 = (Button) findViewById(R.id.obfuscated_res_0x7f091c87);
-            Button button6 = (Button) findViewById(R.id.obfuscated_res_0x7f091c89);
+            Button button3 = (Button) findViewById(R.id.obfuscated_res_0x7f091c88);
+            Button button4 = (Button) findViewById(R.id.obfuscated_res_0x7f091c8a);
+            Button button5 = (Button) findViewById(R.id.obfuscated_res_0x7f091c89);
+            Button button6 = (Button) findViewById(R.id.obfuscated_res_0x7f091c8b);
             button3.setTag(0);
             button4.setTag(1);
             button5.setTag(2);

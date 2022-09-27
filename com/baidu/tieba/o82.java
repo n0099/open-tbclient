@@ -1,110 +1,188 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class o82 implements p82 {
+public class o82 implements n82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static volatile o82 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final j82 a;
-    public final int b;
+    public final Map<String, m82> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947986048, "Lcom/baidu/tieba/o82;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ o82 b;
+
+        public a(o82 o82Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o82Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947986048, "Lcom/baidu/tieba/o82;");
-                return;
+            this.b = o82Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.h(this.a);
             }
         }
-        c = ij1.a;
     }
 
     public o82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new l82();
-        this.b = 30;
+        this.a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.p82
-    public j82 a() {
+    public static o82 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (j82) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p82
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.p82
-    public boolean c(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3)) == null) {
-            if (c) {
-                Log.d("GlobalRecorderStrategy", "prefetchId - " + str);
-                Log.d("GlobalRecorderStrategy", "appId - " + str2);
-                Log.d("GlobalRecorderStrategy", "url - " + str3);
-            }
-            k82 a = this.a.a(str2, str3);
-            if (a == null) {
-                if (c) {
-                    Log.d("GlobalRecorderStrategy", "has no record, need prelink");
-                }
-                return true;
-            } else if (!TextUtils.isEmpty(str)) {
-                if (c) {
-                    Log.d("GlobalRecorderStrategy", "in preload stage, has record, not real prelink ");
-                }
-                return false;
-            } else {
-                String curProcessName = ProcessUtils.getCurProcessName();
-                if (!TextUtils.equals(curProcessName, a.a)) {
-                    if (c) {
-                        Log.d("GlobalRecorderStrategy", "process not match, current - " + curProcessName + ", record - " + a.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (o82.class) {
+                    if (b == null) {
+                        b = new o82();
                     }
-                    return true;
                 }
-                boolean z = System.currentTimeMillis() - a.b >= ((long) (this.b * 1000));
-                if (c) {
-                    Log.d("GlobalRecorderStrategy", "url in recorder, time is out - " + z);
+            }
+            return b;
+        }
+        return (o82) invokeV.objValue;
+    }
+
+    public synchronized o82 b(String str, UbcFlowEvent ubcFlowEvent) {
+        InterceptResult invokeLL;
+        m82 m82Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
+            synchronized (this) {
+                if (c(str) && (m82Var = this.a.get(str)) != null) {
+                    m82Var.a(str, ubcFlowEvent);
+                    return this;
                 }
-                return z;
+                return this;
             }
         }
-        return invokeLLL.booleanValue;
+        return (o82) invokeLL.objValue;
+    }
+
+    public final boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? !TextUtils.isEmpty(str) : invokeL.booleanValue;
+    }
+
+    public synchronized o82 e(String str, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        m82 m82Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (c(str) && (m82Var = this.a.get(str)) != null) {
+                    m82Var.d(str, z);
+                    if (z2) {
+                        i(str);
+                    }
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (o82) invokeCommon.objValue;
+    }
+
+    public synchronized o82 f(String str, p82 p82Var) {
+        InterceptResult invokeLL;
+        m82 m82Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, p82Var)) == null) {
+            synchronized (this) {
+                if (c(str) && (m82Var = this.a.get(str)) != null) {
+                    m82Var.e(str, p82Var);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (o82) invokeLL.objValue;
+    }
+
+    public synchronized o82 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            synchronized (this) {
+                if (c(str) && !this.a.containsKey(str)) {
+                    m82 m82Var = new m82();
+                    this.a.put(str, m82Var);
+                    m82Var.f(str);
+                    return this;
+                }
+                return this;
+            }
+        }
+        return (o82) invokeL.objValue;
+    }
+
+    public final synchronized void h(String str) {
+        m82 m82Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            synchronized (this) {
+                if (c(str) && (m82Var = this.a.get(str)) != null) {
+                    this.a.remove(str);
+                    m82Var.h(str);
+                }
+            }
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            j(str, 0L);
+        }
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
+            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
+        }
     }
 }

@@ -1,13 +1,16 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface y99 {
-    v99 a();
+public class y99 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    x99 b();
-
-    x89 c();
-
-    b99 d();
-
-    w99 e();
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            x99.a();
+        }
+    }
 }

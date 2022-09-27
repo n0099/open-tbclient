@@ -46,7 +46,7 @@ import java.util.HashMap;
 @KsAdSdkDynamicImpl(KsRewardVideoActivity.class)
 @Keep
 /* loaded from: classes7.dex */
-public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> implements com.kwad.components.ad.reward.g.c, a.InterfaceC0552a, p.a, d.b, c.a {
+public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> implements com.kwad.components.ad.reward.g.c, a.InterfaceC0548a, p.a, d.b, c.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_REWARD_TYPE = "key_template_reward_type";
     public static final String KEY_TEMPLATE = "key_template_json";
@@ -680,7 +680,7 @@ public class KSRewardVideoActivityProxy extends com.kwad.components.core.g.b<k> 
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "KSRewardLandScapeVideoActivityProxy" : (String) invokeV.objValue;
     }
 
-    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0552a
+    @Override // com.kwad.components.ad.reward.j.a.InterfaceC0548a
     public boolean handledOnResume() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

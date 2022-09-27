@@ -1,63 +1,171 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.tieba.q12;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebSettings;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes5.dex */
-public final class r12 {
+public class r12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948068694, "Lcom/baidu/tieba/r12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static class a extends q12.b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final boolean b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-511745159, "Lcom/baidu/tieba/r12$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-511745159, "Lcom/baidu/tieba/r12$a;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948068694, "Lcom/baidu/tieba/r12;");
-                return;
+            b = vj1.a;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(q12.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((q12.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
             }
         }
-        a = ij1.a;
+
+        @Override // com.baidu.tieba.q12.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Upgrade", "websocket");
+                hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
+                try {
+                    hashMap.put("Sec-WebSocket-Accept", s12.g(this.a.a.get("sec-websocket-key")));
+                } catch (NoSuchAlgorithmException e) {
+                    if (b) {
+                        Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);
+                    }
+                }
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.q12.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "101 Switching Protocols" : (String) invokeV.objValue;
+        }
     }
 
-    @NonNull
-    public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (((str.hashCode() == 93029162 && str.equals("appjs")) ? (char) 0 : (char) 65535) != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                q12.a d = q12.b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+    /* loaded from: classes5.dex */
+    public static class b extends q12.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(q12.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((q12.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (a) {
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-            }
-            return codeCacheSetting;
         }
-        return (WebSettings.CodeCacheSetting) invokeLL.objValue;
+
+        @Override // com.baidu.tieba.q12.b
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b == null) {
+                    this.b = new n12().toString();
+                }
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.q12.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Content-Type", "application/json; charset=UTF-8");
+                hashMap.put(Util.ACCEPT_RANGES, "bytes");
+                hashMap.put(HTTP.CONN_DIRECTIVE, "keep-alive");
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.q12.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "200 OK" : (String) invokeV.objValue;
+        }
+    }
+
+    public static q12.b a(q12.a aVar) {
+        InterceptResult invokeL;
+        Map<String, String> map;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            if (aVar == null || (map = aVar.a) == null || map.size() < 1) {
+                return null;
+            }
+            if (s12.f(aVar.a)) {
+                aVar.e = true;
+                return new a(aVar);
+            }
+            aVar.e = false;
+            return new b(aVar);
+        }
+        return (q12.b) invokeL.objValue;
     }
 }

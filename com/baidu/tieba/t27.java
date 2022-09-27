@@ -1,51 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.homepage.personalize.data.CheckInterestCommitResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class t27 extends mx {
+public final class t27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ra8 z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t27(Context context) {
-        super(context);
+    public t27() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        b();
     }
 
-    @Override // com.baidu.tieba.mx, com.baidu.tieba.az
-    public ra8 q() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.k) && this.k.equals("index")) {
-                this.z = new v27(this.b, this.i);
-            } else {
-                this.z = new u27(this.b, this.i);
-            }
-            this.z.setStageType("2001");
-            return this.z;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_INTEREST_COMMIT);
         }
-        return (ra8) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_INTEREST_COMMIT, Intrinsics.stringPlus(TbConfig.SERVER_ADDRESS, TbConfig.URL_CHECK_INTEREST_COMMIT));
+            tbHttpMessageTask.setResponsedClass(CheckInterestCommitResponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_CHECK_INTEREST_COMMIT));
+        }
     }
 }

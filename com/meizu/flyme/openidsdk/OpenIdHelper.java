@@ -1,18 +1,20 @@
 package com.meizu.flyme.openidsdk;
 
 import android.content.Context;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
+@Keep
 /* loaded from: classes8.dex */
 public class OpenIdHelper {
     public static /* synthetic */ Interceptable $ic = null;
+    @Keep
     public static final String TAG = "OpenIdHelper";
+    @Keep
+    public static Method sContextMethod;
     public transient /* synthetic */ FieldHolder $fh;
 
     public OpenIdHelper() {
@@ -29,70 +31,21 @@ public class OpenIdHelper {
         }
     }
 
-    public static String getAAID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            b a = b.a();
-            return a.a(context.getApplicationContext(), a.c);
-        }
-        return (String) invokeL.objValue;
-    }
+    @Keep
+    public static native String getAAID(Context context);
 
-    public static String getOAID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            b a = b.a();
-            return a.a(context.getApplicationContext(), a.b);
-        }
-        return (String) invokeL.objValue;
-    }
+    @Keep
+    public static native String getOAID(Context context);
 
-    public static String getUDID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            b a = b.a();
-            return a.a(context.getApplicationContext(), a.a);
-        }
-        return (String) invokeL.objValue;
-    }
+    @Keep
+    public static native String getUDID(Context context);
 
-    public static String getVAID(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            b a = b.a();
-            return a.a(context.getApplicationContext(), a.d);
-        }
-        return (String) invokeL.objValue;
-    }
+    @Keep
+    public static native String getVAID(Context context);
 
-    public static final boolean isSupported() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Context context = null;
-            try {
-                Method method = Class.forName("android.app.ActivityThread").getMethod("currentApplication", new Class[0]);
-                method.setAccessible(true);
-                context = (Context) method.invoke(null, new Object[0]);
-            } catch (Exception e) {
-                Log.e(TAG, "ActivityThread:currentApplication --> " + e.toString());
-            }
-            if (context == null) {
-                return false;
-            }
-            return b.a().a(context, false);
-        }
-        return invokeV.booleanValue;
-    }
+    @Keep
+    public static final native boolean isSupported();
 
-    public static void setLogEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            b.a().a(z);
-        }
-    }
+    @Keep
+    public static native void setLogEnable(boolean z);
 }

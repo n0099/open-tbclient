@@ -1,96 +1,114 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.g93;
-import com.baidu.tieba.vn2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class k93 {
+public final class k93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867876, "Lcom/baidu/tieba/k93;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947867876, "Lcom/baidu/tieba/k93;");
-                return;
-            }
-        }
-        a = ij1.a;
-        b = fm2.g0().u() * 1024;
-    }
-
-    public static boolean a(@NonNull String str) {
-        InterceptResult invokeL;
+    public static String a(@NonNull String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && str.getBytes().length > b : invokeL.booleanValue;
-    }
-
-    public static boolean b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (c()) {
-                boolean a2 = a(str);
-                if (a2) {
-                    d(str);
-                }
-                return a2;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            return str + str2;
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static boolean c() {
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            String appId = k33.K().getAppId();
+            tb3 a = zb3.a();
+            a.remove(a("SwanAppStabilitySp-obtainData", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtain", appId));
+            a.remove(a("SwanAppStabilitySp-swanStartupStability", appId));
+            a.remove(a("SwanAppStabilitySp-obtainIntervalMs", appId));
+            a.remove(a("SwanAppStabilitySp-autoObtainDataLen", appId));
+            a.remove(a("SwanAppStabilitySp-stabilityProfile", appId));
+        }
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? zb3.a().getInt(a("SwanAppStabilitySp-autoObtainDataLen", k33.K().getAppId()), i) : invokeI.intValue;
+    }
+
+    public static int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? zb3.a().getInt(a("SwanAppStabilitySp-obtainIntervalMs", k33.K().getAppId()), i) : invokeI.intValue;
+    }
+
+    public static int e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? zb3.a().getInt(a("SwanAppStabilitySp-swanStartupStability", k33.K().getAppId()), i) : invokeI.intValue;
+    }
+
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b > 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? zb3.a().getBoolean(a("SwanAppStabilitySp-autoObtain", k33.K().getAppId()), false) : invokeV.booleanValue;
     }
 
-    public static void d(@NonNull String str) {
-        y23 b0;
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) || (b0 = y23.b0()) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? zb3.a().getBoolean(a("SwanAppStabilitySp-obtainData", k33.K().getAppId()), false) : invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) ? zb3.a().getBoolean(a("SwanAppStabilitySp-stabilityProfile", k33.K().getAppId()), false) : invokeV.booleanValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65544, null, str, z) == null) {
+            zb3.a().putBoolean(a("SwanAppStabilitySp-autoObtain", str), z);
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            vn2.a W = b0.W();
-            SwanCoreVersion M = lo2.U().M();
-            int k = b0.k();
-            jSONObject.putOpt("scheme", W.W());
-            jSONObject.putOpt("swanjs", dc3.i(M, k));
-            if (str != null && str.length() > 1024) {
-                jSONObject.putOpt("params", str.substring(0, 1024));
-            }
-            g93.b bVar = new g93.b(10020);
-            bVar.j(sg3.n().e());
-            bVar.i(jSONObject.toString());
-            bVar.h(b0.getAppId());
-            bVar.m();
-            yz1.k("SwanAppParamChecker", "10020, params: " + str);
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
-            }
+    }
+
+    public static void j(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65545, null, str, i) == null) {
+            zb3.a().putInt(a("SwanAppStabilitySp-autoObtainDataLen", str), i);
+        }
+    }
+
+    public static void k(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65546, null, str, i) == null) {
+            zb3.a().putInt(a("SwanAppStabilitySp-obtainIntervalMs", str), i);
+        }
+    }
+
+    public static void l(boolean z, @Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65547, null, z, str) == null) {
+            zb3.a().putBoolean(a("SwanAppStabilitySp-obtainData", str), z);
+        }
+    }
+
+    public static void m(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65548, null, z, str) == null) {
+            zb3.a().putBoolean(a("SwanAppStabilitySp-stabilityProfile", str), z);
+        }
+    }
+
+    public static void n(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) {
+            zb3.a().putInt(a("SwanAppStabilitySp-swanStartupStability", str), i);
         }
     }
 }

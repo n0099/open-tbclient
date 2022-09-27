@@ -5,10 +5,10 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.is4;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.vr4;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<vr4> a;
+    public ArrayList<is4> a;
     public b b;
     public pb c;
 
@@ -78,7 +78,7 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, int i2, ArrayList<vr4> arrayList);
+        void a(int i, String str, int i2, ArrayList<is4> arrayList);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -150,8 +150,8 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            dm8.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
-            dm8.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
+            sm8.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
+            sm8.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

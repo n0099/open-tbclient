@@ -51,11 +51,11 @@ public class PbInterviewLiveNormalItemViewHolder extends TypeAdapter.ViewHolder 
         this.a.setOnClickListener(this);
         this.a.setInterceptOnClick(true);
         this.a.setDefaultResource(R.drawable.icon_click);
-        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c1b);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091832);
-        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091833);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091831);
-        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090cb4);
+        this.b = (TbRichTextView) view2.findViewById(R.id.obfuscated_res_0x7f091c1d);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091834);
+        this.e = (FrsPraiseView) view2.findViewById(R.id.obfuscated_res_0x7f091835);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091833);
+        this.d = (PbGiftListView) view2.findViewById(R.id.obfuscated_res_0x7f090cb3);
         this.b.getLayoutStrategy().t();
         this.b.getLayoutStrategy().k(true);
         int min = Math.min(((((ej.k(TbadkCoreApplication.getInst()) - view2.getPaddingLeft()) - view2.getPaddingRight()) - this.b.getPaddingLeft()) - this.b.getPaddingRight()) - ((int) TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.obfuscated_res_0x7f070253)), i);

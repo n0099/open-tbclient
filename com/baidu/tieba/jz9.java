@@ -1,61 +1,59 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes4.dex */
-public abstract class jz9<E> extends lz9<E> {
+public final class jz9<T> implements gx9<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedQueueNode<E> consumerNode;
+    public final tx9<? super T> a;
+    public final tx9<? super Throwable> b;
+    public final sx9 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947900736, "Lcom/baidu/tieba/jz9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947900736, "Lcom/baidu/tieba/jz9;");
-                return;
-            }
-        }
-        b = n0a.a(jz9.class, "consumerNode");
-    }
-
-    public jz9() {
+    public jz9(tx9<? super T> tx9Var, tx9<? super Throwable> tx9Var2, sx9 sx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tx9Var, tx9Var2, sx9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tx9Var;
+        this.b = tx9Var2;
+        this.c = sx9Var;
+    }
+
+    @Override // com.baidu.tieba.gx9
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.call();
         }
     }
 
-    public final LinkedQueueNode<E> c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.gx9
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) n0a.a.f(this, b) : (LinkedQueueNode) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.b.call(th);
+        }
     }
 
-    public final void d(LinkedQueueNode<E> linkedQueueNode) {
+    @Override // com.baidu.tieba.gx9
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
-            this.consumerNode = linkedQueueNode;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.a.call(t);
         }
     }
 }

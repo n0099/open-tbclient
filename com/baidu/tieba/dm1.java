@@ -1,17 +1,24 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class dm1 implements qo1 {
+public class dm1 implements n94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SparseArray<String> a;
 
     public dm1() {
         Interceptable interceptable = $ic;
@@ -23,86 +30,96 @@ public class dm1 implements qo1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        SparseArray<String> sparseArray = new SparseArray<>();
+        this.a = sparseArray;
+        sparseArray.put(38, DI.BD.FAVOR);
+        if (!sm2.c0().a()) {
+            this.a.put(35, "add to launch");
+        }
+        if (sm2.n().a().equals("vivobrowser")) {
+            this.a.put(4, "share");
         }
     }
 
-    @Override // com.baidu.tieba.qo1
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public qo1 create() {
+    @Override // com.baidu.tieba.n94
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (qo1) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public void d(is2 is2Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, is2Var, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public void e(is2 is2Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, is2Var, context) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public boolean isPlaying() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qo1
-    public boolean onBackPressed() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.n94
+    public void b(Activity activity, t94 t94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, t94Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.n94
+    public void c(int i, List<t94> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.n94
+    public void d(int i, List<t94> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.n94
+    public void e(int i, List<t94> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, list) == null) {
+            l(i, list);
+        }
+    }
+
+    @Override // com.baidu.tieba.n94
+    public void g(Activity activity, t94 t94Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, t94Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.n94
+    public void h(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.n94
+    public boolean j(t94 t94Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t94Var)) == null) {
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qo1
-    public void pause() {
+    public final void l(int i, List<t94> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (!(interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) || fh3.G() || list == null || list.size() <= 0) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        ArrayList arrayList = new ArrayList();
+        for (t94 t94Var : list) {
+            if (this.a.get(t94Var.c()) != null) {
+                arrayList.add(t94Var);
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.qo1
-    public void stop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (arrayList.size() > 0) {
+            list.removeAll(arrayList);
         }
     }
 }

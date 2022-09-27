@@ -1,39 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ApkDetail;
 /* loaded from: classes4.dex */
 public class i76 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile h76 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(x66 x66Var) {
-        ItemData itemData;
+    public static synchronized h76 a() {
+        InterceptResult invokeV;
+        h76 h76Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65536, null, x66Var) == null) || x66Var == null || (itemData = x66Var.a) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (i76.class) {
+                if (a == null) {
+                    a = new h76();
+                }
+                h76Var = a;
+            }
+            return h76Var;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_UPLOAD_DOWNLOAD_INFO);
-        httpMessage.addParam("item_id", itemData.itemId);
-        httpMessage.addParam("app_name", itemData.mTitle);
-        httpMessage.addParam("source_type", x66Var.b);
-        httpMessage.addParam("icon_url", itemData.mIconUrl);
-        httpMessage.addParam("score", Double.valueOf(itemData.mScore));
-        httpMessage.addParam("tags", itemData.mTags);
-        httpMessage.addParam("apk_name", itemData.pkgName);
-        ApkDetail apkDetail = itemData.apkDetail;
-        if (apkDetail != null) {
-            httpMessage.addParam("developer", apkDetail.developer);
-            httpMessage.addParam("privacy_url", itemData.apkDetail.privacy_url);
-            httpMessage.addParam("authority_url", itemData.apkDetail.authority_url);
-            httpMessage.addParam("version", itemData.apkDetail.version);
-            httpMessage.addParam("version_code", itemData.apkDetail.version_code);
-        }
-        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+        return (h76) invokeV.objValue;
     }
 }

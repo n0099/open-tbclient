@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.TbSettingTextTipView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lo4;
+import com.baidu.tieba.yo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,7 +79,7 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             public void onClick(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                    lo4.o(this.a.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
+                    yo4.o(this.a.itemView.getContext(), TbConfig.PRIVACY_DETAIL_URL);
                 }
             }
         }
@@ -188,10 +188,10 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
             }
             this.c = 3;
             this.d = new a(this);
-            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view2.findViewById(R.id.obfuscated_res_0x7f091a7f);
+            TbSettingTextTipView tbSettingTextTipView = (TbSettingTextTipView) view2.findViewById(R.id.obfuscated_res_0x7f091a81);
             this.a = tbSettingTextTipView;
             tbSettingTextTipView.setOnClickListener(this.d);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a7d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091a7f);
         }
 
         public void a(b bVar) {
@@ -364,13 +364,13 @@ public class PrivacyPermissionActivity extends BaseActivity<PrivacyPermissionAct
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d0752);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091c81);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091c83);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
             this.a = navigationBar;
             navigationBar.showBottomLine();
             this.b = this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0f1b));
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bb8);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091bba);
             this.c = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(this));
             this.c.setAdapter(this.i);

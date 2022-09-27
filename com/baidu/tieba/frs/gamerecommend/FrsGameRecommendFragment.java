@@ -17,9 +17,9 @@ import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.frs.gamerecommend.model.AlaGameRecommendModel;
-import com.baidu.tieba.lx4;
-import com.baidu.tieba.mn6;
-import com.baidu.tieba.yh6;
+import com.baidu.tieba.li6;
+import com.baidu.tieba.yx4;
+import com.baidu.tieba.zn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,16 +27,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FrsGameRecommendFragment extends BaseFragment implements yh6 {
+public class FrsGameRecommendFragment extends BaseFragment implements li6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mn6 a;
+    public zn6 a;
     public AlaGameRecommendModel b;
     public String c;
     public String d;
     public CustomMessageListener e;
     public AlaGameRecommendModel.b f;
-    public lx4.g g;
+    public yx4.g g;
     public BdListView.p h;
 
     /* loaded from: classes4.dex */
@@ -134,7 +134,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements yh6 {
     }
 
     /* loaded from: classes4.dex */
-    public class c implements lx4.g {
+    public class c implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsGameRecommendFragment a;
@@ -157,7 +157,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements yh6 {
             this.a = frsGameRecommendFragment;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -241,7 +241,7 @@ public class FrsGameRecommendFragment extends BaseFragment implements yh6 {
         return (FrsGameRecommendFragment) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.yh6
+    @Override // com.baidu.tieba.li6
     public NavigationBar L0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -250,12 +250,12 @@ public class FrsGameRecommendFragment extends BaseFragment implements yh6 {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
-        mn6 mn6Var;
+        zn6 zn6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (mn6Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (zn6Var = this.a) == null) {
             return;
         }
-        mn6Var.i(i);
+        zn6Var.i(i);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
@@ -269,9 +269,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements yh6 {
             }
             this.c = arguments.getString("forum_id");
             this.d = arguments.getString("forum_name");
-            mn6 mn6Var = new mn6(getPageContext(), this.c, this.d);
-            this.a = mn6Var;
-            mn6Var.l(this.g);
+            zn6 zn6Var = new zn6(getPageContext(), this.c, this.d);
+            this.a = zn6Var;
+            zn6Var.l(this.g);
             this.a.n(this.h);
             MessageManager.getInstance().registerListener(2001446, this.e);
             this.b = new AlaGameRecommendModel(this.c, this.f);
@@ -290,9 +290,9 @@ public class FrsGameRecommendFragment extends BaseFragment implements yh6 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            mn6 mn6Var = this.a;
-            if (mn6Var != null) {
-                mn6Var.j();
+            zn6 zn6Var = this.a;
+            if (zn6Var != null) {
+                zn6Var.j();
             }
             AlaGameRecommendModel alaGameRecommendModel = this.b;
             if (alaGameRecommendModel != null) {

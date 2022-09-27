@@ -1,80 +1,65 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumActivity;
+import com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumPreviewActivity;
+import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class ol1 implements wn1 {
+public class ol1 implements sn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+    }
 
-        /* renamed from: com.baidu.tieba.ol1$a$a  reason: collision with other inner class name */
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Context a;
+        public ArrayList<MediaModel> b;
+        public boolean c;
+        public String d;
+        public hr2 e;
+        public HandlerC0356b f;
+        public a g;
+
         /* loaded from: classes5.dex */
-        public class C0356a implements rh3<String> {
+        public class a extends to2 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ File a;
-            public final /* synthetic */ String b;
-            public final /* synthetic */ a c;
+            public HandlerC0356b a;
+            public final /* synthetic */ b b;
 
-            /* renamed from: com.baidu.tieba.ol1$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes5.dex */
-            public class RunnableC0357a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ File a;
-                public final /* synthetic */ C0356a b;
-
-                public RunnableC0357a(C0356a c0356a, File file) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0356a, file};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = c0356a;
-                    this.a = file;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                        kg3.a(this.b.c.a, this.a);
-                    }
-                }
-            }
-
-            public C0356a(a aVar, File file, String str) {
+            public a(b bVar, HandlerC0356b handlerC0356b) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, file, str};
+                    Object[] objArr = {bVar, handlerC0356b};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -84,41 +69,98 @@ public class ol1 implements wn1 {
                         return;
                     }
                 }
-                this.c = aVar;
-                this.a = file;
-                this.b = str;
+                this.b = bVar;
+                this.a = handlerC0356b;
             }
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.rh3
-            /* renamed from: b */
-            public void a(String str) {
+            @Override // com.baidu.tieba.to2, android.app.Application.ActivityLifecycleCallbacks
+            public void onActivityDestroyed(Activity activity) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                    try {
-                        File file = new File(this.a, "report");
-                        cj4.l(file);
-                        ol1.e(file, this.b, str);
-                        ol1.d(file);
-                        File file2 = new File(this.a, "report.zip");
-                        cj4.j(file2);
-                        cj4.X(file.getAbsolutePath(), file2.getAbsolutePath());
-                        cj4.L(file);
-                        sg3.a0(new RunnableC0357a(this, file2));
-                    } catch (Exception e) {
-                        yz1.b("DefaultSwanAppLogManager", Log.getStackTraceString(e));
-                        q23.g(AppRuntime.getAppContext(), this.c.a.getString(R.string.obfuscated_res_0x7f0f1281)).G();
+                if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                    if ((activity instanceof SwanAppActivity) || (activity instanceof SwanAppAlbumActivity) || (activity instanceof SwanAppAlbumPreviewActivity)) {
+                        if (this.a.b != null && this.a.b.isShowing()) {
+                            this.a.b.cancel();
+                            this.a.b = null;
+                        }
+                        HandlerC0356b handlerC0356b = this.a;
+                        if (handlerC0356b != null) {
+                            handlerC0356b.removeMessages(1);
+                            this.a.removeMessages(2);
+                            this.a = null;
+                        }
+                        this.b.f();
                     }
                 }
             }
         }
 
-        public a(ol1 ol1Var, Context context) {
+        /* renamed from: com.baidu.tieba.ol1$b$b  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public static class HandlerC0356b extends Handler {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public WeakReference<Context> a;
+            public Dialog b;
+
+            public /* synthetic */ HandlerC0356b(Context context, a aVar) {
+                this(context);
+            }
+
+            @Override // android.os.Handler
+            public void handleMessage(Message message) {
+                Dialog dialog;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                    int i = message.what;
+                    if (i != 1) {
+                        if (i == 2 && (dialog = this.b) != null && dialog.isShowing()) {
+                            Context context = this.a.get();
+                            if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
+                                this.b.cancel();
+                            }
+                            this.b = null;
+                            return;
+                        }
+                        return;
+                    }
+                    Context context2 = this.a.get();
+                    if (!(context2 instanceof Activity) || ((Activity) context2).isFinishing()) {
+                        return;
+                    }
+                    Dialog dialog2 = new Dialog(this.a.get(), R.style.obfuscated_res_0x7f1001a1);
+                    this.b = dialog2;
+                    dialog2.setContentView(R.layout.obfuscated_res_0x7f0d082e);
+                    this.b.findViewById(R.id.obfuscated_res_0x7f09126e).setVisibility(sm2.M().a() ? 0 : 8);
+                    this.b.setCancelable(false);
+                    this.b.show();
+                }
+            }
+
+            public HandlerC0356b(Context context) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {context};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = new WeakReference<>(context);
+            }
+        }
+
+        public b(Context context, Bundle bundle, hr2 hr2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ol1Var, context};
+                Object[] objArr = {context, bundle, hr2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -129,20 +171,126 @@ public class ol1 implements wn1 {
                 }
             }
             this.a = context;
+            this.b = bundle.getParcelableArrayList("mediaModels");
+            kg3.g(bundle, "swanAppId");
+            this.c = kg3.c(bundle, "compressed", false);
+            this.d = kg3.g(bundle, "swanTmpPath");
+            this.e = hr2Var;
+            this.f = new HandlerC0356b(context, null);
+        }
+
+        public final void b(MediaModel mediaModel, int i) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLI(1048576, this, mediaModel, i) == null) || mediaModel == null) {
+                return;
+            }
+            if (ar2.a) {
+                Log.d("CompressTask", "compressImg : " + mediaModel.getPath());
+            }
+            File file = new File(mediaModel.getPath());
+            File l = jg3.l(this.d, file.getName());
+            if (l == null) {
+                return;
+            }
+            mediaModel.setTempPath(l.getAbsolutePath());
+            jg3.n(file, l, i);
+            mediaModel.setSize(l.length());
+        }
+
+        public final void c(VideoModel videoModel) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoModel) == null) || videoModel == null) {
+                return;
+            }
+            if (ar2.a) {
+                Log.d("CompressTask", "compressVideo : " + videoModel.getPath());
+            }
+            File l = jg3.l(this.d, new File(videoModel.getPath()).getName());
+            if (l == null) {
+                return;
+            }
+            pj4.f(new File(videoModel.getPath()), l);
+            videoModel.setTempPath(l.getPath());
+            videoModel.setSize(l.length());
+        }
+
+        public final void d(MediaModel mediaModel) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaModel) == null) || mediaModel == null) {
+                return;
+            }
+            File file = new File(mediaModel.getPath());
+            File l = jg3.l(this.d, file.getName());
+            if (l == null || !l.exists() || pj4.f(file, l) == 0) {
+                return;
+            }
+            mediaModel.setTempPath(l.getPath());
+        }
+
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.g = new a(this, this.f);
+                sm2.c().registerActivityLifecycleCallbacks(this.g);
+            }
+        }
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.g == null) {
+                return;
+            }
+            sm2.c().unregisterActivityLifecycleCallbacks(this.g);
+            this.g = null;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File X2 = j22.X2();
-                if (X2 == null) {
-                    yz1.k("DefaultSwanAppLogManager", "cacheDir 为 null");
-                } else if (!X2.exists() && !X2.mkdirs()) {
-                    yz1.k("DefaultSwanAppLogManager", "cacheDir 为不存在且创建目录失败：" + X2.getAbsolutePath());
-                } else {
-                    rf3.i(this.a, new C0356a(this, X2, rf3.l(this.a) + "===== 启动信息 =====\n"));
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                e();
+                HandlerC0356b handlerC0356b = this.f;
+                if (handlerC0356b != null) {
+                    handlerC0356b.sendEmptyMessage(1);
                 }
+                if (this.c) {
+                    Iterator<MediaModel> it = this.b.iterator();
+                    while (it.hasNext()) {
+                        MediaModel next = it.next();
+                        if (next != null) {
+                            if (next instanceof ImageModel) {
+                                if (TextUtils.equals(pj4.t(next.getPath()), NativeConstants.TYPE_GIF)) {
+                                    d(next);
+                                } else {
+                                    b(next, 20);
+                                }
+                            } else if (next instanceof VideoModel) {
+                                c((VideoModel) next);
+                            }
+                        }
+                    }
+                } else {
+                    Iterator<MediaModel> it2 = this.b.iterator();
+                    while (it2.hasNext()) {
+                        MediaModel next2 = it2.next();
+                        if (next2 != null) {
+                            if (next2 instanceof ImageModel) {
+                                b(next2, 100);
+                            } else {
+                                d(next2);
+                            }
+                        }
+                    }
+                }
+                HandlerC0356b handlerC0356b2 = this.f;
+                if (handlerC0356b2 != null) {
+                    handlerC0356b2.sendEmptyMessage(2);
+                }
+                hr2 hr2Var = this.e;
+                if (hr2Var != null) {
+                    hr2Var.a(true, null, this.b);
+                }
+                f();
             }
         }
     }
@@ -161,45 +309,11 @@ public class ol1 implements wn1 {
         }
     }
 
-    public static void d(File file) {
-        File[] C;
-        File[] C2;
+    @Override // com.baidu.tieba.sn1
+    public void a(Activity activity, Bundle bundle, hr2 hr2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, file) == null) {
-            File file2 = new File(file, "swan");
-            cj4.e(fm2.p0().a(), file2);
-            for (File file3 : cj4.C(file2)) {
-                if (file3.isDirectory()) {
-                    for (File file4 : cj4.C(file3)) {
-                        if (file4 != null && file4.isFile() && !file4.getName().endsWith(".log")) {
-                            cj4.L(file4);
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, bundle, hr2Var) == null) {
+            fg3.k(new b(activity, bundle, hr2Var), "main process compress files");
         }
-    }
-
-    public static void e(File file, String str, String str2) throws FileNotFoundException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str, str2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            String g = mf3.g(currentTimeMillis, "yyyyMMdd");
-            File file2 = new File(file, "runninginfo_" + g + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION);
-            String g2 = mf3.g(currentTimeMillis, "yyyy-MM-dd HH:mm:ss");
-            PrintWriter printWriter = new PrintWriter(file2);
-            printWriter.println(g2 + "\n" + str + str2);
-            printWriter.flush();
-            printWriter.close();
-        }
-    }
-
-    @Override // com.baidu.tieba.wn1
-    public void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || context == null) {
-            return;
-        }
-        sf3.k(new a(this, context), "log上报");
     }
 }

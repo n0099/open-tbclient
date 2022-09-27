@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
+import com.baidu.tieba.km8;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.rb;
-import com.baidu.tieba.vl8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,8 +68,8 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof vl8)) {
-                this.a.a.L1(((vl8) customResponsedMessage.getData()).m() == 1);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof km8)) {
+                this.a.a.L1(((km8) customResponsedMessage.getData()).m() == 1);
             }
         }
     }

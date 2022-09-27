@@ -6,14 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class n05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m05 a;
-    public boolean b;
-    public int c;
-    public String d;
+    public o05 a;
+    public o05 b;
 
     public n05() {
         Interceptable interceptable = $ic;
@@ -29,55 +28,36 @@ public class n05 {
         }
     }
 
-    public m05 a() {
+    public o05 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (m05) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (o05) invokeV.objValue;
     }
 
-    public int b() {
+    public o05 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (o05) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public void e(m05 m05Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, m05Var) == null) {
-            this.a = m05Var;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.c = i;
+        JSONObject optJSONObject = jSONObject.optJSONObject("homepage");
+        if (optJSONObject != null) {
+            o05 o05Var = new o05();
+            this.a = o05Var;
+            o05Var.q = 1;
+            o05Var.e(optJSONObject);
         }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.b = z;
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("pb");
+        if (optJSONObject2 != null) {
+            o05 o05Var2 = new o05();
+            this.b = o05Var2;
+            o05Var2.q = 2;
+            o05Var2.e(optJSONObject2);
         }
     }
 }

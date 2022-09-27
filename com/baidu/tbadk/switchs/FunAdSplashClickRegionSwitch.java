@@ -1,9 +1,9 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bx4;
 import com.baidu.tieba.debugtool.annotation.Modify;
 import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.tieba.ox4;
 import com.baidu.tieba.qf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -37,7 +37,7 @@ public class FunAdSplashClickRegionSwitch extends qf {
     public static boolean isOpen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? bx4.k().l("pref_key_fun_ad_splash_click_enable", 0) == 1 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? ox4.k().l("pref_key_fun_ad_splash_click_enable", 0) == 1 : invokeV.booleanValue;
     }
 
     @Override // com.baidu.tieba.qf

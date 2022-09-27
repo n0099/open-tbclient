@@ -2,8 +2,8 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jv7;
 import com.baidu.tieba.pb.PbPageRequestMessage;
-import com.baidu.tieba.vu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public vu7 pbData;
+    public jv7 pbData;
     public String postId;
     public int updateType;
 
@@ -46,9 +46,9 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            vu7 vu7Var = new vu7();
-            this.pbData = vu7Var;
-            vu7Var.B0(1);
+            jv7 jv7Var = new jv7();
+            this.pbData = jv7Var;
+            jv7Var.B0(1);
             try {
                 this.pbData.A0(pbPageResIdl.data);
                 if (!this.pbData.t0()) {
@@ -62,10 +62,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public vu7 getPbData() {
+    public jv7 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pbData : (vu7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.pbData : (jv7) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -87,10 +87,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setPbData(vu7 vu7Var) {
+    public void setPbData(jv7 jv7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, vu7Var) == null) {
-            this.pbData = vu7Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jv7Var) == null) {
+            this.pbData = jv7Var;
         }
     }
 

@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.resourceLoader.IMImageSize;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.h85;
 import com.baidu.tieba.on;
-import com.baidu.tieba.u75;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -114,7 +114,7 @@ public class PicManager {
     public static void addPicMemoryCache(String str, on onVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, onVar) == null) {
-            u75.k().d(str, onVar);
+            h85.k().d(str, onVar);
         }
     }
 
@@ -263,7 +263,7 @@ public class PicManager {
                 }
                 if (z) {
                     Bitmap image = StorageFile.getInstance().getImage(nameMd5FromUrl);
-                    u75.k().i(imageSize);
+                    h85.k().i(imageSize);
                     if (image != null) {
                         addPicMemoryCache(str, image, z2, StorageFile.getInstance().isGif(nameMd5FromUrl), z3, nameMd5FromUrl);
                     }

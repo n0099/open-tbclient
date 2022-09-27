@@ -58,7 +58,7 @@ public class c implements ILivenessStrategy {
     public FaceConfig t;
     public long v;
     public boolean w;
-    public volatile EnumC0124c x;
+    public volatile EnumC0121c x;
     public long y;
     public int z;
 
@@ -83,18 +83,18 @@ public class c implements ILivenessStrategy {
                     return;
                 }
             }
-            int[] iArr = new int[EnumC0124c.values().length];
+            int[] iArr = new int[EnumC0121c.values().length];
             b = iArr;
             try {
-                iArr[EnumC0124c.a.ordinal()] = 1;
+                iArr[EnumC0121c.a.ordinal()] = 1;
             } catch (NoSuchFieldError unused) {
             }
             try {
-                b[EnumC0124c.b.ordinal()] = 2;
+                b[EnumC0121c.b.ordinal()] = 2;
             } catch (NoSuchFieldError unused2) {
             }
             try {
-                b[EnumC0124c.c.ordinal()] = 3;
+                b[EnumC0121c.c.ordinal()] = 3;
             } catch (NoSuchFieldError unused3) {
             }
             int[] iArr2 = new int[FaceStatusNewEnum.values().length];
@@ -181,14 +181,14 @@ public class c implements ILivenessStrategy {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.baidu.pass.face.platform.c.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public static final class EnumC0124c {
+    public static final class EnumC0121c {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0124c a;
-        public static final EnumC0124c b;
-        public static final EnumC0124c c;
-        public static final EnumC0124c d;
-        public static final EnumC0124c e;
-        public static final /* synthetic */ EnumC0124c[] f;
+        public static final EnumC0121c a;
+        public static final EnumC0121c b;
+        public static final EnumC0121c c;
+        public static final EnumC0121c d;
+        public static final EnumC0121c e;
+        public static final /* synthetic */ EnumC0121c[] f;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -204,16 +204,16 @@ public class c implements ILivenessStrategy {
                     return;
                 }
             }
-            a = new EnumC0124c("LivenessReady", 0);
-            b = new EnumC0124c("LivenessTips", 1);
-            c = new EnumC0124c("LivenessOK", 2);
-            d = new EnumC0124c("LivenessCourse", 3);
-            EnumC0124c enumC0124c = new EnumC0124c("LivenessCrop", 4);
-            e = enumC0124c;
-            f = new EnumC0124c[]{a, b, c, d, enumC0124c};
+            a = new EnumC0121c("LivenessReady", 0);
+            b = new EnumC0121c("LivenessTips", 1);
+            c = new EnumC0121c("LivenessOK", 2);
+            d = new EnumC0121c("LivenessCourse", 3);
+            EnumC0121c enumC0121c = new EnumC0121c("LivenessCrop", 4);
+            e = enumC0121c;
+            f = new EnumC0121c[]{a, b, c, d, enumC0121c};
         }
 
-        public EnumC0124c(String str, int i) {
+        public EnumC0121c(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -232,16 +232,16 @@ public class c implements ILivenessStrategy {
             }
         }
 
-        public static EnumC0124c valueOf(String str) {
+        public static EnumC0121c valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0124c) Enum.valueOf(EnumC0124c.class, str) : (EnumC0124c) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0121c) Enum.valueOf(EnumC0121c.class, str) : (EnumC0121c) invokeL.objValue;
         }
 
-        public static EnumC0124c[] values() {
+        public static EnumC0121c[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0124c[]) f.clone() : (EnumC0124c[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0121c[]) f.clone() : (EnumC0121c[]) invokeV.objValue;
         }
     }
 
@@ -281,7 +281,7 @@ public class c implements ILivenessStrategy {
         this.r = new HashMap<>();
         this.s = new HashMap<>();
         this.v = 0L;
-        this.x = EnumC0124c.e;
+        this.x = EnumC0121c.e;
         this.y = -1L;
         com.baidu.pass.face.platform.a.a.b();
         com.baidu.pass.face.platform.a.a.b("ca", "Baidu-IDL-FaceSDK4.1.1");
@@ -359,7 +359,7 @@ public class c implements ILivenessStrategy {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void a(com.baidu.pass.face.platform.model.a aVar, BDFaceImageInstance bDFaceImageInstance) {
-        EnumC0124c enumC0124c;
+        EnumC0121c enumC0121c;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(65545, this, aVar, bDFaceImageInstance) == null) || bDFaceImageInstance == null) {
             return;
@@ -404,19 +404,19 @@ public class c implements ILivenessStrategy {
                 return;
             } else {
                 this.i.setFaceInfo(faceExtInfo);
-                if (this.x == EnumC0124c.e) {
+                if (this.x == EnumC0121c.e) {
                     if (this.z >= this.t.getCacheImageNum()) {
-                        this.x = EnumC0124c.a;
+                        this.x = EnumC0121c.a;
                     } else if (a(bDFaceImageInstance, faceExtInfo, this.f.a(), this.z)) {
                         this.z++;
                     }
                 }
-                if (this.x == EnumC0124c.a || this.x == EnumC0124c.b) {
+                if (this.x == EnumC0121c.a || this.x == EnumC0121c.b) {
                     if (faceExtInfo.getFaceId() != this.y) {
                         this.f.i();
                         FaceSDKManager.getInstance().a();
                         if (this.y != -1) {
-                            this.x = EnumC0124c.e;
+                            this.x = EnumC0121c.e;
                             this.z = 0;
                             HashMap<String, ImageInfo> hashMap = this.r;
                             if (hashMap != null) {
@@ -437,8 +437,8 @@ public class c implements ILivenessStrategy {
                 int i = AnonymousClass1.b[this.x.ordinal()];
                 if (i == 1) {
                     if (a(this.f.b(), faceExtInfo)) {
-                        enumC0124c = EnumC0124c.b;
-                        this.x = enumC0124c;
+                        enumC0121c = EnumC0121c.b;
+                        this.x = enumC0121c;
                     }
                     bDFaceImageInstance.destory();
                     return;
@@ -449,8 +449,8 @@ public class c implements ILivenessStrategy {
                         }
                         if (this.f.f()) {
                             this.f.h();
-                            enumC0124c = EnumC0124c.a;
-                            this.x = enumC0124c;
+                            enumC0121c = EnumC0121c.a;
+                            this.x = enumC0121c;
                         } else if (this.f.c()) {
                             b(FaceStatusNewEnum.OK, faceExtInfo);
                         }
@@ -458,8 +458,8 @@ public class c implements ILivenessStrategy {
                     bDFaceImageInstance.destory();
                     return;
                 } else if (this.f.d()) {
-                    enumC0124c = EnumC0124c.c;
-                    this.x = enumC0124c;
+                    enumC0121c = EnumC0121c.c;
+                    this.x = enumC0121c;
                     bDFaceImageInstance.destory();
                     return;
                 } else {

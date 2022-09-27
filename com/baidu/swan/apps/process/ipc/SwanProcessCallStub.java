@@ -10,7 +10,7 @@ import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.IAsyncProcessCallback;
 import com.baidu.swan.apps.IProcessBridge;
-import com.baidu.tieba.lz2;
+import com.baidu.tieba.yz2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class SwanProcessCallStub extends IProcessBridge.Stub {
             if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            return lz2.e(str, bundle);
+            return yz2.e(str, bundle);
         }
         return (Bundle) invokeLL.objValue;
     }

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.my4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -169,11 +169,11 @@ public class ScreenTopToast extends LinearLayout {
                 setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
             }
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d078e, this);
-            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091dc1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc2);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc0);
-            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091dbf);
-            this.d.setConfig(new zx4());
+            this.a = (ShadowLinearLayout) findViewById(R.id.obfuscated_res_0x7f091dc3);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc4);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc2);
+            this.d = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091dc1);
+            this.d.setConfig(new my4());
             f();
             h();
         }

@@ -1,38 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tieba.mg3;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import android.content.Context;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nf3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nf3 {
 
-    @Nullable
-    public static File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            List<mg3.a> d = qn2.d();
-            if (d == null || d.size() <= 0) {
-                return null;
-            }
-            File file = new File(d.get(0).a, "/debug/");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void c(JSONObject jSONObject, String str);
     }
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new File(qn2.d().get(0).a, "/debug/").getAbsolutePath() : (String) invokeV.objValue;
-    }
+    boolean a(String str, ft2 ft2Var);
+
+    void b(Context context, String str, a aVar);
 }

@@ -1,561 +1,110 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContextSupport;
+import android.database.Cursor;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PublishProgressData;
-import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.Date;
 /* loaded from: classes5.dex */
-public class po8 implements NewWriteModel.d {
+public class po8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewWriteModel a;
-    public boolean b;
-    public BdUniqueId c;
-    public boolean d;
-    public String e;
-    public int f;
-    public String g;
-    public String h;
-    public String i;
-    public NewWriteModel.d j;
 
-    /* loaded from: classes5.dex */
-    public class a implements NewWriteModel.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ po8 a;
-
-        /* renamed from: com.baidu.tieba.po8$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0381a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ WriteData a;
-            public final /* synthetic */ PostWriteCallBackData b;
-            public final /* synthetic */ a c;
-
-            public RunnableC0381a(a aVar, WriteData writeData, PostWriteCallBackData postWriteCallBackData) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, writeData, postWriteCallBackData};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = aVar;
-                this.a = writeData;
-                this.b = postWriteCallBackData;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    PublishProgressData.valueOf(this.a, 100).send(false);
-                    if ((!dj.isEmpty(this.b.getVideoid()) && this.a.getVideoInfo() != null) || (this.a.getVideoInfo() != null && this.a.getVideoInfo().hasUpload())) {
-                        new ro8().q(this.b);
-                    } else {
-                        new ro8().p(this.b, this.a);
-                    }
-                    this.c.a.f();
-                    this.c.a.g();
-                    if (!dj.isEmpty(this.b.getVideoid()) && this.a.getVideoInfo() != null) {
-                        this.b.mVideoMd5 = this.a.getVideoInfo().getVideoMd5();
-                        if (!dj.isEmpty(this.a.getForumName())) {
-                            this.b.mFrom = 2;
-                        }
-                    }
-                    this.c.a.u();
-                }
-            }
-        }
-
-        public a(po8 po8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {po8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = po8Var;
-        }
-
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, l15 l15Var, WriteData writeData, AntiData antiData) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, l15Var, writeData, antiData}) == null) || writeData == null) {
-                return;
-            }
-            if (z) {
-                WorkPostNotifyFlutterData notifyFlutterPostSucc = WorkPostNotifyFlutterData.notifyFlutterPostSucc(postWriteCallBackData.getVideoid());
-                notifyFlutterPostSucc.setForumId(writeData.getForumId());
-                notifyFlutterPostSucc.setForumName(writeData.getForumName());
-                notifyFlutterPostSucc.setThreadDataByWriteData(writeData);
-                notifyFlutterPostSucc.setFlutterPageId(this.a.j());
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, notifyFlutterPostSucc));
-                int l = bx4.k().l("key_video_works_progress_bar_waiting_time", 3);
-                gh.a().postDelayed(new RunnableC0381a(this, writeData, postWriteCallBackData), ((l > 0 ? l : 3) + 1) * 1000);
-                po8.k().w(null);
-                this.a.u();
-            } else if (ii5.d(postWriteCallBackData, l15Var, writeData, antiData)) {
-            } else {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921592, WorkPostNotifyFlutterData.notifyFlutterPostFail(postWriteCallBackData != null ? postWriteCallBackData.getErrorString() : "")));
-                new ro8().n(postWriteCallBackData, l15Var, writeData, antiData);
-                po8.k().w(null);
-                this.a.u();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PostWriteCallBackData a;
-        public final /* synthetic */ WriteData b;
-
-        public b(po8 po8Var, PostWriteCallBackData postWriteCallBackData, WriteData writeData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {po8Var, postWriteCallBackData, writeData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = postWriteCallBackData;
-            this.b = writeData;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if ((!dj.isEmpty(this.a.getVideoid()) && this.b.getVideoInfo() != null) || (this.b.getVideoInfo() != null && this.b.getVideoInfo().hasUpload())) {
-                    new ro8().q(this.a);
-                    return;
-                }
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity != null) {
-                    boolean areNotificationsEnabled = NotificationManagerCompat.from(currentActivity).areNotificationsEnabled();
-                    if (areNotificationsEnabled && x15.d().e && x15.d().f) {
-                        new ro8().p(this.a, this.b);
-                    } else if ((areNotificationsEnabled && x15.d().e && x15.d().f) || this.a.getToast() != null || this.b.isShareThread()) {
-                    } else {
-                        if (s25.j(TbadkCoreApplication.getInst().getCurrentActivity(), 2)) {
-                            new ro8().o(this.a, 9);
-                        } else {
-                            new ro8().p(this.a, this.b);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final po8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-511566351, "Lcom/baidu/tieba/po8$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-511566351, "Lcom/baidu/tieba/po8$c;");
-                    return;
-                }
-            }
-            a = new po8(null);
-        }
-    }
-
-    public /* synthetic */ po8(a aVar) {
-        this();
-    }
-
-    public static po8 k() {
-        InterceptResult invokeV;
+    public static void a() {
+        y9 mainDBDatabaseManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            qo8.a("AsyncWriteHelper.getInstance()");
-            return c.a;
-        }
-        return (po8) invokeV.objValue;
-    }
-
-    public void A(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            qo8.a("AsyncWriteHelper.setHasImage = " + z);
-            this.a.Z(z);
-        }
-    }
-
-    public void B(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a.Y(z);
-        }
-    }
-
-    public void C(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void D(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void E(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void F(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.a.a0(z);
-        }
-    }
-
-    public void G(SpanGroupManager spanGroupManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, spanGroupManager) == null) {
-            qo8.a("AsyncWriteHelper.setSpanGroupManager()");
-            this.a.T();
-            this.a.setSpanGroupManager(spanGroupManager);
-        }
-    }
-
-    public void H(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("AsyncWriteHelper.setWriteData = ");
-            sb.append(writeData == null ? StringUtil.NULL_STRING : writeData.toDraftString());
-            qo8.a(sb.toString());
-            this.a.setWriteData(writeData);
-            if (writeData != null && writeData.isWork() && this.c == null) {
-                this.a.b0(this.j);
-            } else {
-                this.a.b0(this);
-            }
-        }
-    }
-
-    public boolean I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            qo8.a("AsyncWriteHelper.startPostWrite()");
-            this.a.T();
-            boolean d0 = this.a.d0();
-            this.b = d0;
-            return d0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-    public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, l15 l15Var, WriteData writeData, AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, l15Var, writeData, antiData}) == null) || writeData == null) {
+        if (!(interceptable == null || interceptable.invokeV(65536, null) == null) || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
             return;
         }
-        if (z) {
-            PublishProgressData.valueOf(writeData, 100).send(true);
-            gh.a().postDelayed(new b(this, postWriteCallBackData, writeData), 200L);
-            if (writeData.isRichTextEditorMode()) {
-                yy4.b(writeData.getRichContentData().toString(), "2");
-            } else {
-                yy4.b(writeData.getContentString(), "2");
-            }
-            f();
-            g();
-            v(postWriteCallBackData);
-            if (!dj.isEmpty(postWriteCallBackData.getVideoid()) && writeData.getVideoInfo() != null) {
-                postWriteCallBackData.mVideoMd5 = writeData.getVideoInfo().getVideoMd5();
-                if (!dj.isEmpty(writeData.getForumName())) {
-                    postWriteCallBackData.mFrom = 2;
-                }
-            }
-            yo8.a(o(), postWriteCallBackData.getThreadId());
-            PublishProgressData.valueOf(writeData, 100).send(false);
-            k().w(null);
-            u();
-        } else if (ii5.d(postWriteCallBackData, l15Var, writeData, antiData)) {
-        } else {
-            PublishProgressData.valueOf(writeData, 100).send(false);
-            new ro8().n(postWriteCallBackData, l15Var, writeData, antiData);
-            k().w(null);
-            u();
-        }
+        mainDBDatabaseManager.d("CREATE TABLE IF NOT EXISTS video_block_upload_data('md5' text,'last_upload_id' text ,'last_upload_success_index' integer,'account' text,'time' long)");
     }
 
-    public void d() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            qo8.a("AsyncWriteHelper.cancelLoadData()");
-            this.a.cancelLoadData();
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            qo8.a("AsyncWriteHelper.checkImageNum = " + this.a.Q());
-            return this.a.Q();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f() {
-        WriteData o;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || (o = o()) == null) {
-            return;
-        }
-        if (o.isAddThread()) {
-            if (o.isLocalChannelDynamic()) {
-                yl8.v(null);
-            } else if (o.isQuestionThread()) {
-                yl8.z(o.getForumId(), o, true);
-            } else if (o.isEvaluate()) {
-                yl8.s(o.getItem_id(), null);
-            } else if (TextUtils.isEmpty(o.getTopicId())) {
-                yl8.u(o.getForumId(), o, true);
-            } else {
-                yl8.B(o.getTopicId(), null);
-            }
-        } else if (o.getType() == 1) {
-            yl8.y(o.getThreadId(), null);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            FileHelper.deleteFileOrDir(new File(nu8.f));
-            yl8.x("");
-        }
-    }
-
-    public void h(boolean z, PostWriteCallBackData postWriteCallBackData, l15 l15Var, WriteData writeData, AntiData antiData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, l15Var, writeData, antiData}) == null) {
-            if (writeData != null && writeData.isWork() && this.c == null) {
-                this.j.callback(z, postWriteCallBackData, l15Var, writeData, antiData);
-            } else {
-                callback(z, postWriteCallBackData, l15Var, writeData, antiData);
-            }
-        }
-    }
-
-    public BdUniqueId i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.c : (BdUniqueId) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? this.e : (String) invokeV.objValue;
-    }
-
-    public String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.g : (String) invokeV.objValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this.h : (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) ? this.i : (String) invokeV.objValue;
-    }
-
-    public WriteData o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("AsyncWriteHelper.getWriteData = ");
-            sb.append(this.a.S() == null ? StringUtil.NULL_STRING : this.a.S().toDraftString());
-            qo8.a(sb.toString());
-            return this.a.S();
-        }
-        return (WriteData) invokeV.objValue;
-    }
-
-    public void p(@NonNull TbPageContextSupport tbPageContextSupport) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, tbPageContextSupport) == null) {
-            qo8.a("AsyncWriteHelper.initWriteStatus()");
-            this.a.c0(tbPageContextSupport.getPageContext());
-            this.a.setWriteData(null);
-            this.a.Z(false);
-        }
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) ? this.b : invokeV.booleanValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? this.d : invokeV.booleanValue;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.f == 8 : invokeV.booleanValue;
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            qo8.a("AsyncWriteHelper.onWriteActClose()");
-            this.a.c0(null);
-            this.a.setSpanGroupManager(null);
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            NewWriteModel newWriteModel = this.a;
-            if (newWriteModel != null) {
-                newWriteModel.setWriteData(null);
-            }
-            this.b = false;
-        }
-    }
-
-    public final void v(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, postWriteCallBackData) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004510, postWriteCallBackData));
-        }
-    }
-
-    public void w(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, bdUniqueId) == null) {
-            this.c = bdUniqueId;
-        }
-    }
-
-    public void x(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public void y(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public po8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            BdLog.e("deleteVieoChunkUploadData Called");
+            if (TbadkCoreApplication.getCurrentAccount() == null) {
                 return;
             }
+            y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str == null || mainDBDatabaseManager == null) {
+                return;
+            }
+            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
         }
-        this.b = false;
-        this.c = null;
-        this.j = new a(this);
-        NewWriteModel newWriteModel = new NewWriteModel();
-        this.a = newWriteModel;
-        newWriteModel.b0(this);
+    }
+
+    public static qo8 c(String str) {
+        InterceptResult invokeL;
+        qo8 qo8Var;
+        Exception e;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
+            return (qo8) invokeL.objValue;
+        }
+        Cursor cursor2 = null;
+        qo8 qo8Var2 = null;
+        if (TbadkCoreApplication.getCurrentAccount() == null || StringUtils.isNull(str)) {
+            return null;
+        }
+        y9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        try {
+            cursor = mainDBDatabaseManager.j("select * from video_block_upload_data where md5=? and account=? and strftime('%s','now') - time < 48 * 3600", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            try {
+                try {
+                    if (cursor.moveToFirst()) {
+                        qo8Var = new qo8();
+                        try {
+                            qo8Var.a = cursor.getString(cursor.getColumnIndex("last_upload_id"));
+                            qo8Var.b = cursor.getInt(cursor.getColumnIndex("last_upload_success_index"));
+                            qo8Var2 = qo8Var;
+                        } catch (Exception e2) {
+                            e = e2;
+                            mainDBDatabaseManager.i(e, "getChunkUploadDataByMd5");
+                            ch.a(cursor);
+                            return qo8Var;
+                        }
+                    }
+                    ch.a(cursor);
+                    return qo8Var2;
+                } catch (Exception e3) {
+                    qo8Var = null;
+                    e = e3;
+                }
+            } catch (Throwable th) {
+                th = th;
+                cursor2 = cursor;
+                ch.a(cursor2);
+                throw th;
+            }
+        } catch (Exception e4) {
+            qo8Var = null;
+            e = e4;
+            cursor = null;
+        } catch (Throwable th2) {
+            th = th2;
+            ch.a(cursor2);
+            throw th;
+        }
+    }
+
+    public static boolean d(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        y9 mainDBDatabaseManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65539, null, str, str2, i)) == null) {
+            if (TbadkCoreApplication.getCurrentAccount() == null || (mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager()) == null) {
+                return false;
+            }
+            Date date = new Date();
+            mainDBDatabaseManager.e("delete from video_block_upload_data where md5=? and account=?", new String[]{str, TbadkCoreApplication.getCurrentAccount()});
+            return mainDBDatabaseManager.e("Insert into video_block_upload_data(md5,last_upload_id,last_upload_success_index,account,time) values(?,?,?,?,?)", new Object[]{str, str2, Integer.valueOf(i), TbadkCoreApplication.getCurrentAccount(), Long.valueOf(date.getTime() / 1000)});
+        }
+        return invokeLLI.booleanValue;
     }
 }

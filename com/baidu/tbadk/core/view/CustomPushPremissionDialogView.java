@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by4;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.oy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,17 +91,17 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             this.e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             this.e.setText(context.getString(R.string.obfuscated_res_0x7f0f0f6f));
-            by4 by4Var = new by4();
-            by4Var.r(R.color.CAM_X0105);
-            this.e.setConfig(by4Var);
+            oy4 oy4Var = new oy4();
+            oy4Var.r(R.color.CAM_X0105);
+            this.e.setConfig(oy4Var);
             this.e.k();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f09075b);
             this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
             this.f.setText(context.getString(R.string.obfuscated_res_0x7f0f0f71));
-            by4 by4Var2 = new by4();
-            by4Var2.p(R.color.CAM_X0302);
-            this.f.setConfig(by4Var2);
+            oy4 oy4Var2 = new oy4();
+            oy4Var2.p(R.color.CAM_X0302);
+            this.f.setConfig(oy4Var2);
         }
     }
 

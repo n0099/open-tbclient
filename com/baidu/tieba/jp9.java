@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.widget.Button;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsAppDownloadListener;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsInterstitialAd;
 /* loaded from: classes4.dex */
-public class jp9 implements KsAppDownloadListener {
+public class jp9 implements KsInterstitialAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Button a;
-    public String b;
+    public final /* synthetic */ KsInterstitialAd a;
+    public final /* synthetic */ ip9 b;
 
-    public jp9(String str, Button button) {
+    public jp9(ip9 ip9Var, KsInterstitialAd ksInterstitialAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, button};
+            Object[] objArr = {ip9Var, ksInterstitialAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,63 +29,74 @@ public class jp9 implements KsAppDownloadListener {
                 return;
             }
         }
-        this.b = str;
-        this.a = button;
+        this.b = ip9Var;
+        this.a = ksInterstitialAd;
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFailed() {
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onAdClicked() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.a.setText(R.string.obfuscated_res_0x7f0f078c);
-            } else {
-                this.a.setText(this.b);
-            }
+            LogPrinter.d();
+            this.b.onAdClicked(this.a, false, new String[0]);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFinished() {
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onAdClosed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f078f);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadStarted() {
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onAdShow() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LogPrinter.d();
+            this.b.onAdShow(this.a, false, new String[0]);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onIdle() {
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onPageDismiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.a.setText(R.string.obfuscated_res_0x7f0f078c);
-            } else {
-                this.a.setText(this.b);
-            }
+            LogPrinter.d();
+            this.b.onAdClose(this.a);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onInstalled() {
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onSkippedAd() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f0790);
+            LogPrinter.d();
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onProgressUpdate(int i) {
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onVideoPlayEnd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            Button button = this.a;
-            button.setText(button.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f078d, String.format("%s/100", Integer.valueOf(i))));
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            LogPrinter.d();
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onVideoPlayError(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
+            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
+            this.b.onAdError(this.a, i, String.valueOf(i2));
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
+    public void onVideoPlayStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            LogPrinter.d();
         }
     }
 }

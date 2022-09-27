@@ -22,7 +22,7 @@ import com.baidu.searchbox.v8engine.thread.V8DefaultThreadPolicy;
 import com.baidu.searchbox.v8engine.thread.V8ExecuteCallback;
 import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.tg1;
+import com.baidu.tieba.gh1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -511,7 +511,7 @@ public class V8Engine implements JSRuntime {
                     if (str == null) {
                         str = getBuildInV8BinPath();
                     }
-                    if (str != null && tg1.b(str)) {
+                    if (str != null && gh1.b(str)) {
                         this.mV8BinAssetManager = (AssetManager) AssetManager.class.newInstance();
                         AssetManager.class.getDeclaredMethod(ALTERNATIVE_ADD_ASSET_PATH_METHOD, String.class).invoke(this.mV8BinAssetManager, str);
                     }

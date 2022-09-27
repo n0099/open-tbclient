@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbadkSettings;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e25;
-import com.baidu.tieba.f35;
-import com.baidu.tieba.fd5;
+import com.baidu.tieba.k25;
+import com.baidu.tieba.mh5;
 import com.baidu.tieba.n9;
-import com.baidu.tieba.x15;
-import com.baidu.tieba.zg5;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.s35;
+import com.baidu.tieba.sd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,8 +40,8 @@ public class InitAppSettingTask extends LaunchTask {
         if (interceptable == null || interceptable.invokeV(65537, this) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             TbadkCoreApplication.getInst().mVoiceHeadsetMode = TbadkSettings.getInst().loadInt("voice_headset_mode", 0);
-            zg5.c();
-            fd5.b().r(System.currentTimeMillis() - currentTimeMillis);
+            mh5.c();
+            sd5.b().r(System.currentTimeMillis() - currentTimeMillis);
         }
     }
 
@@ -54,8 +54,8 @@ public class InitAppSettingTask extends LaunchTask {
             initSettings();
             TbadkCoreApplication.getInst().initSetting();
             long currentTimeMillis = System.currentTimeMillis();
-            x15.d().p();
-            fd5.b().y(System.currentTimeMillis() - currentTimeMillis);
+            k25.d().p();
+            sd5.b().y(System.currentTimeMillis() - currentTimeMillis);
             n9.g().r(20);
         }
     }
@@ -84,14 +84,14 @@ public class InitAppSettingTask extends LaunchTask {
             if (TextUtils.isEmpty(loadString)) {
                 return;
             }
-            e25 e25Var = new e25();
-            e25Var.e(loadString);
-            f35 a = f35.a();
-            a.g(e25Var.b() == 1);
-            a.h(e25Var.c());
-            a.i(e25Var.d() * 1000);
-            if (e25Var.a() != null) {
-                a.j(e25Var.a());
+            r25 r25Var = new r25();
+            r25Var.e(loadString);
+            s35 a = s35.a();
+            a.g(r25Var.b() == 1);
+            a.h(r25Var.c());
+            a.i(r25Var.d() * 1000);
+            if (r25Var.a() != null) {
+                a.j(r25Var.a());
             }
         }
     }

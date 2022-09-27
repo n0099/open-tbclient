@@ -1,75 +1,92 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tieba.fd2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ed2<T> extends yc2 {
+public class ed2 implements fd2.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public T c;
-    public boolean d;
+    public final String a;
+    public JSONObject b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947730422, "Lcom/baidu/tieba/ed2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947730422, "Lcom/baidu/tieba/ed2;");
-                return;
-            }
-        }
-        e = ij1.a;
-    }
-
-    public ed2() {
+    public ed2(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = true;
-        this.a = "message";
-    }
-
-    @Override // com.baidu.tieba.yc2
-    public void m(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            Object obj = this.c;
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (this.d) {
-                    str = Uri.encode(str);
-                }
-                if (e) {
-                    Log.d("SwanAppWebMessage", "mData: " + this.c);
-                    Log.d("SwanAppWebMessage", "encode mData: " + str);
-                }
-                map.put("message", str);
-            } else if (obj instanceof JSONObject) {
-                map.put("message", obj);
+        JSONObject jSONObject = new JSONObject();
+        this.b = jSONObject;
+        this.a = str;
+        try {
+            jSONObject.put(IntentConfig.PKG_ID, str);
+            if (z) {
+                update();
+            }
+        } catch (JSONException e) {
+            if (fd2.m0) {
+                e.printStackTrace();
             }
         }
+    }
+
+    public static ed2 query(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? new ed2(str, true) : (ed2) invokeL.objValue;
+    }
+
+    private void update() throws JSONException {
+        PMSAppInfo u;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = ib4.i().u(this.a)) != null) {
+            this.b.put("app_name", u.appName);
+            this.b.put("pkg_vername", u.versionName);
+            this.b.put("pkg_vercode", u.versionCode);
+            this.b.put("create_time", u.createTime);
+            this.b.put("last_launch_time", u.getLastLaunchTime());
+            this.b.put("launch_count", u.getLaunchCount());
+            this.b.put("install_src", u.getInstallSrc());
+        }
+    }
+
+    @Override // com.baidu.tieba.fd2.a
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fd2.a
+    public JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fd2.a
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
     }
 }

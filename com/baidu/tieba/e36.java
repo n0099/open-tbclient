@@ -1,102 +1,67 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.au4;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class e36 {
+public class e36 extends qn<f36, CardViewHolder<g36>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> a;
 
-    /* loaded from: classes3.dex */
-    public static class a implements au4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
-
-        public a(TbPageContext tbPageContext, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tbPageContext, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.au4.e
-        public void onClick(au4 au4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
-                au4Var.dismiss();
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig(this.a.getPageActivity(), true, this.b)));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b implements au4.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.au4.e
-        public void onClick(au4 au4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
-                au4Var.dismiss();
-            }
-        }
-    }
-
-    public static void a(Intent intent, TbPageContext tbPageContext, int i) {
-        Uri uri;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e36(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), f36.c);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLI(65536, null, intent, tbPageContext, i) == null) || intent == null || !TbadkCoreApplication.isLogin() || (uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI)) == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        String queryParameter = uri.getQueryParameter("portrait");
-        if (TbadkCoreApplication.getCurrentPortrait() == null || queryParameter == null || TbadkCoreApplication.getCurrentPortrait().contains(queryParameter)) {
-            return;
+        this.a = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public CardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder(new g36(this.a)) : (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f36 f36Var, CardViewHolder cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f36Var, cardViewHolder})) == null) {
+            if (cardViewHolder == null || cardViewHolder.a() == null) {
+                return null;
+            }
+            cardViewHolder.a().i(f36Var);
+            return cardViewHolder.getView();
         }
-        au4 au4Var = new au4(tbPageContext.getPageActivity());
-        au4Var.setContentViewSize(1);
-        au4Var.setMessage(tbPageContext.getString(R.string.obfuscated_res_0x7f0f007b));
-        au4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0392, new a(tbPageContext, i));
-        au4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0cb4, new b());
-        au4Var.create(tbPageContext).show();
+        return (View) invokeCommon.objValue;
     }
 }

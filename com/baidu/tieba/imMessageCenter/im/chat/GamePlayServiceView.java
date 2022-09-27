@@ -87,7 +87,7 @@ public class GamePlayServiceView extends RelativeLayout {
             LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0732, (ViewGroup) this, true);
             findViewById(R.id.obfuscated_res_0x7f0913e3).setBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
             findViewById(R.id.obfuscated_res_0x7f0913fb).setOnClickListener(this.b);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f0923a3)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f0923a5)).setTextColor(SkinManager.getColor(R.color.CAM_X0105));
         }
     }
 

@@ -1,100 +1,68 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class if4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile if4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947851570, "Lcom/baidu/tieba/if4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public if4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947851570, "Lcom/baidu/tieba/if4;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static int a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int i = 5;
-            if (c() <= 0) {
-                return 5;
-            }
-            String string = ja4.b().i().getString("expire_time", "");
-            if (TextUtils.isEmpty(string)) {
-                return 5;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(string);
-                i = jSONObject.optInt("time", 5);
-                JSONObject optJSONObject = jSONObject.optJSONObject("appkeys");
-                if (optJSONObject == null) {
-                    return i;
-                }
-                int optInt = optJSONObject.optInt(str, -1);
-                return optInt < 0 ? i : optInt;
-            } catch (JSONException unused) {
-                return i;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static long b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? TimeUnit.HOURS.toMillis(a(str)) : invokeL.longValue;
-    }
-
-    public static int c() {
+    public static if4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a < 0) {
-                ja4.b().F("swan_update_expired_time", 0);
-                a = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (if4.class) {
+                    if (a == null) {
+                        a = new if4();
+                    }
+                }
             }
             return a;
         }
-        return invokeV.intValue;
+        return (if4) invokeV.objValue;
     }
 
-    public static String d() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ja4.b().i().getString("expire_time_version", "0") : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? wa4.b().i().getString("get_pkg_retry_version", "0") : (String) invokeV.objValue;
     }
 
-    public static void e(JSONObject jSONObject) {
+    public void c(JSONObject jSONObject) {
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) || jSONObject == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has(SetImageWatermarkTypeReqMsg.SWITCH)) {
             return;
         }
-        ja4.b().i().putString("expire_time_version", optString);
-        ja4.b().i().putString("expire_time", optJSONObject.toString());
+        int optInt = optJSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0);
+        wa4.b().i().putString("get_pkg_retry_version", optString);
+        wa4.b().i().putInt("get_pkg_retry_switch", optInt);
     }
 }

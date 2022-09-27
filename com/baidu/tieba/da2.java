@@ -1,52 +1,86 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.swan.apps.database.subscribe.SwanAppSubscribeMsgProvider;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TreeMap;
 /* loaded from: classes3.dex */
 public final class da2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947697748, "Lcom/baidu/tieba/da2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947697748, "Lcom/baidu/tieba/da2;");
+                return;
+            }
+        }
+        b = vj1.a;
+        sm2.g0().getSwitch("swan_slave_ready", false);
+        c = false;
+    }
+
+    public da2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS swanapp_subscribe_msg(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,templateId varchar(50) NOT NULL,title varchar(100) NOT NULL,tips TEXT,result TINYINT default 0);");
-            } catch (Exception e) {
-                yz1.d("SwanAppSubscribeMsg", "createTable", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @WorkerThread
-    public static void b(@Nullable String... strArr) {
+    public static md2 a(da2 da2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, strArr) == null) {
-            Application c = fm2.c();
-            if (c != null && strArr != null) {
-                StringBuilder sb = new StringBuilder();
-                int length = strArr.length;
-                for (int i = 0; i < length; i++) {
-                    String str = strArr[i];
-                    if (!TextUtils.isEmpty(str)) {
-                        sb.append(str);
-                        if (i < length - 1) {
-                            sb.append(",");
-                        }
-                    }
-                }
-                int delete = c.getContentResolver().delete(SwanAppSubscribeMsgProvider.c, "appKey in (?)", new String[]{sb.toString()});
-                yz1.i("SwanAppSubscribeMsg", "deleteAllByAppKey count=" + delete + ", appKey=" + sb.toString());
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, da2Var)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + da2Var);
             }
-            yz1.o("SwanAppSubscribeMsg", "deleteAllByAppKey fail");
+            TreeMap treeMap = new TreeMap();
+            treeMap.put("slaveId", da2Var.a);
+            return new md2("SlaveReady", treeMap);
         }
+        return (md2) invokeL.objValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
+            }
+            return c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

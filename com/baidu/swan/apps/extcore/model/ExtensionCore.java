@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.ng3;
+import com.baidu.tieba.ah3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -96,7 +96,7 @@ public class ExtensionCore extends SwanAppIPCData {
     public boolean isAvailable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ng3.e(this.extensionCorePath) : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? ah3.e(this.extensionCorePath) : invokeV.booleanValue;
     }
 
     public String toString() {

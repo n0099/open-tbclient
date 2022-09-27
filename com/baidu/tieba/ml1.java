@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ml1 implements rn1 {
+public class ml1 implements kn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -23,10 +26,33 @@ public class ml1 implements rn1 {
         }
     }
 
-    @Override // com.baidu.tieba.rn1
-    public void a() {
+    @Override // com.baidu.tieba.kn1
+    public boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kn1
+    public boolean b(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kn1
+    public boolean c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

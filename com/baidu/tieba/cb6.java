@@ -1,31 +1,51 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.HotUserRankActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.enterForum.tabfeed.view.HotUserRankImageOverlayView;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ShortUserInfo;
 /* loaded from: classes3.dex */
 public class cb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public TextView c;
-    public ImageView d;
-    public boolean e;
+    public int a;
+    public TbPageContext<?> b;
+    public View c;
+    public RoundRelativeLayout d;
+    public ImageView e;
+    public ImageView f;
+    public TbImageView g;
+    public ImageView h;
+    public TextView i;
+    public TextView j;
+    public ImageView k;
+    public HotUserRankImageOverlayView l;
+    public ImageView m;
+    public int n;
+    public String o;
+    public String p;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -55,12 +75,12 @@ public class cb6 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                g86.b(this.a.a, null);
-                StatisticItem statisticItem = new StatisticItem("c13645");
+                HotUserRankActivityConfig hotUserRankActivityConfig = new HotUserRankActivityConfig(this.a.b.getPageActivity());
+                hotUserRankActivityConfig.setCategory(this.a.o);
+                this.a.b.sendMessage(new CustomMessage(2002001, hotUserRankActivityConfig));
+                StatisticItem statisticItem = new StatisticItem("c13655");
                 statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem.param("obj_locate", 1);
-                statisticItem.param("obj_type", this.a.e ? 5 : 1);
-                statisticItem.param("obj_source", 2);
+                statisticItem.param(TiebaStatic.Params.RESOURCE_ID, this.a.p);
                 TiebaStatic.log(statisticItem);
             }
         }
@@ -81,37 +101,99 @@ public class cb6 {
                 return;
             }
         }
-        this.a = tbPageContext;
-        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d0773, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092134);
-        ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090e2b);
-        this.d = imageView;
-        imageView.setOnClickListener(new a(this));
-    }
-
-    public void c(ct4 ct4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ct4Var) == null) {
-            String title = ct4Var.getTitle();
-            if (!TextUtils.isEmpty(title)) {
-                this.c.setText(title);
-            }
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.d, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        }
+        this.a = 3;
+        this.b = tbPageContext;
+        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01bb, (ViewGroup) null);
+        this.c = inflate;
+        this.d = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0925ae);
+        this.e = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090e1c);
+        this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090e1d);
+        this.g = (TbImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091b4e);
+        this.h = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091b4f);
+        this.i = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f090ab5);
+        this.j = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f0916c8);
+        this.l = (HotUserRankImageOverlayView) this.c.findViewById(R.id.obfuscated_res_0x7f090ea6);
+        this.k = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090ffe);
+        this.m = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090e25);
+        int dimensionPixelOffset = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds114);
+        this.l.a(3, dimensionPixelOffset, dimensionPixelOffset, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2_6), R.color.CAM_X0501, TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds62));
+        this.l.setStrokeStyle(1);
+        this.l.setLoadImageType(12);
+        this.l.setFirstImageStrokeColor(R.color.CAM_X0314);
+        this.d.setOnClickListener(new a(this));
+        int f = ej.f(tbPageContext.getPageActivity(), R.dimen.tbds90);
+        this.n = f;
+        this.d.setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
     }
 
     public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (View) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (View) invokeV.objValue;
     }
 
-    public void e(boolean z) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.e = z;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == TbadkCoreApplication.getInst().getSkinType()) {
+            return;
+        }
+        this.a = TbadkCoreApplication.getInst().getSkinType();
+        SkinManager.setBackgroundColor(this.d, R.color.CAM_X0206);
+        if (this.h.getVisibility() == 0) {
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0805f2, SvgManager.SvgResourceStateType.NORMAL);
+        }
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080650, SvgManager.SvgResourceStateType.NORMAL);
+        SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080f5a);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.obfuscated_res_0x7f0805ff, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
+        SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0311);
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0311);
+        SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.k, R.drawable.obfuscated_res_0x7f0805ef, null);
+        this.l.d();
+    }
+
+    public void f(ab6 ab6Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ab6Var) == null) || ab6Var == null) {
+            return;
+        }
+        String str = ab6Var.b;
+        this.o = str;
+        if (TextUtils.isEmpty(str)) {
+            this.o = "";
+        }
+        TextView textView = this.i;
+        textView.setText(this.o + "榜");
+        List<ShortUserInfo> list = ab6Var.a;
+        if (list != null && list.size() > 0) {
+            TextView textView2 = this.j;
+            textView2.setText("NO.1 " + ab6Var.a.get(0).user_name);
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            for (ShortUserInfo shortUserInfo : ab6Var.a) {
+                if (i > 2) {
+                    break;
+                }
+                i++;
+                arrayList.add(shortUserInfo.portrait);
+            }
+            this.l.setData(arrayList);
+            if (!TextUtils.isEmpty(ab6Var.c)) {
+                this.g.setVisibility(0);
+                this.h.setVisibility(8);
+                this.g.K(ab6Var.c, 12, false);
+            } else {
+                this.h.setVisibility(0);
+                this.g.setVisibility(8);
+                SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f0805f2, SvgManager.SvgResourceStateType.NORMAL);
+            }
+        }
+        e();
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.p = str;
         }
     }
 }

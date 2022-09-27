@@ -30,9 +30,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.coreExtra.view.MultiImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cu4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ta7;
+import com.baidu.tieba.hb7;
+import com.baidu.tieba.pu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,12 +80,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
 
         /* renamed from: com.baidu.tieba.im.chat.AbsMsgImageActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class animation.Animation$AnimationListenerC0291a implements Animation.AnimationListener {
+        public class animation.Animation$AnimationListenerC0284a implements Animation.AnimationListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public animation.Animation$AnimationListenerC0291a(a aVar) {
+            public animation.Animation$AnimationListenerC0284a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -197,7 +197,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     }
                     this.a.l.setDuration(300L);
                     this.a.l.setFillAfter(true);
-                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0291a(this));
+                    this.a.l.setAnimationListener(new animation.Animation$AnimationListenerC0284a(this));
                     this.a.m = false;
                     this.a.g.startAnimation(this.a.l);
                 }
@@ -292,7 +292,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* loaded from: classes4.dex */
-    public class d implements cu4.c {
+    public class d implements pu4.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -315,10 +315,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.a = absMsgImageActivity;
         }
 
-        @Override // com.baidu.tieba.cu4.c
-        public void a(cu4 cu4Var, int i, View view2) {
+        @Override // com.baidu.tieba.pu4.c
+        public void a(pu4 pu4Var, int i, View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(1048576, this, cu4Var, i, view2) == null) && cu4Var == this.a.getListMenu()) {
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, pu4Var, i, view2) == null) && pu4Var == this.a.getListMenu()) {
                 if (i == 0) {
                     try {
                         Activity pageActivity = this.a.getPageContext().getPageActivity();
@@ -342,7 +342,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                     } catch (Exception unused) {
                     }
                 }
-                cu4Var.e();
+                pu4Var.e();
             }
         }
     }
@@ -351,10 +351,10 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     public class e implements View.OnLongClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cu4.c a;
+        public final /* synthetic */ pu4.c a;
         public final /* synthetic */ AbsMsgImageActivity b;
 
-        public e(AbsMsgImageActivity absMsgImageActivity, cu4.c cVar) {
+        public e(AbsMsgImageActivity absMsgImageActivity, pu4.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -387,7 +387,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* loaded from: classes4.dex */
-    public class f implements ta7 {
+    public class f implements hb7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsMsgImageActivity a;
@@ -410,7 +410,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.a = absMsgImageActivity;
         }
 
-        @Override // com.baidu.tieba.ta7
+        @Override // com.baidu.tieba.hb7
         public void a(LinkedHashMap<String, String> linkedHashMap, HashMap<String, ImageUrlData> hashMap) {
             boolean z;
             Interceptable interceptable = $ic;
@@ -697,7 +697,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             this.d = this.g.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.i);
             SkinManager.setImageResource(this.g.getBackImageView(), R.drawable.icon_return_bg);
             this.f = this.g.setTitleText("");
-            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0925d7);
+            MultiImageView multiImageView = (MultiImageView) findViewById(R.id.obfuscated_res_0x7f0925d9);
             this.h = multiImageView;
             multiImageView.setPageMargin(ej.d(getPageContext().getContext(), 8.0f));
             this.h.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
@@ -716,7 +716,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    public abstract void j2(String str, ta7 ta7Var);
+    public abstract void j2(String str, hb7 hb7Var);
 
     public final void k2() {
         Interceptable interceptable = $ic;

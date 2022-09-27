@@ -2,41 +2,37 @@ package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.constraintlayout.motion.widget.Key;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONException;
-import org.json.JSONObject;
-@SuppressLint({"SwanCommentWar"})
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class sp2 implements xs2 {
+public final class sp2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static final Set<String> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public rp2 b;
-    public String c;
-    public String d;
-    public double e;
-    public double f;
-    public int g;
-    public int h;
-    public b i;
-    public c j;
-    public a k;
+    public final String a;
+    public final Object b;
+    public final int c;
 
-    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public static class a implements xs2 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public double a;
-        public double b;
+        public String a;
+        public Object b;
+        public int c;
+        public RuntimeException d;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -48,278 +44,200 @@ public class sp2 implements xs2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = 0.5d;
-            this.b = 1.0d;
         }
 
-        @Override // com.baidu.tieba.xs2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            this.a = Math.abs(jSONObject.optDouble("x", 0.5d));
-            double d = 1.0d;
-            this.b = Math.abs(jSONObject.optDouble("y", 1.0d));
-            double d2 = this.a;
-            if (d2 < 0.0d) {
-                d2 = 0.0d;
-            } else if (d2 > 1.0d) {
-                d2 = 1.0d;
-            }
-            this.a = d2;
-            double d3 = this.b;
-            if (d3 < 0.0d) {
-                d = 0.0d;
-            } else if (d3 <= 1.0d) {
-                d = d3;
-            }
-            this.b = d;
-        }
-
-        @Override // com.baidu.tieba.xs2
-        public boolean isValid() {
+        @Nullable
+        @SuppressLint({"BDThrowableCheck"})
+        public sp2 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes5.dex */
-    public static class b extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public String g;
-        public int h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(sp2 sp2Var) {
-            super(sp2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sp2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((sp2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = "BYCLICK";
-            this.h = -1;
-        }
-
-        @Override // com.baidu.tieba.sp2.d, com.baidu.tieba.xs2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = (float) jSONObject.optDouble("borderRadius", 0.0d);
-            jSONObject.optDouble("borderWidth", 0.0d);
-            this.g = jSONObject.has(CriusAttrConstants.DISPLAY) ? jSONObject.optString(CriusAttrConstants.DISPLAY) : "BYCLICK";
-            this.h = lp2.a(jSONObject.optString("bgColor"), -1);
-            lp2.a(jSONObject.optString("borderColor"), this.h);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes5.dex */
-    public static class c extends d implements xs2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public float f;
-        public float g;
-        public float h;
-        public int i;
-        public float j;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(sp2 sp2Var) {
-            super(sp2Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sp2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((sp2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = 0.0f;
-            this.g = 0.0f;
-            this.h = 0.0f;
-            this.i = 0;
-            this.j = 0.0f;
-        }
-
-        @Override // com.baidu.tieba.sp2.d, com.baidu.tieba.xs2
-        public void a(JSONObject jSONObject) throws JSONException {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-                return;
-            }
-            super.a(jSONObject);
-            this.f = lp2.b(jSONObject.optDouble("x", 0.0d));
-            float b = lp2.b(jSONObject.optDouble("y", 0.0d));
-            this.g = b;
-            if (this.f == 0.0f && b == 0.0f) {
-                this.f = lp2.b(jSONObject.optDouble("anchorX", 0.0d));
-                this.g = lp2.b(jSONObject.optDouble("anchorY", 0.0d));
-            }
-            this.h = (float) jSONObject.optDouble("borderWidth", 0.0d);
-            this.i = lp2.a(jSONObject.optString("borderColor"), 0);
-            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
-        }
-    }
-
-    @SuppressLint({"SwanCommentWar"})
-    /* loaded from: classes5.dex */
-    public static class d implements xs2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public float c;
-        public int d;
-        public float e;
-
-        public d(sp2 sp2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sp2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = "";
-            this.b = -16777216;
-            this.c = lp2.b(10.0d);
-            this.d = 0;
-            this.e = 0.0f;
-        }
-
-        @Override // com.baidu.tieba.xs2
-        public void a(JSONObject jSONObject) throws JSONException {
-            float b;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("content")) {
-                this.a = jSONObject.optString("content");
-                this.b = lp2.a(jSONObject.optString("color"), -16777216);
-                if (jSONObject.has(TtmlNode.ATTR_TTS_FONT_SIZE)) {
-                    b = Math.abs(lp2.b(jSONObject.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 10.0d)));
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.d != null) {
+                    if (sp2.d) {
+                        throw this.d;
+                    }
+                    return null;
+                } else if (this.a == null) {
+                    this.d = new IllegalStateException("key == null");
+                    if (sp2.d) {
+                        throw this.d;
+                    }
+                    return null;
                 } else {
-                    b = lp2.b(10.0d);
-                }
-                this.c = b;
-                this.d = lp2.a(jSONObject.optString("bgColor"), 0);
-                this.e = lp2.b(jSONObject.optDouble(CriusAttrConstants.PADDING, 0.0d));
-                if (jSONObject.has(TtmlNode.ATTR_TTS_TEXT_ALIGN)) {
-                    jSONObject.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+                    synchronized (a.class) {
+                        if (sp2.e.contains(this.a)) {
+                            this.d = new IllegalStateException("the key of switch has been occupied");
+                            if (sp2.d) {
+                                throw this.d;
+                            }
+                            return null;
+                        } else if (this.b == null) {
+                            this.d = new IllegalStateException("defaultValue == null");
+                            if (sp2.d) {
+                                throw this.d;
+                            }
+                            return null;
+                        } else if (sp2.c(this.c, this.b)) {
+                            sp2.e.add(this.a);
+                            return new sp2(this);
+                        } else {
+                            this.d = new IllegalStateException("valueType error");
+                            if (sp2.d) {
+                                throw this.d;
+                            }
+                            return null;
+                        }
+                    }
                 }
             }
+            return (sp2) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.xs2
-        public boolean isValid() {
+        public a b(@NonNull Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+                this.b = obj;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public Exception c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.a) : invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (Exception) invokeV.objValue;
+        }
+
+        @SuppressLint({"BDThrowableCheck"})
+        public a d(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    this.d = new IllegalArgumentException("the key of switch must not be empty");
+                    if (!sp2.d) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.d;
+                } else if (TextUtils.equals("sids", str)) {
+                    this.d = new IllegalArgumentException("sid must not equal \"sids\"");
+                    if (!sp2.d) {
+                        this.a = null;
+                        return this;
+                    }
+                    throw this.d;
+                } else {
+                    this.a = str;
+                    return this;
+                }
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a e(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.c = i;
+                return this;
+            }
+            return (a) invokeI.objValue;
         }
     }
 
-    public sp2() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948159028, "Lcom/baidu/tieba/sp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948159028, "Lcom/baidu/tieba/sp2;");
+                return;
+            }
+        }
+        d = vj1.a;
+        e = new HashSet();
+    }
+
+    public sp2(@NonNull a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.c = "";
-        this.d = "";
-        this.e = 0.0d;
-        this.f = 1.0d;
-        this.g = -1;
-        this.h = -1;
+        this.a = aVar.a;
+        this.b = aVar.b;
+        this.c = aVar.c;
     }
 
-    @Override // com.baidu.tieba.xs2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static boolean c(int i, Object obj) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        rp2 rp2Var = new rp2();
-        this.b = rp2Var;
-        rp2Var.a(jSONObject);
-        if (this.b.isValid()) {
-            String optString = jSONObject.optString("markerId");
-            this.a = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.a = jSONObject.optString("id");
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            if (i != 4) {
+                                return false;
+                            }
+                            return obj instanceof String;
+                        }
+                        return obj instanceof Long;
+                    }
+                    return obj instanceof Integer;
+                }
+                return obj instanceof Double;
             }
-            this.c = jSONObject.optString("title");
-            this.d = jSONObject.optString("iconPath");
-            this.e = jSONObject.optDouble("rotate", 0.0d);
-            this.f = Math.abs(jSONObject.optDouble(Key.ALPHA, 1.0d));
-            this.g = jSONObject.has("width") ? Math.abs(pg3.g(jSONObject.optInt("width"))) : -1;
-            this.h = jSONObject.has("height") ? Math.abs(pg3.g(jSONObject.optInt("height"))) : -1;
-            jSONObject.optInt("zIndex", 0);
-            b bVar = new b(this);
-            this.i = bVar;
-            bVar.a(jSONObject.optJSONObject("callout"));
-            c cVar = new c(this);
-            this.j = cVar;
-            cVar.a(jSONObject.optJSONObject("label"));
-            a aVar = new a();
-            this.k = aVar;
-            aVar.a(jSONObject.optJSONObject("anchor"));
+            return obj instanceof Boolean;
         }
+        return invokeIL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xs2
-    public boolean isValid() {
+    public Object d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            rp2 rp2Var = this.b;
-            return rp2Var != null && rp2Var.isValid();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (d) {
+                return "SwanLocalABTestSwitch{key='" + this.a + "', defaultValue=" + this.b + ", valueType=" + this.c + '}';
+            }
+            return super.toString();
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

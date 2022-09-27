@@ -1,211 +1,157 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.SpannableString;
+import android.os.Message;
+import android.os.RemoteException;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.EditText;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y03;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.b03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class l03 {
+public class l03 implements b03.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static l03 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public HashMap<String, m03> b;
-    public List<String> c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947889018, "Lcom/baidu/tieba/l03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947889018, "Lcom/baidu/tieba/l03;");
-                return;
-            }
-        }
-        d = ij1.a;
-    }
+    public final Map<String, Deque<Message>> a;
 
     public l03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new HashMap<>();
-        this.c = new ArrayList();
+        this.a = new HashMap();
     }
 
-    public static l03 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b03.c
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (l03.class) {
-                    if (e == null) {
-                        e = new l03();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (String str : this.a.keySet()) {
+                c(str);
             }
-            return e;
         }
-        return (l03) invokeV.objValue;
     }
 
-    public Bitmap a(String str) {
-        InterceptResult invokeL;
-        m03 m03Var;
+    @Override // com.baidu.tieba.b03.c
+    public void b(@NonNull d03 d03Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HashMap<String, m03> hashMap = this.b;
-            if (hashMap == null || (m03Var = hashMap.get(str)) == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d03Var) == null) {
+            Message h = d03Var.h();
+            if (d03Var.m()) {
+                h(h);
             }
-            return m03Var.a();
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public List<String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (List) invokeV.objValue;
-    }
-
-    public Bitmap d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (Bitmap) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> list = this.c;
-            return list != null && list.size() > 0;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (d) {
-                Log.d("EmojiInfoManager", "get emoji info from " + str);
-            }
-            File file = new File(str);
-            if (file.exists() && file.isDirectory()) {
-                String E = cj4.E(new File(str + File.separator + "emoji.json"));
-                if (TextUtils.isEmpty(E)) {
-                    if (d) {
-                        Log.d("EmojiInfoManager", "读取emoji配置文件失败");
-                        return;
-                    }
-                    return;
-                }
-                try {
-                    JSONArray optJSONArray = new JSONObject(E).optJSONArray("packages");
-                    if (optJSONArray == null) {
-                        return;
-                    }
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(0);
-                    if (optJSONObject == null) {
-                        return;
-                    }
-                    String optString = optJSONObject.optString("package_icon");
-                    if (!TextUtils.isEmpty(optString)) {
-                        this.a = BitmapFactory.decodeFile(str + File.separator + optString);
-                    }
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("emoticons");
-                    this.c.clear();
-                    this.b.clear();
-                    if (optJSONArray2 != null) {
-                        int length = optJSONArray2.length();
-                        for (int i = 0; i < length; i++) {
-                            JSONObject jSONObject = (JSONObject) optJSONArray2.get(i);
-                            String optString2 = jSONObject.optString("id");
-                            String optString3 = jSONObject.optString("text");
-                            String optString4 = jSONObject.optString("icon");
-                            Bitmap decodeFile = BitmapFactory.decodeFile(str + File.separator + optString4);
-                            if (!TextUtils.isEmpty(optString3) && decodeFile != null) {
-                                this.c.add(optString3);
-                                this.b.put(optString3, new m03(optString2, optString3, decodeFile));
-                            }
+            Set<SwanAppProcessInfo> l = d03Var.l();
+            Set<String> k = d03Var.k();
+            if (d03Var.n()) {
+                Iterator<k03> it = m03.k().q().iterator();
+                while (it.hasNext()) {
+                    k03 next = it.next();
+                    boolean g = g(next, k);
+                    if (l.contains(next.b) || g) {
+                        next.g0(h);
+                        if (g) {
+                            k.remove(next.getAppId());
                         }
                     }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
                 }
-            } else if (d) {
-                Log.d("EmojiInfoManager", "文件路径错误");
+                f(k, h);
+                return;
+            }
+            Iterator<k03> it2 = m03.k().q().iterator();
+            while (it2.hasNext()) {
+                k03 next2 = it2.next();
+                if (next2 != null && next2.T() && (l.contains(next2.b) || g(next2, k))) {
+                    next2.g0(h);
+                }
             }
         }
     }
 
-    public SpannableString g(Context context, CharSequence charSequence, TextView textView) {
-        InterceptResult invokeLLL;
-        Object aVar;
+    @Override // com.baidu.tieba.b03.c
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, charSequence, textView)) == null) {
-            if (d) {
-                Log.d("EmojiInfoManager", "parseEmotion in UI thread, use cache");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            Deque<Message> deque = this.a.get(str);
+            b03.f("flushMsg:: appid=" + str + " msgQueue=" + deque);
+            if (deque == null || deque.isEmpty()) {
+                return;
             }
-            SpannableString spannableString = new SpannableString(charSequence);
-            Matcher matcher = Pattern.compile("\\[([一-龥\\w])+\\]").matcher(spannableString);
-            while (matcher.find()) {
-                String group = matcher.group();
-                int start = matcher.start();
-                Bitmap a = c().a(group);
-                if (a == null) {
-                    break;
-                }
-                int textSize = (int) ((textView.getTextSize() * 11.0f) / 10.0f);
-                Bitmap createScaledBitmap = Bitmap.createScaledBitmap(a, textSize, textSize, true);
-                if (createScaledBitmap != null) {
-                    if (textView instanceof EditText) {
-                        aVar = new y03.b(context.getApplicationContext(), createScaledBitmap);
-                    } else {
-                        aVar = new y03.a(context.getApplicationContext(), createScaledBitmap);
-                    }
-                    spannableString.setSpan(aVar, start, group.length() + start, 33);
-                }
+            List<k03> j = m03.k().j(str);
+            b03.f("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + j.size());
+            if (j.isEmpty()) {
+                return;
             }
-            return spannableString;
+            for (k03 k03Var : j) {
+                k03Var.i0(deque);
+            }
+            deque.clear();
         }
-        return (SpannableString) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.b03.c
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a.remove(str);
+        }
+    }
+
+    public final void e(String str, @NonNull Message message) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(1048580, this, str, message) == null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        Deque<Message> deque = this.a.get(str);
+        if (deque == null) {
+            deque = new ArrayDeque<>();
+            this.a.put(str, deque);
+        }
+        deque.offer(message);
+    }
+
+    public final void f(Set<String> set, @NonNull Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, set, message) == null) {
+            for (String str : set) {
+                e(str, message);
+            }
+        }
+    }
+
+    public boolean g(@NonNull k03 k03Var, @NonNull Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, k03Var, set)) == null) ? k03Var.E() && set.contains(k03Var.getAppId()) : invokeLL.booleanValue;
+    }
+
+    public final void h(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
+            try {
+                m03.k().e.send(message);
+            } catch (RemoteException e) {
+                b03.f(Log.getStackTraceString(e));
+            }
+        }
     }
 }

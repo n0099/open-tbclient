@@ -1,132 +1,151 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.nu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.ForumToolPerm;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pg6 {
+public class pg6 extends i16<mg6> {
     public static /* synthetic */ Interceptable $ic;
-    public static UserData a;
-    public static boolean b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ImageView i;
+    public final TextView j;
+    public int k;
 
-    public static UserData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (UserData) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements nu4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static UserData b(FrsViewData frsViewData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
-            UserData userData = frsViewData != null ? frsViewData.getUserData() : null;
-            a = userData;
-            return userData;
-        }
-        return (UserData) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c : (String) invokeV.objValue;
-    }
-
-    public static boolean d(UserData userData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, userData)) == null) {
-            if (userData == null) {
-                return false;
-            }
-            int is_manager = userData.getIs_manager();
-            return is_manager == 1 || is_manager == 2 || is_manager == 3 || is_manager == 4;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            UserData a2 = a();
-            return a2 != null && a2.getIs_manager() == 1;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            UserData a2 = a();
-            return a2 != null && a2.getIs_manager() == 3;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? b : invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        List<ForumToolPerm> forumToolAuth;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            UserData a2 = a();
-            if (a2 != null && (forumToolAuth = a2.getForumToolAuth()) != null) {
-                for (int i = 0; i < forumToolAuth.size(); i++) {
-                    ForumToolPerm forumToolPerm = forumToolAuth.get(i);
-                    if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
-                        return true;
-                    }
+        public a(pg6 pg6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pg6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
 
-    public static void i(gx gxVar, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65544, null, gxVar, frsViewData) == null) || gxVar == null) {
-            return;
-        }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
-        }
-        if (frsViewData != null && (d(b(frsViewData)) || h())) {
-            gxVar.c(4);
-        } else {
-            gxVar.d(4);
+        @Override // com.baidu.tieba.nu4.e
+        public void onClick(nu4 nu4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
+                lg6.a();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921020));
+                nu4Var.dismiss();
+            }
         }
     }
 
-    public static void j(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
+    /* loaded from: classes5.dex */
+    public class b implements nu4.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(pg6 pg6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pg6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.nu4.e
+        public void onClick(nu4 nu4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
+                nu4Var.dismiss();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pg6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65545, null, threadCommentAndPraiseInfoLayout, frsViewData) == null) || threadCommentAndPraiseInfoLayout == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.k = 3;
+        this.i = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f090d6e);
+        this.j = (TextView) h().findViewById(R.id.obfuscated_res_0x7f090d74);
+        this.i.setOnClickListener(this);
+    }
+
+    @Override // com.baidu.tieba.i16
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02c6 : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.i16
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) || this.k == i) {
             return;
         }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
+        SkinManager.setBackgroundResource(this.i, R.drawable.icon_search_history_del);
+        SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0110);
+        this.k = i;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && view2 == this.i) {
+            nu4 nu4Var = new nu4(this.b.getPageActivity());
+            nu4Var.setTitle(R.string.obfuscated_res_0x7f0f0438);
+            nu4Var.setCanceledOnTouchOutside(true);
+            nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0436, new a(this));
+            nu4Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0375, new b(this));
+            nu4Var.create(this.b);
+            nu4Var.show();
         }
-        if (frsViewData != null && d(b(frsViewData))) {
-            threadCommentAndPraiseInfoLayout.setManageVisible(true);
-        } else {
-            threadCommentAndPraiseInfoLayout.setManageVisible(false);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i16
+    /* renamed from: r */
+    public void i(mg6 mg6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mg6Var) == null) {
         }
     }
 }

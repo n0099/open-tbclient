@@ -19,7 +19,7 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hj1;
+import com.baidu.tieba.uj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -176,7 +176,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -213,7 +213,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public class b implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -251,7 +251,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static /* synthetic */ class c {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -1049,7 +1049,7 @@ public class ShimmerFrameLayout extends FrameLayout {
         this.b.setXfermode(r);
         t();
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, hj1.ShimmerFrameLayout, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, uj1.ShimmerFrameLayout, 0, 0);
             try {
                 if (obtainStyledAttributes.hasValue(1)) {
                     setAutoStart(obtainStyledAttributes.getBoolean(1, false));

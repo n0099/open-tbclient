@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.data.FeedForumData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class xl8 extends ThreadData {
+public class xl8 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public List<FeedForumData> a;
     public String b;
-    public ql8 c;
 
     static {
         InterceptResult invokeClinit;
@@ -32,7 +32,7 @@ public class xl8 extends ThreadData {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public xl8() {
@@ -49,49 +49,36 @@ public class xl8 extends ThreadData {
         }
     }
 
-    public String c() {
+    public List<FeedForumData> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (List) invokeV.objValue;
     }
 
-    public ql8 f() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (ql8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void c(List<FeedForumData> list) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public void l(String str) {
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void n(ql8 ql8Var) {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, ql8Var) == null) {
-            this.c = ql8Var;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

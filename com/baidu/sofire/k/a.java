@@ -38,7 +38,7 @@ import com.baidu.sofire.ac.F;
 import com.baidu.sofire.core.ApkInfo;
 import com.baidu.sofire.rp.Report;
 import com.baidu.sofire.rp.receiver.Receiver;
-import com.baidu.tieba.xg1;
+import com.baidu.tieba.kh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -782,7 +782,7 @@ public class a {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
             try {
-                return new String(F.getInstance().ad(Base64.decode(xg1.a, 0), "30212102dicudiab".getBytes()));
+                return new String(F.getInstance().ad(Base64.decode(kh1.a, 0), "30212102dicudiab".getBytes()));
             } catch (Throwable unused) {
                 return "";
             }

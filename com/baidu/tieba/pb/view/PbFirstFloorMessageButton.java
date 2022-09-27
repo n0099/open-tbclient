@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cy4;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.py4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cy4 o;
+    public py4 o;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbFirstFloorMessageButton(Context context) {
@@ -43,9 +43,9 @@ public class PbFirstFloorMessageButton extends TBSpecificationBtn {
     private void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            cy4 cy4Var = new cy4();
-            this.o = cy4Var;
-            cy4Var.q(R.color.CAM_X0903);
+            py4 py4Var = new py4();
+            this.o = py4Var;
+            py4Var.q(R.color.CAM_X0903);
             this.o.g(ej.f(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X006));
             this.o.u(R.drawable.obfuscated_res_0x7f08080d, TBSpecificationButtonConfig.IconType.WEBP);
             this.o.o(TBSpecificationButtonConfig.WebpType.PURE);

@@ -4,17 +4,17 @@ import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.frs.entelechy.adapter.FrsCardVideoViewHolder;
-import com.baidu.tieba.w98;
+import com.baidu.tieba.ka8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implements w98 {
+public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implements ka8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsCardVideoViewHolder a;
 
-    @Override // com.baidu.tieba.w98
+    @Override // com.baidu.tieba.ka8
     public int getCurrentPosition() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -28,7 +28,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.w98
+    @Override // com.baidu.tieba.ka8
     public String getPlayUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w98
+    @Override // com.baidu.tieba.ka8
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,7 +53,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.w98
+    @Override // com.baidu.tieba.ka8
     public boolean isFullScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,7 +67,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w98
+    @Override // com.baidu.tieba.ka8
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -81,7 +81,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w98
+    @Override // com.baidu.tieba.ka8
     public boolean isPlaying() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w98
+    @Override // com.baidu.tieba.ka8
     public void startPlay() {
         FrsCardVideoViewHolder frsCardVideoViewHolder;
         Interceptable interceptable = $ic;
@@ -105,7 +105,7 @@ public class InterviewLiveViewWrapHolder extends TypeAdapter.ViewHolder implemen
         frsCardVideoViewHolder.startPlay();
     }
 
-    @Override // com.baidu.tieba.w98
+    @Override // com.baidu.tieba.ka8
     public void stopPlay() {
         FrsCardVideoViewHolder frsCardVideoViewHolder;
         Interceptable interceptable = $ic;

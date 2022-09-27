@@ -10,7 +10,7 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t51;
+import com.baidu.tieba.g61;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -172,7 +172,7 @@ public class ArrowView extends View {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = t51.a().getResources().getColor(R.color.obfuscated_res_0x7f060330);
+            this.d = g61.a().getResources().getColor(R.color.obfuscated_res_0x7f060330);
             this.b = new Path();
             Paint paint = new Paint();
             this.a = paint;

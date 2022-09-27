@@ -2,7 +2,7 @@ package com.baidu.tieba.memberCenter.index;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mm7;
+import com.baidu.tieba.an7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class GetMemberCacheResponse extends CustomResponsedMessage<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mm7 mMembercenter;
+    public an7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetMemberCacheResponse() {
@@ -32,16 +32,16 @@ public class GetMemberCacheResponse extends CustomResponsedMessage<Object> {
         }
     }
 
-    public mm7 getMembercenterData() {
+    public an7 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMembercenter : (mm7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mMembercenter : (an7) invokeV.objValue;
     }
 
-    public void setMemberCenterData(mm7 mm7Var) {
+    public void setMemberCenterData(an7 an7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mm7Var) == null) {
-            this.mMembercenter = mm7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, an7Var) == null) {
+            this.mMembercenter = an7Var;
         }
     }
 }

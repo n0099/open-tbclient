@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.Cdo;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRequestMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRespMessage;
-import com.baidu.tieba.kw5;
-import com.baidu.tieba.lw5;
+import com.baidu.tieba.lx5;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.xw5;
 import com.baidu.tieba.yw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -167,21 +167,21 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
             LinkedList linkedList = new LinkedList();
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
-                yw5 yw5Var = new yw5();
+                lx5 lx5Var = new lx5();
                 ThreadData threadData = list.get(i);
-                yw5Var.a = threadData;
+                lx5Var.a = threadData;
                 if (threadData.getAuthor() != null) {
-                    TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", yw5Var.a.getAuthor().getUserId()));
+                    TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", lx5Var.a.getAuthor().getUserId()));
                 }
                 int i2 = i + 1;
                 if (i2 < size) {
                     ThreadData threadData2 = list.get(i2);
-                    yw5Var.b = threadData2;
+                    lx5Var.b = threadData2;
                     if (threadData2.getAuthor() != null) {
-                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", yw5Var.b.getAuthor().getUserId()));
+                        TiebaStatic.log(new StatisticItem("c12549").param("obj_param1", lx5Var.b.getAuthor().getUserId()));
                     }
                 }
-                linkedList.add(yw5Var);
+                linkedList.add(lx5Var);
             }
             return linkedList;
         }
@@ -231,13 +231,13 @@ public class AlaFrsStoryLiveGatherModel extends BdBaseModel {
                 this.l.addAll(this.j);
                 this.d = true;
             } else {
-                this.l.add(new kw5());
+                this.l.add(new xw5());
                 this.d = false;
             }
             if (ListUtils.getCount(this.k) <= 0 || this.f) {
                 return;
             }
-            this.l.add(new lw5());
+            this.l.add(new yw5());
             for (int i = 0; i < 3 && i < ListUtils.getCount(this.k); i++) {
                 if (this.k.get(i) != null) {
                     this.l.add(this.k.get(i));

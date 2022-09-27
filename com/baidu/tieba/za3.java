@@ -1,194 +1,101 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class za3 implements bb3 {
+public class za3 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a extends ya3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(za3 za3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {za3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ya3
-        @NonNull
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.cb3
-        public long getMaxSize() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return 0L;
-            }
-            return invokeV.longValue;
-        }
-    }
-
-    public za3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public za3(i43 i43Var) {
+        super(i43Var, "/swanAPI/file/getSavedFileInfo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.bb3
-    public String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? str : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (context != null && callbackHandler != null && l33Var != null && l33Var.f0() != null) {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    l02.c("getSavedFile", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String M = ta3.M(optParamsAsJo.optString("filePath"), l33.g0());
+                if (i53.b) {
+                    Log.d("GetSavedFileInfoAction", "——> handle: fileUrl " + optParamsAsJo.optString("filePath"));
+                    Log.d("GetSavedFileInfoAction", "——> handle: filePath " + M);
+                }
+                if (TextUtils.isEmpty(M)) {
+                    l02.c("getSavedFile", "file path is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                sa3 h = l33Var.f0().h(M);
+                if (h == null) {
+                    l02.c("getSavedFile", "file info is null");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2001, f43.a(2001)));
+                    if (i53.b) {
+                        Log.d("GetSavedFileInfoAction", "——> handle: file not exist");
+                    }
+                    return false;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put(FileMetaUtil.CREATE_TIME, Math.round((float) (h.a() / 1000)));
+                    jSONObject.put("size", h.c());
+                    if (i53.b) {
+                        Log.d("GetSavedFileInfoAction", "——> handle: fileInfo (" + jSONObject.get(FileMetaUtil.CREATE_TIME) + " , " + jSONObject.get("size") + SmallTailInfo.EMOTION_SUFFIX);
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException e) {
+                    l02.o("getSavedFile", "file info to json fail");
+                    e.printStackTrace();
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, f43.a(2003)));
+                    if (i53.b) {
+                        Log.d("GetSavedFileInfoAction", "——> handle: jsonException ");
+                    }
+                    return false;
+                }
+            }
+            l02.c("getSavedFile", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    @NonNull
-    public cb3 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new a(this) : (cb3) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public String g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public boolean j(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, str, z)) == null) {
-            return false;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.bb3
-    public String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.frs.gametab;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.nn6;
+import com.baidu.tieba.ao6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class AlaGameTabGetNewNotifyResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<nn6> mData;
+    public List<ao6> mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AlaGameTabGetNewNotifyResponsedMessage() {
@@ -50,13 +50,13 @@ public class AlaGameTabGetNewNotifyResponsedMessage extends JsonHttpResponsedMes
             for (int i2 = 0; i2 < length; i2++) {
                 JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
                 if (jSONObject2 != null) {
-                    this.mData.add(new nn6(jSONObject2.optInt("tab_id"), jSONObject2.optInt("has_new")));
+                    this.mData.add(new ao6(jSONObject2.optInt("tab_id"), jSONObject2.optInt("has_new")));
                 }
             }
         }
     }
 
-    public List<nn6> getNewNotifyData() {
+    public List<ao6> getNewNotifyData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (List) invokeV.objValue;

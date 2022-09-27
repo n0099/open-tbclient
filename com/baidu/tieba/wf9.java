@@ -1,188 +1,97 @@
 package com.baidu.tieba;
 
+import android.graphics.SurfaceTexture;
+import android.opengl.GLES20;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 /* loaded from: classes6.dex */
-public class wf9 {
+public class wf9 extends tf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public boolean d;
-    public b e;
+    public boolean B;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wf9 a;
+    @Override // com.baidu.tieba.sf9, com.baidu.tieba.hg9
+    public void a(bg9 bg9Var, SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bg9Var, surfaceTexture) == null) {
+            bg9Var.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
+            bg9Var.f(surfaceTexture);
+        }
+    }
 
-        public a(wf9 wf9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wf9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            GLES20.glBindFramebuffer(36160, i2);
+            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
+            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+            GLES20.glClear(16640);
+            if (this.z) {
+                if (z) {
+                    int i8 = this.j;
+                    int i9 = this.k;
+                    if (i8 > i9) {
+                        int i10 = this.p;
+                        float f = (i10 * 1.0f) / i8;
+                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
+                    } else {
+                        GLES20.glViewport(0, 0, this.p, this.q);
+                    }
+                    this.o.drawFrame(this.l, fArr2);
+                }
+                if (z2) {
+                    GLES20.glViewport(0, 0, this.p, this.q);
+                } else {
+                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
+                }
+                this.mFullScreen2D.drawFrame(i, fArr);
+            } else {
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(i, fArr);
+                if (z) {
+                    int i11 = i4 + this.w;
+                    int i12 = this.q;
+                    int i13 = this.k;
+                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
+                    this.o.drawFrame(this.l, fArr2);
                 }
             }
-            this.a = wf9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
-            }
+            GLES20.glBindFramebuffer(36160, 0);
         }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948268799, "Lcom/baidu/tieba/wf9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948268799, "Lcom/baidu/tieba/wf9;");
-        }
-    }
-
-    public wf9() {
+    public boolean j(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
     }
 
-    public int a() {
+    public boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.c;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = this.b;
-            return i2 != 0 ? i2 : this.a;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
     }
 
-    public synchronized void b(int i) {
+    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
+    public void onDrawFrame(eg0 eg0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                if (i == this.c) {
-                    return;
-                }
-                if ((this.b == 0 || i != this.b) && (this.b != 0 || i != this.a)) {
-                    this.c = i;
-                    if (i != 0 && !this.d) {
-                        this.d = true;
-                        g();
-                    }
-                }
-                this.c = 0;
+        if ((interceptable == null || interceptable.invokeLIL(1048580, this, eg0Var, i, fArr) == null) && this.s && this.l != 0) {
+            try {
+                this.mTextureId = i;
+                this.m.updateTexImage();
+                this.m.getTransformMatrix(this.n);
+                f();
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
+                GLES20.glViewport(0, 0, this.p, this.q);
+                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
+                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
+            } catch (Throwable th) {
+                qg9.c("followvideo", th.toString());
             }
-        }
-    }
-
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.c != this.a) {
-                    this.b = this.c;
-                }
-                this.c = 0;
-            }
-        }
-    }
-
-    public final synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.b != 0) {
-                    this.a = this.b;
-                }
-                this.b = 0;
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ThreadPool.b().e(new a(this));
-        }
-    }
-
-    public final synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this) {
-                this.d = false;
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048583, this) != null) {
-            return;
-        }
-        while (true) {
-            e();
-            int i = this.b;
-            if (i == 0) {
-                h();
-                return;
-            }
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.a(i);
-            }
-            f();
         }
     }
 }

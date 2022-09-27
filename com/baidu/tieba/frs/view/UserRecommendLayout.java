@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.userLike.CommonUserLikeButton;
-import com.baidu.tieba.ez4;
+import com.baidu.tieba.rz4;
 import com.baidu.tieba.ug;
 import com.baidu.tieba.yi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,8 +71,8 @@ public class UserRecommendLayout extends LinearLayout {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3) == null) && (view3 instanceof UserRecommendItemView) && this.a.f != null) {
                 UserRecommendItemView userRecommendItemView = (UserRecommendItemView) view3;
-                if (userRecommendItemView.getTag() instanceof ez4) {
-                    ((ez4) userRecommendItemView.getTag()).t(this.a.a.getUniqueId());
+                if (userRecommendItemView.getTag() instanceof rz4) {
+                    ((rz4) userRecommendItemView.getTag()).t(this.a.a.getUniqueId());
                 }
                 this.a.f.e(userRecommendItemView);
             }
@@ -166,21 +166,21 @@ public class UserRecommendLayout extends LinearLayout {
     }
 
     public final void e(UserRecommendItemView userRecommendItemView, MetaData metaData) {
-        ez4 ez4Var;
+        rz4 rz4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, userRecommendItemView, metaData) == null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             userRecommendItemView.getFansNum().setText(String.format(Locale.CHINA, "%s粉丝", StringHelper.numFormatOverWanNa(metaData.getFansNum())));
             userRecommendItemView.getUsername().setText(metaData.getName_show());
             userRecommendItemView.getLikeBtn().setFanNumCallBack(new b(this, userRecommendItemView));
-            if (userRecommendItemView.getLikeBtn().getTag() instanceof ez4) {
-                ez4Var = (ez4) userRecommendItemView.getLikeBtn().getTag();
+            if (userRecommendItemView.getLikeBtn().getTag() instanceof rz4) {
+                rz4Var = (rz4) userRecommendItemView.getLikeBtn().getTag();
             } else {
-                ez4Var = new ez4(this.a, userRecommendItemView.getLikeBtn());
+                rz4Var = new rz4(this.a, userRecommendItemView.getLikeBtn());
             }
-            ez4Var.m("7");
-            userRecommendItemView.getLikeBtn().setTag(ez4Var);
-            ez4Var.n(metaData);
+            rz4Var.m("7");
+            userRecommendItemView.getLikeBtn().setTag(rz4Var);
+            rz4Var.n(metaData);
             userRecommendItemView.getLikeBtn().setAfterOnClickListener(this.d);
             userRecommendItemView.getHeaderView().setData(metaData);
             userRecommendItemView.getHeaderView().setAfterClickListener(this.e);

@@ -1,33 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.util.Pair;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleATitleViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.MyEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class cs7 extends qn<ls7, InterestedForumStyleATitleViewHolder> {
+public class cs7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdListView a;
+    public MyEmotionHorizontalAdater b;
+    public List<EmotionPackageData> c;
+    public final List<a> d;
+    public hs7 e;
+    public as7 f;
 
     /* loaded from: classes3.dex */
-    public class a implements no {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
 
-        public a(cs7 cs7Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cs7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,84 +52,108 @@ public class cs7 extends qn<ls7, InterestedForumStyleATitleViewHolder> {
             }
         }
 
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        public String toString() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof ls7)) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.c;
             }
+            return (String) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cs7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public cs7(TbPageContext<?> tbPageContext, BdListView bdListView, as7 as7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext, bdListView, as7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mContext = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this));
+        this.a = bdListView;
+        hs7 hs7Var = new hs7(tbPageContext);
+        this.e = hs7Var;
+        hs7Var.b(TbadkCoreApplication.getInst().getSkinType());
+        this.a.addHeaderView(this.e.a());
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.c, this.d, tbPageContext);
+        this.b = myEmotionHorizontalAdater;
+        this.f = as7Var;
+        this.a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ls7 ls7Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
-        t(i, view2, viewGroup, ls7Var, interestedForumStyleATitleViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public InterestedForumStyleATitleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new InterestedForumStyleATitleViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d03f1, viewGroup, false)) : (InterestedForumStyleATitleViewHolder) invokeL.objValue;
+        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || i < 0 || i >= this.c.size() || i2 < 0 || i2 >= this.c.size()) {
+            return;
+        }
+        List<EmotionPackageData> list = this.c;
+        list.add(i2, list.remove(i));
+        List<a> list2 = this.d;
+        list2.add(i2, list2.remove(i));
+        this.b.notifyDataSetChanged();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i), Integer.valueOf(i2))));
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, ls7 ls7Var, InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
-        InterceptResult invokeCommon;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ls7Var, interestedForumStyleATitleViewHolder})) == null) {
-            if (ls7Var == null) {
-                return view2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ArrayList arrayList = new ArrayList(this.d);
+            this.d.clear();
+            for (EmotionPackageData emotionPackageData : this.c) {
+                a aVar = null;
+                Iterator it = arrayList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    a aVar2 = (a) it.next();
+                    if (aVar2 != null && aVar2.a == emotionPackageData.id) {
+                        aVar = aVar2;
+                        break;
+                    }
+                }
+                if (aVar == null) {
+                    aVar = new a();
+                    aVar.a = emotionPackageData.id;
+                }
+                this.d.add(aVar);
             }
-            v(interestedForumStyleATitleViewHolder);
-            u(interestedForumStyleATitleViewHolder, ls7Var);
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void u(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder, ls7 ls7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, interestedForumStyleATitleViewHolder, ls7Var) == null) {
-            interestedForumStyleATitleViewHolder.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080787);
-            interestedForumStyleATitleViewHolder.b.K(ls7Var.a(), 10, false);
-            interestedForumStyleATitleViewHolder.c.setText(ls7Var.b());
         }
     }
 
-    public final void v(InterestedForumStyleATitleViewHolder interestedForumStyleATitleViewHolder) {
+    public void update(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, interestedForumStyleATitleViewHolder) == null) {
-            uu4 d = uu4.d(interestedForumStyleATitleViewHolder.c);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            d.A(R.string.F_X02);
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, list) == null) || this.a == null || this.b == null) {
+            return;
         }
+        this.c.clear();
+        this.c.addAll(list);
+        b();
+        this.b.d();
+        this.e.update(Integer.valueOf(this.b.b()));
+        this.f.b(0, this.b.b());
+        this.f.a(zr7.b().a());
+        this.b.notifyDataSetChanged();
+    }
+
+    public void update() {
+        hs7 hs7Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.b == null || this.a == null || this.c == null || (hs7Var = this.e) == null || this.f == null) {
+            return;
+        }
+        hs7Var.c();
+        this.f.b(0, this.b.b());
+        this.f.a(zr7.b().a());
+        this.b.notifyDataSetChanged();
     }
 }

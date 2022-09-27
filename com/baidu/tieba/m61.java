@@ -1,171 +1,29 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
 import android.view.View;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m61 extends k61 {
+public class m61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q61 c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public m61() {
-        this(new q61());
+    public static void a(View view2, View view3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((q61) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
+            b(view2, view3, i, i, i, i);
         }
     }
 
-    public q61 h() {
-        InterceptResult invokeV;
+    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (q61) invokeV.objValue;
-    }
-
-    public m61 i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            super.a(z);
-            return this;
+        if (!(interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) || view3 == null || view2 == null) {
+            return;
         }
-        return (m61) invokeZ.objValue;
-    }
-
-    public m61 j(View view2, ViewGroup viewGroup) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, viewGroup)) == null) {
-            super.b(view2, viewGroup);
-            return this;
+        if (view2.getTouchDelegate() instanceof i61) {
+            ((i61) view2.getTouchDelegate()).a(view3, i, i2, i3, i4);
+        } else {
+            view2.setTouchDelegate(new i61(view3, i, i2, i3, i4));
         }
-        return (m61) invokeLL.objValue;
-    }
-
-    public m61 k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            super.c(i);
-            return this;
-        }
-        return (m61) invokeI.objValue;
-    }
-
-    public m61 l(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
-            super.d(i, i2);
-            return this;
-        }
-        return (m61) invokeII.objValue;
-    }
-
-    public m61 m(int i, float f) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
-            this.c.s(i, f);
-            return this;
-        }
-        return (m61) invokeCommon.objValue;
-    }
-
-    public m61 n(BubblePosition bubblePosition) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bubblePosition)) == null) {
-            super.e(bubblePosition);
-            return this;
-        }
-        return (m61) invokeL.objValue;
-    }
-
-    public m61 o(BubbleManager.b bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bVar)) == null) {
-            super.f(bVar);
-            return this;
-        }
-        return (m61) invokeL.objValue;
-    }
-
-    public m61 p(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
-            super.g(f);
-            return this;
-        }
-        return (m61) invokeF.objValue;
-    }
-
-    public m61 q(CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
-            this.c.f().D(charSequence);
-            return this;
-        }
-        return (m61) invokeL.objValue;
-    }
-
-    public m61 r(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
-            try {
-                this.c.f().E(i, i2);
-                return this;
-            } catch (Exception e) {
-                jj0.h("BubbleTextBuilder", "", e);
-                this.c.f().E(Color.parseColor("#CC000000"), Color.parseColor("#CC000000"));
-                return this;
-            }
-        }
-        return (m61) invokeII.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m61(q61 q61Var) {
-        super(q61Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {q61Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((n61) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = q61Var;
     }
 }

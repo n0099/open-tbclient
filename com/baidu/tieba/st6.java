@@ -1,38 +1,115 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.nu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsTabInfo;
+import java.net.URLEncoder;
+import tbclient.PopInfo;
 /* loaded from: classes5.dex */
 public class st6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FrsFragment a;
+    public b b;
 
     /* loaded from: classes5.dex */
-    public static class a implements View.OnClickListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
+    }
 
-        public a(ImageView imageView) {
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<Void, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ st6 a;
+
+        /* loaded from: classes5.dex */
+        public class a implements nu4.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.nu4.e
+            public void onClick(nu4 nu4Var) {
+                Interceptable interceptable = $ic;
+                if (!(interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) || nu4Var == null) {
+                    return;
+                }
+                nu4Var.dismiss();
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.st6$b$b  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0418b implements nu4.e {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ PopInfo a;
+            public final /* synthetic */ b b;
+
+            public C0418b(b bVar, PopInfo popInfo) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, popInfo};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = popInfo;
+            }
+
+            @Override // com.baidu.tieba.nu4.e
+            public void onClick(nu4 nu4Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
+                    UrlManager.getInstance().dealOneLink(this.b.a.a.getPageContext(), new String[]{this.a.ahead_url});
+                    if (nu4Var == null) {
+                        return;
+                    }
+                    nu4Var.dismiss();
+                }
+            }
+        }
+
+        public b(st6 st6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {imageView};
+                Object[] objArr = {st6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,106 +119,84 @@ public class st6 {
                     return;
                 }
             }
-            this.a = imageView;
+            this.a = st6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Drawable maskDrawable;
+        public /* synthetic */ b(st6 st6Var, a aVar) {
+            this(st6Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Boolean doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
-                ImageView imageView = this.a;
-                if (((Boolean) view2.getTag()).booleanValue()) {
-                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f8, null);
-                } else {
-                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f7, null);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                mu4.f();
+                jf<String> g = mu4.g("tb.enter_frs_dialog_list");
+                String encode = URLEncoder.encode(this.a.a.O0().getForum().getName());
+                if (g.get(encode) == null) {
+                    g.g(encode, "1");
+                    return Boolean.TRUE;
                 }
-                imageView.setImageDrawable(maskDrawable);
+                return Boolean.FALSE;
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) && bool.booleanValue() && this.a.c() && this.a.a.isAdded()) {
+                PopInfo popInfo = this.a.a.O0().enterFrsDialogInfo;
+                nu4 nu4Var = new nu4(this.a.a.getActivity());
+                nu4Var.setTitle(popInfo.title);
+                nu4Var.setMessage(popInfo.v_title);
+                nu4Var.isShowTitleAndMessage();
+                nu4Var.setNegativeButton(popInfo.ok_info, new a(this));
+                nu4Var.setPositiveButton(popInfo.ahead_info, new C0418b(this, popInfo));
+                nu4Var.create(this.a.a.getPageContext()).show();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ImageView a;
-        public final /* synthetic */ FrsTabInfo b;
-        public final /* synthetic */ FrsTabInfo c;
-
-        public b(ImageView imageView, FrsTabInfo frsTabInfo, FrsTabInfo frsTabInfo2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {imageView, frsTabInfo, frsTabInfo2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = imageView;
-            this.b = frsTabInfo;
-            this.c = frsTabInfo2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                bx4.k().u("key_frs_move_area_tip", !((Boolean) this.a.getTag()).booleanValue());
-                gg6.h().m(this.b.tab_id.intValue(), this.c.tab_id.intValue());
-            }
-        }
-    }
-
-    public static void a(TbPageContext tbPageContext, FrsTabInfo frsTabInfo, FrsTabInfo frsTabInfo2) {
-        String format;
+    public st6(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, frsTabInfo, frsTabInfo2) == null) || frsTabInfo == null || frsTabInfo2 == null || tbPageContext == null || tbPageContext.getPageActivity() == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = frsFragment;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            PopInfo popInfo = this.a.O0().enterFrsDialogInfo;
+            return (popInfo == null || StringUtils.isNull(popInfo.ahead_info) || StringUtils.isNull(popInfo.ahead_url) || StringUtils.isNull(popInfo.ok_info) || StringUtils.isNull(popInfo.title) || StringUtils.isNull(popInfo.v_title) || this.a.O0().enterFrsDialogInfo.if_pop.intValue() == 0) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        FrsFragment frsFragment;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || !TbadkCoreApplication.isLogin() || (frsFragment = this.a) == null || frsFragment.O0() == null || this.a.O0().getForum() == null || StringUtils.isNull(this.a.O0().getForum().getName()) || this.a.O0().enterFrsDialogInfo == null || !c() || this.b != null) {
             return;
         }
-        Activity pageActivity = tbPageContext.getPageActivity();
-        LinearLayout linearLayout = new LinearLayout(pageActivity);
-        linearLayout.setOrientation(0);
-        linearLayout.setGravity(16);
-        linearLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), 0);
-        ImageView imageView = new ImageView(pageActivity);
-        imageView.setImageDrawable(SvgManager.getInstance().getMaskDrawable(R.drawable.obfuscated_res_0x7f0805f7, null));
-        linearLayout.addView(imageView, new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds39), UtilHelper.getDimenPixelSize(R.dimen.tbds39)));
-        TextView textView = new TextView(pageActivity);
-        textView.setText(R.string.obfuscated_res_0x7f0f0ca5);
-        textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, 0, 0);
-        uu4 d = uu4.d(textView);
-        d.z(R.dimen.T_X07);
-        d.v(R.color.CAM_X0108);
-        d.A(R.string.F_X01);
-        linearLayout.addView(textView);
-        imageView.setTag(Boolean.FALSE);
-        imageView.setOnClickListener(new a(imageView));
-        TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(tbPageContext.getPageActivity());
-        tBAlertBuilder.t(R.string.obfuscated_res_0x7f0f073f);
-        if (frsTabInfo.is_general_tab.intValue() != 0 && frsTabInfo.tab_type.intValue() != 100) {
-            String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f073d);
-            String str = frsTabInfo.tab_name;
-            format = String.format(string, str, frsTabInfo2.tab_name, str);
-        } else {
-            String string2 = tbPageContext.getString(R.string.obfuscated_res_0x7f0f073e);
-            String str2 = frsTabInfo.tab_name;
-            String str3 = frsTabInfo2.tab_name;
-            format = String.format(string2, str2, str3, str2, str3);
-        }
-        tBAlertBuilder.o(format);
-        tBAlertBuilder.l(3);
-        tBAlertBuilder.m(true);
-        tBAlertBuilder.i(linearLayout);
-        tBAlertBuilder.r(new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0c65, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f073c, TBAlertConfig.OperateBtnStyle.MAIN, new b(imageView, frsTabInfo, frsTabInfo2)));
-        tBAlertBuilder.g();
-        tBAlertBuilder.w();
+        b bVar = new b(this, null);
+        this.b = bVar;
+        bVar.execute(new Void[0]);
     }
 }

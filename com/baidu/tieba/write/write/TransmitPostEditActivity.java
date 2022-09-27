@@ -50,24 +50,24 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tbadk.imageManager.TbFaceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b39;
-import com.baidu.tieba.bx4;
 import com.baidu.tieba.card.OriginalThreadCardView;
 import com.baidu.tieba.dj;
+import com.baidu.tieba.e15;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.f55;
 import com.baidu.tieba.frs.FrsTabItemData;
 import com.baidu.tieba.h55;
 import com.baidu.tieba.ih;
-import com.baidu.tieba.r05;
+import com.baidu.tieba.ki5;
+import com.baidu.tieba.n29;
+import com.baidu.tieba.ox4;
+import com.baidu.tieba.q39;
+import com.baidu.tieba.s55;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.u45;
+import com.baidu.tieba.u55;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.tieba.write.view.ForumTabSelectedView;
-import com.baidu.tieba.xh5;
-import com.baidu.tieba.y19;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -207,7 +207,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
                 }
-                if (xh5.a() || this.a.V2()) {
+                if (ki5.a() || this.a.V2()) {
                     return;
                 }
                 if (this.a.W2()) {
@@ -272,7 +272,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 1) {
                     view2.requestFocus();
-                    this.a.S.A(new u45(5, -1, null));
+                    this.a.S.A(new h55(5, -1, null));
                     this.a.E.requestFocus();
                     return false;
                 }
@@ -491,18 +491,18 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(5);
-            this.S.d(new h55(getActivity(), 2));
+            this.S.d(new u55(getActivity(), 2));
             if (this.U == null) {
-                y19 y19Var = new y19(getActivity(), this.k);
-                this.U = y19Var;
-                y19Var.h();
+                n29 n29Var = new n29(getActivity(), this.k);
+                this.U = n29Var;
+                n29Var.h();
                 this.U.i();
                 this.U.m("from_share_write");
                 this.U.j(this.p.getForumId(), this.j);
             }
             this.S.d(this.U);
             this.S.h(arrayList);
-            f55 n = this.S.n(5);
+            s55 n = this.S.n(5);
             if (n != null) {
                 n.l = 1;
             }
@@ -519,7 +519,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     public final void T2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) findViewById(R.id.obfuscated_res_0x7f0926ba);
+            OriginalThreadCardView originalThreadCardView = (OriginalThreadCardView) findViewById(R.id.obfuscated_res_0x7f0926bc);
             this.i0 = originalThreadCardView;
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) originalThreadCardView.getLayoutParams();
             layoutParams.topMargin -= x0;
@@ -553,7 +553,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                 int size = prefixs.size();
                 this.i = 1;
                 this.M.setOnClickListener(new a(this));
-                ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a68);
+                ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a6a);
                 this.L = imageView;
                 if (size > 1) {
                     imageView.setVisibility(0);
@@ -790,7 +790,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             if (this.V == null) {
-                this.V = new b39(getPageContext());
+                this.V = new q39(getPageContext());
             }
             this.V.c(this.S);
         }
@@ -819,7 +819,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         }
     }
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.hc5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.uc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -843,7 +843,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             super.j2();
             if (this.w.getBackImageView() != null) {
-                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.w.getBackImageView(), R.drawable.obfuscated_res_0x7f080a10, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.w.getBackImageView(), R.drawable.obfuscated_res_0x7f080a12, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             }
             if (this.h0 != null) {
                 T2();
@@ -858,7 +858,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     public void k2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            SpanGroupEditText spanGroupEditText = (SpanGroupEditText) findViewById(R.id.obfuscated_res_0x7f091a3b);
+            SpanGroupEditText spanGroupEditText = (SpanGroupEditText) findViewById(R.id.obfuscated_res_0x7f091a3d);
             this.E = spanGroupEditText;
             spanGroupEditText.setDrawingCacheEnabled(false);
             this.E.setOnClickListener(this.c0);
@@ -894,7 +894,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     public void l2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091a59);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f091a5b);
             this.A = editText;
             editText.setOnClickListener(this.c0);
             this.A.setOnFocusChangeListener(this.d0);
@@ -1066,11 +1066,11 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
     }
 
     @Override // com.baidu.tieba.write.write.AbsBaseWriteActivity
-    public void p2(@NonNull u45 u45Var) {
+    public void p2(@NonNull h55 h55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, u45Var) == null) {
-            if (u45Var.a == 31) {
-                Object obj = u45Var.c;
+        if (interceptable == null || interceptable.invokeL(1048616, this, h55Var) == null) {
+            if (h55Var.a == 31) {
+                Object obj = h55Var.c;
                 if (obj instanceof Integer) {
                     int i = 0;
                     int intValue = ((Integer) obj).intValue();
@@ -1088,7 +1088,7 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     }
                 }
             }
-            int i2 = u45Var.a;
+            int i2 = h55Var.a;
             if (i2 == 29) {
                 this.p.setVideoInfo(null);
             } else if (i2 == 24) {
@@ -1096,19 +1096,19 @@ public class TransmitPostEditActivity extends AbsBaseWriteActivity<TransmitPostE
                     showToast(R.string.obfuscated_res_0x7f0f0d37);
                     return;
                 }
-                Object obj2 = u45Var.c;
-                if (obj2 instanceof r05) {
-                    r05 r05Var = (r05) obj2;
-                    if (EmotionGroupType.isSendAsPic(r05Var.getType())) {
+                Object obj2 = h55Var.c;
+                if (obj2 instanceof e15) {
+                    e15 e15Var = (e15) obj2;
+                    if (EmotionGroupType.isSendAsPic(e15Var.getType())) {
                         this.S.q();
                     }
-                    m2(r05Var);
+                    m2(e15Var);
                 }
             } else if (i2 == 12 || i2 == 13 || i2 == 46 || i2 == 49) {
                 v2();
             } else if (i2 == 43) {
-                bx4.k().u("hot_topic_has_click", true);
-                this.S.A(new u45(2, 26, null));
+                ox4.k().u("hot_topic_has_click", true);
+                this.S.A(new h55(2, 26, null));
                 this.n = true;
                 t2(true);
                 if (W1().isFocused()) {

@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b77;
+import com.baidu.tieba.m77;
+import com.baidu.tieba.p77;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
-import com.baidu.tieba.y67;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,10 +63,10 @@ public class VideoTopicListFragment extends BaseFragment {
         }
 
         @Override // com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter.a
-        public void a(b77 b77Var) {
+        public void a(p77 p77Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, b77Var) == null) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, b77Var));
+            if (interceptable == null || interceptable.invokeL(1048576, this, p77Var) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921633, p77Var));
             }
         }
     }
@@ -181,12 +181,12 @@ public class VideoTopicListFragment extends BaseFragment {
         }
     }
 
-    public void t1(y67 y67Var) {
+    public void t1(m77 m77Var) {
         VideoHotTopicSearchAdapter videoHotTopicSearchAdapter;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, y67Var) == null) || (videoHotTopicSearchAdapter = this.d) == null || y67Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048581, this, m77Var) == null) || (videoHotTopicSearchAdapter = this.d) == null || m77Var == null) {
             return;
         }
-        videoHotTopicSearchAdapter.d("", y67Var.c());
+        videoHotTopicSearchAdapter.d("", m77Var.c());
     }
 }

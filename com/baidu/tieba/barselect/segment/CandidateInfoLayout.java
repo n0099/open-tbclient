@@ -18,12 +18,12 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a06;
 import com.baidu.tieba.barselect.view.BazhuHeadView;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.h06;
-import com.baidu.tieba.yz5;
+import com.baidu.tieba.l06;
+import com.baidu.tieba.n06;
+import com.baidu.tieba.u06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -67,9 +67,9 @@ public class CandidateInfoLayout extends CardBasicLayout {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            yz5 yz5Var;
+            l06 l06Var;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (yz5Var = this.a.c) == null || yz5Var.l() == 0) {
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || (l06Var = this.a.c) == null || l06Var.l() == 0) {
                 return;
             }
             long g = dh.g(TbadkCoreApplication.getCurrentAccount(), 0L);
@@ -105,16 +105,16 @@ public class CandidateInfoLayout extends CardBasicLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092486);
+            BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.obfuscated_res_0x7f092488);
             this.e = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.e.getHeadView().setIsRound(true);
             }
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924b5);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b4);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092627);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924b7);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f092629);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f09015e);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce7);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ce6);
         }
     }
 
@@ -139,22 +139,22 @@ public class CandidateInfoLayout extends CardBasicLayout {
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
             SkinManager.setViewTextColor(this.h, R.color.CAM_X0109, 1, i);
             SkinManager.setViewTextColor(this.j, R.color.CAM_X0109, 1, i);
-            yz5 yz5Var = this.c;
-            if (yz5Var != null) {
-                setGrade(yz5Var.d());
+            l06 l06Var = this.c;
+            if (l06Var != null) {
+                setGrade(l06Var.d());
             }
         }
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, a06 a06Var) {
+    public void setData(int i, n06 n06Var) {
         int i2;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, a06Var) == null) {
-            super.setData(i, a06Var);
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, n06Var) == null) {
+            super.setData(i, n06Var);
             if (this.b != null && this.c != null && (i2 = this.a) >= 0) {
-                if (i2 == h06.c) {
+                if (i2 == u06.c) {
                     int f = ej.f(this.d, R.dimen.tbds191);
                     int f2 = ej.f(this.d, R.dimen.tbds157);
                     int f3 = ej.f(this.d, R.dimen.tbds6);
@@ -164,7 +164,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
                     layoutParams.setMargins(layoutParams.leftMargin - f3, layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
                     this.e.setLayoutParams(layoutParams);
                     this.e.o(true);
-                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f080f2b);
+                    this.e.setBawuLogoView(R.drawable.obfuscated_res_0x7f080f2f);
                     this.e.setPendantView(R.drawable.obfuscated_res_0x7f0806e6);
                     this.g.setTextSize(0, ej.f(this.d, R.dimen.tbfontsize46));
                     setGravity(16);

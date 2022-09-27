@@ -1,100 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.graphics.Bitmap;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.minivideo.plugin.capture.bean.FaceItem;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w85 extends m85 {
+public class w85 extends r85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public EMTextView b;
-    public EMTextView c;
-    public TBSpecificationBtn d;
+    public String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w85(Context context) {
-        super(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0562, (ViewGroup) null));
+    public w85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a(context);
+        this.a = "";
     }
 
-    public final void a(Context context) {
-        View view2;
+    @Override // com.baidu.tieba.r85
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, context) == null) || (view2 = this.attachedView) == null) {
-            return;
-        }
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09143b);
-        EMTextView eMTextView = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09143c);
-        this.b = eMTextView;
-        eMTextView.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a71));
-        EMTextView eMTextView2 = (EMTextView) this.attachedView.findViewById(R.id.obfuscated_res_0x7f09143a);
-        this.c = eMTextView2;
-        eMTextView2.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0a70));
-        TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.attachedView.findViewById(R.id.obfuscated_res_0x7f091431);
-        this.d = tBSpecificationBtn;
-        tBSpecificationBtn.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0997));
-        this.d.setTextSize(R.dimen.T_X05);
-        this.d.setConfig(new zx4());
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FaceItem.DIR_STICKER : (String) invokeV.objValue;
     }
 
-    public void b(View.OnClickListener onClickListener) {
-        TBSpecificationBtn tBSpecificationBtn;
+    @Override // com.baidu.tieba.r85
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) || (tBSpecificationBtn = this.d) == null) {
-            return;
-        }
-        tBSpecificationBtn.setOnClickListener(onClickListener);
-    }
-
-    public void onChangeSkinType() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            uu4 d = uu4.d(this.b);
-            d.z(R.dimen.T_X06);
-            d.v(R.color.CAM_X0107);
-            uu4 d2 = uu4.d(this.c);
-            d2.z(R.dimen.T_X09);
-            d2.v(R.color.CAM_X0108);
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f080e57, null);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) {
+            if (bitmap == null) {
+                return null;
             }
+            h85.k().i(BitmapHelper.getBitmapSize(bitmap) * 2);
+            return BitmapHelper.loadResizedBitmap(this.a, ej.k(TbadkCoreApplication.getInst()), ej.i(TbadkCoreApplication.getInst()));
+        }
+        return (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.r85
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(BitmapHelper.loadResizedBitmap(str, ej.k(TbadkCoreApplication.getInst()), ej.i(TbadkCoreApplication.getInst())), true) : (Bitmap) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.r85
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.m85
-    public void onViewAttached() {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            super.onViewAttached();
-            onChangeSkinType();
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
         }
     }
 }

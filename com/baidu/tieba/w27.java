@@ -1,77 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class w27 extends gx<lq4> {
+public class w27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e57 f;
-    public int g;
+    public List<Cdo> a;
+    public int b;
+    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w27(Context context, TbPageContext<?> tbPageContext) {
-        super(context);
+    public w27() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 3;
-        this.f = new e57(tbPageContext);
-    }
-
-    @Override // com.baidu.tieba.gx
-    public View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f.r() : (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.j(tbPageContext, i);
-                n(h(), 3);
-            }
-            this.g = i;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wx
-    /* renamed from: p */
-    public void a(lq4 lq4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, lq4Var) == null) && (lq4Var instanceof b57)) {
-            this.f.i((b57) lq4Var);
-        }
-    }
-
-    public void q(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
-            this.f.o(bdUniqueId);
-        }
+        this.b = 0;
+        this.c = 0;
     }
 }

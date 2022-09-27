@@ -1,22 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.LinearLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class n98 extends o85 {
+public class n98 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int j;
-    public static final int k;
+    public static final int a;
+    public static final int b;
+    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -32,42 +34,137 @@ public class n98 extends o85 {
                 return;
             }
         }
-        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds403);
-        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds90);
+        a = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
+        b = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+        c = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n98(Context context, View.OnClickListener onClickListener) {
-        super(context, onClickListener);
+    public static List<Cdo> a(List<ThreadData> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, onClickListener};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View.OnClickListener) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (ListUtils.isEmpty(list)) {
+                return arrayList;
             }
+            for (int i = 0; i < list.size(); i++) {
+                ThreadData threadData = (ThreadData) ListUtils.getItem(list, i);
+                if (threadData != null) {
+                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
+                    p26 d = d(threadData);
+                    if (d != null) {
+                        arrayList.add(d);
+                    }
+                }
+            }
+            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList);
+            return arrayList;
         }
-        g();
+        return (List) invokeL.objValue;
     }
 
-    public final void g() {
-        TbImageView tbImageView;
+    public static List<Cdo> b(List<ThreadData> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (tbImageView = this.c) != null && (tbImageView.getLayoutParams() instanceof LinearLayout.LayoutParams)) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-            int i = j;
-            layoutParams.width = i;
-            layoutParams.height = i;
-            layoutParams.topMargin = k;
-            this.c.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(list)) {
+                w88 w88Var = new w88();
+                w88Var.d = c;
+                w88Var.c = b;
+                w88Var.b = a;
+                w88Var.a = R.string.obfuscated_res_0x7f0f0e4b;
+                arrayList.add(w88Var);
+                for (int i = 0; i < list.size(); i++) {
+                    ThreadData threadData = list.get(i);
+                    if (threadData != null) {
+                        AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
+                        p26 d = d(threadData);
+                        if (d != null) {
+                            arrayList.add(d);
+                        }
+                    }
+                }
+                AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList);
+            }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    public static List<Cdo> c(List<Cdo> list) {
+        InterceptResult invokeL;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (ListUtils.isEmpty(list)) {
+                return arrayList;
+            }
+            for (int i = 0; i < list.size(); i++) {
+                Cdo cdo = (Cdo) ListUtils.getItem(list, i);
+                if ((cdo instanceof CardPersonDynamicThreadData) && (threadData = ((CardPersonDynamicThreadData) cdo).p) != null) {
+                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
+                    p26 d = d(threadData);
+                    if (d != null) {
+                        arrayList.add(d);
+                    }
+                }
+            }
+            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList);
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public static p26 d(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData)) == null) {
+            p26 p26Var = null;
+            if (threadData == null) {
+                return null;
+            }
+            threadData.isFromPersonPolymeric = true;
+            threadData.insertItemToTitleOrAbstractText();
+            if (threadData.isShareThread) {
+                p26Var = new x26();
+                p26Var.a = threadData;
+            } else if (s26.W(threadData)) {
+                p26Var = new s26(threadData);
+            } else if (t26.Z(threadData)) {
+                p26Var = new t26(threadData);
+            } else if (!x26.W(threadData) && !x26.X(threadData)) {
+                if (y26.R(threadData)) {
+                    p26Var = new y26(threadData);
+                }
+            } else {
+                p26Var = new x26();
+                if (!threadData.isLinkThread() && !threadData.isSmartAppThreadType()) {
+                    threadData.isGodThread();
+                }
+                p26Var.a = threadData;
+            }
+            if (p26Var != null) {
+                AbsGroupUbsABTest.setCardInfoUbsABTest(p26Var);
+            }
+            return p26Var;
+        }
+        return (p26) invokeL.objValue;
+    }
+
+    public static ThreadData e(Cdo cdo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, cdo)) == null) {
+            if (cdo != null && (cdo instanceof yq4)) {
+                ThreadData threadData = ((yq4) cdo).getThreadData();
+                threadData.isFromPersonPolymeric = true;
+                AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
+                return threadData;
+            }
+            return null;
+        }
+        return (ThreadData) invokeL.objValue;
     }
 }

@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,11 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fu1 extends xt1 {
+public abstract class fu1 implements hu1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,78 +31,70 @@ public class fu1 extends xt1 {
                 return;
             }
         }
-        f = ij1.a;
+        a = l33.v;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fu1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
+    public fu1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public static void x(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || str == null || str.length() <= 3145728) {
-            return;
-        }
-        throw new IllegalArgumentException("params过大，len=" + str.length() + "\n" + str.substring(0, 204800));
-    }
-
-    public static String z(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
-            if (obj instanceof String) {
-                String str = (String) obj;
-                return !TextUtils.isEmpty(str) ? str : "log info is invalid";
-            } else if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                return jSONObject.length() != 0 ? jSONObject.toString() : "log info is invalid";
-            } else {
-                return "log info is invalid";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.br1
-    public String j() {
+    @Override // com.baidu.tieba.hu1
+    public lv1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LogApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (l33.b0() == null) {
+                if (a) {
+                    Log.d("AbsMenuButtonHandle", "handleBoundsResult swanApp is null");
+                }
+                return d(1001);
+            }
+            u22 V = yo2.U().V();
+            if (V == null) {
+                if (a) {
+                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fmManager is null");
+                }
+                return d(1001);
+            }
+            r22 m = V.m();
+            if (m == null) {
+                if (a) {
+                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fragment is null");
+                }
+                return d(1001);
+            }
+            return c(m);
+        }
+        return (lv1) invokeV.objValue;
     }
 
-    public yu1 y(String str) {
-        InterceptResult invokeL;
+    public JSONObject b(int i, int i2, int i3, int i4) throws JSONException {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (f) {
-                Log.d("LogApi", "start logToFile action, params = " + str);
-                x(str);
-            }
-            Pair<yu1, JSONObject> s = s(str);
-            if (!((yu1) s.first).isSuccess()) {
-                return (yu1) s.first;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            yz1.k(jSONObject.optString("tag", "logToFile-swanjsLog"), z(jSONObject.opt("data")));
-            return yu1.f();
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.putOpt("width", Integer.valueOf(i3 - i));
+            jSONObject.putOpt("height", Integer.valueOf(i4 - i2));
+            jSONObject.putOpt("left", Integer.valueOf(i));
+            jSONObject.putOpt("right", Integer.valueOf(i3));
+            jSONObject.putOpt("top", Integer.valueOf(i2));
+            jSONObject.putOpt("bottom", Integer.valueOf(i4));
+            return jSONObject;
         }
-        return (yu1) invokeL.objValue;
+        return (JSONObject) invokeIIII.objValue;
     }
+
+    public abstract lv1 c(@NonNull r22 r22Var);
+
+    public abstract lv1 d(int i);
 }

@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class ns5 implements bn2 {
+public class ns5 implements bp3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -35,41 +33,38 @@ public class ns5 implements bn2 {
         }
     }
 
-    @Override // com.baidu.tieba.bn2
-    public boolean a(Context context, String str, re3 re3Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.dp3
+    public void a(i43 i43Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, re3Var)) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
-            statisticItem.param("uid", cr5.l().p() == null ? "" : cr5.l().p());
-            statisticItem.param("obj_param1", re3Var.h());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, re3Var.e());
-            TiebaStatic.log(statisticItem);
-            if (re3Var.j() == 10 && re3Var.h() == 1013) {
-                b(context, re3Var);
-                return true;
-            }
-            return false;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, i43Var) == null) || i43Var == null) {
+            return;
         }
-        return invokeLLL.booleanValue;
+        i43Var.b(new ps5(i43Var));
+        i43Var.b(new is5(i43Var));
+        i43Var.b(new bl3(i43Var));
+        i43Var.b(new dl3(i43Var));
+        i43Var.b(new fl3(i43Var));
+        i43Var.b(new z53(i43Var));
+        i43Var.b(new a63(i43Var));
+        i43Var.b(new a83(i43Var));
+        i43Var.b(new gl3(i43Var));
+        i43Var.b(new dq1(i43Var));
+        i43Var.b(new ms5(i43Var));
     }
 
-    public final void b(Context context, re3 re3Var) {
+    @Override // com.baidu.tieba.dp3
+    @Nullable
+    public Map<String, Object> b(@NonNull mr1 mr1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, re3Var) == null) {
-            y23 b0 = y23.b0();
-            if (context == null || b0 == null) {
-                return;
-            }
-            String i = dc3.i(lo2.U().M(), b0.Y().G());
-            long h = re3Var.h();
-            String r = re3Var.r();
-            if (!(1020 == h && !TextUtils.isEmpty(r))) {
-                r = we4.b().a(h);
-            }
-            ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + sg3.D() + "/" + i + "/" + re3Var.a());
-            forbiddenInfo.enableSlidingFlag = -1;
-            sn2.l(context, "type_need_update_sdk", re3Var, forbiddenInfo, b0.Y().D());
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mr1Var)) == null) ? SwanApi$$ModulesProvider.getV8ApiModules(mr1Var) : (Map) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dp3
+    @Nullable
+    public Map<String, Object> c(@NonNull mr1 mr1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mr1Var)) == null) ? SwanApi$$ModulesProvider.getWebviewApiModules(mr1Var) : (Map) invokeL.objValue;
     }
 }

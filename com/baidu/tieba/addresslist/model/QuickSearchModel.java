@@ -5,9 +5,9 @@ import android.text.TextUtils;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.addresslist.QuickSearchActivity;
-import com.baidu.tieba.i25;
-import com.baidu.tieba.kp5;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.v25;
+import com.baidu.tieba.xp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import java.util.List;
 public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kp5 a;
+    public xp5 a;
     public byte[] b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -41,7 +41,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
             }
         }
         this.b = new byte[0];
-        this.a = kp5.d();
+        this.a = xp5.d();
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -65,7 +65,7 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
     }
 
     @SuppressLint({"DefaultLocale"})
-    public List<i25> z(String str) {
+    public List<v25> z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
@@ -74,27 +74,27 @@ public class QuickSearchModel extends BdBaseModel<QuickSearchActivity> {
                 if (TextUtils.isEmpty(str)) {
                     return arrayList;
                 }
-                List<i25> c = this.a.c();
+                List<v25> c = this.a.c();
                 if (c == null) {
                     return arrayList;
                 }
-                for (i25 i25Var : c) {
-                    String e = i25Var.e();
-                    String c2 = i25Var.c();
+                for (v25 v25Var : c) {
+                    String e = v25Var.e();
+                    String c2 = v25Var.c();
                     if (!TextUtils.isEmpty(e) && e.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(i25Var);
+                        arrayList.add(v25Var);
                     } else if (!TextUtils.isEmpty(c2) && c2.toLowerCase().startsWith(str.toLowerCase())) {
-                        arrayList.add(i25Var);
+                        arrayList.add(v25Var);
                     }
                 }
-                for (i25 i25Var2 : c) {
-                    String e2 = i25Var2.e();
-                    String c3 = i25Var2.c();
-                    if (!arrayList.contains(i25Var2)) {
+                for (v25 v25Var2 : c) {
+                    String e2 = v25Var2.e();
+                    String c3 = v25Var2.c();
+                    if (!arrayList.contains(v25Var2)) {
                         if (!TextUtils.isEmpty(e2) && e2.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(i25Var2);
+                            arrayList.add(v25Var2);
                         } else if (!TextUtils.isEmpty(c3) && c3.toLowerCase().contains(str.toLowerCase())) {
-                            arrayList.add(i25Var2);
+                            arrayList.add(v25Var2);
                         }
                     }
                 }

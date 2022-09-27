@@ -3,7 +3,7 @@ package com.baidu.tieba.themeCenter.background;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.dt8;
+import com.baidu.tieba.st8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
     public boolean hasMore;
     public List<DressItemData> mBackgroundList;
     public int mIsDefault;
-    public dt8 mRecommand;
+    public st8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackgroundListHttpResponseMessage(int i) {
@@ -59,10 +59,10 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mIsDefault == 1 : invokeV.booleanValue;
     }
 
-    public dt8 getRecommand() {
+    public st8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRecommand : (dt8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
     }
 
     public boolean hasMore() {
@@ -95,9 +95,9 @@ public class BackgroundListHttpResponseMessage extends TbHttpResponsedMessage {
             DataRes dataRes = getBgListResIdl.data;
             if (dataRes != null) {
                 if (dataRes.recommend != null) {
-                    dt8 dt8Var = new dt8();
-                    this.mRecommand = dt8Var;
-                    dt8Var.d(getBgListResIdl.data.recommend);
+                    st8 st8Var = new st8();
+                    this.mRecommand = st8Var;
+                    st8Var.d(getBgListResIdl.data.recommend);
                 }
                 this.mIsDefault = getBgListResIdl.data.is_default.intValue();
                 if (getBgListResIdl.data.bgs != null) {

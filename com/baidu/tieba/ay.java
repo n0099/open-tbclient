@@ -16,13 +16,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ay extends gx<lq4> {
+public class ay extends gx<yq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View f;
     public ThreadLinkView g;
     public TextView h;
-    public lq4 i;
+    public yq4 i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ay(Context context) {
@@ -63,24 +63,24 @@ public class ay extends gx<lq4> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
             this.g.b();
-            lq4 lq4Var = this.i;
-            if (lq4Var == null || lq4Var.getThreadData() == null) {
+            yq4 yq4Var = this.i;
+            if (yq4Var == null || yq4Var.getThreadData() == null) {
                 return;
             }
-            g16.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+            t16.l(this.h, this.i.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: p */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lq4Var) == null) {
-            if (lq4Var != null && lq4Var.getThreadData() != null) {
-                this.i = lq4Var;
-                ThreadData threadData = lq4Var.getThreadData();
-                g16.j(threadData, this.h);
+        if (interceptable == null || interceptable.invokeL(1048579, this, yq4Var) == null) {
+            if (yq4Var != null && yq4Var.getThreadData() != null) {
+                this.i = yq4Var;
+                ThreadData threadData = yq4Var.getThreadData();
+                t16.j(threadData, this.h);
                 this.g.setData(threadData);
                 return;
             }

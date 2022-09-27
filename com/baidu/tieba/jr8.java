@@ -2,7 +2,8 @@ package com.baidu.tieba;
 
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.interest.InterestPanelShowManager;
 import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,16 +14,15 @@ public class jr8 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MainTabActivity a;
-    public final ip8 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jr8(MainTabActivity mainTabActivity, ip8 ip8Var) {
-        super(2001304);
+    public jr8(MainTabActivity mainTabActivity, xp8 xp8Var) {
+        super(2921673);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ip8Var};
+            Object[] objArr = {mainTabActivity, xp8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,32 +34,16 @@ public class jr8 extends CustomMessageListener {
             }
         }
         this.a = mainTabActivity;
-        this.b = ip8Var;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ip8 ip8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof Integer) || (ip8Var = this.b) == null || ip8Var.B() == null) {
-            return;
-        }
-        int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-        int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
-        boolean z = false;
-        if ((intValue == 2 || oldSkinType == 2) ? false : true) {
-            return;
-        }
-        if ((intValue == 3 || intValue == 1 || intValue == 0) && oldSkinType == 2) {
-            z = true;
-        }
-        if (z) {
-            this.b.B().d(1);
-        } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-            this.b.B().d(2);
-        } else {
-            this.b.B().d(1);
+        if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+            InterestPanelShowManager.a().e(this.a, true);
+            TbSingleton.getInstance();
+            TbSingleton.setExceptInsertAdDiaShow(true);
         }
     }
 }

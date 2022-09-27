@@ -3,7 +3,7 @@ package com.baidu.tieba.square.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.pj8;
+import com.baidu.tieba.ek8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetForumSquare.GetForumSquareResIdl;
 public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pj8 mForumSquareRespData;
+    public ek8 mForumSquareRespData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ForumSquareHttpResponsedMessage() {
@@ -36,10 +36,10 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public pj8 getData() {
+    public ek8 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumSquareRespData : (pj8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mForumSquareRespData : (ek8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,9 +59,9 @@ public class ForumSquareHttpResponsedMessage extends TbHttpResponsedMessage {
                 setErrorString(getForumSquareResIdl.error.usermsg);
             }
             if (getError() == 0 && getForumSquareResIdl.data != null) {
-                pj8 pj8Var = new pj8();
-                this.mForumSquareRespData = pj8Var;
-                pj8Var.a(getForumSquareResIdl.data);
+                ek8 ek8Var = new ek8();
+                this.mForumSquareRespData = ek8Var;
+                ek8Var.a(getForumSquareResIdl.data);
             }
         }
     }

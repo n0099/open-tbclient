@@ -1,93 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public class wu9 implements vu9 {
+public abstract class wu9 extends xu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public wu9(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wu9(Framedata.Opcode opcode) {
+        super(opcode);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {opcode};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (str != null) {
-            this.a = str;
-            return;
+    }
+
+    @Override // com.baidu.tieba.xu9
+    public void h() throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        throw new IllegalArgumentException();
-    }
-
-    @Override // com.baidu.tieba.vu9
-    public vu9 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new wu9(c()) : (vu9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vu9
-    public boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            for (String str2 : str.replaceAll(" ", "").split(",")) {
-                if (this.a.equals(str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vu9
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || wu9.class != obj.getClass()) {
-                return false;
-            }
-            return this.a.equals(((wu9) obj).a);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.hashCode() : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.vu9
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? c() : (String) invokeV.objValue;
     }
 }

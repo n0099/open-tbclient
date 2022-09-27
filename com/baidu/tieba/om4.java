@@ -1,77 +1,93 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetToken.DataRes;
+import tbclient.GetToken.ToastInfo;
 /* loaded from: classes5.dex */
 public class om4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public a c;
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            addParam.eventStat();
         }
     }
 
-    public static void b(String str, String str2) {
+    public om4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_PARAM3, str2);
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            addParam.eventStat();
         }
     }
 
-    public static void c(int i, int i2) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).addParam("obj_source", 3).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, i2);
-            if (!StringUtils.isNull(b)) {
-                addParam.addParam(TiebaStatic.Params.OBJ_PARAM3, b);
-            }
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
-            }
-            addParam.eventStat();
-            b = null;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
     }
 
-    public static void d(String str) {
+    public a b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
-            }
-            a = str;
-            addParam.eventStat();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (a) invokeV.objValue;
     }
 
-    public static void e() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
-            }
-            a = null;
-            addParam.eventStat();
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public void d(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, dataRes) == null) || dataRes == null) {
+            return;
+        }
+        this.a = dataRes.title;
+        String str = dataRes.img;
+        String str2 = dataRes.tips;
+        this.b = dataRes.url;
+        String str3 = dataRes.btn_sure;
+        String str4 = dataRes.btn_cancel;
+        if (dataRes.activity_done != null) {
+            a aVar = new a();
+            this.c = aVar;
+            ToastInfo toastInfo = dataRes.activity_done;
+            String str5 = toastInfo.url;
+            aVar.a = toastInfo.btntext;
+            String str6 = toastInfo.message;
+            String str7 = toastInfo.sharetoken;
         }
     }
 }

@@ -1,30 +1,41 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uc7 extends kb7 {
+public class uc7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uc7() {
-        super(za7.j(), 2001149);
+    public static long a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((va7) objArr[0], ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) ? ox4.k().m(b(str), 0L) : invokeL.longValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return "im_mark_top_index_" + TbadkCoreApplication.getCurrentAccount() + "@" + str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65538, null, str, z) == null) {
+            String b = b(str);
+            if (z) {
+                ox4.k().x(b, System.currentTimeMillis());
+            } else {
+                ox4.k().D(b);
             }
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921691, str));
         }
     }
 }

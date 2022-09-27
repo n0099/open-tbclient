@@ -1,10 +1,10 @@
 package rx.internal.operators;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gx9;
-import com.baidu.tieba.vw9;
-import com.baidu.tieba.x0a;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.kx9;
+import com.baidu.tieba.m1a;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.vx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,15 +18,15 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 8082834163465882809L;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vw9<? super T> actual;
+    public final kx9<? super T> actual;
     public final SequentialSubscription resource;
 
-    public SingleFromEmitter$SingleEmitterImpl(vw9<? super T> vw9Var) {
+    public SingleFromEmitter$SingleEmitterImpl(kx9<? super T> kx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vw9Var};
+            Object[] objArr = {kx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,7 +36,7 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
                 return;
             }
         }
-        this.actual = vw9Var;
+        this.actual = kx9Var;
         this.resource = new SequentialSubscription();
     }
 
@@ -60,7 +60,7 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
                     this.resource.unsubscribe();
                 }
             }
-            x0a.j(th);
+            m1a.j(th);
         }
     }
 
@@ -75,17 +75,17 @@ public final class SingleFromEmitter$SingleEmitterImpl<T> extends AtomicBoolean 
         }
     }
 
-    public void setCancellation(gx9 gx9Var) {
+    public void setCancellation(vx9 vx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gx9Var) == null) {
-            setSubscription(new CancellableSubscription(gx9Var));
+        if (interceptable == null || interceptable.invokeL(1048579, this, vx9Var) == null) {
+            setSubscription(new CancellableSubscription(vx9Var));
         }
     }
 
-    public void setSubscription(xw9 xw9Var) {
+    public void setSubscription(mx9 mx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xw9Var) == null) {
-            this.resource.update(xw9Var);
+        if (interceptable == null || interceptable.invokeL(1048580, this, mx9Var) == null) {
+            this.resource.update(mx9Var);
         }
     }
 

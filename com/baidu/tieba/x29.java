@@ -1,204 +1,167 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
-import android.text.Spannable;
-import android.text.Spanned;
-import android.text.TextUtils;
-import android.text.style.BackgroundColorSpan;
-import android.text.style.ForegroundColorSpan;
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.write.transmit.model.GetRepostForumHttpResMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumReqMessage;
+import com.baidu.tieba.write.transmit.model.GetRepostForumSocketResMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.List;
+import tbclient.SimpleForum;
 /* loaded from: classes6.dex */
 public class x29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public String b;
+    public BdUniqueId a;
+    public List<SimpleForum> b;
+    public String c;
+    public b d;
+    public String e;
+    public String f;
+    public int g;
+    public String h;
+    public BdUniqueId i;
+    public pb j;
 
-    public x29() {
+    /* loaded from: classes6.dex */
+    public class a extends pb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x29 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(x29 x29Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x29Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = x29Var;
+        }
+
+        @Override // com.baidu.tieba.pb
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof GetRepostForumHttpResMessage;
+            if (z || (responsedMessage instanceof GetRepostForumSocketResMessage)) {
+                if (responsedMessage.getOrginalMessage() == null || !(responsedMessage.getOrginalMessage().getExtra() instanceof GetRepostForumReqMessage) || this.a.i == ((GetRepostForumReqMessage) responsedMessage.getOrginalMessage().getExtra()).getRequestId()) {
+                    if (responsedMessage.hasError()) {
+                        if (this.a.d != null) {
+                            this.a.d.onError();
+                            return;
+                        }
+                        return;
+                    }
+                    if (z) {
+                        GetRepostForumHttpResMessage getRepostForumHttpResMessage = (GetRepostForumHttpResMessage) responsedMessage;
+                        this.a.b = getRepostForumHttpResMessage.getForumList();
+                        this.a.c = getRepostForumHttpResMessage.getRecommendExtension();
+                        this.a.g = getRepostForumHttpResMessage.getPrivateThread();
+                    }
+                    if (responsedMessage instanceof GetRepostForumSocketResMessage) {
+                        GetRepostForumSocketResMessage getRepostForumSocketResMessage = (GetRepostForumSocketResMessage) responsedMessage;
+                        this.a.b = getRepostForumSocketResMessage.getForumList();
+                        this.a.c = getRepostForumSocketResMessage.getRecommendExtension();
+                        this.a.g = getRepostForumSocketResMessage.getPrivateThread();
+                    }
+                    if (this.a.d != null) {
+                        this.a.d.a(this.a.b, this.a.g);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(List<SimpleForum> list, int i);
+
+        void onError();
+    }
+
+    public x29(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        a aVar = new a(this, CmdConfigHttp.CMD_GET_REPOST_RECOMMEND_FORUM, 309450);
+        this.j = aVar;
+        this.a = bdUniqueId;
+        aVar.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.j);
+        this.j.getHttpMessageListener().setSelfListener(true);
+        this.j.getSocketMessageListener().setSelfListener(true);
     }
 
-    public boolean a(EditText editText) {
-        InterceptResult invokeL;
-        Editable text;
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, editText)) == null) {
-            if (editText == null || (text = editText.getText()) == null) {
-                return false;
-            }
-            int d = d(text);
-            if (d > 0) {
-                editText.requestFocus();
-                editText.setSelection(d);
-                return true;
-            }
-            editText.setSelection(editText.getSelectionEnd());
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b(EditText editText, EditText editText2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editText, editText2)) == null) {
-            if (ListUtils.isEmpty(c())) {
-                return false;
-            }
-            return a(editText) || a(editText2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public ArrayList<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (ArrayList) invokeV.objValue;
-    }
-
-    public int d(Spanned spanned) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, spanned)) == null) {
-            if (spanned == null) {
-                return 0;
-            }
-            BackgroundColorSpan[] backgroundColorSpanArr = (BackgroundColorSpan[]) spanned.getSpans(0, spanned.length(), BackgroundColorSpan.class);
-            int length = spanned.length();
-            return (backgroundColorSpanArr == null || backgroundColorSpanArr.length <= 0) ? length : spanned.getSpanEnd(backgroundColorSpanArr[0]);
-        }
-        return invokeL.intValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
-    }
-
-    public void f(EditText editText, boolean z) {
-        Editable text;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048581, this, editText, z) == null) || editText == null || (text = editText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if (((obj instanceof ForegroundColorSpan) && !(obj instanceof SpanGroupForegroundColorSpan)) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
-            }
-        }
-        ug5.j(text);
-        j(text);
-    }
-
-    public void g(SpanGroupEditText spanGroupEditText) {
-        Editable text;
-        Object[] spans;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, spanGroupEditText) == null) || spanGroupEditText == null || (text = spanGroupEditText.getText()) == null) {
-            return;
-        }
-        for (Object obj : text.getSpans(0, text.length(), Object.class)) {
-            if ((obj instanceof ForegroundColorSpan) || (obj instanceof BackgroundColorSpan)) {
-                text.removeSpan(obj);
-            }
-        }
-        ug5.k(spanGroupEditText);
-    }
-
-    public void h(EditText editText, EditText editText2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, editText, editText2) == null) {
-            i(editText, true);
-            i(editText2, false);
-            b(editText, editText2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            GetRepostForumReqMessage getRepostForumReqMessage = new GetRepostForumReqMessage();
+            getRepostForumReqMessage.setThreadTitle(this.e);
+            getRepostForumReqMessage.setThreadContent(this.f);
+            getRepostForumReqMessage.setForumId(this.h);
+            getRepostForumReqMessage.setTag(this.a);
+            getRepostForumReqMessage.setRequestId(this.i);
+            MessageManager.getInstance().sendMessage(getRepostForumReqMessage);
         }
     }
 
-    public void i(EditText editText, boolean z) {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, editText, z) == null) || editText == null) {
-            return;
-        }
-        f(editText, z);
-    }
-
-    public final void j(Spannable spannable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, spannable) == null) || spannable == null || ListUtils.isEmpty(this.a)) {
-            return;
-        }
-        String obj = spannable.toString();
-        if (TextUtils.isEmpty(obj)) {
-            return;
-        }
-        Iterator<String> it = this.a.iterator();
-        while (it.hasNext()) {
-            k(spannable, obj, it.next());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    public final void k(Spannable spannable, String str, String str2) {
+    public void j(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048586, this, spannable, str, str2) == null) || spannable == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        int indexOf = str.indexOf(str2);
-        int length = str2.length();
-        while (indexOf >= 0) {
-            int i = indexOf + length;
-            int color = SkinManager.getColor(R.color.CAM_X0101);
-            int color2 = SkinManager.getColor(R.color.cp_cont_h_alpha85);
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(color);
-            BackgroundColorSpan backgroundColorSpan = new BackgroundColorSpan(color2);
-            spannable.setSpan(foregroundColorSpan, indexOf, i, 33);
-            spannable.setSpan(backgroundColorSpan, indexOf, i, 33);
-            indexOf = str.indexOf(str2, i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            this.i = bdUniqueId;
         }
     }
 
-    public void l(EditText editText, EditText editText2) {
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, editText, editText2) == null) {
-            h(editText, editText2);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
         }
     }
 
-    public void m(ArrayList<String> arrayList) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, arrayList) == null) {
-            this.a = arrayList;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.e = str;
         }
     }
 }

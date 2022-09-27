@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.mutiprocess.showreplyinpb.ShowReplyInPbEvent;
+import android.app.Activity;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ta5 implements u95<ShowReplyInPbEvent> {
+public class ta5 implements ha5<CompeteTaskEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,21 +29,21 @@ public class ta5 implements u95<ShowReplyInPbEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u95
+    @Override // com.baidu.tieba.ha5
     /* renamed from: a */
-    public boolean onEvent(ShowReplyInPbEvent showReplyInPbEvent) {
+    public boolean onEvent(CompeteTaskEvent competeTaskEvent) {
         InterceptResult invokeL;
+        CompleteTaskToastData completeTaskToastData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, showReplyInPbEvent)) == null) {
-            if (showReplyInPbEvent == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, competeTaskEvent)) == null) {
+            if (competeTaskEvent != null && (completeTaskToastData = competeTaskEvent.taskToastData) != null) {
+                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+                if (currentActivity instanceof dm4) {
+                    ((dm4) currentActivity).onMissionCompleted(completeTaskToastData);
+                    return true;
+                }
             }
-            if (showReplyInPbEvent.isSubPbReply) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921481, showReplyInPbEvent.writeData));
-                return true;
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921480, showReplyInPbEvent.writeData));
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }

@@ -15,9 +15,9 @@ import com.baidu.tbadk.widget.horizonalScrollListView.FlexibleHorizontalScrollVi
 import com.baidu.tieba.R;
 import com.baidu.tieba.card.CardFrsGameSpecialTopicItemView;
 import com.baidu.tieba.card.CardFrsGameSpecialTopicLayout;
+import com.baidu.tieba.dh6;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.qg6;
-import com.baidu.tieba.t66;
+import com.baidu.tieba.g76;
 import com.baidu.tieba.ug;
 import com.baidu.tieba.vg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class GameSpecialTopicAdapter extends qg6<t66, CardFrsGameSpecialTopicHolder> {
+public class GameSpecialTopicAdapter extends dh6<g76, CardFrsGameSpecialTopicHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String l;
@@ -62,9 +62,9 @@ public class GameSpecialTopicAdapter extends qg6<t66, CardFrsGameSpecialTopicHol
                 }
             }
             this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090535);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c7a);
-            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c79);
-            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c78);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090c79);
+            this.c = (FlexibleHorizontalScrollView) view2.findViewById(R.id.obfuscated_res_0x7f090c78);
+            CardFrsGameSpecialTopicLayout cardFrsGameSpecialTopicLayout = (CardFrsGameSpecialTopicLayout) view2.findViewById(R.id.obfuscated_res_0x7f090c77);
             this.d = cardFrsGameSpecialTopicLayout;
             cardFrsGameSpecialTopicLayout.setItemSpace(ej.f(view2.getContext(), R.dimen.tbds20));
             this.d.setItemWidth(((ej.f(view2.getContext(), R.dimen.tbds170) * 2) * 21) / 9);
@@ -189,18 +189,18 @@ public class GameSpecialTopicAdapter extends qg6<t66, CardFrsGameSpecialTopicHol
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qg6, com.baidu.tieba.qn
+    @Override // com.baidu.tieba.dh6, com.baidu.tieba.qn
     /* renamed from: H */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t66 t66Var, CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, g76 g76Var, CardFrsGameSpecialTopicHolder cardFrsGameSpecialTopicHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t66Var, cardFrsGameSpecialTopicHolder})) == null) {
-            if (t66Var != null && t66Var.a() != null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, g76Var, cardFrsGameSpecialTopicHolder})) == null) {
+            if (g76Var != null && g76Var.a() != null) {
                 int skinType = TbadkCoreApplication.getInst().getSkinType();
-                cardFrsGameSpecialTopicHolder.b.setText(t66Var.a().title);
+                cardFrsGameSpecialTopicHolder.b.setText(g76Var.a().title);
                 cardFrsGameSpecialTopicHolder.b.setTextColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0105));
                 cardFrsGameSpecialTopicHolder.d.setPageContext(this.c);
-                cardFrsGameSpecialTopicHolder.d.setData(t66Var.a().sub_nodes);
+                cardFrsGameSpecialTopicHolder.d.setData(g76Var.a().sub_nodes);
                 cardFrsGameSpecialTopicHolder.c.setMaxOverScrollDistance(cardFrsGameSpecialTopicHolder.d.getChildItemWidth());
                 cardFrsGameSpecialTopicHolder.a.setBackgroundColor(SkinManager.getColor(skinType, (int) R.color.CAM_X0201));
                 SkinManager.setBackgroundResource(cardFrsGameSpecialTopicHolder.e, R.color.CAM_X0205);

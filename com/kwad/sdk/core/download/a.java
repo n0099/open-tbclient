@@ -53,10 +53,10 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.core.download.a$a  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0608a implements c {
+    public static class C0604a implements c {
         public final OutputStream WM;
 
-        public C0608a(File file, boolean z) {
+        public C0604a(File file, boolean z) {
             this.WM = new FileOutputStream(file, z);
         }
 
@@ -153,37 +153,37 @@ public final class a {
     }
 
     public static boolean a(String str, File file, b bVar, int i) {
-        C0608a c0608a;
-        C0608a c0608a2 = null;
+        C0604a c0604a;
+        C0604a c0604a2 = null;
         try {
-            c0608a = new C0608a(file, false);
+            c0604a = new C0604a(file, false);
         } catch (Throwable th) {
             th = th;
         }
         try {
-            boolean a = a(str, (String) null, c0608a, (b) null, 0);
-            com.kwad.sdk.crash.utils.b.closeQuietly(c0608a);
+            boolean a = a(str, (String) null, c0604a, (b) null, 0);
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0604a);
             return a;
         } catch (Throwable th2) {
             th = th2;
-            c0608a2 = c0608a;
-            com.kwad.sdk.crash.utils.b.closeQuietly(c0608a2);
+            c0604a2 = c0604a;
+            com.kwad.sdk.crash.utils.b.closeQuietly(c0604a2);
             throw th;
         }
     }
 
     public static boolean a(String str, File file, b bVar, int i, boolean z) {
-        C0608a c0608a = null;
+        C0604a c0604a = null;
         try {
-            C0608a c0608a2 = new C0608a(file, true);
+            C0604a c0604a2 = new C0604a(file, true);
             try {
-                boolean a = a(str, (String) null, (c) c0608a2, (b) null, -1, file.length(), -1L, true);
-                com.kwad.sdk.crash.utils.b.closeQuietly(c0608a2);
+                boolean a = a(str, (String) null, (c) c0604a2, (b) null, -1, file.length(), -1L, true);
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0604a2);
                 return a;
             } catch (Throwable th) {
                 th = th;
-                c0608a = c0608a2;
-                com.kwad.sdk.crash.utils.b.closeQuietly(c0608a);
+                c0604a = c0604a2;
+                com.kwad.sdk.crash.utils.b.closeQuietly(c0604a);
                 throw th;
             }
         } catch (Throwable th2) {

@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class ev1 {
+public class ev1 extends BasePendingOperation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hn2 a;
+    public a a;
 
-    public ev1() {
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a();
+    }
+
+    public ev1(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,22 +33,33 @@ public final class ev1 {
                 return;
             }
         }
-        this.a = new hn2();
+        this.a = aVar;
     }
 
-    public void a(Activity activity) {
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.a.a(activity);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public void b(ga2 ga2Var, Context context) {
+    @Override // com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation
+    public BasePendingOperation.OperationType getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ga2Var, context) == null) {
-            UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
-            this.a.e(ga2Var, context, ga2Var, unitedSchemeMainDispatcher);
-            r33.a(unitedSchemeMainDispatcher);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST : (BasePendingOperation.OperationType) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (aVar = this.a) == null) {
+            return;
         }
+        aVar.a();
     }
 }

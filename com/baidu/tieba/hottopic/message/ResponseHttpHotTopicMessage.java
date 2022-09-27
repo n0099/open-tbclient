@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.i67;
+import com.baidu.tieba.w67;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.Hottopic.HottopicResIdl;
 public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public i67 topicData;
+    public w67 topicData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpHotTopicMessage() {
@@ -36,10 +36,10 @@ public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
         this.topicData = null;
     }
 
-    public i67 getHotTopicData() {
+    public w67 getHotTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.topicData : (i67) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.topicData : (w67) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,10 +66,10 @@ public class ResponseHttpHotTopicMessage extends TbHttpResponsedMessage {
         }
         Object extra = getOrginalMessage().getExtra();
         Integer num = extra instanceof Integer ? (Integer) extra : null;
-        i67 i67Var = new i67();
-        this.topicData = i67Var;
+        w67 w67Var = new w67();
+        this.topicData = w67Var;
         if (num != null) {
-            i67Var.p = num.intValue();
+            w67Var.p = num.intValue();
         }
         this.topicData.h(hottopicResIdl.data);
     }

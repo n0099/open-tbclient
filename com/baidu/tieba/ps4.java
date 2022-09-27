@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.HotTopicBussinessData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PbPage.NewsInfo;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ps4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
 
     public ps4() {
         Interceptable interceptable = $ic;
@@ -30,17 +25,9 @@ public class ps4 {
         }
     }
 
-    public void a(NewsInfo newsInfo) {
+    public void a(List<HotTopicBussinessData> list) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, newsInfo) == null) || newsInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
         }
-        this.a = newsInfo.news_link;
-        this.b = newsInfo.summary;
-        newsInfo.position.intValue();
-        this.c = newsInfo.news_type.intValue();
-        this.d = newsInfo.news_icon;
-        this.e = newsInfo.subtitle;
-        this.f = newsInfo.button_text;
     }
 }

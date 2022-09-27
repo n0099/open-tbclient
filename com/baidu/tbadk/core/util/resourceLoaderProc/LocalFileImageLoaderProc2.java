@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.h85;
 import com.baidu.tieba.on;
-import com.baidu.tieba.u75;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -147,7 +147,7 @@ public class LocalFileImageLoaderProc2 implements ah<on> {
             if (onVar.u()) {
                 onVar.A(i);
                 onVar.z(i2);
-                u75.k().d(toCacheKey(str, i, i2), onVar);
+                h85.k().d(toCacheKey(str, i, i2), onVar);
             }
         }
     }
@@ -174,7 +174,7 @@ public class LocalFileImageLoaderProc2 implements ah<on> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            on checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), u75.k().m(toCacheKey(str, i, i2)), i, i2);
+            on checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str, i, i2), h85.k().m(toCacheKey(str, i, i2)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }

@@ -1,27 +1,17 @@
 package com.baidu.tieba;
-
-import android.media.MediaPlayer;
 /* loaded from: classes3.dex */
-public interface cx3 extends pw3 {
-    void a(boolean z);
+public interface cx3 {
+    void destroy();
 
-    void c(String str) throws Exception;
+    int getDuration();
 
-    void f(o94 o94Var);
+    void pause();
 
-    void g(MediaPlayer.OnInfoListener onInfoListener);
+    void play();
 
-    void h(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener);
+    void seek(float f);
 
-    void j(MediaPlayer.OnPreparedListener onPreparedListener);
+    void stop();
 
-    void k(MediaPlayer.OnErrorListener onErrorListener);
-
-    void n(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
-
-    void q(MediaPlayer.OnCompletionListener onCompletionListener);
-
-    boolean s();
-
-    void setVolume(float f);
+    int v();
 }

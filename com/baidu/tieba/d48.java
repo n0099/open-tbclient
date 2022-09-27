@@ -8,13 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes3.dex */
 public class d48 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
+    public int b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
@@ -29,36 +30,46 @@ public class d48 implements Cdo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        d = BdUniqueId.gen();
     }
 
-    public d48(boolean z, a48 a48Var) {
+    public d48() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), a48Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        String str = a48Var.e;
-        String str2 = a48Var.d;
-        this.a = a48Var.a;
-        String str3 = a48Var.f;
-        List<b48> list = a48Var.c;
-        int i3 = a48Var.b;
     }
 
     @Override // com.baidu.tieba.Cdo
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
+    }
+
+    public d48(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = i;
+        this.a = i2;
     }
 }

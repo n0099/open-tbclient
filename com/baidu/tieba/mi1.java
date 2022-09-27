@@ -1,121 +1,308 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public final class mi1 {
+public class mi1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
+    public static volatile mi1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public Context b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947973524, "Lcom/baidu/tieba/mi1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends SQLiteOpenHelper {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ b(mi1 mi1Var, Context context, a aVar) {
+            this(mi1Var, context);
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onCreate(SQLiteDatabase sQLiteDatabase) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+                try {
+                    sQLiteDatabase.execSQL("create table if not exists rp_tb(id integer primary key autoincrement, a text, c integer, d integer);");
+                } catch (Throwable th) {
+                    vi1.d(th);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947973524, "Lcom/baidu/tieba/mi1;");
+        }
+
+        @Override // android.database.sqlite.SQLiteOpenHelper
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(mi1 mi1Var, Context context) {
+            super(context, "sso.db", (SQLiteDatabase.CursorFactory) null, 1);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mi1Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public mi1(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+        this.b = context;
+        this.a = new b(this, this.b, null);
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
-    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
-    public static String a(byte b) {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(65537, null, b)) == null) {
-            if (b < 0) {
-                b += 256;
-            }
-            return a[b / 16] + a[b % 16];
-        }
-        return (String) invokeB.objValue;
-    }
-
-    public static String b(String str) {
+    public static mi1 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65538, null, str)) != null) {
-            return (String) invokeL.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (c == null) {
+                synchronized (mi1.class) {
+                    if (c == null) {
+                        c = new mi1(context);
+                    }
+                }
+            }
+            return c;
         }
-        String str2 = "";
+        return (mi1) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public ArrayList<ni1> b(String str) {
+        InterceptResult invokeL;
+        Throwable th;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, str)) != null) {
+            return (ArrayList) invokeL.objValue;
+        }
         try {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
+            StringBuilder sb = new StringBuilder();
+            sb.append("SELECT * FROM rp_tb WHERE c IN (");
+            sb.append(str);
+            sb.append(") LIMIT 100");
+            cursor = writableDatabase.rawQuery(sb.toString(), null);
+            if (cursor != null) {
+                try {
+                    if (cursor.getCount() != 0) {
+                        ArrayList<ni1> arrayList = new ArrayList<>();
+                        while (cursor.moveToNext()) {
+                            ni1 ni1Var = new ni1();
+                            ni1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
+                            ni1Var.c(xi1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
+                            ni1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
+                            ni1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
+                            arrayList.add(ni1Var);
+                        }
+                        return arrayList;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        vi1.d(th);
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th3) {
+                                vi1.d(th3);
+                            }
+                        }
+                        return null;
+                    } finally {
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th4) {
+                                vi1.d(th4);
+                            }
+                        }
+                    }
+                }
             }
-            String str3 = new String(str);
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
-            } catch (Throwable th) {
-                th = th;
-                str2 = str3;
-                ii1.d(th);
-                return str2;
+            if (cursor != null) {
+                try {
+                    if (!cursor.isClosed()) {
+                        cursor.close();
+                    }
+                } catch (Throwable th5) {
+                    vi1.d(th5);
+                }
             }
-        } catch (Throwable th2) {
-            th = th2;
+            return null;
+        } catch (Throwable th6) {
+            th = th6;
+            cursor = null;
         }
     }
 
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
+    public void c(ni1 ni1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (byte b : bArr) {
-                stringBuffer.append(a(b));
-            }
-            return stringBuffer.toString();
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ni1Var) == null) || ni1Var == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        try {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("a", xi1.b(this.b, ni1Var.d().getBytes()));
+            contentValues.put("c", Integer.valueOf(ni1Var.h()));
+            contentValues.put("d", Integer.valueOf(ni1Var.f()));
+            this.a.getWritableDatabase().insert("rp_tb", null, contentValues);
+        } catch (Throwable th) {
+            vi1.d(th);
+        }
     }
 
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
+    public void d(ArrayList<ni1> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return "";
-            }
-            try {
-                return c(MessageDigest.getInstance("MD5").digest(bArr));
-            } catch (Throwable th) {
-                ii1.d(th);
-                return "";
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) || arrayList == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        try {
+            if (arrayList.size() == 0) {
+                return;
+            }
+            for (int i = 0; i < arrayList.size(); i++) {
+                f(arrayList.get(i));
+            }
+        } catch (Throwable th) {
+            vi1.d(th);
+        }
     }
 
-    public static byte[] e(byte[] bArr) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, IF, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
+    public ArrayList<ni1> e(String str) {
         InterceptResult invokeL;
+        Throwable th;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr == null || bArr.length <= 0) {
-                return null;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
+            return (ArrayList) invokeL.objValue;
+        }
+        try {
+            SQLiteDatabase writableDatabase = this.a.getWritableDatabase();
+            StringBuilder sb = new StringBuilder();
+            sb.append("SELECT * FROM rp_tb WHERE c IN (");
+            sb.append(str);
+            sb.append(") and ");
+            sb.append("d");
+            sb.append("=");
+            sb.append(2);
+            sb.append(" LIMIT 100");
+            cursor = writableDatabase.rawQuery(sb.toString(), null);
+            if (cursor != null) {
+                try {
+                    if (cursor.getCount() != 0) {
+                        ArrayList<ni1> arrayList = new ArrayList<>();
+                        while (cursor.moveToNext()) {
+                            ni1 ni1Var = new ni1();
+                            ni1Var.b(cursor.getInt(cursor.getColumnIndex("id")));
+                            ni1Var.c(xi1.a(this.b, cursor.getString(cursor.getColumnIndex("a"))));
+                            ni1Var.g(cursor.getInt(cursor.getColumnIndex("c")));
+                            ni1Var.e(cursor.getInt(cursor.getColumnIndex("d")));
+                            arrayList.add(ni1Var);
+                        }
+                        return arrayList;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        vi1.d(th);
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th3) {
+                                vi1.d(th3);
+                            }
+                        }
+                        return null;
+                    } finally {
+                        if (cursor != null) {
+                            try {
+                                if (!cursor.isClosed()) {
+                                    cursor.close();
+                                }
+                            } catch (Throwable th4) {
+                                vi1.d(th4);
+                            }
+                        }
+                    }
+                }
             }
+            if (cursor != null) {
+                try {
+                    if (!cursor.isClosed()) {
+                        cursor.close();
+                    }
+                } catch (Throwable th5) {
+                    vi1.d(th5);
+                }
+            }
+            return null;
+        } catch (Throwable th6) {
+            th = th6;
+            cursor = null;
+        }
+    }
+
+    public final void f(ni1 ni1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ni1Var) == null) {
             try {
-                return MessageDigest.getInstance("MD5").digest(bArr);
+                this.a.getWritableDatabase().delete("rp_tb", "id=?", new String[]{String.valueOf(ni1Var.a())});
             } catch (Throwable th) {
-                ii1.d(th);
-                return null;
+                System.currentTimeMillis();
+                vi1.d(th);
             }
         }
-        return (byte[]) invokeL.objValue;
     }
 }

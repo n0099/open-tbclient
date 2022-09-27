@@ -16,28 +16,28 @@ import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.bm0;
+import com.baidu.tieba.c51;
+import com.baidu.tieba.fm0;
+import com.baidu.tieba.j41;
 import com.baidu.tieba.l41;
-import com.baidu.tieba.ol0;
-import com.baidu.tieba.p41;
-import com.baidu.tieba.sl0;
-import com.baidu.tieba.w31;
-import com.baidu.tieba.y31;
-import com.baidu.tieba.z41;
+import com.baidu.tieba.m51;
+import com.baidu.tieba.y41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callback, ActivityCompat.OnRequestPermissionsResultCallback, y31 {
+public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callback, ActivityCompat.OnRequestPermissionsResultCallback, l41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l41 a;
+    public y41 a;
     public boolean b;
     public final Object c;
 
     /* loaded from: classes2.dex */
-    public class a extends sl0<w31> {
+    public class a extends fm0<j41> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AbsContainer b;
@@ -64,13 +64,13 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sl0
-        public void onEvent(@NonNull w31 w31Var) {
+        @Override // com.baidu.tieba.fm0
+        public void onEvent(@NonNull j41 j41Var) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w31Var) == null) || TextUtils.isEmpty(w31Var.a)) {
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j41Var) == null) || TextUtils.isEmpty(j41Var.a)) {
                 return;
             }
-            this.b.n(w31Var.a);
+            this.b.n(j41Var.a);
         }
     }
 
@@ -78,12 +78,12 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public interface b {
     }
 
-    public AbsContainer(@NonNull l41 l41Var) {
+    public AbsContainer(@NonNull y41 y41Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {l41Var};
+            Object[] objArr = {y41Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -95,12 +95,12 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         }
         this.b = true;
         this.c = new Object();
-        this.a = l41Var;
+        this.a = y41Var;
     }
 
     public abstract void A();
 
-    @Override // com.baidu.tieba.y31
+    @Override // com.baidu.tieba.l41
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -108,7 +108,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         }
     }
 
-    @Override // com.baidu.tieba.y31
+    @Override // com.baidu.tieba.l41
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -133,7 +133,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
         }
     }
 
-    public abstract z41 g();
+    public abstract m51 g();
 
     @NonNull
     public final Activity getActivity() {
@@ -153,7 +153,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public final Context h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? p41.b() : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? c51.b() : (Context) invokeV.objValue;
     }
 
     public abstract View i();
@@ -253,7 +253,7 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            ol0.a().unregister(this.c);
+            bm0.a().unregister(this.c);
         }
     }
 
@@ -290,15 +290,15 @@ public abstract class AbsContainer implements ComponentCallbacks, KeyEvent.Callb
     public final void w() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
-            ol0.a().c(this.c, 1, new a(this, w31.class));
+            bm0.a().c(this.c, 1, new a(this, j41.class));
         }
     }
 
     public void x(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048609, this, view2) == null) {
-            l41 l41Var = this.a;
-            if (l41Var == null || !l41Var.u()) {
+            y41 y41Var = this.a;
+            if (y41Var == null || !y41Var.u()) {
                 getActivity().setContentView(view2);
             }
         }

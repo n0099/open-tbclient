@@ -2,53 +2,155 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes4.dex */
-public abstract class gu9 extends iu9 {
+public final class gu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public byte[] A;
+    public int B;
+    public int C;
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public byte[] H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public int Q;
+    public long R;
+    public byte[] S;
+    public int T;
+    public int U;
+    public int V;
+    public int W;
+    public int X;
+    public int Y;
+    public byte[] Z;
+    public int a;
+    public int b;
+    public final xt9 c;
+    public byte[] d;
+    public final int[] e;
+    public final int[] f;
+    public int g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public final du9 k;
+    public final du9 l;
+    public final du9 m;
+    public final int[] n;
+    public final int[] o;
+    public final int[] p;
+    public final int[] q;
+    public int r;
+    public int s;
+    public int t;
+    public boolean u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public byte[] z;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gu9(Framedata.Opcode opcode) {
-        super(opcode);
+    public gu9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
+        this.c = new xt9();
+        this.e = new int[3240];
+        this.f = new int[3240];
+        this.k = new du9();
+        this.l = new du9();
+        this.m = new du9();
+        this.n = new int[3];
+        this.o = new int[3];
+        this.p = new int[6];
+        this.q = new int[]{16, 15, 11, 4};
+        this.r = 0;
+        this.s = 0;
+        this.t = 0;
+        this.u = false;
+        this.v = 0;
+        this.Q = 0;
+        this.R = 0L;
+        this.S = new byte[0];
+        this.T = 0;
     }
 
-    @Override // com.baidu.tieba.iu9
-    public void h() throws InvalidDataException {
+    public static void a(gu9 gu9Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f()) {
-                if (!b()) {
-                    if (!c()) {
-                        if (e()) {
-                            throw new InvalidFrameException("Control frame cant have rsv3==true set");
-                        }
-                        return;
-                    }
-                    throw new InvalidFrameException("Control frame cant have rsv2==true set");
-                }
-                throw new InvalidFrameException("Control frame cant have rsv1==true set");
+        if (interceptable == null || interceptable.invokeL(65537, null, gu9Var) == null) {
+            int i = gu9Var.a;
+            if (i == 0) {
+                throw new IllegalStateException("State MUST be initialized");
             }
-            throw new InvalidFrameException("Control frame cant have fin==false set");
+            if (i == 11) {
+                return;
+            }
+            gu9Var.a = 11;
+            xt9.b(gu9Var.c);
+        }
+    }
+
+    public static int b(xt9 xt9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xt9Var)) == null) {
+            if (xt9.i(xt9Var, 1) == 0) {
+                return 16;
+            }
+            int i = xt9.i(xt9Var, 3);
+            if (i != 0) {
+                return i + 17;
+            }
+            int i2 = xt9.i(xt9Var, 3);
+            if (i2 != 0) {
+                return i2 + 8;
+            }
+            return 17;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void c(gu9 gu9Var, InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, gu9Var, inputStream) == null) {
+            if (gu9Var.a == 0) {
+                xt9.e(gu9Var.c, inputStream);
+                int b = b(gu9Var.c);
+                if (b != 9) {
+                    int i = 1 << b;
+                    gu9Var.P = i;
+                    gu9Var.O = i - 16;
+                    gu9Var.a = 1;
+                    return;
+                }
+                throw new BrotliRuntimeException("Invalid 'windowBits' code");
+            }
+            throw new IllegalStateException("State MUST be uninitialized");
         }
     }
 }

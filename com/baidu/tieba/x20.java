@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.helios.trusts.zone.TrustSubject;
 import com.baidu.helios.trusts.zone.TrustSubjectManager;
 import com.baidu.tieba.c30;
-import com.baidu.tieba.i50;
-import com.baidu.tieba.l50;
+import com.baidu.tieba.k50;
+import com.baidu.tieba.n50;
 import com.baidu.tieba.v20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -66,7 +66,7 @@ public class x20 extends v20 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
-        public Boolean call() throws Exception {
+        public Boolean call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -105,7 +105,7 @@ public class x20 extends v20 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.concurrent.Callable
         /* renamed from: a */
-        public Boolean call() throws Exception {
+        public Boolean call() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -249,8 +249,8 @@ public class x20 extends v20 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, trustSubject) == null) {
                 try {
-                    String m = trustSubject.m("config-cs");
-                    if (TextUtils.isEmpty(m) || (optJSONObject = new JSONObject(m).optJSONObject("cs")) == null) {
+                    String i = trustSubject.i("config-cs");
+                    if (TextUtils.isEmpty(i) || (optJSONObject = new JSONObject(i).optJSONObject("cs")) == null) {
                         return;
                     }
                     Iterator<String> keys = optJSONObject.keys();
@@ -269,16 +269,16 @@ public class x20 extends v20 {
     public static class f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public volatile m50 a;
+        public volatile o50 a;
         public volatile d30 b;
         public volatile TrustSubjectManager c;
-        public volatile TrustSubjectManager.d d;
+        public volatile TrustSubjectManager.f d;
         public volatile Future<Boolean> e;
         public volatile Future<Boolean> f;
-        public volatile i50 g;
+        public volatile k50 g;
         public volatile k h;
         public volatile Map<String, c30> i;
-        public volatile Map<String, l50> j;
+        public volatile Map<String, n50> j;
 
         public f() {
             Interceptable interceptable = $ic;
@@ -299,7 +299,7 @@ public class x20 extends v20 {
     }
 
     /* loaded from: classes6.dex */
-    public static class g<T> implements l50.d<T> {
+    public static class g<T> implements n50.d<T> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public v20.c<T> a;
@@ -322,7 +322,7 @@ public class x20 extends v20 {
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.l50.d
+        @Override // com.baidu.tieba.n50.d
         public void a(int i, Exception exc, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeILL(1048576, this, i, exc, bundle) == null) {
@@ -330,7 +330,7 @@ public class x20 extends v20 {
             }
         }
 
-        @Override // com.baidu.tieba.l50.d
+        @Override // com.baidu.tieba.n50.d
         public void onResult(T t, Bundle bundle) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, bundle) == null) {
@@ -397,8 +397,8 @@ public class x20 extends v20 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, trustSubject) == null) {
                 try {
-                    String m = trustSubject.m("config-ids");
-                    if (TextUtils.isEmpty(m) || (optJSONObject = new JSONObject(m).optJSONObject("ids")) == null) {
+                    String i = trustSubject.i("config-ids");
+                    if (TextUtils.isEmpty(i) || (optJSONObject = new JSONObject(i).optJSONObject("ids")) == null) {
                         return;
                     }
                     Iterator<String> keys = optJSONObject.keys();
@@ -416,11 +416,11 @@ public class x20 extends v20 {
     public static class i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public i50.a a;
+        public k50.a a;
         public FileOutputStream b;
         public FileLock c;
 
-        public i(i50.a aVar) {
+        public i(k50.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -466,7 +466,7 @@ public class x20 extends v20 {
                         fileLock.release();
                         FileOutputStream fileOutputStream = this.b;
                         if (fileOutputStream != null) {
-                            d50.b(fileOutputStream);
+                            f50.b(fileOutputStream);
                             this.b = null;
                         }
                         this.c = null;
@@ -474,7 +474,7 @@ public class x20 extends v20 {
                     } catch (IOException unused) {
                         FileOutputStream fileOutputStream2 = this.b;
                         if (fileOutputStream2 != null) {
-                            d50.b(fileOutputStream2);
+                            f50.b(fileOutputStream2);
                             this.b = null;
                         }
                         this.c = null;
@@ -482,7 +482,7 @@ public class x20 extends v20 {
                     } catch (Throwable th) {
                         FileOutputStream fileOutputStream3 = this.b;
                         if (fileOutputStream3 != null) {
-                            d50.b(fileOutputStream3);
+                            f50.b(fileOutputStream3);
                             this.b = null;
                         }
                         this.c = null;
@@ -597,9 +597,9 @@ public class x20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
             m(str);
-            l50 l50Var = this.d.j.get(str);
-            if (l50Var != null) {
-                l50Var.g(new g(cVar));
+            n50 n50Var = this.d.j.get(str);
+            if (n50Var != null) {
+                n50Var.g(new g(cVar));
                 return;
             }
             if ("sids".equals(str)) {
@@ -617,7 +617,7 @@ public class x20 extends v20 {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            i();
+            q();
         }
     }
 
@@ -657,8 +657,8 @@ public class x20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) {
             m(str);
-            l50 l50Var = this.d.j.get(str);
-            return l50Var != null ? v20.d.c(l50Var.c()) : v20.d.a(-1, null);
+            n50 n50Var = this.d.j.get(str);
+            return n50Var != null ? v20.d.c(n50Var.c()) : v20.d.a(-1, null);
         }
         return (v20.d) invokeLL.objValue;
     }
@@ -666,11 +666,12 @@ public class x20 extends v20 {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this.e) {
-                if (this.d.f != null) {
-                    return;
-                }
-                this.d.f = this.a.d.submit(new b(this));
+            try {
+                this.d.e.get();
+            } catch (InterruptedException e2) {
+                throw new RuntimeException(e2);
+            } catch (ExecutionException e3) {
+                throw new RuntimeException(e3);
             }
         }
     }
@@ -679,33 +680,33 @@ public class x20 extends v20 {
         h hVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, fVar) == null) {
-            i50 i50Var = new i50(this.c);
-            fVar.g = i50Var;
-            i iVar = new i(i50Var.d().f("init"));
+            k50 k50Var = new k50(this.c);
+            fVar.g = k50Var;
+            i iVar = new i(k50Var.d().f("init"));
             try {
                 iVar.a();
                 TrustSubjectManager.a aVar = new TrustSubjectManager.a();
                 aVar.a = this.c;
-                aVar.b = i50Var;
+                aVar.b = k50Var;
                 TrustSubjectManager trustSubjectManager = new TrustSubjectManager();
                 fVar.c = trustSubjectManager;
-                trustSubjectManager.f(aVar);
-                trustSubjectManager.i(new TrustSubjectManager.b());
-                fVar.d = trustSubjectManager.query(new TrustSubjectManager.c());
+                trustSubjectManager.a(aVar);
+                trustSubjectManager.e(new TrustSubjectManager.b());
+                fVar.d = trustSubjectManager.query(new TrustSubjectManager.d());
                 if (fVar.a == null) {
-                    fVar.a = new m50(this.a.a);
+                    fVar.a = new o50(this.a.a);
                 }
-                m50 m50Var = fVar.a;
-                l50.b bVar = new l50.b();
+                o50 o50Var = fVar.a;
+                n50.b bVar = new n50.b();
                 bVar.a = this.c;
-                bVar.b = i50Var;
+                bVar.b = k50Var;
                 bVar.c = fVar.d;
                 bVar.d = this.a.d;
                 bVar.e = this.a.e;
-                l50.c cVar = new l50.c();
+                n50.c cVar = new n50.c();
                 cVar.a = false;
-                List<l50> b2 = m50Var.b();
-                ArrayList<l50> arrayList = b2 == null ? new ArrayList() : new ArrayList(b2);
+                List<n50> b2 = o50Var.b();
+                ArrayList<n50> arrayList = b2 == null ? new ArrayList() : new ArrayList(b2);
                 if (fVar.d.b != null) {
                     hVar = new h();
                     hVar.b(fVar.d.b);
@@ -715,23 +716,23 @@ public class x20 extends v20 {
                 if (arrayList.size() > 0 && hVar != null) {
                     Iterator it = arrayList.iterator();
                     while (it.hasNext()) {
-                        h.a a2 = hVar.a(((l50) it.next()).e());
+                        h.a a2 = hVar.a(((n50) it.next()).e());
                         if (a2 != null && !a2.a) {
                             it.remove();
                         }
                     }
                 }
-                for (l50 l50Var : arrayList) {
-                    fVar.j.put(l50Var.e(), l50Var);
-                    l50Var.a(bVar);
-                    l50Var.f(cVar);
+                for (n50 n50Var : arrayList) {
+                    fVar.j.put(n50Var.e(), n50Var);
+                    n50Var.a(bVar);
+                    n50Var.f(cVar);
                 }
                 d30 d30Var = new d30(this.a.b);
                 fVar.b = d30Var;
                 c30.b bVar2 = new c30.b();
                 bVar2.a = this.c;
-                bVar2.c = m50Var;
-                bVar2.b = i50Var;
+                bVar2.c = o50Var;
+                bVar2.b = k50Var;
                 List<c30> a3 = d30Var.a();
                 ArrayList arrayList2 = a3 == null ? new ArrayList() : new ArrayList(a3);
                 if (arrayList2.size() > 0 && fVar.d.b != null) {
@@ -785,7 +786,7 @@ public class x20 extends v20 {
                         }
                         c30.h b2 = it.next().b(trustSubject.a, gVar);
                         if (b2 != null && b2.e()) {
-                            fVar.h.b(trustSubject.a, b2.a, trustSubject.o());
+                            fVar.h.b(trustSubject.a, b2.a, trustSubject.l());
                             break;
                         }
                     }
@@ -798,7 +799,7 @@ public class x20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (TextUtils.equals(str, "iid")) {
-                q();
+                i();
             } else {
                 n();
             }
@@ -809,7 +810,7 @@ public class x20 extends v20 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             try {
-                i();
+                q();
                 this.d.f.get();
             } catch (InterruptedException e2) {
                 throw new RuntimeException(e2);
@@ -822,20 +823,20 @@ public class x20 extends v20 {
     public final void o(f fVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
-            i50 i50Var = new i50(this.c);
-            fVar.g = i50Var;
-            i iVar = new i(i50Var.d().f("init"));
+            k50 k50Var = new k50(this.c);
+            fVar.g = k50Var;
+            i iVar = new i(k50Var.d().f("init"));
             try {
                 iVar.a();
-                m50 m50Var = new m50(this.a.a);
-                fVar.a = m50Var;
-                l50 a2 = m50Var.a("iid");
-                l50.b bVar = new l50.b();
+                o50 o50Var = new o50(this.a.a);
+                fVar.a = o50Var;
+                n50 a2 = o50Var.a("iid");
+                n50.b bVar = new n50.b();
                 bVar.a = this.c;
-                bVar.b = i50Var;
+                bVar.b = k50Var;
                 bVar.d = this.a.d;
                 bVar.e = this.a.e;
-                l50.c cVar = new l50.c();
+                n50.c cVar = new n50.c();
                 cVar.a = false;
                 fVar.j.put(a2.e(), a2);
                 a2.a(bVar);
@@ -849,12 +850,11 @@ public class x20 extends v20 {
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            try {
-                this.d.e.get();
-            } catch (InterruptedException e2) {
-                throw new RuntimeException(e2);
-            } catch (ExecutionException e3) {
-                throw new RuntimeException(e3);
+            synchronized (this.e) {
+                if (this.d.f != null) {
+                    return;
+                }
+                this.d.f = this.a.d.submit(new b(this));
             }
         }
     }

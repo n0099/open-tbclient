@@ -1,66 +1,166 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.yu4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.SmartApp;
 /* loaded from: classes6.dex */
-public class y68 extends qn<i88, CardViewHolder<k98>> {
+public class y68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public TbPageContext a;
+    public Context b;
+    public wu4 c;
+    public yu4 d;
+    public List<uu4> e;
+    public uu4 f;
+    public b g;
+    public SmartApp h;
+    public yu4.d i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y68(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), i88.e);
+    /* loaded from: classes6.dex */
+    public class a implements yu4.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y68 a;
+
+        public a(y68 y68Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y68Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y68Var;
+        }
+
+        @Override // com.baidu.tieba.yu4.d
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.h == null) {
+                return;
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
+            httpMessage.addParam("swan_app_key", this.a.h.id);
+            MessageManager.getInstance().sendMessage(httpMessage);
+            if (this.a.g != null) {
+                this.a.g.a(this.a.h.id);
+            }
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SMART_APP_HISTORY_DELETE_CLICK);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_id", this.a.h.swan_app_id.longValue());
+            statisticItem.param("obj_name", this.a.h.name);
+            TiebaStatic.log(statisticItem);
+            if (this.a.c != null) {
+                this.a.c.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282222, "Lcom/baidu/tieba/y68;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948282222, "Lcom/baidu/tieba/y68;");
+                return;
+            }
+        }
+        MessageManager.getInstance().registerTask(new TbHttpMessageTask(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY, TbConfig.SERVER_ADDRESS + TbConfig.URL_SMART_APP_DEL_BROWSE_HISTORY));
+    }
+
+    public y68(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.i = new a(this);
         this.a = tbPageContext;
+        Activity pageActivity = tbPageContext.getPageActivity();
+        this.b = pageActivity;
+        this.d = new yu4(pageActivity);
+        this.e = new ArrayList();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public CardViewHolder<k98> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void d(SmartApp smartApp) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new CardViewHolder<>(new k98(this.a)) : (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i88 i88Var, CardViewHolder<k98> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i88Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(i88Var);
-            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(1048576, this, smartApp) == null) {
+            this.h = smartApp;
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c == null) {
+            uu4 uu4Var = new uu4(this.b.getString(R.string.obfuscated_res_0x7f0f04b0), this.d);
+            this.f = uu4Var;
+            uu4Var.m(this.i);
+            this.e.add(this.f);
+            this.d.j(this.e);
+            this.c = new wu4(this.a, this.d);
+        }
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.g = bVar;
+        }
+    }
+
+    public void g() {
+        wu4 wu4Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (wu4Var = this.c) == null) {
+            return;
+        }
+        wu4Var.k();
     }
 }

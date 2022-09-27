@@ -26,13 +26,13 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ak6;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ij6;
-import com.baidu.tieba.kj6;
-import com.baidu.tieba.lj6;
-import com.baidu.tieba.lx4;
-import com.baidu.tieba.mx4;
-import com.baidu.tieba.nj6;
+import com.baidu.tieba.vj6;
+import com.baidu.tieba.xj6;
+import com.baidu.tieba.yj6;
+import com.baidu.tieba.yx4;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, ij6 {
+public class VideoAggregationFragment extends BaseFragment implements View.OnClickListener, vj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
@@ -48,20 +48,20 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     public String c;
     public String d;
     public BdTypeListView e;
-    public mx4 f;
+    public zx4 f;
     public PbListView g;
-    public kj6 h;
-    public nj6 i;
+    public xj6 h;
+    public ak6 i;
     public NavigationBar j;
     public FrameLayout k;
     public NoNetworkView l;
     public NoDataView m;
-    public List<lj6> n;
+    public List<yj6> n;
     public CustomMessageListener o;
     public CustomMessageListener p;
 
     /* loaded from: classes4.dex */
-    public class a implements lx4.g {
+    public class a implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoAggregationFragment a;
@@ -84,7 +84,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.a = videoAggregationFragment;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -344,8 +344,8 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.ij6
-    public void M0(List<lj6> list, boolean z, boolean z2) {
+    @Override // com.baidu.tieba.vj6
+    public void M0(List<yj6> list, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{list, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) || list == null) {
             return;
@@ -371,14 +371,14 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         }
     }
 
-    @Override // com.baidu.tieba.ij6
+    @Override // com.baidu.tieba.vj6
     public void k(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ij6
+    @Override // com.baidu.tieba.vj6
     public void m() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || this.k == null) {
@@ -409,9 +409,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             } else {
                 this.j.setVisibility(0);
             }
-            kj6 kj6Var = this.h;
-            if (kj6Var != null) {
-                kj6Var.h(configuration);
+            xj6 xj6Var = this.h;
+            if (xj6Var != null) {
+                xj6Var.h(configuration);
             }
         }
     }
@@ -428,9 +428,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 this.c = arguments.getString("st_type");
                 this.d = arguments.getString("yuelaou_locate");
             }
-            nj6 nj6Var = new nj6(getPageContext(), this);
-            this.i = nj6Var;
-            nj6Var.g(this.a);
+            ak6 ak6Var = new ak6(getPageContext(), this);
+            this.i = ak6Var;
+            ak6Var.g(this.a);
             this.i.f(this.b);
             this.i.i(this.c);
             this.i.h(this.d);
@@ -452,18 +452,18 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            nj6 nj6Var = this.i;
-            if (nj6Var != null) {
-                nj6Var.c();
+            ak6 ak6Var = this.i;
+            if (ak6Var != null) {
+                ak6Var.c();
             }
-            kj6 kj6Var = this.h;
-            if (kj6Var != null) {
-                kj6Var.i();
+            xj6 xj6Var = this.h;
+            if (xj6Var != null) {
+                xj6Var.i();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ij6
+    @Override // com.baidu.tieba.vj6
     public void onLoadFail() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && ListUtils.isEmpty(this.n)) {
@@ -502,9 +502,9 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
                 this.l.setVisibility(0);
             }
             this.e = (BdTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f09132a);
-            mx4 mx4Var = new mx4(getPageContext());
-            this.f = mx4Var;
-            mx4Var.n();
+            zx4 zx4Var = new zx4(getPageContext());
+            this.f = zx4Var;
+            zx4Var.n();
             this.f.f(new a(this));
             this.f.b0(getUniqueId());
             this.e.setPullRefresh(this.f);
@@ -516,7 +516,7 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
             this.g.R();
             this.e.setNextPage(this.g);
             this.e.setOnScrollListener(new b(this));
-            this.h = new kj6(getPageContext(), this.e, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.b));
+            this.h = new xj6(getPageContext(), this.e, VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.b));
             A1();
         }
     }
@@ -543,12 +543,12 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
     }
 
     public void x1(int i) {
-        kj6 kj6Var;
+        xj6 xj6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || this.e == null || (kj6Var = this.h) == null) {
+        if (!(interceptable == null || interceptable.invokeI(1048592, this, i) == null) || this.e == null || (xj6Var = this.h) == null) {
             return;
         }
-        if (i == 1 && kj6Var.e()) {
+        if (i == 1 && xj6Var.e()) {
             this.h.k();
         }
         if (i == 2) {
@@ -560,11 +560,11 @@ public class VideoAggregationFragment extends BaseFragment implements View.OnCli
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            kj6 kj6Var = this.h;
-            if (kj6Var == null) {
+            xj6 xj6Var = this.h;
+            if (xj6Var == null) {
                 return false;
             }
-            return kj6Var.j(i);
+            return xj6Var.j(i);
         }
         return invokeI.booleanValue;
     }

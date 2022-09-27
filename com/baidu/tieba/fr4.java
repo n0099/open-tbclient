@@ -4,7 +4,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.CarrierEnter;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class fr4 {
     public static /* synthetic */ Interceptable $ic;
@@ -24,15 +24,13 @@ public class fr4 {
         }
     }
 
-    public void a(CarrierEnter carrierEnter) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, carrierEnter) == null) || carrierEnter == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
             return;
         }
-        String str = carrierEnter.title;
-        String str2 = carrierEnter.text;
-        String str3 = carrierEnter.headline_cover;
-        String str4 = carrierEnter.url;
-        String str5 = carrierEnter.obj_id;
+        jSONObject.optInt("label_id");
+        jSONObject.optString("label_name");
+        jSONObject.optString("label_rgb");
     }
 }

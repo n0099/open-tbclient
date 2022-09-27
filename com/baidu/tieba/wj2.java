@@ -1,48 +1,79 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class wj2 extends sg2<uj2> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wj2 extends xj2 {
 
-    public wj2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
     }
 
-    @Override // com.baidu.tieba.sg2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "release" : (String) invokeV.objValue;
-    }
+    void D(int i);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sg2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull uj2 uj2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, uj2Var) == null) {
-            d(uj2Var, command.what, null, false);
-            uj2Var.release();
-        }
-    }
+    void E();
+
+    void F(long j);
+
+    void I(int i);
+
+    void J(int i);
+
+    void K(int i);
+
+    void M(boolean z);
+
+    void S();
+
+    void V(int i);
+
+    void Y(int i);
+
+    void Z(@NonNull a aVar);
+
+    void a0();
+
+    void d();
+
+    void d0(boolean z);
+
+    void e(int i);
+
+    void e0(long j, boolean z);
+
+    void exitRoom();
+
+    void f();
+
+    void g(boolean z);
+
+    ArrayList<ak2> h();
+
+    void i(boolean z);
+
+    void i0(String str);
+
+    void j(long j);
+
+    void l0(long j);
+
+    void m0(boolean z);
+
+    void n();
+
+    void p(long j, boolean z);
+
+    void r(String str);
+
+    void setCameraFace(boolean z);
+
+    void t(boolean z);
+
+    void u(zj2 zj2Var);
+
+    ArrayList<yj2> v();
+
+    void x(boolean z);
+
+    void y(boolean z);
 }

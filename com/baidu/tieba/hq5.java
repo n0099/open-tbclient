@@ -1,128 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetAddressList.friendList;
+import tbclient.GetAddressList.listData;
+import tbclient.GetAddressList.robotsList;
 /* loaded from: classes4.dex */
-public class hq5 extends se1<di0> {
+public class hq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements di0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.hq5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes4.dex */
-        public class C0289a implements gi0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean[] a;
-            public final /* synthetic */ ei0 b;
-
-            public C0289a(a aVar, boolean[] zArr, ei0 ei0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, zArr, ei0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = zArr;
-                this.b = ei0Var;
-            }
-
-            @Override // com.baidu.tieba.gi0
-            public void onResult(boolean z) {
-                ei0 ei0Var;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    this.a[0] = z;
-                    if (!z || (ei0Var = this.b) == null) {
-                        return;
-                    }
-                    ei0Var.a(true, null);
-                }
-            }
-        }
-
-        public a(hq5 hq5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hq5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.di0
-        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable ei0 ei0Var) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, ei0Var)) == null) {
-                Log.e("CMDConfig", "host invoke command = " + str);
-                if (UrlSchemaJumpHelper.isHitBlackList(str)) {
-                    return true;
-                }
-                ii0.a(context, str, null, new C0289a(this, new boolean[1], ei0Var), false);
-                return true;
-            }
-            return invokeLLLL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.di0
-        public void b(String str, String str2, gi0 gi0Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, gi0Var) == null) || gi0Var == null) {
-                return;
-            }
-            gi0Var.onResult(true);
-        }
-
-        @Override // com.baidu.tieba.di0
-        public String[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.di0
-        public boolean d(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
+    public String a;
+    public List<v25> b;
 
     public hq5() {
         Interceptable interceptable = $ic;
@@ -138,12 +32,55 @@ public class hq5 extends se1<di0> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.se1
-    /* renamed from: a */
-    public di0 createService() throws ServiceNotFoundException {
+    public List<v25> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new a(this) : (di0) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b == null) {
+                this.b = new ArrayList();
+            }
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public void c(listData listdata) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, listdata) == null) || listdata == null) {
+            return;
+        }
+        this.a = listdata.key;
+        if (listdata.friend_list != null) {
+            this.b = new ArrayList();
+            for (friendList friendlist : listdata.friend_list) {
+                v25 v25Var = new v25();
+                v25Var.i(friendlist);
+                v25Var.j(this.a);
+                this.b.add(v25Var);
+            }
+        }
+    }
+
+    public void d(robotsList robotslist) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, robotslist) == null) || robotslist == null) {
+            return;
+        }
+        this.a = robotslist.key;
+        if (robotslist.friend_list != null) {
+            this.b = new ArrayList();
+            for (friendList friendlist : robotslist.friend_list) {
+                v25 v25Var = new v25();
+                v25Var.i(friendlist);
+                v25Var.j(this.a);
+                this.b.add(v25Var);
+            }
+        }
     }
 }

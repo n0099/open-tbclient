@@ -1,62 +1,65 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
+import android.content.SharedPreferences;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.android.util.sp.SharedPrefsWrapper;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ja9 {
+public class ja9 extends SharedPrefsWrapper {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947876711, "Lcom/baidu/tieba/ja9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947876711, "Lcom/baidu/tieba/ja9;");
-                return;
-            }
-        }
-        a = i99.m();
-    }
+    /* loaded from: classes4.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ja9 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, cursor) == null) || cursor == null) {
-            return;
-        }
-        try {
-            if (cursor.isClosed()) {
-                return;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-696240822, "Lcom/baidu/tieba/ja9$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-696240822, "Lcom/baidu/tieba/ja9$a;");
+                    return;
+                }
             }
-            cursor.close();
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
-            }
+            a = new ja9();
         }
     }
 
-    public static void b(Closeable closeable) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ja9() {
+        super(KVStorageFactory.getSharedPreferences(UBCCloudControlProcessor.SP_UBC_FILE_NAME));
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((SharedPreferences) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+    }
+
+    public static ja9 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a : (ja9) invokeV.objValue;
     }
 }

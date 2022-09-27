@@ -1,63 +1,85 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes4.dex */
-public abstract class ib3 extends ProviderDelegation {
+public class ib3 extends i53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947847695, "Lcom/baidu/tieba/ib3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947847695, "Lcom/baidu/tieba/ib3;");
-                return;
-            }
-        }
-        a = ij1.a;
-    }
-
-    public ib3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ib3(i43 i43Var) {
+        super(i43Var, "/swanAPI/setStorageSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public abstract Bundle c(hb3 hb3Var);
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public final Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
-            if (bundle.isEmpty()) {
-                return Bundle.EMPTY;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (l33Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            return c(hb3.b(bundle));
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                return false;
+            }
+            String Q = mt1.Q(optParamsAsJo);
+            if (Q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (ua3.b(Q)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage key max length");
+                return false;
+            } else {
+                String P = mt1.P(optParamsAsJo);
+                if (P == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                } else if (ua3.c(P)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
+                    return false;
+                } else {
+                    ua3 f0 = l33Var.f0();
+                    if (f0.m(Q, P)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
+                        return false;
+                    }
+                    f0.g().putString(Q, P);
+                    hf3.h.update();
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                    return true;
+                }
+            }
         }
-        return (Bundle) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

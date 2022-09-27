@@ -1,159 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.cfg.VideoOption;
-import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
-import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
-import com.qq.e.comm.util.AdError;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class sn9 extends en9<UnifiedInterstitialAD> {
+public class sn9 extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements UnifiedInterstitialADListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public boolean b;
-        public final /* synthetic */ UnifiedInterstitialAD[] c;
-        public final /* synthetic */ sn9 d;
-
-        public a(sn9 sn9Var, UnifiedInterstitialAD[] unifiedInterstitialADArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sn9Var, unifiedInterstitialADArr};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = sn9Var;
-            this.c = unifiedInterstitialADArr;
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onADClicked() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClicked(this.c[0], this.b, new String[0]);
-                this.b = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onADClosed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                LogPrinter.d();
-                this.d.onAdClose(this.c[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onADExposure() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c[0], this.a, new String[0]);
-                this.a = true;
-            }
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onADLeftApplication() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onADOpened() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onADReceive() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-                LogPrinter.d("onADReceive", new Object[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onNoAD(AdError adError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, adError) == null) {
-                LogPrinter.e("onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
-                this.d.onError(adError.getErrorCode(), adError.getErrorMsg());
-            }
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onRenderFail() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-                this.d.onError(0, "renderFail");
-            }
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onRenderSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-                this.d.onAdLoaded((sn9) this.c[0]);
-            }
-        }
-
-        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
-        public void onVideoCached() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                LogPrinter.d();
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sn9(FunAdType funAdType, Ssp.Pid pid) {
-        super(funAdType, pid, false);
+    public sn9(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -161,89 +36,75 @@ public class sn9 extends en9<UnifiedInterstitialAD> {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sn9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid, false);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public AdRipper createAdRipper(Ssp.Pid pid) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new fn9(pid) : (AdRipper) invokeL.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        UnifiedInterstitialAD unifiedInterstitialAD;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) || (unifiedInterstitialAD = (UnifiedInterstitialAD) obj) == null) {
-            return;
-        }
-        try {
-            unifiedInterstitialAD.destroy();
-        } catch (Exception unused) {
-        }
-    }
-
-    public void e(Activity activity, UnifiedInterstitialAD unifiedInterstitialAD) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, unifiedInterstitialAD) == null) {
-            unifiedInterstitialAD.show(activity);
-        }
-    }
-
-    public void i(UnifiedInterstitialAD unifiedInterstitialAD) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, unifiedInterstitialAD) == null) {
-            unifiedInterstitialAD.loadAD();
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
-            onLoadStart(funAdSlot);
-            if (!(context instanceof Activity)) {
-                onError(0, "NotActivity");
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj == null) {
+                return null;
             }
-            UnifiedInterstitialAD unifiedInterstitialAD = new UnifiedInterstitialAD((Activity) context, this.mPid.pid, new a(this, r1));
-            UnifiedInterstitialAD[] unifiedInterstitialADArr = {unifiedInterstitialAD};
-            unifiedInterstitialAD.setVideoOption(new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(false).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build());
-            unifiedInterstitialAD.setMinVideoDuration(0);
-            unifiedInterstitialAD.setMaxVideoDuration(0);
-            i(unifiedInterstitialAD);
+            try {
+                Field declaredField = obj.getClass().getDeclaredField("a");
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
+                }
+                Field declaredField2 = obj2.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
+                declaredField2.setAccessible(true);
+                Object obj3 = declaredField2.get(obj2);
+                if (obj3 == null) {
+                    return null;
+                }
+                Field declaredField3 = obj3.getClass().getDeclaredField("b");
+                declaredField3.setAccessible(true);
+                Object obj4 = declaredField3.get(obj3);
+                if (obj4 == null) {
+                    return null;
+                }
+                Field declaredField4 = obj4.getClass().getDeclaredField("c");
+                declaredField4.setAccessible(true);
+                Object obj5 = declaredField4.get(obj4);
+                if (obj5 == null) {
+                    return null;
+                }
+                Field declaredField5 = obj5.getClass().getDeclaredField("d");
+                declaredField5.setAccessible(true);
+                Object obj6 = declaredField5.get(obj5);
+                if (obj6 == null) {
+                    return null;
+                }
+                Field declaredField6 = obj6.getClass().getDeclaredField("b");
+                declaredField6.setAccessible(true);
+                Object obj7 = declaredField6.get(obj6);
+                if (obj7 == null) {
+                    return null;
+                }
+                Field declaredField7 = obj7.getClass().getDeclaredField("a");
+                declaredField7.setAccessible(true);
+                Object obj8 = declaredField7.get(obj7);
+                if (obj8 == null) {
+                    return null;
+                }
+                Field declaredField8 = obj8.getClass().getDeclaredField("i");
+                declaredField8.setAccessible(true);
+                Object obj9 = declaredField8.get(obj8);
+                if (obj9 == null) {
+                    return null;
+                }
+                Field declaredField9 = obj9.getClass().getDeclaredField("L");
+                declaredField9.setAccessible(true);
+                JSONObject jSONObject = (JSONObject) declaredField9.get(obj9);
+                if (jSONObject == null) {
+                    return null;
+                }
+                return on9.a(jSONObject);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
+            }
         }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
-            UnifiedInterstitialAD unifiedInterstitialAD = (UnifiedInterstitialAD) obj;
-            onShowStart(unifiedInterstitialAD);
-            e(activity, unifiedInterstitialAD);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

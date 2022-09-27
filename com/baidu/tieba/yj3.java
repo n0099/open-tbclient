@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yj3 {
+public class yj3 implements xm1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
     public yj3() {
         Interceptable interceptable = $ic;
@@ -21,6 +21,14 @@ public class yj3 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.xm1
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            kk3.i(context);
         }
     }
 }

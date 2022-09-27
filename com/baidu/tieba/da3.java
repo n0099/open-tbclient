@@ -1,128 +1,149 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.sapi2.ecommerce.activity.AddressEditActivity;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.io2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONException;
+import java.util.HashSet;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class da3 {
+public final class da3 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ SwanInterfaceType e;
-
-        public a(int i, String str, String str2, String str3, SwanInterfaceType swanInterfaceType) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947697779, "Lcom/baidu/tieba/da3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, str2, str3, swanInterfaceType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = i;
-            this.b = str;
-            this.c = str2;
-            this.d = str3;
-            this.e = swanInterfaceType;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947697779, "Lcom/baidu/tieba/da3;");
+                return;
+            }
         }
+        boolean z = vj1.a;
+        a = 0;
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int i = this.a;
-                boolean z = (i == 2000 || i == 0) ? false : true;
-                String n = r93.n(x23.K().k());
-                JSONObject jSONObject = new JSONObject();
-                yf3.f(jSONObject, BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, x23.K().getAppId());
-                yf3.f(jSONObject, "hostName", fm2.n().a());
-                yf3.f(jSONObject, "network", zi4.e());
-                yf3.f(jSONObject, "launchid", x23.K().q().W().V());
-                if (z) {
-                    yf3.f(jSONObject, "response", this.b);
-                    yf3.f(jSONObject, "statusCode", this.c);
-                    yf3.f(jSONObject, "request_url", this.d);
-                }
-                da3.d(n, this.e.getClassify(), this.e.getInterfaceName(), this.a, jSONObject, z);
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65537, null, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        io2.a W = k33.K().q().W();
+        String i = qc3.i(W.j0(), W.G());
+        if (!jSONObject.has("appid")) {
+            lg3.f(jSONObject, "appid", W.H());
+        }
+        if (!jSONObject.has("swan")) {
+            lg3.f(jSONObject, "swan", i);
+        }
+        if (!jSONObject.has("appversion")) {
+            lg3.f(jSONObject, "appversion", W.v1());
+        }
+        if (!jSONObject.has("swanNativeVersion")) {
+            lg3.f(jSONObject, "swanNativeVersion", wj1.a());
+        }
+        if (!jSONObject.has("thirdversion")) {
+            lg3.f(jSONObject, "thirdversion", W.w1());
+        }
+        if (!k33.K().q().y0() || jSONObject.has("isWebDowngrade")) {
+            return;
+        }
+        lg3.f(jSONObject, "isWebDowngrade", "1");
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
+            String o = dh3.o(str);
+            if (TextUtils.isEmpty(o)) {
+                return str;
+            }
+            HashSet hashSet = new HashSet();
+            hashSet.add("bduss");
+            hashSet.add("bduss".toUpperCase());
+            String i = dh3.i(o, hashSet);
+            String f = dh3.f(str);
+            return f + "?" + i;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? a : invokeV.intValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            a = i;
         }
     }
 
-    public static void a(SwanInterfaceType swanInterfaceType) {
+    public static <EvenT extends na3> EvenT e(EvenT event, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, swanInterfaceType) == null) {
-            c(swanInterfaceType, 2000, null, null);
-        }
-    }
-
-    public static void b(SwanInterfaceType swanInterfaceType, int i, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{swanInterfaceType, Integer.valueOf(i), str, str2, str3}) == null) {
-            sf3.j(new a(i, str3, str2, str, swanInterfaceType), "onInterfaceStabilityStatistic");
-        }
-    }
-
-    public static void c(SwanInterfaceType swanInterfaceType, int i, String str, Response response) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(65538, null, swanInterfaceType, i, str, response) == null) {
-            String str3 = null;
-            if (response != null) {
-                String valueOf = String.valueOf(response.code());
-                str3 = response.request().url().toString();
-                str2 = valueOf;
-            } else {
-                str2 = null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
+            if (event != null && !TextUtils.isEmpty(str)) {
+                event.a(str, obj);
             }
-            b(swanInterfaceType, i, str3, str2, str);
+            return event;
         }
+        return (EvenT) invokeLLL.objValue;
     }
 
-    public static void d(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z) {
+    public static <EvenT extends na3> EvenT f(EvenT event) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, Integer.valueOf(i), jSONObject, Boolean.valueOf(z)}) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("from", str);
-                jSONObject2.put("type", str2);
-                if (!TextUtils.isEmpty(str3)) {
-                    jSONObject2.put("page", str3);
-                }
-                jSONObject2.put("value", String.valueOf(i));
-                if (jSONObject != null) {
-                    jSONObject2.put("ext", jSONObject);
-                }
-                f93.k("874", jSONObject2);
-                if (z) {
-                    f93.i("2486", AddressEditActivity.CHINA_REGION_CODE, jSONObject2);
-                }
-            } catch (JSONException e) {
-                if (y23.v) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
+            e(event, "isDownloading", String.valueOf(k33.K().q().F0() ? 1 : 0));
+            return event;
         }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends na3> EvenT g(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
+            e(event, "launchType", c() == 2 ? "2" : "1");
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends na3> EvenT h(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
+            e(event, "packageState", String.valueOf(k33.K().q().E0()));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends na3> EvenT i(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
+            e(event, "coreState", String.valueOf(fa2.B0()));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
     }
 }

@@ -1,8 +1,8 @@
 package com.baidu.searchbox.network.outback;
 
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.de1;
-import com.baidu.tieba.fe1;
+import com.baidu.tieba.qe1;
+import com.baidu.tieba.se1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ public class OutbackComponentHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public fe1<IOutbackContext> outbackContextHolder;
+    public se1<IOutbackContext> outbackContextHolder;
 
     public OutbackComponentHolder() {
         Interceptable interceptable = $ic;
@@ -33,7 +33,7 @@ public class OutbackComponentHolder {
     public void initoutbackContextHolder() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            de1 b = de1.b();
+            qe1 b = qe1.b();
             this.outbackContextHolder = b;
             b.a(new IOutbackContext_OutbackComponentHolder_Provider());
         }

@@ -1,26 +1,56 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.widget.EditText;
-import android.widget.TextView;
+import com.baidu.live.business.base.LiveBaseFragment;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class ia0 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static WeakReference<LiveBaseFragment> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLI(65536, null, editText, i) == null) || Build.VERSION.SDK_INT >= 29) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947846641, "Lcom/baidu/tieba/ia0;")) == null) {
             return;
         }
-        try {
-            Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
-            declaredField.setAccessible(true);
-            declaredField.set(editText, Integer.valueOf(i));
-        } catch (Exception unused) {
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947846641, "Lcom/baidu/tieba/ia0;");
+        }
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.intValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = 0;
+            WeakReference<LiveBaseFragment> weakReference = b;
+            if (weakReference != null) {
+                weakReference.clear();
+                b = null;
+            }
+        }
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            a = i;
         }
     }
 }

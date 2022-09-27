@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -73,7 +73,7 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(null);
             SkinManager.setImageResource(this.a, R.drawable.im_no_data_icon);
-            uu4 d = uu4.d(this.b);
+            hv4 d = hv4.d(this.b);
             d.v(R.color.CAM_X0110);
             d.z(R.dimen.T_X08);
         }

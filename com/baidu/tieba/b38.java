@@ -1,139 +1,81 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.card.view.CardForumHeadLayout;
+import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b38 extends rn {
+public class b38 extends qn<ew7, VideoPbEnterForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseFragment b;
-    public b c;
-    public TBSpecificationBtn d;
-    public View.OnClickListener e;
 
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b38 a;
-
-        public a(b38 b38Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {b38Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = b38Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ViewHelper.skipToLoginActivity(this.a.b.getContext());
-                if (this.a.c != null) {
-                    this.a.c.V0(true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface b {
-        void V0(boolean z);
-    }
-
-    public b38(BaseFragment baseFragment, b bVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b38(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragment, bVar};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.b = baseFragment;
-        this.c = bVar;
     }
 
-    @Override // com.baidu.tieba.rn
-    public View a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.qn
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ew7 ew7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
+        t(i, view2, viewGroup, ew7Var, videoPbEnterForumViewHolder);
+        return view2;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qn
+    /* renamed from: s */
+    public VideoPbEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0568, (ViewGroup) null);
-            this.a = inflate;
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f091440);
-            zx4 zx4Var = new zx4();
-            BaseFragment baseFragment = this.b;
-            if (baseFragment != null && baseFragment.getContext() != null) {
-                this.d.setText(this.b.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0a80));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.mContext);
+            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
+            cardForumHeadLayout.setPadding(ej.f(this.mContext, R.dimen.tbds32), 0, 0, 0);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, ej.f(this.mContext, R.dimen.tbds156));
+            layoutParams.leftMargin = ej.f(this.mContext, R.dimen.tbds44);
+            layoutParams.rightMargin = ej.f(this.mContext, R.dimen.tbds44);
+            layoutParams.bottomMargin = ej.f(this.mContext, R.dimen.tbds76);
+            frameLayout.addView(cardForumHeadLayout, layoutParams);
+            return new VideoPbEnterForumViewHolder(frameLayout);
+        }
+        return (VideoPbEnterForumViewHolder) invokeL.objValue;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, ew7 ew7Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ew7Var, videoPbEnterForumViewHolder})) == null) {
+            if (ew7Var != null) {
+                videoPbEnterForumViewHolder.setData(ew7Var.a);
             }
-            this.d.setTextSize(R.dimen.tbds42);
-            this.d.setConfig(zx4Var);
-            this.d.setOnClickListener(this.e);
-            f(TbadkCoreApplication.getInst().getSkinType());
-            return this.a;
+            videoPbEnterForumViewHolder.a();
+            return view2;
         }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.rn
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            td5.a(this.b.getPageContext(), this.a);
-            TBSpecificationBtn tBSpecificationBtn = this.d;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-        }
-    }
-
-    public void h(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.d.setOnClickListener(onClickListener);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.c39;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.fx4;
 import com.baidu.tieba.gh;
-import com.baidu.tieba.hx4;
-import com.baidu.tieba.n29;
+import com.baidu.tieba.sx4;
+import com.baidu.tieba.ux4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,12 +33,12 @@ public class NewVcodeView {
     public transient /* synthetic */ FieldHolder $fh;
     public BaseActivity a;
     public int b;
-    public n29 c;
+    public c39 c;
     public BaseWebView d;
     public View e;
-    public fx4 f;
+    public sx4 f;
     public TextView g;
-    public hx4 h;
+    public ux4 h;
     public boolean i;
     public Runnable j;
     public float k;
@@ -117,14 +117,14 @@ public class NewVcodeView {
             } else {
                 newVcodeActivity.setContentView(R.layout.obfuscated_res_0x7f0d0656);
             }
-            View findViewById = newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091a58);
+            View findViewById = newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f091a5a);
             this.e = findViewById;
             TextView textView = (TextView) findViewById.findViewById(R.id.obfuscated_res_0x7f090755);
             this.g = textView;
             textView.setText(newVcodeActivity.getResources().getString(R.string.obfuscated_res_0x7f0f1133));
-            hx4 hx4Var = new hx4();
-            this.h = hx4Var;
-            hx4Var.a = 1000L;
+            ux4 ux4Var = new ux4();
+            this.h = ux4Var;
+            ux4Var.a = 1000L;
             if (this.d == null) {
                 try {
                     this.d = (BaseWebView) newVcodeActivity.findViewById(R.id.obfuscated_res_0x7f0916aa);
@@ -232,9 +232,9 @@ public class NewVcodeView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (this.f == null) {
-                fx4 fx4Var = new fx4(this.a.getPageContext());
-                this.f = fx4Var;
-                fx4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
+                sx4 sx4Var = new sx4(this.a.getPageContext());
+                this.f = sx4Var;
+                sx4Var.e(new DialogInterface.OnCancelListener(this) { // from class: com.baidu.tieba.write.vcode.newVcode.NewVcodeView.3
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ NewVcodeView a;
@@ -285,10 +285,10 @@ public class NewVcodeView {
         this.d.loadUrl("javascript:window." + str + "(" + str2 + SmallTailInfo.EMOTION_SUFFIX);
     }
 
-    public void setPresenter(n29 n29Var) {
+    public void setPresenter(c39 c39Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, n29Var) == null) {
-            this.c = n29Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, c39Var) == null) {
+            this.c = c39Var;
             this.i = false;
         }
     }

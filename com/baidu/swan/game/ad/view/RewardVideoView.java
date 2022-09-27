@@ -13,9 +13,9 @@ import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pq3;
-import com.baidu.tieba.qr3;
-import com.baidu.tieba.tr3;
+import com.baidu.tieba.cr3;
+import com.baidu.tieba.ds3;
+import com.baidu.tieba.gs3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class RewardVideoView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tr3 a;
+    public gs3 a;
     public Context b;
     public boolean c;
     public VolumeBroadcastReceiver d;
@@ -91,34 +91,34 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     @NonNull
-    public final pq3 b() {
+    public final cr3 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            pq3 pq3Var = new pq3();
-            pq3Var.f = true;
-            pq3Var.b = this.c;
-            pq3Var.o = false;
-            pq3Var.z = false;
-            pq3Var.v = false;
-            return pq3Var;
+            cr3 cr3Var = new cr3();
+            cr3Var.f = true;
+            cr3Var.b = this.c;
+            cr3Var.o = false;
+            cr3Var.z = false;
+            cr3Var.v = false;
+            return cr3Var;
         }
-        return (pq3) invokeV.objValue;
+        return (cr3) invokeV.objValue;
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            tr3 c = qr3.c();
+            gs3 c = ds3.c();
             c.e(getContext(), b());
             this.a = c;
             AudioManager audioManager = (AudioManager) this.b.getSystemService("audio");
             this.c = audioManager.getStreamVolume(3) <= (Build.VERSION.SDK_INT >= 28 ? audioManager.getStreamMinVolume(3) : 0);
             FrameLayout frameLayout = new FrameLayout(this.b);
             addView(frameLayout, new RelativeLayout.LayoutParams(-1, -1));
-            tr3 tr3Var = this.a;
-            if (tr3Var != null) {
-                tr3Var.a(frameLayout);
+            gs3 gs3Var = this.a;
+            if (gs3Var != null) {
+                gs3Var.a(frameLayout);
             }
         }
     }
@@ -130,29 +130,29 @@ public class RewardVideoView extends RelativeLayout {
     }
 
     public void e(boolean z) {
-        tr3 tr3Var;
+        gs3 gs3Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (tr3Var = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeZ(1048579, this, z) == null) || (gs3Var = this.a) == null) {
             return;
         }
         this.c = z;
-        tr3Var.mute(z);
+        gs3Var.mute(z);
     }
 
     public void f(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            pq3 b = b();
+            cr3 b = b();
             b.p = str;
             this.a.h(b);
             this.a.d(false);
         }
     }
 
-    public tr3 getPlayer() {
+    public gs3 getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (tr3) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a : (gs3) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View

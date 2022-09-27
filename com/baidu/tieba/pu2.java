@@ -6,22 +6,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import okhttp3.Interceptor;
-import okhttp3.Request;
-import okhttp3.Response;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
+import okio.Okio;
+import okio.Source;
 /* loaded from: classes5.dex */
-public class pu2 implements Interceptor {
+public class pu2 extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
+    public final File a;
+    public final fv2 b;
+    public final String c;
 
-    public pu2() {
+    public pu2(File file, String str, fv2 fv2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {file, str, fv2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,35 +36,46 @@ public class pu2 implements Interceptor {
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.a = file;
+        this.c = str;
+        this.b = fv2Var;
     }
 
-    public void a(HashMap<String, String> hashMap) {
+    @Override // okhttp3.RequestBody
+    public long contentLength() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
-            this.a.clear();
-            if (hashMap == null || hashMap.size() < 1) {
-                return;
-            }
-            this.a = hashMap;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.length() : invokeV.longValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? MediaType.parse(this.c) : (MediaType) invokeV.objValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public void writeTo(BufferedSink bufferedSink) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) != null) {
+            return;
         }
-    }
-
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain)) == null) {
-            HashMap<String, String> hashMap = this.a;
-            if (hashMap != null && hashMap.size() >= 1) {
-                Request.Builder newBuilder = chain.request().newBuilder();
-                for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                    newBuilder.addHeader(entry.getKey(), entry.getValue());
+        Source source = null;
+        try {
+            source = Okio.source(this.a);
+            long j = 0;
+            while (true) {
+                long read = source.read(bufferedSink.buffer(), 2048L);
+                if (read == -1) {
+                    return;
                 }
-                return chain.proceed(newBuilder.build());
+                j += read;
+                bufferedSink.flush();
+                this.b.a(j);
             }
-            return chain.proceed(chain.request());
+        } finally {
+            pj4.d(source);
         }
-        return (Response) invokeL.objValue;
     }
 }

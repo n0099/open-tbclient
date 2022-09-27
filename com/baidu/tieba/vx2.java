@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.AnyThread;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,99 +16,157 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes6.dex */
-public class vx2 implements rh3<HybridUbcFlow> {
+public class vx2 implements po2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948256089, "Lcom/baidu/tieba/vx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final vx2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-331658533, "Lcom/baidu/tieba/vx2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-331658533, "Lcom/baidu/tieba/vx2$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948256089, "Lcom/baidu/tieba/vx2;");
-                return;
+            a = new vx2(null);
+        }
+    }
+
+    public /* synthetic */ vx2(a aVar) {
+        this();
+    }
+
+    public static vx2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (vx2) invokeV.objValue;
+    }
+
+    @Nullable
+    @UiThread
+    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeCommon;
+        ViewGroup.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
+            View d = d(i);
+            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
+                if (layoutParams2 == null) {
+                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
+                } else {
+                    layoutParams2.width = layoutParams.width;
+                    layoutParams2.height = layoutParams.height;
+                }
+                d.setLayoutParams(layoutParams2);
+            }
+            if (d == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                View inflate = LayoutInflater.from(sm2.c()).inflate(i, viewGroup, z);
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (po2.a) {
+                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                }
+                return inflate;
+            }
+            return d;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @AnyThread
+    public void c(@LayoutRes int... iArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) || iArr == null || iArr.length == 0) {
+            return;
+        }
+        try {
+            long currentTimeMillis = System.currentTimeMillis();
+            int length = iArr.length;
+            LayoutInflater from = LayoutInflater.from(sm2.c());
+            for (int i : iArr) {
+                View inflate = from.inflate(i, (ViewGroup) null);
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                if (copyOnWriteArrayList == null) {
+                    copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+                }
+                copyOnWriteArrayList.add(inflate);
+                this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
+            }
+            if (po2.a) {
+                long currentTimeMillis2 = System.currentTimeMillis();
+                Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+            }
+        } catch (Exception e) {
+            if (po2.a) {
+                Log.d("SwanPerformance", Log.getStackTraceString(e));
             }
         }
-        a = new ArrayList(5);
+    }
+
+    @Nullable
+    @AnyThread
+    public View d(@LayoutRes int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            View view2 = null;
+            try {
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
+                    view2 = copyOnWriteArrayList.remove(0);
+                }
+            } catch (Exception e) {
+                if (po2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
+                }
+            }
+            if (po2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("tryObtainLayoutByResId resId = ");
+                sb.append(i);
+                sb.append(view2 == null ? " cache view is null" : " adopt cached view");
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return view2;
+        }
+        return (View) invokeI.objValue;
     }
 
     public vx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rh3
-    /* renamed from: b */
-    public void a(@NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            sx2.g().d(false);
-            String h = hybridUbcFlow.h("launchid");
-            if (!TextUtils.isEmpty(h)) {
-                synchronized (a) {
-                    if (!a.contains(h)) {
-                        a.add(h);
-                        d(h, hybridUbcFlow);
-                    }
-                }
-            }
-            String str = (String) hybridUbcFlow.k("routeId");
-            if (TextUtils.isEmpty(str)) {
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            synchronized (a) {
-                if (!a.contains(str)) {
-                    a.add(str);
-                    c(str, hybridUbcFlow);
-                }
-            }
         }
-    }
-
-    public final void c(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hybridUbcFlow) == null) {
-            e(hybridUbcFlow);
-            UbcFlowEvent g = hybridUbcFlow.g("na_first_meaningful_paint");
-            HybridUbcFlow e = dw2.e("route", str);
-            if (e == null || g == null) {
-                return;
-            }
-            e.F(g);
-            e.B();
-        }
-    }
-
-    public final void d(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, hybridUbcFlow) == null) {
-            e(hybridUbcFlow);
-        }
-    }
-
-    public final void e(@NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, hybridUbcFlow) == null) || hybridUbcFlow.g("na_first_meaningful_paint") == null) {
-            return;
-        }
-        s92.U().U0(new fd2((String) hybridUbcFlow.k(PrefetchEvent.EVENT_DATA_WEBVIEW_ID), (String) hybridUbcFlow.k(PrefetchEvent.EVENT_KEY_PAGE_URL)));
+        this.c = new ConcurrentHashMap<>();
     }
 }

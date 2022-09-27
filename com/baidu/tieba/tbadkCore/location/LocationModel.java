@@ -11,11 +11,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.dm8;
+import com.baidu.tieba.ho8;
+import com.baidu.tieba.ox4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.rb;
-import com.baidu.tieba.sn8;
+import com.baidu.tieba.sm8;
 import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -229,7 +229,7 @@ public class LocationModel extends BdBaseModel {
     public static void F() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            dm8.h(303017, LocationSocketResponsedMessage.class, false, false);
+            sm8.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -245,8 +245,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             C(locationData);
-            sn8.a().f(System.currentTimeMillis());
-            sn8.a().d(locationData);
+            ho8.a().f(System.currentTimeMillis());
+            ho8.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);
@@ -269,7 +269,7 @@ public class LocationModel extends BdBaseModel {
     public void G(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = sn8.a().b();
+            LocationData b2 = ho8.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -281,8 +281,8 @@ public class LocationModel extends BdBaseModel {
     public void H(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            sn8.a().e(z);
-            bx4.k().u("no_longer_show_address", sn8.a().c());
+            ho8.a().e(z);
+            ox4.k().u("no_longer_show_address", ho8.a().c());
         }
     }
 

@@ -1,29 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public abstract class dr1 extends br1 {
+public class dr1 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(dr1 dr1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dr1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                z22.Y2();
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dr1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
+    public dr1(i43 i43Var) {
+        super(i43Var, "/swanAPI/setSelectedAddressSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
+            Object[] objArr = {i43Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -31,10 +69,46 @@ public abstract class dr1 extends br1 {
         }
     }
 
-    @Override // com.baidu.tieba.br1
-    public String h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.i53
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Account" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, l33Var)) == null) {
+            if (l33Var == null) {
+                l02.i("SetSelectedAddressSync", "framework error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                String optString = optParamsAsJo.optString("errno");
+                if (!TextUtils.equals(optString, "0")) {
+                    l02.i("SetSelectedAddressSync", "error no" + optString);
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error no" + optString);
+                    return false;
+                }
+                JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    j(optJSONObject);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
+                l02.i("SetSelectedAddressSync", "address data is empty");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "data is empty");
+                return false;
+            }
+            l02.i("SetSelectedAddressSync", "empty params");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void j(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            gr1.a().c(jSONObject);
+            fh3.a0(new a(this));
+        }
     }
 }

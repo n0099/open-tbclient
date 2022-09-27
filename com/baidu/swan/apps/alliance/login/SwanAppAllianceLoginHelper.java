@@ -3,22 +3,22 @@ package com.baidu.swan.apps.alliance.login;
 import android.os.Bundle;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.aa3;
-import com.baidu.tieba.fm2;
-import com.baidu.tieba.fn2;
-import com.baidu.tieba.hj4;
-import com.baidu.tieba.iq1;
-import com.baidu.tieba.jq1;
-import com.baidu.tieba.kj1;
-import com.baidu.tieba.ko1;
-import com.baidu.tieba.lq1;
-import com.baidu.tieba.lz2;
-import com.baidu.tieba.m22;
-import com.baidu.tieba.mj1;
-import com.baidu.tieba.mq1;
-import com.baidu.tieba.r93;
-import com.baidu.tieba.x23;
-import com.baidu.tieba.ys2;
+import com.baidu.tieba.ea3;
+import com.baidu.tieba.k33;
+import com.baidu.tieba.lt2;
+import com.baidu.tieba.na3;
+import com.baidu.tieba.sm2;
+import com.baidu.tieba.sn2;
+import com.baidu.tieba.uj4;
+import com.baidu.tieba.vq1;
+import com.baidu.tieba.wq1;
+import com.baidu.tieba.xj1;
+import com.baidu.tieba.xo1;
+import com.baidu.tieba.yq1;
+import com.baidu.tieba.yz2;
+import com.baidu.tieba.z22;
+import com.baidu.tieba.zj1;
+import com.baidu.tieba.zq1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes2.dex */
 public final class SwanAppAllianceLoginHelper {
     public static /* synthetic */ Interceptable $ic;
-    public static kj1 a;
+    public static xj1 a;
     public static final Lazy b;
     public static boolean c;
     public static final SwanAppAllianceLoginHelper d;
@@ -81,21 +81,21 @@ public final class SwanAppAllianceLoginHelper {
         if (interceptable == null || interceptable.invokeLL(1048576, this, value, ceresId) == null) {
             Intrinsics.checkNotNullParameter(value, "value");
             Intrinsics.checkNotNullParameter(ceresId, "ceresId");
-            aa3 aa3Var = new aa3();
-            aa3Var.b = lq1.h();
-            aa3Var.e = value;
-            x23 K = x23.K();
+            na3 na3Var = new na3();
+            na3Var.b = yq1.h();
+            na3Var.e = value;
+            k33 K = k33.K();
             Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-            aa3Var.a("appkey", K.getAppId());
-            r93.y(lq1.g(), ceresId, aa3Var);
+            na3Var.a("appkey", K.getAppId());
+            ea3.y(yq1.g(), ceresId, na3Var);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jq1.a.b();
-            mq1.b.d();
+            wq1.a.b();
+            zq1.b.d();
             j(false);
         }
     }
@@ -106,13 +106,13 @@ public final class SwanAppAllianceLoginHelper {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? c : invokeV.booleanValue;
     }
 
-    public final kj1 d() {
+    public final xj1 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a : (kj1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? a : (xj1) invokeV.objValue;
     }
 
-    public final List<mj1> e() {
+    public final List<zj1> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (List) b.getValue() : (List) invokeV.objValue;
@@ -122,10 +122,10 @@ public final class SwanAppAllianceLoginHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (lq1.i() == null) {
+            if (yq1.i() == null) {
                 k();
             }
-            Boolean i = lq1.i();
+            Boolean i = yq1.i();
             Intrinsics.checkNotNull(i);
             return i.booleanValue();
         }
@@ -136,13 +136,13 @@ public final class SwanAppAllianceLoginHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (lq1.i() == null) {
+            if (yq1.i() == null) {
                 k();
             }
-            if (!Intrinsics.areEqual(lq1.i(), Boolean.FALSE)) {
-                String a2 = jq1.a.a();
+            if (!Intrinsics.areEqual(yq1.i(), Boolean.FALSE)) {
+                String a2 = wq1.a.a();
                 if (!(a2 == null || StringsKt__StringsJVMKt.isBlank(a2))) {
-                    String a3 = mq1.b.a();
+                    String a3 = zq1.b.a();
                     if (!(a3 == null || StringsKt__StringsJVMKt.isBlank(a3))) {
                         return true;
                     }
@@ -167,31 +167,31 @@ public final class SwanAppAllianceLoginHelper {
         return invokeV.booleanValue;
     }
 
-    public final void i(kj1 listener) {
+    public final void i(xj1 listener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, listener) == null) {
             Intrinsics.checkNotNullParameter(listener, "listener");
-            if (lq1.i() == null) {
+            if (yq1.i() == null) {
                 k();
             }
-            Intrinsics.areEqual(lq1.i(), Boolean.FALSE);
+            Intrinsics.areEqual(yq1.i(), Boolean.FALSE);
             if (g()) {
                 listener.onResult(0);
                 return;
             }
-            ko1 n = fm2.n();
+            xo1 n = sm2.n();
             Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
-            String a2 = hj4.a("https://ossapi.baidu.com/oss/static/open_source_login_v3.html", "hostName", n.a());
-            fn2 G0 = fm2.G0();
+            String a2 = uj4.a("https://ossapi.baidu.com/oss/static/open_source_login_v3.html", "hostName", n.a());
+            sn2 G0 = sm2.G0();
             Intrinsics.checkNotNull(G0);
-            String a3 = hj4.a(a2, "zid", G0.a(fm2.c()));
-            ko1 n2 = fm2.n();
+            String a3 = uj4.a(a2, "zid", G0.a(sm2.c()));
+            xo1 n2 = sm2.n();
             Intrinsics.checkNotNullExpressionValue(n2, "SwanAppRuntime.getConfig()");
-            String a4 = hj4.a(a3, "appKey", n2.b());
-            m22.d3("allianceLogin", ys2.d(a4, a4));
+            String a4 = uj4.a(a3, "appKey", n2.b());
+            z22.d3("allianceLogin", lt2.d(a4, a4));
             a = listener;
             c = false;
-            a(lq1.e(), lq1.b());
+            a(yq1.e(), yq1.b());
         }
     }
 
@@ -200,7 +200,7 @@ public final class SwanAppAllianceLoginHelper {
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             Bundle bundle = new Bundle();
             bundle.putBoolean("status", z);
-            lz2.b(iq1.class, bundle);
+            yz2.b(vq1.class, bundle);
         }
     }
 
@@ -214,7 +214,7 @@ public final class SwanAppAllianceLoginHelper {
             } catch (ClassNotFoundException unused) {
                 bool = Boolean.TRUE;
             }
-            lq1.j(bool);
+            yq1.j(bool);
         }
     }
 

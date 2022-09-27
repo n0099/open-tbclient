@@ -1,97 +1,191 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
 import android.view.View;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ry6 {
+public class ry6 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<zy6> a;
+    public TbPageContext b;
+    public int c;
+    public int d;
+    public BdUniqueId e;
+    public boolean f;
 
-    public static void a(View view2, Object obj, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65536, null, view2, obj, i, str) == null) {
-            if (obj instanceof iz6) {
-                iz6 iz6Var = (iz6) obj;
-                if (iz6Var.e) {
-                    StatisticItem statisticItem = new StatisticItem("c13736");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    statisticItem.eventStat();
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem("c13735");
-                statisticItem2.param("obj_locate", str);
-                statisticItem2.param("topic_id", iz6Var.a);
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
-                statisticItem2.eventStat();
-            } else if (obj instanceof kz6) {
-                ThreadData threadData = ((kz6) obj).f;
-                StatisticItem statisticItem3 = new StatisticItem("c13738");
-                statisticItem3.param("obj_type", str);
-                statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
-                if (threadData != null) {
-                    statisticItem3.param("tid", threadData.getTid());
-                    statisticItem3.param("fid", threadData.getFid());
-                }
-                statisticItem3.eventStat();
-            } else if (obj instanceof lq4) {
-                d(view2);
-                if (c(view2)) {
-                    ThreadData threadData2 = ((lq4) obj).getThreadData();
-                    StatisticItem statisticItem4 = new StatisticItem("c13738");
-                    statisticItem4.param("obj_type", str);
-                    statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (threadData2 != null) {
-                        statisticItem4.param("tid", threadData2.getTid());
-                        statisticItem4.param("fid", threadData2.getFid());
-                    }
-                    statisticItem4.eventStat();
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public BarImageView b;
+        public ImageView c;
+
+        public b(ry6 ry6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ry6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
+
+        public /* synthetic */ b(ry6 ry6Var, a aVar) {
+            this(ry6Var);
+        }
     }
 
-    public static void b(View view2, Object obj, String str) {
-        ThreadData threadData;
+    public ry6(TbPageContext tbPageContext, int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, view2, obj, str) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13825");
-            statisticItem.param("obj_type", str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            if (obj instanceof kz6) {
-                threadData = ((kz6) obj).f;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = -1;
+        this.f = false;
+        this.b = tbPageContext;
+        this.e = bdUniqueId;
+        this.d = i;
+        this.c = ox4.k().l("key_game_video_tab_has_choosed_sub_class_id", -1);
+    }
+
+    public final void a(b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) || bVar == null) {
+            return;
+        }
+        SkinManager.setViewTextColor(bVar.a, (int) R.color.CAM_X0107);
+        SkinManager.setImageResource(bVar.c, R.drawable.icon_game_video_tab_choose_select);
+    }
+
+    public void b(List<zy6> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+            if (this.f || ListUtils.isEmpty(list)) {
+                return;
+            }
+            for (zy6 zy6Var : list) {
+                if (!StringUtils.isNull(zy6Var.c)) {
+                    zg.h().m(zy6Var.c, 10, null, this.e);
+                }
+            }
+            this.f = true;
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? ListUtils.getCount(this.a) : invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? ListUtils.getItem(this.a, i) : invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                bVar = new b(this, null);
+                view3 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d037b, (ViewGroup) null);
+                bVar.a = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090e41);
+                bVar.b = (BarImageView) view3.findViewById(R.id.obfuscated_res_0x7f090e3f);
+                bVar.c = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090e40);
+                bVar.b.setShowOval(true);
+                bVar.b.setAutoChangeStyle(true);
+                bVar.b.setBorderColor(this.b.getResources().getColor(R.color.black_alpha8));
+                bVar.b.setBorderWidth(this.b.getResources().getDimensionPixelOffset(R.dimen.tbds3));
+                view3.setTag(bVar);
             } else {
-                threadData = obj instanceof lq4 ? ((lq4) obj).getThreadData() : null;
+                view3 = view2;
+                bVar = (b) view2.getTag();
             }
-            if (threadData != null) {
-                statisticItem.param("tid", threadData.getTid());
-                statisticItem.param("fid", threadData.getFid());
+            a(bVar);
+            zy6 zy6Var = (zy6) ListUtils.getItem(this.a, i);
+            if (zy6Var != null) {
+                bVar.a.setText(StringUtils.isNull(zy6Var.b) ? "" : zy6Var.b);
+                bVar.b.K(zy6Var.c, 10, false);
+                if (zy6Var.d == 1) {
+                    bVar.b.setAlpha(1);
+                    bVar.a.setAlpha(1.0f);
+                } else {
+                    bVar.b.setAlpha(0.5f);
+                    bVar.a.setAlpha(0.5f);
+                }
+                if (zy6Var.a == this.c && this.d != 101) {
+                    bVar.c.setVisibility(0);
+                } else {
+                    bVar.c.setVisibility(8);
+                }
             }
-            statisticItem.eventStat();
+            return view3;
         }
-    }
-
-    public static boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            int id = view2.getId();
-            return id == R.id.obfuscated_res_0x7f09217e || id == R.id.obfuscated_res_0x7f092192;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, view2) == null) && (view2 instanceof TbImageView)) {
-            new StatisticItem("c14675").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_TO, UbsABTestHelper.isImgClickToPb() ? 1 : 2).eventStat();
-        }
+        return (View) invokeILL.objValue;
     }
 }

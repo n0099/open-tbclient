@@ -1,5 +1,25 @@
 package com.baidu.tieba;
+
+import com.baidu.searchbox.live.interfaces.net.INetWork;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface yb0<T> {
-    T a();
+public class yb0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static INetWork a;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static INetWork a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? a : (INetWork) invokeV.objValue;
+    }
+
+    public static void b(INetWork iNetWork) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, iNetWork) == null) {
+            a = iNetWork;
+        }
+    }
 }

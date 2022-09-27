@@ -25,7 +25,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class a extends com.kwad.components.core.i.b implements a.InterfaceC0580a, x.b {
+public class a extends com.kwad.components.core.i.b implements a.InterfaceC0576a, x.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean Fu;
@@ -167,7 +167,7 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0580a
         }
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0580a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0576a
     public final void r(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
@@ -175,7 +175,7 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0580a
         }
     }
 
-    @Override // com.kwad.components.core.kwai.a.InterfaceC0580a
+    @Override // com.kwad.components.core.kwai.a.InterfaceC0576a
     public final void s(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {

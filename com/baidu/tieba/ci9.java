@@ -1,39 +1,37 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes3.dex */
-public class ci9 {
+public final class ci9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public ge1<ii9> a;
 
-    public ci9() {
+    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
+            return cipher.doFinal(bArr);
         }
-        a();
+        return (byte[]) invokeLLL.objValue;
     }
 
-    public void a() {
+    public static byte[] b(String str, String str2, byte[] bArr) throws Exception {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ee1 b = ee1.b();
-            this.a = b;
-            b.a(new ji9());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, bArr)) == null) {
+            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+            cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
+            return cipher.doFinal(bArr);
         }
+        return (byte[]) invokeLLL.objValue;
     }
 }

@@ -1,234 +1,293 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.Looper;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oq9;
+import com.baidu.tieba.kq9.a;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdLoadListener;
+import com.fun.ad.sdk.FunAdLoader;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.SidSessionMeta;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public final class kq9 {
+public abstract class kq9<S extends a> implements FunAdLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static kq9 e;
-    public static jq9 f;
+    public static final /* synthetic */ boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public oq9 a;
-    public qq9 b;
-    public pq9 c;
-    public List<lq9> d;
+    public final Object a;
+    public S b;
 
     /* loaded from: classes4.dex */
-    public class a implements oq9.b {
+    public static abstract class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kq9 a;
+        public final SidSessionMeta a;
+        public final com.fun.h0 b;
+        public FunAdLoadListener c;
 
-        public a(kq9 kq9Var) {
+        public a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kq9Var};
+                Object[] objArr = {str, Integer.valueOf(i), str2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = kq9Var;
+            SidSessionMeta sidSessionMeta = new SidSessionMeta(str, i);
+            this.a = sidSessionMeta;
+            this.b = new com.fun.h0(sidSessionMeta, str2);
         }
 
-        @Override // com.baidu.tieba.oq9.b
-        public void a(long j, long j2, long j3, long j4) {
+        public abstract void a(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener);
+
+        public final void b(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                ArrayList<String> e = this.a.b.e(j, j2);
-                if (e.isEmpty()) {
-                    return;
-                }
-                rq9 b = rq9.b();
-                b.c(j, j2, j3, j4);
-                b.d(this.a.c.e());
-                b.e(e);
-                b.a();
-                if (kq9.getContext().displayNotification()) {
-                    nq9.c(b.toString());
-                }
-                if (this.a.d.size() != 0) {
-                    for (lq9 lq9Var : this.a.d) {
-                        lq9Var.onBlock(kq9.getContext().provideContext(), b);
-                    }
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                com.fun.h0 h0Var = this.b;
+                h0Var.getClass();
+                h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, str);
+                this.c.onError(this.a.sid);
+                g();
             }
         }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c == null : invokeV.booleanValue;
+        }
+
+        public abstract boolean d(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
+
+        public abstract FunSplashAd e(Activity activity, ViewGroup viewGroup, FunAdInteractionListener funAdInteractionListener);
+
+        public final void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.b.b("ldr_ld_succeed", new Object[0]);
+                this.c.onAdLoaded(this.a.sid);
+                g();
+            }
+        }
+
+        public abstract void g();
     }
 
-    /* loaded from: classes4.dex */
-    public static class b implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921878, "Lcom/baidu/tieba/kq9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ".log";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947921878, "Lcom/baidu/tieba/kq9;");
+                return;
+            }
         }
-
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) ? str.endsWith(this.a) : invokeLL.booleanValue;
-        }
+        c = !kq9.class.desiredAssertionStatus();
     }
 
     public kq9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new LinkedList();
-        this.b = new qq9(Looper.getMainLooper().getThread(), f.provideDumpInterval());
-        this.c = new pq9(f.provideDumpInterval());
-        l(new oq9(new a(this), getContext().provideBlockThreshold(), getContext().stopWhenDebugging()));
-        nq9.b();
+        this.a = new Object();
     }
 
-    public static File c() {
-        InterceptResult invokeV;
+    public static /* synthetic */ int e(PidLoader pidLoader, PidLoader pidLoader2) {
+        return -Double.compare(pidLoader.getBiddingOrBasePrices(), pidLoader2.getBiddingOrBasePrices());
+    }
+
+    public final PidLoader a(PidLoader pidLoader, PidLoader pidLoader2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(h());
-            if (!file.exists()) {
-                file.mkdirs();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, pidLoader, pidLoader2)) == null) {
+            if (pidLoader == null && pidLoader2 == null) {
+                return null;
             }
-            return file;
+            return (pidLoader != null && (pidLoader2 == null || pidLoader.getBiddingOrBasePrices() >= pidLoader2.getBiddingOrBasePrices())) ? pidLoader : pidLoader2;
         }
-        return (File) invokeV.objValue;
+        return (PidLoader) invokeLL.objValue;
     }
 
-    public static kq9 e() {
+    public final S b() {
         InterceptResult invokeV;
+        S s;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (kq9.class) {
-                    if (e == null) {
-                        e = new kq9();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this.a) {
+                s = this.b;
+                if (s == null) {
+                    s = f();
+                    if (!c && s == null) {
+                        throw new AssertionError();
                     }
+                    this.b = s;
                 }
             }
-            return e;
+            return s;
         }
-        return (kq9) invokeV.objValue;
+        return (S) invokeV.objValue;
     }
 
-    public static File[] f() {
-        InterceptResult invokeV;
+    public final <N> N c(List<PidLoader> list, List<PidLoader> list2, wk9<N> wk9Var, String str) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File c = c();
-            if (c.exists() && c.isDirectory()) {
-                return c.listFiles(new b());
+        if (interceptable != null && (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, list, list2, wk9Var, str)) != null) {
+            return (N) invokeLLLL.objValue;
+        }
+        LinkedList<PidLoader> d = d(list);
+        Collections.sort(d, dk9.a);
+        LinkedList<PidLoader> d2 = d(list2);
+        PidLoader poll = d.poll();
+        PidLoader poll2 = d2.poll();
+        while (true) {
+            if (poll == null && poll2 == null) {
+                return null;
             }
-            return null;
-        }
-        return (File[]) invokeV.objValue;
-    }
-
-    public static jq9 getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? f : (jq9) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String externalStorageState = Environment.getExternalStorageState();
-            String providePath = getContext() == null ? "" : getContext().providePath();
-            if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
-                return Environment.getExternalStorageDirectory().getPath() + providePath;
+            PidLoader a2 = a(poll, poll2);
+            double biddingOrBasePrices = a2.getBiddingOrBasePrices();
+            if (a2 == poll) {
+                poll = d.poll();
+            } else {
+                poll2 = d2.poll();
             }
-            return getContext().provideContext().getFilesDir() + getContext().providePath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void k(jq9 jq9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, jq9Var) == null) {
-            f = jq9Var;
-        }
-    }
-
-    public void b(lq9 lq9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, lq9Var) == null) {
-            this.d.add(lq9Var);
+            PidLoader pidLoader = poll;
+            PidLoader pidLoader2 = poll2;
+            PidLoader a3 = a(pidLoader, pidLoader2);
+            a2.setBiddingResult(a2.getBiddingOrBasePrices(), a3 != null ? a3.getBiddingOrBasePrices() : biddingOrBasePrices, 1);
+            N a4 = wk9Var.a(a2, str);
+            if (a4 != null) {
+                return a4;
+            }
+            poll = pidLoader;
+            poll2 = pidLoader2;
         }
     }
 
-    public pq9 d() {
-        InterceptResult invokeV;
+    public final LinkedList<PidLoader> d(List<PidLoader> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (pq9) invokeV.objValue;
-    }
-
-    public oq9 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (oq9) invokeV.objValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? getContext().provideBlockThreshold() * 0.8f : invokeV.longValue;
-    }
-
-    public qq9 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (qq9) invokeV.objValue;
-    }
-
-    public final void l(oq9 oq9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, oq9Var) == null) {
-            this.a = oq9Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            LinkedList<PidLoader> linkedList = new LinkedList<>();
+            for (PidLoader pidLoader : list) {
+                if (pidLoader.isLoaded()) {
+                    linkedList.add(pidLoader);
+                }
+            }
+            return linkedList;
         }
+        return (LinkedList) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this.a) {
+                S s = this.b;
+                if (s != null) {
+                    s.g();
+                }
+                this.b = null;
+            }
+        }
+    }
+
+    public abstract S f();
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public final void load(Context context, FunAdSlot funAdSlot, FunAdLoadListener funAdLoadListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, funAdSlot, funAdLoadListener) == null) {
+            synchronized (this.a) {
+                S s = this.b;
+                if (s != null && !s.c()) {
+                    com.fun.h0 h0Var = s.b;
+                    h0Var.getClass();
+                    h0Var.b("ldr_ld_err", NotificationCompat.CATEGORY_ERROR, "irr");
+                    s.g();
+                }
+                this.b = null;
+            }
+            S b = b();
+            b.getClass();
+            if (funAdLoadListener == null) {
+                throw new IllegalArgumentException();
+            }
+            b.b.b("ldr_ld_start", new Object[0]);
+            b.c = funAdLoadListener;
+            b.a(context, funAdSlot, funAdLoadListener);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public void recycleListener() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this.a) {
+                S s = this.b;
+                if (s != null) {
+                    s.g();
+                }
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public final <T extends ViewGroup> boolean show(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, t, str, funAdInteractionListener)) == null) {
+            S b = b();
+            b.b.b("ldr_sh_start", new Object[0]);
+            return b.d(activity, t, funAdInteractionListener);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunAdLoader
+    public final <T extends ViewGroup> FunSplashAd showSplash(Activity activity, T t, String str, FunAdInteractionListener funAdInteractionListener) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, activity, t, str, funAdInteractionListener)) == null) {
+            S b = b();
+            b.b.b("ldr_sh_start", new Object[0]);
+            return b.e(activity, t, funAdInteractionListener);
+        }
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

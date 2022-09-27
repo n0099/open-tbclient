@@ -3,7 +3,7 @@ package com.baidu.tieba.pb.pb.main.adapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ru7;
+import com.baidu.tieba.fv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ru7 mData;
+    public fv7 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PbAdCardGiftItemResponseMessage() {
@@ -42,16 +42,16 @@ public class PbAdCardGiftItemResponseMessage extends JsonHttpResponsedMessage {
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
                 if (this.mData == null) {
-                    this.mData = new ru7();
+                    this.mData = new fv7();
                 }
                 this.mData.c(optJSONObject);
             }
         }
     }
 
-    public ru7 getData() {
+    public fv7 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (ru7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (fv7) invokeV.objValue;
     }
 }

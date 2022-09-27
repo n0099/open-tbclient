@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.message.SettingChangeMessage;
+import com.baidu.tieba.mb7;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.rb;
-import com.baidu.tieba.ya7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -257,7 +257,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                ya7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.g), this.a);
+                mb7.j().f(TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.b.g), this.a);
                 return null;
             }
             return (Void) invokeL.objValue;

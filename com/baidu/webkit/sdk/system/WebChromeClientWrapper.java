@@ -29,7 +29,7 @@ import com.baidu.webkit.sdk.system.GeolocationPermissionsImpl;
 import com.baidu.webkit.sdk.system.WebStorageImpl;
 import com.baidu.webkit.sdk.system.WebViewImpl;
 import java.util.Objects;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public final class WebChromeClientWrapper extends WebChromeClient {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic;
@@ -82,7 +82,7 @@ public final class WebChromeClientWrapper extends WebChromeClient {
     }
 
     @TargetApi(21)
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class FileChooserParamsImpl extends WebChromeClient.FileChooserParams {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

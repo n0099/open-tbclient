@@ -1,39 +1,60 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class nh5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b = null;
+    public static String c = null;
+    public static String d = "floor";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (StringUtils.isNull(a)) {
-                return null;
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a = str;
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65538, null) == null) || a == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948002478, "Lcom/baidu/tieba/nh5;")) == null) {
             return;
         }
-        a = null;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948002478, "Lcom/baidu/tieba/nh5;");
+        }
+    }
+
+    public static void a(String str, String str2, String str3, int i, r9 r9Var, BaijiahaoData baijiahaoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), r9Var, baijiahaoData}) == null) {
+            b = str;
+            c = str2;
+            a = str3;
+            if (StringUtils.isNull(str3) || r9Var == null || r9Var.getPageActivity() == null) {
+                return;
+            }
+            if (d.equals(a)) {
+                SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(r9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
+                createSubPbActivityConfig.setKeyPageStartFrom(8);
+                createSubPbActivityConfig.setBjhData(baijiahaoData);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                return;
+            }
+            PbActivityConfig createNormalCfg = new PbActivityConfig(r9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
+            createNormalCfg.setStartFrom(8);
+            createNormalCfg.setBjhData(baijiahaoData);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
+        }
     }
 }

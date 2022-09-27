@@ -1,20 +1,24 @@
 package com.bun.miitmdid;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes7.dex */
 public class g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Keep
     public h a;
+    @Keep
     public h b;
+    @Keep
     public h c;
+    @Keep
     public h d;
+    @Keep
     public h e;
 
     public g() {
@@ -31,79 +35,36 @@ public class g {
         }
     }
 
-    public h a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.e : (h) invokeV.objValue;
-    }
+    @Keep
+    public native h a();
 
-    public void a(h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hVar) == null) {
-            this.e = hVar;
-        }
-    }
+    @Keep
+    public native void a(h hVar);
 
-    public h b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.c : (h) invokeV.objValue;
-    }
+    @Keep
+    public native h b();
 
-    public void b(h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hVar) == null) {
-            this.c = hVar;
-        }
-    }
+    @Keep
+    public native void b(h hVar);
 
-    public h c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.d : (h) invokeV.objValue;
-    }
+    @Keep
+    public native h c();
 
-    public void c(h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
-            this.d = hVar;
-        }
-    }
+    @Keep
+    public native void c(h hVar);
 
-    public h d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (h) invokeV.objValue;
-    }
+    @Keep
+    public native h d();
 
-    public void d(h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, hVar) == null) {
-            this.b = hVar;
-        }
-    }
+    @Keep
+    public native void d(h hVar);
 
-    public h e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a : (h) invokeV.objValue;
-    }
+    @Keep
+    public native h e();
 
-    public void e(h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
-            this.a = hVar;
-        }
-    }
+    @Keep
+    public native void e(h hVar);
 
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
-            this.e = null;
-        }
-    }
+    @Keep
+    public native void f();
 }

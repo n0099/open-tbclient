@@ -1,56 +1,50 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.cloudcontrol.request.CloudControlRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q85 {
+public class q85 extends r85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static p85 a(View view2) {
-        InterceptResult invokeL;
+    public q85() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            if (view2 == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (view2 instanceof LinearLayout) {
-                return new r85();
-            }
-            if (view2 instanceof RelativeLayout) {
-                return new u85();
-            }
-            if (view2 instanceof FrameLayout) {
-                return new n85();
-            }
-            return null;
         }
-        return (p85) invokeL.objValue;
     }
 
-    public static p85 b(View view2, boolean z) {
+    @Override // com.baidu.tieba.r85
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CloudControlRequest.REQUEST_KEY_FILTER : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r85
+    public Bitmap b(Bitmap bitmap, boolean z) throws Exception {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, view2, z)) == null) {
-            if (view2 == null) {
-                return null;
-            }
-            if (view2 instanceof LinearLayout) {
-                return new r85();
-            }
-            if (view2 instanceof RelativeLayout) {
-                return new u85();
-            }
-            if (view2 instanceof FrameLayout) {
-                return z ? new v85() : new n85();
-            }
-            return null;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, z)) == null) ? bitmap : (Bitmap) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.r85
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || str == null) {
         }
-        return (p85) invokeLZ.objValue;
     }
 }

@@ -1,32 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.Environment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
+import com.baidu.tieba.nb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 /* loaded from: classes4.dex */
 public class lb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public String c;
-    public String d;
-    public JSONObject e;
+    public nb1 a;
 
-    public lb1(String str) {
+    public lb1(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,74 +36,70 @@ public class lb1 {
                 return;
             }
         }
-        this.e = new JSONObject();
-        this.a = str;
-        this.b = System.currentTimeMillis();
-        this.c = zb1.c();
+        File b = b(context, "bitmap");
+        if (!b.exists()) {
+            b.mkdirs();
+        }
+        try {
+            this.a = nb1.r(b, 1, 1, Config.FULL_TRACE_LOG_LIMIT);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public lb1 a(String str, Object obj) {
-        InterceptResult invokeLL;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
-            try {
-                this.e.put(str, obj);
-            } catch (JSONException unused) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.a == null) {
+            return;
+        }
+        try {
+            nb1.c m = this.a.m(rb1.b(str));
+            if (m == null) {
+                return;
             }
-            return this;
+            if (hb1.b(str, m.f(0))) {
+                m.e();
+            } else {
+                m.a();
+            }
+            this.a.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        return (lb1) invokeLL.objValue;
     }
 
-    public lb1 b(String str) {
-        InterceptResult invokeL;
+    public File b(Context context, String str) {
+        InterceptResult invokeLL;
+        String path;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            this.d = str;
-            return this;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if ("mounted".equals(Environment.getExternalStorageState()) && context.getExternalCacheDir() != null) {
+                path = context.getExternalCacheDir().getPath();
+            } else {
+                path = context.getCacheDir().getPath();
+            }
+            return new File(path + File.separator + str);
         }
-        return (lb1) invokeL.objValue;
+        return (File) invokeLL.objValue;
     }
 
-    public lb1 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public Bitmap c(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            this.e = jSONObject;
-            return this;
-        }
-        return (lb1) invokeL.objValue;
-    }
-
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                xb1.d("statistics action can not null");
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, str, i, i2)) == null) {
+            if (this.a == null) {
                 return null;
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("a", this.a);
-                jSONObject.put("t", this.b);
-                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
-                if (this.e != null) {
-                    jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.e);
-                } else if (!TextUtils.isEmpty(this.d)) {
-                    try {
-                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, new JSONObject(this.d));
-                    } catch (JSONException unused) {
-                        jSONObject.put(AdvanceSetting.CLEAR_NOTIFICATION, this.d);
-                    }
+            nb1.e o = this.a.o(rb1.b(str));
+            if (o != null) {
+                FileInputStream fileInputStream = (FileInputStream) o.a(0);
+                if (i > 0 && i2 > 0) {
+                    return qb1.b(fileInputStream.getFD(), i, i2);
                 }
-            } catch (JSONException e) {
-                if (xb1.d) {
-                    e.printStackTrace();
-                }
+                return BitmapFactory.decodeFileDescriptor(fileInputStream.getFD());
             }
-            return jSONObject;
+            return null;
         }
-        return (JSONObject) invokeV.objValue;
+        return (Bitmap) invokeLII.objValue;
     }
 }

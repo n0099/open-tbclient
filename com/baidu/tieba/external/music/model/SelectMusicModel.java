@@ -16,8 +16,8 @@ import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.external.music.data.MusicData;
+import com.baidu.tieba.hc6;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.ub6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import org.json.JSONObject;
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ub6 a;
+    public hc6 a;
     public TbPageContext b;
     public final HttpMessageListener c;
 
@@ -131,13 +131,13 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, ub6 ub6Var) {
+    public SelectMusicModel(TbPageContext tbPageContext, hc6 hc6Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ub6Var};
+            Object[] objArr = {tbPageContext, hc6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -150,7 +150,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
         this.c = new a(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
         this.b = tbPageContext;
-        this.a = ub6Var;
+        this.a = hc6Var;
         B();
         this.c.setTag(getUniqueId());
         this.c.setSelfListener(true);

@@ -1,143 +1,101 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes3.dex */
-public class b06 extends BdAsyncTask<Void, String, String> {
+public class b06 extends i16<ry5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public xz5 b;
-    public String c;
+    public TextView i;
+    public TextView j;
+    public String k;
 
-    public b06(String str, int i, xz5 xz5Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b06(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), xz5Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = xz5Var;
-        this.c = str;
+        r(h());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public String doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i16
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            String str = this.c;
-            if (str == null) {
-                return null;
-            }
-            return c(str);
-        }
-        return (String) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0106 : invokeV.intValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:13:0x0028 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x0036 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:36:0x0009 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v10, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v11 */
-    /* JADX WARN: Type inference failed for: r0v12 */
-    /* JADX WARN: Type inference failed for: r0v2, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r0v3 */
-    /* JADX WARN: Type inference failed for: r0v4 */
-    /* JADX WARN: Type inference failed for: r0v6 */
-    /* JADX WARN: Type inference failed for: r0v7 */
-    /* JADX WARN: Type inference failed for: r0v8, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r0v9 */
-    public String c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i16
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) != null) {
-            return (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setViewTextColor(this.i, (int) R.color.common_color_10106);
+            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0302);
         }
-        ?? isEmpty = TextUtils.isEmpty(str);
-        String str2 = null;
-        str2 = null;
-        str2 = null;
-        InputStream inputStream = null;
-        try {
-            try {
-            } catch (IOException e) {
-                e.printStackTrace();
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if (!TextUtils.isEmpty(this.k)) {
+                UtilHelper.copyToClipBoard(this.k);
             }
-            if (isEmpty != 0) {
-                return null;
-            }
-            try {
-                isEmpty = new FileInputStream(str);
-                try {
-                    byte[] bArr = new byte[isEmpty.available()];
-                    isEmpty.read(bArr);
-                    str2 = Base64.encodeToString(bArr, 0);
-                    isEmpty.close();
-                    isEmpty = isEmpty;
-                } catch (Exception e2) {
-                    e = e2;
-                    e.printStackTrace();
-                    if (isEmpty != 0) {
-                        isEmpty.close();
-                        isEmpty = isEmpty;
-                    }
-                    return str2;
-                }
-            } catch (Exception e3) {
-                e = e3;
-                isEmpty = 0;
-            } catch (Throwable th) {
-                th = th;
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e4) {
-                        e4.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            return str2;
-        } catch (Throwable th2) {
-            th = th2;
-            inputStream = isEmpty;
+            BdToast.b(getContext(), getContext().getResources().getString(R.string.obfuscated_res_0x7f0f023b)).i();
+        }
+    }
+
+    public final void r(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090220);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09021f);
+            this.j = textView;
+            textView.setOnClickListener(this);
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    public void onPostExecute(String str) {
+    @Override // com.baidu.tieba.i16
+    /* renamed from: s */
+    public void i(ry5 ry5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            super.onPostExecute((b06) str);
-            xz5 xz5Var = this.b;
-            if (xz5Var == null || str == null) {
-                return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ry5Var) == null) {
+        }
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.k = str;
+            TextView textView = this.i;
+            if (textView != null) {
+                textView.setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f023d) + str);
             }
-            xz5Var.a("", this.a, str);
         }
     }
 }

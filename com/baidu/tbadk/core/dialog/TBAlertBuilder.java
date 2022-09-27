@@ -28,9 +28,9 @@ import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.bv4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ou4;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -422,25 +422,25 @@ public class TBAlertBuilder {
             linearLayout2.setGravity(17);
             linearLayout2.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             if (this.r) {
-                uu4 d = uu4.d(linearLayout2);
+                hv4 d = hv4.d(linearLayout2);
                 d.m(this.e == null ? 0 : 2);
                 d.n(R.string.J_X06);
                 d.f(R.color.transparent);
             } else {
-                uu4 d2 = uu4.d(linearLayout2);
+                hv4 d2 = hv4.d(linearLayout2);
                 d2.m(this.e == null ? 0 : 2);
                 d2.n(R.string.J_X06);
                 d2.f(R.color.CAM_X0205);
             }
             if (!TextUtils.isEmpty(this.f)) {
-                TextView k = ou4.k(this.b);
+                TextView k = bv4.k(this.b);
                 k.setText(this.f);
                 k.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                 linearLayout2.addView(k);
                 CharSequence charSequence = this.g;
                 if (charSequence != null && !StringUtils.isNull(charSequence.toString())) {
                     k.setPadding(k.getPaddingLeft(), k.getPaddingTop(), k.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                    TextView k2 = ou4.k(this.b);
+                    TextView k2 = bv4.k(this.b);
                     k2.setText(this.g);
                     k2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                     linearLayout2.addView(k2);
@@ -449,7 +449,7 @@ public class TBAlertBuilder {
             if (!TextUtils.isEmpty(this.h)) {
                 RelativeLayout relativeLayout = new RelativeLayout(this.b);
                 relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                TextView b2 = ou4.b(this.b, this.j);
+                TextView b2 = bv4.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
                 b2.setId(R.id.obfuscated_res_0x7f090797);
@@ -478,7 +478,7 @@ public class TBAlertBuilder {
                 if (this.o) {
                     this.p = new b(this);
                 }
-                linearLayout2.addView(ou4.i(this.b, this.m, this.p));
+                linearLayout2.addView(bv4.i(this.b, this.m, this.p));
             }
             linearLayout.addView(linearLayout2, new ViewGroup.LayoutParams(-1, -2));
             if (this.n) {

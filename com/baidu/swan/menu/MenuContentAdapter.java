@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj4;
-import com.baidu.tieba.g94;
+import com.baidu.tieba.qj4;
+import com.baidu.tieba.t94;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,8 +22,8 @@ import java.util.List;
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<g94> a;
-    public List<g94> b;
+    public List<t94> a;
+    public List<t94> b;
     public int c;
     public Context d;
 
@@ -53,7 +53,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                 }
             }
             this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f0909cc);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091e25);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091e27);
         }
     }
 
@@ -137,10 +137,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return (a) invokeLI.objValue;
     }
 
-    public void g(List<List<g94>> list, boolean z, int i) {
+    public void g(List<List<t94>> list, boolean z, int i) {
         int max;
-        List<g94> list2;
-        List<g94> list3;
+        List<t94> list2;
+        List<t94> list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{list, Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             this.a.clear();
@@ -161,10 +161,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
                 max = Math.max(displayMetrics.widthPixels, displayMetrics.heightPixels);
             }
             float f = d(z) ? 5.5f : 5.0f;
-            if (dj4.d()) {
+            if (qj4.d()) {
                 Context context = this.d;
-                if ((context instanceof Activity) && dj4.e((Activity) context)) {
-                    max = dj4.a((Activity) this.d);
+                if ((context instanceof Activity) && qj4.e((Activity) context)) {
+                    max = qj4.a((Activity) this.d);
                 }
             }
             this.c = (int) (max / f);

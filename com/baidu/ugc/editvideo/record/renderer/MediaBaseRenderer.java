@@ -4,7 +4,7 @@ import android.opengl.GLES20;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.rf0;
+import com.baidu.tieba.eg0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -75,9 +75,9 @@ public class MediaBaseRenderer implements IMediaRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(rf0 rf0Var, int i, float[] fArr) {
+    public void onDrawFrame(eg0 eg0Var, int i, float[] fArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, rf0Var, i, fArr) == null) {
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, eg0Var, i, fArr) == null) {
             this.mTextureId = i;
             this.mMtx = fArr;
             GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;

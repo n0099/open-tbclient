@@ -3,8 +3,8 @@ package com.baidu.tieba.themeCenter.bubble.group;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.dt8;
-import com.baidu.tieba.rs8;
+import com.baidu.tieba.gt8;
+import com.baidu.tieba.st8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import tbclient.GetBubbleByCategory.ThemeBubbleInMain;
 public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<rs8> mBubbleGroupList;
-    public dt8 mRecommand;
+    public List<gt8> mBubbleGroupList;
+    public st8 mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BubbleGroupHttpResponseMessage(int i) {
@@ -44,16 +44,16 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public List<rs8> getGroupList() {
+    public List<gt8> getGroupList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mBubbleGroupList : (List) invokeV.objValue;
     }
 
-    public dt8 getRecommand() {
+    public st8 getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (dt8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.mRecommand : (st8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -72,17 +72,17 @@ public class BubbleGroupHttpResponseMessage extends TbHttpResponsedMessage {
         DataRes dataRes = getBubbleByCategoryResIdl.data;
         if (dataRes != null) {
             if (dataRes.recommend != null) {
-                dt8 dt8Var = new dt8();
-                this.mRecommand = dt8Var;
-                dt8Var.d(getBubbleByCategoryResIdl.data.recommend);
+                st8 st8Var = new st8();
+                this.mRecommand = st8Var;
+                st8Var.d(getBubbleByCategoryResIdl.data.recommend);
             }
             if (getBubbleByCategoryResIdl.data.bubbles != null) {
                 this.mBubbleGroupList = new ArrayList();
                 for (ThemeBubbleInMain themeBubbleInMain : getBubbleByCategoryResIdl.data.bubbles) {
                     if (themeBubbleInMain != null && !StringUtils.isNull(themeBubbleInMain.bubble_category)) {
-                        rs8 rs8Var = new rs8();
-                        rs8Var.c(themeBubbleInMain);
-                        this.mBubbleGroupList.add(rs8Var);
+                        gt8 gt8Var = new gt8();
+                        gt8Var.c(themeBubbleInMain);
+                        this.mBubbleGroupList.add(gt8Var);
                     }
                 }
             }

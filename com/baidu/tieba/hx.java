@@ -15,11 +15,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hx extends gx<lq4> {
+public class hx extends gx<yq4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BjhArticleLayout f;
-    public lq4 g;
+    public yq4 g;
     public View.OnClickListener h;
 
     /* loaded from: classes4.dex */
@@ -86,8 +86,8 @@ public class hx extends gx<lq4> {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
                 if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    g16.a(this.a.g.getThreadData().getId());
-                    g16.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
+                    t16.a(this.a.g.getThreadData().getId());
+                    t16.l(this.a.f.getTitle(), this.a.g.getThreadData().getId(), R.color.CAM_X0101, R.color.CAM_X0109);
                 }
                 return false;
             }
@@ -136,11 +136,11 @@ public class hx extends gx<lq4> {
     }
 
     @Override // com.baidu.tieba.gx
-    public void m(v16<lq4> v16Var) {
+    public void m(i26<yq4> i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, v16Var) == null) {
-            super.m(v16Var);
-            this.f.setSubClickListener(v16Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, i26Var) == null) {
+            super.m(i26Var);
+            this.f.setSubClickListener(i26Var);
         }
     }
 
@@ -155,18 +155,18 @@ public class hx extends gx<lq4> {
     public final void s(View view2, Cdo cdo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, view2, cdo) == null) {
-            lq4 lq4Var = this.g;
-            if (((lq4Var instanceof f26) || (lq4Var instanceof ThreadData)) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+            yq4 yq4Var = this.g;
+            if (((yq4Var instanceof s26) || (yq4Var instanceof ThreadData)) && (view2.getTag() instanceof ThreadCardViewHolder)) {
                 ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                if (cdo instanceof f26) {
-                    f26 f26Var = (f26) this.g;
-                    f26Var.f = 1;
-                    ThreadCardUtils.jumpToPB((lq4) f26Var, view2.getContext(), f26Var.a.isFromHomPage ? 2 : 1, false);
+                if (cdo instanceof s26) {
+                    s26 s26Var = (s26) this.g;
+                    s26Var.f = 1;
+                    ThreadCardUtils.jumpToPB((yq4) s26Var, view2.getContext(), s26Var.a.isFromHomPage ? 2 : 1, false);
                     threadCardViewHolder.a().o(new dz.a(1));
                 } else if (cdo instanceof ThreadData) {
                     ThreadData threadData = (ThreadData) this.g;
                     threadData.objType = 1;
-                    ThreadCardUtils.jumpToPB((lq4) threadData, view2.getContext(), 3, false);
+                    ThreadCardUtils.jumpToPB((yq4) threadData, view2.getContext(), 3, false);
                     threadCardViewHolder.a().o(new dz.a(1));
                 }
             }
@@ -176,11 +176,11 @@ public class hx extends gx<lq4> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: t */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lq4Var) == null) {
-            this.g = lq4Var;
-            this.f.a(lq4Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, yq4Var) == null) {
+            this.g = yq4Var;
+            this.f.a(yq4Var);
         }
     }
 }

@@ -1,57 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes5.dex */
-public abstract class ne9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public a b;
+public interface ne9 extends Runnable {
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(byte[] bArr, double d) throws Exception;
+        void b(DownloadException downloadException);
+
+        void onConnectCanceled();
+
+        void onConnectPaused();
+
+        void onConnected(long j, long j2, boolean z);
+
+        void onConnecting();
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
+    void cancel();
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    boolean isCanceled();
 
-    public ne9(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-    }
+    boolean isPaused();
+
+    void pause();
 }

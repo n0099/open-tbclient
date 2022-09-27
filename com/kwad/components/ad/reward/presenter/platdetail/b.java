@@ -49,7 +49,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     private void b(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(65539, this, view2, z) == null) {
-            com.kwad.components.core.c.a.a.a(new a.C0574a(view2.getContext()).L(this.mAdTemplate).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.presenter.platdetail.b.1
+            com.kwad.components.core.c.a.a.a(new a.C0570a(view2.getContext()).L(this.mAdTemplate).a(new a.b(this, z) { // from class: com.kwad.components.ad.reward.presenter.platdetail.b.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ boolean rl;

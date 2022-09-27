@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,9 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class pv7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
+    public String a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +29,7 @@ public class pv7 implements Cdo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public pv7() {
@@ -50,6 +50,6 @@ public class pv7 implements Cdo {
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? b : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? c : (BdUniqueId) invokeV.objValue;
     }
 }

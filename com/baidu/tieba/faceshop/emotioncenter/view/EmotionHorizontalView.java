@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ec6;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.horizonalList.widget.AdapterView;
 import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.tieba.newfaceshop.NewFaceGroupDownloadModel;
+import com.baidu.tieba.nr7;
+import com.baidu.tieba.rc6;
 import com.baidu.tieba.wj;
-import com.baidu.tieba.zq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -86,7 +86,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
     }
 
     /* loaded from: classes4.dex */
-    public class b implements zq7 {
+    public class b implements nr7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ EmotionHorizontalView a;
@@ -109,7 +109,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             this.a = emotionHorizontalView;
         }
 
-        @Override // com.baidu.tieba.zq7
+        @Override // com.baidu.tieba.nr7
         public void onFail(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
@@ -118,7 +118,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             }
         }
 
-        @Override // com.baidu.tieba.zq7
+        @Override // com.baidu.tieba.nr7
         public void onProgress(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
@@ -130,7 +130,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             }
         }
 
-        @Override // com.baidu.tieba.zq7
+        @Override // com.baidu.tieba.nr7
         public void onSuccess(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
@@ -192,7 +192,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
                     return;
                 }
                 if (!TextUtils.isEmpty(singleEmotionData.thumbnail)) {
-                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be0);
+                    this.b.setDefaultResource(R.drawable.obfuscated_res_0x7f080be2);
                     this.b.K(singleEmotionData.thumbnail, 10, false);
                 }
                 if (z) {
@@ -349,7 +349,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             setOnClickListener(this);
             this.a.setDividerWidth(getContext().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5));
             this.a.setOnItemClickListener(new a(this));
-            this.a.setSelector(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08123c));
+            this.a.setSelector(this.i.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081240));
             c cVar = new c(this.i);
             this.g = cVar;
             this.a.setAdapter((ListAdapter) cVar);
@@ -402,7 +402,7 @@ public class EmotionHorizontalView extends LinearLayout implements View.OnClickL
             }
             this.c.setText(String.format(wj.a(R.string.obfuscated_res_0x7f0f0d40), StringHelper.numberUniform(this.h.download)));
             this.d.setText(String.format(wj.a(R.string.obfuscated_res_0x7f0f0d45), StringHelper.numberUniform(this.h.share)));
-            ec6 c2 = ec6.c();
+            rc6 c2 = rc6.c();
             if (c2.e("" + this.h.id)) {
                 this.e.setText(R.string.obfuscated_res_0x7f0f027e);
                 this.e.setBackgroundDrawable(null);

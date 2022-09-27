@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
+import com.baidu.tieba.g85;
 import com.baidu.tieba.on;
-import com.baidu.tieba.t75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes5.dex */
-public class ForumsTopicsRecommendView extends ViewGroup implements t75 {
+public class ForumsTopicsRecommendView extends ViewGroup implements g85 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -55,7 +55,7 @@ public class ForumsTopicsRecommendView extends ViewGroup implements t75 {
         }
     }
 
-    @Override // com.baidu.tieba.t75
+    @Override // com.baidu.tieba.g85
     public void a(on onVar, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, onVar, str, z) == null) {

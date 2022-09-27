@@ -1,13 +1,15 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class il2 implements hl2 {
+public class il2 extends fh2<wl2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,24 +27,26 @@ public class il2 implements hl2 {
         }
     }
 
-    @Override // com.baidu.tieba.hl2
-    public void a(String str, String str2) {
+    @Override // com.baidu.tieba.fh2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setMuted" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.hl2
-    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull wl2 wl2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.hl2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wl2Var) == null) {
+            Object obj = command.obj;
+            if (obj instanceof Boolean) {
+                wl2Var.l(((Boolean) obj).booleanValue());
+                String str = command.what;
+                d(wl2Var, str, "setMuted:" + command.obj, false);
+            }
         }
     }
 }

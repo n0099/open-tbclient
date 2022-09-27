@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
@@ -10,20 +11,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class vv1 extends v43 {
+public abstract class vv1 extends i53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vv1(v33 v33Var, String str) {
-        super(v33Var, str);
+    public vv1(i43 i43Var, String str) {
+        super(i43Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var, str};
+            Object[] objArr = {i43Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,22 +41,39 @@ public abstract class vv1 extends v43 {
         }
     }
 
-    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, HashMap<String, String> hashMap, String str) {
+        HashMap<String, String> params;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, unitedSchemeEntity, callbackHandler, z) == null) {
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, z ? 0 : 1001);
+        if (!(interceptable == null || interceptable.invokeLLLL(1048576, this, unitedSchemeEntity, callbackHandler, hashMap, str) == null) || (params = unitedSchemeEntity.getParams()) == null || params.isEmpty() || hashMap == null) {
+            return;
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                jSONObject.putOpt(entry.getKey(), entry.getValue());
+            }
+        } catch (JSONException e) {
+            if (i53.b) {
+                e.printStackTrace();
+            }
+        }
+        if (TextUtils.isEmpty(str)) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+        } else {
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
         }
     }
 
-    public vx1 k(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) ? new vx1(unitedSchemeEntity.getParams().get("params")) : (vx1) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, z) == null) {
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, z ? 0 : -1);
+        }
     }
 
-    public JSONObject l(int i) {
-        InterceptResult invokeI;
+    public String l(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) ? UnitedSchemeUtility.wrapCallbackParams(i) : (JSONObject) invokeI.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) ? unitedSchemeEntity.getParams().get("params") : (String) invokeL.objValue;
     }
 }

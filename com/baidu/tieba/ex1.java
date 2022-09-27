@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.text.TextPaint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,10 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class ex1 extends ew1 {
+public class ex1 extends rw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Cap a;
+    public String a;
+    public int b;
+    public int c;
 
     public ex1() {
         Interceptable interceptable = $ic;
@@ -29,29 +32,42 @@ public class ex1 extends ew1 {
         }
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(fw1 fw1Var, Canvas canvas) {
-        Paint.Cap cap;
+    @Override // com.baidu.tieba.rw1
+    public void a(sw1 sw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) || (cap = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) || TextUtils.isEmpty(this.a)) {
             return;
         }
-        fw1Var.c.setStrokeCap(cap);
+        TextPaint textPaint = sw1Var.e;
+        int i = sw1Var.k;
+        Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+        float f = fontMetrics.top;
+        int i2 = this.c;
+        float f2 = i2 + f;
+        float f3 = fontMetrics.ascent + i2;
+        float f4 = fontMetrics.bottom;
+        float f5 = i != 1 ? i != 2 ? i != 3 ? i2 : i2 - (f3 - f2) : (i2 + ((f4 - f) / 2.0f)) - f4 : i2 + (((i2 + f4) - f2) / 2.0f) + (f3 - f2);
+        int alpha = textPaint.getAlpha();
+        sw1Var.c(textPaint);
+        canvas.drawText(this.a, this.b, f5, textPaint);
+        textPaint.setAlpha(alpha);
     }
 
-    @Override // com.baidu.tieba.ew1
+    @Override // com.baidu.tieba.rw1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) || jSONArray.length() <= 0) {
-            return;
-        }
-        String optString = jSONArray.optString(0);
-        if (TextUtils.equals(optString, "butt")) {
-            this.a = Paint.Cap.BUTT;
-        } else if (TextUtils.equals(optString, "round")) {
-            this.a = Paint.Cap.ROUND;
-        } else if (TextUtils.equals(optString, "square")) {
-            this.a = Paint.Cap.SQUARE;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = ch3.g((float) jSONArray.optDouble(1));
+                    this.c = ch3.g((float) jSONArray.optDouble(2));
+                }
+            } catch (Exception e) {
+                if (vj1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

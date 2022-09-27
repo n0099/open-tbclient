@@ -1,58 +1,49 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.provider.BundleOpProvider;
-import com.baidu.nps.utils.ContextHolder;
-import com.baidu.searchbox.pms.db.PackageTable;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
 /* loaded from: classes4.dex */
-public class l91 {
+public class l91 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public CountDownLatch b;
 
-    public static i91 a(Uri uri) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l91(Context context, CountDownLatch countDownLatch) {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
-            i91 i91Var = new i91();
-            if (uri != null) {
-                String queryParameter = uri.getQueryParameter("downloaded_size");
-                long longValue = !TextUtils.isEmpty(queryParameter) ? Long.valueOf(queryParameter).longValue() : 0L;
-                String queryParameter2 = uri.getQueryParameter(PackageTable.TOTAL_SIZE);
-                long longValue2 = TextUtils.isEmpty(queryParameter2) ? 0L : Long.valueOf(queryParameter2).longValue();
-                i91Var.a = longValue;
-                i91Var.b = longValue2;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, countDownLatch};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return i91Var;
         }
-        return (i91) invokeL.objValue;
+        this.a = context;
+        this.b = countDownLatch;
     }
 
-    public static Uri b() {
-        InterceptResult invokeV;
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).build() : (Uri) invokeV.objValue;
-    }
-
-    public static Uri c(String str, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2)})) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).appendQueryParameter("downloaded_size", String.valueOf(j)).appendQueryParameter(PackageTable.TOTAL_SIZE, String.valueOf(j2)).build() : (Uri) invokeCommon.objValue;
-    }
-
-    public static Uri d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build() : (Uri) invokeL.objValue;
-    }
-
-    public static Uri e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? new Uri.Builder().scheme("content").authority(BundleOpProvider.i(ContextHolder.getApplicationContext())).path(str).build() : (Uri) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            m91.a().b(this.a);
+            this.b.countDown();
+        }
     }
 }

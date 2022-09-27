@@ -12,8 +12,8 @@ import com.baidu.searchbox.logsystem.basic.Loki;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.c50;
+import com.baidu.tieba.e50;
+import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                 return "";
             }
             String str2 = split[1];
-            if (StringUtils.isNull(str2) || (b = new c50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
+            if (StringUtils.isNull(str2) || (b = new e50("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(str2)) == null) {
                 return "";
             }
             try {
@@ -97,7 +97,7 @@ public class MainTabLoadFinishTask extends LaunchTask {
                     if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
                         try {
                             if (Build.VERSION.SDK_INT >= 17) {
-                                bx4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
+                                ox4.k().y("key_default_useragent", WebSettings.getDefaultUserAgent(TbadkCoreApplication.getInst()));
                                 return false;
                             }
                             return false;
@@ -111,10 +111,10 @@ public class MainTabLoadFinishTask extends LaunchTask {
             });
             try {
                 String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst().getContext());
-                String q = bx4.k().q("key_last_cached_oid", "");
+                String q = ox4.k().q("key_last_cached_oid", "");
                 if (StringUtils.isNull(q) || !q.equals(lastCachedOid)) {
-                    bx4.k().y("key_last_cached_oid", lastCachedOid);
-                    bx4.k().y("key_last_cached_real_oid", getRealOaid(lastCachedOid));
+                    ox4.k().y("key_last_cached_oid", lastCachedOid);
+                    ox4.k().y("key_last_cached_real_oid", getRealOaid(lastCachedOid));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

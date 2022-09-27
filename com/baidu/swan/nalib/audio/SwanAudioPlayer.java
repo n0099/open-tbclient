@@ -10,9 +10,9 @@ import android.os.Message;
 import android.util.SparseArray;
 import androidx.annotation.Keep;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.m94;
-import com.baidu.tieba.n94;
-import com.baidu.tieba.o94;
+import com.baidu.tieba.aa4;
+import com.baidu.tieba.ba4;
+import com.baidu.tieba.z94;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,11 +46,11 @@ public class SwanAudioPlayer {
     public static int mSampleBufSize = 192;
     public static int mSampleRate = 44100;
     public transient /* synthetic */ FieldHolder $fh;
-    public n94 mAudioRecordListener;
+    public aa4 mAudioRecordListener;
     public SparseArray<MediaPlayer.OnCompletionListener> mEndMap;
     public SparseArray<MediaPlayer.OnErrorListener> mErrorMap;
     public a mEventHandler;
-    public SparseArray<o94> mPausedMap;
+    public SparseArray<ba4> mPausedMap;
     public SparseArray<MediaPlayer.OnPreparedListener> mPreparedMap;
     public SparseArray<MediaPlayer.OnSeekCompleteListener> mSeekMap;
 
@@ -107,17 +107,17 @@ public class SwanAudioPlayer {
                         onCompletionListener.onCompletion(null);
                     }
                 } else if (i == 5) {
-                    o94 o94Var = (o94) this.a.mPausedMap.get(message.arg1);
-                    if (o94Var != null) {
-                        o94Var.onPause();
+                    ba4 ba4Var = (ba4) this.a.mPausedMap.get(message.arg1);
+                    if (ba4Var != null) {
+                        ba4Var.onPause();
                     }
                 } else if (i == 100) {
                     this.a.postRunnable(Long.parseLong(message.obj.toString()));
                 } else if (i != 101) {
                 } else {
-                    m94 m94Var = (m94) message.obj;
+                    z94 z94Var = (z94) message.obj;
                     if (this.a.mAudioRecordListener != null) {
-                        this.a.mAudioRecordListener.a(m94Var);
+                        this.a.mAudioRecordListener.a(z94Var);
                     }
                 }
             }
@@ -232,11 +232,11 @@ public class SwanAudioPlayer {
         if (!(interceptable == null || interceptable.invokeLJ(1048583, this, bArr, j) == null) || bArr == null) {
             return;
         }
-        m94 m94Var = new m94();
-        m94Var.a = bArr;
-        m94Var.b = j;
-        m94Var.c = System.nanoTime();
-        this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, m94Var));
+        z94 z94Var = new z94();
+        z94Var.a = bArr;
+        z94Var.b = j;
+        z94Var.c = System.nanoTime();
+        this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, z94Var));
     }
 
     public void postEventFromNative(int i, int i2, int i3, Object obj) {
@@ -280,10 +280,10 @@ public class SwanAudioPlayer {
 
     public native void setLoop(int i, boolean z);
 
-    public void setOnAudioRecordListener(n94 n94Var) {
+    public void setOnAudioRecordListener(aa4 aa4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, n94Var) == null) {
-            this.mAudioRecordListener = n94Var;
+        if (interceptable == null || interceptable.invokeL(1048594, this, aa4Var) == null) {
+            this.mAudioRecordListener = aa4Var;
         }
     }
 
@@ -301,10 +301,10 @@ public class SwanAudioPlayer {
         }
     }
 
-    public void setOnPauseListener(int i, o94 o94Var) {
+    public void setOnPauseListener(int i, ba4 ba4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048597, this, i, o94Var) == null) {
-            this.mPausedMap.put(i, o94Var);
+        if (interceptable == null || interceptable.invokeIL(1048597, this, i, ba4Var) == null) {
+            this.mPausedMap.put(i, ba4Var);
         }
     }
 

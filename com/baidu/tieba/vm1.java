@@ -1,48 +1,70 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface vm1 {
+public abstract class vm1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onFinish();
+    public vm1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(boolean z);
-
-        void b(Exception exc);
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? zb3.a().getBoolean("PREFS_NIGHT_MODE", false) : invokeV.booleanValue;
     }
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(boolean z);
-
-        void b();
+    public Resources b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (Resources) invokeV.objValue;
     }
 
-    void a(a aVar);
+    public abstract void c(boolean z);
 
-    void b(Activity activity, Bundle bundle, kj1 kj1Var);
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+        }
+    }
 
-    void c(mj1 mj1Var);
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            zb3.a().putBoolean("PREFS_NIGHT_MODE", z);
+        }
+    }
 
-    String d(@NonNull Context context);
+    public void f(Object obj, z83 z83Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, obj, z83Var) == null) {
+        }
+    }
 
-    boolean e(Context context);
-
-    String f(@NonNull Context context);
-
-    void g(c cVar);
-
-    String h(Context context);
-
-    String i(@NonNull Context context);
-
-    void j(kj1 kj1Var);
+    public void g(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+        }
+    }
 }

@@ -1,297 +1,107 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserModel;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.oz3;
-import com.baidu.tieba.te3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Set;
-@Singleton
-@Service
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c44 implements nk1 {
+public class c44 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static volatile c44 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
-    public File b;
-
-    /* loaded from: classes3.dex */
-    public class a implements te3.a<Long> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c44 a;
-
-        public a(c44 c44Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c44Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c44Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.te3.a
-        public Long update() throws IllegalStateException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? Long.valueOf(this.a.m()) : (Long) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624774, "Lcom/baidu/tieba/c44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947624774, "Lcom/baidu/tieba/c44;");
-                return;
-            }
-        }
-        c = ij1.a;
-    }
+    public int a;
+    public volatile ArrayList<b44> b;
 
     public c44() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String o = o();
-        if (c) {
-            Log.i("SwanGameStorageManager", "preferencesName:" + o);
-        }
-        if (o != null) {
-            this.a = fm2.c().getSharedPreferences(o, 0);
-            File q = q();
-            this.b = new File(q, o + ActivityChooserModel.HISTORY_FILE_EXTENSION);
-        }
-        ue3.h.b(new a(this));
+        this.b = new ArrayList<>(20);
     }
 
-    public static void k(String str) {
+    public static c44 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            l(String.format("aigame_storage_%s_anonymous", str, ""));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (c44.class) {
+                    if (c == null) {
+                        c = new c44();
+                    }
+                }
+            }
+            return c;
         }
+        return (c44) invokeV.objValue;
     }
 
-    public static void l(String str) {
-        File[] listFiles;
+    public synchronized void a(b44 b44Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, str) == null) || str == null || !str.startsWith("aigame_storage_") || (listFiles = q().listFiles()) == null) {
-            return;
-        }
-        for (File file : listFiles) {
-            if (file.getName().startsWith(str)) {
-                cj4.L(file);
+        if (interceptable == null || interceptable.invokeL(1048576, this, b44Var) == null) {
+            synchronized (this) {
+                if (b44Var == null) {
+                    return;
+                }
+                if (this.b.size() < 20) {
+                    this.b.add(b44Var);
+                } else {
+                    this.a++;
+                }
             }
         }
     }
 
-    @NonNull
-    public static File q() {
-        InterceptResult invokeV;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs") : (File) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nk1
-    public String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? if2.Y(str) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nk1
-    public hb2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new a44() : (hb2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nk1
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if2.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.nk1
-    public File[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? q().listFiles() : (File[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nk1
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? if2.p() : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nk1
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String J = cj4.J(oz3.d());
-            String J2 = cj4.J(oz3.d.g());
-            g();
-            c();
-            cj4.k(J);
-            cj4.k(J2);
-        }
-    }
-
-    @Override // com.baidu.tieba.nk1
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            l("aigame_storage_");
-        }
-    }
-
-    @Override // com.baidu.tieba.nk1
-    public String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) ? if2.Z(str) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nk1
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ff2.c();
-        }
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? r() && this.a.edit().clear().commit() : invokeV.booleanValue;
-    }
-
-    public long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            File file = this.b;
-            if (file != null) {
-                return file.length();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+                this.a = 0;
             }
-            return 0L;
         }
-        return invokeV.longValue;
     }
 
-    public String[] n() {
+    public synchronized JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (r()) {
-                Set<String> keySet = this.a.getAll().keySet();
-                String[] strArr = new String[keySet.size()];
-                keySet.toArray(strArr);
-                return strArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                int size = this.b.size();
+                if (size == 0) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("dropcnt", this.a);
+                    jSONObject.put("errorcnt", size);
+                    JSONArray jSONArray = new JSONArray();
+                    jSONObject.put("errors", jSONArray);
+                    Iterator<b44> it = this.b.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next().a());
+                    }
+                } catch (JSONException unused) {
+                }
+                this.b.clear();
+                return jSONObject;
             }
-            return new String[0];
         }
-        return (String[]) invokeV.objValue;
-    }
-
-    @Nullable
-    public final String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            String g0 = y23.g0();
-            if (TextUtils.isEmpty(g0)) {
-                return null;
-            }
-            return String.format("aigame_storage_%s_anonymous", g0);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String p(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
-            if (r()) {
-                return this.a.getString(str, str2);
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    public long s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? Config.FULL_TRACE_LOG_LIMIT : invokeV.longValue;
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public boolean t(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, str2)) == null) ? r() && this.a.edit().putString(str, str2).commit() : invokeLL.booleanValue;
-    }
-
-    @SuppressLint({"ApplySharedPref"})
-    public boolean u(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) ? r() && this.a.edit().remove(str).commit() : invokeL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

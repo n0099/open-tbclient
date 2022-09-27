@@ -1,89 +1,175 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.util.LruCache;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.util.HttpSigner;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class za1 {
-    public static /* synthetic */ Interceptable $ic;
+public final class za1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, Bitmap> a;
 
     /* loaded from: classes6.dex */
-    public class a extends LruCache<String, Bitmap> {
+    public static final class a extends sa1<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vb1 a;
+        public final /* synthetic */ JSONObject b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(za1 za1Var, int i) {
-            super(i);
+        public a(vb1 vb1Var, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {za1Var, Integer.valueOf(i)};
+                Object[] objArr = {vb1Var, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = vb1Var;
+            this.b = jSONObject;
+        }
+
+        @Override // com.baidu.tieba.sa1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                vb1 vb1Var = this.a;
+                if (vb1Var != null) {
+                    vb1Var.a(1, str);
+                }
+                db1.d(this.b);
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.util.LruCache
-        /* renamed from: a */
-        public int sizeOf(String str, Bitmap bitmap) {
-            InterceptResult invokeLL;
+        @Override // com.baidu.tieba.sa1
+        /* renamed from: d */
+        public void c(String str) {
+            vb1 vb1Var;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) ? bitmap.getByteCount() / 1024 : invokeLL.intValue;
-        }
-    }
-
-    public za1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (vb1Var = this.a) == null) {
                 return;
             }
+            vb1Var.a(0, "");
         }
-        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
     }
 
-    public void a(String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
-            String b = eb1.b(str);
-            if (b(b) == null) {
-                this.a.put(b, bitmap);
+    /* loaded from: classes6.dex */
+    public static final class b extends sa1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vb1 a;
+
+        public b(vb1 vb1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vb1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = vb1Var;
+        }
+
+        @Override // com.baidu.tieba.sa1
+        public void a(Throwable th, int i, String str) {
+            vb1 vb1Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) || (vb1Var = this.a) == null) {
+                return;
+            }
+            vb1Var.a(1, str);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.sa1
+        /* renamed from: d */
+        public void c(String str) {
+            vb1 vb1Var;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) || (vb1Var = this.a) == null) {
+                return;
+            }
+            vb1Var.a(0, "");
         }
     }
 
-    public final Bitmap b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) ? this.a.get(str) : (Bitmap) invokeL.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948353119, "Lcom/baidu/tieba/za1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948353119, "Lcom/baidu/tieba/za1;");
+        }
     }
 
-    public Bitmap c(String str) {
-        InterceptResult invokeL;
+    public static final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? b(eb1.b(str)) : (Bitmap) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a : invokeV.intValue;
+    }
+
+    public static final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            a = i;
+        }
+    }
+
+    public static final void c(JSONObject jSONObject, vb1 vb1Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(65539, null, jSONObject, vb1Var) == null) || jSONObject == null) {
+            return;
+        }
+        ua1 ua1Var = new ua1();
+        bb1.d(ua1Var);
+        ta1 e = bb1.e(jSONObject);
+        bb1.c(ua1Var, e.a("bduss"));
+        HttpSigner.b(e);
+        new ya1(false).a(cb1.f(), ua1Var, e, new a(vb1Var, jSONObject));
+    }
+
+    public static final void d(JSONArray jSONArray, vb1 vb1Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, vb1Var) == null) || jSONArray == null) {
+            return;
+        }
+        ua1 ua1Var = new ua1();
+        bb1.d(ua1Var);
+        ta1 ta1Var = new ta1();
+        String jSONArray2 = jSONArray.toString();
+        Intrinsics.checkExpressionValueIsNotNull(jSONArray2, "params.toString()");
+        ta1Var.d("batchData", jSONArray2);
+        HttpSigner.b(ta1Var);
+        new ya1(false).a(cb1.a(), ua1Var, ta1Var, new b(vb1Var));
     }
 }

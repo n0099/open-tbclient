@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pp5 implements CustomMessageTask.CustomRunnable<Object> {
+public class pp5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public ar4 b;
+    public String c;
 
     public pp5() {
         Interceptable interceptable = $ic;
@@ -27,16 +28,19 @@ public class pp5 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+    public static pp5 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            return new CustomResponsedMessage<>(2001265, vp5.f().g());
+            pp5 pp5Var = new pp5();
+            pp5Var.a = jSONObject.optInt("download_state");
+            pp5Var.b = ar4.b(jSONObject.optJSONObject("app_info"));
+            pp5Var.c = jSONObject.optString("download_hint");
+            return pp5Var;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (pp5) invokeL.objValue;
     }
 }

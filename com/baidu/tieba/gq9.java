@@ -1,138 +1,118 @@
 package com.baidu.tieba;
 
-import android.os.Debug;
 import android.os.Handler;
+import android.os.HandlerThread;
 import android.os.Looper;
-import android.util.Log;
+import android.os.Message;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.github.anrwatchdog.ANRError;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.http.PostRequest;
+import com.fun.ad.sdk.internal.api.http.RequestParams;
+import com.fun.ad.sdk.internal.api.http.Response;
+import com.fun.ad.sdk.internal.api.reporter.Reporter;
+import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.IOException;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gq9 extends Thread {
+public class gq9 implements Reporter {
     public static /* synthetic */ Interceptable $ic;
-    public static final f o;
-    public static final e p;
-    public static final g q;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
-    public e b;
-    public g c;
-    public final Handler d;
-    public final int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public hq9 k;
-    public volatile long l;
-    public volatile boolean m;
-    public final Runnable n;
+    public final Handler a;
+    public final String b;
 
     /* loaded from: classes4.dex */
-    public static class a implements f {
+    public class a extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gq9 h;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gq9 gq9Var, String str, JSONObject jSONObject) {
+            super(gq9Var, str, jSONObject);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gq9Var, str, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((gq9) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.h = gq9Var;
+            ll9.n();
         }
 
-        @Override // com.baidu.tieba.gq9.f
-        public void onAppNotResponding(ANRError aNRError) {
+        @Override // com.baidu.tieba.gq9.b
+        public void c() {
+            d dVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aNRError) == null) {
-                throw aNRError;
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ll9.f("key_rpt_suc_c", ll9.k() + 1);
+                gq9 gq9Var = this.h;
+                gq9Var.getClass();
+                int g = ll9.g();
+                int i = ll9.i();
+                if (g > 0 || i > 0) {
+                    int k = ll9.k();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("fai", g);
+                        jSONObject.put("suc", k);
+                        jSONObject.put("mis", i);
+                    } catch (JSONException unused) {
+                    }
+                    dVar = new d(gq9Var, "k_rpt", jSONObject, g, k, i);
+                } else {
+                    dVar = null;
+                }
+                if (dVar != null) {
+                    dVar.d();
                 }
             }
         }
 
         @Override // com.baidu.tieba.gq9.e
-        public long a(long j) {
-            InterceptResult invokeJ;
+        public void e() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                return 0L;
-            }
-            return invokeJ.longValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements g {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.gq9.g
-        public void a(InterruptedException interruptedException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, interruptedException) == null) {
-                Log.w("ANRWatchdog", "Interrupted: " + interruptedException.getMessage());
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                ll9.f("key_rpt_fai_c", ll9.g() + 1);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements Runnable {
+    public class b implements c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gq9 a;
+        public final String a;
+        public final JSONObject b;
+        public final long c;
+        public JSONObject d;
+        public final /* synthetic */ gq9 e;
 
-        public d(gq9 gq9Var) {
+        public b(gq9 gq9Var, String str, JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gq9Var};
+                Object[] objArr = {gq9Var, str, jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -142,173 +122,290 @@ public class gq9 extends Thread {
                     return;
                 }
             }
-            this.a = gq9Var;
+            this.e = gq9Var;
+            this.a = str;
+            this.b = jSONObject;
+            this.c = System.currentTimeMillis();
+            if (FunAdSdk.isLogEnabled()) {
+                LogPrinter.v("report Event:" + this, new Object[0]);
+            }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.gq9.c
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d() : invokeV.booleanValue;
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        /* JADX WARN: Removed duplicated region for block: B:17:0x003b  */
+        /* JADX WARN: Removed duplicated region for block: B:18:0x003f  */
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public final boolean d() {
+            boolean z;
+            Response perform;
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                try {
+                    if (this.d == null) {
+                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
+                    }
+                    perform = new PostRequest(this.e.b, new RequestParams(this.d)).perform();
+                } catch (IOException e) {
+                    LogPrinter.e(e);
+                }
+                if (perform != null) {
+                    if (perform.getResponseCode() == 200) {
+                        z = true;
+                        if (z) {
+                            b();
+                        } else {
+                            c();
+                        }
+                        return z;
+                    }
+                }
+                z = false;
+                if (z) {
+                }
+                return z;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @NonNull
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return "Event{key=" + this.a + ", content=" + this.b + '}';
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public interface c {
+        boolean a();
+    }
+
+    /* loaded from: classes4.dex */
+    public class d extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int f;
+        public final int g;
+        public final int h;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(gq9 gq9Var, String str, JSONObject jSONObject, int i, int i2, int i3) {
+            super(gq9Var, str, jSONObject);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gq9Var, str, jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((gq9) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = i;
+            this.g = i2;
+            this.h = i3;
+        }
+
+        @Override // com.baidu.tieba.gq9.b
+        public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.l = 0L;
-                this.a.m = false;
+                ll9.e(this.f, this.g, this.h);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public interface e {
-        long a(long j);
-    }
+    public class e extends b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int f;
+        public final /* synthetic */ gq9 g;
 
-    /* loaded from: classes4.dex */
-    public interface f {
-        void onAppNotResponding(ANRError aNRError);
-    }
-
-    /* loaded from: classes4.dex */
-    public interface g {
-        void a(InterruptedException interruptedException);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802714, "Lcom/baidu/tieba/gq9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public e(gq9 gq9Var, String str, JSONObject jSONObject) {
+            super(gq9Var, str, jSONObject);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gq9Var, str, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((gq9) objArr2[0], (String) objArr2[1], (JSONObject) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947802714, "Lcom/baidu/tieba/gq9;");
-                return;
+            this.g = gq9Var;
+            this.f = 0;
+        }
+
+        @Override // com.baidu.tieba.gq9.b
+        public final void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = this.f;
+                this.f = i + 1;
+                if (i >= 3) {
+                    LogPrinter.e("Give up report event:" + this, new Object[0]);
+                    e();
+                    return;
+                }
+                try {
+                    if (this.d == null) {
+                        this.d = HostAppInfo.buildReportJson(this.a, this.b, this.c);
+                    }
+                    this.d.put(HostAppInfo.RETRY_I, this.f);
+                } catch (JSONException unused) {
+                }
+                gq9 gq9Var = this.g;
+                gq9Var.a.sendMessageDelayed(gq9Var.a.obtainMessage(102, this), 2000L);
             }
         }
-        o = new a();
-        p = new b();
-        q = new c();
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
     }
 
-    public gq9(int i) {
+    /* loaded from: classes4.dex */
+    public static class f extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(@NonNull Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 101) {
+                    if (i != 102) {
+                        return;
+                    }
+                    ((c) message.obj).a();
+                    return;
+                }
+                int i2 = message.arg1;
+                int k = ll9.k();
+                int g = ll9.g();
+                int i3 = (i2 - k) - g;
+                LogPrinter.d("ReportCount: req:%d suc:%d fai:%d mis:%d", Integer.valueOf(i2), Integer.valueOf(k), Integer.valueOf(g), Integer.valueOf(i3));
+                if (i3 > 0) {
+                    ll9.f("key_rpt_mis_c", i3);
+                }
+            }
+        }
+    }
+
+    public gq9(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = o;
-        this.b = p;
-        this.c = q;
-        this.d = new Handler(Looper.getMainLooper());
-        this.f = "";
-        this.g = false;
-        this.h = true;
-        this.i = false;
-        this.j = false;
-        this.k = null;
-        this.l = 0L;
-        this.m = false;
-        this.n = new d(this);
-        this.e = i;
+        HandlerThread handlerThread = new HandlerThread("rep");
+        handlerThread.start();
+        f fVar = new f(handlerThread.getLooper());
+        this.a = fVar;
+        this.b = str;
+        fVar.obtainMessage(101, ll9.j(), 0).sendToTarget();
     }
 
-    public gq9 c(f fVar) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, String str2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fVar)) == null) {
-            if (fVar == null) {
-                this.a = o;
-            } else {
-                this.a = fVar;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, obj) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(str2, obj);
+            } catch (JSONException unused) {
             }
-            return this;
+            logEvent(str, jSONObject);
         }
-        return (gq9) invokeL.objValue;
     }
 
-    public gq9 d(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.i = z;
-            return this;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map) == null) {
+            logEvent(str, new JSONObject(map));
         }
-        return (gq9) invokeZ.objValue;
     }
 
-    public gq9 e() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.reporter.Reporter
+    public void logEvent(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            this.f = null;
-            return this;
-        }
-        return (gq9) invokeV.objValue;
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            setName("|ANR-WatchDog|");
-            long j = this.e;
-            long j2 = 0;
-            while (!isInterrupted()) {
-                boolean z = this.l == 0;
-                this.l += j;
-                if (z) {
-                    this.d.post(this.n);
-                }
-                try {
-                    Thread.sleep(j);
-                    if (this.i && this.j) {
-                        if (this.k == null) {
-                            this.k = new hq9();
-                        }
-                        if (this.l == 0 && !this.m) {
-                            this.j = false;
-                            ANRError NewMainAllStackTrace = ANRError.NewMainAllStackTrace(this.k.b(), j2);
-                            if (NewMainAllStackTrace != null) {
-                                this.a.onAppNotResponding(NewMainAllStackTrace);
-                            }
-                        } else {
-                            j2 = this.l;
-                            this.k.a();
-                        }
-                    }
-                    if (this.l != 0 && !this.m) {
-                        if (!this.h && (Debug.isDebuggerConnected() || Debug.waitingForDebugger())) {
-                            Log.w("ANRWatchdog", "An ANR was detected but ignored because the debugger is connected (you can prevent this with setIgnoreDebugger(true))");
-                            this.m = true;
-                        } else {
-                            j = this.b.a(this.l);
-                            if (j <= 0) {
-                                if (this.f != null) {
-                                    this.a.onAppNotResponding(ANRError.New(this.l, this.f, this.g));
-                                } else if (this.i) {
-                                    this.j = true;
-                                    hq9 hq9Var = new hq9();
-                                    this.k = hq9Var;
-                                    hq9Var.a();
-                                } else {
-                                    this.a.onAppNotResponding(ANRError.NewMainOnly(this.l));
-                                }
-                                j = this.e;
-                                this.m = true;
-                            }
-                        }
-                    }
-                } catch (InterruptedException e2) {
-                    this.c.a(e2);
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject) == null) {
+            if (uk9.g(str, jSONObject)) {
+                LogPrinter.d("filter key:%s content:%s", str, jSONObject);
+            } else {
+                this.a.sendMessageDelayed(this.a.obtainMessage(102, LaunchStatsUtils.AD.equals(str) ? new a(this, str, jSONObject) : new e(this, str, jSONObject)), 0L);
             }
         }
     }

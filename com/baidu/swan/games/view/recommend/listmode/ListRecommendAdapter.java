@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n64;
+import com.baidu.tieba.a74;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     public transient /* synthetic */ FieldHolder $fh;
     public LayoutInflater a;
     public a b;
-    public n64 c;
+    public a74 c;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -82,10 +82,10 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         }
     }
 
-    public void g(n64 n64Var) {
+    public void g(a74 a74Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n64Var) == null) {
-            this.c = n64Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, a74Var) == null) {
+            this.c = a74Var;
             notifyDataSetChanged();
         }
     }
@@ -96,8 +96,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         List<RecommendItemModel> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n64 n64Var = this.c;
-            if (n64Var == null || (list = n64Var.b) == null) {
+            a74 a74Var = this.c;
+            if (a74Var == null || (list = a74Var.b) == null) {
                 return 0;
             }
             return list.size();

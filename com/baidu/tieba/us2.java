@@ -1,125 +1,108 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imageutils.JfifUtil;
 import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class us2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, Integer> a;
+    public static final HashMap<String, Integer> b;
+    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return i != 3 ? 100 : 118;
-                    }
-                    return 112;
-                }
-                return 100;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221493, "Lcom/baidu/tieba/us2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return 82;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948221493, "Lcom/baidu/tieba/us2;");
+                return;
+            }
         }
-        return invokeI.intValue;
+        HashMap<String, Integer> hashMap = new HashMap<>(16);
+        a = hashMap;
+        hashMap.put("VRModeProjectionSphere", 201);
+        a.put("VRModeProjectionDome180", 202);
+        a.put("VRModeProjectionDome230", 203);
+        a.put("VRModeProjectionDome180Upper", 204);
+        a.put("VRModeProjectionDome230Upper", 205);
+        a.put("VRModeProjectionPlaneFit", 207);
+        a.put("VRModeProjectionPlaneCrop", 208);
+        a.put("VRModeProjectionPlaneFull", 209);
+        a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
+        a.put("VRModeProjectionMultiFishEyeVertical", 211);
+        a.put("VRModeProjectionStereoSphereHorizontal", 212);
+        a.put("VRModeProjectionStereoSphereVertical", 213);
+        a.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
+        a.put("VRModeProjectionStereoPlaneFitVertical", 215);
+        a.put("VRModeProjectionPlaneFullHorizontal", Integer.valueOf((int) JfifUtil.MARKER_SOI));
+        a.put("VRModeProjectionPlaneFullVertical", 217);
+        HashMap<String, Integer> hashMap2 = new HashMap<>(2);
+        b = hashMap2;
+        hashMap2.put("VRModeDisplayNormal", 101);
+        b.put("VRModeDisplayGlass", 102);
+        HashMap<String, Integer> hashMap3 = new HashMap<>(5);
+        c = hashMap3;
+        hashMap3.put("VRModeInteractiveMotion", 1);
+        c.put("VRModeInteractiveTouch", 2);
+        c.put("VRModeInteractiveMotionWithTouch", 3);
+        c.put("VRModeInteractiveGVRMotion", 4);
+        c.put("VRModeInteractiveGVRMotionWithTouch", 5);
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    public us2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Bundle b = lz2.b(vs2.class, null);
-            if (b == null) {
-                return 1;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return b.getInt("font_size_level", 1);
         }
-        return invokeV.intValue;
     }
 
-    public static NgWebView c(e22 e22Var) {
+    public us2 a(JSONObject jSONObject) {
         InterceptResult invokeL;
-        HashMap<String, gp1> V;
-        gp1 gp1Var;
-        fp1 r;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, e22Var)) == null) {
-            if (e22Var instanceof g22) {
-                ep1 o3 = ((g22) e22Var).o3();
-                if (o3 == null || o3.k() == null) {
-                    if (o3 != null) {
-                        return (NgWebView) o3.r();
-                    }
-                    return null;
-                }
-                return (NgWebView) o3.k().r();
-            } else if (!(e22Var instanceof l22) || (V = s92.U().V()) == null || V.size() <= 0 || (gp1Var = V.get(qi3.c().h())) == null || !(gp1Var instanceof SwanWebModeWidget) || (r = gp1Var.r()) == null || !(r instanceof NgWebView)) {
-                return null;
-            } else {
-                return (NgWebView) r;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            us2 us2Var = new us2();
+            if (jSONObject == null) {
+                return us2Var;
             }
-        }
-        return (NgWebView) invokeL.objValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b() + 1 : invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? ng3.f("3.200.101") : invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            SwanAppConfigData s = lo2.U().s();
-            if (s == null) {
-                return false;
+            String optString = jSONObject.optString("projectionMode");
+            if (!TextUtils.isEmpty(optString) && a.containsKey(optString)) {
+                a.get(optString).intValue();
             }
-            return TextUtils.equals("none", s.e.q);
+            String optString2 = jSONObject.optString("displayMode");
+            if (!TextUtils.isEmpty(optString2) && b.containsKey(optString2)) {
+                b.get(optString2).intValue();
+            }
+            String optString3 = jSONObject.optString("interactiveMode");
+            if (!TextUtils.isEmpty(optString3) && c.containsKey(optString3)) {
+                c.get(optString3).intValue();
+            }
+            jSONObject.optInt("fov", -1);
+            jSONObject.optInt("minFov", -1);
+            jSONObject.optInt("maxFov", -1);
+            jSONObject.optBoolean("pinchEnable", true);
+            return us2Var;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static void g(int i, int i2) {
-        SwanAppActivity w;
-        h22 X;
-        e22 m;
-        NgWebView c;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(65542, null, i, i2) == null) || (w = x23.K().w()) == null || (X = w.X()) == null || (m = X.m()) == null || (c = c(m)) == null) {
-            return;
-        }
-        if (!f()) {
-            c.getSettings().setTextZoom(a(i));
-            ts2.a(Integer.valueOf(i + 1), String.valueOf(i2));
-        }
-        h(i);
-    }
-
-    public static void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-            oz2.e().h(new qz2(22, bundle));
-        }
+        return (us2) invokeL.objValue;
     }
 }

@@ -13,10 +13,10 @@ import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.fw7;
+import com.baidu.tieba.gw7;
+import com.baidu.tieba.iw7;
 import com.baidu.tieba.pb.ejection.value.LifeCycleState;
-import com.baidu.tieba.rv7;
-import com.baidu.tieba.sv7;
-import com.baidu.tieba.uv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,9 +38,9 @@ public class EjectionAnimationView extends View {
     public boolean f;
     public int g;
     public int h;
-    public ArrayList<rv7> i;
+    public ArrayList<fw7> i;
     public List<Bitmap> j;
-    public uv7 k;
+    public iw7 k;
     public Vibrator l;
 
     /* loaded from: classes5.dex */
@@ -125,16 +125,16 @@ public class EjectionAnimationView extends View {
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || !this.e || ListUtils.isEmpty(this.j) || (bitmap = this.j.get(new Random().nextInt(this.j.size()))) == null) {
             return;
         }
-        this.i.add(new sv7(bitmap, this.g, this.h, this.b, this.c));
+        this.i.add(new gw7(bitmap, this.g, this.h, this.b, this.c));
     }
 
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.f = true;
-            Iterator<rv7> it = this.i.iterator();
+            Iterator<fw7> it = this.i.iterator();
             while (it.hasNext()) {
-                rv7 next = it.next();
+                fw7 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     this.f = false;
                     next.a();
@@ -171,9 +171,9 @@ public class EjectionAnimationView extends View {
             this.d = 1;
             this.i = new ArrayList<>();
             this.a.removeMessages(0);
-            uv7 uv7Var = this.k;
-            if (uv7Var != null) {
-                uv7Var.onStop();
+            iw7 iw7Var = this.k;
+            if (iw7Var != null) {
+                iw7Var.onStop();
             }
             Vibrator vibrator = this.l;
             if (vibrator != null) {
@@ -189,9 +189,9 @@ public class EjectionAnimationView extends View {
             this.i = new ArrayList<>();
             this.e = true;
             this.d = 1;
-            uv7 uv7Var = this.k;
-            if (uv7Var != null) {
-                uv7Var.onStart();
+            iw7 iw7Var = this.k;
+            if (iw7Var != null) {
+                iw7Var.onStart();
             }
             this.a.sendEmptyMessage(0);
             Vibrator vibrator = this.l;
@@ -227,13 +227,13 @@ public class EjectionAnimationView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
             super.onDraw(canvas);
-            ArrayList<rv7> arrayList = this.i;
+            ArrayList<fw7> arrayList = this.i;
             if (arrayList == null) {
                 return;
             }
-            Iterator<rv7> it = arrayList.iterator();
+            Iterator<fw7> it = arrayList.iterator();
             while (it.hasNext()) {
-                rv7 next = it.next();
+                fw7 next = it.next();
                 if (next.v == LifeCycleState.ACTIVE) {
                     next.b(canvas);
                 }
@@ -266,10 +266,10 @@ public class EjectionAnimationView extends View {
         }
     }
 
-    public void setEjectionAnimationViewCallback(uv7 uv7Var) {
+    public void setEjectionAnimationViewCallback(iw7 iw7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, uv7Var) == null) {
-            this.k = uv7Var;
+        if (interceptable == null || interceptable.invokeL(1048588, this, iw7Var) == null) {
+            this.k = iw7Var;
         }
     }
 

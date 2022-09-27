@@ -1,100 +1,78 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class t26 extends v06<s26> {
+public class t26 extends x26 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId N0;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public int j;
-    public int k;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t26(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948129361, "Lcom/baidu/tieba/t26;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948129361, "Lcom/baidu/tieba/t26;");
+                return;
+            }
+        }
+        N0 = BdUniqueId.gen();
+    }
+
+    public t26(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {threadData};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = R.color.CAM_X0204;
-        this.k = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
-        h().setOnClickListener(this);
-        this.i = h().findViewById(R.id.obfuscated_res_0x7f0904ff);
+        this.a = threadData;
     }
 
-    @Override // com.baidu.tieba.v06
-    public int d() {
+    public static boolean Z(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, threadData)) == null) {
+            if (threadData == null) {
+                return false;
+            }
+            return threadData.isBJHNormalThreadType();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x26, com.baidu.tieba.p26, com.baidu.tieba.yq4
+    public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0180 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (ThreadData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v06
-    public void j(TbPageContext tbPageContext, int i) {
+    @Override // com.baidu.tieba.x26, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundColor(this.i, this.j);
-            }
-            this.a = i;
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v06
-    /* renamed from: r */
-    public void i(s26 s26Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, s26Var) == null) || s26Var == null) {
-            return;
-        }
-        this.i.setVisibility(0);
-        this.j = s26Var.a;
-        this.k = s26Var.b;
-        s();
-        j(this.b, TbadkCoreApplication.getInst().getSkinType());
-    }
-
-    public final void s() {
-        ViewGroup.LayoutParams layoutParams;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (layoutParams = this.i.getLayoutParams()) == null) {
-            return;
-        }
-        int i = layoutParams.height;
-        int i2 = this.k;
-        if (i != i2) {
-            layoutParams.height = i2;
-            this.i.setLayoutParams(layoutParams);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? N0 : (BdUniqueId) invokeV.objValue;
     }
 }

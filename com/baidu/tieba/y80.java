@@ -1,79 +1,56 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
 public class y80 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "lcpsdk";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public z80 a;
+    public a90 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948283896, "Lcom/baidu/tieba/y80;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public y80() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948283896, "Lcom/baidu/tieba/y80;");
-        }
+        this.a = new z80();
+        this.b = new a90();
     }
 
-    public static void a(String str, String str2) {
+    public r80 a(r80 r80Var, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && w80.a) {
-            String str3 = a;
-            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, r80Var, z)) == null) {
+            this.a.b(r80Var, z);
+            return r80Var;
         }
+        return (r80) invokeLZ.objValue;
     }
 
-    public static void b(String str, String str2) {
+    public r80 b(Context context, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && w80.a) {
-            String str3 = a;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
-        }
+        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) ? this.a.c(context, j) : (r80) invokeLJ.objValue;
     }
 
-    public static void c(String str, String str2, Throwable th) {
+    public r80 c(InputStream inputStream) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && w80.a) {
-            String str3 = a;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
-        }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && w80.a) {
-            String str3 = a;
-            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && w80.a) {
-            String str3 = a;
-            Log.v(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
-        }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && w80.a) {
-            String str3 = a;
-            Log.w(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) ? this.b.b(inputStream) : (r80) invokeL.objValue;
     }
 }

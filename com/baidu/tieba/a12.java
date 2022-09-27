@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,26 +11,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.http.cookie.ClientCookie;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class a12 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    @SuppressLint({"BDOfflineUrl"})
-    public String b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public int f;
-    public boolean g;
+    public JSONArray b;
+    public String c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -44,11 +38,7 @@ public class a12 {
                 return;
             }
         }
-        h = ij1.a;
-        i = "V8Master";
-        j = "page";
-        k = "runtime/index.js";
-        l = "ws://localhost:4000";
+        e = vj1.a;
     }
 
     public a12() {
@@ -56,53 +46,52 @@ public class a12 {
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = String.valueOf(System.currentTimeMillis());
-        this.b = "http://chrome-devtools-frontend.appspot.com/serve_rev/@74dd8d5ea19a92d0e6092e59a0c8bd3a40877b71/inspector.html?ws=localhost:4000";
-        this.c = false;
-        this.d = true;
-        this.e = 0;
-        this.f = 0;
-        this.g = true;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static a12 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            a12 a12Var = new a12();
             try {
-                jSONObject.putOpt("title", i);
-                jSONObject.putOpt("type", j);
-                jSONObject.putOpt("url", k);
-                jSONObject.putOpt("webSocketDebuggerUrl", l);
-                jSONObject.putOpt("id", this.a);
-                jSONObject.putOpt("devtoolsFrontendUrl", this.b);
-                jSONObject.putOpt("swanJsVersion", dc3.h(0));
-                jSONObject.putOpt("appVersion", sg3.D());
-                jSONObject2.putOpt("attached", Boolean.valueOf(this.c));
-                jSONObject2.putOpt(SchemeCollecter.CLASSIFY_EMPTY, Boolean.valueOf(this.d));
-                jSONObject2.putOpt("screenX", Integer.valueOf(this.e));
-                jSONObject2.putOpt("screenY", Integer.valueOf(this.f));
-                jSONObject2.putOpt("visible", Boolean.valueOf(this.g));
-                jSONObject.putOpt("description", jSONObject2.toString());
-                jSONArray.put(jSONObject);
-            } catch (JSONException e) {
-                if (h) {
-                    Log.e("V8Module", "Build V8 module fail", e);
+                a12Var.b = jSONObject.getJSONArray("host");
+                a12Var.a = jSONObject.getString("appKey");
+                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                a12Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
+                a12Var.d = Uri.decode(jSONObject.optString("url"));
+                return a12Var;
+            } catch (JSONException unused) {
+                if (e) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
+                    return null;
                 }
+                return null;
             }
-            return jSONArray.toString();
         }
-        return (String) invokeV.objValue;
+        return (a12) invokeL.objValue;
+    }
+
+    public String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            JSONArray jSONArray = this.b;
+            if (jSONArray == null) {
+                return "";
+            }
+            String optString = jSONArray.optString(i);
+            if (TextUtils.isEmpty(optString)) {
+                return "";
+            }
+            return "http://" + optString + ":" + this.c;
+        }
+        return (String) invokeI.objValue;
     }
 }

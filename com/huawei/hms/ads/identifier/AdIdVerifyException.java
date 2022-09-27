@@ -12,6 +12,7 @@ public class AdIdVerifyException extends Exception {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Keep
     public AdIdVerifyException(String str) {
         super(str);
         Interceptable interceptable = $ic;

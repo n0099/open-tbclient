@@ -5,8 +5,8 @@ import com.baidu.common.config.AppIdentityManager;
 import com.baidu.searchbox.cloudcontrol.CloudControlManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.he1;
-import com.baidu.tieba.j99;
+import com.baidu.tieba.ue1;
+import com.baidu.tieba.y99;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,8 +35,8 @@ public class InitUBCTask extends LaunchTask {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65537, this) == null) && PermissionUtil.isAgreePrivacyPolicy()) {
             AppIdentityManager.getInstance().setAppName("tieba");
-            if (he1.g()) {
-                j99.a();
+            if (ue1.g()) {
+                y99.a();
                 CloudControlManager.getInstance().requestCloudControl("0");
             }
         }

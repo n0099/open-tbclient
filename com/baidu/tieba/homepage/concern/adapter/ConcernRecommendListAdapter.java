@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dp4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ez4;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.qp4;
+import com.baidu.tieba.rz4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public BdUniqueId c;
     public int d;
     public List<MetaData> e;
-    public dp4<MetaData> f;
+    public qp4<MetaData> f;
 
     /* loaded from: classes4.dex */
     public class ForumViewHolder extends RecyclerView.ViewHolder {
@@ -55,7 +55,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         public TextView c;
         public HeadPendantClickableView d;
         public DynamicUserLikeButton e;
-        public ez4 f;
+        public rz4 f;
         public boolean g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -88,8 +88,8 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             this.d.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906c2);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0906c0);
-            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0924c8);
-            this.f = new ez4(concernRecommendListAdapter.b, this.e);
+            this.e = (DynamicUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f0924ca);
+            this.f = new rz4(concernRecommendListAdapter.b, this.e);
         }
 
         public void a(int i) {
@@ -102,7 +102,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 }
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
                 this.e.r(i);
-                uu4 d = uu4.d(this.a);
+                hv4 d = hv4.d(this.a);
                 d.n(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
             }
@@ -276,9 +276,9 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         r(metaData, forumViewHolder);
         p(metaData, forumViewHolder);
         q(metaData, forumViewHolder);
-        dp4<MetaData> dp4Var = this.f;
-        if (dp4Var != null) {
-            dp4Var.d(forumViewHolder.itemView, metaData, i, i);
+        qp4<MetaData> qp4Var = this.f;
+        if (qp4Var != null) {
+            qp4Var.d(forumViewHolder.itemView, metaData, i, i);
         }
         forumViewHolder.a(this.d);
     }
@@ -327,10 +327,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         }
     }
 
-    public void l(dp4<MetaData> dp4Var) {
+    public void l(qp4<MetaData> qp4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dp4Var) == null) {
-            this.f = dp4Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, qp4Var) == null) {
+            this.f = qp4Var;
         }
     }
 
@@ -368,10 +368,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, metaData, forumViewHolder) == null) {
             forumViewHolder.e.setOnClickEvent(new b(this, metaData));
-            ez4 ez4Var = forumViewHolder.f;
-            if (ez4Var != null) {
-                ez4Var.l(this.c);
-                ez4Var.n(metaData);
+            rz4 rz4Var = forumViewHolder.f;
+            if (rz4Var != null) {
+                rz4Var.l(this.c);
+                rz4Var.n(metaData);
             }
         }
     }

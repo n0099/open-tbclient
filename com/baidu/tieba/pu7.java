@@ -1,83 +1,55 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pu7 {
+public class pu7<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public TextView c;
-    public TextView d;
-    public ImageView e;
+    public int a;
+    public T b;
 
-    public pu7(View view2) {
+    public pu7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = view2;
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090637);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090634);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090635);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090636);
     }
 
-    public void a() {
+    public T a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.a, R.drawable.bg_rec_lick);
-            SkinManager.setBackgroundResource(this.b, R.drawable.bg_rec_comment);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0108, 1);
-            SkinManager.setViewTextColor(this.d, R.color.CAM_X0110, 1);
-            SkinManager.setImageResource(this.e, R.drawable.recommend_pb_share_selector);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (T) invokeV.objValue;
+    }
+
+    public void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b = t;
         }
     }
 
-    public void b(View.OnClickListener onClickListener) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
-            this.b.setOnClickListener(onClickListener);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public void c(String str) {
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.d.setText(str);
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.e.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a.setVisibility(z ? 0 : 8);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.intValue;
     }
 }

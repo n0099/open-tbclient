@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.my4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,7 +74,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
                     View findViewById3 = inflate.findViewById(R.id.obfuscated_res_0x7f0902dd);
                     if (findViewById3 != null) {
                         this.c = (TBSpecificationBtn) findViewById3;
-                        zx4 zx4Var = new zx4();
+                        my4 my4Var = new my4();
                         TBSpecificationBtn tBSpecificationBtn = this.c;
                         if (tBSpecificationBtn != null) {
                             tBSpecificationBtn.setText(context.getString(R.string.obfuscated_res_0x7f0f03eb));
@@ -89,7 +89,7 @@ public final class AttentionNotLoginLayout extends LinearLayout implements View.
                         }
                         TBSpecificationBtn tBSpecificationBtn4 = this.c;
                         if (tBSpecificationBtn4 != null) {
-                            tBSpecificationBtn4.setConfig(zx4Var);
+                            tBSpecificationBtn4.setConfig(my4Var);
                         }
                         TBSpecificationBtn tBSpecificationBtn5 = this.c;
                         if (tBSpecificationBtn5 == null) {

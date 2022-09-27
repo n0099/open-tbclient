@@ -451,7 +451,7 @@ public abstract class Visibility extends Transition {
             if ((this.mMode & 2) == 2 && transitionValues != null) {
                 View view4 = transitionValues.f1028view;
                 View view5 = transitionValues2 != null ? transitionValues2.f1028view : null;
-                View view6 = (View) view4.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db0);
+                View view6 = (View) view4.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db2);
                 if (view6 != null) {
                     view3 = null;
                     z2 = true;
@@ -548,7 +548,7 @@ public abstract class Visibility extends Transition {
                     if (onDisappear2 == null) {
                         ViewGroupUtils.getOverlay(viewGroup).remove(view6);
                     } else {
-                        view4.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db0, view6);
+                        view4.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db2, view6);
                         addListener(new TransitionListenerAdapter(this, viewGroup, view6, view4) { // from class: androidx.transition.Visibility.1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
@@ -582,7 +582,7 @@ public abstract class Visibility extends Transition {
                             public void onTransitionEnd(@NonNull Transition transition) {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, transition) == null) {
-                                    this.val$startView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db0, null);
+                                    this.val$startView.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f091db2, null);
                                     ViewGroupUtils.getOverlay(this.val$overlayHost).remove(this.val$finalOverlayView);
                                     transition.removeListener(this);
                                 }

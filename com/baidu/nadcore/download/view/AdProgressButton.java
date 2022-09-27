@@ -18,17 +18,17 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g21;
-import com.baidu.tieba.rk0;
-import com.baidu.tieba.x11;
-import com.baidu.tieba.yj0;
+import com.baidu.tieba.el0;
+import com.baidu.tieba.k21;
+import com.baidu.tieba.lk0;
+import com.baidu.tieba.t21;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class AdProgressButton extends View implements rk0<AdProgressButton> {
+public class AdProgressButton extends View implements el0<AdProgressButton> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -70,7 +70,7 @@ public class AdProgressButton extends View implements rk0<AdProgressButton> {
         d(context, null);
     }
 
-    @Override // com.baidu.tieba.rk0
+    @Override // com.baidu.tieba.el0
     public void b(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof RelativeLayout)) {
@@ -100,11 +100,11 @@ public class AdProgressButton extends View implements rk0<AdProgressButton> {
     public final void d(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, x11.nad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, k21.nad_progress);
             int color = getResources().getColor(R.color.obfuscated_res_0x7f060867);
             int color2 = getResources().getColor(R.color.obfuscated_res_0x7f060866);
-            int a = g21.c.a(getContext(), 11.0f);
-            int a2 = g21.c.a(getContext(), 12.0f);
+            int a = t21.c.a(getContext(), 11.0f);
+            int a2 = t21.c.a(getContext(), 12.0f);
             this.j = 1;
             this.f = obtainStyledAttributes.getInteger(0, color2);
             this.b = obtainStyledAttributes.getColor(8, color);
@@ -115,7 +115,7 @@ public class AdProgressButton extends View implements rk0<AdProgressButton> {
             this.i = obtainStyledAttributes.getDimensionPixelSize(5, a2);
             obtainStyledAttributes.recycle();
             this.k = Typeface.defaultFromStyle(1);
-            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dc8));
+            setBackgroundDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dca));
             e();
         }
     }
@@ -142,7 +142,7 @@ public class AdProgressButton extends View implements rk0<AdProgressButton> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rk0
+    @Override // com.baidu.tieba.el0
     @NonNull
     public AdProgressButton getRealView() {
         InterceptResult invokeV;
@@ -234,12 +234,12 @@ public class AdProgressButton extends View implements rk0<AdProgressButton> {
         }
     }
 
-    @Override // com.baidu.tieba.rk0
-    public void update(String str, @NonNull yj0 yj0Var) {
+    @Override // com.baidu.tieba.el0
+    public void update(String str, @NonNull lk0 lk0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, yj0Var) == null) {
-            if (yj0Var.c == AdDownloadStatus.DOWNLOADING) {
-                setProgress((int) (yj0Var.i * 100.0f));
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, lk0Var) == null) {
+            if (lk0Var.c == AdDownloadStatus.DOWNLOADING) {
+                setProgress((int) (lk0Var.i * 100.0f));
                 return;
             }
             setProgressNoText(0);

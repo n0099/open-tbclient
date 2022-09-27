@@ -1,50 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.tblauncher.MainTabActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Set;
 /* loaded from: classes4.dex */
 public class hp8 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947831513, "Lcom/baidu/tieba/hp8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947831513, "Lcom/baidu/tieba/hp8;");
+    public static void a(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_THREAD_POST_RESULT_DIALOG_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", z ? 1 : 0).param("obj_source", z2 ? 1 : 0));
         }
     }
 
-    public static void a(MainTabActivity mainTabActivity, Intent intent) {
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, mainTabActivity, intent) == null) || a || mainTabActivity == null || !mainTabActivity.isTaskRoot() || intent == null) {
-            return;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_THREAD_POST_FAIL_DIALOG_RETRY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", z ? 1 : 0));
         }
-        String action = intent.getAction();
-        Set<String> categories = intent.getCategories();
-        if (action == null || categories == null || !TextUtils.equals(action, "android.intent.action.MAIN") || !categories.contains("android.intent.category.LAUNCHER")) {
-            return;
+    }
+
+    public static void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            TiebaStatic.log(new StatisticItem("c14029").param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
-        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOST_START).param("obj_param1", 2).param(TiebaStatic.Params.OBJ_PARAM2, TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, TbadkCoreApplication.getInst().getCanShowSplash()));
-        a = true;
     }
 }

@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import java.util.List;
+import com.baidu.ugc.bean.LocalAlbumInfo;
 /* loaded from: classes4.dex */
 public class j09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
+    public LocalAlbumInfo a;
+    public boolean b;
     public int c;
-    public int d;
-    public List<MediaSegment> e;
-    public List<MultiMediaData> f;
 
     public j09() {
         Interceptable interceptable = $ic;
@@ -28,7 +25,34 @@ public class j09 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = -1;
+    }
+
+    public LocalAlbumInfo a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (LocalAlbumInfo) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.booleanValue;
+    }
+
+    public void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.b = z;
+        }
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
     }
 }

@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ib4 implements gb4<tb4> {
+public abstract class ib4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ib4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public ib4() {
@@ -29,33 +31,73 @@ public class ib4 implements gb4<tb4> {
         }
     }
 
-    @Override // com.baidu.tieba.gb4
-    public void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
-        }
-    }
-
-    public final String b() {
+    public static ib4 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT UNIQUE,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0);";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (ib4.class) {
+                    if (a == null) {
+                        a = new jb4();
+                    }
+                }
+            }
+            return a;
         }
-        return (String) invokeV.objValue;
+        return (ib4) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? ETAG.KEY_EXTENSION : (String) invokeV.objValue;
-    }
+    public abstract boolean a(kc4 kc4Var, PMSAppInfo pMSAppInfo);
 
-    @Override // com.baidu.tieba.gb4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
+    public abstract boolean b(kc4 kc4Var, List<lc4> list, ic4 ic4Var, gc4 gc4Var, PMSAppInfo pMSAppInfo);
+
+    public abstract void c(String str);
+
+    public abstract void d(String str, String str2);
+
+    public abstract <T extends jc4> boolean e(Class<T> cls, String str);
+
+    public abstract boolean f(mc4 mc4Var);
+
+    public abstract boolean g(List<mc4> list);
+
+    public abstract boolean h(String str);
+
+    @WorkerThread
+    public abstract int j(@NonNull String str);
+
+    @NonNull
+    @WorkerThread
+    public abstract List<lc4> k(@NonNull String str, int i);
+
+    public abstract boolean l(PMSAppInfo pMSAppInfo);
+
+    public abstract <T extends jc4> boolean m(T t);
+
+    public abstract boolean n(String str, String str2, String str3);
+
+    public abstract <T extends jc4> T o(Class<T> cls, String str);
+
+    public abstract Map<String, kc4> p();
+
+    public abstract mc4 q(String str, long j, long j2);
+
+    public abstract List<mc4> r(String str, String[] strArr);
+
+    public abstract List<mc4> s(String str, long j, long j2);
+
+    @Nullable
+    public abstract nc4 t(String str);
+
+    public abstract PMSAppInfo u(String str);
+
+    public abstract Map<String, PMSAppInfo> v();
+
+    public abstract List<mc4> w(String str);
+
+    public abstract boolean x(mc4 mc4Var);
+
+    public abstract boolean y(PMSAppInfo pMSAppInfo);
+
+    public abstract boolean z(String str, int i);
 }

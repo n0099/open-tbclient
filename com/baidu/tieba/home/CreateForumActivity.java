@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.l15;
-import com.baidu.tieba.td5;
+import com.baidu.tieba.ge5;
+import com.baidu.tieba.y15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -270,14 +270,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        l15 l15Var = new l15();
-                        l15Var.e(postNetData);
-                        if (l15Var.c() != null && l15Var.c().length() > 0) {
-                            this.c.d = l15Var.b();
+                        y15 y15Var = new y15();
+                        y15Var.e(postNetData);
+                        if (y15Var.c() != null && y15Var.c().length() > 0) {
+                            this.c.d = y15Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(l15Var.c());
+                            NetWork netWork2 = new NetWork(y15Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -370,25 +370,25 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = new a(this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c81);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091c83);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f.setTitleText(R.string.obfuscated_res_0x7f0f046e);
-            this.g = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f0925c4);
+            this.g = (NoNetworkView) this.e.findViewById(R.id.obfuscated_res_0x7f0925c6);
             EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090873);
             this.h = editText;
             editText.setText(this.m);
             EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090884);
             this.i = editText2;
             editText2.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091bc2);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091bc4);
             this.k = textView;
             textView.setOnClickListener(this.a);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e94);
             this.j = imageView;
             imageView.setOnClickListener(this.a);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092112);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092114);
             this.l = textView2;
             textView2.setOnClickListener(this.a);
             findViewById(R.id.obfuscated_res_0x7f0903b7).setOnTouchListener(new b(this));
@@ -421,7 +421,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
             getLayoutMode().k(this.e);
-            td5.a(getPageContext(), this.e);
+            ge5.a(getPageContext(), this.e);
             NavigationBar navigationBar = this.f;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);

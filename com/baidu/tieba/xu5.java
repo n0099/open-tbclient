@@ -1,112 +1,100 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class xu5 {
+public class xu5 extends i16<nu5> {
     public static /* synthetic */ Interceptable $ic;
-    public static xu5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
+    public wu5 i;
+    public wu5 j;
+    public wu5 k;
+    public ViewGroup l;
 
-    public xu5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xu5(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.i = new wu5(tbPageContext);
+        this.j = new wu5(tbPageContext);
+        this.k = new wu5(tbPageContext);
+        this.l = (ViewGroup) h();
+        new View(getContext());
+        this.l.setPadding(g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0, g().getResources().getDimensionPixelSize(R.dimen.tbds44), 0);
+        this.l.addView(this.i.e());
+        this.l.addView(this.j.e());
+        this.l.addView(this.k.e());
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public static xu5 b() {
+    @Override // com.baidu.tieba.i16
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (xu5.class) {
-                    if (b == null) {
-                        b = new xu5();
-                    }
-                }
-            }
-            return b;
-        }
-        return (xu5) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0853 : invokeV.intValue;
     }
 
-    public void a(StatisticItem statisticItem) {
+    @Override // com.baidu.tieba.i16
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, statisticItem) == null) || statisticItem == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.l, R.color.CAM_X0201);
+            this.i.g(tbPageContext, i);
+            this.j.g(tbPageContext, i);
+            this.k.g(tbPageContext, i);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i16
+    /* renamed from: r */
+    public void i(nu5 nu5Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048580, this, nu5Var) == null) || nu5Var == null) {
             return;
         }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        List<StatisticItem> list = this.a;
-        if (list != null) {
-            list.add(statisticItem);
-        }
+        this.i.f(nu5Var.a);
+        this.j.f(nu5Var.b);
+        this.k.f(nu5Var.c);
     }
 
-    public final long c(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void s(yu5 yu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData)) == null) {
-            if (threadData == null || threadData.getThreadAlaInfo() == null) {
-                return -1L;
-            }
-            return threadData.getThreadAlaInfo().live_id;
+        if (interceptable == null || interceptable.invokeL(1048581, this, yu5Var) == null) {
+            this.i.h(yu5Var);
+            this.j.h(yu5Var);
+            this.k.h(yu5Var);
         }
-        return invokeL.longValue;
-    }
-
-    public StatisticItem d(int i, String str, int i2, String str2, ThreadData threadData) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, threadData})) == null) {
-            if (threadData == null) {
-                return null;
-            }
-            String str3 = (threadData.getThreadAlaInfo() == null || StringUtils.isNull(threadData.getThreadAlaInfo().appId)) ? "" : threadData.getThreadAlaInfo().appId;
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_type", 1);
-            statisticItem.param("obj_id", c(threadData));
-            statisticItem.param("tid", threadData.getId());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
-            statisticItem.param("entryid", i2);
-            statisticItem.param("name", str2);
-            statisticItem.param("is_small_follow", i);
-            return statisticItem;
-        }
-        return (StatisticItem) invokeCommon.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
     }
 }

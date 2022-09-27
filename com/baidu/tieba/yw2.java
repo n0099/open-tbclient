@@ -1,49 +1,148 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yw2 {
+public class yw2 implements xw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static long b;
+    public static final boolean c;
+    public static volatile yw2 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile ww2 a;
+    public volatile wx2 b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948344501, "Lcom/baidu/tieba/yw2;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948344501, "Lcom/baidu/tieba/yw2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948344501, "Lcom/baidu/tieba/yw2;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        c = vj1.a;
+    }
+
+    public yw2() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948344501, "Lcom/baidu/tieba/yw2;");
-        }
+        i();
     }
 
-    public static long a() {
+    public static yw2 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? b : invokeV.longValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (yw2.class) {
+                    if (d == null) {
+                        d = new yw2();
+                    }
+                }
+            }
+            return d;
+        }
+        return (yw2) invokeV.objValue;
     }
 
-    public static String b() {
+    @Override // com.baidu.tieba.xw2
+    public void end(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && k()) {
+            if (c) {
+                Log.d("StartUpInfoMarker", "aiapp start cost at - " + j);
+            }
+            this.a.end(j);
+            this.b.end(j);
+            m(j);
+        }
+    }
+
+    public ww2 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (ww2) invokeV.objValue;
     }
 
-    public static void update(String str) {
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a = str;
-            b = System.currentTimeMillis();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (this.a == null) {
+                this.a = new uw2();
+            }
+            if (this.b == null) {
+                this.b = new yx2();
+            }
+        }
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (c) {
+                return true;
+            }
+            l33 b0 = l33.b0();
+            if (b0 == null) {
+                return false;
+            }
+            String appId = b0.getAppId();
+            return (TextUtils.isEmpty(appId) || nv1.b(appId) == 0) ? false : true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? j() : invokeV.booleanValue;
+    }
+
+    public wx2 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (wx2) invokeV.objValue;
+    }
+
+    public final void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            hf3.i.update((gf3<Long>) Long.valueOf(j));
+        }
+    }
+
+    @Override // com.baidu.tieba.xw2
+    public void start(long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeJ(1048583, this, j) == null) && k()) {
+            if (c) {
+                Log.d("StartUpInfoMarker", "aiapp start at - " + j);
+            }
+            this.a.start(j);
+            this.b.start(j);
         }
     }
 }

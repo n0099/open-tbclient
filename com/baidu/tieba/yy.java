@@ -100,19 +100,19 @@ public class yy extends ix implements wx<ThreadData>, xx {
             layoutParams3.rightMargin = f2;
             layoutParams3.bottomMargin = f3;
             i(layoutParams3);
-            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f080933, R.color.CAM_X0111);
+            this.e.setWebPResId(R.drawable.obfuscated_res_0x7f080935, R.color.CAM_X0111);
             this.e.setPadding(f, f, f, f);
             this.e.setLayoutParams(layoutParams3);
         }
         this.f = align;
     }
 
-    public void l(lq4 lq4Var) {
+    public void l(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lq4Var) == null) {
-            if (lq4Var.isSupportTop()) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yq4Var) == null) {
+            if (yq4Var.isSupportTop()) {
                 k(Align.ALIGN_RIGHT_TOP);
-            } else if (lq4Var.isSupportBottom()) {
+            } else if (yq4Var.isSupportBottom()) {
                 sy syVar = this.d;
                 if (syVar != null) {
                     syVar.n(this);

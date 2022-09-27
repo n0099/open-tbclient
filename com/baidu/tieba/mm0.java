@@ -1,33 +1,101 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
-public interface mm0 {
+public class mm0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Autowired
     /* loaded from: classes5.dex */
-    public static class a {
+    public static class a extends lq0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @NonNull
-        @Singleton
-        @Inject(force = false)
-        public static mm0 a() {
-            InterceptResult invokeV;
+        public a() {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? zu0.a() : (mm0) invokeV.objValue;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jq0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.kq0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.kq0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
+            }
+        }
+
+        public String f(Headers headers, String str, int i) {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
         }
     }
 
-    void a(@NonNull Application application);
+    public static o01 a(ADConfigError aDConfigError, int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            o01 o01Var = new o01();
+            o01Var.g("1042").b("f1", b(aDConfigError.code)).b("f2", b(String.valueOf(i))).b("f3", b(z ? "0" : "1"));
+            return o01Var;
+        }
+        return (o01) invokeCommon.objValue;
+    }
 
-    void b();
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                try {
+                    return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
+                } catch (UnsupportedEncodingException e) {
+                    e.printStackTrace();
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(ADConfigError aDConfigError, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)}) == null) || aDConfigError == null) {
+            return;
+        }
+        h01.c(a(aDConfigError, i, z), new a());
+    }
 }

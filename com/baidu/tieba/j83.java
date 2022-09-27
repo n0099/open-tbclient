@@ -1,51 +1,62 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Window;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.setting.oauth.OAuthException;
-import com.baidu.swan.apps.statistic.interfacestability.SwanInterfaceType;
+import com.baidu.mapapi.SDKInitializer;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.p23;
+import com.baidu.tieba.q83;
+import com.baidu.tieba.t93;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
+import java.util.Set;
+import okhttp3.FormBody;
+import okhttp3.RequestBody;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class j83<ResultDataT> extends v73<ResultDataT> {
+public final class j83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, d> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> g;
-    public String h;
-    public JSONObject i;
-    public boolean j;
-    public boolean k;
-    public String l;
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j83 a;
+        public final /* synthetic */ String a;
 
-        public a(j83 j83Var) {
+        public a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j83Var};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,34 +66,31 @@ public abstract class j83<ResultDataT> extends v73<ResultDataT> {
                     return;
                 }
             }
-            this.a = j83Var;
+            this.a = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (v73.f) {
-                    Log.d("OAuthRequest", "OAuthRequest.onExec in thread pool");
-                }
-                this.a.D();
+                Context e = j83.e();
+                Toast.makeText(e, "aiapps-oauth :: " + this.a, 0).show();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends ResponseCallback {
+    public static class b implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HttpRequest a;
-        public final /* synthetic */ j83 b;
+        public final /* synthetic */ l83 a;
 
-        public b(j83 j83Var, HttpRequest httpRequest) {
+        public b(l83 l83Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j83Var, httpRequest};
+                Object[] objArr = {l83Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -92,54 +100,39 @@ public abstract class j83<ResultDataT> extends v73<ResultDataT> {
                     return;
                 }
             }
-            this.b = j83Var;
-            this.a = httpRequest;
+            this.a = l83Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (this.b.E()) {
-                    this.b.N(this.a);
-                } else {
-                    this.b.H(this.a, exc);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                if (i == -2) {
+                    j83.k("onNegBtn", Boolean.FALSE);
+                    ea3.q("click", this.a.b, false);
+                    j83.d(this.a.b, false);
+                } else if (i == -1) {
+                    j83.k("onPosBtn", Boolean.FALSE);
+                    ea3.q("click", this.a.b, true);
+                    j83.d(this.a.b, true);
                 }
+                tm2.n().a("na_authorize_end");
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.b.J(response);
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends ResponseCallback {
+    public static class c implements DialogInterface.OnCancelListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HttpRequest a;
-        public final /* synthetic */ j83 b;
+        public final /* synthetic */ l83 a;
 
-        public c(j83 j83Var, HttpRequest httpRequest) {
+        public c(l83 l83Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j83Var, httpRequest};
+                Object[] objArr = {l83Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -149,52 +142,32 @@ public abstract class j83<ResultDataT> extends v73<ResultDataT> {
                     return;
                 }
             }
-            this.b = j83Var;
-            this.a = httpRequest;
+            this.a = l83Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                yz1.i("OAuthRequest", "retryRequest fail: ");
-                this.b.H(this.a, exc);
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                j83.k("onCancel", Boolean.FALSE);
+                ea3.q("click", this.a.b, false);
+                j83.d(this.a.b, false);
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                yz1.i("OAuthRequest", "retryRequest success: ");
-                this.b.J(response);
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d implements kj1 {
+    public static class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ j83 b;
+        public final Set<g83> a;
 
-        public d(j83 j83Var, String str) {
+        public d(String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j83Var, str};
+                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -204,283 +177,355 @@ public abstract class j83<ResultDataT> extends v73<ResultDataT> {
                     return;
                 }
             }
-            this.b = j83Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.kj1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    this.b.p();
-                    this.b.call();
-                    return;
-                }
-                this.b.C(null, this.a);
-            }
+            this.a = new HashSet();
         }
     }
 
-    public j83() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947837124, "Lcom/baidu/tieba/j83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947837124, "Lcom/baidu/tieba/j83;");
                 return;
             }
         }
-        this.g = new HashMap();
+        a = vj1.a;
+        b = new HashMap();
     }
 
-    public int A() {
-        InterceptResult invokeV;
+    public static RequestBody b(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            FormBody.Builder builder = new FormBody.Builder();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                String key = entry.getKey();
+                String value = entry.getValue();
+                if (TextUtils.isEmpty(key)) {
+                    key = "";
+                }
+                if (TextUtils.isEmpty(value)) {
+                    value = "";
+                }
+                if (a) {
+                    k("query :: " + key + " = " + value, Boolean.FALSE);
+                }
+                builder.add(key, value);
+            }
+            return builder.build();
         }
-        return invokeV.intValue;
+        return (RequestBody) invokeL.objValue;
     }
 
-    public Map<String, String> B() {
+    public static JSONObject c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            String C = sm2.o().C();
+            return (jSONObject == null || TextUtils.isEmpty(C)) ? jSONObject : jSONObject.optJSONObject(C);
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static void d(String str, boolean z) {
+        d remove;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, z) == null) {
+            synchronized (b) {
+                remove = b.remove(str);
+            }
+            if (remove == null || remove.a.isEmpty()) {
+                return;
+            }
+            for (g83 g83Var : remove.a) {
+                if (g83Var != null) {
+                    g83Var.onResult(z);
+                }
+            }
+        }
+    }
+
+    public static Context e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.g : (Map) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? AppRuntime.getAppContext() : (Context) invokeV.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public void C(Response response, String str) {
-        int optInt;
+    public static String f(int i) {
+        InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, response, str) == null) {
-            this.h = str;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            switch (i) {
+                case 10001:
+                    str = "internal error";
+                    break;
+                case 10002:
+                    str = SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR;
+                    break;
+                case 10003:
+                    str = "user deny";
+                    break;
+                case 10004:
+                    str = "user not logged in";
+                    break;
+                case 10005:
+                    str = "system deny";
+                    break;
+                case 10006:
+                    str = "no data";
+                    break;
+                default:
+                    str = "Permission denied";
+                    break;
+            }
+            if (a) {
+                Log.w("OAuthUtils", i + " " + str);
+            }
+            return str;
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @SuppressLint({"PackageManagerGetSignatures"})
+    public static String g() {
+        InterceptResult invokeV;
+        Signature[] signatureArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
             try {
-                JSONObject jSONObject = new JSONObject(this.h);
-                this.i = jSONObject;
-                optInt = jSONObject.optInt("errno");
-            } catch (OAuthException e) {
-                G(e.mErrorCode, str, response);
-                d(e);
-            } catch (Exception e2) {
-                w73.k(e2.toString(), Boolean.TRUE);
-                L(str, e2);
-                G(2103, str, response);
-                d(new OAuthException(10005));
-                r93.r(10005, null);
+                PackageInfo packageInfo = e().getPackageManager().getPackageInfo(e().getPackageName(), 64);
+                return (packageInfo == null || (signatureArr = packageInfo.signatures) == null || signatureArr.length <= 0) ? "" : rj4.d(signatureArr[0].toByteArray(), false);
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
             }
-            if ((this.j && optInt == 402) || (this.k && optInt == 401)) {
-                this.j = false;
-                this.k = false;
-                if (SwanAppAllianceLoginHelper.d.f()) {
-                    SwanAppAllianceLoginHelper.d.b();
-                }
-                O(str);
-            } else if (F(optInt)) {
-                if (SwanAppAllianceLoginHelper.d.f()) {
-                    SwanAppAllianceLoginHelper.d.b();
-                    O(str);
-                } else if (v73.f) {
-                    throw new RuntimeException("is not AllianceLogin, error number");
-                }
-            } else {
-                if (response != null && optInt != 0) {
-                    G(optInt, str, response);
-                }
-                r(m(this.i));
-                I();
-                c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean h(o83<q83.e> o83Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65544, null, o83Var)) == null) ? o83Var != null && o83Var.c() && o83Var.a.b : invokeL.booleanValue;
+    }
+
+    public static boolean i(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return false;
+            }
+            return TextUtils.equals(jSONObject.optString("invokeFrom"), "api");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean j(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return false;
+            }
+            return TextUtils.equals(jSONObject.optString("invokeFrom"), NativeConstants.COMPONENT);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void k(String str, Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, bool) == null) {
+            l02.k("aiapps-oauth", str);
+            if (a && bool.booleanValue()) {
+                fh3.a0(new a(str));
             }
         }
     }
 
-    public final void D() {
-        HttpRequest w;
+    @Deprecated
+    public static void l(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (w = w(this)) == null) {
+        if (interceptable == null || interceptable.invokeL(65548, null, runnable) == null) {
+            fh3.a0(runnable);
+        }
+    }
+
+    public static synchronized void m(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, jSONObject) == null) {
+            synchronized (j83.class) {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject != null && optJSONObject.has("code")) {
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("code", 1);
+                        jSONObject.put("data", jSONObject2);
+                    } catch (JSONException e) {
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void n(x83 x83Var, CallbackHandler callbackHandler, String str) {
+        ef3 ef3Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65550, null, x83Var, callbackHandler, str) == null) || x83Var == null || (ef3Var = x83Var.j) == null) {
             return;
         }
-        w.executeAsync(new b(this, w));
-        da3.a(z());
-    }
-
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
+        int i = -1;
+        try {
+            i = (int) ef3Var.a();
+        } catch (ClassCastException e) {
+            if (a) {
+                Log.e("OAuthUtils", e.toString());
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean F(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i == 600101 || i == 600102 || i == 600103 || i == 402 || i == 401 : invokeI.booleanValue;
-    }
-
-    public final void G(int i, String str, Response response) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048582, this, i, str, response) == null) {
-            da3.c(z(), i, str, response);
+        if (i < 0) {
+            return;
         }
+        o(i, callbackHandler, str);
     }
 
-    public void H(HttpRequest httpRequest, Exception exc) {
+    public static void o(int i, CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, httpRequest, exc) == null) {
-            w73.k(exc.toString(), Boolean.FALSE);
-            da3.b(z(), 2101, httpRequest.getOkRequest() == null ? null : httpRequest.getOkRequest().url().toString(), null, exc.getMessage());
-            d(new OAuthException(10002));
+        if (!(interceptable == null || interceptable.invokeILL(65551, null, i, callbackHandler, str) == null) || TextUtils.isEmpty(str)) {
+            return;
         }
+        String f = f(i);
+        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i, f).toString());
+        l02.o("OAuthUtils", "authorize failed : " + f);
     }
 
-    public void I() {
+    public static void p(o83<q83.e> o83Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    public final void J(Response response) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, response) == null) {
-            if (!response.isSuccessful()) {
-                w73.k("bad response", Boolean.TRUE);
-                G(2104, null, null);
-                d(new OAuthException(10002));
+        if (interceptable == null || interceptable.invokeLLL(65552, null, o83Var, callbackHandler, unitedSchemeEntity) == null) {
+            if (o83Var != null && o83Var.a() != null) {
+                int b2 = o83Var.b();
+                String f = f(b2);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(b2, f));
+                l02.o("OAuthUtils", "authorize failed : " + f);
                 return;
             }
-            ResponseBody body = response.body();
-            if (body == null) {
-                w73.k("empty response body", Boolean.TRUE);
-                G(2103, null, null);
-                d(new OAuthException(10001));
-                return;
+            l02.c("OAuthUtils", "authorize failed : result is invalid");
+        }
+    }
+
+    public static void q(o83<q83.e> o83Var, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65553, null, o83Var, callbackHandler, str) == null) {
+            if (o83Var != null && o83Var.a() != null) {
+                o(o83Var.b(), callbackHandler, str);
+            } else {
+                l02.c("OAuthUtils", "authorize failed : result is invalid");
             }
+        }
+    }
+
+    public static void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65554, null) == null) {
+            b.clear();
+        }
+    }
+
+    public static void s(int i, @NonNull String str, @NonNull String str2) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65555, null, i, str, str2) == null) {
             try {
-                C(response, body.string());
-            } catch (IOException e) {
-                if (v73.f) {
+                String g0 = l33.g0();
+                if (TextUtils.isEmpty(g0)) {
+                    g0 = "NotSwanAppProcess";
+                }
+                String str4 = str + "===";
+                if (str2.length() > 1024) {
+                    str3 = (str4 + str2.substring(0, 1024)) + StringHelper.STRING_MORE;
+                } else {
+                    str3 = str4 + str2;
+                }
+                t93.b bVar = new t93.b(i);
+                bVar.h(g0);
+                bVar.i(str3);
+                bVar.m();
+                l02.k("OAuthUtils", "error reported: " + i + " ,content: " + str3);
+            } catch (Exception e) {
+                if (a) {
                     e.printStackTrace();
                 }
             }
         }
     }
 
-    public void K() {
+    public static synchronized void t(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) {
+            synchronized (j83.class) {
+                s(10004, str, str2);
+            }
         }
     }
 
-    public final void L(String str, Exception exc) {
+    public static void u(Context context, l33 l33Var, l83 l83Var, JSONObject jSONObject, g83 g83Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, exc) == null) {
-            if (this.i == null) {
-                w73.t("OAuthRequest", "ex: " + exc.toString() + " ,strResponse: " + str);
+        if (interceptable == null || interceptable.invokeLLLLL(65557, null, context, l33Var, l83Var, jSONObject, g83Var) == null) {
+            if (l83Var != null && !TextUtils.isEmpty(l83Var.b)) {
+                synchronized (b) {
+                    d dVar = b.get(l83Var.b);
+                    if (dVar != null) {
+                        dVar.a.add(g83Var);
+                        return;
+                    }
+                    d dVar2 = new d(l83Var.b);
+                    dVar2.a.add(g83Var);
+                    b.put(l83Var.b, dVar2);
+                    b bVar = new b(l83Var);
+                    c cVar = new c(l83Var);
+                    ea3.q("show", l83Var.b, false);
+                    tm2.n().a("na_authorize_start");
+                    v(context, l33Var, l83Var, jSONObject, bVar, cVar);
+                    return;
+                }
+            }
+            g83Var.onResult(false);
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static void v(Context context, l33 l33Var, l83 l83Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener, DialogInterface.OnCancelListener onCancelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65558, null, new Object[]{context, l33Var, l83Var, jSONObject, onClickListener, onCancelListener}) == null) {
+            p23.a a2 = sm2.i0().a(context, l33Var, l83Var, jSONObject, onClickListener);
+            if (a2 == null) {
+                if (a) {
+                    throw new RuntimeException("auth dialog builder is null");
+                }
                 return;
             }
-            w73.t("OAuthRequest", "ex: " + exc.toString());
-        }
-    }
-
-    @NonNull
-    @SuppressLint({"BDThrowableCheck"})
-    public y23 M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            y23 M = y23.M();
-            if (M == null) {
-                if (!v73.f) {
-                    return x23.K().q();
-                }
-                throw new IllegalStateException("null SwanApp");
+            p23 c2 = a2.c();
+            c2.a(false);
+            c2.setOnCancelListener(onCancelListener);
+            Window window = c2.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setWindowAnimations(R.style.obfuscated_res_0x7f10039c);
             }
-            return M;
-        }
-        return (y23) invokeV.objValue;
-    }
-
-    public void N(HttpRequest httpRequest) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, httpRequest) == null) {
-            yz1.i("OAuthRequest", "retryRequest: " + httpRequest.toString());
-            K();
-            httpRequest.executeAsync(new c(this, httpRequest));
-        }
-    }
-
-    public final void O(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
-            M().N().f(lo2.U().getActivity(), null, new d(this, str));
-        }
-    }
-
-    @Override // com.baidu.tieba.v73
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(this), "OAuthRequest-onExec", 2);
-        }
-    }
-
-    @Override // com.baidu.tieba.v73
-    public v73<ResultDataT> q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.l = "loginApi";
-            } else {
-                this.l = str;
+            SwanAppActivity w = l33Var == null ? null : l33Var.w();
+            if (w == null || w.isFinishing()) {
+                return;
             }
-            super.q(str);
-            return this;
-        }
-        return (v73) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            b83<ResultDataT> b83Var = this.a;
-            return String.format("%s \n  status(%s) errorcode(%s)  \n  strResponse :: %s \n  joResponse ::  %s \n  Result :: %s \n  Exception :: %s", super.toString(), e(), Integer.valueOf(this.a.b()), this.h, this.i, b83Var.a, b83Var.a());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public j83<ResultDataT> v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048594, this, str, str2)) == null) {
-            this.g.put(str, str2);
-            return this;
-        }
-        return (j83) invokeLL.objValue;
-    }
-
-    public abstract HttpRequest w(j83 j83Var);
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.k = true;
+            c2.show();
         }
     }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.j = true;
-        }
-    }
-
-    public abstract SwanInterfaceType z();
 }

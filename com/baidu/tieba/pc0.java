@@ -1,16 +1,9 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLExt;
-import android.opengl.EGLSurface;
-import android.util.Log;
-import android.view.Surface;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Color;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,228 +11,102 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import org.webrtc.EglBase10;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public final class pc0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String d = "pc0";
+public class pc0 extends oc0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public EGLDisplay a;
-    public EGLContext b;
-    public EGLConfig c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948057100, "Lcom/baidu/tieba/pc0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948057100, "Lcom/baidu/tieba/pc0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948057100, "Lcom/baidu/tieba/pc0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948057100, "Lcom/baidu/tieba/pc0;");
-        }
+        b = new HashMap<>();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public pc0(EGLContext eGLContext, int i) {
-        this(eGLContext, i, false);
+    public pc0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((EGLContext) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_white2", new String[]{"#FFFFFF", "", "#333333", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "", "#FFFFFF", ""});
+        b.put("color_F5F5F51", new String[]{"#F4F5F6", "", "#1C1C1C", ""});
+        b.put("color_F5F5F52", new String[]{"#F4F5F6", "", "#000000", ""});
+        b.put("color_F5F5F53", new String[]{"#F4F5F6", "", "#292929", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "", "#F63B68", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "", "#26F63B68", ""});
+        b.put("color_858585", new String[]{"#858585", "", "#80FFFFFF", ""});
+        b.put("color_525252", new String[]{"#525252", "", "#80FFFFFF", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "", "#FF3333", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "", "#768CAE", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "#4E6EF2", ""});
+        b.put("color_8585852", new String[]{"#858585", "", "#66FFFFFF", ""});
+        b.put("color_5252522", new String[]{"#525252", "", "#1AFFFFFF", ""});
+        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "#00FFFFFF", ""});
+        b.put("color_btn_fill", new String[]{"#00000000", "", "#1AFFFFFF", ""});
+        b.put("color_sub_tab_normal", new String[]{"#888888", "", "#CCFFFFFF", ""});
+        b.put("color_main_bg", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_white4", new String[]{"#1F1F1F", "", "#CCFFFFFF", ""});
+        b.put("color_gradient_1", new String[]{"#FFFFFF", "", "#1C1C1C", ""});
+        b.put("color_gradient_2", new String[]{"#00FFFFFF", "", "#001C1C1C", ""});
+        b.put("color_E0E0E0", new String[]{"#E0E0E0", "", "", ""});
+        b.put("color_EEEEEE", new String[]{"#eeeeee", "", "", ""});
     }
 
-    public final void a(String str) {
-        int eglGetError;
+    @Override // com.baidu.tieba.oc0
+    @SuppressLint({"Range"})
+    public int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || (eglGetError = EGL14.eglGetError()) == 12288) {
-            return;
-        }
-        throw new RuntimeException(str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
-    }
-
-    public EGLSurface b(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (!(obj instanceof Surface) && !(obj instanceof SurfaceTexture)) {
-                throw new RuntimeException("invalid surface: " + obj);
-            }
-            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.a, this.c, obj, new int[]{12344}, 0);
-            a("eglCreateWindowSurface");
-            if (eglCreateWindowSurface != null) {
-                return eglCreateWindowSurface;
-            }
-            throw new RuntimeException("surface was null");
-        }
-        return (EGLSurface) invokeL.objValue;
-    }
-
-    public final EGLConfig c(int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            int[] iArr = {MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12325, z ? 16 : 0, 12326, 0, 12352, i2 >= 3 ? 68 : 4, 12344, 0, 12344};
-            if ((i & 1) != 0) {
-                iArr[14] = 12610;
-                iArr[15] = 1;
-            }
-            EGLConfig[] eGLConfigArr = new EGLConfig[1];
-            if (!EGL14.eglChooseConfig(this.a, iArr, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                String str = d;
-                Log.w(str, "unable to find RGB8888 / " + i2 + " EGLConfig");
-                return null;
-            }
-            return eGLConfigArr[0];
-        }
-        return (EGLConfig) invokeCommon.objValue;
-    }
-
-    public boolean d(EGLSurface eGLSurface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, eGLSurface)) == null) ? this.b.equals(EGL14.eglGetCurrentContext()) && eGLSurface.equals(EGL14.eglGetCurrentSurface(12377)) : invokeL.booleanValue;
-    }
-
-    public void e(EGLSurface eGLSurface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, eGLSurface) == null) {
-            if (this.a == EGL14.EGL_NO_DISPLAY) {
-                Log.d(d, "NOTE: makeCurrent w/o display");
-            }
-            if (!EGL14.eglMakeCurrent(this.a, eGLSurface, eGLSurface, this.b)) {
-                throw new RuntimeException("eglMakeCurrent failed");
-            }
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            EGLDisplay eGLDisplay = this.a;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
-                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
-                EGL14.eglDestroyContext(this.a, this.b);
-                EGL14.eglReleaseThread();
-                EGL14.eglTerminate(this.a);
-            }
-            this.a = EGL14.EGL_NO_DISPLAY;
-            this.b = EGL14.EGL_NO_CONTEXT;
-            this.c = null;
-        }
-    }
-
-    public void finalize() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            try {
-                if (this.a != EGL14.EGL_NO_DISPLAY) {
-                    Log.w(d, "WARNING: EGLCore was not explicitly released -- state may be leaked");
-                    f();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (b.containsKey(str2)) {
+                String str3 = "";
+                try {
+                    str3 = b.get(str2)[0];
+                } catch (Exception e) {
+                    LiveFeedPageSdk.liveLog("getColor Exception: " + e.getMessage());
                 }
-            } finally {
-                super.finalize();
-            }
-        }
-    }
-
-    public void g(EGLSurface eGLSurface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, eGLSurface) == null) {
-            EGL14.eglDestroySurface(this.a, eGLSurface);
-        }
-    }
-
-    public void h(EGLSurface eGLSurface, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, eGLSurface, j) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.a, eGLSurface, j);
-        }
-    }
-
-    public boolean i(EGLSurface eGLSurface) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, eGLSurface)) == null) ? EGL14.eglSwapBuffers(this.a, eGLSurface) : invokeL.booleanValue;
-    }
-
-    public pc0(EGLContext eGLContext, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {eGLContext, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        EGLDisplay eGLDisplay = EGL14.EGL_NO_DISPLAY;
-        this.a = eGLDisplay;
-        this.b = EGL14.EGL_NO_CONTEXT;
-        this.c = null;
-        if (eGLDisplay == EGL14.EGL_NO_DISPLAY) {
-            eGLContext = eGLContext == null ? EGL14.EGL_NO_CONTEXT : eGLContext;
-            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.a = eglGetDisplay;
-            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-                int[] iArr = new int[2];
-                if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                    if ((i & 2) != 0) {
-                        Log.d(d, "Trying GLES 3");
-                        EGLConfig c = c(i, 3, z);
-                        if (c != null) {
-                            EGLContext eglCreateContext = EGL14.eglCreateContext(this.a, c, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, 12344}, 0);
-                            if (EGL14.eglGetError() == 12288) {
-                                this.c = c;
-                                this.b = eglCreateContext;
-                            }
-                        }
-                    }
-                    if (this.b == EGL14.EGL_NO_CONTEXT) {
-                        Log.d(d, "Trying GLES 2");
-                        EGLConfig c2 = c(i, 2, z);
-                        if (c2 != null) {
-                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.a, c2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
-                            a("eglCreateContext");
-                            this.c = c2;
-                            this.b = eglCreateContext2;
-                        } else {
-                            throw new RuntimeException("Unable to find a suitable EGLConfig");
-                        }
-                    }
-                    int[] iArr2 = new int[1];
-                    EGL14.eglQueryContext(this.a, this.b, EglBase10.EGL_CONTEXT_CLIENT_VERSION, iArr2, 0);
-                    String str = d;
-                    Log.d(str, "EGLContext created, client version " + iArr2[0]);
-                    return;
+                if ("recommend".equals(str)) {
+                    return sc0.c().a(context, str, str2);
                 }
-                this.a = null;
-                throw new RuntimeException("unable to initialize EGL14");
+                if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                    str3 = b.get(str2)[3];
+                } else if ("dark".equals(this.a)) {
+                    str3 = b.get(str2)[2];
+                }
+                if (ic0.a(str3)) {
+                    return -16777216;
+                }
+                try {
+                    return Color.parseColor(str3);
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return -16777216;
+                }
             }
-            throw new RuntimeException("unable to get EGL14 display");
+            return -16777216;
         }
-        throw new RuntimeException("EGL already set up");
+        return invokeLLL.intValue;
     }
 }

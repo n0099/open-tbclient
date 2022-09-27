@@ -1,16 +1,14 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ws4 {
+public class ws4 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
 
     public ws4() {
         Interceptable interceptable = $ic;

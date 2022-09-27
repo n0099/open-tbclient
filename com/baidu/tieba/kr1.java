@@ -1,130 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
+import com.baidu.tieba.el1;
+import com.baidu.tieba.fo2;
+import com.baidu.tieba.ja2;
+import com.baidu.tieba.kh3;
+import com.baidu.tieba.l12;
+import com.baidu.tieba.l72;
+import com.baidu.tieba.ou1;
+import com.baidu.tieba.qc3;
+import com.baidu.tieba.r63;
+import com.baidu.tieba.td2;
+import com.baidu.tieba.vb2;
+import com.baidu.tieba.y82;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class kr1 extends br1 {
+public class kr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y23 a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ kr1 d;
-
-        public a(kr1 kr1Var, y23 y23Var, JSONObject jSONObject, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kr1Var, y23Var, jSONObject, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = kr1Var;
-            this.a = y23Var;
-            this.b = jSONObject;
-            this.c = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.b.put("isFavor", w92.n(this.a.O()) ? "1" : "0");
-                } catch (JSONException unused) {
-                    yz1.c("FollowStatusApi", "json put data fail");
-                }
-                this.d.d(this.c, new yu1(0, this.b));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kr1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.br1
-    public String h() {
+    public static HashMap<Class, Object> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Favorite" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.br1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FollowStatusApi" : (String) invokeV.objValue;
-    }
-
-    public yu1 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            y23 b0 = y23.b0();
-            if (b0 == null) {
-                yz1.c("FollowStatusApi", "swan app is null");
-                return new yu1(1001, "swan app is null");
-            } else if (b0.w() == null) {
-                yz1.c("FollowStatusApi", "swan activity is null");
-                return new yu1(1001, "swan activity is null");
-            } else {
-                Pair<yu1, JSONObject> s = s(str);
-                yu1 yu1Var = (yu1) s.first;
-                if (!yu1Var.isSuccess()) {
-                    yz1.c("FollowStatusApi", "json str parse fail");
-                    return yu1Var;
-                }
-                String optString = ((JSONObject) s.second).optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    yz1.c("FollowStatusApi", "cb is empty");
-                    return new yu1(202, "cb is empty");
-                }
-                if (b0.N().e(fm2.c())) {
-                    SwanFavorDataManager.h().d();
-                }
-                sf3.k(new a(this, b0, new JSONObject(), optString), "getFavorStatus");
-                return new yu1(0);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            HashMap<Class, Object> hashMap = new HashMap<>();
+            hashMap.put(r63.b.class, new r63.b());
+            hashMap.put(ja2.f.class, new ja2.f());
+            hashMap.put(ja2.g.class, new ja2.g());
+            hashMap.put(l72.a.class, new l72.a());
+            hashMap.put(y82.a.class, new y82.a());
+            hashMap.put(kh3.c.class, new kh3.c());
+            hashMap.put(qc3.b.class, new qc3.b());
+            hashMap.put(fo2.c.class, new fo2.c());
+            hashMap.put(yu2.class, new yu2());
+            hashMap.put(uq1.class, new uq1());
+            hashMap.put(vq1.class, new vq1());
+            hashMap.put(xb3.class, new xb3());
+            hashMap.put(wb3.class, new wb3());
+            hashMap.put(ac3.class, new ac3());
+            hashMap.put(pc2.class, new pc2());
+            hashMap.put(vb2.c.class, new vb2.c());
+            hashMap.put(it2.class, new it2());
+            hashMap.put(ou1.b.class, new ou1.b());
+            hashMap.put(el1.a.class, new el1.a());
+            hashMap.put(v12.class, new v12());
+            hashMap.put(td2.a.class, new td2.a());
+            hashMap.put(td2.b.class, new td2.b());
+            hashMap.put(lw2.class, new lw2());
+            hashMap.put(l12.b.class, new l12.b());
+            return hashMap;
         }
-        return (yu1) invokeL.objValue;
+        return (HashMap) invokeV.objValue;
     }
 }

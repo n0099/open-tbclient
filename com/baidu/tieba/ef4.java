@@ -1,54 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ef4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static String b = "0";
-    public static long c;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947732406, "Lcom/baidu/tieba/ef4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947732406, "Lcom/baidu/tieba/ef4;");
+    public ef4(int i, int i2, int i3, int i4, int i5) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ha4 b2 = ja4.b();
-        if (b2 != null) {
-            b = b2.i().getString("key_h2_heart_beat_version", "0");
-        }
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i5;
+        this.e = i4;
     }
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    @NonNull
+    public static ef4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            ha4 b2 = ja4.b();
-            return b2 != null ? b2.i().getInt("key_h2_heart_beat_timespan", i) : i;
-        }
-        return invokeI.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new ef4(24, 70, 1440, 720, 30) : (ef4) invokeV.objValue;
     }
 
-    public static long b(int i) {
-        InterceptResult invokeI;
+    @NonNull
+    public static ef4 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            ha4 b2 = ja4.b();
-            return b2 != null ? b2.i().getInt("key_h2_heart_beat_timeout", i) : i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return a();
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new ef4(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
+            } catch (JSONException unused) {
+                return a();
+            }
         }
-        return invokeI.longValue;
+        return (ef4) invokeL.objValue;
     }
 }

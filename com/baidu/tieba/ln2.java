@@ -1,104 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ln2 extends jn2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String[] b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ln2 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948569, "Lcom/baidu/tieba/ln2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947948569, "Lcom/baidu/tieba/ln2;");
-                return;
-            }
-        }
-        b = new String[]{"setStorage", "getStorage", "removeStorage", "getSystemInfo", "getStorageInfo"};
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(k63 k63Var);
+
+        void onFailed(int i);
     }
 
-    public ln2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void a();
 
-    @Override // com.baidu.tieba.nn2
-    public boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            for (String str3 : b) {
-                if (TextUtils.equals(str3, str2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    void b(String str, boolean z, boolean z2, a aVar);
 
-    @Override // com.baidu.tieba.nn2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "StorageApiDescInterceptor" : (String) invokeV.objValue;
-    }
+    void c();
 
-    @Override // com.baidu.tieba.nn2
-    @NonNull
-    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("args");
-            if (optJSONArray != null) {
-                optJSONArray.put(d("cb", EMABTest.TYPE_STRING));
-            }
-            if ("getSystemInfo".equals(str) || "getStorageInfo".equals(str)) {
-                try {
-                    String optString = jSONObject.optString("method");
-                    jSONObject.put("method", optString + "Async");
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
+    void d();
 
-    @Override // com.baidu.tieba.nn2
-    public boolean enable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? e("swan_storage_async") : invokeV.booleanValue;
-    }
+    void e();
+
+    void f(a aVar);
+
+    double[] g(@NonNull k63 k63Var, @NonNull String str);
+
+    k63 h();
 }

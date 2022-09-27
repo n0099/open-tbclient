@@ -13,9 +13,9 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mi0;
-import com.baidu.tieba.uz0;
-import com.baidu.tieba.xj0;
+import com.baidu.tieba.h01;
+import com.baidu.tieba.kk0;
+import com.baidu.tieba.zi0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -135,15 +135,15 @@ public abstract class NadDialogActivity extends BaseActivity {
     public final void D1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cb);
-            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ea);
+            this.v = (TextView) findViewById(R.id.obfuscated_res_0x7f0923cd);
+            this.u = (TextView) findViewById(R.id.obfuscated_res_0x7f0923ec);
             this.w = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900a2);
             this.x = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913f6);
             this.y = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913f5);
             LayoutInflater.from(this).inflate(C1(), (ViewGroup) this.x, true);
-            this.w.setBackground(mi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dbb));
-            this.w.setDividerDrawable(mi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dbd));
-            this.y.setDividerDrawable(mi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dbe));
+            this.w.setBackground(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dbd));
+            this.w.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dbf));
+            this.y.setDividerDrawable(zi0.b().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080dc0));
             if (G1()) {
                 this.u.setText(I1());
                 this.u.setOnClickListener(new a(this));
@@ -203,8 +203,8 @@ public abstract class NadDialogActivity extends BaseActivity {
 
     public final void J1(String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048585, this, str, str2, str3, str4) == null) && NetWorkUtils.b(mi0.b())) {
-            uz0.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
+        if ((interceptable == null || interceptable.invokeLLLL(1048585, this, str, str2, str3, str4) == null) && NetWorkUtils.b(zi0.b())) {
+            h01.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
         }
     }
 
@@ -213,7 +213,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             super.Z0(bundle);
-            setContentView(xj0.a().a());
+            setContentView(kk0.a().a());
             Intent intent = getIntent();
             this.B = intent;
             if (intent != null) {

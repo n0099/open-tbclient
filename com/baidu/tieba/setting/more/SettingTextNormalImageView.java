@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xf8;
+import com.baidu.tieba.mg8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -58,7 +58,7 @@ public class SettingTextNormalImageView extends FrameLayout {
     public final void a(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, xf8.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, mg8.TbSettingView);
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             obtainStyledAttributes.recycle();
@@ -78,8 +78,8 @@ public class SettingTextNormalImageView extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07b8, (ViewGroup) this, true);
             this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0906d3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920fd);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e21);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0920ff);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090e20);
             this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902ba);
         }
     }

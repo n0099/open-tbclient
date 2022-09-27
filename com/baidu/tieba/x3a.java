@@ -1,125 +1,67 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import tv.athena.revenue.payui.view.AbsViewEventHandler;
+import tv.athena.revenue.payui.view.IYYPayWayView;
+import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes6.dex */
-public class x3a {
+public class x3a implements z5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ProductInfo a;
+    public int a;
     public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
+    public Activity c;
+    public IYYPayWayView d;
+    public AbsViewEventHandler e;
+    public d3a f;
 
-    public x3a(boolean z) {
+    public x3a(int i, int i2, Activity activity, IYYPayWayView iYYPayWayView, AbsViewEventHandler absViewEventHandler, d3a d3aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.c = z;
-    }
-
-    public double a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.destAmount / 100.0d;
-            }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public double b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.srcAmount;
-            }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("PayAmount{currencyType=");
-            sb.append(this.b);
-            sb.append(", srcAmount=");
-            ProductInfo productInfo = this.a;
-            sb.append(productInfo != null ? productInfo.srcAmount : 0.0d);
-            sb.append(", dstAmount=");
-            ProductInfo productInfo2 = this.a;
-            sb.append(productInfo2 != null ? productInfo2.destAmount : 0L);
-            sb.append('}');
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public x3a(ProductInfo productInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, iYYPayWayView, absViewEventHandler, d3aVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.a = productInfo;
+        RLog.info("PayWayDialogListener", "create PayWayDialogListener appId:" + i + " userChannel:" + i2);
+        this.a = i;
+        this.b = i2;
+        this.c = activity;
+        this.d = iYYPayWayView;
+        this.e = absViewEventHandler;
+        this.f = d3aVar;
     }
 
-    public x3a(ProductInfo productInfo, int i) {
+    @Override // com.baidu.tieba.z5a
+    public void a(CancelType cancelType) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
+            RLog.info("PayWayDialogListener", "PayWayDialog notifyCancelType clickArea:" + cancelType);
+            this.f.j();
+            this.f.c(cancelType, this.e);
+            c4a.b(this.a, this.b, cancelType);
         }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.a = productInfo;
-        this.b = i;
+    }
+
+    @Override // com.baidu.tieba.z5a
+    public boolean b(DialogInterface dialogInterface) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface)) == null) ? this.f.m(this.c, this.d, this.e) : invokeL.booleanValue;
     }
 }

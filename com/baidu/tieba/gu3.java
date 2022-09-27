@@ -1,73 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.IntentFilter;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.tieba.io2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gu3 extends ev3 {
+public class gu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AppDownloadNetworkStateReceiver c;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806372, "Lcom/baidu/tieba/gu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947806372, "Lcom/baidu/tieba/gu3;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public gu3() {
-        super("resumeAllDownloadWhileWifi");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = "swan";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
+        if (l33.b0() == null) {
+            return;
+        }
+        io2.a W = l33.b0().W();
+        this.a = ea3.n(W.G());
+        this.c = W.H();
+        this.b = W.T();
+        this.f = W.s0().getString("aiapp_extra_need_download", "");
+        this.g = W.W();
+        this.h = W.e0();
+        this.i = W.V();
+        this.d = W.v1();
+        this.e = W.w1();
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", this.a);
+                jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, this.c);
+                jSONObject.put("source", this.b);
+                jSONObject.put("needDown", this.f);
+                jSONObject.put("scheme", this.g);
+                jSONObject.put("extPage", this.h);
+                jSONObject.put("launchId", this.i);
+                jSONObject.put("appVersion", this.d);
+                jSONObject.put("thirdVersion", this.e);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public gu3(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.ev3
-    public yu1 a(JSONObject jSONObject, cg2 cg2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cg2Var)) == null) {
-            if (jSONObject == null) {
-                cg2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (this.c == null) {
-                this.c = new AppDownloadNetworkStateReceiver();
-            }
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            fm2.c().registerReceiver(this.c, intentFilter);
-            cg2Var.a(null);
-            return null;
+        this.a = "swan";
+        this.d = "";
+        this.e = "";
+        this.f = "";
+        this.g = "";
+        this.h = "";
+        if (jSONObject == null || jSONObject.length() == 0) {
+            return;
         }
-        return (yu1) invokeLL.objValue;
+        this.a = jSONObject.optString("from", "swan");
+        this.c = jSONObject.optString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+        this.b = jSONObject.optString("source");
+        this.f = jSONObject.optString("needDown");
+        this.g = jSONObject.optString("scheme");
+        this.h = jSONObject.optString("extPage");
+        this.i = jSONObject.optString("launchId", null);
+        this.d = jSONObject.optString("appVersion");
+        this.e = jSONObject.optString("thirdVersion");
     }
 }

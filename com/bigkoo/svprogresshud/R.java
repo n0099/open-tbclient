@@ -152,10 +152,10 @@ public final class R {
         /* renamed from: ivBigLoading */
         public static final int obfuscated = 0x7f090fee;
         public static final int ivSmallLoading = 0x7f090ff0;
-        public static final int sv_outmost_container = 0x7f091fbb;
+        public static final int sv_outmost_container = 0x7f091fbd;
 
         /* renamed from: tvMsg */
-        public static final int obfuscated = 0x7f092352;
+        public static final int obfuscated = 0x7f092354;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {

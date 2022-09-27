@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class nc4<T> {
+public class nc4 extends jc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<T> a;
+    public long o;
+    public String p;
+    public AbiType q;
 
     public nc4() {
         Interceptable interceptable = $ic;
@@ -27,80 +26,23 @@ public class nc4<T> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    public synchronized T c() {
+    @Override // com.baidu.tieba.jc4
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                T t = this.a.get(0);
-                this.a.remove(0);
-                return t;
-            }
-        }
-        return (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (TextUtils.isEmpty(this.g) || this.i <= 0 || this.k <= 0 || TextUtils.isEmpty(this.p) || TextUtils.isEmpty(this.l) || TextUtils.isEmpty(this.n) || this.q == null) ? false : true : invokeV.booleanValue;
     }
 
-    public synchronized T d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                return this.a.get(0);
-            }
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public T e(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t != null) {
-                for (int size = this.a.size() - 1; size >= 0; size--) {
-                    if (t.equals(this.a.get(size))) {
-                        return this.a.get(size);
-                    }
-                }
-                return null;
-            }
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @NonNull
-    public Iterator<T> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.iterator() : (Iterator) invokeV.objValue;
-    }
-
+    @Override // com.baidu.tieba.jc4
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(",Queue Size:" + this.a.size());
-            synchronized (this) {
-                int i = 0;
-                for (T t : this.a) {
-                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
-                    i++;
-                }
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "libName=" + this.p + ", abi=" + this.q + ", maxAge=" + this.o + " " + super.toString();
         }
         return (String) invokeV.objValue;
     }

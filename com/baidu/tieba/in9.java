@@ -5,113 +5,101 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTFeedAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
 import com.fun.ad.sdk.internal.api.config.Ssp;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.express2.AdEventListener;
-import com.qq.e.ads.nativ.express2.NativeExpressADData2;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class in9 implements AdEventListener {
+public class in9 extends cm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ NativeExpressADData2 c;
-    public final /* synthetic */ ExpressAdListenerWrapper d;
-    public final /* synthetic */ String e;
-    public final /* synthetic */ hn9 f;
 
-    public in9(hn9 hn9Var, NativeExpressADData2 nativeExpressADData2, ExpressAdListenerWrapper expressAdListenerWrapper, String str) {
+    /* loaded from: classes4.dex */
+    public class a implements TTAdNative.FeedAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ in9 a;
+
+        public a(in9 in9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {in9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = in9Var;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJNative onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
+        public void onFeedAdLoad(List<TTFeedAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
+                    onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (TTFeedAd tTFeedAd : list) {
+                    arrayList.add(new pm9(tTFeedAd));
+                }
+                this.a.onAdLoaded((List) arrayList);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public in9(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {hn9Var, nativeExpressADData2, expressAdListenerWrapper, str};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = hn9Var;
-        this.c = nativeExpressADData2;
-        this.d = expressAdListenerWrapper;
-        this.e = str;
     }
 
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onAdClosed() {
+    @Override // com.baidu.tieba.cm9
+    public void h(FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.f.onAdClose(this.c);
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.e);
-            }
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onClick() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LogPrinter.d();
-            this.f.onAdClicked(this.c, this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onExposed() {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.e();
-            this.f.onAdShow(this.c, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.f.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.f.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
-            }
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderFail() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.f.onError(0, "RenderFail");
-        }
-    }
-
-    @Override // com.qq.e.ads.nativ.express2.AdEventListener
-    public void onRenderSuccess() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-            this.f.e.put(this.c, this.d);
-            this.f.onAdLoaded((hn9) this.c);
+        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
+            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
+            Ssp.Pid pid = this.mPid;
+            this.e.loadFeedAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
         }
     }
 }

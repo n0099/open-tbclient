@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.fp1;
+import android.content.Context;
 /* loaded from: classes4.dex */
-public interface ip1<T extends fp1> extends gp1<T> {
-    void H();
+public interface ip1 {
+    void a(Context context, ei3<Boolean> ei3Var);
 
-    boolean c();
+    void b(boolean z, ei3<String> ei3Var);
 
-    void g(boolean z);
+    void c(Context context, ei3<String> ei3Var);
 
-    void i(View.OnClickListener onClickListener);
-
-    void removeFromParent();
+    void d(ei3<Integer> ei3Var);
 }

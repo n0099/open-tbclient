@@ -1,73 +1,244 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.PraiseData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.tbadkCore.PraiseModel;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class fq6 {
+public class fq6 extends hq6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PriorityOrganizer a;
-    public yp6 b;
-    public zp6 c;
-    public bq6 d;
-    public cq6 e;
-    public aq6 f;
-    public gq6 g;
-    public hq6 h;
-    public dq6 i;
-    public eq6 j;
+    public ThreadData h;
+    public boolean i;
+    public String j;
+    public PraiseModel k;
+    public final CustomMessageListener l;
 
-    public fq6(FrsActivity frsActivity, FrsFragment frsFragment) {
+    /* loaded from: classes4.dex */
+    public class a implements PraiseModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fq6 a;
+
+        public a(fq6 fq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fq6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fq6Var;
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
+        public void a(int i, String str) {
+            FrsFragment frsFragment;
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) || (frsFragment = this.a.b) == null || frsFragment.getPageContext() == null || !this.a.i || TextUtils.isEmpty(str)) {
+                return;
+            }
+            if (AntiHelper.m(i, str)) {
+                AntiHelper.u(this.a.b.getPageContext().getPageActivity(), str);
+            } else {
+                this.a.b.showToast(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.tbadkCore.PraiseModel.b
+        public void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                if (this.a.i) {
+                    int i = 1;
+                    if (this.a.h != null && this.a.h.getPraise().getIsLike() == 1) {
+                        i = 0;
+                    }
+                    this.a.h(i);
+                }
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2004006));
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fq6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(fq6 fq6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fq6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fq6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ThreadData)) {
+                ThreadData threadData = (ThreadData) customResponsedMessage.getData();
+                this.a.j = threadData.getId();
+                if (TextUtils.isEmpty(this.a.j) || threadData.getPraise() == null) {
+                    return;
+                }
+                this.a.h(threadData.getPraise().getIsLike());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fq6(FrsFragment frsFragment) {
+        super(frsFragment);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((FrsFragment) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = PriorityOrganizer.n();
-        this.b = new yp6(frsActivity, frsFragment);
-        this.c = new zp6(frsActivity, frsFragment);
-        this.d = new bq6(frsActivity, frsFragment);
-        this.e = new cq6(frsActivity, frsFragment);
-        this.f = new aq6(frsActivity, frsFragment);
-        this.g = new gq6(frsActivity, frsFragment);
-        this.h = new hq6(frsActivity, frsFragment);
-        this.i = new dq6(frsActivity, frsFragment);
-        eq6 eq6Var = new eq6(frsActivity, frsFragment);
-        this.j = eq6Var;
-        PriorityOrganizer.s(this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, eq6Var);
+        b bVar = new b(this, 2004004);
+        this.l = bVar;
+        this.b.registerListener(bVar);
+        this.k = e();
     }
 
-    public void a(boolean z) {
-        cq6 cq6Var;
+    public final PraiseModel e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || (cq6Var = this.e) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.k == null) {
+                this.k = new PraiseModel(this.b.getPageContext(), new a(this));
+            }
+            return this.k;
         }
-        cq6Var.H(z);
+        return (PraiseModel) invokeV.objValue;
     }
 
-    public void b() {
-        yp6 yp6Var;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (yp6Var = this.b) == null || yp6Var.w(true)) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void g(ThreadData threadData, int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, threadData, i) == null) || threadData == null) {
             return;
         }
-        this.b.F(true);
-        this.a.v(this.b);
+        if (i == 1) {
+            PraiseData praise = threadData.getPraise();
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            if (currentAccountObj != null) {
+                MetaData metaData = new MetaData();
+                metaData.setName_show(currentAccountObj.getAccount());
+                metaData.setPortrait(currentAccountObj.getPortrait());
+                metaData.setUserId(currentAccountObj.getID());
+                if (praise == null) {
+                    PraiseData praiseData = new PraiseData();
+                    praiseData.setIsLike(i);
+                    praiseData.setNum(1L);
+                    praiseData.getUser().add(0, metaData);
+                    threadData.setPraise(praiseData);
+                    return;
+                }
+                threadData.getPraise().getUser().add(0, metaData);
+                threadData.getPraise().setNum(threadData.getPraise().getNum() + 1);
+                threadData.getPraise().setIsLike(i);
+            }
+        } else if (threadData.getPraise() != null) {
+            threadData.getPraise().setIsLike(i);
+            threadData.getPraise().setNum(threadData.getPraise().getNum() - 1);
+            ArrayList<MetaData> user = threadData.getPraise().getUser();
+            if (user != null) {
+                Iterator<MetaData> it = user.iterator();
+                while (it.hasNext()) {
+                    MetaData next = it.next();
+                    if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
+                        threadData.getPraise().getUser().remove(next);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    public void h(int i) {
+        FrsViewData O0;
+        ArrayList<Cdo> threadList;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (O0 = this.b.O0()) == null || this.a == null || (threadList = O0.getThreadList()) == null) {
+            return;
+        }
+        Iterator<Cdo> it = threadList.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            Cdo next = it.next();
+            if (next instanceof bu4) {
+                ThreadData threadData = ((bu4) next).t;
+                if (threadData == this.h) {
+                    g(threadData, i);
+                    this.h = null;
+                    break;
+                } else if (threadData.getId() != null && threadData.getId().equals(this.j)) {
+                    g(threadData, i);
+                    this.j = null;
+                    break;
+                }
+            }
+        }
+        this.a.X().g(threadList, O0);
+        this.a.X().notifyDataSetChanged();
     }
 }

@@ -4,31 +4,41 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Keep
 /* loaded from: classes8.dex */
 public interface IDeviceidInterface extends IInterface {
 
+    @Keep
     /* loaded from: classes8.dex */
     public static abstract class Stub extends Binder implements IDeviceidInterface {
         public static /* synthetic */ Interceptable $ic = null;
+        @Keep
         public static final String DESCRIPTOR = "com.zui.deviceidservice.IDeviceidInterface";
+        @Keep
         public static final int TRANSACTION_createAAIDForPackageName = 6;
+        @Keep
         public static final int TRANSACTION_getAAID = 5;
+        @Keep
         public static final int TRANSACTION_getOAID = 1;
+        @Keep
         public static final int TRANSACTION_getUDID = 2;
+        @Keep
         public static final int TRANSACTION_getVAID = 4;
+        @Keep
         public static final int TRANSACTION_isSupport = 3;
         public transient /* synthetic */ FieldHolder $fh;
 
+        @Keep
         /* loaded from: classes8.dex */
         public static class Proxy implements IDeviceidInterface {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
+            @Keep
             public IBinder mRemote;
 
             public Proxy(IBinder iBinder) {
@@ -50,140 +60,35 @@ public interface IDeviceidInterface extends IInterface {
             }
 
             @Override // android.os.IInterface
-            public IBinder asBinder() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mRemote : (IBinder) invokeV.objValue;
-            }
+            @Keep
+            public native IBinder asBinder();
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
-            public boolean createAAIDForPackageName(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeString(str);
-                        this.mRemote.transact(6, obtain, obtain2, 0);
-                        obtain2.readException();
-                        return obtain2.readInt() != 0;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return invokeL.booleanValue;
-            }
+            @Keep
+            public native boolean createAAIDForPackageName(String str);
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
-            public String getAAID(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeString(str);
-                        this.mRemote.transact(5, obtain, obtain2, 0);
-                        obtain2.readException();
-                        return obtain2.readString();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeL.objValue;
-            }
+            @Keep
+            public native String getAAID(String str);
 
-            public String getInterfaceDescriptor() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? Stub.DESCRIPTOR : (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getInterfaceDescriptor();
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
-            public String getOAID() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.mRemote.transact(1, obtain, obtain2, 0);
-                        obtain2.readException();
-                        return obtain2.readString();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getOAID();
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
-            public String getUDID() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.mRemote.transact(2, obtain, obtain2, 0);
-                        obtain2.readException();
-                        return obtain2.readString();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeV.objValue;
-            }
+            @Keep
+            public native String getUDID();
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
-            public String getVAID(String str) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        obtain.writeString(str);
-                        this.mRemote.transact(4, obtain, obtain2, 0);
-                        obtain2.readException();
-                        return obtain2.readString();
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return (String) invokeL.objValue;
-            }
+            @Keep
+            public native String getVAID(String str);
 
             @Override // com.zui.deviceidservice.IDeviceidInterface
-            public boolean isSupport() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                    Parcel obtain = Parcel.obtain();
-                    Parcel obtain2 = Parcel.obtain();
-                    try {
-                        obtain.writeInterfaceToken(Stub.DESCRIPTOR);
-                        this.mRemote.transact(3, obtain, obtain2, 0);
-                        obtain2.readException();
-                        return obtain2.readInt() != 0;
-                    } finally {
-                        obtain2.recycle();
-                        obtain.recycle();
-                    }
-                }
-                return invokeV.booleanValue;
-            }
+            @Keep
+            public native boolean isSupport();
         }
 
         public Stub() {
@@ -202,89 +107,33 @@ public interface IDeviceidInterface extends IInterface {
             attachInterface(this, DESCRIPTOR);
         }
 
-        public static IDeviceidInterface asInterface(IBinder iBinder) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, iBinder)) == null) {
-                if (iBinder == null) {
-                    return null;
-                }
-                IInterface queryLocalInterface = iBinder.queryLocalInterface(DESCRIPTOR);
-                return (queryLocalInterface == null || !(queryLocalInterface instanceof IDeviceidInterface)) ? new Proxy(iBinder) : (IDeviceidInterface) queryLocalInterface;
-            }
-            return (IDeviceidInterface) invokeL.objValue;
-        }
+        @Keep
+        public static native IDeviceidInterface asInterface(IBinder iBinder);
 
         @Override // android.os.IInterface
-        public IBinder asBinder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
-        }
+        @Keep
+        public native IBinder asBinder();
 
         @Override // android.os.Binder
-        public boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), parcel, parcel2, Integer.valueOf(i2)})) == null) {
-                if (i == 1598968902) {
-                    parcel2.writeString(DESCRIPTOR);
-                    return true;
-                }
-                switch (i) {
-                    case 1:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        String oaid = getOAID();
-                        parcel2.writeNoException();
-                        parcel2.writeString(oaid);
-                        return true;
-                    case 2:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        String udid = getUDID();
-                        parcel2.writeNoException();
-                        parcel2.writeString(udid);
-                        return true;
-                    case 3:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        boolean isSupport = isSupport();
-                        parcel2.writeNoException();
-                        parcel2.writeInt(isSupport ? 1 : 0);
-                        return true;
-                    case 4:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        String vaid = getVAID(parcel.readString());
-                        parcel2.writeNoException();
-                        parcel2.writeString(vaid);
-                        return true;
-                    case 5:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        String aaid = getAAID(parcel.readString());
-                        parcel2.writeNoException();
-                        parcel2.writeString(aaid);
-                        return true;
-                    case 6:
-                        parcel.enforceInterface(DESCRIPTOR);
-                        boolean createAAIDForPackageName = createAAIDForPackageName(parcel.readString());
-                        parcel2.writeNoException();
-                        parcel2.writeInt(createAAIDForPackageName ? 1 : 0);
-                        return true;
-                    default:
-                        return super.onTransact(i, parcel, parcel2, i2);
-                }
-            }
-            return invokeCommon.booleanValue;
-        }
+        @Keep
+        public native boolean onTransact(int i, Parcel parcel, Parcel parcel2, int i2);
     }
 
+    @Keep
     boolean createAAIDForPackageName(String str);
 
+    @Keep
     String getAAID(String str);
 
+    @Keep
     String getOAID();
 
+    @Keep
     String getUDID();
 
+    @Keep
     String getVAID(String str);
 
+    @Keep
     boolean isSupport();
 }

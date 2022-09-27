@@ -1,305 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.net.Uri;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.DownloadListener;
-import android.webkit.JsPromptResult;
-import android.webkit.RenderProcessGoneDetail;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.browser.UegTbJsBridge;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CurrentPageTypeHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.coreExtra.view.NestedScrollWebView;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tbadk.widget.floatball.FloatWebLayout;
-import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.debug.DebugControllerOverlayDrawable;
 /* loaded from: classes6.dex */
-public class zi5 implements ud5 {
+public class zi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Context a;
-    public LinearLayout b;
-    public final FloatWebLayout c;
-    public final NestedScrollWebView d;
-    public final FrameLayout e;
-    public t85 f;
-    public s85 g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
-    public String l;
-    public final hn8 m;
-    public final jn8 n;
+    public final Paint a;
+    public final Paint b;
+    public final Paint c;
+    public final View d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
+    public int k;
+    public float l;
+    public final Paint m;
+    public int n;
+    public int o;
+    public int p;
+    public int q;
+    public int r;
+    public int s;
+    public int t;
+    public float[] u;
+    public int v;
 
-    /* loaded from: classes6.dex */
-    public class a implements jn8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zi5 a;
-
-        public a(zi5 zi5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zi5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zi5Var;
-        }
-
-        @Override // com.baidu.tieba.jn8
-        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                if (this.a.m != null) {
-                    return this.a.m.b(this.a.d, str, jsPromptResult);
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zi5 a;
-
-        public b(zi5 zi5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zi5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zi5Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    ej.M(this.a.a, R.string.obfuscated_res_0x7f0f0c59);
-                } else {
-                    this.a.u();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends WebViewClient {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zi5 a;
-
-        public c(zi5 zi5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zi5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zi5Var;
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                super.onPageFinished(webView, str);
-                this.a.h = false;
-                if (this.a.d == null || this.a.e == null) {
-                    return;
-                }
-                if (this.a.i) {
-                    this.a.d.stopLoading();
-                    this.a.d.setVisibility(8);
-                    this.a.e.setVisibility(0);
-                    this.a.w();
-                    this.a.C();
-                    return;
-                }
-                this.a.j = false;
-                this.a.d.setVisibility(0);
-                this.a.e.setVisibility(8);
-                this.a.w();
-                this.a.x();
-                this.a.c.setCenterTitle(webView.getTitle());
-                if (this.a.d.canGoBack()) {
-                    this.a.c.k();
-                } else {
-                    this.a.c.d();
-                }
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                super.onPageStarted(webView, str, bitmap);
-                if (this.a.d == null || this.a.e == null) {
-                    return;
-                }
-                this.a.i = false;
-                if (this.a.j) {
-                    this.a.h = true;
-                    this.a.e.setVisibility(0);
-                    this.a.B();
-                }
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_SEND_USER_MSG, this, webView, i, str, str2) == null) {
-                super.onReceivedError(webView, i, str, str2);
-                this.a.i = true;
-                if (this.a.d == null || this.a.e == null) {
-                    return;
-                }
-                this.a.d.stopLoading();
-                this.a.d.setVisibility(8);
-                this.a.e.setVisibility(0);
-                this.a.w();
-                this.a.C();
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, renderProcessGoneDetail)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (TextUtils.isEmpty(str) || this.a.d == null) {
-                    return false;
-                }
-                if (this.a.j) {
-                    this.a.j = false;
-                    return false;
-                } else if (this.a.t(str) && !TbadkCoreApplication.isLogin()) {
-                    ViewHelper.skipToLoginActivity(this.a.a);
-                    return false;
-                } else {
-                    return super.shouldOverrideUrlLoading(webView, str);
-                }
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements DownloadListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zi5 a;
-
-        public d(zi5 zi5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zi5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zi5Var;
-        }
-
-        @Override // android.webkit.DownloadListener
-        public void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Long.valueOf(j)}) == null) || StringUtils.isNull(str)) {
-                return;
-            }
-            Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-            if (UtilHelper.isHaveActivityCanHandleIntent(intent)) {
-                this.a.a.startActivity(intent);
-            }
-        }
-
-        public /* synthetic */ d(zi5 zi5Var, a aVar) {
-            this(zi5Var);
-        }
-    }
-
-    public zi5(@NonNull Context context, LinearLayout linearLayout, FloatWebLayout floatWebLayout) {
+    public zi5(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, linearLayout, floatWebLayout};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -309,252 +58,203 @@ public class zi5 implements ud5 {
                 return;
             }
         }
-        this.j = true;
-        this.k = true;
-        this.n = new a(this);
-        this.a = context;
-        this.b = linearLayout;
-        this.c = floatWebLayout;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d049b, (ViewGroup) linearLayout, true);
-        this.d = (NestedScrollWebView) inflate.findViewById(R.id.obfuscated_res_0x7f092651);
-        this.e = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091411);
-        hn8 hn8Var = new hn8();
-        this.m = hn8Var;
-        hn8Var.a(new CommonTbJsBridge(context));
-        this.m.a(new UegTbJsBridge(context));
-        lo4.g(context);
-        y();
+        this.a = new Paint();
+        this.b = new Paint();
+        this.c = new Paint();
+        this.e = 16;
+        this.f = 16;
+        this.g = -1;
+        this.h = DebugControllerOverlayDrawable.TEXT_BACKGROUND_COLOR;
+        this.i = 20;
+        this.j = 20;
+        this.k = 36;
+        this.l = 0.0f;
+        this.m = new Paint();
+        this.n = 3;
+        this.o = R.color.CAM_X0101;
+        this.p = R.color.CAM_X0305;
+        this.q = 20;
+        this.r = 20;
+        this.s = 36;
+        this.t = 0;
+        this.v = 0;
+        this.d = view2;
+        int color = getContext().getResources().getColor(R.color.black_alpha40);
+        this.h = color;
+        this.b.setColor(color);
+        this.b.setAntiAlias(true);
+        this.i = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
+        int color2 = getContext().getResources().getColor(R.color.CAM_X0101);
+        this.g = color2;
+        this.a.setColor(color2);
+        this.a.setTextSize(this.i);
+        this.a.setAntiAlias(true);
+        this.a.setTypeface(fv4.H(fv4.E(R.string.F_X02)));
+        this.e = ej.f(getContext(), R.dimen.tbds16);
+        this.f = ej.f(getContext(), R.dimen.tbds16);
+        this.j = ej.f(getContext(), R.dimen.tbds22);
+        this.k = ej.f(getContext(), R.dimen.tbds40);
+        this.l = fv4.y(R.string.J_X01)[0];
+        int dimension = (int) getContext().getResources().getDimension(R.dimen.tbfontsize26);
+        this.q = dimension;
+        this.c.setTextSize(dimension);
+        this.a.setAntiAlias(true);
+        this.m.setAntiAlias(true);
+        this.r = ej.f(getContext(), R.dimen.tbds16);
+        this.s = ej.f(getContext(), R.dimen.tbds22);
+        this.t = ej.f(getContext(), R.dimen.tbds5);
+        this.v = ej.f(getContext(), R.dimen.M_W_X006);
+        ej.f(getContext(), R.dimen.M_H_X004);
+        i(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void A() {
-        NestedScrollWebView nestedScrollWebView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (nestedScrollWebView = this.d) == null) {
-            return;
-        }
-        try {
-            nestedScrollWebView.onPause();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        r(MissionEvent.MESSAGE_PAUSE);
-        hn8 hn8Var = this.m;
-        if (hn8Var != null) {
-            hn8Var.h(this.d, CommonTbJsBridge.RE_HIDE, null);
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            s85 s85Var = this.g;
-            if (s85Var == null || !s85Var.isViewAttached()) {
-                if (this.g == null) {
-                    s85 s85Var2 = new s85(this.a);
-                    this.g = s85Var2;
-                    s85Var2.r(TbadkCoreApplication.getInst().getSkinType());
-                    this.g.onChangeSkinType();
-                }
-                this.g.attachView(this.e, false);
-            }
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.f == null) {
-                this.f = new t85(this.a, new b(this));
-            }
-            this.f.n(this.a.getString(R.string.obfuscated_res_0x7f0f14f8));
-            this.f.g(this.a.getString(R.string.obfuscated_res_0x7f0f0fd6));
-            this.f.i(R.drawable.new_pic_emotion_08);
-            this.f.attachView(this.e, false);
-            this.f.p();
-        }
-    }
-
-    @Override // com.baidu.tieba.ud5
-    public void E(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vd5
-    public boolean G0() {
+    private Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vd5
-    public Intent getResultIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vd5
-    public void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-        }
-    }
-
-    public void onDestroy() {
-        hn8 hn8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (hn8Var = this.m) == null) {
-            return;
-        }
-        hn8Var.g();
-    }
-
-    public void onResume() {
-        NestedScrollWebView nestedScrollWebView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || (nestedScrollWebView = this.d) == null) {
-            return;
-        }
-        try {
-            nestedScrollWebView.onResume();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        r("onResume");
-        hn8 hn8Var = this.m;
-        if (hn8Var != null) {
-            hn8Var.h(this.d, CommonTbJsBridge.RE_SHOW, null);
-            if (CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.WEB && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NONE && CurrentPageTypeHelper.currentPageType != CurrentPageTypeHelper.PageType.NATIVE_WEB && !this.k) {
-                this.m.h(this.d, CommonTbJsBridge.GO_BACK_FROM_NATIVE, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
+            View view2 = this.d;
+            if (view2 != null && view2.getContext() != null) {
+                return this.d.getContext();
             }
+            return TbadkCoreApplication.getInst().getContext();
         }
-        this.k = false;
+        return (Context) invokeV.objValue;
     }
 
-    public final void r(String str) {
+    public void a(Canvas canvas, String str, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048585, this, str) == null) || this.d == null) {
+        if (!(interceptable == null || interceptable.invokeLLZ(1048576, this, canvas, str, z) == null) || canvas == null || this.d == null || TextUtils.isEmpty(str)) {
             return;
         }
-        try {
-            WebView.class.getMethod(str, new Class[0]).invoke(this.d, new Object[0]);
-        } catch (Exception e) {
-            e.printStackTrace();
+        int save = canvas.save();
+        this.d.getPaddingLeft();
+        int paddingRight = this.d.getPaddingRight();
+        this.d.getPaddingTop();
+        int paddingBottom = this.d.getPaddingBottom();
+        int left = this.d.getLeft();
+        int right = this.d.getRight();
+        int top = this.d.getTop();
+        int bottom = this.d.getBottom();
+        float measureText = this.a.measureText(str);
+        Paint.FontMetrics fontMetrics = this.a.getFontMetrics();
+        if (z) {
+            if (this.u == null) {
+                this.u = fv4.B(R.array.S_O_X001);
+            }
+            float[] fArr = this.u;
+            if (fArr == null || fArr.length < 4) {
+                i = save;
+            } else {
+                i = save;
+                this.a.setShadowLayer(fArr[1], fArr[2], fArr[3], (int) fArr[0]);
+            }
+            int i2 = this.v;
+            canvas.drawText(str, (((right - left) - paddingRight) - i2) - measureText, (((bottom - top) - paddingBottom) - i2) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
+        } else {
+            i = save;
+            float f = this.k + measureText;
+            float f2 = this.i + this.j;
+            canvas.translate((((right - left) - paddingRight) - f) - this.f, (((bottom - top) - paddingBottom) - f2) - this.e);
+            RectF rectF = new RectF(0.0f, 0.0f, f, f2);
+            float f3 = this.l;
+            if (f3 < 1.0f) {
+                this.l = f3 * f2;
+            }
+            float f4 = this.l;
+            canvas.drawRoundRect(rectF, f4, f4, this.b);
+            this.a.clearShadowLayer();
+            canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.a);
         }
+        int i3 = i;
+        if (i3 < 1 || i3 > canvas.getSaveCount()) {
+            return;
+        }
+        canvas.restoreToCount(i3);
     }
 
-    @Override // com.baidu.tieba.vd5
-    public boolean s() {
-        InterceptResult invokeV;
+    public void b(Canvas canvas, String str, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d.getScrollY() == 0 : invokeV.booleanValue;
+        if (!(interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, str, i) == null) || canvas == null || this.d == null || TextUtils.isEmpty(str)) {
+            return;
+        }
+        if (i != 0) {
+            this.p = i;
+            this.m.setColor(SkinManager.getColor(i));
+        }
+        int save = canvas.save();
+        int paddingLeft = this.d.getPaddingLeft();
+        this.d.getPaddingRight();
+        int paddingTop = this.d.getPaddingTop();
+        this.d.getPaddingBottom();
+        float measureText = this.c.measureText(str);
+        canvas.translate(paddingLeft, paddingTop);
+        RectF rectF = new RectF(0.0f, 0.0f, this.s + measureText, this.q + this.r);
+        int i2 = this.t;
+        canvas.drawRoundRect(rectF, i2, i2, this.m);
+        Paint.FontMetrics fontMetrics = this.c.getFontMetrics();
+        canvas.drawText(str, (rectF.width() - measureText) / 2.0f, (rectF.height() / 2.0f) + ((Math.abs(fontMetrics.ascent) - fontMetrics.descent) / 2.0f), this.c);
+        if (save < 1 || save > canvas.getSaveCount()) {
+            return;
+        }
+        canvas.restoreToCount(save);
     }
 
-    public final boolean t(String str) {
+    public float c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            return str.contains("tieba_check_login=1");
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? ej.E(this.a, str).height() + this.j : invokeL.floatValue;
     }
 
-    public final void u() {
+    public float d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048588, this) == null) || this.e == null || this.d == null || this.h || TextUtils.isEmpty(this.l) || !BdNetTypeUtil.isNetWorkAvailable()) {
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? ej.F(this.a, str) + this.k : invokeL.floatValue;
+    }
+
+    public final void e() {
+        View view2;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (view2 = this.d) == null) {
             return;
         }
-        this.h = true;
-        this.j = true;
-        this.e.setVisibility(0);
-        this.d.setVisibility(8);
-        x();
-        B();
-        z(this.l, true);
+        view2.invalidate();
     }
 
-    public boolean v() {
-        InterceptResult invokeV;
+    public void f(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            NestedScrollWebView nestedScrollWebView = this.d;
-            if (nestedScrollWebView == null || !nestedScrollWebView.canGoBack()) {
-                return false;
-            }
-            this.d.goBack();
-            return true;
+        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
+            this.f = i;
+            this.e = i2;
+            e();
         }
-        return invokeV.booleanValue;
     }
 
-    public final void w() {
-        s85 s85Var;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048590, this) == null) || (s85Var = this.g) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.g = i;
+            this.a.setColor(i);
+            e();
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.i = i;
+            this.a.setTextSize(i);
+            e();
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) || this.n == i) {
             return;
         }
-        s85Var.dettachView(this.e);
-    }
-
-    public final void x() {
-        t85 t85Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048591, this) == null) || (t85Var = this.f) == null) {
-            return;
-        }
-        t85Var.dettachView(this.e);
-    }
-
-    public void y() {
-        NestedScrollWebView nestedScrollWebView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048592, this) == null) || (nestedScrollWebView = this.d) == null) {
-            return;
-        }
-        nestedScrollWebView.setNeedDisAllowParentInterceptTouchEvent(false);
-        this.d.getSettings().setJavaScriptEnabled(true);
-        this.d.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        this.d.getSettings().setAllowFileAccess(true);
-        this.d.getSettings().setDatabaseEnabled(true);
-        this.d.getSettings().setDomStorageEnabled(true);
-        this.d.getSettings().setSupportZoom(true);
-        this.d.getSettings().setBuiltInZoomControls(true);
-        this.d.getSettings().setUseWideViewPort(true);
-        this.d.getSettings().setLoadWithOverviewMode(true);
-        this.d.getSettings().setDatabasePath(this.a.getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getAbsolutePath());
-        this.d.setHorizontalScrollBarEnabled(false);
-        this.d.setHorizontalScrollbarOverlay(false);
-        this.d.setInitialScale(100);
-        this.d.setScrollBarStyle(33554432);
-        this.d.setWebViewClient(new c(this));
-        this.d.setDownloadListener(new d(this, null));
-        if (this.a instanceof Activity) {
-            yi5 yi5Var = new yi5((Activity) this.a);
-            yi5Var.b(this.n);
-            this.d.setWebChromeClient(yi5Var);
-        }
-        CompatibleUtile.getInstance().removeJavascriptInterface(this.d);
-    }
-
-    public void z(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLZ(1048593, this, str, z) == null) || this.d == null) {
-            return;
-        }
-        if (z || this.j) {
-            this.l = str;
-            CompatibleUtile.getInstance().loadUrl(this.d, str);
-        }
+        this.n = i;
+        this.c.setColor(SkinManager.getColor(i, this.o));
+        this.m.setColor(SkinManager.getColor(i, this.p));
     }
 }

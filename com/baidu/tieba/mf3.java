@@ -1,24 +1,56 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.f93;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class mf3 {
+public class mf3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<Integer> a;
-    public static final Set<Integer> b;
-    public static final Set<Integer> c;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
+
+        public a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = i2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                mf3.b(this.a, this.b);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,131 +65,43 @@ public final class mf3 {
                 return;
             }
         }
-        a = new HashSet();
-        b = new HashSet();
-        c = new HashSet();
-        a.add(2);
-        a.add(3);
-        a.add(4);
-        a.add(5);
-        a.add(6);
-        b.add(7);
-        b.add(1);
-        c.addAll(a);
-        c.addAll(b);
+        a = vj1.a;
+        b = 0;
     }
 
-    public static Date a() {
+    public static void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            if (i == 0) {
+                b = 2;
+            } else if (i2 > i) {
+                b = 1;
+                yd2.d().e(i, i2);
+                yf3.h();
+                tm2.m().i();
+                f93.a.a();
+                l92.d();
+            }
+            if (a) {
+                Log.d("SwanAppUpgradeManager", "App onUpgrade on thread: " + Thread.currentThread());
+            }
+        }
+    }
+
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new Date() : (Date) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b : invokeV.intValue;
     }
 
-    public static String b(Date date, String str) {
-        InterceptResult invokeLL;
+    public static void d(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
-            if (date == null) {
-                return "";
-            }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
+            if (i != 0 && sm2.g0().l()) {
+                fg3.k(new a(i, i2), "onUpgradeOperation");
+            } else {
+                b(i, i2);
             }
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static Date c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-        }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static Date d(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
-            Date date = null;
-            if (!TextUtils.isEmpty(str) && strArr != null) {
-                for (String str2 : strArr) {
-                    try {
-                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (date != null) {
-                        break;
-                    }
-                }
-            }
-            return date;
-        }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static String e(Date date, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
-            if (date == null) {
-                return "";
-            }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static boolean f(Long l, Long l2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) ? l.longValue() / 86400000 == l2.longValue() / 86400000 : invokeLL.booleanValue;
-    }
-
-    public static String g(long j, String str) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
-            try {
-                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
-            } catch (NumberFormatException e) {
-                if (ij1.a) {
-                    e.printStackTrace();
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeJL.objValue;
     }
 }

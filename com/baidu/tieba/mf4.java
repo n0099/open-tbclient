@@ -1,94 +1,66 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
-import java.util.HashSet;
-import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile mf4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final String f;
-    public final String g;
-    public final Set<String> h;
-    public final String i;
-    public final Long j;
-    public int k;
 
-    public mf4(String str, int i, int i2, String str2, String str3, String str4, String str5, Set<String> set, String str6, Long l) {
+    public mf4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, set, str6, l};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.c = i2;
-        this.b = i;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = str5;
-        this.h = set;
-        this.i = str6;
-        this.j = l;
     }
 
-    public static mf4 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
+    public static mf4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            try {
-                String optString = jSONObject.optString("version");
-                if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-                    return null;
-                }
-                String optString2 = optJSONObject.optString("content_type");
-                int optInt = optJSONObject.optInt("official_no");
-                int optInt2 = optJSONObject.optInt("container_no");
-                String optString3 = optJSONObject.optString("host_name");
-                String optString4 = optJSONObject.optString("share_callback_url");
-                JSONArray optJSONArray = optJSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
-                String optString5 = optJSONObject.optString("scheme_head");
-                String optString6 = optJSONObject.optString("failure_url");
-                HashSet hashSet = new HashSet();
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        String optString7 = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString7)) {
-                            hashSet.add(optString7);
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (mf4.class) {
+                    if (a == null) {
+                        a = new mf4();
                     }
                 }
-                mf4 mf4Var = new mf4(optString2, optInt, optInt2, optString3, optString4, optString6, optString, hashSet.size() > 0 ? hashSet : null, optString5, null);
-                mf4Var.k = optJSONObject.optInt("use_openbundleid", -1);
-                return mf4Var;
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return null;
             }
+            return a;
         }
-        return (mf4) invokeL.objValue;
+        return (mf4) invokeV.objValue;
+    }
+
+    public void b(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || wa4.b() == null || wa4.b().i() == null) {
+            return;
+        }
+        JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
+        JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
+        boolean o = optJSONArray != null ? wa4.b().o(false, optJSONArray) : true;
+        boolean o2 = optJSONArray2 != null ? wa4.b().o(true, optJSONArray2) : true;
+        if (o && o2) {
+            wa4.b().i().putString("key_online_description_fix_version", optString);
+        }
     }
 }

@@ -20,16 +20,16 @@ import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
-import com.baidu.tieba.es4;
+import com.baidu.tieba.bw6;
+import com.baidu.tieba.dx4;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.g05;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.la5;
 import com.baidu.tieba.lj;
-import com.baidu.tieba.nv6;
-import com.baidu.tieba.qw4;
+import com.baidu.tieba.lq4;
 import com.baidu.tieba.rg;
-import com.baidu.tieba.tz4;
-import com.baidu.tieba.uz4;
-import com.baidu.tieba.y95;
-import com.baidu.tieba.yp4;
+import com.baidu.tieba.rs4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -141,13 +141,13 @@ public class NetWork {
         }
     }
 
-    private es4 login(String str, String str2) {
+    private rs4 login(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    qw4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                    dx4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     StringBuilder sb = new StringBuilder(32);
                     sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -168,30 +168,30 @@ public class NetWork {
                     this.mNetLogin.getNetContext().getRequest().mRequestGzip = true;
                     String postNetData = this.mNetLogin.postNetData();
                     if (this.mNetLogin.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        es4 es4Var = new es4();
-                        es4Var.d(postNetData);
-                        String userId = es4Var.c().getUserId();
+                        rs4 rs4Var = new rs4();
+                        rs4Var.d(postNetData);
+                        String userId = rs4Var.c().getUserId();
                         if (userId != null && userId.length() > 0) {
                             AccountData accountData = new AccountData();
-                            accountData.setAccount(es4Var.c().getUserName());
-                            if (es4Var.c().getPassword() != null) {
-                                accountData.setPassword(es4Var.c().getPassword());
+                            accountData.setAccount(rs4Var.c().getUserName());
+                            if (rs4Var.c().getPassword() != null) {
+                                accountData.setPassword(rs4Var.c().getPassword());
                             } else {
                                 accountData.setPassword(str2);
                             }
-                            accountData.setID(es4Var.c().getUserId());
-                            accountData.setBDUSS(es4Var.c().getBDUSS());
-                            accountData.setPortrait(es4Var.c().getPortrait());
+                            accountData.setID(rs4Var.c().getUserId());
+                            accountData.setBDUSS(rs4Var.c().getBDUSS());
+                            accountData.setPortrait(rs4Var.c().getPortrait());
                             accountData.setIsActive(1);
-                            if (es4Var.a() != null) {
-                                accountData.setTbs(es4Var.a().getTbs());
+                            if (rs4Var.a() != null) {
+                                accountData.setTbs(rs4Var.a().getTbs());
                             }
-                            accountData.setGrowthSwitch(es4Var.b());
-                            yp4.g(accountData);
+                            accountData.setGrowthSwitch(rs4Var.b());
+                            lq4.g(accountData);
                             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                            qw4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                            dx4.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-                            return es4Var;
+                            return rs4Var;
                         }
                         this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0c59);
                         return null;
@@ -208,15 +208,15 @@ public class NetWork {
             }
             return null;
         }
-        return (es4) invokeLL.objValue;
+        return (rs4) invokeLL.objValue;
     }
 
     private void modSessionData() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65543, this) == null) {
-            String currentBduss = TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getCurrentBduss() : y95.b();
+            String currentBduss = TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getCurrentBduss() : la5.b();
             BasicNameValuePair basicNameValuePair = new BasicNameValuePair(HttpRequest.BDUSS, currentBduss);
-            BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : y95.f());
+            BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, TbadkCoreApplication.getInst().isMainProcess(false) ? TbadkCoreApplication.getInst().getTbs() : la5.f());
             if (currentBduss != null) {
                 ArrayList<BasicNameValuePair> postData = this.mNet.getPostData();
                 int size = postData.size();
@@ -312,16 +312,16 @@ public class NetWork {
                 this.netContext.getResponse().mErrorString = "";
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj == null) {
-                    currentAccountObj = yp4.e();
+                    currentAccountObj = lq4.e();
                 }
                 if (currentAccountObj != null && (!TextUtils.isEmpty(currentAccountObj.getAccount()) || !TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-                    yp4.c(currentAccountObj.getID());
+                    lq4.c(currentAccountObj.getID());
                     if (ReloginManager.g().i()) {
                         removeAccount(currentAccountObj);
                         ReloginManager.g().f(null);
                         return null;
                     }
-                    es4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword());
+                    rs4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword());
                     removeAccount(currentAccountObj);
                     if (login == null) {
                         if (this.mNetLogin != null) {
@@ -337,7 +337,7 @@ public class NetWork {
                     return null;
                 }
             }
-            nv6.b(this);
+            bw6.b(this);
             return netString;
         }
         return (String) invokeCommon.objValue;
@@ -370,9 +370,9 @@ public class NetWork {
     }
 
     private void removeAccount(AccountData accountData) {
-        uz4 b;
+        h05 b;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65548, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b = tz4.b()) == null) {
+        if (!(interceptable == null || interceptable.invokeL(65548, this, accountData) == null) || TextUtils.isEmpty(accountData.getID()) || (b = g05.b()) == null) {
             return;
         }
         b.c(accountData);

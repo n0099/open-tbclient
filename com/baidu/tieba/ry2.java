@@ -1,104 +1,138 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.tieba.ul2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ry2 {
+public class ry2 extends p62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public x42<Boolean> c;
+    public String d;
+    public String e;
+    public long f;
+    public final cb4<mc4> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948137886, "Lcom/baidu/tieba/ry2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends q62<ry2> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ry2 b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ry2 ry2Var, ry2 ry2Var2) {
+            super(ry2Var2);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ry2Var, ry2Var2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((p62) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948137886, "Lcom/baidu/tieba/ry2;");
+            this.b = ry2Var;
+        }
+
+        @Override // com.baidu.tieba.q62
+        public void r(@NonNull mc4 mc4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mc4Var) == null) {
+                this.b.c.a(Boolean.TRUE);
+            }
+        }
+
+        @Override // com.baidu.tieba.q62
+        public void u(mc4 mc4Var, ef3 ef3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mc4Var, ef3Var) == null) {
+                this.b.c.a(Boolean.FALSE);
+            }
+        }
+    }
+
+    public ry2(String str, String str2, long j, x42<Boolean> x42Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, Long.valueOf(j), x42Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ij1.a;
+        this.g = new a(this, this);
+        this.c = x42Var;
+        this.d = str;
+        this.e = str2;
+        this.f = j;
     }
 
-    public static void a() {
-        String[] list;
+    @Override // com.baidu.tieba.gb4
+    public void C(fc4 fc4Var) {
+        mc4 p;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (list = ul2.q().list()) == null || list.length <= 0) {
-            return;
-        }
-        for (String str : list) {
-            if (!TextUtils.isEmpty(str)) {
-                zb4 zb4Var = new zb4();
-                zb4Var.g = str;
-                zb4Var.i = -1L;
-                va4.i().f(zb4Var);
-            }
-        }
-        ul2.e.d();
-    }
-
-    public static void b(String str) {
-        File s;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65538, null, str) == null) || TextUtils.isEmpty(str) || (s = ul2.s(str)) == null || (list = s.list()) == null || list.length <= 1) {
-            return;
-        }
-        List<zb4> q = fy2.q(str);
-        for (String str2 : list) {
-            long j = -1;
-            try {
-                j = Long.parseLong(str2);
-            } catch (NumberFormatException e) {
-                if (a) {
-                    qy2.b(Log.getStackTraceString(e));
+        if (interceptable == null || interceptable.invokeL(1048576, this, fc4Var) == null) {
+            super.C(fc4Var);
+            if (fc4Var != null) {
+                if (fc4Var.a == 1010 && (p = sy2.p(this.d, this.e, this.f)) != null) {
+                    p.d = p.b();
+                    ib4.i().x(p);
                 }
+                dz2.b("fetch plugin error: " + fc4Var.toString());
+            } else {
+                dz2.b("fetch plugin error");
             }
-            if (!c(j, q)) {
-                cj4.L(ul2.t(str, str2));
-                qy2.b("delete plugin name = " + str + " ; version = " + str2);
-            }
-        }
-        zb4 zb4Var = null;
-        if (q != null) {
-            if (q.size() == 1) {
-                zb4Var = q.get(0);
-            } else if (q.size() >= 2) {
-                zb4Var = q.get(1);
-            }
-        }
-        if (zb4Var != null) {
-            va4.i().f(zb4Var);
+            this.c.a(Boolean.FALSE);
         }
     }
 
-    public static boolean c(long j, List<zb4> list) {
-        InterceptResult invokeJL;
+    @Override // com.baidu.tieba.gb4
+    public void E() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65539, null, j, list)) == null) {
-            if (j >= 0 && list != null && list.size() != 0) {
-                int min = Math.min(list.size(), 2);
-                for (int i = 0; i < min; i++) {
-                    zb4 zb4Var = list.get(i);
-                    if (zb4Var != null && (j == zb4Var.i || j == ng3.c(zb4Var.j))) {
-                        return true;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.E();
+            dz2.b("fetch plugin success");
         }
-        return invokeJL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gb4
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.F();
+            dz2.b("no package");
+            this.c.a(Boolean.FALSE);
+        }
+    }
+
+    @Override // com.baidu.tieba.gb4
+    public void G(tg4 tg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, tg4Var) == null) {
+            super.G(tg4Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.gb4
+    public cb4<mc4> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.g : (cb4) invokeV.objValue;
     }
 }

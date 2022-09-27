@@ -17,8 +17,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i23;
-import com.baidu.tieba.j23;
+import com.baidu.tieba.v23;
+import com.baidu.tieba.w23;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class SwanContextMenuView extends FrameLayout implements i23.g {
+public class SwanContextMenuView extends FrameLayout implements v23.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -73,7 +73,7 @@ public class SwanContextMenuView extends FrameLayout implements i23.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final Context a;
-        public List<j23> b;
+        public List<w23> b;
         public final /* synthetic */ SwanContextMenuView c;
 
         /* loaded from: classes3.dex */
@@ -100,7 +100,7 @@ public class SwanContextMenuView extends FrameLayout implements i23.g {
             }
         }
 
-        public b(SwanContextMenuView swanContextMenuView, Context context, List<j23> list) {
+        public b(SwanContextMenuView swanContextMenuView, Context context, List<w23> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -121,31 +121,31 @@ public class SwanContextMenuView extends FrameLayout implements i23.g {
         }
 
         public void a(int i) {
-            j23 j23Var;
-            j23.a d;
+            w23 w23Var;
+            w23.a d;
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (d = (j23Var = this.b.get(i)).d()) == null) {
+            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || (d = (w23Var = this.b.get(i)).d()) == null) {
                 return;
             }
-            d.a(j23Var);
+            d.a(w23Var);
         }
 
         public final void b(View view2, int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
                 if (getCount() == 1) {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081146));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08114a));
                 } else if (i == 0) {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081147));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08114b));
                 } else if (i == getCount() - 1) {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081144));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081148));
                 } else {
-                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081145));
+                    view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081149));
                 }
             }
         }
 
-        public void c(List<j23> list) {
+        public void c(List<w23> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
                 this.b = list;
@@ -191,13 +191,13 @@ public class SwanContextMenuView extends FrameLayout implements i23.g {
                 } else {
                     aVar = (a) view2.getTag();
                 }
-                j23 j23Var = this.b.get(i);
-                aVar.b.setText(j23Var.e());
+                w23 w23Var = this.b.get(i);
+                aVar.b.setText(w23Var.e());
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.b.getLayoutParams();
                 LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-                if (j23Var.b() != null) {
+                if (w23Var.b() != null) {
                     aVar.a.setVisibility(0);
-                    aVar.a.setImageDrawable(j23Var.b());
+                    aVar.a.setImageDrawable(w23Var.b());
                     layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070668));
                 } else {
                     aVar.a.setVisibility(8);
@@ -207,7 +207,7 @@ public class SwanContextMenuView extends FrameLayout implements i23.g {
                 if (this.c.e) {
                     ((LinearLayout) view2).setGravity(17);
                     layoutParams.width = -2;
-                    if (j23Var.b() != null) {
+                    if (w23Var.b() != null) {
                         layoutParams2.setMarginStart(0);
                         aVar.a.setLayoutParams(layoutParams2);
                     } else {
@@ -249,7 +249,7 @@ public class SwanContextMenuView extends FrameLayout implements i23.g {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081143));
+            setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f081147));
             ListView listView = new ListView(this.a);
             this.c = listView;
             listView.setCacheColorHint(0);
@@ -261,7 +261,7 @@ public class SwanContextMenuView extends FrameLayout implements i23.g {
         }
     }
 
-    public void c(List<j23> list) {
+    public void c(List<w23> list) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) || this.b) {
             return;

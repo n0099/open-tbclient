@@ -8,16 +8,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.GroupChatActivityConfig;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gc7;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.model.ImBaseMessageCenterModel;
 import com.baidu.tieba.im.settingcache.GroupSettingItemData;
 import com.baidu.tieba.im.settingcache.OfficialSettingItemData;
 import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
+import com.baidu.tieba.kb7;
+import com.baidu.tieba.mb7;
+import com.baidu.tieba.nb7;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.wa7;
-import com.baidu.tieba.ya7;
-import com.baidu.tieba.za7;
+import com.baidu.tieba.uc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -116,7 +116,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(1));
-        GroupSettingItemData a = wa7.k().a(z(), imMessageCenterPojo.getGid());
+        GroupSettingItemData a = kb7.k().a(z(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }
@@ -153,7 +153,7 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         if (!TextUtils.isEmpty(imMessageCenterPojo.getLast_user_name()) && !imMessageCenterPojo.getLast_user_name().equals(A()) && !StringUtils.isNull(buildNormalItem.getMsgContent())) {
             buildNormalItem.setMsgContent(buildNormalItem.getMsgContent());
         }
-        OfficialSettingItemData a = ya7.j().a(z(), imMessageCenterPojo.getGid());
+        OfficialSettingItemData a = mb7.j().a(z(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }
@@ -190,11 +190,11 @@ public class ImMessageCenterModel extends ImBaseMessageCenterModel {
         }
         buildNormalItem.setSendStatus(imMessageCenterPojo.getSend_status());
         buildNormalItem.setOwnerName(String.valueOf(4));
-        PersonalSettingItemData a = za7.j().a(z(), imMessageCenterPojo.getGid());
+        PersonalSettingItemData a = nb7.j().a(z(), imMessageCenterPojo.getGid());
         if (a != null) {
             buildNormalItem.setGroupSetting(a);
         }
-        buildNormalItem.setMarkTopIndex(gc7.a(imMessageCenterPojo.getGid()));
+        buildNormalItem.setMarkTopIndex(uc7.a(imMessageCenterPojo.getGid()));
         insertShowData(buildNormalItem, this.mList);
     }
 

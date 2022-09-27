@@ -9,9 +9,9 @@ import android.media.MediaFormat;
 import android.os.Handler;
 import android.os.HandlerThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bg9;
-import com.baidu.tieba.ec9;
-import com.baidu.tieba.gg9;
+import com.baidu.tieba.qg9;
+import com.baidu.tieba.tc9;
+import com.baidu.tieba.vg9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -141,7 +141,7 @@ public class VideoKeyFrameModel {
             MediaExtractor mediaExtractor2 = mediaExtractor;
             ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
             MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-            if (gg9.e(list) || list.size() != 1) {
+            if (vg9.e(list) || list.size() != 1) {
                 j = 0;
                 j2 = -1;
             } else {
@@ -159,7 +159,7 @@ public class VideoKeyFrameModel {
                 }
                 j2 = j5;
             }
-            if (gg9.e(list)) {
+            if (vg9.e(list)) {
                 if (this.mStartPosition > j) {
                     mediaExtractor.getSampleTime();
                     long j6 = this.mStartPosition;
@@ -198,7 +198,7 @@ public class VideoKeyFrameModel {
                         j4 = j3;
                         i2 = i3;
                         if (mediaExtractor.getSampleTrackIndex() != i) {
-                            bg9.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
+                            qg9.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
                         }
                         mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
                         mediaExtractor.advance();
@@ -214,10 +214,10 @@ public class VideoKeyFrameModel {
                         if (dequeueOutputBuffer == -2) {
                             mediaCodec.getOutputFormat();
                         } else if (dequeueOutputBuffer < 0) {
-                            bg9.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                            qg9.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
                         } else {
                             boolean z7 = (bufferInfo.flags & 4) != 0 ? true : z5;
-                            if (this.mDuration > j4 || gg9.e(list)) {
+                            if (this.mDuration > j4 || vg9.e(list)) {
                                 if (bufferInfo.size != 0) {
                                     z2 = z7;
                                     if (bufferInfo.presentationTimeUs >= this.mStartPosition) {
@@ -266,7 +266,7 @@ public class VideoKeyFrameModel {
                                         } else if (bufferInfo.presentationTimeUs >= j2) {
                                             long currentTimeMillis = System.currentTimeMillis();
                                             this.mBitmap = baseOutputSurface.getFrameBitmap();
-                                            bg9.c("zmy", "draw cost : " + (System.currentTimeMillis() - currentTimeMillis));
+                                            qg9.c("zmy", "draw cost : " + (System.currentTimeMillis() - currentTimeMillis));
                                         }
                                         i3 = i2;
                                         z7 = true;
@@ -355,7 +355,7 @@ public class VideoKeyFrameModel {
         r1 = r2;
      */
     /* JADX WARN: Code restructure failed: missing block: B:55:0x00fd, code lost:
-        com.baidu.tieba.bg9.g(r0);
+        com.baidu.tieba.qg9.g(r0);
      */
     /* JADX WARN: Code restructure failed: missing block: B:56:0x0100, code lost:
         if (r1 != null) goto L38;
@@ -462,7 +462,7 @@ public class VideoKeyFrameModel {
                 integer2 = i2;
                 hasEffect = VideoEffectData.hasEffect(this.mVideoEffectData);
                 if (hasEffect == 0) {
-                    OutputSurfaceWithFilter outputSurfaceWithFilter = new OutputSurfaceWithFilter(ec9.c().getContext(), null, false, integer, integer2, true, this.mHandler);
+                    OutputSurfaceWithFilter outputSurfaceWithFilter = new OutputSurfaceWithFilter(tc9.c().getContext(), null, false, integer, integer2, true, this.mHandler);
                     outputSurfaceWithFilter.setMagicEffectList(this.mVideoEffectData.getMagicEffectList());
                     hasEffect = outputSurfaceWithFilter;
                 } else {
@@ -506,7 +506,7 @@ public class VideoKeyFrameModel {
         if (!(interceptable == null || interceptable.invokeV(65545, this) == null) || (videoEffectData = this.mVideoEffectData) == null) {
             return;
         }
-        if (!gg9.e(videoEffectData.getMagicEffectList())) {
+        if (!vg9.e(videoEffectData.getMagicEffectList())) {
             ArrayList arrayList = new ArrayList();
             for (BaseEffect baseEffect : this.mVideoEffectData.getMagicEffectList()) {
                 EffectUtil.addEffect(baseEffect, arrayList);
@@ -520,7 +520,7 @@ public class VideoKeyFrameModel {
         int i;
         int i2;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || gg9.e(this.mVideoEffectData.getMagicEffectList()) || this.mVideoEffectData.getTimeEffect() == null) {
+        if (!(interceptable == null || interceptable.invokeV(65546, this) == null) || vg9.e(this.mVideoEffectData.getMagicEffectList()) || this.mVideoEffectData.getTimeEffect() == null) {
             return;
         }
         BaseEffect timeEffect = this.mVideoEffectData.getTimeEffect();
@@ -684,7 +684,7 @@ public class VideoKeyFrameModel {
                             arrayList.add(Long.valueOf(this.val$timeUs));
                             this.this$0.extractMpegFrames(this.val$videoPath, arrayList, this.val$exactTime, this.val$width, this.val$height);
                         } catch (Exception e2) {
-                            bg9.g(e2);
+                            qg9.g(e2);
                             e2.printStackTrace();
                         }
                     }
@@ -748,7 +748,7 @@ public class VideoKeyFrameModel {
                         try {
                             this.this$0.extractMpegFrames(this.val$videoPath, this.val$timeUsList, true, this.val$width, this.val$height);
                         } catch (Exception e) {
-                            bg9.g(e);
+                            qg9.g(e);
                             e.printStackTrace();
                         }
                     }

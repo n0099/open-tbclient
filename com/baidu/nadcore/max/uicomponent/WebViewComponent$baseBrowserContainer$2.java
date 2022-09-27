@@ -1,8 +1,8 @@
 package com.baidu.nadcore.max.uicomponent;
 
 import com.baidu.nadcore.webview.container.base.AbsContainer;
-import com.baidu.tieba.dm0;
-import com.baidu.tieba.f41;
+import com.baidu.tieba.qm0;
+import com.baidu.tieba.s41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,9 +46,9 @@ public final class WebViewComponent$baseBrowserContainer$2 extends Lambda implem
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            f41.a aVar = f41.a;
+            s41.a aVar = s41.a;
             WebViewComponent webViewComponent = this.this$0;
-            return aVar.a(webViewComponent, webViewComponent, dm0.b().a().a("key_webview_core_type", 0));
+            return aVar.a(webViewComponent, webViewComponent, qm0.b().a().a("key_webview_core_type", 0));
         }
         return (AbsContainer) invokeV.objValue;
     }

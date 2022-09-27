@@ -6,10 +6,10 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.li7;
-import com.baidu.tieba.mi7;
+import com.baidu.tieba.aj7;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.zi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ public class HotForumModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public r9 a;
     public b b;
-    public List<li7> c;
+    public List<zi7> c;
     public HotSearchInfoData d;
-    public List<mi7> e;
+    public List<aj7> e;
     public String f;
 
     /* loaded from: classes5.dex */
@@ -94,7 +94,7 @@ public class HotForumModel extends BdBaseModel {
     public interface b {
         void E(String str);
 
-        void s(List<li7> list, List<mi7> list2, HotSearchInfoData hotSearchInfoData, String str);
+        void s(List<zi7> list, List<aj7> list2, HotSearchInfoData hotSearchInfoData, String str);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

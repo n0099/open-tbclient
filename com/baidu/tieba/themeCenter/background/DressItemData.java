@@ -73,7 +73,7 @@ public class DressItemData extends OrmObject implements Serializable {
     public String getDynamicUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.dynamicUrl : (String) invokeV.objValue;
     }
 
     public String getDynamicUrlSmall() {
@@ -173,6 +173,7 @@ public class DressItemData extends OrmObject implements Serializable {
     public void setDynamicUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.dynamicUrl = str;
         }
     }
 

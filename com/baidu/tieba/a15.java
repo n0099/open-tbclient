@@ -10,9 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class a15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public z05 a;
+    public boolean b;
     public int c;
+    public String d;
 
     public a15() {
         Interceptable interceptable = $ic;
@@ -28,10 +29,10 @@ public class a15 {
         }
     }
 
-    public int a() {
+    public z05 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (z05) invokeV.objValue;
     }
 
     public int b() {
@@ -40,37 +41,43 @@ public class a15 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
     }
 
-    public int c() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = this.a;
-            if (i == 0) {
-                return Integer.MAX_VALUE;
-            }
-            return i;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.d : (String) invokeV.objValue;
     }
 
-    public void d(String str) {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = dh.e(str, 0);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.b : invokeV.booleanValue;
     }
 
-    public void e(String str) {
+    public void e(z05 z05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c = dh.e(str, 0);
+        if (interceptable == null || interceptable.invokeL(1048580, this, z05Var) == null) {
+            this.a = z05Var;
         }
     }
 
-    public void f(String str) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a = dh.e(str, 0);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.b = z;
         }
     }
 }

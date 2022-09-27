@@ -1,109 +1,163 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
+import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
+import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class kx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public Activity a;
-    public AlertDialog b;
-    public boolean c;
-    public boolean d;
-    public String e;
 
-    public kx4(@NonNull Activity activity) {
+    public kx4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.c = true;
-        this.d = true;
-        this.a = activity;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            AlertDialog create = new AlertDialog.Builder(this.a).create();
-            this.b = create;
-            ih.i(create, this.a);
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d07d0, (ViewGroup) null);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090755);
-            if (!TextUtils.isEmpty(this.e)) {
-                textView.setText(this.e);
-            }
-            this.b.setCancelable(this.d);
-            this.b.setCanceledOnTouchOutside(this.d);
-            Window window = this.b.getWindow();
-            window.setContentView(inflate);
-            if (this.c) {
-                return;
-            }
-            window.setDimAmount(0.0f);
         }
     }
 
-    public void b() {
-        AlertDialog alertDialog;
+    public void a(AgreeData agreeData, String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (alertDialog = this.b) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, agreeData, str) == null) {
+            AgreeEvent agreeEvent = new AgreeEvent();
+            agreeEvent.agreeData = agreeData;
+            agreeEvent.agreeExtra = str;
+            na5.i(agreeEvent);
+        }
+    }
+
+    public void b(Context context, er4 er4Var, AgreeData agreeData, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, er4Var, agreeData, threadData) == null) || er4Var == null || agreeData == null) {
             return;
         }
-        alertDialog.dismiss();
-    }
-
-    public kx4 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (kx4) invokeZ.objValue;
-    }
-
-    public kx4 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (kx4) invokeL.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.b == null) {
-                a();
+        BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+        StatisticItem param = new StatisticItem("c13271").param("obj_type", er4Var.g).param("obj_locate", er4Var.h).param("obj_id", er4Var.i).param("obj_name", baijiahaoData != null ? baijiahaoData.oriUgcType : 0).param("post_id", agreeData.postId).param("nid", agreeData.nid);
+        if (threadData != null) {
+            param.param("tid", threadData.getId()).param("nid", threadData.getNid()).param("fid", threadData.getFid()).param("ab_tag", threadData.mRecomAbTag).param("recom_source", threadData.mRecomSource).param("weight", threadData.mRecomWeight).param("extra", threadData.mRecomExtra);
+            if (threadData.getBaijiahaoData() != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM4, threadData.getBaijiahaoData().oriUgcNid);
+                if (threadData.isBJHVideoThreadType() || threadData.isBJHVideoDynamicThreadType()) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
             }
-            this.b.show();
+            if (threadData.isBjhDynamicThread()) {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 2);
+            } else if (!threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
+                int i = threadData.threadType;
+                if (i == 0 || i == 40) {
+                    param.param(TiebaStatic.Params.OBJ_PARAM5, 1);
+                }
+            } else {
+                param.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+            }
+        } else {
+            param.param("tid", agreeData.threadId);
+            param.param("nid", agreeData.nid);
+            param.param("fid", agreeData.forumId);
+            param.param("card_type", agreeData.cardType);
+            param.param("ab_tag", agreeData.recomAbTag);
+            param.param("recom_source", agreeData.recomSource);
+            param.param("weight", agreeData.recomWeight);
+            param.param("extra", agreeData.recomExtra);
+            BaijiahaoData baijiahaoData2 = agreeData.baijiahaoData;
+            if (baijiahaoData2 != null) {
+                param.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData2.oriUgcVid);
+            }
+        }
+        if (context != null) {
+            tc5.b(context, param);
+        }
+        TiebaStatic.log(param);
+    }
+
+    public void c(AgreeData agreeData, int i, BdUniqueId bdUniqueId, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{agreeData, Integer.valueOf(i), bdUniqueId, Boolean.valueOf(z)}) == null) {
+            if (agreeData == null) {
+                bw4.a(3, -1);
+                return;
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
+            httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
+            httpMessage.addParam("thread_id", agreeData.threadId);
+            httpMessage.addParam("op_type", i);
+            if (agreeData.objType == 0) {
+                agreeData.objType = 3;
+            }
+            httpMessage.addParam("obj_type", agreeData.objType);
+            httpMessage.addParam("agree_type", agreeData.agreeType);
+            httpMessage.addParam("forum_id", agreeData.forumId);
+            if (!StringUtil.isEmpty(agreeData.objSource)) {
+                httpMessage.addParam("obj_source", agreeData.objSource);
+            }
+            if (!TextUtils.isEmpty(agreeData.postId)) {
+                httpMessage.addParam("post_id", agreeData.postId);
+            }
+            BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+            if (baijiahaoData != null) {
+                httpMessage.addParam("ori_ugc_tid", baijiahaoData.oriUgcTid);
+                httpMessage.addParam("ori_ugc_nid", agreeData.baijiahaoData.oriUgcNid);
+                httpMessage.addParam("ori_ugc_vid", agreeData.baijiahaoData.oriUgcVid);
+                httpMessage.addParam(TiebaStatic.Params.UGC_TYPE, agreeData.baijiahaoData.oriUgcType);
+            }
+            httpMessage.setTag(bdUniqueId);
+            httpMessage.setExtra(Integer.valueOf(i));
+            httpMessage.addHeader("needSig", "1");
+            if (z) {
+                if (!TextUtils.isEmpty(la5.b())) {
+                    httpMessage.addParam(HttpRequest.BDUSS, la5.b());
+                }
+                if (!TextUtils.isEmpty(la5.f())) {
+                    httpMessage.addParam(HttpRequest.TBS, la5.f());
+                }
+                if (!TextUtils.isEmpty(la5.e())) {
+                    httpMessage.addParam("stoken", la5.e());
+                }
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public void d(AgreeData agreeData, an8 an8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, agreeData, an8Var) == null) {
+            an8Var.b = agreeData;
+            if (agreeData.isInThread) {
+                BaijiahaoData baijiahaoData = agreeData.baijiahaoData;
+                if (baijiahaoData != null) {
+                    agreeData.nid = baijiahaoData.oriUgcNid;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, an8Var));
+                a(agreeData, AgreeEvent.IS_THREAD);
+            } else if (agreeData.isInPost) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, an8Var));
+                a(agreeData, AgreeEvent.IS_POST);
+            }
         }
     }
 }

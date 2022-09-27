@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.tieba.zv0;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class aw0<VG extends ViewGroup, BE extends zv0> extends ew0<VG, BE> {
+public class aw0 implements bw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,19 +25,11 @@ public abstract class aw0<VG extends ViewGroup, BE extends zv0> extends ew0<VG, 
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uv0
-    /* renamed from: S */
-    public oq0 u() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bw0
+    @NonNull
+    public uv0 create(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            nq0 u = super.u();
-            if (u != null) {
-                return (oq0) u;
-            }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
-        }
-        return (oq0) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? new zv0() : (uv0) invokeL.objValue;
     }
 }

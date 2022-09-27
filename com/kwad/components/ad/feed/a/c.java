@@ -60,7 +60,7 @@ public abstract class c extends a implements View.OnClickListener {
     public d dr;
     public boolean ds;
     public boolean dt;
-    public final a.InterfaceC0585a du;
+    public final a.InterfaceC0581a du;
     public h.a dv;
     public a.b dw;
     public com.kwad.components.core.c.a.c mApkDownloadHelper;
@@ -116,7 +116,7 @@ public abstract class c extends a implements View.OnClickListener {
                 }
             }
         };
-        this.du = new a.InterfaceC0585a(this) { // from class: com.kwad.components.ad.feed.a.c.2
+        this.du = new a.InterfaceC0581a(this) { // from class: com.kwad.components.ad.feed.a.c.2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ c dx;
@@ -139,7 +139,7 @@ public abstract class c extends a implements View.OnClickListener {
                 this.dx = this;
             }
 
-            @Override // com.kwad.components.core.video.a.InterfaceC0585a
+            @Override // com.kwad.components.core.video.a.InterfaceC0581a
             public final void a(int i3, aa.a aVar) {
                 int i4;
                 Interceptable interceptable2 = $ic;
@@ -160,7 +160,7 @@ public abstract class c extends a implements View.OnClickListener {
                     u.b bVar = new u.b();
                     bVar.gL = aVar;
                     bVar.gJ = i4;
-                    com.kwad.components.core.c.a.a.a(new a.C0574a(com.kwad.sdk.b.kwai.a.x(this.dx.dp)).L(this.dx.mAdTemplate).b(this.dx.mApkDownloadHelper).ae(i5).aj(z).al(true).an(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.ad.feed.a.c.2.1
+                    com.kwad.components.core.c.a.a.a(new a.C0570a(com.kwad.sdk.b.kwai.a.x(this.dx.dp)).L(this.dx.mAdTemplate).b(this.dx.mApkDownloadHelper).ae(i5).aj(z).al(true).an(true).a(bVar).a(new a.b(this) { // from class: com.kwad.components.ad.feed.a.c.2.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ AnonymousClass2 dy;
@@ -339,7 +339,7 @@ public abstract class c extends a implements View.OnClickListener {
             }
             i2 = 100;
         }
-        com.kwad.components.core.c.a.a.a(new a.C0574a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(i).an(true).a(new a.b(this, i2) { // from class: com.kwad.components.ad.feed.a.c.5
+        com.kwad.components.core.c.a.a.a(new a.C0570a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(z).ae(i).an(true).a(new a.b(this, i2) { // from class: com.kwad.components.ad.feed.a.c.5
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int dl;
@@ -401,7 +401,7 @@ public abstract class c extends a implements View.OnClickListener {
             this.dh = textView;
             com.kwad.sdk.b.kwai.a.a(this, this.cw, this.cx, textView);
             this.cx.setText(com.kwad.sdk.core.response.a.a.ae(this.mAdInfo));
-            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080c05);
+            this.cw.setImageResource(R.drawable.obfuscated_res_0x7f080c07);
             KSImageLoader.loadAppIcon(this.cw, com.kwad.sdk.core.response.a.a.bn(this.mAdInfo), this.mAdTemplate, 8);
             this.dh.setText(com.kwad.components.ad.feed.f.d(this.mAdTemplate));
             bf();

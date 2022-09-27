@@ -1,20 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface li9 {
-    public static final ServiceReference a = new ServiceReference("voyager", StatConstants.VALUE_TYPE_UPLOAD);
+public class li9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
+    public static long e = 300000;
+    public static int f = 10;
+    public static long g = 604800000;
+    public static long h = 104857600;
+    public static int i = 100;
+    public static int j = 5;
+    public static long k = 104857600;
+    public static int l = 0;
+    public static int m = 1;
+    public static int n;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(String str, String str2, int i, ki9 ki9Var);
-
-    void b(List<String> list, String str, long j, JSONObject jSONObject);
-
-    void c(String str, String str2, JSONObject jSONObject);
-
-    void d(String str, String str2, ki9 ki9Var);
-
-    void e(List<String> list, String str, long j, ki9 ki9Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947943981, "Lcom/baidu/tieba/li9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947943981, "Lcom/baidu/tieba/li9;");
+        }
+    }
 }

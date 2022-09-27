@@ -1,340 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
 import android.text.TextUtils;
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import androidx.collection.ArraySet;
-import androidx.core.app.NotificationCompat;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.tieba.ce4;
-import com.baidu.tieba.d83;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Iterator;
+import com.facebook.common.internal.Sets;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Set;
+import okhttp3.CertificatePinner;
 /* loaded from: classes3.dex */
-public class c43 extends v43 {
+public final class c43 {
     public static /* synthetic */ Interceptable $ic;
-    public static ea2 c;
-    public static final th3<List<ce4.b>, List<String>> d;
+    public static final boolean a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONArray a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ c43 d;
-
-        public a(c43 c43Var, JSONArray jSONArray, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c43Var, jSONArray, unitedSchemeEntity, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = c43Var;
-            this.a = jSONArray;
-            this.b = unitedSchemeEntity;
-            this.c = callbackHandler;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.d.r(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ c43 c;
-
-        public b(c43 c43Var, JSONObject jSONObject, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c43Var, jSONObject, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = c43Var;
-            this.a = jSONObject;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.v(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements rh3<b83<d83.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ JSONArray c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ c43 e;
-
-        public c(c43 c43Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONArray jSONArray, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c43Var, unitedSchemeEntity, callbackHandler, jSONArray, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = c43Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = jSONArray;
-            this.d = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
-        /* renamed from: b */
-        public void a(b83<d83.e> b83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
-                this.e.t(b83Var, this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ String b;
-
-        /* loaded from: classes3.dex */
-        public class a implements na4 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // com.baidu.tieba.na4
-            public void a(@Nullable Map<String, String> map) {
-                Interceptable interceptable = $ic;
-                if (!(interceptable == null || interceptable.invokeL(1048576, this, map) == null) || map == null) {
-                    return;
-                }
-                for (ce4.b bVar : this.a.a) {
-                    String b = bVar.b();
-                    String str = map.get(b);
-                    if (!TextUtils.equals(b, str)) {
-                        bVar.f(str);
-                    }
-                }
-                d dVar = this.a;
-                o12.a(dVar.a, dVar.b, null);
-            }
-
-            @Override // com.baidu.tieba.na4
-            public void onFail(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                }
-            }
-        }
-
-        public d(c43 c43Var, List list, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c43Var, list, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = list;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!nf4.e().g(!sg3.G())) {
-                    o12.a(this.a, this.b, null);
-                } else if (PMSConstants.a(ja4.b())) {
-                    ia4.e((List) c43.d.a(this.a), c43.c.c(), new a(this));
-                } else {
-                    yz1.c("DownloadPackagesAction", "STOP :: Not Support BDTLS");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e implements th3<List<ce4.b>, List<String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.th3
-        /* renamed from: b */
-        public List<String> a(List<ce4.b> list) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
-                if (list == null) {
-                    return Collections.emptyList();
-                }
-                ArrayList arrayList = new ArrayList();
-                for (ce4.b bVar : list) {
-                    arrayList.add(bVar.b());
-                }
-                return arrayList;
-            }
-            return (List) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ String b;
-
-        public f(c43 c43Var, List list, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c43Var, list, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = list;
-            this.b = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<String> h = o62.h(this.a);
-                if (h.isEmpty()) {
-                    return;
-                }
-                zd4 zd4Var = new zd4((Collection<String>) h, (bg4) wg3.b());
-                zd4Var.e(this.b);
-                zd4Var.d("1");
-                v52 v52Var = new v52();
-                v52Var.L(5);
-                ia4.f(zd4Var, v52Var);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -349,311 +39,385 @@ public class c43 extends v43 {
                 return;
             }
         }
-        d = new e();
+        a = vj1.a;
+        b = Sets.newHashSet("https", "wss");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c43(v33 v33Var) {
-        super(v33Var, "/swanAPI/downloadPackages");
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v33Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.v43
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, y23 y23Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, y23Var)) == null) {
-            yz1.i("DownloadPackagesAction", "call DownloadPackagesAction, thread=" + Thread.currentThread().getName());
-            JSONObject a2 = v43.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "invalid parameter");
-                return false;
-            } else if (!o12.c(a2.optString("netconf", "0"))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "Network limitation");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a && !kz2.A()) {
+                Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
+                return true;
+            } else if (TextUtils.isEmpty(str)) {
+                l02.i("WebSafeCheckers", "action is not in white list: action=" + str);
                 return false;
             } else {
-                JSONArray optJSONArray = a2.optJSONArray("pageList");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    sf3.k(new a(this, optJSONArray, unitedSchemeEntity, callbackHandler), "DownloadPackagesAction");
+                l33 M = l33.M();
+                if (M == null) {
+                    l02.o("WebSafeCheckers", "get swanApp Null " + str);
+                    return false;
+                }
+                List<String> b2 = M.l0().b();
+                if (b2 != null && b2.contains(str)) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + b2);
+                    }
                     return true;
                 }
-                JSONArray optJSONArray2 = a2.optJSONArray("appKeys");
-                JSONObject optJSONObject = a2.optJSONObject("appList");
-                if ((optJSONArray2 == null || optJSONArray2.length() == 0) && optJSONObject == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "appKeys must not empty");
+                l02.i("WebSafeCheckers", "action is not in adLanding white list: action=" + str);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str, List<String> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            if (!TextUtils.isEmpty(str) && list != null && list.size() != 0) {
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        if (TextUtils.equals(str, str2)) {
+                            return true;
+                        }
+                        if (str2.startsWith(CertificatePinner.Pin.WILDCARD) && str.endsWith(str2.substring(2))) {
+                            return true;
+                        }
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:61:0x014a  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0157  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int c(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        boolean z;
+        String host;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (a) {
+                    Log.i("WebSafeCheckers", "requestName : " + str);
+                    Log.i("WebSafeCheckers", "requestUrl : " + str2);
+                }
+                boolean z2 = !kz2.w();
+                boolean z3 = false;
+                if (z2) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "debug包serverDomains鉴权关闭： " + z2);
+                    }
+                    return 0;
+                }
+                boolean i = i();
+                if (!i) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "开发包serverDomains鉴权关闭： " + i);
+                    }
+                    return 0;
+                } else if (d(str2)) {
+                    boolean r = sm2.g0().r();
+                    if (!r) {
+                        if (a) {
+                            Log.d("WebSafeCheckers", "AB实验serverDomains鉴权关闭： " + r);
+                        }
+                        return 0;
+                    }
+                    l33 M = l33.M();
+                    if (M == null) {
+                        return 1;
+                    }
+                    String str4 = M.b;
+                    if (TextUtils.isEmpty(str4)) {
+                        return 1;
+                    }
+                    if (TextUtils.isEmpty(str3)) {
+                        if (!new File(d43.i(str4)).exists()) {
+                            if (a) {
+                                Log.w("WebSafeCheckers", "服务器域名配置文件未下发放行");
+                            }
+                            return 0;
+                        }
+                        long currentTimeMillis = System.currentTimeMillis();
+                        try {
+                            host = new URI(str2).getHost();
+                            list = M.l0().c(l33.g0(), str, false).b;
+                            z = b(host, list);
+                        } catch (URISyntaxException e) {
+                            e = e;
+                        }
+                        try {
+                            l02.b("WebSafeCheckers", "serverDomain: " + host + ", ServerDomains: ", list);
+                            StringBuilder sb = new StringBuilder();
+                            sb.append("domain: ");
+                            sb.append(host);
+                            l02.i("WebSafeCheckers", sb.toString());
+                        } catch (URISyntaxException e2) {
+                            e = e2;
+                            z3 = z;
+                            if (a) {
+                                Log.e("WebSafeCheckers", Log.getStackTraceString(e));
+                            }
+                            z = z3;
+                            if (!z) {
+                            }
+                            long currentTimeMillis2 = System.currentTimeMillis();
+                            if (a) {
+                            }
+                            return !z;
+                        }
+                        if (!z) {
+                            l02.i("WebSafeCheckers", "domain is not in white list");
+                        }
+                        long currentTimeMillis22 = System.currentTimeMillis();
+                        if (a) {
+                            Log.d("WebSafeCheckers", "serverDomain: cost time = " + (currentTimeMillis22 - currentTimeMillis) + "ms");
+                            if (z != 0) {
+                                Log.d("WebSafeCheckers", "serverDomain in white list");
+                            } else {
+                                Log.d("WebSafeCheckers", "serverDomain not in white list");
+                            }
+                        }
+                        return !z;
+                    }
+                    return !iz2.c(str, str2, jz2.h(str3)) ? 1 : 0;
+                } else {
+                    return 2;
+                }
+            }
+            if (a) {
+                Log.d("WebSafeCheckers", "server domains: requestName or requestUrl is empty");
+            }
+            return 1;
+        }
+        return invokeLLL.intValue;
+    }
+
+    public static boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            for (String str2 : b) {
+                if (str.startsWith(str2)) {
+                    return true;
+                }
+            }
+            if (kz2.o()) {
+                return true;
+            }
+            boolean p = sm2.g0().p();
+            if (a) {
+                Log.d("WebSafeCheckers", "abTestHttpsProtocolSwitch=" + p);
+            }
+            return !p && str.startsWith("http");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? !TextUtils.isEmpty(str) && str.toLowerCase().startsWith("weixin://wap/pay") : invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? !TextUtils.isEmpty(str) && str.toLowerCase().startsWith("alipays://platformapi/startapp") : invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (a && !kz2.A()) {
+                Log.w("WebSafeCheckers", "checkWebAction: Debug下鉴权未开启");
+                return true;
+            } else if (TextUtils.isEmpty(str)) {
+                l02.o("WebSafeCheckers", "action is not in white list: action=" + str);
+                return false;
+            } else {
+                l33 M = l33.M();
+                if (M == null) {
+                    l02.o("WebSafeCheckers", "get swanApp Null " + str);
                     return false;
                 }
-                String s = s(callbackHandler);
-                if (!w(callbackHandler)) {
-                    if (optJSONArray2 != null) {
-                        u(optJSONArray2, s, false);
+                List<String> d = M.l0().d(false);
+                if (d != null && d.contains(str)) {
+                    if (a) {
+                        Log.d("WebSafeCheckers", "Action in white list: " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + d);
                     }
-                    if (optJSONObject != null) {
-                        sf3.j(new b(this, optJSONObject, s), "handlePreDownloadByCommand");
+                    return true;
+                }
+                l02.b("WebSafeCheckers", "Action not in white list: action=" + str + ", whitelist=", d);
+                StringBuilder sb = new StringBuilder();
+                sb.append("action is not in white list: action=");
+                sb.append(str);
+                l02.i("WebSafeCheckers", sb.toString());
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:81:0x017f  */
+    /* JADX WARN: Removed duplicated region for block: B:84:0x0197  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean h(String str) {
+        InterceptResult invokeL;
+        boolean z;
+        String host;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            l33 b0 = l33.b0();
+            boolean z2 = false;
+            if (b0 == null) {
+                return false;
+            }
+            String lowerCase = str.toLowerCase();
+            if (!kz2.A()) {
+                if (a) {
+                    Log.w("WebSafeCheckers", "checkWebHost: Debug下鉴权未开启");
+                }
+                return true;
+            }
+            boolean z3 = sm2.g0().z();
+            if (!z3) {
+                if (a) {
+                    Log.w("WebSafeCheckers", "ABTest : webDomains switch " + z3);
+                }
+                return true;
+            } else if (!i()) {
+                if (a) {
+                    Log.d("WebSafeCheckers", "checkWebDomains: 线下环境开发者授权跳过域名校验");
+                }
+                return true;
+            } else {
+                String g0 = l33.g0();
+                if (d43.n(g0)) {
+                    List<String> e = b0.l0().e(g0, false);
+                    if (lowerCase.startsWith("weixin://wap/pay") && e.contains("wx.tenpay.com")) {
+                        l02.k("WebSafeCheckers", "url is weixin pay, Domain in white list url: " + str + " name: " + b0.Z());
+                        ea3.K("wechatH5", "intoPayment", 0);
+                        ea3.G("wechatH5", str, e);
+                        return true;
+                    } else if (lowerCase.startsWith("alipays://platformapi/startapp") && (e.contains("*.alipay.com") || e.contains("*.alipayobjects.com"))) {
+                        l02.k("WebSafeCheckers", "url is ali pay, Domain in white list url: " + str + " whiteDomains: " + e + " name: " + b0.Z());
+                        ea3.K("alipayH5", "intoPayment", 0);
+                        ea3.G("alipayH5", str, e);
+                        return true;
+                    } else {
+                        long nanoTime = a ? System.nanoTime() : 0L;
+                        if (TextUtils.isEmpty(str)) {
+                            if (a) {
+                                Log.w("WebSafeCheckers", "checkWebDomain: url is empty");
+                            }
+                            return false;
+                        }
+                        try {
+                            host = new URL(str).getHost();
+                            if (!TextUtils.isEmpty(host) && e != null) {
+                                for (String str2 : e) {
+                                    if (str2 != null) {
+                                        if (str2.startsWith(CertificatePinner.Pin.WILDCARD)) {
+                                            if (host.endsWith(str2.substring(2))) {
+                                                z = true;
+                                                break;
+                                            }
+                                        } else if (TextUtils.equals(str2, host)) {
+                                            z = true;
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                            z = false;
+                        } catch (MalformedURLException e2) {
+                            e = e2;
+                        }
+                        try {
+                            l02.b("WebSafeCheckers", "domain: ", host, ", domains: ", e);
+                            l02.i("WebSafeCheckers", "domain: " + host);
+                        } catch (MalformedURLException e3) {
+                            e = e3;
+                            z2 = z;
+                            if (a) {
+                                Log.e("WebSafeCheckers", Log.getStackTraceString(e));
+                            }
+                            z = z2;
+                            if (!z) {
+                            }
+                            if (a) {
+                            }
+                            return z;
+                        }
+                        if (!z) {
+                            l02.i("WebSafeCheckers", "domain is not in white list：" + e);
+                        }
+                        if (a) {
+                            long nanoTime2 = System.nanoTime();
+                            Log.d("WebSafeCheckers", z ? "Domain in white list" : "Domain not in white list");
+                            Log.d("WebSafeCheckers", "checkWebDomain耗时(ms): " + (((float) (nanoTime2 - nanoTime)) / 1000000.0f));
+                        }
+                        return z;
                     }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                } else if (y23Var == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
-                    return false;
-                } else {
-                    y23Var.e0().g(context, "mapp_pre_download", new c(this, unitedSchemeEntity, callbackHandler, optJSONArray2, s));
                 }
                 return true;
             }
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final JSONObject o(@NonNull JSONArray jSONArray, int i, String str) {
-        InterceptResult invokeLIL;
+    public static boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray, i, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                if (optJSONObject != null) {
-                    try {
-                        String optString = optJSONObject.optString("appKey");
-                        if (!TextUtils.isEmpty(optString)) {
-                            JSONArray optJSONArray = optJSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
-                            JSONArray jSONArray2 = new JSONArray();
-                            if (optJSONArray != null && optJSONArray.length() > 0) {
-                                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                                    jSONArray2.put(p(optJSONArray.optString(i3), i, str));
-                                }
-                            }
-                            jSONObject.put(optString, jSONArray2);
-                        }
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (k33.K().k() == 0 && SwanAppConfigData.j.d()) {
+                if (a) {
+                    Log.d("WebSafeCheckers", "授权跳过url校验");
+                    return false;
                 }
+                return false;
             }
-            return jSONObject;
+            return true;
         }
-        return (JSONObject) invokeLIL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final JSONObject p(String str, int i, String str2) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str);
-                jSONObject.put("status", String.valueOf(i));
-                jSONObject.put("message", str2);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLIL.objValue;
-    }
-
-    public final JSONObject q(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-            return p(str, z ? 0 : 402, z ? "success" : "over single max limit");
-        }
-        return (JSONObject) invokeLZ.objValue;
-    }
-
-    @WorkerThread
-    public final void r(@NonNull JSONArray jSONArray, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, jSONArray, unitedSchemeEntity, callbackHandler) == null) {
-            JSONArray jSONArray2 = jSONArray;
-            String a2 = av1.a(x23.K().getAppId());
-            if (TextUtils.isEmpty(a2)) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202, "runtime parameter error"));
-                return;
-            }
-            ea2 ea2Var = c;
-            if (ea2Var == null || !ea2Var.d(a2)) {
-                c = new ea2(a2, kf4.a(a2));
-            }
-            if (c.e()) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(o(jSONArray2, 402, "over max limit"), 402, "over max limit"));
-            } else if (!c.b()) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(o(jSONArray2, 402, "over time interval limit"), 402, "over time interval limit"));
-            } else {
-                JSONObject jSONObject = new JSONObject();
-                ArrayList arrayList = new ArrayList();
-                int i = 0;
-                int i2 = 0;
-                while (i2 < jSONArray.length()) {
-                    JSONObject optJSONObject = jSONArray2.optJSONObject(i2);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("appKey");
-                        if (!TextUtils.isEmpty(optString)) {
-                            ce4.b bVar = new ce4.b(optString);
-                            JSONArray optJSONArray = optJSONObject.optJSONArray(NotificationCompat.WearableExtender.KEY_PAGES);
-                            JSONArray jSONArray3 = new JSONArray();
-                            if (optJSONArray != null && optJSONArray.length() > 0) {
-                                ArraySet arraySet = new ArraySet();
-                                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                                    String f2 = qg3.f(optJSONArray.optString(i3));
-                                    if (!TextUtils.isEmpty(f2)) {
-                                        if (f2.startsWith("/")) {
-                                            f2 = f2.substring(1);
-                                        }
-                                        i++;
-                                        boolean a3 = c.a(i);
-                                        if (a3) {
-                                            arraySet.add(f2);
-                                        }
-                                        jSONArray3.put(q(optJSONArray.optString(i3), a3));
-                                    }
-                                }
-                                bVar.l((String[]) arraySet.toArray(new String[0]));
-                            }
-                            if (jSONArray3.length() == 0) {
-                                i++;
-                                boolean a4 = c.a(i);
-                                jSONArray3.put(q("", a4));
-                                if (a4) {
-                                    arrayList.add(bVar);
-                                }
-                            } else if (!bVar.k()) {
-                                arrayList.add(bVar);
-                            }
-                            int i4 = i;
-                            try {
-                                jSONObject.put(optString, jSONArray3);
-                            } catch (JSONException e2) {
-                                e2.printStackTrace();
-                            }
-                            i = i4;
-                        }
-                    }
-                    i2++;
-                    jSONArray2 = jSONArray;
-                }
-                if (arrayList.isEmpty()) {
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 1001, "over max limit"));
-                    return;
-                }
-                x(s(callbackHandler), arrayList);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0, "success"));
-            }
-        }
-    }
-
-    @NonNull
-    public final String s(CallbackHandler callbackHandler) {
+    public static boolean j(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, callbackHandler)) == null) ? y(callbackHandler) ? "10" : "2" : (String) invokeL.objValue;
-    }
-
-    public final void t(b83<d83.e> b83Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONArray jSONArray, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048582, this, b83Var, unitedSchemeEntity, callbackHandler, jSONArray, str) == null) {
-            if (!w73.h(b83Var)) {
-                w73.p(b83Var, callbackHandler, unitedSchemeEntity);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            u(jSONArray, str, true);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
-    }
-
-    public final void u(@Nullable JSONArray jSONArray, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLZ(1048583, this, jSONArray, str, z) == null) || jSONArray == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            arrayList.add(jSONArray.optString(i));
-        }
-        sf3.k(new f(this, arrayList, str), "小程序端能力-批量下载");
-    }
-
-    @AnyThread
-    public final void v(@NonNull JSONObject jSONObject, String str) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject, str) == null) {
-            ArrayList arrayList = new ArrayList();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next)) {
-                    ce4.b bVar = new ce4.b(next);
-                    JSONObject optJSONObject = jSONObject.optJSONObject(next);
-                    if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("commands")) != null && optJSONArray.length() > 0) {
-                        ArrayList arrayList2 = new ArrayList();
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            String optString = optJSONArray.optString(i);
-                            if (!TextUtils.isEmpty(optString)) {
-                                try {
-                                    Uri parse = Uri.parse(optString);
-                                    if (parse != null) {
-                                        arrayList2.add(qg3.n(next, parse, false));
-                                    }
-                                } catch (Exception unused) {
-                                }
-                            }
-                        }
-                        if (!arrayList2.isEmpty()) {
-                            bVar.l((String[]) arrayList2.toArray(new String[arrayList2.size()]));
-                        }
-                    }
-                    arrayList.add(bVar);
-                }
-            }
-            o12.a(arrayList, str, null);
-        }
-    }
-
-    public final boolean w(CallbackHandler callbackHandler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, callbackHandler)) == null) ? y(callbackHandler) : invokeL.booleanValue;
-    }
-
-    @WorkerThread
-    public final void x(String str, List<ce4.b> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, list) == null) {
-            d dVar = new d(this, list, str);
-            long currentTimeMillis = System.currentTimeMillis() - Math.max(ew2.a, yw2.a());
-            if (currentTimeMillis < 3000) {
-                sf3.e(dVar, "DownloadPackagesAction", 3000 - currentTimeMillis, TimeUnit.MILLISECONDS);
-            } else {
-                dVar.run();
-            }
-        }
-    }
-
-    public final boolean y(CallbackHandler callbackHandler) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, callbackHandler)) == null) {
-            if (callbackHandler instanceof TypedCallbackHandler) {
-                int invokeSourceType = ((TypedCallbackHandler) callbackHandler).getInvokeSourceType();
-                return invokeSourceType == 0 || invokeSourceType == 1;
-            }
-            return false;
+            String lowerCase = str.toLowerCase();
+            return lowerCase.startsWith("weixin://wap/pay") || lowerCase.startsWith("alipays://platformapi/startapp");
         }
         return invokeL.booleanValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (l33.M() == null) {
+                return false;
+            }
+            return qt2.g().j(k33.K().q().W().f0());
+        }
+        return invokeV.booleanValue;
     }
 }

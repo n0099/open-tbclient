@@ -15,7 +15,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.helios.bridge.multiprocess.e;
 import com.baidu.helios.bridge.multiprocess.f;
-import com.baidu.tieba.d50;
+import com.baidu.tieba.f50;
 import com.baidu.tieba.v20;
 import com.baidu.tieba.z20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,49 +31,6 @@ public class g extends v20 implements IBinder.DeathRecipient {
     public e d;
     public z20 e;
     public String f;
-
-    /* loaded from: classes2.dex */
-    public class a extends f.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v20.c d;
-        public final /* synthetic */ g e;
-
-        public a(g gVar, v20.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gVar, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = gVar;
-            this.d = cVar;
-        }
-
-        @Override // com.baidu.helios.bridge.multiprocess.f
-        public void a(int i, Bundle bundle) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bundle) == null) {
-                this.d.a(i, null, bundle);
-            }
-        }
-
-        @Override // com.baidu.helios.bridge.multiprocess.f
-        public void b(String str, Bundle bundle) throws RemoteException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bundle) == null) {
-                this.d.onResult(str, bundle);
-            }
-        }
-    }
 
     public g(z20 z20Var, String str) {
         Interceptable interceptable = $ic;
@@ -146,7 +103,47 @@ public class g extends v20 implements IBinder.DeathRecipient {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
             try {
-                this.d.a(str, bundle, new a(this, cVar));
+                this.d.a(str, bundle, new f.b(this, cVar) { // from class: com.baidu.helios.bridge.multiprocess.g.1
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ v20.c c;
+                    public final /* synthetic */ g d;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, cVar};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.d = this;
+                        this.c = cVar;
+                    }
+
+                    @Override // com.baidu.helios.bridge.multiprocess.f
+                    public void a(int i, Bundle bundle2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeIL(1048576, this, i, bundle2) == null) {
+                            this.c.a(i, null, bundle2);
+                        }
+                    }
+
+                    @Override // com.baidu.helios.bridge.multiprocess.f
+                    public void a(String str2, Bundle bundle2) {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str2, bundle2) == null) {
+                            this.c.onResult(str2, bundle2);
+                        }
+                    }
+                });
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -192,7 +189,7 @@ public class g extends v20 implements IBinder.DeathRecipient {
     public void f(v20.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.d = m(this.a.c);
+            this.d = q(this.a.c);
         }
     }
 
@@ -202,9 +199,9 @@ public class g extends v20 implements IBinder.DeathRecipient {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, bundle)) == null) {
             try {
-                Bundle a2 = this.d.a(str, bundle);
-                if (a2 != null) {
-                    return l(a2);
+                Bundle a = this.d.a(str, bundle);
+                if (a != null) {
+                    return l(a);
                 }
             } catch (RemoteException unused) {
             }
@@ -225,15 +222,15 @@ public class g extends v20 implements IBinder.DeathRecipient {
             cursor = contentProviderClient.query(Uri.withAppendedPath(uri, "ipc/method/get_bridge"), null, null, null, null);
             try {
                 Bundle extras = cursor.getExtras();
-                d50.a(cursor);
+                f50.a(cursor);
                 return extras;
             } catch (Exception unused) {
-                d50.a(cursor);
+                f50.a(cursor);
                 return null;
             } catch (Throwable th) {
                 th = th;
                 cursor2 = cursor;
-                d50.a(cursor2);
+                f50.a(cursor2);
                 throw th;
             }
         } catch (Exception unused2) {
@@ -288,12 +285,27 @@ public class g extends v20 implements IBinder.DeathRecipient {
         return (Bundle) invokeCommon.objValue;
     }
 
-    public final e m(Context context) {
+    public final String m(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
+            return context.getPackageName() + this.f;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d != null : invokeV.booleanValue;
+    }
+
+    public final e q(Context context) {
         InterceptResult invokeL;
         IBinder p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
-            Bundle j = j(context, false, Uri.parse("content://" + q(context)), "_method_get_bridge");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
+            Bundle j = j(context, false, Uri.parse("content://" + m(context)), "_method_get_bridge");
             StringBuilder sb = new StringBuilder();
             sb.append("remote bridge bundle result is ");
             sb.append(j);
@@ -304,20 +316,5 @@ public class g extends v20 implements IBinder.DeathRecipient {
             return e.b.a(p);
         }
         return (e) invokeL.objValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.d != null : invokeV.booleanValue;
-    }
-
-    public final String q(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            return context.getPackageName() + this.f;
-        }
-        return (String) invokeL.objValue;
     }
 }

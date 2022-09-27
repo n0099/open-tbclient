@@ -94,7 +94,7 @@ public final class MediaVolume extends FrameLayout {
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706e1);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
             layoutParams.gravity = 17;
-            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811de);
+            this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811e2);
             this.a.setLayoutParams(layoutParams);
             AudioManager audioManager = (AudioManager) context.getSystemService("audio");
             this.d = audioManager;

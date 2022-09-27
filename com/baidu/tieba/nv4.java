@@ -1,98 +1,21 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.MessageQueue;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.content.res.Resources;
+import android.view.View;
+import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nv4 {
+public class nv4 implements lv4 {
     public static /* synthetic */ Interceptable $ic;
-    public static nv4 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ nv4 b;
-
-        public a(nv4 nv4Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nv4Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = nv4Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.h(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public b(nv4 nv4Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nv4Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                jv4.n(this.a);
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
 
     public nv4() {
         Interceptable interceptable = $ic;
@@ -104,114 +27,61 @@ public class nv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 3;
-        this.c = false;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = false;
     }
 
-    public static nv4 a() {
+    @Override // com.baidu.tieba.lv4
+    public ov4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (h == null) {
-                h = new nv4();
-            }
-            return h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ov4 ov4Var = new ov4();
+            ov4Var.c(R.drawable.obfuscated_res_0x7f08069f);
+            ov4Var.g(R.drawable.obfuscated_res_0x7f0806a0);
+            ov4Var.h(R.dimen.obfuscated_res_0x7f070279);
+            ov4Var.d(81);
+            ov4Var.e(R.dimen.obfuscated_res_0x7f070279);
+            return ov4Var;
         }
-        return (nv4) invokeV.objValue;
+        return (ov4) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public final Handler c() {
+    @Override // com.baidu.tieba.lv4
+    public View b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a == null) {
-                this.a = new Handler(Looper.getMainLooper());
+            return null;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lv4
+    public rv4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            rv4 rv4Var = new rv4();
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            if (resources != null) {
+                rv4Var.a(resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702a2));
             }
-            return this.a;
+            return rv4Var;
         }
-        return (Handler) invokeV.objValue;
+        return (rv4) invokeV.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lv4
+    public TbImageView d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.g : invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : invokeV.booleanValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.e : invokeV.booleanValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, str) == null) || this.c) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            TbImageView tbImageView = new TbImageView(context);
+            tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            tbImageView.setGifIconSupport(false);
+            return tbImageView;
         }
-        jv4.o(str);
-        this.e = false;
-        this.c = true;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.d) {
-            return;
-        }
-        if (Looper.myLooper() != Looper.getMainLooper()) {
-            c().post(new a(this, str));
-            return;
-        }
-        Looper.myQueue().addIdleHandler(new b(this, str));
-        this.f = false;
-        this.d = true;
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.e = z;
-        }
+        return (TbImageView) invokeL.objValue;
     }
 }

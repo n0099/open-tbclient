@@ -22,12 +22,12 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.RankStarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au4;
 import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.nu4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -112,17 +112,17 @@ public class FrsTopItemInfoView extends LinearLayout {
         public final /* synthetic */ FrsTopItemInfoView a;
 
         /* loaded from: classes4.dex */
-        public class a implements au4.e {
+        public class a implements nu4.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ au4 a;
+            public final /* synthetic */ nu4 a;
 
-            public a(b bVar, au4 au4Var) {
+            public a(b bVar, nu4 nu4Var) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, au4Var};
+                    Object[] objArr = {bVar, nu4Var};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -132,13 +132,13 @@ public class FrsTopItemInfoView extends LinearLayout {
                         return;
                     }
                 }
-                this.a = au4Var;
+                this.a = nu4Var;
             }
 
-            @Override // com.baidu.tieba.au4.e
-            public void onClick(au4 au4Var) {
+            @Override // com.baidu.tieba.nu4.e
+            public void onClick(nu4 nu4Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, au4Var) == null) {
+                if (interceptable == null || interceptable.invokeL(1048576, this, nu4Var) == null) {
                     this.a.dismiss();
                 }
             }
@@ -166,10 +166,10 @@ public class FrsTopItemInfoView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (this.a.a instanceof FrsActivity)) {
-                au4 au4Var = new au4((FrsActivity) this.a.a);
-                au4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0412));
-                au4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0411, new a(this, au4Var));
-                au4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
+                nu4 nu4Var = new nu4((FrsActivity) this.a.a);
+                nu4Var.setMessage(this.a.a.getString(R.string.obfuscated_res_0x7f0f0412));
+                nu4Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0411, new a(this, nu4Var));
+                nu4Var.create(((FrsActivity) this.a.a).getPageContext()).show();
             }
         }
     }
@@ -235,14 +235,14 @@ public class FrsTopItemInfoView extends LinearLayout {
             this.e = imageView;
             imageView.setOnClickListener(this.t);
             this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090390);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c4);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0918c6);
             this.h = (ItemTableView) findViewById(R.id.obfuscated_res_0x7f090fd7);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0921e8);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0921ea);
             this.j = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090939);
-            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09249d);
+            this.k = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f09249f);
             this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09064c);
-            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091f6f);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c2c);
+            this.m = (RankStarView) findViewById(R.id.obfuscated_res_0x7f091f71);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c2e);
             this.o = findViewById(R.id.obfuscated_res_0x7f0903ee);
             this.b.setText(R.string.obfuscated_res_0x7f0f06ec);
             this.l.setText(R.string.obfuscated_res_0x7f0f06ea);
@@ -259,24 +259,24 @@ public class FrsTopItemInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            uu4 d = uu4.d(this);
+            hv4 d = hv4.d(this);
             d.n(R.string.J_X06);
             d.f(R.color.CAM_X0201);
-            uu4 d2 = uu4.d(this.b);
+            hv4 d2 = hv4.d(this.b);
             d2.A(R.string.F_X02);
             d2.v(R.color.CAM_X0105);
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0109);
-            uu4 d3 = uu4.d(this.d);
+            hv4 d3 = hv4.d(this.d);
             d3.A(R.string.F_X02);
             d3.v(R.color.CAM_X0105);
-            uu4 d4 = uu4.d(this.f);
+            hv4 d4 = hv4.d(this.f);
             d4.A(R.string.F_X02);
             d4.v(R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.g, R.color.CAM_X0109, 1);
-            uu4 d5 = uu4.d(this.i);
+            hv4 d5 = hv4.d(this.i);
             d5.v(R.color.CAM_X0109);
             d5.A(R.string.F_X01);
-            uu4 d6 = uu4.d(this.l);
+            hv4 d6 = hv4.d(this.l);
             d6.A(R.string.F_X01);
             d6.v(R.color.CAM_X0105);
             this.h.d();

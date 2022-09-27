@@ -1,25 +1,34 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tieba.recapp.view.AdVideoFlowView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class vf8 {
+public class vf8 implements pe8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
+    public hp5 a;
+    public TbPageContext<BaseFragmentActivity> b;
+    public Map<AdvertAppInfo, AdVideoFlowView> c;
 
-    public vf8() {
+    public vf8(IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,30 +38,70 @@ public class vf8 {
                 return;
             }
         }
-        b();
+        hp5 hp5Var = new hp5(PlaceId.VIDEO_FLOW, "VIDEO_FLOW", aVar);
+        this.a = hp5Var;
+        hp5Var.e(false);
+        this.c = new HashMap();
     }
 
-    public boolean a(Uri uri) {
+    @Override // com.baidu.tieba.pe8
+    public void a(TbPageContext<BaseFragmentActivity> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            this.b = tbPageContext;
+        }
+    }
+
+    @Override // com.baidu.tieba.pe8
+    public void c(AdvertAppInfo advertAppInfo, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z) == null) {
+            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
+            if (adVideoFlowView != null) {
+                adVideoFlowView.onPageSelected(z);
+            }
+            for (AdVideoFlowView adVideoFlowView2 : this.c.values()) {
+                if (adVideoFlowView2 != adVideoFlowView) {
+                    adVideoFlowView2.onPageSelected(false);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pe8
+    @Nullable
+    public qd8 i(AdvertAppInfo advertAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            if (uri == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo)) == null) {
+            if (this.b == null) {
+                return null;
             }
-            return this.a.contains(uri.getQueryParameter("obj_source"));
+            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
+            if (adVideoFlowView == null) {
+                adVideoFlowView = new AdVideoFlowView(this.b.getPageActivity());
+                this.c.put(advertAppInfo, adVideoFlowView);
+            }
+            adVideoFlowView.setPageContext(this.b);
+            adVideoFlowView.setData(advertAppInfo);
+            return adVideoFlowView;
         }
-        return invokeL.booleanValue;
+        return (qd8) invokeL.objValue;
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.pe8
+    public void loadAd() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            this.a.clear();
-            this.a.add(BdUniDispatchSchemeController.PARAM_SHOUBAI);
-            this.a.add(BdUniDispatchSchemeController.PARAM_WISE);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.d(1, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.pe8
+    public void m(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, advertAppInfo) == null) {
+            this.c.remove(advertAppInfo);
         }
     }
 }

@@ -1,115 +1,187 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Path;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ss9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
-import com.squareup.wire2.ProtoAdapter;
-import java.io.IOException;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.util.Set;
+import java.util.StringTokenizer;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes5.dex */
-public final class qs9<E extends ss9> extends ProtoAdapter<E> {
+public final class qs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Class<E> a;
-    public Method b;
+    public final String a;
+    public Path b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qs9(Class<E> cls) {
-        super(FieldEncoding.VARINT, cls);
+    public qs9(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = cls;
+        this.a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: a */
-    public E decode(os9 os9Var) throws IOException {
-        InterceptResult invokeL;
+    public final void a(Path path) {
+        Set set;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, os9Var)) == null) {
-            int l = os9Var.l();
-            try {
-                E e = (E) d().invoke(null, Integer.valueOf(l));
-                if (e != null) {
-                    return e;
+        if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
+            Path path2 = this.b;
+            if (path2 != null) {
+                path.set(path2);
+                return;
+            }
+            Path path3 = new Path();
+            StringTokenizer stringTokenizer = new StringTokenizer(this.a, "MLHVCSQRAZmlhvcsqraz", true);
+            String str = "";
+            while (stringTokenizer.hasMoreTokens()) {
+                String segment = stringTokenizer.nextToken();
+                Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
+                if (!(segment.length() == 0)) {
+                    set = rs9.a;
+                    if (set.contains(segment)) {
+                        if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
+                            b(path3, segment, new StringTokenizer("", ""));
+                        }
+                        str = segment;
+                    } else {
+                        b(path3, str, new StringTokenizer(segment, " "));
+                    }
                 }
-                throw new ProtoAdapter.EnumConstantNotFoundException(l, this.a);
-            } catch (IllegalAccessException | InvocationTargetException e2) {
-                throw new AssertionError(e2);
             }
-        }
-        return (E) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: b */
-    public void encode(ps9 ps9Var, E e) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ps9Var, e) == null) {
-            ps9Var.q(e.getValue());
+            this.b = path3;
+            path.set(path3);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.squareup.wire2.ProtoAdapter
-    /* renamed from: c */
-    public int encodedSize(E e) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x009b  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00b8  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00d1  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00d5  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00e8  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00f0  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x010b  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x011e  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0122  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b(Path path, String str, StringTokenizer stringTokenizer) {
+        ws9 ws9Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e)) == null) ? ps9.i(e.getValue()) : invokeL.intValue;
-    }
-
-    public final Method d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Method method = this.b;
-            if (method != null) {
-                return method;
-            }
+        if (interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, path, str, stringTokenizer) != null) {
+            return;
+        }
+        float f = 0.0f;
+        float f2 = 0.0f;
+        float f3 = 0.0f;
+        float f4 = 0.0f;
+        float f5 = 0.0f;
+        float f6 = 0.0f;
+        int i = 0;
+        while (stringTokenizer.hasMoreTokens()) {
             try {
-                Method method2 = this.a.getMethod("fromValue", Integer.TYPE);
-                this.b = method2;
-                return method2;
-            } catch (NoSuchMethodException e) {
-                throw new AssertionError(e);
+                String s = stringTokenizer.nextToken();
+                Intrinsics.checkExpressionValueIsNotNull(s, "s");
+                if (!(s.length() == 0)) {
+                    if (i == 0) {
+                        f = Float.parseFloat(s);
+                    }
+                    if (i == 1) {
+                        f2 = Float.parseFloat(s);
+                    }
+                    if (i == 2) {
+                        f3 = Float.parseFloat(s);
+                    }
+                    if (i == 3) {
+                        f4 = Float.parseFloat(s);
+                    }
+                    if (i == 4) {
+                        f5 = Float.parseFloat(s);
+                    }
+                    if (i == 5) {
+                        f6 = Float.parseFloat(s);
+                    }
+                    i++;
+                }
+            } catch (Exception unused) {
             }
         }
-        return (Method) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) ? (obj instanceof qs9) && ((qs9) obj).a == this.a : invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.a.hashCode() : invokeV.intValue;
+        float f7 = f;
+        float f8 = f2;
+        float f9 = f3;
+        float f10 = f4;
+        ws9 ws9Var2 = new ws9(0.0f, 0.0f, 0.0f);
+        if (Intrinsics.areEqual(str, "M")) {
+            path.moveTo(f7, f8);
+            ws9Var2 = new ws9(f7, f8, 0.0f);
+        } else if (Intrinsics.areEqual(str, "m")) {
+            path.rMoveTo(f7, f8);
+            ws9Var = new ws9(ws9Var2.a() + f7, ws9Var2.b() + f8, 0.0f);
+            if (!Intrinsics.areEqual(str, "L")) {
+                path.lineTo(f7, f8);
+            } else if (Intrinsics.areEqual(str, "l")) {
+                path.rLineTo(f7, f8);
+            }
+            if (!Intrinsics.areEqual(str, "C")) {
+                path.cubicTo(f7, f8, f9, f10, f5, f6);
+            } else if (Intrinsics.areEqual(str, "c")) {
+                path.rCubicTo(f7, f8, f9, f10, f5, f6);
+            }
+            if (!Intrinsics.areEqual(str, "Q")) {
+                path.quadTo(f7, f8, f9, f10);
+            } else if (Intrinsics.areEqual(str, "q")) {
+                path.rQuadTo(f7, f8, f9, f10);
+            }
+            if (!Intrinsics.areEqual(str, "H")) {
+                path.lineTo(f7, ws9Var.b());
+            } else if (Intrinsics.areEqual(str, "h")) {
+                path.rLineTo(f7, 0.0f);
+            }
+            if (!Intrinsics.areEqual(str, "V")) {
+                path.lineTo(ws9Var.a(), f7);
+            } else if (Intrinsics.areEqual(str, "v")) {
+                path.rLineTo(0.0f, f7);
+            }
+            if (!Intrinsics.areEqual(str, "Z")) {
+                path.close();
+                return;
+            } else if (Intrinsics.areEqual(str, "z")) {
+                path.close();
+                return;
+            } else {
+                return;
+            }
+        }
+        ws9Var = ws9Var2;
+        if (!Intrinsics.areEqual(str, "L")) {
+        }
+        if (!Intrinsics.areEqual(str, "C")) {
+        }
+        if (!Intrinsics.areEqual(str, "Q")) {
+        }
+        if (!Intrinsics.areEqual(str, "H")) {
+        }
+        if (!Intrinsics.areEqual(str, "V")) {
+        }
+        if (!Intrinsics.areEqual(str, "Z")) {
+        }
     }
 }

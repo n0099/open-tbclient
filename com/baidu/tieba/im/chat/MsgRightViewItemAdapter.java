@@ -6,9 +6,9 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.b18;
 import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
 import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.p18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public transient /* synthetic */ FieldHolder $fh;
     public boolean l;
     public boolean m;
-    public b18 n;
+    public p18 n;
     public TbPageContext<MsglistActivity<?>> o;
 
     /* loaded from: classes4.dex */
@@ -80,9 +80,9 @@ public class MsgRightViewItemAdapter extends MsgCommonItemAdapter<MsgrightView> 
     public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b18 b18Var = new b18(this.mContext);
-            this.n = b18Var;
-            b18Var.b(this.o.getUniqueId());
+            p18 p18Var = new p18(this.mContext);
+            this.n = p18Var;
+            p18Var.b(this.o.getUniqueId());
         }
     }
 

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fw8;
+import com.baidu.tieba.uw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PreviewViewContainer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fw8 a;
+    public uw8 a;
     public View b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -76,21 +76,21 @@ public class PreviewViewContainer extends FrameLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            fw8 fw8Var = this.a;
-            if (fw8Var != null) {
-                fw8Var.b(motionEvent);
+            uw8 uw8Var = this.a;
+            if (uw8Var != null) {
+                uw8Var.b(motionEvent);
             }
             return super.onInterceptTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    public void setZoomHelper(fw8 fw8Var) {
+    public void setZoomHelper(uw8 uw8Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, fw8Var) == null) || fw8Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, uw8Var) == null) || uw8Var == null) {
             return;
         }
-        this.a = fw8Var;
+        this.a = uw8Var;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

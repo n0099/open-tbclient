@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hs7;
-import com.baidu.tieba.os7;
-import com.baidu.tieba.yr7;
+import com.baidu.tieba.ct7;
+import com.baidu.tieba.ms7;
+import com.baidu.tieba.vs7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class BaseInterestSelectionFragment extends BaseFragment implements yr7.a {
+public abstract class BaseInterestSelectionFragment extends BaseFragment implements ms7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
     public TBSpecificationBtn b;
-    public yr7 c;
+    public ms7 c;
     public View d;
     public int e;
     public String[] f;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(List<hs7> list);
+        void a(List<vs7> list);
     }
 
     public BaseInterestSelectionFragment() {
@@ -45,7 +45,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         }
     }
 
-    @Override // com.baidu.tieba.yr7.a
+    @Override // com.baidu.tieba.ms7.a
     public void o1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -79,7 +79,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 1) {
-                os7.c(1, this.e);
+                ct7.c(1, this.e);
             }
         }
     }

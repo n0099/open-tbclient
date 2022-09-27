@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,29 +17,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class is2 extends oy1 {
+public class is2 extends ns2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public hs2 B;
-    public boolean C;
-    public String j;
-    public boolean k;
-    public String l;
-    public String m;
-    public boolean n;
-    public boolean o;
-    public int p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public int y;
-    public boolean z;
 
     static {
         InterceptResult invokeClinit;
@@ -51,99 +34,67 @@ public class is2 extends oy1 {
                 return;
             }
         }
-        boolean z = ij1.a;
+        boolean z = vj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public is2() {
-        super("vrvideo", "viewId");
+    public is2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = "";
-        this.k = false;
-        this.l = "";
-        this.m = "0";
-        this.n = false;
-        this.o = false;
-        this.p = 0;
-        this.r = true;
-        this.s = "";
-        this.t = "";
-        this.u = true;
-        this.v = true;
-        this.w = true;
-        this.x = true;
-        this.y = -1;
-        this.z = true;
-        this.A = true;
-        this.B = new hs2();
-        this.C = true;
     }
 
-    public static is2 h(JSONObject jSONObject, @NonNull is2 is2Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ns2
+    public boolean a(ds2 ds2Var, fs2 fs2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, is2Var)) == null) {
-            is2 is2Var2 = new is2();
-            if (jSONObject != null) {
-                is2Var2.e(jSONObject, is2Var);
-                is2Var2.j = jSONObject.optString("videoId", is2Var.j);
-                is2Var2.n = jSONObject.optBoolean("autoplay", is2Var.n);
-                is2Var2.k = jSONObject.optBoolean("muted", is2Var.k);
-                is2Var2.m = jSONObject.optString("initialTime", is2Var.m);
-                is2Var2.l = jSONObject.optString(NativeConstants.POSTER, is2Var.l);
-                is2Var2.p = jSONObject.optInt(CriusAttrConstants.POSITION, is2Var.p);
-                is2Var2.q = jSONObject.optBoolean("fullScreen", is2Var.q);
-                is2Var2.o = jSONObject.optBoolean("loop", is2Var.o);
-                is2Var2.r = jSONObject.optBoolean("controls", is2Var.r);
-                is2Var2.s = i(jSONObject.optString("src", is2Var.s));
-                is2Var2.A = !ga3.E(jSONObject.optString("src", is2Var.s));
-                is2Var2.u = jSONObject.optBoolean("showPlayBtn", is2Var.u);
-                is2Var2.v = jSONObject.optBoolean("showMuteBtn", is2Var.v);
-                is2Var2.w = jSONObject.optBoolean("showCenterPlayBtn", is2Var.w);
-                is2Var2.x = jSONObject.optBoolean("showProgress", is2Var.x);
-                is2Var2.z = jSONObject.optBoolean("showFullscreenBtn", is2Var.z);
-                is2Var2.t = jSONObject.optString("sanId", is2Var.t);
-                is2Var2.B = is2Var2.B.a(jSONObject.optJSONObject("vrVideoMode"));
-                is2Var2.C = jSONObject.optBoolean("showNoWifiTip", is2Var.C);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ds2Var, fs2Var, context, unitedSchemeEntity, callbackHandler, l33Var})) == null) {
+            l02.i("video", "open, video id:" + fs2Var.j + " slave id: " + fs2Var.c);
+            ds2Var.l();
+            d(ds2Var, fs2Var, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ns2
+    public ds2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
             }
-            return is2Var2;
+            jq2 f = kq2.f(str, str2, str3);
+            if (f == null) {
+                return new ds2(context, fs2.h(jSONObject, new fs2()));
+            }
+            if (f.i() instanceof ds2) {
+                return (ds2) f.i();
+            }
+            return null;
         }
-        return (is2) invokeLL.objValue;
+        return (ds2) invokeLLLLL.objValue;
     }
 
-    public static String i(String str) {
-        InterceptResult invokeL;
+    public final void d(ds2 ds2Var, fs2 fs2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? (!ga3.E(str) || y23.M() == null) ? str : ga3.H(str, y23.M()) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.oy1, com.baidu.tieba.xs2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? !TextUtils.isEmpty(this.j) : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.oy1
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "VideoPlayerParams{mPlayerId='" + this.j + "', mMute=" + this.k + ", mPoster='" + this.l + "', mInitialTime=" + this.m + ", mAutoPlay=" + this.n + ", mShowNoWifiTip=" + this.C + ", mLoop=" + this.o + ", mPos=" + this.p + ", mFullScreen=" + this.q + ", mShowControlPanel=" + this.r + ", mSrc='" + this.s + "', mSanId='" + this.t + "', mShowPlayBtn=" + this.u + ", mShowMuteBtn=" + this.v + ", mShowCenterPlayBtn=" + this.w + ", mShowProgress=" + this.x + ", mDirection=" + this.y + ", mShowFullscreenBtn=" + this.z + ", mIsRemoteFile=" + this.A + ", mVrVideoMode=" + this.B.toString() + '}';
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, ds2Var, fs2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ds2Var.o(fs2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return (String) invokeV.objValue;
     }
 }

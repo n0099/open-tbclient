@@ -484,7 +484,7 @@ public class BaseActivity extends TitleActivity {
                 SapiAccountManager.getGlobalCallback().onLoginStatusChange();
             }
             try {
-                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c81)).removeView(this.sapiWebView);
+                ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c83)).removeView(this.sapiWebView);
                 this.sapiWebView.removeAllViews();
                 this.sapiWebView.destroy();
                 this.sapiWebView = null;
@@ -646,7 +646,7 @@ public class BaseActivity extends TitleActivity {
                 Log.e(k, "子activity重写了webview布局");
             }
             this.sapiWebView.setHadMakeBarHide(true);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c81);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c83);
             if (this.mTitleLayout == null) {
                 this.mTitleLayout = (RelativeLayout) findViewById(R.id.sapi_title_layout);
             }

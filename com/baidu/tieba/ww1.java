@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class ww1 extends ew1 {
+public class ww1 extends rw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
+    public Rect a;
+    public Paint b;
+    public PorterDuffXfermode c;
 
     public ww1() {
         Interceptable interceptable = $ic;
@@ -25,32 +29,35 @@ public class ww1 extends ew1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new Paint();
+        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(fw1 fw1Var, Canvas canvas) {
-        RectF rectF;
+    @Override // com.baidu.tieba.rw1
+    public void a(sw1 sw1Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) || (rectF = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) || this.a == null) {
             return;
         }
-        fw1Var.f.addRect(rectF, Path.Direction.CW);
+        this.b.setXfermode(this.c);
+        canvas.drawRect(this.a, this.b);
     }
 
-    @Override // com.baidu.tieba.ew1
+    @Override // com.baidu.tieba.rw1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
                 if (jSONArray.length() == 4) {
-                    int g = pg3.g((float) jSONArray.optDouble(0));
-                    int g2 = pg3.g((float) jSONArray.optDouble(1));
-                    this.a = new RectF(g, g2, g + pg3.g((float) jSONArray.optDouble(2)), g2 + pg3.g((float) jSONArray.optDouble(3)));
+                    int g = ch3.g((float) jSONArray.optDouble(0));
+                    int g2 = ch3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, ch3.g((float) jSONArray.optDouble(2)) + g, ch3.g((float) jSONArray.optDouble(3)) + g2);
                 }
             } catch (Exception e) {
-                if (ij1.a) {
+                if (vj1.a) {
                     e.printStackTrace();
                 }
             }

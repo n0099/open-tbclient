@@ -1,87 +1,158 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import android.view.View;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.MediaTopic;
-import tbclient.VideoInfo;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
-public class q67 implements Cdo {
+public class q67 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BaseActivity<?> a;
+    public SparseArray<String> b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948043863, "Lcom/baidu/tieba/q67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ q67 b;
+
+        public a(q67 q67Var, ShareItem shareItem) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q67Var, shareItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948043863, "Lcom/baidu/tieba/q67;");
-                return;
+            this.b = q67Var;
+            this.a = shareItem;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ui.a(this.a.x);
+                ej.N(this.b.a.getActivity(), view2.getResources().getString(R.string.obfuscated_res_0x7f0f0455));
             }
         }
-        a = BdUniqueId.gen();
     }
 
-    public q67() {
+    public q67(BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        this.a = baseActivity;
     }
 
-    public void a(MediaTopic mediaTopic) {
+    public final void b(ShareItem shareItem, String str, long j, String str2) {
+        Uri parse;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, mediaTopic) == null) || mediaTopic == null) {
-            return;
-        }
-        mediaTopic.topic_id.longValue();
-        String str = mediaTopic.topic_name;
-        String str2 = mediaTopic.pic_url;
-        VideoInfo videoInfo = mediaTopic.video_info;
-        if (videoInfo == null || videoInfo.video_duration.intValue() <= 0) {
-            return;
-        }
-        b(mediaTopic.video_info);
-    }
-
-    public void b(VideoInfo videoInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoInfo) == null) {
-            String str = videoInfo.video_md5;
-            String str2 = videoInfo.video_url;
-            videoInfo.video_duration.intValue();
-            videoInfo.video_width.intValue();
-            videoInfo.video_height.intValue();
-            String str3 = videoInfo.thumbnail_url;
-            videoInfo.thumbnail_width.intValue();
-            videoInfo.thumbnail_height.intValue();
-            videoInfo.video_length.intValue();
-            videoInfo.play_count.intValue();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, str, Long.valueOf(j), str2}) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (!StringUtils.isNull(str) && !StringUtil.NULL_STRING.equals(str)) {
+                if (str.length() > 20) {
+                    sb.append(str.substring(0, 20));
+                    sb.append(StringHelper.STRING_MORE);
+                } else {
+                    sb.append(str);
+                }
+                sb.append(StringUtils.lineSeparator);
+            }
+            if (j > 0) {
+                sb.append(this.a.getActivity().getString(R.string.obfuscated_res_0x7f0f1469));
+                sb.append(StringHelper.numFormatOver10000(j));
+            }
+            shareItem.H0 = sb.toString();
+            if (StringUtils.isNull(str2)) {
+                parse = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
+            } else {
+                parse = Uri.parse(str2);
+            }
+            shareItem.I0 = parse;
         }
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public final SparseArray<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                SparseArray<String> sparseArray = new SparseArray<>(8);
+                this.b = sparseArray;
+                sparseArray.put(2, "topic_wx_timeline");
+                this.b.put(3, "topic_wx_friend");
+                this.b.put(4, "topic_qq_zone");
+                this.b.put(5, "topic_tencent_weibo");
+                this.b.put(6, "topic_sina_weibo");
+            }
+            return this.b;
+        }
+        return (SparseArray) invokeV.objValue;
+    }
+
+    public void d(String str, String str2, String str3, String str4, String str5, String str6, boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            if (TextUtils.isEmpty(str) && z) {
+                BaseActivity<?> baseActivity = this.a;
+                baseActivity.showToast(baseActivity.getActivity().getString(R.string.obfuscated_res_0x7f0f0c83));
+                return;
+            }
+            if (StringUtils.isNull(str3)) {
+                str3 = TbConfig.TIEBA_ADDRESS + "mo/q/hotMessage?topic_id=" + str + "&topic_name=" + URLEncoder.encode(str2);
+            }
+            Uri parse = StringUtils.isNull(str4) ? null : Uri.parse(str4);
+            ShareItem shareItem = new ShareItem();
+            shareItem.v = str2;
+            shareItem.w = str5;
+            shareItem.x = str3;
+            shareItem.b = true;
+            shareItem.u = str;
+            shareItem.z = parse;
+            shareItem.i = true;
+            b(shareItem, str5, j, str6);
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.a.getActivity(), shareItem, true, c());
+            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
+            shareDialogConfig.setIsCopyLink(true);
+            this.a.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        }
     }
 }

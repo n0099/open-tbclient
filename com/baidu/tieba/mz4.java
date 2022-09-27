@@ -1,70 +1,147 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import android.text.Editable;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mz4 {
+public class mz4 extends iz4<mz4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AtSelectData i;
 
-    public static synchronized void a() {
+    public mz4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (mz4.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static boolean b(String str, String str2) {
+    public static mz4 y(@NonNull mz4 mz4Var, @NonNull Editable editable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true)) : invokeLL.booleanValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, mz4Var, editable)) == null) {
+            mz4 mz4Var2 = new mz4();
+            mz4Var2.b(mz4Var);
+            mz4Var2.p(editable);
+            return mz4Var2;
+        }
+        return (mz4) invokeLL.objValue;
     }
 
-    public static lz4 c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.iz4
+    public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            lz4 lz4Var = new lz4();
-            if (str == null) {
-                lz4Var.c = 6;
-                lz4Var.d = lz4.a(6);
-                return lz4Var;
-            }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                lz4Var.c = 7;
-                lz4Var.d = lz4.a(7);
-                return lz4Var;
-            }
-            String b = lj.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                lz4Var.c = 5;
-                lz4Var.d = lz4.a(5);
-            } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    lz4Var.b = filePath;
-                    lz4Var.a = b;
-                } else {
-                    lz4Var.c = 1;
-                    lz4Var.d = lz4.a(1);
-                }
-            }
-            return lz4Var;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            super.a(editable, i, i2, i3);
         }
-        return (lz4) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.iz4
+    public void r(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editable) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#(at, ");
+            sb.append(this.i.getPortrait());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(this.i.getNameShow());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(this.i.getUid());
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            sb.append(" ");
+            k(sb);
+        }
+    }
+
+    @Override // com.baidu.tieba.iz4
+    public void s(Editable editable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, editable, i) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("#(at, ");
+            sb.append(this.i.getPortrait());
+            sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+            sb.append(this.i.getNameShow());
+            sb.append(SmallTailInfo.EMOTION_SUFFIX);
+            sb.append(" ");
+            k(sb);
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            q(true);
+            u();
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.iz4
+    /* renamed from: v */
+    public void b(mz4 mz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mz4Var) == null) {
+            super.b(mz4Var);
+            this.i = mz4Var.i;
+        }
+    }
+
+    public AtSelectData w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.i : (AtSelectData) invokeV.objValue;
+    }
+
+    public String x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "@" + this.i.getNameShow() + " ";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public mz4(AtSelectData atSelectData) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {atSelectData};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.i = atSelectData;
     }
 }

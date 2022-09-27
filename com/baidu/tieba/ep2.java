@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
+import android.os.Handler;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,237 +13,212 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes3.dex */
-public final class ep2 {
+public class ep2 implements cp2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static final Set<String> g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final Object e;
+    public final long a;
+    public final boolean b;
+    public long c;
+    public volatile boolean d;
+    @NonNull
+    public final List<cp2> e;
+    public final Runnable f;
+    public final Runnable g;
 
     /* loaded from: classes3.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public int c;
-        public String d;
-        public Object e;
-        public RuntimeException f;
+        public final /* synthetic */ ep2 a;
 
-        public a() {
+        public a(ep2 ep2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ep2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ep2Var;
         }
 
-        @Nullable
-        @SuppressLint({"BDThrowableCheck"})
-        public ep2 a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.f != null) {
-                    if (ep2.f) {
-                        throw this.f;
-                    }
-                    return null;
-                } else if (this.a == null) {
-                    this.f = new IllegalStateException("sid == null");
-                    if (ep2.f) {
-                        throw this.f;
-                    }
-                    return null;
-                } else {
-                    synchronized (a.class) {
-                        if (ep2.g.contains(this.a)) {
-                            this.f = new IllegalStateException("sid has been occupied");
-                            if (ep2.f) {
-                                throw this.f;
-                            }
-                            return null;
-                        } else if (this.e != null) {
-                            ep2.g.add(this.a);
-                            return new ep2(this);
-                        } else {
-                            this.f = new IllegalStateException("switchValue == null");
-                            if (ep2.f) {
-                                throw this.f;
-                            }
-                            return null;
-                        }
-                    }
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.d();
             }
-            return (ep2) invokeV.objValue;
-        }
-
-        public a b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a c(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                if (i >= 0 && i <= 100) {
-                    this.c = i;
-                    return this;
-                }
-                this.f = new IllegalArgumentException("flow must in [0, 100]");
-                if (!ep2.f) {
-                    this.c = 0;
-                    return this;
-                }
-                throw this.f;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public Exception d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.f : (Exception) invokeV.objValue;
-        }
-
-        @SuppressLint({"BDThrowableCheck"})
-        public a e(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.f = new IllegalArgumentException("sid must not be empty");
-                    if (!ep2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else if (str.contains("-")) {
-                    this.f = new IllegalArgumentException("sid must not contain '-'");
-                    if (!ep2.f) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.f;
-                } else {
-                    this.a = str;
-                    return this;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(@NonNull Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-                this.e = obj;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.b = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741954, "Lcom/baidu/tieba/ep2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ep2 a;
+
+        public b(ep2 ep2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ep2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947741954, "Lcom/baidu/tieba/ep2;");
-                return;
+            this.a = ep2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e();
             }
         }
-        f = ij1.a;
-        g = new HashSet();
     }
 
-    public ep2(a aVar) {
+    /* loaded from: classes3.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ep2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-825742237, "Lcom/baidu/tieba/ep2$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-825742237, "Lcom/baidu/tieba/ep2$c;");
+                    return;
+                }
+            }
+            a = new ep2(null);
+        }
+    }
+
+    public /* synthetic */ ep2(a aVar) {
+        this();
+    }
+
+    public static cp2 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? c.a : (cp2) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis() - this.c;
+            boolean z = this.b && !this.d && ProcessUtils.isSwanProcess() && ch3.C(true);
+            l02.i("SwanBackStageManager", "performPause: shouldPerform=" + z + " for " + currentTimeMillis + "/" + this.a);
+            if (z) {
+                for (cp2 cp2Var : this.e) {
+                    l02.i("SwanBackStageManager", "performPause for strategy=" + cp2Var);
+                    cp2Var.onPause();
+                }
+                this.d = true;
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean z = this.b && this.d;
+            l02.i("SwanBackStageManager", "performResume: shouldPerform=" + z);
+            for (cp2 cp2Var : this.e) {
+                l02.i("SwanBackStageManager", "performResume for strategy=" + cp2Var);
+                cp2Var.onResume();
+            }
+            this.d = false;
+        }
+    }
+
+    @Override // com.baidu.tieba.cp2
+    @AnyThread
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            l02.i("SwanBackStageManager", "onPause: enable=" + this.b + " delay=" + this.a);
+            if (this.b) {
+                this.c = System.currentTimeMillis();
+                Handler M = k33.M();
+                M.removeCallbacks(this.f);
+                M.removeCallbacks(this.g);
+                M.postDelayed(this.f, this.a);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.cp2
+    @AnyThread
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            l02.i("SwanBackStageManager", "onResume: enable=" + this.b);
+            if (this.b) {
+                Handler M = k33.M();
+                M.removeCallbacks(this.f);
+                M.removeCallbacks(this.g);
+                fh3.e0(this.g);
+            }
+        }
+    }
+
+    public ep2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.e = aVar.e;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public Object e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : invokeV.objValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (f) {
-                return "SwanLocalABTestBranch{mGroupType=" + this.b + ", mFlow=" + this.c + ", mBranchDescription='" + this.d + "', mSwitchValue=" + this.e + '}';
+        long millis = TimeUnit.SECONDS.toMillis(jp2.b.a());
+        this.a = millis;
+        this.b = millis >= 0 && jp2.b.e();
+        this.c = 0L;
+        this.d = false;
+        this.f = new a(this);
+        this.g = new b(this);
+        this.e = new ArrayList();
+        if (jp2.b.e()) {
+            if (jp2.b.d()) {
+                this.e.add(new fp2());
             }
-            return super.toString();
+            if (jp2.b.b()) {
+                this.e.add(new gp2());
+            }
+            if (jp2.b.c()) {
+                this.e.add(new dp2());
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

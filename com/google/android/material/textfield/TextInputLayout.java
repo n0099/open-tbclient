@@ -1097,7 +1097,7 @@ public class TextInputLayout extends LinearLayout {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
             this.placeholderTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f092147);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f092149);
             ViewCompat.setAccessibilityLiveRegion(this.placeholderTextView, 1);
             setPlaceholderTextAppearance(this.placeholderTextAppearance);
             setPlaceholderTextColor(this.placeholderTextColor);
@@ -2298,7 +2298,7 @@ public class TextInputLayout extends LinearLayout {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
             this.counterView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f092144);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f092146);
             Typeface typeface = this.typeface;
             if (typeface != null) {
                 this.counterView.setTypeface(typeface);
@@ -3343,14 +3343,14 @@ public class TextInputLayout extends LinearLayout {
         }
         AppCompatTextView appCompatTextView = new AppCompatTextView(context2);
         this.prefixTextView = appCompatTextView;
-        appCompatTextView.setId(R.id.obfuscated_res_0x7f092148);
+        appCompatTextView.setId(R.id.obfuscated_res_0x7f09214a);
         this.prefixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
         ViewCompat.setAccessibilityLiveRegion(this.prefixTextView, 1);
         this.startLayout.addView(this.startIconView);
         this.startLayout.addView(this.prefixTextView);
         AppCompatTextView appCompatTextView2 = new AppCompatTextView(context2);
         this.suffixTextView = appCompatTextView2;
-        appCompatTextView2.setId(R.id.obfuscated_res_0x7f092149);
+        appCompatTextView2.setId(R.id.obfuscated_res_0x7f09214b);
         this.suffixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 80));
         ViewCompat.setAccessibilityLiveRegion(this.suffixTextView, 1);
         this.endLayout.addView(this.suffixTextView);

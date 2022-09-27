@@ -20,29 +20,29 @@ import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.mutiprocess.thirdpartylifecycle.ThirdPartyActivityLifecycleEvent;
 import com.baidu.tbadk.switchs.NewWritePageSwitch;
-import com.baidu.tieba.aa5;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.fa5;
-import com.baidu.tieba.ga5;
-import com.baidu.tieba.ha5;
-import com.baidu.tieba.ia5;
-import com.baidu.tieba.ja5;
-import com.baidu.tieba.ka5;
+import com.baidu.tieba.ab5;
+import com.baidu.tieba.bb5;
+import com.baidu.tieba.cb5;
+import com.baidu.tieba.db5;
+import com.baidu.tieba.eb5;
+import com.baidu.tieba.fb5;
+import com.baidu.tieba.gb5;
+import com.baidu.tieba.ib5;
+import com.baidu.tieba.jb5;
+import com.baidu.tieba.kb5;
 import com.baidu.tieba.la5;
 import com.baidu.tieba.ma5;
 import com.baidu.tieba.na5;
-import com.baidu.tieba.oa5;
-import com.baidu.tieba.pa5;
-import com.baidu.tieba.qa5;
+import com.baidu.tieba.ox4;
 import com.baidu.tieba.ra5;
 import com.baidu.tieba.sa5;
 import com.baidu.tieba.ta5;
+import com.baidu.tieba.ua5;
 import com.baidu.tieba.va5;
 import com.baidu.tieba.wa5;
 import com.baidu.tieba.xa5;
-import com.baidu.tieba.y95;
-import com.baidu.tieba.z95;
+import com.baidu.tieba.ya5;
+import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,31 +89,35 @@ public class MutiProcessStatic {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
             try {
-                aa5 f = aa5.f();
-                f.l(AgreeEvent.class, new ea5());
-                f.l(MissionEvent.class, new pa5());
-                f.l(CompeteTaskEvent.class, new ga5());
-                f.l(ShareEvent.class, new sa5());
-                f.l(HistoryEvent.class, new ka5());
-                f.l(BackBaiduBoxViewEvent.class, new fa5());
-                f.l(SyncDataEvent.class, new wa5());
-                f.l(ShowReplyInPbEvent.class, new ta5());
-                f.l(LocationEvent.class, new oa5());
-                f.l(PrePageKeyEvent.class, new qa5());
-                f.l(CurrentPageTypeEvent.class, new ha5());
-                f.l(ImageFpsEvent.class, new ja5());
-                f.l(SoLoaderEvent.class, new va5());
-                f.l(PushRecevierEvent.class, new ra5());
-                f.l(ThirdPartyActivityLifecycleEvent.class, new xa5());
-                f.l(EmotionReloadEvent.class, new ia5());
-                f.l(LiveRemindDataEvent.class, new ma5());
-                f.l(LiveStartClickDataEvent.class, new na5());
-                f.l(HotEvent.class, new la5());
-                if (!y95.l()) {
-                    bx4.k().w("key_new_write_page", z95.c("key_new_write_page", 0));
-                } else {
-                    z95.i("key_new_write_page", NewWritePageSwitch.getIsOn() ? 1 : 0);
+                na5 f = na5.f();
+                f.l(AgreeEvent.class, new ra5());
+                f.l(MissionEvent.class, new cb5());
+                f.l(CompeteTaskEvent.class, new ta5());
+                f.l(ShareEvent.class, new fb5());
+                f.l(HistoryEvent.class, new xa5());
+                f.l(BackBaiduBoxViewEvent.class, new sa5());
+                f.l(SyncDataEvent.class, new jb5());
+                f.l(ShowReplyInPbEvent.class, new gb5());
+                f.l(LocationEvent.class, new bb5());
+                f.l(PrePageKeyEvent.class, new db5());
+                f.l(CurrentPageTypeEvent.class, new ua5());
+                f.l(ImageFpsEvent.class, new wa5());
+                f.l(SoLoaderEvent.class, new ib5());
+                f.l(PushRecevierEvent.class, new eb5());
+                f.l(ThirdPartyActivityLifecycleEvent.class, new kb5());
+                f.l(EmotionReloadEvent.class, new va5());
+                f.l(LiveRemindDataEvent.class, new za5());
+                f.l(LiveStartClickDataEvent.class, new ab5());
+                f.l(HotEvent.class, new ya5());
+                int i = 1;
+                if (!la5.l()) {
+                    ox4.k().w("key_new_write_page", ma5.c("key_new_write_page", 1));
+                    return;
                 }
+                if (!NewWritePageSwitch.getIsOn()) {
+                    i = 0;
+                }
+                ma5.i("key_new_write_page", i);
             } catch (Exception e) {
                 e.printStackTrace();
             }

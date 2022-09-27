@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.hv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -55,13 +55,13 @@ public class WritePrefixItemLayout extends LinearLayout {
             LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d074f, this);
             setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
             setOrientation(1);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6c);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6b);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a65);
-            this.e = findViewById(R.id.obfuscated_res_0x7f091a69);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091a6d);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a67);
+            this.e = findViewById(R.id.obfuscated_res_0x7f091a6b);
             this.b.setEllipsize(TextUtils.TruncateAt.MIDDLE);
-            uu4.d(this.c).v(R.color.CAM_X0109);
-            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e0, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+            hv4.d(this.c).v(R.color.CAM_X0109);
+            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809e2, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
             SkinManager.setBackgroundResource(this, R.drawable.addresslist_item_bg);
         }

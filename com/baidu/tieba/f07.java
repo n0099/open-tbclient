@@ -1,21 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.adp.BdUniqueId;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class f07 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f07 {
+    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
 
-    public static void a(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("obj_name", str2);
-            statisticItem.param("obj_type", str3);
-            TiebaStatic.log(statisticItem);
-        }
-    }
+    boolean b(int i, q07 q07Var);
+
+    boolean c(int i);
+
+    void setData(List<Cdo> list);
 }

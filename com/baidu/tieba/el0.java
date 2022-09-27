@@ -1,22 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 /* loaded from: classes3.dex */
-public class el0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface el0<VIEW extends View> {
+    void b(@NonNull ViewGroup viewGroup);
 
-    public static File a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            File externalCacheDir = context.getExternalCacheDir();
-            return externalCacheDir == null ? context.getCacheDir() : externalCacheDir;
-        }
-        return (File) invokeL.objValue;
-    }
+    @NonNull
+    VIEW getRealView();
+
+    void update(String str, @NonNull lk0 lk0Var);
 }

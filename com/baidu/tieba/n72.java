@@ -1,42 +1,112 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
+import com.baidu.webkit.sdk.WebResourceRequest;
+import com.baidu.webkit.sdk.WebResourceResponse;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public class n72 {
+public class n72 implements u72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Map<String, String> c;
-    public String d;
-    public String e;
-    public InputStream f;
+    public CopyOnWriteArrayList<z72> b;
 
-    public n72(int i, String str, InputStream inputStream, Map<String, String> map, String str2, String str3) {
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final n72 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-620720606, "Lcom/baidu/tieba/n72$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-620720606, "Lcom/baidu/tieba/n72$b;");
+                    return;
+                }
+            }
+            a = new n72(null);
+        }
+    }
+
+    public /* synthetic */ n72(a aVar) {
+        this();
+    }
+
+    public static n72 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b.a : (n72) invokeV.objValue;
+    }
+
+    public void a(z72 z72Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, z72Var) == null) || z72Var == null || this.b.contains(z72Var)) {
+            return;
+        }
+        this.b.add(z72Var);
+    }
+
+    @RequiresApi(api = 21)
+    public WebResourceResponse c(WebResourceRequest webResourceRequest, boolean z) {
+        InterceptResult invokeLZ;
+        Uri url;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webResourceRequest, z)) == null) {
+            if (webResourceRequest == null || (url = webResourceRequest.getUrl()) == null) {
+                return null;
+            }
+            return d(url.toString(), webResourceRequest.getRequestHeaders(), z);
+        }
+        return (WebResourceResponse) invokeLZ.objValue;
+    }
+
+    public final WebResourceResponse d(String str, Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, map, z)) == null) {
+            if (this.b.isEmpty() || TextUtils.isEmpty(str) || str.startsWith("file://")) {
+                return null;
+            }
+            return new c82(this.b, str, map, 0, z).b(str, map, z);
+        }
+        return (WebResourceResponse) invokeLLZ.objValue;
+    }
+
+    public n72() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, inputStream, map, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = str;
-        this.f = inputStream;
-        this.c = map;
-        this.d = str2;
-        this.e = str3;
+        this.b = new CopyOnWriteArrayList<>();
     }
 }

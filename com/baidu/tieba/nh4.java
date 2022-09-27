@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
+import android.os.Parcelable;
+import android.util.SparseArray;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,55 +13,59 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nh4 {
+public class nh4 extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements LayoutInflater.Factory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final qh4 a;
-
-        public a(qh4 qh4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qh4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nh4(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = qh4Var;
-        }
-
-        @Override // android.view.LayoutInflater.Factory
-        public View onCreateView(String str, Context context, AttributeSet attributeSet) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, context, attributeSet)) == null) ? this.a.onCreateView(null, str, context, attributeSet) : (View) invokeLLL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return getClass().getName() + "{" + this.a + "}";
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    public static void a(LayoutInflater layoutInflater, qh4 qh4Var) {
+    public static ViewGroup a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, qh4Var) == null) {
-            layoutInflater.setFactory(qh4Var != null ? new a(qh4Var) : null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            nh4 nh4Var = new nh4(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams != null) {
+                nh4Var.setLayoutParams(layoutParams);
+            }
+            view2.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            nh4Var.addView(view2);
+            return nh4Var;
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchRestoreInstanceState(SparseArray<Parcelable> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sparseArray) == null) {
+            dispatchThawSelfOnly(sparseArray);
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchSaveInstanceState(SparseArray<Parcelable> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sparseArray) == null) {
+            dispatchFreezeSelfOnly(sparseArray);
         }
     }
 }

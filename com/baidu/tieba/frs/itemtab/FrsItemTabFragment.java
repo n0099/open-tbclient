@@ -21,26 +21,26 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah6;
+import com.baidu.tieba.b26;
+import com.baidu.tieba.b95;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.fo6;
-import com.baidu.tieba.go6;
-import com.baidu.tieba.ho6;
-import com.baidu.tieba.jy4;
-import com.baidu.tieba.ky4;
-import com.baidu.tieba.o16;
-import com.baidu.tieba.o85;
-import com.baidu.tieba.wk8;
-import com.baidu.tieba.xh6;
-import com.baidu.tieba.zh6;
+import com.baidu.tieba.ki6;
+import com.baidu.tieba.ll8;
+import com.baidu.tieba.mi6;
+import com.baidu.tieba.nh6;
+import com.baidu.tieba.to6;
+import com.baidu.tieba.uo6;
+import com.baidu.tieba.vo6;
+import com.baidu.tieba.wy4;
+import com.baidu.tieba.xy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, xh6, zh6 {
+public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, ki6, mi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -50,9 +50,9 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
     public String e;
     public boolean f;
     public View g;
-    public o85 h;
-    public fo6 i;
-    public go6 j;
+    public b95 h;
+    public to6 i;
+    public uo6 j;
     public String k;
     public BdUniqueId l;
     public VoiceManager m;
@@ -145,14 +145,14 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof jy4)) {
-                jy4 jy4Var = (jy4) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof wy4)) {
+                wy4 wy4Var = (wy4) customResponsedMessage.getData();
                 String str = this.a.d;
                 if (str == null) {
                     str = "";
                 }
-                jy4Var.j(str, TbadkCoreApplication.getCurrentAccount() != null ? TbadkCoreApplication.getCurrentAccount() : "", this.a.c);
-                ky4.c(jy4Var);
+                wy4Var.j(str, TbadkCoreApplication.getCurrentAccount() != null ? TbadkCoreApplication.getCurrentAccount() : "", this.a.c);
+                xy4.c(wy4Var);
             }
         }
     }
@@ -175,7 +175,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         this.p = new b(this, 2921573);
     }
 
-    @Override // com.baidu.tieba.zh6
+    @Override // com.baidu.tieba.mi6
     public void U0() {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || getContext() == null) {
@@ -194,7 +194,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         w1(false);
     }
 
-    @Override // com.baidu.tieba.zh6
+    @Override // com.baidu.tieba.mi6
     public void d0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -229,7 +229,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         }
     }
 
-    @Override // com.baidu.tieba.xh6
+    @Override // com.baidu.tieba.ki6
     public void g0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -237,9 +237,9 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             if (view2 != null) {
                 view2.setPadding(view2.getPaddingLeft(), this.g.getPaddingTop(), this.g.getPaddingRight(), z ? UtilHelper.getDimenPixelSize(R.dimen.tbds150) : this.g.getPaddingBottom());
             }
-            fo6 fo6Var = this.i;
-            if (fo6Var != null) {
-                fo6Var.i(z);
+            to6 to6Var = this.i;
+            if (to6Var != null) {
+                to6Var.i(z);
             }
         }
     }
@@ -248,25 +248,25 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
     public void hideNetRefreshView(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            fo6 fo6Var = this.i;
-            if (fo6Var != null) {
-                fo6Var.q(true);
+            to6 to6Var = this.i;
+            if (to6Var != null) {
+                to6Var.q(true);
             }
-            o85 o85Var = this.h;
-            if (o85Var != null) {
-                o85Var.dettachView(view2);
+            b95 b95Var = this.h;
+            if (b95Var != null) {
+                b95Var.dettachView(view2);
             }
         }
     }
 
-    @Override // com.baidu.tieba.xh6
+    @Override // com.baidu.tieba.ki6
     public void m1() {
-        fo6 fo6Var;
+        to6 to6Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (fo6Var = this.i) == null) {
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (to6Var = this.i) == null) {
             return;
         }
-        fo6Var.o(0);
+        to6Var.o(0);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
@@ -274,9 +274,9 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            fo6 fo6Var = this.i;
-            if (fo6Var != null) {
-                fo6Var.j();
+            to6 to6Var = this.i;
+            if (to6Var != null) {
+                to6Var.j();
             }
         }
     }
@@ -311,17 +311,17 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             VoiceManager t0 = t0();
             this.m = t0;
             t0.onCreate(getPageContext());
-            wk8.g().i(getUniqueId());
-            this.j = new go6(this, this.c);
+            ll8.g().i(getUniqueId());
+            this.j = new uo6(this, this.c);
             if (this.n != -1) {
-                jy4 jy4Var = new jy4(5);
+                wy4 wy4Var = new wy4(5);
                 String str = this.d;
                 if (str == null) {
                     str = "";
                 }
-                jy4Var.j(str, TbadkCoreApplication.getCurrentAccount() != null ? TbadkCoreApplication.getCurrentAccount() : "", this.c);
-                jy4Var.n(this.n);
-                ky4.c(jy4Var);
+                wy4Var.j(str, TbadkCoreApplication.getCurrentAccount() != null ? TbadkCoreApplication.getCurrentAccount() : "", this.c);
+                wy4Var.n(this.n);
+                xy4.c(wy4Var);
             }
             registerListener(this.o);
             registerListener(this.p);
@@ -335,9 +335,9 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
             View inflate = layoutInflater.inflate(s1(), (ViewGroup) null);
             this.g = inflate;
-            fo6 fo6Var = new fo6(this, inflate);
-            this.i = fo6Var;
-            fo6Var.p(this.k);
+            to6 to6Var = new to6(this, inflate);
+            this.i = to6Var;
+            to6Var.p(this.k);
             this.i.n(this.l);
             return this.g;
         }
@@ -348,12 +348,12 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            wk8.g().k(getUniqueId());
-            o16.b().e(false);
+            ll8.g().k(getUniqueId());
+            b26.b().e(false);
             super.onDestroy();
-            fo6 fo6Var = this.i;
-            if (fo6Var != null) {
-                fo6Var.k();
+            to6 to6Var = this.i;
+            if (to6Var != null) {
+                to6Var.k();
             }
             VoiceManager voiceManager = this.m;
             if (voiceManager != null) {
@@ -412,9 +412,9 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             } else {
                 TbSingleton.getInstance().isItemTabVisible = false;
             }
-            fo6 fo6Var = this.i;
-            if (fo6Var != null) {
-                fo6Var.l((isAdded() && isPrimary()) ? false : false);
+            to6 to6Var = this.i;
+            if (to6Var != null) {
+                to6Var.l((isAdded() && isPrimary()) ? false : false);
             }
         }
     }
@@ -466,7 +466,7 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             super.onStop();
-            wk8.g().h(getUniqueId(), false);
+            ll8.g().h(getUniqueId(), false);
             VoiceManager voiceManager = this.m;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());
@@ -484,15 +484,15 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
     public void showNetRefreshView(View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048596, this, view2, str, z) == null) {
-            fo6 fo6Var = this.i;
-            if (fo6Var != null) {
-                fo6Var.q(false);
+            to6 to6Var = this.i;
+            if (to6Var != null) {
+                to6Var.q(false);
             }
             if (getPageContext() == null || getPageContext().getContext() == null) {
                 return;
             }
             if (this.h == null) {
-                this.h = new o85(getPageContext().getContext(), getNetRefreshListener());
+                this.h = new b95(getPageContext().getContext(), getNetRefreshListener());
             }
             this.h.e(null);
             this.h.d(str);
@@ -516,17 +516,17 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
         return (VoiceManager) invokeV.objValue;
     }
 
-    public void t1(ho6 ho6Var) {
+    public void t1(vo6 vo6Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048598, this, ho6Var) == null) || ho6Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048598, this, vo6Var) == null) || vo6Var == null) {
             return;
         }
         hideLoadingView(this.g);
         if (this.i != null) {
             w1(false);
-            this.i.m(ho6Var);
+            this.i.m(vo6Var);
         }
-        wk8.g().h(getUniqueId(), false);
+        ll8.g().h(getUniqueId(), false);
     }
 
     public final void u1() {
@@ -536,9 +536,9 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
             if (voiceManager != null) {
                 voiceManager.stopPlay();
             }
-            go6 go6Var = this.j;
-            if (go6Var != null) {
-                go6Var.d();
+            uo6 uo6Var = this.j;
+            if (uo6Var != null) {
+                uo6Var.d();
             }
         }
     }
@@ -553,21 +553,21 @@ public class FrsItemTabFragment extends BaseFragment implements VoiceManager.j, 
     public void w1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            ah6 ah6Var = new ah6();
-            ah6Var.a = this.a;
-            ah6Var.b = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, ah6Var));
+            nh6 nh6Var = new nh6();
+            nh6Var.a = this.a;
+            nh6Var.b = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, nh6Var));
         }
     }
 
-    @Override // com.baidu.tieba.xh6
+    @Override // com.baidu.tieba.ki6
     public void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             m1();
-            go6 go6Var = this.j;
-            if (go6Var != null) {
-                go6Var.d();
+            uo6 uo6Var = this.j;
+            if (uo6Var != null) {
+                uo6Var.d();
             }
         }
     }

@@ -1,228 +1,110 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class oc2 {
+public class oc2 implements kc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<String> a;
-    public final Map<String, a<Boolean>> b;
-    public final Map<String, a<b>> c;
-    public a<Exception> d;
-
-    /* loaded from: classes5.dex */
-    public static class a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Set<rh3<T>> a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashSet();
-        }
-
-        public void a(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                for (rh3<T> rh3Var : this.a) {
-                    rh3Var.a(t);
-                }
-            }
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.clear();
-            }
-        }
-
-        public void c(rh3<T> rh3Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rh3Var) == null) || rh3Var == null) {
-                return;
-            }
-            this.a.add(rh3Var);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final long b;
-
-        public b(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-            int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b > 0 : invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948027371, "Lcom/baidu/tieba/oc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948027371, "Lcom/baidu/tieba/oc2;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
-    }
+    public final String[] a;
+    public final Pair<String, String>[] b;
 
     public oc2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet();
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = new a<>();
+        this.a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
+        this.b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
     }
 
-    public static <T> a<T> i(Map<String, a<T>> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
-            a<T> aVar = map.get(str);
-            if (aVar == null) {
-                a<T> aVar2 = new a<>();
-                map.put(str, aVar2);
-                return aVar2;
-            }
-            return aVar;
-        }
-        return (a) invokeLL.objValue;
-    }
-
-    public HashSet<String> a() {
+    @Override // com.baidu.tieba.kc2
+    public ArraySet<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new HashSet<>(this.a) : (HashSet) invokeV.objValue;
-    }
-
-    public void b(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.d.a(exc);
-            this.d.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            arraySet.addAll((ArraySet<? extends String>) d());
+            arraySet.addAll((ArraySet<? extends String>) c());
+            arraySet.addAll((ArraySet<? extends String>) b());
+            return arraySet;
         }
+        return (ArraySet) invokeV.objValue;
     }
 
-    public void c(String str, boolean z) {
+    public final ArraySet<String> b() {
+        InterceptResult invokeV;
+        Pair<String, String>[] pairArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            a i = i(this.b, str);
-            i.a(Boolean.valueOf(z));
-            i.b();
-        }
-    }
-
-    public void d(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            if (bVar == null || bVar.a()) {
-                i(this.c, str).a(bVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            File file2 = new File(vj4.d());
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (Pair<String, String> pair : this.b) {
+                arraySet.addAll((ArraySet<? extends String>) wb2.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
+                arraySet.addAll((ArraySet<? extends String>) wb2.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
             }
+            l02.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
+            return arraySet;
         }
+        return (ArraySet) invokeV.objValue;
     }
 
-    public oc2 e(rh3<Exception> rh3Var) {
-        InterceptResult invokeL;
+    public final ArraySet<String> c() {
+        InterceptResult invokeV;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, rh3Var)) == null) {
-            this.d.c(rh3Var);
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
+            String d = vj4.d();
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String J = pj4.J(new File(d, str + SwanKV.PREFS_SUFFIX));
+                if (!TextUtils.isEmpty(J)) {
+                    arraySet.add(J);
+                }
+                String J2 = pj4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
+                if (!TextUtils.isEmpty(J2)) {
+                    arraySet.add(J2);
+                }
+            }
+            l02.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
+            return arraySet;
         }
-        return (oc2) invokeL.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 
-    public oc2 f(String... strArr) {
-        InterceptResult invokeL;
+    public final ArraySet<String> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            this.a.addAll(Arrays.asList(strArr));
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            String J = pj4.J(new File(cc3.e()));
+            if (!TextUtils.isEmpty(J)) {
+                arraySet.add(J);
+            }
+            l02.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
+            return arraySet;
         }
-        return (oc2) invokeL.objValue;
-    }
-
-    public final <T> oc2 g(Map<String, a<T>> map, String str, rh3<T> rh3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, rh3Var)) == null) {
-            f(str);
-            i(map, str).c(rh3Var);
-            return this;
-        }
-        return (oc2) invokeLLL.objValue;
-    }
-
-    public oc2 h(String str, rh3<Boolean> rh3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, rh3Var)) == null) {
-            g(this.b, str, rh3Var);
-            return this;
-        }
-        return (oc2) invokeLL.objValue;
+        return (ArraySet) invokeV.objValue;
     }
 }

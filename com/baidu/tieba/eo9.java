@@ -3,40 +3,46 @@ package com.baidu.tieba;
 import android.app.Activity;
 import android.content.Context;
 import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
 import com.fun.ad.sdk.FunAdSlot;
 import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.win.opensdk.PBError;
-import com.win.opensdk.PBInterstitial;
-import com.win.opensdk.PBInterstitialListener;
+import com.qq.e.ads.rewardvideo.RewardVideoAD;
+import com.qq.e.ads.rewardvideo.RewardVideoADListener;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
+import com.qq.e.comm.util.AdError;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class eo9 extends ReporterPidLoader<PBInterstitial> {
+public class eo9 extends tn9<RewardVideoAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public class a implements PBInterstitialListener {
+    public class a implements RewardVideoADListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public boolean b;
-        public final /* synthetic */ PBInterstitial c;
-        public final /* synthetic */ eo9 d;
+        public RewardVideoAD c;
+        public final /* synthetic */ RewardVideoAD[] d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ eo9 f;
 
-        public a(eo9 eo9Var, PBInterstitial pBInterstitial) {
+        public a(eo9 eo9Var, RewardVideoAD[] rewardVideoADArr, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eo9Var, pBInterstitial};
+                Object[] objArr = {eo9Var, rewardVideoADArr, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,70 +52,97 @@ public class eo9 extends ReporterPidLoader<PBInterstitial> {
                     return;
                 }
             }
-            this.d = eo9Var;
-            this.c = pBInterstitial;
+            this.f = eo9Var;
+            this.d = rewardVideoADArr;
+            this.e = str;
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onClicked() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClick() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 LogPrinter.d();
-                this.d.onAdClicked(this.c, this.b, new String[0]);
+                this.f.onAdClicked(this.c, this.b, this.e);
                 this.b = true;
             }
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onFail(PBError pBError) {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClose() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBError) == null) {
-                LogPrinter.e("onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
-                this.d.onError(pBError.getCode(), pBError.getMsg());
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.f.onAdClose(this.d[0]);
             }
         }
 
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialDismissed() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADExpose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 LogPrinter.d();
-                this.d.onAdClose(this.c);
-            }
-        }
-
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialDisplayed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.d.onAdShow(this.c, this.a, new String[0]);
+                this.f.onAdShow(this.c, this.a, this.e);
                 this.a = true;
             }
         }
 
-        @Override // com.win.opensdk.PBInterstitialListener
-        public void onInterstitialShowFail(String str) {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADLoad() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 LogPrinter.d();
-                this.d.onAdError(this.c, 0, str);
+                RewardVideoAD rewardVideoAD = this.d[0];
+                this.c = rewardVideoAD;
+                this.f.onAdLoaded((eo9) rewardVideoAD);
             }
         }
 
-        @Override // com.win.opensdk.PBListener
-        public void onLoaded() {
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADShow() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
                 LogPrinter.d();
-                this.d.onAdLoaded((eo9) this.c);
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onError(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
+                LogPrinter.e("GDTRewardVideoAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.f.onError(adError.getErrorCode(), adError.getErrorMsg());
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onReward(Map<String, Object> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
+                LogPrinter.d();
+                this.f.onRewardedVideo(this.c, this.e);
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                LogPrinter.d();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public eo9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -129,34 +162,33 @@ public class eo9 extends ReporterPidLoader<PBInterstitial> {
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        PBInterstitial pBInterstitial;
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, obj) == null) || (pBInterstitial = (PBInterstitial) obj) == null) {
-            return;
-        }
-        pBInterstitial.destroy();
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new po9(pid) : (AdRipper) invokeL.objValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean isAdAvailable(Object obj) {
-        InterceptResult invokeL;
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            PBInterstitial pBInterstitial = (PBInterstitial) obj;
-            return pBInterstitial != null && pBInterstitial.isReady();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            RewardVideoAD rewardVideoAD = (RewardVideoAD) obj;
         }
-        return invokeL.booleanValue;
     }
 
     @Override // com.fun.ad.sdk.internal.api.BasePidLoader
     public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf);
+            a aVar = new a(this, r3, tid);
             onLoadStart(funAdSlot);
-            PBInterstitial pBInterstitial = new PBInterstitial(context.getApplicationContext(), this.mPid.pid);
-            pBInterstitial.setInterstitialListener(new a(this, pBInterstitial));
-            pBInterstitial.load();
+            RewardVideoAD rewardVideoAD = new RewardVideoAD(context.getApplicationContext(), this.mPid.pid, (RewardVideoADListener) aVar, true);
+            RewardVideoAD[] rewardVideoADArr = {rewardVideoAD};
+            rewardVideoAD.setServerSideVerificationOptions(new ServerSideVerificationOptions.Builder().setUserId(FunAdSdk.getFunAdConfig().userId).setCustomData(buildExtra).build());
+            rewardVideoAD.loadAD();
         }
     }
 
@@ -165,14 +197,10 @@ public class eo9 extends ReporterPidLoader<PBInterstitial> {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            PBInterstitial pBInterstitial = (PBInterstitial) obj;
-            onShowStart(pBInterstitial);
-            if (pBInterstitial.isReady()) {
-                pBInterstitial.show();
-                return true;
-            }
-            LogPrinter.e("Ad isn't ready now", new Object[0]);
-            return false;
+            RewardVideoAD rewardVideoAD = (RewardVideoAD) obj;
+            onShowStart(rewardVideoAD);
+            rewardVideoAD.showAD(activity);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

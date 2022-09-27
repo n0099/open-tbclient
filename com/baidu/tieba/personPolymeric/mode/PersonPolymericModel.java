@@ -13,22 +13,22 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.b78;
+import com.baidu.tieba.c48;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.n68;
-import com.baidu.tieba.o38;
+import com.baidu.tieba.i98;
+import com.baidu.tieba.j98;
+import com.baidu.tieba.ku8;
+import com.baidu.tieba.m88;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.person.ProfileHttpResponseMessage;
 import com.baidu.tieba.person.ProfileRequestMessage;
 import com.baidu.tieba.person.ProfileSocketResponseMessage;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.u88;
 import com.baidu.tieba.usermute.UserMuteAddResponseMessage;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 import com.baidu.tieba.usermute.response.UserMuteDelResponseMessage;
-import com.baidu.tieba.v88;
-import com.baidu.tieba.vt8;
-import com.baidu.tieba.y78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,11 +40,11 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int RN = 20;
     public transient /* synthetic */ FieldHolder $fh;
-    public y78 a;
+    public m88 a;
     public int b;
     public String c;
-    public v88 d;
-    public u88 e;
+    public j98 d;
+    public i98 e;
     public boolean f;
     public pb g;
     public CustomMessageListener h;
@@ -87,14 +87,14 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
             }
             boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
             if ((z || (responsedMessage instanceof ProfileHttpResponseMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag()) {
-                o38 o38Var = z ? (ProfileSocketResponseMessage) responsedMessage : null;
+                c48 c48Var = z ? (ProfileSocketResponseMessage) responsedMessage : null;
                 if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                    o38Var = (ProfileHttpResponseMessage) responsedMessage;
+                    c48Var = (ProfileHttpResponseMessage) responsedMessage;
                 }
-                if (o38Var.getErrorCode() == 0) {
-                    this.a.a.v(o38Var);
+                if (c48Var.getErrorCode() == 0) {
+                    this.a.a.v(c48Var);
                 }
-                n68.d().n(System.currentTimeMillis() - n68.d().e());
+                b78.d().n(System.currentTimeMillis() - b78.d().e());
                 if (responsedMessage.getError() == 0) {
                     this.a.d.d(this.a.a);
                 } else {
@@ -135,10 +135,10 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof vt8) && customResponsedMessage.getOrginalMessage().getTag() == this.a.unique_id) {
-                vt8 vt8Var = (vt8) customResponsedMessage.getData();
-                DataRes dataRes = vt8Var.a;
-                if (vt8Var.c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ku8) && customResponsedMessage.getOrginalMessage().getTag() == this.a.unique_id) {
+                ku8 ku8Var = (ku8) customResponsedMessage.getData();
+                DataRes dataRes = ku8Var.a;
+                if (ku8Var.c != 0 || StringUtils.isNULL(dataRes.is_mute)) {
                     return;
                 }
                 if (dataRes.is_mute.equals("0")) {
@@ -150,7 +150,7 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
                 } else if (dataRes.is_mute.equals("1")) {
                     this.a.b = 1;
                 }
-                this.a.e.a(0, this.a.b, this.a.c, vt8Var.c, vt8Var.b);
+                this.a.e.a(0, this.a.b, this.a.c, ku8Var.c, ku8Var.b);
             }
         }
     }
@@ -271,10 +271,10 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         registerListener(this.g);
     }
 
-    public y78 K() {
+    public m88 K() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (y78) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (m88) invokeV.objValue;
     }
 
     public void L(long j, String str) {
@@ -327,24 +327,24 @@ public class PersonPolymericModel extends BdBaseModel<BaseFragmentActivity> {
         }
     }
 
-    public void O(v88 v88Var) {
+    public void O(j98 j98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v88Var) == null) {
-            this.d = v88Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, j98Var) == null) {
+            this.d = j98Var;
         }
     }
 
-    public void P(u88 u88Var) {
+    public void P(i98 i98Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, u88Var) == null) {
-            this.e = u88Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, i98Var) == null) {
+            this.e = i98Var;
         }
     }
 
-    public void Q(y78 y78Var) {
+    public void Q(m88 m88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, y78Var) == null) {
-            this.a = y78Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, m88Var) == null) {
+            this.a = m88Var;
         }
     }
 

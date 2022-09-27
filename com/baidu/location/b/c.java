@@ -55,7 +55,7 @@ public class c {
     public TelephonyManager e;
     public com.baidu.location.c.a f;
     public WifiManager g;
-    public C0103c h;
+    public C0100c h;
     public String j;
     public String k;
     public LocationClientOption l;
@@ -175,7 +175,7 @@ public class c {
 
     /* renamed from: com.baidu.location.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0103c {
+    public class C0100c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public List<ScanResult> a;
@@ -184,7 +184,7 @@ public class c {
         public long d;
         public String e;
 
-        public C0103c(c cVar, List<ScanResult> list) {
+        public C0100c(c cVar, List<ScanResult> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,7 +222,7 @@ public class c {
         private void b() {
             /*
                 r7 = this;
-                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.location.b.c.C0103c.$ic
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.location.b.c.C0100c.$ic
                 if (r0 != 0) goto L63
             L4:
                 int r0 = r7.a()
@@ -282,7 +282,7 @@ public class c {
                 if (r0 == 0) goto L4
                 return
             */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.location.b.c.C0103c.b():void");
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.location.b.c.C0100c.b():void");
         }
 
         public int a() {
@@ -835,9 +835,9 @@ public class c {
                 str = str + this.f.k;
             }
             this.h = null;
-            C0103c c0103c = new C0103c(this, this.g.getScanResults());
-            this.h = c0103c;
-            str2 = c0103c.a(i2, e());
+            C0100c c0100c = new C0100c(this, this.g.getScanResults());
+            this.h = c0100c;
+            str2 = c0100c.a(i2, e());
             if (str != null && str2 == null) {
                 this.n = null;
                 return null;
@@ -865,9 +865,9 @@ public class c {
             str = str + this.f.k;
         }
         this.h = null;
-        C0103c c0103c2 = new C0103c(this, this.g.getScanResults());
-        this.h = c0103c2;
-        str2 = c0103c2.a(i2, e());
+        C0100c c0100c2 = new C0100c(this, this.g.getScanResults());
+        this.h = c0100c2;
+        str2 = c0100c2.a(i2, e());
         if (str != null) {
         }
         if (str2 != null) {

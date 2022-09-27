@@ -1,18 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes4.dex */
 public interface gz6 {
-    public static final BdUniqueId a;
-    public static final BdUniqueId b;
-    public static final BdUniqueId c;
+    void C0(int i, zz6 zz6Var);
 
-    static {
-        BdUniqueId.gen();
-        BdUniqueId.gen();
-        a = BdUniqueId.gen();
-        b = BdUniqueId.gen();
-        BdUniqueId.gen();
-        c = BdUniqueId.gen();
-    }
+    void a();
 }

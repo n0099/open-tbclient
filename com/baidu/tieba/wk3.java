@@ -1,5 +1,10 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,39 +12,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wk3 {
+public class wk3 extends n83 {
     public static /* synthetic */ Interceptable $ic;
-    public static kj1 a;
-    public static final kj1 b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static class a implements kj1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.kj1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -54,31 +32,92 @@ public class wk3 {
                 return;
             }
         }
-        b = new a();
-    }
-
-    public static kj1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            kj1 kj1Var = a;
-            return kj1Var == null ? b : kj1Var;
-        }
-        return (kj1) invokeV.objValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            a = null;
+        a = vj1.a;
+        try {
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+        } catch (Exception unused) {
         }
     }
 
-    public static void c(kj1 kj1Var) {
+    public wk3() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65539, null, kj1Var) == null) || a == kj1Var) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        a = kj1Var;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (sf3.f()) {
+                CookieManager.getInstance().flush();
+                return;
+            }
+            CookieSyncManager.createInstance(AppRuntime.getAppContext());
+            CookieSyncManager.getInstance().sync();
+        }
+    }
+
+    @Override // com.baidu.tieba.n83, com.baidu.searchbox.http.cookie.CookieManager
+    public String getCookie(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            String str2 = "";
+            try {
+                str2 = CookieManager.getInstance().getCookie(str);
+                if (a) {
+                    Log.d("RealCookieManager", "RealCookieManager:" + str2);
+                }
+            } catch (Exception unused) {
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldAcceptCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public boolean shouldSendCookie(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.cookie.CookieManager
+    public void storeCookie(String str, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            if (a) {
+                Log.d("RealCookieManager", "storeCookie httpUrl: " + str);
+                Log.d("RealCookieManager", "storeCookie cookies: " + list);
+            }
+            try {
+                for (String str2 : list) {
+                    CookieManager.getInstance().setCookie(str, str2);
+                }
+                a();
+            } catch (Exception unused) {
+            }
+        }
     }
 }

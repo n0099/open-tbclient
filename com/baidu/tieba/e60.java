@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.w20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import okhttp3.Interceptor;
-import okhttp3.Response;
 /* loaded from: classes3.dex */
-public class e60 implements Interceptor {
+public class e60 implements w20.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,20 +25,10 @@ public class e60 implements Interceptor {
         }
     }
 
-    @Override // okhttp3.Interceptor
-    public Response intercept(Interceptor.Chain chain) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.w20.a
+    public v20 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
-            try {
-                return chain.proceed(chain.request());
-            } catch (RuntimeException e) {
-                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
-                    throw new IOException(e);
-                }
-                throw e;
-            }
-        }
-        return (Response) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new y20(true) : (v20) invokeV.objValue;
     }
 }

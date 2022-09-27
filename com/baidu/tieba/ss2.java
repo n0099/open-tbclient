@@ -1,63 +1,57 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ss2 {
+public class ss2 extends ns2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
-    public ss2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ss2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static ss2 a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        JSONObject optJSONObject;
+    private void update(ds2 ds2Var, fs2 fs2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-            String optString = jSONObject.optString("error");
-            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
-                return null;
-            }
-            ss2 ss2Var = new ss2();
-            ss2Var.a = optJSONObject2.optString(ContentUtil.RESULT_KEY_AK);
-            ss2Var.b = optJSONObject2.optString("sk");
-            ss2Var.c = optJSONObject2.optString("token");
-            ss2Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
-            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
-                ss2Var.f = optJSONObject.optString("bosobject");
-                ss2Var.e = optJSONObject.optString("bosurl");
-            }
-            return ss2Var;
+        if (interceptable == null || interceptable.invokeLLLL(65537, this, ds2Var, fs2Var, unitedSchemeEntity, callbackHandler) == null) {
+            ds2Var.A(fs2Var);
+            ds2Var.z(fs2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return (ss2) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ns2
+    public boolean a(ds2 ds2Var, fs2 fs2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, l33 l33Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ds2Var, fs2Var, context, unitedSchemeEntity, callbackHandler, l33Var})) == null) {
+            l02.i("video", "update, video id:" + fs2Var.j + " slave id: " + fs2Var.c);
+            update(ds2Var, fs2Var, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

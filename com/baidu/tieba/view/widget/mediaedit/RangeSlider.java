@@ -17,8 +17,8 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tz8;
-import com.baidu.tieba.un5;
+import com.baidu.tieba.ho5;
+import com.baidu.tieba.i09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class RangeSlider extends ViewGroup {
     public b v;
     public ValueAnimator w;
     public int x;
-    public tz8 y;
+    public i09 y;
     public Paint z;
 
     /* loaded from: classes6.dex */
@@ -96,20 +96,20 @@ public class RangeSlider extends ViewGroup {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(65539, this, f) == null) {
             if (this.A == 1) {
-                tz8 tz8Var = this.y;
-                if (tz8Var != null) {
-                    tz8Var.setX(f);
+                i09 i09Var = this.y;
+                if (i09Var != null) {
+                    i09Var.setX(f);
                     return;
                 }
                 return;
             }
-            tz8 tz8Var2 = this.y;
-            if (tz8Var2 == null || (thumbView = this.f) == null) {
+            i09 i09Var2 = this.y;
+            if (i09Var2 == null || (thumbView = this.f) == null) {
                 return;
             }
             float f2 = this.g;
             if (f <= f2) {
-                tz8Var2.setX(f2);
+                i09Var2.setX(f2);
             } else if (f >= thumbView.getX()) {
                 this.y.setX(this.f.getX() - UtilHelper.getDimenPixelSize(R.dimen.tbds4));
             } else {
@@ -305,7 +305,7 @@ public class RangeSlider extends ViewGroup {
     }
 
     public void n(float f, float f2) {
-        tz8 tz8Var;
+        i09 i09Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
             ThumbView thumbView = this.e;
@@ -316,8 +316,8 @@ public class RangeSlider extends ViewGroup {
             if (thumbView2 != null) {
                 thumbView2.setX(f2);
             }
-            if (this.A == 1 && (tz8Var = this.y) != null) {
-                tz8Var.setX(f + this.p);
+            if (this.A == 1 && (i09Var = this.y) != null) {
+                i09Var.setX(f + this.p);
             }
             invalidate();
         }
@@ -481,8 +481,8 @@ public class RangeSlider extends ViewGroup {
             float f2 = this.n;
             this.j = (int) (f2 + (f * (this.o - f2)));
             invalidate();
-            tz8 tz8Var = this.y;
-            if (tz8Var == null || tz8Var.isPressed()) {
+            i09 i09Var = this.y;
+            if (i09Var == null || i09Var.isPressed()) {
                 return;
             }
             setVideoPointerViewPosition(this.j);
@@ -597,7 +597,7 @@ public class RangeSlider extends ViewGroup {
                 return;
             }
         }
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, un5.RangeSlider, 0, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ho5.RangeSlider, 0, 0);
         this.p = obtainStyledAttributes.getDimensionPixelOffset(10, 7);
         this.q = obtainStyledAttributes.getDimensionPixelOffset(9, 70);
         this.a = obtainStyledAttributes.getDimensionPixelOffset(12, 2);
@@ -624,7 +624,7 @@ public class RangeSlider extends ViewGroup {
         Drawable drawable2 = obtainStyledAttributes.getDrawable(6);
         this.e = new ThumbView(context, this.p, this.q, drawable == null ? new ColorDrawable(-65456) : drawable);
         this.f = new ThumbView(context, this.p, this.q, drawable2 == null ? new ColorDrawable(-65456) : drawable2);
-        this.y = new tz8(context);
+        this.y = new i09(context);
         this.y.setLayoutParams(new FrameLayout.LayoutParams(200, 200));
         obtainStyledAttributes.recycle();
         this.j = this.g;

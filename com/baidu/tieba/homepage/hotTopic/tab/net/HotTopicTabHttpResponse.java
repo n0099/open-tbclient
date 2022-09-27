@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.Cdo;
-import com.baidu.tieba.lz6;
-import com.baidu.tieba.ty6;
+import com.baidu.tieba.hz6;
+import com.baidu.tieba.zz6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes4.dex */
-public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements lz6 {
+public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements zz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
@@ -39,14 +39,14 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements l
         }
     }
 
-    @Override // com.baidu.tieba.lz6
+    @Override // com.baidu.tieba.zz6
     public List<Cdo> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.mHotTopicDataList : (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lz6
+    @Override // com.baidu.tieba.zz6
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,7 +66,7 @@ public class HotTopicTabHttpResponse extends TbHttpResponsedMessage implements l
             setError(hotThreadListResIdl.error.errorno.intValue());
             setErrorString(hotThreadListResIdl.error.usermsg);
             if (getError() == 0 && hotThreadListResIdl.data != null) {
-                this.mHotTopicDataList = ty6.c(hotThreadListResIdl);
+                this.mHotTopicDataList = hz6.c(hotThreadListResIdl);
             }
         }
     }

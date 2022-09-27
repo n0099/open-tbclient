@@ -7,10 +7,10 @@ import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ej6;
 import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
-import com.baidu.tieba.jy4;
-import com.baidu.tieba.ri6;
-import com.baidu.tieba.wo6;
+import com.baidu.tieba.kp6;
+import com.baidu.tieba.wy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -51,7 +51,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.f(2);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new jy4(19)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wy4(19)));
             }
         }
     }
@@ -85,7 +85,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.f(1);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new jy4(18)));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new wy4(18)));
             }
         }
     }
@@ -114,13 +114,13 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
         this.b = bdUniqueId;
     }
 
-    public void b(wo6 wo6Var) {
+    public void b(kp6 kp6Var) {
         FrsItemAcceleratorView frsItemAcceleratorView;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, wo6Var) == null) || (frsItemAcceleratorView = this.a) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, kp6Var) == null) || (frsItemAcceleratorView = this.a) == null) {
             return;
         }
-        frsItemAcceleratorView.setBtnColor(wo6Var.b());
+        frsItemAcceleratorView.setBtnColor(kp6Var.b());
         this.a.setBtnImgClickListener(new a(this));
         this.a.setBtnDescClickListener(new b(this));
     }
@@ -155,7 +155,7 @@ public class FrsItemAcceleratorHolder extends TypeAdapter.ViewHolder {
     public final void f(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new ri6(i));
+            CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921662, new ej6(i));
             CustomMessage customMessage = new CustomMessage(2921662);
             customMessage.setTag(this.b);
             customResponsedMessage.setOrginalMessage(customMessage);

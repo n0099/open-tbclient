@@ -1,47 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
 /* loaded from: classes5.dex */
 public class mg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947971633, "Lcom/baidu/tieba/mg2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947971633, "Lcom/baidu/tieba/mg2;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static kg2 a(SwanAppActivity swanAppActivity, l33 l33Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] b = ye4.a().b();
-            yz1.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
-            if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
-                String format = String.format("%s %s NOT IN ('%s')", (str == null || str.trim().length() <= 0) ? "" : String.format("(%s) AND ", str.trim()), String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));
-                yz1.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + format);
-                return format;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, l33Var)) == null) {
+            if (l33Var == null || !l33Var.I()) {
+                return null;
             }
-            yz1.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + str);
-            return str;
+            int k = l33Var.k();
+            if (k != 0) {
+                if (k != 1) {
+                    return null;
+                }
+                return tm2.i().n(swanAppActivity, l33Var.b);
+            }
+            return new ng2(swanAppActivity, l33Var.b);
         }
-        return (String) invokeL.objValue;
+        return (kg2) invokeLL.objValue;
     }
 }

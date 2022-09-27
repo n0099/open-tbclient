@@ -18,11 +18,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.jg5;
+import com.baidu.tieba.no4;
 import com.baidu.tieba.r9;
 import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.wg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -209,13 +209,13 @@ public class VideoPlayModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             JSONArray jSONArray = new JSONArray();
-            LinkedList<ao4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
+            LinkedList<no4> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
             if (videoRecordList != null) {
                 try {
                     if (videoRecordList.size() > 0) {
-                        Iterator<ao4> it = videoRecordList.iterator();
+                        Iterator<no4> it = videoRecordList.iterator();
                         while (it.hasNext()) {
-                            ao4 next = it.next();
+                            no4 next = it.next();
                             JSONObject jSONObject = new JSONObject();
                             jSONObject.put("tid", next.a());
                             jSONObject.put("duration", next.b());
@@ -250,7 +250,7 @@ public class VideoPlayModel extends BdBaseModel {
             httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
             httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
         }
-        httpMessage.addParam("app_transmit_data", jg5.a());
+        httpMessage.addParam("app_transmit_data", wg5.a());
         sendMessage(httpMessage);
     }
 
@@ -287,7 +287,7 @@ public class VideoPlayModel extends BdBaseModel {
                 httpMessage.addParam("ori_ugc_vid", videoItemData.baijiahaoData.oriUgcVid);
                 httpMessage.addParam("ori_ugc_tid", videoItemData.baijiahaoData.oriUgcTid);
             }
-            httpMessage.addParam("app_transmit_data", jg5.a());
+            httpMessage.addParam("app_transmit_data", wg5.a());
             sendMessage(httpMessage);
         }
     }

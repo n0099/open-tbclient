@@ -1,104 +1,102 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextWatcher;
+import android.media.AudioManager;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class ll2 {
+public class ll2 extends fh2<wl2> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ll2 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextWatcher a;
-    public SwanEditText b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946647, "Lcom/baidu/tieba/ll2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947946647, "Lcom/baidu/tieba/ll2;");
-                return;
-            }
-        }
-        boolean z = ij1.a;
-    }
+    public AudioManager b;
 
     public ll2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ll2 d() {
+    @Override // com.baidu.tieba.fh2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (ll2.class) {
-                    if (c == null) {
-                        c = new ll2();
-                    }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setVolume" : (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull wl2 wl2Var) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wl2Var) == null) || command.obj == null) {
+            return;
+        }
+        if (!wl2Var.P()) {
+            d(wl2Var, command.what, "Not Set!! Volume: " + command.obj, false);
+            return;
+        }
+        Object obj = command.obj;
+        if (obj instanceof Double) {
+            try {
+                double doubleValue = ((Double) obj).doubleValue();
+                d(wl2Var, command.what, "Volume: " + command.obj, false);
+                if (doubleValue > 1.0d) {
+                    doubleValue = 1.0d;
+                }
+                if (doubleValue < 0.0d) {
+                    doubleValue = 0.0d;
+                }
+                f(doubleValue, wl2Var.getContext());
+            } catch (Exception unused) {
+                if (fh2.a) {
+                    Log.e(b(), "setVolume param type error");
                 }
             }
-            return c;
-        }
-        return (ll2) invokeV.objValue;
-    }
-
-    public SwanEditText a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            SwanEditText swanEditText = new SwanEditText(context);
-            this.b = swanEditText;
-            return swanEditText;
-        }
-        return (SwanEditText) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = null;
         }
     }
 
-    public SwanEditText c() {
-        InterceptResult invokeV;
+    public final void f(double d, Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b : (SwanEditText) invokeV.objValue;
-    }
-
-    public TextWatcher e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (TextWatcher) invokeV.objValue;
-    }
-
-    public void f(TextWatcher textWatcher) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
-            this.a = textWatcher;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), context}) == null) {
+            if (this.b == null) {
+                this.b = (AudioManager) context.getSystemService("audio");
+            }
+            AudioManager audioManager = this.b;
+            if (audioManager == null) {
+                return;
+            }
+            int round = (int) Math.round(audioManager.getStreamMaxVolume(3) * d);
+            if (round == this.b.getStreamVolume(3)) {
+                if (fh2.a) {
+                    Log.d("【InlineCommand】", "Setting same volume level, ignore : (" + round + SmallTailInfo.EMOTION_SUFFIX);
+                    return;
+                }
+                return;
+            }
+            if (d > 0.0d && round == 0) {
+                round = 1;
+            }
+            if (fh2.a) {
+                Log.d("【InlineCommand】", "setVolumeInt" + round);
+            }
+            this.b.setStreamVolume(3, round, 0);
         }
     }
 }

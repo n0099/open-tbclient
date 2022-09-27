@@ -1,48 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class ng9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ng9 {
 
-    public static float a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long[] b = b();
-            if (b[0] <= 0) {
-                return 0.0f;
-            }
-            return 1.0f - (((float) ((b[1] + b[2]) + b[3])) / ((float) b[0]));
-        }
-        return invokeV.floatValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void onCompletion();
+
+        boolean onError(int i, int i2, Object obj);
+
+        boolean onInfo(int i, int i2, Object obj);
     }
 
-    public static long[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            long[] jArr = new long[4];
-            try {
-                Method method = Class.forName("android.os.Process").getMethod("readProcLines", String.class, String[].class, long[].class);
-                long[] jArr2 = {30, -30};
-                Object[] objArr = {new String(HardwareInfoUtils.MEM_INFO_FILE), new String[]{"MemTotal:", "MemFree:", "Buffers:", "Cached:"}, jArr2};
-                if (method != null) {
-                    method.invoke(null, objArr);
-                    for (int i = 0; i < 4; i++) {
-                        jArr[i] = jArr2[i] / 1024;
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return jArr;
-        }
-        return (long[]) invokeV.objValue;
-    }
+    void release();
+
+    void setListener(a aVar);
+
+    void setSource(ArrayList<String> arrayList);
+
+    void start();
 }

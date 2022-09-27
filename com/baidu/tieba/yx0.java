@@ -1,62 +1,67 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xx0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class yx0<T extends xx0> extends wx0<T> {
+public final class yx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object c;
+    public zx0 a;
+    public wx0 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yx0(int i) {
-        super(i);
+    public yx0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new Object();
     }
 
-    @Override // com.baidu.tieba.wx0
-    @NonNull
-    public T a() {
+    public final wx0 a() {
         InterceptResult invokeV;
-        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this.c) {
-                t = (T) super.a();
-            }
-            return t;
-        }
-        return (T) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (wx0) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wx0
-    public void d(@NonNull T t) {
+    public final zx0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-            synchronized (this.c) {
-                super.d(t);
-            }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (zx0) invokeV.objValue;
+    }
+
+    public final void c(wx0 wx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wx0Var) == null) {
+            this.b = wx0Var;
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
+    public final void f(zx0 zx0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, zx0Var) == null) {
+            this.a = zx0Var;
         }
     }
 }

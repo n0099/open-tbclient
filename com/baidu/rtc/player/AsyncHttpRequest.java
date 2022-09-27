@@ -70,7 +70,7 @@ public class AsyncHttpRequest {
     public void request() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            new Thread(new Runnable() { // from class: com.baidu.tieba.ye1
+            new Thread(new Runnable() { // from class: com.baidu.tieba.lf1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

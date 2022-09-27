@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.facade.init.SwanAppInitHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
 @Service
 /* loaded from: classes5.dex */
-public class mp3 implements bo1 {
+public class mp3 implements ho1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,10 +28,38 @@ public class mp3 implements bo1 {
         }
     }
 
-    @Override // com.baidu.tieba.bo1
-    public mi4 l() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ho1
+    public void a() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new lp3() : (mi4) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d();
+        }
+    }
+
+    @Override // com.baidu.tieba.ho1
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            d();
+        }
+    }
+
+    @Override // com.baidu.tieba.ho1
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d();
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (SwanAppInitHelper.class) {
+                if (SwanAppInitHelper.isDelayInit()) {
+                    SwanAppInitHelper.initModules(AppRuntime.getApplication(), false);
+                }
+            }
+        }
     }
 }

@@ -1,63 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
-import tbclient.ReplyMe.ReplyMeResIdl;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pd7 extends nd7 implements ab5, gb5 {
+public class pd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public pd7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public int h;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.bb5
-    public String getCacheKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "replyme_cache" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ab5
-    public boolean initByByteArray(byte[] bArr) {
+    public static a a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            a aVar = new a();
             try {
-                initByProtobuf((ReplyMeResIdl) new Wire(new Class[0]).parseFrom(bArr, ReplyMeResIdl.class));
-                return true;
-            } catch (IOException e) {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() > 0) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
+                    optJSONObject.optString("title");
+                    aVar.b = optJSONObject.optString("content");
+                    aVar.c = optJSONObject.optString("quote_content");
+                    aVar.d = optJSONObject.optString("fname");
+                    aVar.e = optJSONObject.optString("thread_id");
+                    aVar.f = optJSONObject.optString("post_id");
+                    aVar.h = optJSONObject.optInt("type");
+                    aVar.g = optJSONObject.optString("title");
+                    optJSONObject.optInt("thread_type");
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject("quote_user");
+                    if (optJSONObject2 != null) {
+                        optJSONObject2.optString("id");
+                        optJSONObject2.optString("portrait");
+                        optJSONObject2.optInt("gender");
+                    }
+                    JSONObject optJSONObject3 = optJSONObject.optJSONObject("replyer");
+                    if (optJSONObject3 != null) {
+                        optJSONObject3.optString("id");
+                        aVar.a = optJSONObject3.optInt("gender");
+                    }
+                }
+                return aVar;
+            } catch (JSONException e) {
                 e.printStackTrace();
-                return false;
+                return null;
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ab5
-    public byte[] toCacheByteArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (byte[]) invokeV.objValue;
+        return (a) invokeL.objValue;
     }
 }

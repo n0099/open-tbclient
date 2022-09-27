@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,13 +10,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vp2 implements xs2 {
+public class vp2 extends xp2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
+    public String z;
 
     public vp2() {
         Interceptable interceptable = $ic;
@@ -30,27 +28,25 @@ public class vp2 implements xs2 {
                 return;
             }
         }
-        this.a = Integer.MIN_VALUE;
-        this.b = Integer.MIN_VALUE;
-        this.c = -1;
-        this.d = -1;
+        this.z = "";
     }
 
-    @Override // com.baidu.tieba.xs2
+    @Override // com.baidu.tieba.xp2, com.baidu.tieba.bz1, com.baidu.tieba.kt2
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("left") && jSONObject.has("top")) {
-            this.a = pg3.g(jSONObject.optInt("left"));
-            this.b = pg3.g(jSONObject.optInt("top"));
-            this.c = jSONObject.has("width") ? Math.abs(pg3.g(jSONObject.optInt("width"))) : -1;
-            this.d = jSONObject.has("height") ? Math.abs(pg3.g(jSONObject.optInt("height"))) : -1;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        super.a(jSONObject);
+        this.z = jSONObject.optString("cb");
+        jSONObject.optDouble("latitude");
+        jSONObject.optDouble("longitude");
     }
 
-    @Override // com.baidu.tieba.xs2
+    @Override // com.baidu.tieba.bz1, com.baidu.tieba.kt2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? (this.a == Integer.MIN_VALUE || this.b == Integer.MIN_VALUE) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? !TextUtils.isEmpty(this.z) : invokeV.booleanValue;
     }
 }

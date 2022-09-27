@@ -1,84 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import tbclient.PbPage.PbSortType;
 /* loaded from: classes6.dex */
-public class wv7 {
+public class wv7 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId i;
+    public static final BdUniqueId j;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public BdUniqueId b;
+    public int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
+    public List<PbSortType> g;
+    public boolean h;
 
-    public static void a(int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(65536, null, i) == null) || TbadkCoreApplication.getInst().getFontSize() == i) {
-            return;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284113, "Lcom/baidu/tieba/wv7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948284113, "Lcom/baidu/tieba/wv7;");
+                return;
+            }
         }
-        TbadkCoreApplication.getInst().setFontSize(i);
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
+        i = BdUniqueId.gen();
+        j = BdUniqueId.gen();
     }
 
-    public static String b() {
+    public wv7(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = j;
+        this.c = 0;
+        this.d = false;
+        this.b = bdUniqueId;
+    }
+
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int fontSize = TbadkCoreApplication.getInst().getFontSize();
-            if (fontSize == 0) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1451);
-            }
-            if (fontSize == 1) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f144e);
-            }
-            if (fontSize == 2) {
-                return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f144f);
-            }
-            return TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1450);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            int fontSize = TbadkCoreApplication.getInst().getFontSize();
-            int i = 3;
-            if (fontSize == 0) {
-                i = 1;
-            } else if (fontSize == 1) {
-                i = 2;
-            }
-            if (fontSize != i) {
-                TbadkCoreApplication.getInst().setFontSize(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
-            }
-            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
-            b.e(R.drawable.icon_word_t_size);
-            b.c(0);
-            b.i();
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            int fontSize = TbadkCoreApplication.getInst().getFontSize();
-            int i = 2;
-            if (fontSize == 0 || fontSize == 1) {
-                i = 0;
-            } else if (fontSize == 2) {
-                i = 1;
-            }
-            if (fontSize != i) {
-                TbadkCoreApplication.getInst().setFontSize(i);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004018));
-            }
-            BdToast b = BdToast.b(TbadkCoreApplication.getInst(), b());
-            b.e(R.drawable.icon_word_t_size);
-            b.c(0);
-            b.i();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (BdUniqueId) invokeV.objValue;
     }
 }

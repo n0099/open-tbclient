@@ -1,182 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.newdetail.HotTopicDetailActivity;
-import com.baidu.tieba.newdetail.view.HotTopicDetailSpecialItem;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.myCollection.baseEditMark.MarkModel;
+import com.baidu.tieba.qo4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bq7 extends qn<rq7, b> {
+public class bq7 extends qo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<HotTopicDetailActivity> a;
-    public dp4<rq7> b;
+    public MarkModel a;
 
-    /* loaded from: classes3.dex */
-    public class a implements dp4<rq7> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bq7 a;
-
-        public a(bq7 bq7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bq7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bq7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dp4
-        /* renamed from: a */
-        public void d(View view2, rq7 rq7Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, rq7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dp4
-        /* renamed from: b */
-        public void c(View view2, rq7 rq7Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, rq7Var, Integer.valueOf(i), Long.valueOf(j)}) == null) || rq7Var == null || this.a.a == null) {
-                return;
-            }
-            aq7.a("c13820", rq7Var, i, ((HotTopicDetailActivity) this.a.a.getOrignalPage()).B1());
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HotTopicDetailSpecialItem a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(HotTopicDetailSpecialItem hotTopicDetailSpecialItem) {
-            super(hotTopicDetailSpecialItem);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hotTopicDetailSpecialItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hotTopicDetailSpecialItem;
-        }
-
-        public void a(rq7 rq7Var) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeL(1048576, this, rq7Var) == null) || rq7Var == null) {
-                return;
-            }
-            this.a.a(rq7Var);
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.a.c(i);
-            }
-        }
-
-        public void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                this.a.setCurrentTopicId(str);
-            }
-        }
-
-        public void d(dp4<rq7> dp4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, dp4Var) == null) {
-                this.a.setOnItemCoverListener(dp4Var);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bq7(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), qq7.a);
+    public bq7(BaseActivity baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
-        this.a = tbPageContext;
+        this.a = null;
+        this.a = new MarkModel(baseActivity);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public b onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qo4
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            b bVar = new b(new HotTopicDetailSpecialItem(viewGroup.getContext()));
-            bVar.c(this.a.getOrignalPage().B1());
-            bVar.d(this.b);
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return bVar;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.C();
         }
-        return (b) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, rq7 rq7Var, b bVar) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.qo4
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, rq7Var, bVar})) == null) {
-            if (rq7Var == null || bVar == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.D();
+        }
+    }
+
+    @Override // com.baidu.tieba.qo4
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.E() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qo4
+    public MarkData f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.F() : (MarkData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qo4
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.a.G() : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qo4
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.a.H(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.qo4
+    public void i(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
+            this.a.I(markData);
+        }
+    }
+
+    @Override // com.baidu.tieba.qo4
+    public void j(qo4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+            this.a.J(aVar);
+        }
+    }
+
+    public bq7(BaseFragmentActivity baseFragmentActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragmentActivity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            bVar.a(rq7Var);
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return bVar.getView();
         }
-        return (View) invokeCommon.objValue;
+        this.a = null;
+        this.a = new MarkModel(baseFragmentActivity);
     }
 }

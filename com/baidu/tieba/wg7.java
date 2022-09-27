@@ -1,7 +1,8 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface wg7 {
-    void a(int i);
 
-    void b(float f);
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+/* loaded from: classes6.dex */
+public interface wg7<T extends ICardInfo> {
+    void doLoad(T t, TbPageContext tbPageContext);
 }

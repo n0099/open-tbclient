@@ -1,38 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ws9 implements Cloneable {
+public final class ws9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public HashMap<String, String> h;
+    public final float a;
+    public final float b;
 
-    public ws9() {
+    public ws9(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,179 +28,19 @@ public class ws9 implements Cloneable {
                 return;
             }
         }
-        this.b = "";
-        this.c = "";
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "";
-        this.h = new HashMap<>();
+        this.a = f;
+        this.b = f2;
     }
 
-    public String a(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            if (z) {
-                return m(this.b);
-            }
-            return this.b;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public Context b() {
+    public final float a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : (Context) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.floatValue;
     }
 
-    public String c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            if (this.h.isEmpty()) {
-                return "";
-            }
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : this.h.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException unused) {
-                    return "";
-                }
-            }
-            if (z) {
-                return m(jSONObject.toString());
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public Object clone() {
+    public final float b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            try {
-                ws9 ws9Var = (ws9) super.clone();
-                HashMap<String, String> hashMap = new HashMap<>();
-                for (Map.Entry<String, String> entry : ws9Var.h.entrySet()) {
-                    hashMap.put(entry.getKey(), entry.getValue());
-                }
-                ws9Var.h = hashMap;
-                return ws9Var;
-            } catch (CloneNotSupportedException unused) {
-                return null;
-            }
-        }
-        return invokeV.objValue;
-    }
-
-    public String d(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            if (z) {
-                return m(this.d);
-            }
-            return this.d;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String e(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            if (z) {
-                return m(this.f);
-            }
-            return this.f;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            if (z) {
-                return m(this.c);
-            }
-            return this.c;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
-            if (z) {
-                return m(this.g);
-            }
-            return this.g;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public String h(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            if (z) {
-                return m(this.e);
-            }
-            return this.e;
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
-            this.a = context.getApplicationContext();
-        }
-    }
-
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    public final String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? (this.a == null || TextUtils.isEmpty(this.b) || TextUtils.isEmpty(this.d) || TextUtils.isEmpty(this.e)) ? false : true : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.floatValue;
     }
 }

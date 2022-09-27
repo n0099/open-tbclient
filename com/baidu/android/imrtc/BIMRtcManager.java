@@ -43,7 +43,7 @@ import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.internal.MessageFactory;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
-import com.baidu.tieba.o70;
+import com.baidu.tieba.b80;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -565,7 +565,7 @@ public class BIMRtcManager {
                 creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_INFO, bIMRtcInfo.toRtcInfoString());
                 creatMethodIntent.putExtra(RtcConstants.EXTRA_RTC_ACTION_ID, i);
                 creatMethodIntent.putExtra("rtc_room_id", bIMRtcInfo.getRtcRoomId());
-                o70.g(mContext).f(mContext, creatMethodIntent);
+                b80.g(mContext).f(mContext, creatMethodIntent);
                 trackRequest(bIMRtcInfo, 230, i, "c_send_request", -1);
                 mBIMRtcEvent.sdkAction = i;
                 mBIMRtcEvent.sdkSeqId = RtcConstants.IM_RTC_SDK_SEQ_ID.get();

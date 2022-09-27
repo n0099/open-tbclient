@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken.backUser;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fm4;
+import com.baidu.tieba.sm4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.Error;
 public class BackUserSocketResMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fm4 mData;
+    public sm4 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public BackUserSocketResMsg() {
@@ -50,9 +50,9 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
                     setErrorString(backUserResIdl.error.usermsg);
                 }
                 if (backUserResIdl.data != null) {
-                    fm4 fm4Var = new fm4();
-                    this.mData = fm4Var;
-                    fm4Var.a(backUserResIdl.data);
+                    sm4 sm4Var = new sm4();
+                    this.mData = sm4Var;
+                    sm4Var.a(backUserResIdl.data);
                 }
             }
             return backUserResIdl;
@@ -60,9 +60,9 @@ public class BackUserSocketResMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public fm4 getData() {
+    public sm4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (fm4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mData : (sm4) invokeV.objValue;
     }
 }

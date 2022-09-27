@@ -1,75 +1,125 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.CommonInteraction;
 /* loaded from: classes3.dex */
-public class e67 implements Cdo {
+public class e67 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public long c;
-    public long d;
-    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686371, "Lcom/baidu/tieba/e67;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947686371, "Lcom/baidu/tieba/e67;");
-                return;
-            }
-        }
-        f = BdUniqueId.gen();
-    }
-
-    public e67() {
+    public static void a(p26 p26Var, StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public void a(CommonInteraction commonInteraction) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, commonInteraction) == null) || commonInteraction == null) {
+        if (!(interceptable == null || interceptable.invokeLL(65536, null, p26Var, statisticItem) == null) || p26Var == null || p26Var.getThreadData() == null || statisticItem == null) {
             return;
         }
-        String str = commonInteraction.module_name;
-        String str2 = commonInteraction.ques_desc;
-        this.a = commonInteraction.total_num.longValue();
-        this.b = commonInteraction.has_clicked.intValue();
-        String str3 = commonInteraction.before_click_pic;
-        String str4 = commonInteraction.after_click_pic;
-        this.c = commonInteraction.pk_id.longValue();
-        this.d = commonInteraction.user_pk_id.longValue();
+        if (p26Var.getThreadData().getBaijiahaoData() != null) {
+            BaijiahaoData baijiahaoData = p26Var.getThreadData().getBaijiahaoData();
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData.oriUgcNid);
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData.oriUgcVid);
+            return;
+        }
+        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
     }
 
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public static boolean b(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? f : (BdUniqueId) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
+            if (threadData == null || threadData.isShareThread) {
+                return false;
+            }
+            int i = threadData.threadType;
+            return i == 0 || i == 11 || i == 40 || threadData.isUgcThreadType();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void c(yq4 yq4Var, Context context, int i, boolean z, Rect rect) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{yq4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) || yq4Var == null || yq4Var.getThreadData() == null || context == null) {
+            return;
+        }
+        ThreadData threadData = yq4Var.getThreadData();
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, "video_tab", 18003, true, false, false);
+        createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
+        createFromThreadCfg.setFrom("from_video_tab");
+        createFromThreadCfg.setForumName(threadData.getForum_name());
+        createFromThreadCfg.setStartFrom(i);
+        createFromThreadCfg.setVideoOriginArea(rect);
+        if (yq4Var.getPbInputLocate() != null) {
+            createFromThreadCfg.addLocateParam(yq4Var.getPbInputLocate());
+        }
+        if (TbSingleton.getInstance().isPbPreloadSwitchOn() && b(threadData)) {
+            createFromThreadCfg.setNeedPreLoad(true);
+            eh6.update(threadData);
+        }
+        createFromThreadCfg.setVideo_source("video_tab");
+        createFromThreadCfg.setJumpGodReply(z);
+        t16.a(threadData.getTid());
+        MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
+    }
+
+    public static void d(p26 p26Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65539, null, p26Var) == null) || p26Var == null || (w = p26Var.w("c13583", true)) == null) {
+            return;
+        }
+        a(p26Var, w);
+        TiebaStatic.log(w);
+    }
+
+    public static void e(p26 p26Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, p26Var) == null) || p26Var == null || (w = p26Var.w("c13584", true)) == null) {
+            return;
+        }
+        a(p26Var, w);
+        w.param(TiebaStatic.Params.OBJ_FLOOR, p26Var.position + 1);
+        TiebaStatic.log(w);
+    }
+
+    public static void f(p26 p26Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65541, null, p26Var) == null) || p26Var == null || (w = p26Var.w("c13585", true)) == null) {
+            return;
+        }
+        a(p26Var, w);
+        TiebaStatic.log(w);
+    }
+
+    public static void g(p26 p26Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65542, null, p26Var) == null) || p26Var == null || (w = p26Var.w("c13586", true)) == null) {
+            return;
+        }
+        a(p26Var, w);
+        TiebaStatic.log(w);
+    }
+
+    public static void h(p26 p26Var) {
+        StatisticItem w;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65543, null, p26Var) == null) || p26Var == null || (w = p26Var.w("c13587", true)) == null) {
+            return;
+        }
+        a(p26Var, w);
+        TiebaStatic.log(w);
     }
 }

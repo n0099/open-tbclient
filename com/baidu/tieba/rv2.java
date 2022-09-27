@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.d83;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,224 +15,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class rv2 {
+public class rv2 implements yi4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static final String[] h;
-    public static final Map<String, String> i;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
-    public y23 b;
-    public SwanAppActivity c;
-    public PaymentManager d;
-    public String e;
-    public String f;
-
-    /* loaded from: classes5.dex */
-    public class a implements rh3<b83<d83.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ rv2 c;
-
-        public a(rv2 rv2Var, JSONObject jSONObject, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rv2Var, jSONObject, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = rv2Var;
-            this.a = jSONObject;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rh3
-        /* renamed from: b */
-        public void a(b83<d83.e> b83Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b83Var) == null) {
-                if (w73.h(b83Var)) {
-                    this.c.p(this.a, this.b);
-                    return;
-                }
-                yz1.i("SwanAppThirdPayment", "authorize fail");
-                r93.H(false, this.c.f, r93.m("", "authorize fail"));
-                this.c.i(new yu1(b83Var.b(), w73.f(b83Var.b())));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements kj1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ rv2 c;
-
-        public b(rv2 rv2Var, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rv2Var, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = rv2Var;
-            this.a = str;
-            this.b = jSONObject;
-        }
-
-        @Override // com.baidu.tieba.kj1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    r93.J(this.c.f, true, false);
-                    r93.S("success", 13, this.a);
-                    this.c.l(this.b);
-                    return;
-                }
-                yz1.i("SwanAppThirdPayment", "login fail");
-                r93.H(false, this.c.f, r93.m("", "login error"));
-                r93.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 13, this.a);
-                r93.J(this.c.f, false, false);
-                this.c.i(new yu1(5, "login error"));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements t91 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ rv2 b;
-
-        public c(rv2 rv2Var, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rv2Var, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rv2Var;
-            this.a = jSONObject;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:29:0x0088  */
-        /* JADX WARN: Removed duplicated region for block: B:30:0x009a  */
-        /* JADX WARN: Removed duplicated region for block: B:32:0x00c7  */
-        /* JADX WARN: Removed duplicated region for block: B:44:0x0059 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        @Override // com.baidu.tieba.t91
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onPayResult(int i, String str) {
-            JSONObject jSONObject;
-            JSONException e;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                yz1.b("SwanAppThirdPayment", "pay result from nuomi: code:" + i + ", result: " + str);
-                JSONObject jSONObject2 = new JSONObject();
-                Object obj = null;
-                try {
-                    jSONObject = new JSONObject(str);
-                    try {
-                        obj = jSONObject.remove("returnData");
-                        jSONObject.remove("msg");
-                        jSONObject.remove("statusCode");
-                    } catch (JSONException e2) {
-                        e = e2;
-                        if (rv2.g) {
-                            Log.e("SwanAppThirdPayment", Log.getStackTraceString(e));
-                        }
-                        if (obj != null) {
-                        }
-                        if (i != 0) {
-                        }
-                        if (i != 1) {
-                        }
-                        String j = rv2.j(i, this.b.c);
-                        if (TextUtils.equals("WeChat", this.b.e)) {
-                            i = 0;
-                        }
-                        this.b.i(new yu1(i, j, jSONObject));
-                    }
-                } catch (JSONException e3) {
-                    jSONObject = jSONObject2;
-                    e = e3;
-                }
-                if (obj != null) {
-                    try {
-                        jSONObject.put("returnData", new JSONObject(String.valueOf(obj)));
-                    } catch (JSONException e4) {
-                        if (rv2.g) {
-                            Log.e("SwanAppThirdPayment", Log.getStackTraceString(e4));
-                        }
-                        try {
-                            jSONObject.put("returnData", obj);
-                        } catch (JSONException e5) {
-                            if (rv2.g) {
-                                Log.e("SwanAppThirdPayment", Log.getStackTraceString(e5));
-                            }
-                        }
-                    }
-                }
-                if (i != 0) {
-                    r93.H(true, this.b.f, this.b.k(str, this.a));
-                } else {
-                    yz1.i("SwanAppThirdPayment", "pay not success: code:" + i + ", result: " + str);
-                    r93.H(false, this.b.f, this.b.k(str, this.a));
-                }
-                if (i != 1) {
-                    r93.K(this.b.f, TiebaStatic.LogFields.RESULT, i);
-                }
-                String j2 = rv2.j(i, this.b.c);
-                if (TextUtils.equals("WeChat", this.b.e) && i == 1) {
-                    i = 0;
-                }
-                this.b.i(new yu1(i, j2, jSONObject));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public interface d {
-        void a(@NonNull yu1 yu1Var);
-    }
+    public Context a;
+    public Boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -249,180 +43,253 @@ public class rv2 {
                 return;
             }
         }
-        g = ij1.a;
-        h = new String[]{"dealId", "appKey", "totalAmount", "tpOrderId", "rsaSign", "dealTitle", "chosenChannel", "payInfo", "tradeNo", "mchIdMd5"};
-        HashMap hashMap = new HashMap();
-        i = hashMap;
-        hashMap.put("WeChat", "thirdPayWechatH5");
-        i.put("Alipay", "thirdPayAlipay");
+        c = vj1.a;
     }
 
-    public rv2(@NonNull y23 y23Var, @NonNull SwanAppActivity swanAppActivity, @NonNull d dVar) {
+    public rv2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {y23Var, swanAppActivity, dVar};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = "thirdPayUnknown";
-        this.b = y23Var;
-        this.c = swanAppActivity;
-        this.a = dVar;
-        this.d = new PaymentManager();
+        this.b = null;
+        this.a = AppRuntime.getAppContext();
     }
 
-    public static String j(int i2, Context context) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.tieba.yi4
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i2, context)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        return context.getString(R.string.obfuscated_res_0x7f0f126d);
-                    }
-                    return context.getString(R.string.obfuscated_res_0x7f0f126c);
-                }
-                return context.getString(R.string.obfuscated_res_0x7f0f126e);
-            }
-            return context.getString(R.string.obfuscated_res_0x7f0f126f);
-        }
-        return (String) invokeIL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? sm2.n().a() : (String) invokeV.objValue;
     }
 
-    public final void i(@NonNull yu1 yu1Var) {
+    @Override // com.baidu.tieba.yi4
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yu1Var) == null) {
-            this.a.a(yu1Var);
-            yz1.b("SwanAppThirdPayment", "pay result to js: " + yu1Var);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? wj1.a() : (String) invokeV.objValue;
     }
 
-    public final String k(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                JSONObject jSONObject3 = new JSONObject(str);
-                jSONObject2.put("orderId", jSONObject.opt("tpOrderId"));
-                jSONObject2.put("msg", jSONObject3.opt("msg"));
-            } catch (JSONException e) {
-                yz1.b("SwanAppThirdPayment", Log.getStackTraceString(e));
-                try {
-                    jSONObject2.put("orderId", jSONObject.opt("tpOrderId"));
-                    jSONObject2.put("msg", str);
-                } catch (JSONException e2) {
-                    yz1.b("SwanAppThirdPayment", Log.getStackTraceString(e2));
-                }
-            }
-            return jSONObject2.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final void l(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            r93.K(this.f, "intoPayment", 0);
-            try {
-                nv2.z(this.b, jSONObject);
-                jSONObject.put("tradeType", "DIRECTPAY");
-                jSONObject.put("panelType", HlsPlaylistParser.METHOD_NONE);
-            } catch (JSONException e) {
-                if (g) {
-                    Log.e("SwanAppThirdPayment", Log.getStackTraceString(e));
-                }
-            }
-            yz1.b("SwanAppThirdPayment", "orderInfo to nuomi: " + jSONObject);
-            this.d.j(this.c, jSONObject, null, new c(this, jSONObject));
-        }
-    }
-
-    public final yu1 m(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.yi4
+    public boolean c(String str) {
         InterceptResult invokeL;
-        String[] strArr;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new yu1(202, "parse orderInfo fail");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            hn1 g0 = sm2.g0();
+            if (g0 != null) {
+                g0.getSwitch("ANDROID_UBC_SAMPLE_" + str, "");
             }
-            for (String str : h) {
-                Object opt = jSONObject.opt(str);
-                if (opt == null) {
-                    return new yu1(202, str + " is necessary");
-                } else if (!(opt instanceof String)) {
-                    return new yu1(202, str + " must be a string");
-                } else if (TextUtils.isEmpty((String) opt)) {
-                    return new yu1(202, str + " is empty");
-                }
+            if (TextUtils.isEmpty("")) {
+                return false;
             }
-            Object opt2 = jSONObject.opt("returnData");
-            if (opt2 == null || (opt2 instanceof JSONObject)) {
+            try {
+                i = new JSONObject("").getInt("probability");
+            } catch (JSONException e) {
+                e.printStackTrace();
+                i = 0;
+            }
+            return new Random().nextInt(100) < i;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public ExecutorService d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? sm2.z0().d() : (ExecutorService) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void e(String str, int i, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, jSONArray) == null) {
+            sm2.z0().e(str, i, jSONArray);
+        }
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void f(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
+            sm2.z0().f(str, i);
+        }
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void g(String str, String str2, int i, String str3, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
+            sm2.z0().g(str, str2, i, str3, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public String getAppId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            l33 D = yo2.U().D();
+            return D != null ? D.b : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public String getAppVersion() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            l33 D = yo2.U().D();
+            return D != null ? D.Y().v1() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public String getDeviceId(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) ? sm2.h0().i(sm2.c()) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public String getScene() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            l33 D = yo2.U().D();
+            return D != null ? D.W().T() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            hn1 g0 = sm2.g0();
+            return g0 != null ? g0.getExpInfos() : "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void i(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048588, this, str, i, str2) == null) {
+            sm2.z0().i(str, i, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) ? sm2.g0().j() : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? k33.K().k() : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public zi4 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? sm2.O().l() : (zi4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) ? qc3.h(k()) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public void n(String str, String str2, int i, String str3, long j, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
+            sm2.z0().n(str, str2, i, str3, j, i2);
+        }
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public String o(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) ? xj4.b(context).a() : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            if (this.b == null) {
+                sm2.g0().getSwitch("swan_ceres_add_counter", false);
+                this.b = false;
+            }
+            return this.b.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) ? kz2.X() && (r() || vj1.b) : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return c && PreferenceManager.getDefaultSharedPreferences(sm2.c()).getBoolean("KEY_UBC_DEBUG", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yi4
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            String b = sm2.n().b();
+            if (fh3.G() || TextUtils.isEmpty(b)) {
                 return null;
             }
-            return new yu1(202, "returnData must be a object");
+            return b;
         }
-        return (yu1) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void n(@Nullable JSONObject jSONObject, @NonNull String str) {
+    @Override // com.baidu.tieba.yi4
+    public String t() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, jSONObject, str) == null) {
-            r93.K(this.f, "create", 0);
-            yu1 m = m(jSONObject);
-            if (m != null) {
-                yz1.i("SwanAppThirdPayment", "orderInfo param error: " + m);
-                r93.H(false, this.f, r93.m("", "orderInfo param error"));
-                i(m);
-                return;
-            }
-            String optString = jSONObject.optString("chosenChannel");
-            this.e = optString;
-            String str2 = i.get(optString);
-            this.f = str2;
-            if (TextUtils.isEmpty(str2)) {
-                yz1.i("SwanAppThirdPayment", "orderInfo param error: chosen channel error");
-                r93.H(false, "thirdPayUnknown", r93.m("", "orderInfo param error: chosen channel error"));
-                i(new yu1(202, "chosenChannel error"));
-                return;
-            }
-            o(jSONObject, str);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) ? f02.b() : (String) invokeV.objValue;
     }
 
-    public final void o(JSONObject jSONObject, String str) {
+    @Override // com.baidu.tieba.yi4
+    public String u(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, str) == null) {
-            this.b.e0().g(this.c, "scope_request_thirdpayment", new a(this, jSONObject, str));
-        }
-    }
-
-    public final void p(JSONObject jSONObject, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, jSONObject, str) == null) {
-            if (!o91.a().b(this.c)) {
-                SwanAppActivity swanAppActivity = this.c;
-                q23.g(swanAppActivity, swanAppActivity.getText(R.string.obfuscated_res_0x7f0f01ea)).G();
-                r93.H(false, "wechatH5Action", r93.m("", "Error: wechat not install. "));
-                i(new yu1(1002, "had not installed WeChat"));
-                return;
-            }
-            r93.K(this.f, "login", 0);
-            if (this.b.N().e(this.c)) {
-                r93.J(this.f, true, true);
-                l(jSONObject);
-                return;
-            }
-            r93.S("show", 13, str);
-            this.b.N().f(this.c, null, new b(this, str, jSONObject));
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, context)) == null) ? sm2.h0().h(sm2.c()) : (String) invokeL.objValue;
     }
 }

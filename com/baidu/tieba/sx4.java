@@ -1,91 +1,227 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class sx4 extends ImageSpan {
+public class sx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
+    public TbPageContext<?> a;
+    public Activity b;
+    public AlertDialog c;
+    public String d;
+    public TextView e;
+    public DialogInterface.OnCancelListener f;
+    public boolean g;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sx4(Drawable drawable) {
-        super(drawable);
+    public sx4(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.g = true;
+        this.a = tbPageContext;
+        if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
+            return;
+        }
+        this.b = this.a.getPageActivity();
+    }
+
+    public final sx4 a(DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeL;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
+            if (this.b == null) {
+                return this;
+            }
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.c = create;
+            ih.i(create, this.b);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0209, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090755);
+            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
+                textView.setText(this.d);
+            }
+            AlertDialog alertDialog = this.c;
+            if (alertDialog != null && alertDialog.getWindow() != null) {
+                this.c.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.c.setCancelable(true);
+                    this.c.setCanceledOnTouchOutside(true);
+                    this.c.setOnCancelListener(onCancelListener);
+                } else {
+                    this.c.setCanceledOnTouchOutside(false);
+                    this.c.setCancelable(false);
+                }
+            }
+            return this;
+        }
+        return (sx4) invokeL.objValue;
+    }
+
+    public final sx4 b(DialogInterface.OnCancelListener onCancelListener) {
+        InterceptResult invokeL;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onCancelListener)) == null) {
+            if (this.b == null) {
+                return this;
+            }
+            AlertDialog create = new AlertDialog.Builder(this.b).create();
+            this.c = create;
+            ih.i(create, this.b);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0209, (ViewGroup) null);
+            this.e = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090755);
+            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
+                textView.setText(this.d);
+            }
+            AlertDialog alertDialog = this.c;
+            if (alertDialog != null && alertDialog.getWindow() != null) {
+                this.c.getWindow().setContentView(inflate);
+                if (onCancelListener != null) {
+                    this.c.setOnCancelListener(onCancelListener);
+                }
+            }
+            return this;
+        }
+        return (sx4) invokeL.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AlertDialog alertDialog = this.c;
+            return alertDialog != null && alertDialog.isShowing();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void e(DialogInterface.OnCancelListener onCancelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onCancelListener) == null) {
+            this.f = onCancelListener;
+        }
+    }
+
+    public void f(boolean z) {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048581, this, z) == null) || (alertDialog = this.c) == null) {
+            return;
+        }
+        alertDialog.setCancelable(z);
+    }
+
+    public void g(boolean z) {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048582, this, z) == null) || (alertDialog = this.c) == null) {
+            return;
+        }
+        alertDialog.setCanceledOnTouchOutside(z);
+    }
+
+    @Nullable
+    public Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.b : (Activity) invokeV.objValue;
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            if (z) {
+                if (this.g) {
+                    a(this.f);
+                    return;
+                } else {
+                    b(this.f);
+                    return;
+                }
+            }
+            ih.a(this.c, this.b);
+        }
+    }
+
+    public void i(int i) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048585, this, i) == null) || (activity = this.b) == null) {
+            return;
+        }
+        this.d = activity.getString(i);
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d = str;
+            TextView textView = this.e;
+            if (textView != null) {
+                textView.setText(str);
+            }
+        }
+    }
+
+    public sx4(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            Drawable drawable = weakReference != null ? weakReference.get() : null;
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f, ((i5 - a.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
-            a.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Rect bounds = a().getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right;
-        }
-        return invokeCommon.intValue;
+        this.a = null;
+        this.b = null;
+        this.d = null;
+        this.e = null;
+        this.g = true;
+        this.b = activity;
     }
 }

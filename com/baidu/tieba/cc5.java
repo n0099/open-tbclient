@@ -1,70 +1,101 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tieba.ob5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cc5 {
+public class cc5<T extends ob5> extends zb5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(ArrayList<String> arrayList, String str, int i) {
-        InterceptResult invokeLLI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cc5(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, arrayList, str, i)) == null) {
-            ArrayList arrayList2 = new ArrayList();
-            if (!ListUtils.isEmpty(arrayList)) {
-                arrayList2.addAll(arrayList);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (!TextUtils.isEmpty(str)) {
-                arrayList2.add(str);
-            }
-            List<String> c = c(arrayList2, i);
-            if (ListUtils.isEmpty(c)) {
-                return null;
-            }
-            return b(c);
         }
-        return (String) invokeLLI.objValue;
     }
 
-    public static String b(List<String> list) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         InterceptResult invokeL;
+        String k;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.getCount(list) <= 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage == null || !(customMessage instanceof WriteCacheMessage)) {
                 return null;
             }
-            StringBuilder sb = new StringBuilder();
-            boolean z = false;
-            for (String str : list) {
-                if (!StringUtils.isNull(str)) {
-                    if (!z && !StringUtils.isNull(sb.toString())) {
-                        z = true;
+            WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
+            WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            ob5 ob5Var = (ob5) a();
+            if (ob5Var != null) {
+                if (ob5Var instanceof nb5) {
+                    mu4.f();
+                    jf<byte[]> e = mu4.e(this.b, currentAccount);
+                    if (writeCacheMessage.isClear()) {
+                        ob5 ob5Var2 = (ob5) writeCacheMessage.getData();
+                        if (ob5Var2 == null) {
+                            BdCacheService.k().j(e);
+                        } else {
+                            e.remove(ob5Var2.getCacheKey());
+                        }
+                        writeCacheRespMsg.setSuccess(true);
+                    } else {
+                        ob5 ob5Var3 = (ob5) writeCacheMessage.getData();
+                        if (ob5Var3 == null) {
+                            return writeCacheRespMsg;
+                        }
+                        e.g(ob5Var3.getCacheKey(), ((nb5) ob5Var3).toCacheByteArray());
+                        writeCacheRespMsg.setSuccess(true);
                     }
-                    if (z) {
-                        sb.append("_");
+                } else if (ob5Var instanceof qb5) {
+                    mu4.f();
+                    jf<String> h = mu4.h(this.b, currentAccount);
+                    if (writeCacheMessage.isClear()) {
+                        ob5 ob5Var4 = (ob5) writeCacheMessage.getData();
+                        if (ob5Var4 == null) {
+                            BdCacheService.k().j(h);
+                        } else {
+                            h.remove(ob5Var4.getCacheKey());
+                        }
+                        writeCacheRespMsg.setSuccess(true);
+                    } else {
+                        ob5 ob5Var5 = (ob5) writeCacheMessage.getData();
+                        if (ob5Var5 != null && (k = ((qb5) ob5Var5).k()) != null) {
+                            h.g(ob5Var5.getCacheKey(), k);
+                            writeCacheRespMsg.setSuccess(true);
+                        }
                     }
-                    sb.append(str);
                 }
             }
-            return sb.toString();
+            return writeCacheRespMsg;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static List<String> c(List<String> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            int count = ListUtils.getCount(list);
-            return (count <= 0 || i < 0 || count <= i) ? list : ListUtils.subList(list, count - i, count);
-        }
-        return (List) invokeLI.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

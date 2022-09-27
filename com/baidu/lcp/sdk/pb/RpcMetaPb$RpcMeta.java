@@ -6,7 +6,7 @@ import com.baidu.lcp.sdk.pb.RpcMetaPb$ChunkInfo;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcNotifyMeta;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcRequestMeta;
 import com.baidu.lcp.sdk.pb.RpcMetaPb$RpcResponseMeta;
-import com.baidu.tieba.o80;
+import com.baidu.tieba.b90;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -248,7 +248,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                RpcMetaPb$RpcMeta rpcMetaPb$RpcMeta = new RpcMetaPb$RpcMeta(this, (o80) null);
+                RpcMetaPb$RpcMeta rpcMetaPb$RpcMeta = new RpcMetaPb$RpcMeta(this, (b90) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 rpcMetaPb$RpcMeta.request_ = this.b;
@@ -544,7 +544,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         rpcMetaPb$RpcMeta.initFields();
     }
 
-    public /* synthetic */ RpcMetaPb$RpcMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, o80 o80Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ RpcMetaPb$RpcMeta(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, b90 b90Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -803,7 +803,7 @@ public final class RpcMetaPb$RpcMeta extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ RpcMetaPb$RpcMeta(GeneratedMessageLite.Builder builder, o80 o80Var) {
+    public /* synthetic */ RpcMetaPb$RpcMeta(GeneratedMessageLite.Builder builder, b90 b90Var) {
         this(builder);
     }
 

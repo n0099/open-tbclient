@@ -1,36 +1,71 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.text.TextUtils;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.StyleSpan;
-import android.widget.TextView;
-import com.baidu.tbadk.core.util.SkinManager;
+import android.content.Context;
+import android.widget.LinearLayout;
+import com.baidu.tbadk.editortools.RawLayout;
+import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ti7 {
+public class ti7 extends s55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(TextView textView, String str, String str2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ti7(Context context) {
+        super(context, (String) null, 8);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65536, null, textView, str, str2) == null) || textView == null || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-            return;
-        }
-        String lowerCase = str.toLowerCase();
-        String lowerCase2 = str2.trim().toLowerCase();
-        textView.setText(str);
-        int indexOf = lowerCase.indexOf(lowerCase2);
-        if (indexOf >= 0) {
-            ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0107));
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-            spannableStringBuilder.setSpan(foregroundColorSpan, indexOf, lowerCase2.length() + indexOf, 33);
-            if (indexOf > 0) {
-                spannableStringBuilder.setSpan(new StyleSpan(1), 0, indexOf, 33);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            spannableStringBuilder.setSpan(new StyleSpan(1), indexOf + lowerCase2.length(), lowerCase.length(), 33);
-            textView.setText(spannableStringBuilder);
         }
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        this.p = new int[]{20, 19};
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ti7(Context context, boolean z) {
+        super(context, (String) null, 8);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.o = false;
+        this.n = 3;
+        this.m = new PbLocationInfoContainer(context);
+        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, ej.f(getContext(), R.dimen.obfuscated_res_0x7f0702cb));
+        ((LinearLayout.LayoutParams) layoutParams).leftMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).rightMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070207);
+        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
+        ((LinearLayout.LayoutParams) layoutParams).topMargin = ej.f(getContext(), R.dimen.obfuscated_res_0x7f070272);
+        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
+        this.p = new int[]{20, 19};
     }
 }

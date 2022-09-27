@@ -1,22 +1,10 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
+import android.content.DialogInterface;
+import com.baidu.tieba.p23;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface mn1 {
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void onResult(String str);
-    }
-
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
-
-    void b(Context context, String str, String str2, String str3);
-
-    void c(HashMap<String, String> hashMap, File file, a aVar);
-
-    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+    p23.a a(Context context, l33 l33Var, l83 l83Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

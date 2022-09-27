@@ -7,9 +7,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.as8;
-import com.baidu.tieba.dm8;
 import com.baidu.tieba.pb;
+import com.baidu.tieba.ps8;
+import com.baidu.tieba.sm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,9 +78,9 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
                     this.a.c = setPendantSocketResponse.getFreeUseLevel();
                 }
                 if (this.a.e != null) {
-                    int i = as8.b;
-                    if (responsedMessage.getError() == as8.c) {
-                        i = as8.a;
+                    int i = ps8.b;
+                    if (responsedMessage.getError() == ps8.c) {
+                        i = ps8.a;
                     }
                     this.a.e.l1(this.a.d, this.a.a, this.a.c, responsedMessage.getErrorString(), i);
                 }
@@ -108,8 +108,8 @@ public class SetAvatarPendantModel extends BdBaseModel<BaseActivity<Object>> {
         }
         this.d = false;
         this.f = new a(this, CmdConfigHttp.CMD_SET_PENDANT, 309412);
-        dm8.h(309412, SetPendantSocketResponse.class, false, false);
-        dm8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
+        sm8.h(309412, SetPendantSocketResponse.class, false, false);
+        sm8.c(309412, CmdConfigHttp.CMD_SET_PENDANT, TbConfig.SET_PENDANT, SetPendantHttpResponse.class, true, true, true, true);
         registerListener(this.f);
     }
 

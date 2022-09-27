@@ -1,129 +1,55 @@
 package com.baidu.tieba;
 
-import android.widget.FrameLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class hr6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsFragment a;
-    public mi6 b;
-    public TextView c;
-    public boolean d;
-    public int e;
 
-    public hr6(FrsFragment frsFragment) {
+    public static void a(@NonNull StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = -1;
-        if (frsFragment != null) {
-            this.a = frsFragment;
-            if (UtilHelper.canUseStyleImmersiveSticky()) {
-                UtilHelper.getStatusBarHeight();
-                return;
-            }
-            return;
-        }
-        throw new NullPointerException("FrsFragment is null");
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i >= 0) {
-                d(true);
-                e(i);
-                return;
-            }
-            d(false);
-            e(i);
+        if (interceptable == null || interceptable.invokeL(65536, null, statisticItem) == null) {
+            statisticItem.param("obj_param1", c());
         }
     }
 
-    public void b() {
-        int i;
+    public static void b(@NonNull StatisticItem statisticItem, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.d && (i = this.e) >= 0) {
-                f(i);
-            }
-            this.d = false;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, statisticItem, str, str2) == null) {
+            statisticItem.param("fid", str);
+            statisticItem.param("fname", str2);
         }
     }
 
-    public void c() {
-        mi6 mi6Var;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || (mi6Var = this.b) == null) {
-            return;
-        }
-        mi6Var.e();
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "100465_3" : (String) invokeV.objValue;
     }
 
-    public void d(boolean z) {
+    public static void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
+            StatisticItem param = new StatisticItem("c14564").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId());
+            a(param);
+            TiebaStatic.log(param);
         }
     }
 
-    public final void f(int i) {
-        wg6 j1;
-        FrameLayout s0;
-        String string;
+    public static void e(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048581, this, i) == null) || (j1 = this.a.j1()) == null || j1.d0() == null || (s0 = j1.s0()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_CLICK).param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_locate", 11);
+            a(param);
+            TiebaStatic.log(param);
         }
-        if (this.c == null && this.a.getPageContext() != null) {
-            TextView textView = new TextView(this.a.getPageContext().getPageActivity());
-            this.c = textView;
-            textView.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702b5));
-            this.c.setGravity(17);
-        }
-        if (this.c != null) {
-            if (i > 0) {
-                string = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0fc5), Integer.valueOf(i));
-            } else {
-                string = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f11ca);
-            }
-            this.c.setText(string);
-        }
-        SkinManager.setBackgroundResource(this.c, R.color.CAM_X0302);
-        SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0112);
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, ej.f(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0702dd));
-        if (this.b == null) {
-            this.b = new mi6();
-        }
-        this.b.h(this.c, s0, layoutParams, 2000);
-        this.e = -1;
     }
 }

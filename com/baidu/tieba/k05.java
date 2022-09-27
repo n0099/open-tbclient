@@ -12,7 +12,6 @@ public class k05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public l05 b;
 
     public k05() {
         Interceptable interceptable = $ic;
@@ -28,31 +27,17 @@ public class k05 {
         }
     }
 
-    public int a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a == 1 : invokeV.booleanValue;
     }
 
-    public l05 b() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (l05) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("common");
-            if (optJSONObject != null) {
-                this.a = optJSONObject.optInt("version");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("special");
-            if (optJSONObject2 != null) {
-                l05 l05Var = new l05();
-                this.b = l05Var;
-                l05Var.f(optJSONObject2);
-            }
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        this.a = jSONObject.optInt("agree_icon", 0);
     }
 }

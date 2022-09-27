@@ -1,51 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes6.dex */
-public class y64 extends x64 {
+public class y64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errCode;
-    @V8JavascriptField
-    public String errMsg;
+    public View a;
+    public SimpleDraweeView b;
+    public TextView c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y64(String str, String str2, String str3) {
-        super(str);
+    @SuppressLint({"InflateParams"})
+    public y64(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.errCode = str2;
-        this.errMsg = str3;
-    }
-
-    @Override // com.baidu.tieba.x64
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GameWebViewErrorResult{url=" + this.url + ", errMsg='" + this.errMsg + "'}";
-        }
-        return (String) invokeV.objValue;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d083e, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f091ff1);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091ff2);
     }
 }

@@ -1,125 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.ChunkUploadSwitch;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class zn8 {
+public abstract class zn8 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 524288;
-    public static int d = 6144000;
-    public static int e = 524288;
+    public static final String PROXY_CLASS_NAME_SUFFIX = "_Proxy";
+    public static final String PROXY_CLASS_PACKAGE_NAME = "com.baidu.tieba.h5power";
     public transient /* synthetic */ FieldHolder $fh;
-    public do8 a;
-    public uo7 b;
+    public HashMap<String, List<ao8>> mAsyncCallBackMethodList;
+    public HashSet<String> mNotificationNameList;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948365829, "Lcom/baidu/tieba/zn8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948365829, "Lcom/baidu/tieba/zn8;");
-        }
-    }
-
-    public zn8(uo7 uo7Var) {
+    public zn8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {uo7Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = uo7Var;
-    }
-
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            if (i <= 0) {
-                d = 6144000;
-            } else {
-                d = i;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(int i) {
+    public bo8 addObserver(String str, bo8 bo8Var, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            if (i <= 0) {
-                c = 524288;
-            } else {
-                c = i;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, str, bo8Var, z)) == null) {
+            if (bo8Var == null) {
+                bo8Var = new bo8();
             }
-        }
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            if (i <= 0) {
-                e = 524288;
-            } else {
-                e = i;
-            }
-        }
-    }
-
-    public void a() {
-        do8 do8Var;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (do8Var = this.a) == null) {
-            return;
-        }
-        do8Var.cancel();
-    }
-
-    public VideoFinishResult e(String str, String str2, int i, go8 go8Var) {
-        InterceptResult invokeLLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, go8Var)) == null) {
-            try {
-                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                    this.a = new fo8(str2, e, this.b);
-                } else {
-                    this.a = new eo8(str, c, d, this.b);
+            if (this.mNotificationNameList.contains(str)) {
+                bo8Var.n(false);
+                bo8Var.s(true);
+                List<ao8> list = this.mAsyncCallBackMethodList.get(str);
+                if (list == null) {
+                    list = new ArrayList<>();
                 }
-                this.a.a(go8Var);
-                return this.a.b(str2, i);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                uo7 uo7Var = this.b;
-                if (uo7Var != null) {
-                    uo7Var.f(306, -4399, oo7.a(e2));
-                    return null;
-                }
-                return null;
+                ao8 ao8Var = new ao8();
+                ao8Var.e(bo8Var.c());
+                ao8Var.d(z);
+                ao8Var.f(bo8Var.e());
+                list.add(ao8Var);
+                this.mAsyncCallBackMethodList.put(str, list);
             }
+            return bo8Var;
         }
-        return (VideoFinishResult) invokeLLIL.objValue;
+        return (bo8) invokeLLZ.objValue;
     }
+
+    public abstract bo8 dispatch(do8 do8Var, bo8 bo8Var);
+
+    public abstract List<bo8> processNotification(String str, HashMap hashMap);
 }

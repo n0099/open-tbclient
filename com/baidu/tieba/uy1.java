@@ -1,58 +1,47 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class uy1 extends jy1<TextView, wy1> {
+public class uy1 extends zy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String t;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uy1(@Nullable Context context, @NonNull wy1 wy1Var) {
-        super(context, wy1Var);
+    public uy1(String str, @NonNull String str2) {
+        super(str, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, wy1Var};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (ky1) objArr2[1]);
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.t = "";
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ny1
-    @NonNull
-    /* renamed from: Z */
-    public TextView v(@NonNull Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zy1, com.baidu.tieba.bz1, com.baidu.tieba.kt2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? new TextView(context) : (TextView) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jy1
-    /* renamed from: a0 */
-    public void X(@NonNull TextView textView, @NonNull wy1 wy1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, wy1Var) == null) {
-            Y(textView, wy1Var, 16);
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
+            return;
         }
+        super.a(jSONObject);
+        this.t = jSONObject.optString("src");
     }
 }

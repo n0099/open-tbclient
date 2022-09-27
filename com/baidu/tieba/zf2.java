@@ -1,30 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class zf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    @V8JavascriptField
+    public String errMsg;
+    @V8JavascriptField
+    public lf2[] fileList;
 
-    public static xf2 a(SwanAppActivity swanAppActivity, y23 y23Var) {
-        InterceptResult invokeLL;
+    public zf2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, y23Var)) == null) {
-            if (y23Var == null || !y23Var.I()) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int k = y23Var.k();
-            if (k != 0) {
-                if (k != 1) {
-                    return null;
-                }
-                return gm2.i().n(swanAppActivity, y23Var.b);
-            }
-            return new ag2(swanAppActivity, y23Var.b);
         }
-        return (xf2) invokeLL.objValue;
+        this.a = 0;
+        this.a = 0 + 1;
+        this.b = 0;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "GetSavedFileListCallBack" + this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

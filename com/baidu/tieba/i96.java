@@ -1,39 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetInfluenceRank.DataRes;
-import tbclient.NewGodInfo;
-import tbclient.RankRuler;
-import tbclient.User;
+import tbclient.FrsTabInfo;
 /* loaded from: classes4.dex */
 public class i96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g96 a;
-    public List<h96> b;
-    public h96 c;
-    public String d;
-    public String e;
-    public long f;
-    public boolean g;
 
-    public i96() {
+    public i96(FrsTabInfo frsTabInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsTabInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,101 +25,11 @@ public class i96 {
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.g = true;
-    }
-
-    public final h96 a(User user) {
-        InterceptResult invokeL;
-        NewGodInfo newGodInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, user)) == null) {
-            if (user == null) {
-                return null;
-            }
-            h96 h96Var = new h96();
-            h96Var.a = user.level_influence;
-            h96Var.c = b(user);
-            boolean z = true;
-            if (!h96Var.g && (newGodInfo = user.new_god_data) != null && newGodInfo.status.intValue() == 3) {
-                h96Var.d = user.new_god_data.field_name + bi5.b(user.new_god_data);
-                h96Var.h = true;
-            }
-            if (user.influence == null) {
-                h96Var.e = "";
-            } else {
-                h96Var.e = String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0902), StringHelper.numFormatOverWanNa(user.influence.intValue()));
-            }
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(user);
-            Integer num = user.has_concerned;
-            metaData.setIsLike((num == null || num.intValue() == 0) ? false : false);
-            h96Var.f = metaData;
-            if (metaData.getAvater() != null && metaData.getAvater().startsWith("http")) {
-                h96Var.b = metaData.getAvater();
-            } else {
-                h96Var.b = TbConfig.getPhotoSmallAddress() + metaData.getAvater();
-            }
-            return h96Var;
-        }
-        return (h96) invokeL.objValue;
-    }
-
-    public final String b(User user) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, user)) == null) {
-            if (user == null) {
-                return "";
-            }
-            String str = TextUtils.isEmpty("") ? user.name_show : "";
-            return TextUtils.isEmpty(str) ? TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f1511) : str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) || dataRes == null) {
+        if (frsTabInfo == null) {
             return;
         }
-        this.a = new g96();
-        if (!ListUtils.isEmpty(dataRes.user_rank) && dataRes.user_rank.get(0) != null) {
-            this.a.b = b(dataRes.user_rank.get(0));
-            MetaData metaData = new MetaData();
-            metaData.parserProtobuf(dataRes.user_rank.get(0));
-            this.a.c = metaData;
-            String avatarH = metaData.getAvatarH();
-            if (TextUtils.isEmpty(avatarH)) {
-                avatarH = metaData.getAvater();
-            }
-            if (avatarH != null && avatarH.startsWith("http")) {
-                this.a.e = avatarH;
-            } else {
-                g96 g96Var = this.a;
-                g96Var.e = "http://tb.himg.baidu.com/sys/portraith/item/" + avatarH;
-            }
-        }
-        g96 g96Var2 = this.a;
-        Long l = dataRes.timestamp;
-        g96Var2.d = l == null ? 0L : l.longValue();
-        this.a.f = dataRes.field_info;
-        if (!ListUtils.isEmpty(dataRes.user_rank)) {
-            for (User user : dataRes.user_rank) {
-                if (user != null) {
-                    this.b.add(a(user));
-                }
-            }
-        }
-        this.c = a(dataRes.current_user);
-        RankRuler rankRuler = dataRes.rank_description;
-        if (rankRuler != null) {
-            this.d = rankRuler.top_link;
-            this.e = rankRuler.bottom_link;
-        }
-        Long l2 = dataRes.timestamp;
-        this.f = l2 != null ? l2.longValue() : 0L;
-        Boolean bool = dataRes.has_more;
-        this.g = bool != null ? bool.booleanValue() : false;
+        String str = frsTabInfo.tab_code;
+        String str2 = frsTabInfo.tab_name;
+        frsTabInfo.tab_version.intValue();
     }
 }

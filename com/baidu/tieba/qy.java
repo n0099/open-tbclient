@@ -15,7 +15,7 @@ public class qy extends nx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ThreadSmartAppLayout h;
-    public lq4 i;
+    public yq4 i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -94,11 +94,11 @@ public class qy extends nx {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.wx
     /* renamed from: u */
-    public void a(lq4 lq4Var) {
+    public void a(yq4 yq4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lq4Var) == null) {
-            this.i = lq4Var;
-            this.h.a(lq4Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, yq4Var) == null) {
+            this.i = yq4Var;
+            this.h.a(yq4Var);
         }
     }
 }

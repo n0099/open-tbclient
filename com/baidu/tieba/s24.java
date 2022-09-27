@@ -2,289 +2,238 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tieba.j33;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.v8engine.FontParser;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.CfgFileUtils;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import org.json.JSONArray;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class s24 extends h33 {
+public class s24 extends r24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public b c;
-    public c d;
-    public String e;
-    public mz3 f;
-    public l14 g;
+    public va2 b;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a extends ResponseCallback<x24> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
+        public final /* synthetic */ z24 a;
+        public final /* synthetic */ sv1 b;
+        public final /* synthetic */ s24 c;
 
-        public a() {
+        /* renamed from: com.baidu.tieba.s24$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0413a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ x24 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0413a(a aVar, x24 x24Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, x24Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = x24Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    x54.call(this.b.b, true, this.a);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    a aVar = this.a;
+                    x54.call(aVar.b, false, aVar.a);
+                }
+            }
+        }
+
+        public a(s24 s24Var, z24 z24Var, sv1 sv1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s24Var, z24Var, sv1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.c = s24Var;
+            this.a = z24Var;
+            this.b = sv1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(x24 x24Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, x24Var, i) == null) {
+                if (r24.a) {
+                    Log.d("CheckAdvisedToRestApi", "on success");
+                }
+                this.c.b.post(new RunnableC0413a(this, x24Var));
             }
         }
 
-        public static a b(JSONObject jSONObject) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: b */
+        public x24 parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return c();
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
+                ResponseBody body = response.body();
+                if (body == null) {
+                    return null;
                 }
-                a aVar = new a();
-                aVar.b = jSONObject.optString("root");
-                aVar.a = jSONObject.optString("name");
-                if (!TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
-                    if (aVar.b.endsWith(".js")) {
-                        String[] split = aVar.b.split(File.separator);
-                        if (split.length < 1) {
-                            return c();
-                        }
-                        aVar.d = split[split.length - 1];
-                        aVar.c = "";
-                        for (int i = 0; i < split.length - 1; i++) {
-                            aVar.c += split[i] + File.separator;
-                        }
-                    } else {
-                        String str = aVar.b;
-                        aVar.c = str;
-                        if (!str.endsWith(File.separator)) {
-                            aVar.c += File.separator;
-                        }
-                        aVar.d = "index.js";
+                String string = body.string();
+                if (r24.a) {
+                    Log.d("CheckAdvisedToRestApi", "parse response: " + string);
+                }
+                JSONObject jSONObject = new JSONObject(string);
+                String optString = jSONObject.optString("errno");
+                if (!TextUtils.equals(optString, "0")) {
+                    if (r24.a) {
+                        Log.d("CheckAdvisedToRestApi", "errno = " + optString);
                     }
-                    return aVar;
+                    z24 z24Var = this.a;
+                    z24Var.errNo = optString;
+                    z24Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", jSONObject.optString("errmsg"));
+                    return null;
                 }
-                return c();
+                String optString2 = jSONObject.optJSONObject("data").optString(TiebaStatic.LogFields.RESULT);
+                x24 x24Var = new x24();
+                x24Var.result = !TextUtils.equals(optString2, "0");
+                x24Var.errNo = "0";
+                x24Var.errMsg = x54.b("checkIsUserAdvisedToRest", "ok");
+                return x24Var;
             }
-            return (a) invokeL.objValue;
+            return (x24) invokeLI.objValue;
         }
 
-        public static a c() {
-            InterceptResult invokeV;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? new a() : (a) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) {
+                if (r24.a) {
+                    Log.e("CheckAdvisedToRestApi", "on fail");
+                }
+                if (TextUtils.isEmpty(this.a.errMsg)) {
+                    z24 z24Var = this.a;
+                    z24Var.errNo = "100";
+                    z24Var.errMsg = String.format("%s: fail Error: %s", "checkIsUserAdvisedToRest", exc.getMessage());
+                }
+                this.c.b.post(new b(this));
+            }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<a> a;
-        public HashMap<String, Boolean> b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static b b(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return c();
-                }
-                JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    b bVar = new b();
-                    bVar.a = new ArrayList();
-                    bVar.b = new HashMap<>();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            bVar.a.add(a.b(optJSONObject));
-                        }
-                    }
-                    return bVar;
-                }
-                return c();
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public static b c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                b bVar = new b();
-                bVar.a = new ArrayList();
-                bVar.b = new HashMap<>();
-                return bVar;
-            }
-            return (b) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HashMap<String, String> a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static c b(JSONObject jSONObject, b bVar) {
-            InterceptResult invokeLL;
-            List<a> list;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, bVar)) == null) {
-                if (jSONObject != null && bVar != null && (list = bVar.a) != null && list.size() > 0) {
-                    JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
-                    if (optJSONObject == null) {
-                        return c();
-                    }
-                    c cVar = new c();
-                    cVar.a = new HashMap<>();
-                    for (a aVar : bVar.a) {
-                        if (aVar != null && !TextUtils.isEmpty(aVar.b)) {
-                            HashMap<String, String> hashMap = cVar.a;
-                            String str = aVar.b;
-                            hashMap.put(str, optJSONObject.optString(str));
-                        }
-                    }
-                    return cVar;
-                }
-                return c();
-            }
-            return (c) invokeLL.objValue;
-        }
-
-        public static c c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                c cVar = new c();
-                cVar.a = new HashMap<>();
-                return cVar;
-            }
-            return (c) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948099508, "Lcom/baidu/tieba/s24;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948099508, "Lcom/baidu/tieba/s24;");
-                return;
-            }
-        }
-        h = ij1.a;
-    }
-
-    public s24() {
+    public s24(@NonNull va2 va2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {va2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = va2Var;
     }
 
-    public static s24 a(String str) {
-        InterceptResult invokeL;
+    @JavascriptInterface
+    public void checkIsUserAdvisedToRest(JsObject jsObject) {
+        sv1 F;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            s24 s24Var = new s24();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                s24Var.a = j33.a.a(jSONObject);
-                String optString = jSONObject.optString("deviceOrientation", "portrait");
-                boolean z = false;
-                s24Var.b = 0;
-                if (TextUtils.equals(optString, "landscape")) {
-                    s24Var.b = 1;
-                }
-                jSONObject.optBoolean("showStatusBar", false);
-                jSONObject.optString("workers");
-                b b2 = b.b(jSONObject);
-                s24Var.c = b2;
-                s24Var.d = c.b(jSONObject, b2);
-                s24Var.e = jSONObject.optString("openDataContext");
-                s24Var.f = new mz3(jSONObject);
-                JSONArray optJSONArray = jSONObject.optJSONArray("preloadResources");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    z = true;
-                }
-                dw2.p("startup").D("preload_resources", z ? "1" : "0");
-                s24Var.g = new l14(optJSONArray);
-                JSONObject optJSONObject = jSONObject.optJSONObject("setting");
-                if (optJSONObject != null) {
-                    optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
-                }
-                return s24Var;
-            } catch (JSONException e) {
-                if (h) {
-                    Log.e("SwanGameConfigData", "buildConfigData json error: " + Log.getStackTraceString(e));
-                }
-                return null;
-            }
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) || (F = sv1.F(jsObject)) == null || this.b == null) {
+            return;
         }
-        return (s24) invokeL.objValue;
+        z24 z24Var = new z24();
+        try {
+            int d = F.d("todayPlayedTime");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ma_id", l33.g0());
+                jSONObject.put("todayPlayedTime", String.valueOf(d));
+            } catch (JSONException e) {
+                if (r24.a) {
+                    e.printStackTrace();
+                }
+            }
+            a(c04.b().f(), jSONObject.toString(), new a(this, z24Var, F));
+        } catch (JSTypeMismatchException e2) {
+            if (r24.a) {
+                e2.printStackTrace();
+            }
+            z24Var.errNo = FontParser.sFontWeightDefault;
+            z24Var.errMsg = x54.a("checkIsUserAdvisedToRest", e2);
+            x54.call(F, false, z24Var);
+        }
     }
 }

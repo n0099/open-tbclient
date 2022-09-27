@@ -1,48 +1,35 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import androidx.annotation.NonNull;
-import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ic2 extends fc2 {
+public class ic2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ic2(@NonNull ec2 ec2Var) {
-        super(ec2Var);
+    @SuppressLint({"SwitchIntDef"})
+    public static tc2 a(@NonNull rc2 rc2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ec2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ec2) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rc2Var)) == null) {
+            int i = rc2Var.a;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            return new sc2(rc2Var);
+                        }
+                        return new wc2(rc2Var);
+                    }
+                    return new uc2(rc2Var);
+                }
+                return new xc2(rc2Var);
             }
+            return new vc2(rc2Var);
         }
-    }
-
-    @Override // com.baidu.tieba.fc2
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f(va4.i().v().keySet());
-            d();
-            ArraySet<String> a = a();
-            nk1 nk1Var = this.b;
-            if (nk1Var != null) {
-                nk1Var.f();
-            }
-            c(a);
-        }
+        return (tc2) invokeL.objValue;
     }
 }

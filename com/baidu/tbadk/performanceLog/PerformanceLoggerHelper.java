@@ -6,13 +6,13 @@ import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bx4;
-import com.baidu.tieba.dd5;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.ed5;
-import com.baidu.tieba.fd5;
-import com.baidu.tieba.gd5;
-import com.baidu.tieba.zc5;
+import com.baidu.tieba.md5;
+import com.baidu.tieba.ox4;
+import com.baidu.tieba.qd5;
+import com.baidu.tieba.rd5;
+import com.baidu.tieba.sd5;
+import com.baidu.tieba.td5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,7 +69,7 @@ public class PerformanceLoggerHelper {
         this.isSmallFlow = false;
         this.maxIntervalForOnce = 86400L;
         this.smallFlowInterval = 0L;
-        this.startSmallFlowTime = bx4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
+        this.startSmallFlowTime = ox4.k().m(TB_PERFOR_SMALLFLOW_TIME, 0L);
         BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
         this.smallFlowInterval = this.maxIntervalForOnce;
         BdBaseApplication.getInst().setSmallFlowInterval(this.smallFlowInterval);
@@ -348,66 +348,66 @@ public class PerformanceLoggerHelper {
         return invokeV.longValue;
     }
 
-    public ed5 getLoggerWithType(int i) {
+    public rd5 getLoggerWithType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             if (isSmallFlow()) {
                 switch (i) {
                     case 1000:
-                        gd5 gd5Var = new gd5();
-                        gd5Var.a = "frs";
-                        return gd5Var;
+                        td5 td5Var = new td5();
+                        td5Var.a = "frs";
+                        return td5Var;
                     case 1001:
-                        gd5 gd5Var2 = new gd5();
-                        gd5Var2.a = "pb";
-                        return gd5Var2;
+                        td5 td5Var2 = new td5();
+                        td5Var2.a = "pb";
+                        return td5Var2;
                     case 1002:
-                        dd5 dd5Var = new dd5();
-                        dd5Var.a = "im";
-                        return dd5Var;
+                        qd5 qd5Var = new qd5();
+                        qd5Var.a = "im";
+                        return qd5Var;
                     case 1003:
                     case 1006:
                     case 1007:
                     default:
                         return null;
                     case 1004:
-                        gd5 gd5Var3 = new gd5();
-                        gd5Var3.a = "photo_live";
-                        return gd5Var3;
+                        td5 td5Var3 = new td5();
+                        td5Var3.a = "photo_live";
+                        return td5Var3;
                     case 1005:
-                        zc5 zc5Var = new zc5();
-                        zc5Var.a = "home_page";
-                        return zc5Var;
+                        md5 md5Var = new md5();
+                        md5Var.a = "home_page";
+                        return md5Var;
                     case 1008:
-                        gd5 gd5Var4 = new gd5();
-                        gd5Var4.a = "user_center";
-                        return gd5Var4;
+                        td5 td5Var4 = new td5();
+                        td5Var4.a = "user_center";
+                        return td5Var4;
                     case 1009:
-                        gd5 gd5Var5 = new gd5();
-                        gd5Var5.a = "sign_all";
-                        return gd5Var5;
+                        td5 td5Var5 = new td5();
+                        td5Var5.a = "sign_all";
+                        return td5Var5;
                     case 1010:
-                        gd5 gd5Var6 = new gd5();
-                        gd5Var6.a = "person_center";
-                        return gd5Var6;
+                        td5 td5Var6 = new td5();
+                        td5Var6.a = "person_center";
+                        return td5Var6;
                     case 1011:
-                        gd5 gd5Var7 = new gd5();
-                        gd5Var7.a = "person_center_home";
-                        return gd5Var7;
+                        td5 td5Var7 = new td5();
+                        td5Var7.a = "person_center_home";
+                        return td5Var7;
                     case 1012:
-                        gd5 gd5Var8 = new gd5();
-                        gd5Var8.a = "person_center_post";
-                        return gd5Var8;
+                        td5 td5Var8 = new td5();
+                        td5Var8.a = "person_center_post";
+                        return td5Var8;
                     case 1013:
-                        gd5 gd5Var9 = new gd5();
-                        gd5Var9.a = "person_center_dynamic";
-                        return gd5Var9;
+                        td5 td5Var9 = new td5();
+                        td5Var9.a = "person_center_dynamic";
+                        return td5Var9;
                 }
             }
             return null;
         }
-        return (ed5) invokeI.objValue;
+        return (rd5) invokeI.objValue;
     }
 
     public String getNetType() {
@@ -437,17 +437,17 @@ public class PerformanceLoggerHelper {
                 if (0 == j || currentTimeMillis - j >= this.smallFlowInterval) {
                     this.startSmallFlowTime = currentTimeMillis;
                     BdBaseApplication.getInst().setStartSmallFlowTime(this.startSmallFlowTime);
-                    bx4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                    ox4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
                 }
             } else {
                 this.startSmallFlowTime = 0L;
                 BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-                bx4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
+                ox4.k().x(TB_PERFOR_SMALLFLOW_TIME, this.startSmallFlowTime);
             }
             this.isSmallFlow = z;
             BdBaseApplication.getInst().setIsSmallFlow(z);
             if (BdStatisticsManager.getInstance().isMainProcess()) {
-                fd5.b().f();
+                sd5.b().f();
             }
         }
     }

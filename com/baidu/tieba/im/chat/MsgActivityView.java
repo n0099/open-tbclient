@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a87;
 import com.baidu.tieba.dh;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.m77;
 import com.baidu.tieba.xf;
 import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import java.util.Calendar;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class MsgActivityView extends m77 {
+public class MsgActivityView extends a87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView F;
@@ -165,7 +165,7 @@ public class MsgActivityView extends m77 {
                 return;
             }
         }
-        this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fa);
+        this.i = (TextView) j(R.id.obfuscated_res_0x7f0920fc);
         this.G = (TextView) j(R.id.obfuscated_res_0x7f091587);
         this.H = (TextView) j(R.id.obfuscated_res_0x7f091586);
         this.I = (TextView) j(R.id.obfuscated_res_0x7f091585);
@@ -177,7 +177,7 @@ public class MsgActivityView extends m77 {
         k().setOnLongClickListener(new b(this));
     }
 
-    @Override // com.baidu.tieba.m77
+    @Override // com.baidu.tieba.a87
     public void C(xf xfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, xfVar) == null) {
@@ -185,7 +185,7 @@ public class MsgActivityView extends m77 {
         }
     }
 
-    @Override // com.baidu.tieba.m77
+    @Override // com.baidu.tieba.a87
     public void D(yf yfVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yfVar) == null) {
@@ -193,7 +193,7 @@ public class MsgActivityView extends m77 {
         }
     }
 
-    @Override // com.baidu.tieba.m77
+    @Override // com.baidu.tieba.a87
     public void E(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {

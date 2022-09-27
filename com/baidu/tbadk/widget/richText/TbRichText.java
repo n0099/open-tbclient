@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cl5;
-import com.baidu.tieba.l95;
+import com.baidu.tieba.hl5;
+import com.baidu.tieba.pl5;
 import com.baidu.tieba.tbadkCore.data.PostData;
-import com.baidu.tieba.uk5;
+import com.baidu.tieba.y95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -137,7 +137,7 @@ public class TbRichText extends OrmObject {
         TbRichTextData tbRichTextData;
         CharSequence charSequence;
         TbRichTextCommInfo F;
-        Pair<CharSequence, cl5> p;
+        Pair<CharSequence, pl5> p;
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), str, postData, threadData, Integer.valueOf(i)}) == null) || this.b == null) {
             return;
@@ -243,23 +243,23 @@ public class TbRichText extends OrmObject {
                         if (type == 18 || type == 2 || type == 39 || type == 1282) {
                             tbRichTextData.U(true);
                         }
-                        if (type == 35 && TiePlusHelper.l(next.T()) && (p = uk5.p(type, threadData, next.U())) != null) {
+                        if (type == 35 && TiePlusHelper.l(next.T()) && (p = hl5.p(type, threadData, next.U())) != null) {
                             charSequence = p.first;
-                            cl5 cl5Var = p.second;
-                            cl5Var.a(postData);
-                            cl5Var.b(i);
+                            pl5 pl5Var = p.second;
+                            pl5Var.a(postData);
+                            pl5Var.b(i);
                             tbRichTextData.U(true);
-                            tbRichTextData.z(cl5Var);
+                            tbRichTextData.z(pl5Var);
                         } else {
                             charSequence = null;
                         }
                         if (charSequence == null && type == 18 && (F = next.F()) != null) {
                             PbContent C = F.C();
                             if (threadData != null && C != null) {
-                                l95 f = l95.f(threadData, C);
+                                y95 f = y95.f(threadData, C);
                                 f.c(postData);
                                 f.b(HotTopicStat.Locate.VIDEO_MIDDLE_COMMENT);
-                                charSequence = uk5.o(f);
+                                charSequence = hl5.o(f);
                             }
                         }
                         if (charSequence == null && tbRichTextData != null) {

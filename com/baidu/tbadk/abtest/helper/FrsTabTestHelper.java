@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bx4;
+import com.baidu.tieba.ox4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,19 +94,19 @@ public class FrsTabTestHelper {
     public static int getFrsNewAreaTabSort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? bx4.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT) : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? ox4.k().l(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT) : invokeV.intValue;
     }
 
     public static String getUserLastAccessTab() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? bx4.k().q(generateUserLastAccessKey(), HOT_TAB_NAME) : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) ? ox4.k().q(generateUserLastAccessKey(), HOT_TAB_NAME) : (String) invokeV.objValue;
     }
 
     public static void storeFrsNewAreaTabSort(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            bx4.k().w(generateFrsNewAreaTabSortKey(), i);
+            ox4.k().w(generateFrsNewAreaTabSortKey(), i);
         }
     }
 
@@ -114,7 +114,7 @@ public class FrsTabTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             if (HOT_TAB_NAME.equals(str) || NEW_AREA_TAB_NAME.equals(str)) {
-                bx4.k().y(generateUserLastAccessKey(), str);
+                ox4.k().y(generateUserLastAccessKey(), str);
             }
         }
     }

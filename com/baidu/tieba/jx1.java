@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class jx1 extends ew1 {
+public class jx1 extends rw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ox1 a;
+    public RectF a;
 
     public jx1() {
         Interceptable interceptable = $ic;
@@ -27,20 +29,31 @@ public class jx1 extends ew1 {
         }
     }
 
-    @Override // com.baidu.tieba.ew1
-    public void a(fw1 fw1Var, Canvas canvas) {
-        ox1 ox1Var;
+    @Override // com.baidu.tieba.rw1
+    public void a(sw1 sw1Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, fw1Var, canvas) == null) && (ox1Var = this.a) != null && ox1Var.a()) {
-            fw1Var.i = this.a;
+        if (!(interceptable == null || interceptable.invokeLL(1048576, this, sw1Var, canvas) == null) || (rectF = this.a) == null) {
+            return;
         }
+        sw1Var.f.addRect(rectF, Path.Direction.CW);
     }
 
-    @Override // com.baidu.tieba.ew1
+    @Override // com.baidu.tieba.rw1
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            this.a = new ox1(jSONArray);
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = ch3.g((float) jSONArray.optDouble(0));
+                    int g2 = ch3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + ch3.g((float) jSONArray.optDouble(2)), g2 + ch3.g((float) jSONArray.optDouble(3)));
+                }
+            } catch (Exception e) {
+                if (vj1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

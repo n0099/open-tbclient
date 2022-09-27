@@ -1,11 +1,13 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes6.dex */
-public interface yd8<T> {
-    void a(int i, int i2);
+public interface yd8 {
+    String U();
 
-    void c(int i, int i2, xd8 xd8Var, T t);
+    int b1();
 
-    void d(int i, int i2, int i3, xd8 xd8Var, T t);
+    void k0();
 
-    void e(int i, int i2, T t, xd8 xd8Var, T t2);
+    TbPageContext<?> o();
 }

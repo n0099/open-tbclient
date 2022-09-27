@@ -1,67 +1,176 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import tv.athena.revenue.RevenueManager;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.IMiddlePayService;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import tv.athena.revenue.payui.model.PayFlowType;
+import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes4.dex */
 public class h4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public k3a a;
+    public x2a b;
 
-    public static x3a a(int i, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeIL;
-        MiddleRevenueConfig middleRevenueConfig;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, payUIKitConfig)) == null) {
-            ProductInfo productInfo = new ProductInfo();
-            productInfo.cid = 0;
-            productInfo.productId = "";
-            productInfo.srcCurrencySymbol = "";
-            productInfo.srcAmount = i / 100.0d;
-            if (payUIKitConfig != null && (middleRevenueConfig = payUIKitConfig.revenueConfig) != null && middleRevenueConfig.getCurrencyType() == 4) {
-                productInfo.destAmount = i;
-                return new x3a(productInfo, 4);
+    /* loaded from: classes4.dex */
+    public class a implements k3a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ h4a a;
+
+        public a(h4a h4aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {h4aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            productInfo.destAmount = i;
-            return new x3a(productInfo);
+            this.a = h4aVar;
         }
-        return (x3a) invokeIL.objValue;
+
+        @Override // com.baidu.tieba.k3a
+        public void a(String str, PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, payFlowType) == null) {
+                this.a.i(str, payFlowType);
+            }
+        }
+
+        @Override // com.baidu.tieba.k3a
+        public void b(PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType) == null) {
+                this.a.g(payFlowType);
+            }
+        }
+
+        @Override // com.baidu.tieba.k3a
+        public void c(String str, PayFlowType payFlowType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, payFlowType) == null) {
+                this.a.h(str, payFlowType);
+            }
+        }
+
+        @Override // com.baidu.tieba.k3a
+        public void d(PayFlowType payFlowType, PayDialogType payDialogType) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, payFlowType, payDialogType) == null) {
+                this.a.f(payFlowType, payDialogType);
+            }
+        }
     }
 
-    public static IAppPayService b(int i, int i2) {
-        InterceptResult invokeII;
+    public h4a(x2a x2aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("CommonUtils", "getAppPayService null iRevenue", new Object[0]);
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x2aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return revenue.getAppPayService();
         }
-        return (IAppPayService) invokeII.objValue;
+        this.b = x2aVar;
+        j();
     }
 
-    public static IMiddlePayService c(int i, int i2) {
-        InterceptResult invokeII;
+    public k3a e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            IMiddleRevenue middleRevenue = RevenueManager.instance().getMiddleRevenue(i, i2);
-            if (middleRevenue == null) {
-                RLog.error("CommonUtils", "getMiddlePayService null iRevenue", new Object[0]);
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (k3a) invokeV.objValue;
+    }
+
+    public final void f(PayFlowType payFlowType, PayDialogType payDialogType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, payFlowType, payDialogType) == null) {
+            RLog.info("ViewLifecycleManager", "notifyPayDialogTypeChange payFlowType:" + payFlowType.name() + " payDialogType:" + payDialogType + " mYYPayController:" + this.b.getCurPayController());
+            if (payDialogType == PayDialogType.PAY_NONE_DIALOG) {
+                l(payFlowType);
             }
-            return middleRevenue.getMiddlePayService();
         }
-        return (IMiddlePayService) invokeII.objValue;
+    }
+
+    public final void g(PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, payFlowType) == null) {
+            RLog.info("ViewLifecycleManager", "notifyPayFlowWork payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+        }
+    }
+
+    public final synchronized void h(String str, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, payFlowType) == null) {
+            synchronized (this) {
+                RLog.info("ViewLifecycleManager", "payActivityDestroyRecord name:" + str + " payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+                if (this.b.getCurPayController() != null) {
+                    this.b.getCurPayController().j(str, payFlowType);
+                }
+                l(payFlowType);
+            }
+        }
+    }
+
+    public final synchronized void i(String str, PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, payFlowType) == null) {
+            synchronized (this) {
+                RLog.info("ViewLifecycleManager", "payActivityVisitRecord name:" + str + " payFlowType:" + payFlowType.name() + " mYYPayController:" + this.b.getCurPayController());
+                if (this.b.getCurPayController() != null) {
+                    this.b.getCurPayController().f(str, payFlowType);
+                }
+            }
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            RLog.info("ViewLifecycleManager", "preparePayFlowLifecycle");
+            this.a = new a(this);
+        }
+    }
+
+    public final void k(PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, payFlowType) == null) {
+            boolean z = this.b.getCurPayController() != null && this.b.getCurPayController().g();
+            RLog.info("ViewLifecycleManager", "tryReleasePayController payFlowType:" + payFlowType.name() + " release:" + z + " mYYPayController:" + this.b.getCurPayController());
+            if (z) {
+                this.b.releasePayController();
+                this.b.cancelAllRequest();
+            }
+        }
+    }
+
+    public final synchronized void l(PayFlowType payFlowType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, payFlowType) == null) {
+            synchronized (this) {
+                boolean z = this.b.getCurPayController() != null && this.b.getCurPayController().b(payFlowType);
+                RLog.info("ViewLifecycleManager", "tryReleasePayFlow payFlowType:" + payFlowType.name() + " release:" + z + " mYYPayController:" + this.b.getCurPayController());
+                if (z) {
+                    this.b.getCurPayController().e(payFlowType);
+                }
+                k(payFlowType);
+            }
+        }
     }
 }

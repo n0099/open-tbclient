@@ -52,7 +52,7 @@ public class AdStarRatingBar extends FrameLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d006f, this);
             this.a = (AppCompatRatingBar) findViewById(R.id.obfuscated_res_0x7f0900e5);
             this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900e6);
-            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080a52).getIntrinsicHeight();
+            int intrinsicHeight = ContextCompat.getDrawable(getContext(), R.drawable.obfuscated_res_0x7f080a54).getIntrinsicHeight();
             ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
             layoutParams.width = -2;
             layoutParams.height = intrinsicHeight;

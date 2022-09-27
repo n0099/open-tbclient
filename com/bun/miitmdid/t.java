@@ -1,17 +1,22 @@
 package com.bun.miitmdid;
 
-import android.app.KeyguardManager;
 import android.content.Context;
+import androidx.annotation.Keep;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.heytap.openid.bean.OpenIDInfo;
+import com.heytap.openid.sdk.OpenIDSDK;
+@Keep
 /* loaded from: classes7.dex */
-public class t extends m {
+public class t extends n {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context i;
+    @Keep
+    public Context l;
+    @Keep
+    public OpenIDInfo m;
 
     public t(Context context) {
         Interceptable interceptable = $ic;
@@ -28,31 +33,23 @@ public class t extends m {
                 return;
             }
         }
-        this.i = context;
+        this.l = context;
+        Context a = a(context);
+        this.l = a;
+        OpenIDSDK.init(a);
+        if (f0.a) {
+            OpenIDSDK.setLoggable(true);
+        }
     }
 
-    @Override // com.bun.miitmdid.m
-    public g a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            g gVar = new g();
-            Context a = a(this.i);
-            this.i = a;
-            KeyguardManager keyguardManager = (KeyguardManager) a.getSystemService("keyguard");
-            if (keyguardManager == null) {
-                e0.b("PrizeProvider", "getIdManagerInfo: ClassNotFound: android.app.KeyguardManager");
-                gVar.f();
-                return gVar;
-            }
-            Class<?> cls = keyguardManager.getClass();
-            gVar.e(new h(cls, keyguardManager, "isSupported", null, null));
-            gVar.d(null);
-            gVar.b(new h(cls, keyguardManager, "obtainOaid", null, null));
-            gVar.c(new h(cls, keyguardManager, "obtainVaid", null, null));
-            gVar.a(new h(cls, keyguardManager, "obtainAaid", null, null));
-            return gVar;
-        }
-        return (g) invokeV.objValue;
-    }
+    @Override // com.bun.miitmdid.n
+    @Keep
+    public native g d();
+
+    @Override // com.bun.miitmdid.n, com.bun.miitmdid.interfaces.IIdProvider
+    @Keep
+    public native void doStart();
+
+    @Keep
+    public final native void e();
 }

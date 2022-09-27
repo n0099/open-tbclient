@@ -1,47 +1,61 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes6.dex */
-public abstract class yz9<E> extends wz9<E> {
+public abstract class yz9<E> extends a0a<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long h;
+    public LinkedQueueNode<E> consumerNode;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yz9(int i) {
-        super(i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347601, "Lcom/baidu/tieba/yz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948347601, "Lcom/baidu/tieba/yz9;");
+                return;
+            }
+        }
+        b = c1a.a(yz9.class, "consumerNode");
+    }
+
+    public yz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final long l() {
+    public final LinkedQueueNode<E> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.h : invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? (LinkedQueueNode) c1a.a.f(this, b) : (LinkedQueueNode) invokeV.objValue;
     }
 
-    public final void m(long j) {
+    public final void d(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.h = j;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.consumerNode = linkedQueueNode;
         }
     }
 }

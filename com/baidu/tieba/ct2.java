@@ -1,187 +1,85 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileFilter;
-import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ct2 {
+public class ct2 extends cs1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements FileFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.io.FileFilter
-        public boolean accept(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) ? file.isDirectory() && TextUtils.isDigitsOnly(file.getName()) : invokeL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686216, "Lcom/baidu/tieba/ct2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947686216, "Lcom/baidu/tieba/ct2;");
-                return;
-            }
-        }
-        a = ij1.a;
-    }
-
-    public static void a(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ct2(@NonNull mr1 mr1Var) {
+        super(mr1Var);
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, str) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(ul2.g(), str);
-        if (file.exists()) {
-            if (a) {
-                Log.d("PkgInfoExt", "clear all pkg info's ext ,appId - " + str);
-            }
-            File[] listFiles = file.listFiles(new a());
-            if (listFiles == null || listFiles.length <= 0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mr1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((mr1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
-            }
-            for (File file2 : listFiles) {
-                b(str, file2.getName());
             }
         }
     }
 
-    public static void b(String str, String str2) {
+    @Override // com.baidu.tieba.or1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            String e = e(str, str2);
-            if (TextUtils.isEmpty(e)) {
-                return;
-            }
-            mb3.a().edit().remove(e).apply();
-            if (a) {
-                Log.d("PkgInfoExt", "clear pkg info's ext , appId - " + str + ", version code - " + str2);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "SwanCallImageMenuApi" : (String) invokeV.objValue;
     }
 
-    public static String c(PMSAppInfo pMSAppInfo) {
+    public lv1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pMSAppInfo)) == null) ? d(pMSAppInfo.appId, pMSAppInfo.versionCode) : (String) invokeL.objValue;
-    }
-
-    public static String d(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) ? e(str, String.valueOf(j)) : (String) invokeLJ.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                return str + "_" + str2 + "_pkg_info_ext";
-            } else if (a) {
-                Log.e("PkgInfoExt", "#getExtKey appId or version code is empty");
-                Log.d("PkgInfoExt", "#getExtKey appId=" + str + " version=" + str2);
-                return null;
-            } else {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#callImageMenu", false);
+            if (l33.b0() == null) {
+                return new lv1(1001, "swan app is null");
             }
+            Pair<lv1, JSONObject> s = s(str);
+            lv1 lv1Var = (lv1) s.first;
+            if (lv1Var.isSuccess()) {
+                String optString = ((JSONObject) s.second).optString("imageURL");
+                if (TextUtils.isEmpty(optString)) {
+                    return new lv1(202, sm2.c().getString(R.string.obfuscated_res_0x7f0f14d5));
+                }
+                return y(optString);
+            }
+            return lv1Var;
         }
-        return (String) invokeLL.objValue;
+        return (lv1) invokeL.objValue;
     }
 
-    public static String f(PMSAppInfo pMSAppInfo) {
+    public lv1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            sp1 i = yo2.U().i();
+            if (!(i instanceof NgWebView)) {
+                return new lv1(1001, "call image menu fail");
             }
-            String c = c(pMSAppInfo);
-            if (TextUtils.isEmpty(c)) {
-                return "";
+            ep1 E0 = sm2.E0();
+            if (E0 == null) {
+                return new lv1(1001, "call image menu fail");
             }
-            String string = mb3.a().getString(c, "");
-            if (a) {
-                Log.d("PkgInfoExt", "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string);
-            }
-            return string;
+            E0.b((NgWebView) i, str);
+            return lv1.f();
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static void g(String str, JSONObject jSONObject, xb4 xb4Var, List<yb4> list) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, xb4Var, list) == null) {
-            if (jSONObject == null) {
-                if (a) {
-                    Log.d("PkgInfoExt", "pkgObject from pms is null");
-                }
-            } else if (xb4Var == null && list == null) {
-                if (a) {
-                    Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
-                }
-            } else {
-                String str2 = null;
-                if (xb4Var != null) {
-                    str = xb4Var.g;
-                    j = xb4Var.i;
-                    str2 = xb4Var.p;
-                } else if (list.size() > 0) {
-                    yb4 yb4Var = list.get(0);
-                    j = yb4Var.i;
-                    str2 = yb4Var.s;
-                } else {
-                    j = -1;
-                }
-                if (str2 == null) {
-                    if (a) {
-                        Log.e("PkgInfoExt", "can not get ext from pkg ");
-                    }
-                } else if (!TextUtils.isEmpty(str) && j != -1) {
-                    mb3.a().edit().putString(d(str, j), str2).apply();
-                } else if (a) {
-                    Log.e("PkgInfoExt", "can not get appId and version code from pkg ");
-                }
-            }
-        }
+        return (lv1) invokeL.objValue;
     }
 }

@@ -1,95 +1,71 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.pm.PackageManager;
-import com.baidu.tieba.g21;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c31 extends e31 {
-    public static /* synthetic */ Interceptable $ic;
+public class c31 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = false;
+    public static boolean b = false;
+    public static boolean c = false;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ b c;
-        public final /* synthetic */ int d;
-
-        public a(String[] strArr, Activity activity, b bVar, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, bVar, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = strArr;
-            this.b = activity;
-            this.c = bVar;
-            this.d = i;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947623720, "Lcom/baidu/tieba/c31;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
-                }
-                this.c.onRequestPermissionsResult(this.d, this.a, iArr);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947623720, "Lcom/baidu/tieba/c31;");
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
-    }
-
-    public static boolean a(Activity activity, String str) {
+    public static boolean a(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) ? g21.b.d() && d31.a(activity, str) : invokeLL.booleanValue;
-    }
-
-    public static void requestPermissions(Activity activity, String[] strArr, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
-            if (g21.b.d()) {
-                d31.requestPermissions(activity, strArr, i);
-            } else if (activity instanceof b) {
-                requestPermissions(activity, strArr, i, (b) activity);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
+            try {
+                return Build.VERSION.SDK_INT >= 23 ? context.checkSelfPermission(str) == 0 : context.checkCallingOrSelfPermission(str) == 0;
+            } catch (Throwable unused) {
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    public static void requestPermissions(Activity activity, String[] strArr, int i, b bVar) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, bVar) == null) {
-            if (g21.b.d()) {
-                d31.requestPermissions(activity, strArr, i);
-            } else if (activity.isFinishing() || bVar == null) {
-            } else {
-                aj0.b(new a(strArr, activity, bVar, i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
+            if ("permission_location".equalsIgnoreCase(str)) {
+                return b;
+            }
+            if ("permission_storage".equalsIgnoreCase(str)) {
+                return c;
+            }
+            if ("permission_app_list".equalsIgnoreCase(str)) {
+                return d;
+            }
+            if ("permission_read_phone_state".equalsIgnoreCase(str)) {
+                return a;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

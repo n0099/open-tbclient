@@ -1,32 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public class m50 {
+import java.util.Arrays;
+/* loaded from: classes4.dex */
+public final class m50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, l50> a;
+    public String a;
+    public String[] b;
+    public int c;
+    public String d;
+    public long e;
+    public long f;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        List<l50> a();
-    }
-
-    public m50(a aVar) {
+    public m50(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,21 +34,28 @@ public class m50 {
                 return;
             }
         }
-        this.a = new HashMap();
-        for (l50 l50Var : aVar.a()) {
-            this.a.put(l50Var.e(), l50Var);
+        this.a = str;
+        try {
+            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
+            this.d = packageInfo.versionName;
+            this.c = packageInfo.versionCode;
+            this.e = packageInfo.firstInstallTime;
+            this.f = packageInfo.lastUpdateTime;
+            this.b = new String[packageInfo.signatures.length];
+            for (int i3 = 0; i3 < this.b.length; i3++) {
+                this.b[i3] = i50.c(packageInfo.signatures[i3].toByteArray());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public l50 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? this.a.get(str) : (l50) invokeL.objValue;
-    }
-
-    public List<l50> b() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new ArrayList(this.a.values()) : (List) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
+        }
+        return (String) invokeV.objValue;
     }
 }

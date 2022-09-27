@@ -1,75 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.ar.core.InstallActivity;
-import com.google.ar.core.exceptions.UnavailableException;
-import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class ir9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile String a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final /* synthetic */ InstallActivity b;
 
-    public ir9(InstallActivity installActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {installActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863257, "Lcom/baidu/tieba/ir9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947863257, "Lcom/baidu/tieba/ir9;");
                 return;
             }
         }
-        this.b = installActivity;
-        this.a = false;
+        b = new Object();
     }
 
-    public void a(com.google.ar.core.p pVar) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pVar) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a != null) {
+                return a;
+            }
+            synchronized (b) {
+                if (a != null) {
+                    return a;
                 }
-                InstallActivity.e(this.b, pVar);
-                int ordinal = pVar.ordinal();
-                if (ordinal != 0) {
-                    if (ordinal == 1) {
-                        InstallActivity.a(this.b, new UnavailableUserDeclinedInstallationException());
-                    } else if (ordinal == 2) {
-                        if (!InstallActivity.f(this.b)) {
-                            InstallActivity.g(this.b);
-                        }
-                        InstallActivity.a(this.b, null);
-                    }
-                    this.a = true;
-                }
+                a = b(zq9.getContext().provideContext());
+                return a;
             }
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b(Exception exc) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            synchronized (this.b) {
-                if (this.a) {
-                    return;
-                }
-                this.a = true;
-                InstallActivity.e(this.b, com.google.ar.core.p.b);
-                boolean z = exc instanceof UnavailableException;
-                InstallActivity.a(this.b, exc);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null || runningAppProcesses.isEmpty()) {
+                return null;
             }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo != null && runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 }

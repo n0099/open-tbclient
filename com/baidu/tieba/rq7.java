@@ -1,107 +1,62 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import tbclient.ThreadInfo;
-import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
-public class rq7 implements Cdo {
+public abstract class rq7<T, V extends TypeAdapter.ViewHolder> extends qn<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public int e;
-    public int f;
-    public boolean g;
-    public ThreadData h;
+    public boolean a;
+    public TbPageContext<HotTopicDetailActivity> b;
 
-    public rq7(ThreadInfo threadInfo, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rq7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadInfo, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b(threadInfo);
-        this.g = z;
+        this.b = tbPageContext;
     }
 
-    public int a() {
+    public boolean s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : invokeV.booleanValue;
     }
 
-    public final void b(ThreadInfo threadInfo) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) == null) || threadInfo == null) {
-            return;
-        }
-        ThreadData threadData = new ThreadData();
-        this.h = threadData;
-        threadData.parserProtobuf(threadInfo);
-        this.a = threadInfo.title;
-        this.b = threadInfo.reply_num.intValue();
-        this.c = threadInfo.agree_num.intValue();
-        if (!ListUtils.isEmpty(this.h.getMedias())) {
-            Iterator<MediaData> it = this.h.getMedias().iterator();
-            while (it.hasNext()) {
-                MediaData next = it.next();
-                if (next != null && next.getType() == 3) {
-                    String picUrl = next.getPicUrl();
-                    this.d = picUrl;
-                    if (StringUtils.isNull(picUrl)) {
-                        this.d = next.getSmallUrl();
-                    }
-                    if (StringUtils.isNull(this.d)) {
-                        this.d = next.getThumbnails_url();
-                    }
-                    if (StringUtils.isNull(this.d)) {
-                        this.d = next.getSrc_pic();
-                    }
-                    if (!StringUtils.isNull(this.d)) {
-                        break;
-                    }
-                }
-            }
-        }
-        VideoInfo videoInfo = threadInfo.video_info;
-        if (videoInfo != null) {
-            this.e = videoInfo.video_duration.intValue();
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
+    public TbPageContext t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? qq7.a : (BdUniqueId) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (TbPageContext) invokeV.objValue;
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
+        }
     }
 }

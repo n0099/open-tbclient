@@ -11,8 +11,8 @@ import android.widget.FrameLayout;
 import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i23;
-import com.baidu.tieba.ij1;
+import com.baidu.tieba.v23;
+import com.baidu.tieba.vj1;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class BdContextMenuView extends FrameLayout implements i23.g {
+public class BdContextMenuView extends FrameLayout implements v23.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b a;
@@ -82,7 +82,7 @@ public class BdContextMenuView extends FrameLayout implements i23.g {
                 return;
             }
         }
-        boolean z = ij1.a;
+        boolean z = vj1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

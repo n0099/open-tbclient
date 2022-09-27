@@ -1,121 +1,169 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArrayMap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class e15 {
     public static /* synthetic */ Interceptable $ic;
-    public static final e15 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public Map<String, f15> b;
-    public int c;
+    public String a;
+    public String b;
+    public String c;
+    public EmotionGroupType d;
+    public int e;
+    public int f;
+    public String g;
+    public on h;
+    public boolean i;
+    public f15 j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681504, "Lcom/baidu/tieba/e15;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947681504, "Lcom/baidu/tieba/e15;");
-                return;
-            }
-        }
-        d = new e15(false);
-    }
-
-    public e15(boolean z) {
+    public e15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = z;
     }
 
-    public static e15 e(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public f15 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return d;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
-            e15 e15Var = new e15(true);
-            e15Var.a(optJSONObject);
-            return e15Var;
-        }
-        return (e15) invokeL.objValue;
-    }
-
-    public final void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) || jSONObject == null) {
-            return;
-        }
-        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
-        int length = optJSONArray == null ? 0 : optJSONArray.length();
-        this.b = new ArrayMap(length);
-        for (int i = 0; i < length; i++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-            if (optJSONObject != null) {
-                f15 d2 = f15.d(optJSONObject);
-                if (!TextUtils.isEmpty(d2.a())) {
-                    this.b.put(d2.a(), d2);
-                }
-            }
-        }
-        try {
-            this.c = Integer.parseInt(jSONObject.optString("freq"));
-        } catch (Exception unused) {
-            this.c = 0;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.j : (f15) invokeV.objValue;
     }
 
     public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.f : invokeV.intValue;
     }
 
-    public f15 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.b == null || TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return this.b.get(str);
-        }
-        return (f15) invokeL.objValue;
-    }
-
-    public boolean d() {
+    public on c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.h : (on) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.g : (String) invokeV.objValue;
+    }
+
+    public EmotionGroupType getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.d : (EmotionGroupType) invokeV.objValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this.e : invokeV.intValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this.i : invokeV.booleanValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.i = z;
+        }
+    }
+
+    public void k(f15 f15Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, f15Var) == null) {
+            this.j = f15Var;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void m(on onVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onVar) == null) {
+            this.h = onVar;
+        }
+    }
+
+    public void n(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void q(EmotionGroupType emotionGroupType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, emotionGroupType) == null) {
+            this.d = emotionGroupType;
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.g = str;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.e = i;
+        }
     }
 }

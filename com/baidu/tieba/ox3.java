@@ -1,93 +1,301 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.media.MediaMetadataRetriever;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.swan.nalib.audio.SwanAudioPlayer;
+import com.baidu.tieba.nx3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.net.MalformedURLException;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ox3 extends zc2 {
+public class ox3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
+    public static volatile ox3 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public String f;
+    public lx3 a;
+    public HashMap<String, Long> b;
+    public String c;
+    public HandlerThread d;
+    public Handler e;
+    public SwanAudioPlayer f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ox3(@NonNull String str, String str2, String str3, String str4) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ox3 a;
+
+        public a(ox3 ox3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ox3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ox3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f = SwanAudioPlayer.getInstance();
+                SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ox3 a;
+
+        public b(ox3 ox3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ox3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ox3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f.pauseAll();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ox3 a;
+
+        public c(ox3 ox3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ox3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ox3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f.resume();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948047583, "Lcom/baidu/tieba/ox3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948047583, "Lcom/baidu/tieba/ox3;");
                 return;
             }
         }
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
+        g = vj1.a;
+        e93.b();
     }
 
-    public static zc2 t(String str, String str2) {
-        InterceptResult invokeLL;
+    public ox3() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) ? new ox3("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2) : (zc2) invokeLL.objValue;
-    }
-
-    public static zc2 u(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            return new ox3("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, z ? "show" : "hide");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        return (zc2) invokeZ.objValue;
+        this.b = new HashMap<>();
+        this.c = hx3.g();
+        this.a = new lx3(this.c);
+        c();
+        e().post(new a(this));
     }
 
-    public static zc2 v(String str, String str2) {
-        InterceptResult invokeLL;
+    public static ox3 h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) ? new ox3("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2) : (zc2) invokeLL.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (h == null) {
+                synchronized (ox3.class) {
+                    if (h == null) {
+                        h = new ox3();
+                    }
+                }
+            }
+            return h;
+        }
+        return (ox3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yc2
-    public String o(String str) {
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d == null) {
+            HandlerThread handlerThread = new HandlerThread("audio_thread");
+            this.d = handlerThread;
+            handlerThread.start();
+            this.e = new Handler(this.d.getLooper());
+        }
+    }
+
+    public synchronized px3 d(String str, boolean z) {
+        InterceptResult invokeLZ;
+        qx3 qx3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            synchronized (this) {
+                if (g) {
+                    Log.e("AudioPlayerManager", "create media player src = " + str);
+                }
+                qx3Var = new qx3();
+            }
+            return qx3Var;
+        }
+        return (px3) invokeLZ.objValue;
+    }
+
+    public Handler e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e : (Handler) invokeV.objValue;
+    }
+
+    public long f(String str) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.d;
-            int hashCode = str2.hashCode();
-            if (hashCode == -2011830027) {
-                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
-                    c = 2;
-                }
-                c = 65535;
-            } else if (hashCode != -774049378) {
-                if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
-                    c = 1;
-                }
-                c = 65535;
-            } else {
-                if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
-                    c = 0;
-                }
-                c = 65535;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.b.containsKey(str)) {
+                return this.b.get(str).longValue();
             }
-            if (c != 0) {
-                return c != 1 ? c != 2 ? "" : String.format("%s.message = { type:'act',act:'%s' };", str, this.f) : String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
+                    mediaMetadataRetriever.release();
+                    this.b.put(str, Long.valueOf(parseLong));
+                    return parseLong;
+                } catch (Exception e) {
+                    if (g) {
+                        e.printStackTrace();
+                    }
+                    mediaMetadataRetriever.release();
+                    return 0L;
+                }
+            } finally {
+                mediaMetadataRetriever.release();
             }
-            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(mf3.b(mf3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
+        }
+        return invokeL.longValue;
+    }
+
+    public String g(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.c + hx3.d(str);
         }
         return (String) invokeL.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            SwanAudioPlayer swanAudioPlayer = this.f;
+            if (swanAudioPlayer != null) {
+                swanAudioPlayer.isAudioPlayer();
+                return false;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j(String str, kx3 kx3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, kx3Var) == null) {
+            this.a.e(str, kx3Var);
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || this.f == null) {
+            return;
+        }
+        e().post(new c(this));
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) || this.f == null) {
+            return;
+        }
+        e().postDelayed(new b(this), 50L);
+    }
+
+    public void m(JsArrayBuffer jsArrayBuffer, nx3.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, jsArrayBuffer, bVar) == null) {
+            nx3.f().h(jsArrayBuffer, bVar);
+        }
     }
 }

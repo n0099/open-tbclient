@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a06;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.h06;
-import com.baidu.tieba.yz5;
+import com.baidu.tieba.l06;
+import com.baidu.tieba.n06;
+import com.baidu.tieba.u06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -68,8 +68,8 @@ public class NewAnounceLayout extends CardBasicLayout {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_ANNOUNCE_AREA).eventStat();
-                yz5 yz5Var = this.a.c;
-                if (yz5Var == null || yz5Var.k() == 0 || TextUtils.isEmpty(this.a.c.b()) || this.a.c.f() == 2) {
+                l06 l06Var = this.a.c;
+                if (l06Var == null || l06Var.k() == 0 || TextUtils.isEmpty(this.a.c.b()) || this.a.c.f() == 2) {
                     return;
                 }
                 PbActivityConfig pbActivityConfig = new PbActivityConfig(this.a.e);
@@ -107,8 +107,8 @@ public class NewAnounceLayout extends CardBasicLayout {
             this.f = findViewById;
             findViewById.setOnClickListener(this.k);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909cd);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091e1c);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091e27);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091e1e);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091e29);
             this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f090287);
         }
     }
@@ -133,7 +133,7 @@ public class NewAnounceLayout extends CardBasicLayout {
         if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.c == null) {
             return;
         }
-        if (this.a != h06.c) {
+        if (this.a != u06.c) {
             SkinManager.setBackgroundColor(this.f, R.color.CAM_X0205, i);
         } else {
             View view2 = this.f;
@@ -179,19 +179,19 @@ public class NewAnounceLayout extends CardBasicLayout {
     }
 
     @Override // com.baidu.tieba.barselect.segment.CardBasicLayout
-    public void setData(int i, a06 a06Var) {
+    public void setData(int i, n06 n06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, a06Var) == null) {
-            super.setData(i, a06Var);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, n06Var) == null) {
+            super.setData(i, n06Var);
             if (this.b != null && this.c != null && this.a >= 0) {
                 this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds70) * 2);
-                if (this.a == h06.b) {
+                if (this.a == u06.b) {
                     this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds116) * 2);
                 }
-                if (this.a == h06.d) {
+                if (this.a == u06.d) {
                     this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds96) * 2);
                 }
-                if (this.a == h06.c) {
+                if (this.a == u06.c) {
                     this.d = ej.r((Activity) getContext()).widthPixels - (ej.f(getContext(), R.dimen.tbds86) * 2);
                     this.f.setPadding(0, 0, 0, 0);
                     this.g.setPadding(0, 0, 0, 0);

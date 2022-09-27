@@ -1,175 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
-import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.frame.IntentData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.open.activity.AssistActivity;
-import com.yy.open.activity.BridgeActivity;
-import org.json.JSONObject;
+import com.squareup.wire2.FieldEncoding;
+import java.io.EOFException;
+import java.io.IOException;
+import java.net.ProtocolException;
+import kotlin.jvm.internal.ByteCompanionObject;
+import okio.BufferedSource;
+import okio.ByteString;
 /* loaded from: classes3.dex */
 public final class dt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<c> a;
-    public Handler b;
-    public Context c;
-    public String d;
-    public ht9 e;
+    public final BufferedSource a;
+    public long b;
+    public long c;
+    public int d;
+    public int e;
+    public int f;
+    public long g;
+    public FieldEncoding h;
 
-    /* loaded from: classes3.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ at9 b;
-        public final /* synthetic */ Intent c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ dt9 e;
-
-        public a(dt9 dt9Var, int i, at9 at9Var, Intent intent, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dt9Var, Integer.valueOf(i), at9Var, intent, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = dt9Var;
-            this.a = i;
-            this.b = at9Var;
-            this.c = intent;
-            this.d = j;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            String str;
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a == 0) {
-                        this.b.onCancel();
-                        return;
-                    }
-                    String stringExtra = this.c.getStringExtra("resjson");
-                    this.e.e.a(stringExtra);
-                    JSONObject jSONObject = new JSONObject(stringExtra);
-                    if (jSONObject.has("resCode") && jSONObject.has("resMsg")) {
-                        String optString = jSONObject.optString("resMsg");
-                        int optInt = jSONObject.optInt("resCode");
-                        if (optInt != 1000006 && optInt != 1290001) {
-                            optInt = this.a;
-                            this.e.f(this.c, this.b, this.d, optInt, optString);
-                            return;
-                        }
-                        Log.e("chenqiang", "resCode:" + optInt);
-                        this.e.f(this.c, this.b, this.d, optInt, optString);
-                        return;
-                    }
-                    Log.e("chenqiang", "please update yy new version！");
-                    if (jSONObject.has("openid") && jSONObject.has("access_code")) {
-                        i = this.a;
-                        str = "success";
-                    } else {
-                        str = "handleAuthLoginResult--default error!";
-                        i = 444222199;
-                    }
-                    this.e.f(this.c, this.b, this.d, i, str);
-                } catch (Exception unused) {
-                    this.b.onError(new bt9(444222105, gt9.h(444222105)));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ at9 a;
-        public final /* synthetic */ bt9 b;
-
-        public b(dt9 dt9Var, at9 at9Var, bt9 bt9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dt9Var, at9Var, bt9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = at9Var;
-            this.b = bt9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.onError(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public final class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public at9 a;
-        public long b;
-
-        public c(dt9 dt9Var, at9 at9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dt9Var, at9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = at9Var;
-            this.b = System.currentTimeMillis();
-        }
-    }
-
-    public dt9(Context context, String str) {
+    public dt9(BufferedSource bufferedSource) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {bufferedSource};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -179,196 +42,332 @@ public final class dt9 {
                 return;
             }
         }
-        this.e = ht9.b();
-        this.c = context;
-        this.d = str;
-        this.a = new SparseArray<>();
-        this.b = new Handler(Looper.getMainLooper());
+        this.b = 0L;
+        this.c = Long.MAX_VALUE;
+        this.e = 2;
+        this.f = -1;
+        this.g = -1L;
+        this.a = bufferedSource;
     }
 
-    public final void c(Activity activity, String str, at9 at9Var) {
+    public final void a(int i) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, at9Var) == null) {
-            if (ft9.d(activity, BridgeActivity.class) && ft9.d(activity, AssistActivity.class)) {
-                int a2 = gt9.a(activity);
-                if (a2 != 0) {
-                    try {
-                        this.a.put(62345, new c(this, at9Var));
-                        String c2 = gt9.c(this.c, this.d, str, true);
-                        Intent intent = new Intent(activity, AssistActivity.class);
-                        intent.putExtra("type", "type_web");
-                        intent.putExtra("url", c2);
-                        activity.startActivityForResult(intent, 62345);
-                        return;
-                    } catch (Exception unused) {
-                        g(new bt9(a2), at9Var);
-                        return;
-                    }
-                }
-                Intent e = gt9.e(activity);
-                this.a.put(62345, new c(this, at9Var));
-                Bundle d = gt9.d(activity, this.d);
-                e.putExtra("action", "action_login");
-                e.putExtra("bundle", d);
-                i(activity, e, 62345);
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            if (this.e == i) {
+                this.e = 6;
                 return;
             }
-            g(new bt9(3), at9Var);
-        }
-    }
-
-    public final boolean d(int i, int i2, Intent intent, at9 at9Var) {
-        InterceptResult invokeCommon;
-        long currentTimeMillis;
-        at9 at9Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, at9Var})) == null) {
-            if (i == 62345 || i == 62347) {
-                c cVar = this.a.get(i);
-                if (cVar != null) {
-                    currentTimeMillis = cVar.b;
-                    at9Var2 = cVar.a;
-                    this.a.remove(i);
-                } else {
-                    currentTimeMillis = System.currentTimeMillis();
-                    at9Var2 = at9Var;
-                }
-                if (i == 62345) {
-                    e(i2, intent, at9Var2, currentTimeMillis);
-                    return true;
-                } else if (i == 62347) {
-                    h(i2, intent, at9Var2, currentTimeMillis);
-                    return true;
-                } else {
-                    return false;
-                }
+            long j = this.b;
+            long j2 = this.c;
+            if (j > j2) {
+                throw new IOException("Expected to end at " + this.c + " but was " + this.b);
+            } else if (j == j2) {
+                this.c = this.g;
+                this.g = -1L;
+                this.e = 6;
+            } else {
+                this.e = 7;
             }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void e(int i, Intent intent, at9 at9Var, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), intent, at9Var, Long.valueOf(j)}) == null) {
-            this.b.postDelayed(new a(this, i, at9Var, intent, j), 10L);
         }
     }
 
-    public final void f(Intent intent, at9 at9Var, long j, int i, String str) {
+    public final long b() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{intent, at9Var, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            switch (i) {
-                case 1000006:
-                    at9Var.onError(new bt9(1000006, str));
-                    return;
-                case 1290001:
-                    at9Var.onError(new bt9(1290001, str));
-                    return;
-                case 444111001:
-                    try {
-                        String stringExtra = intent.getStringExtra("resjson");
-                        this.e.a(stringExtra);
-                        JSONObject jSONObject = new JSONObject(stringExtra);
-                        jSONObject.optString("openid");
-                        jSONObject.optString("uid");
-                        jSONObject.optString("access_code");
-                        at9Var.onComplete(jSONObject);
-                        return;
-                    } catch (Exception unused) {
-                        at9Var.onError(new bt9(444222105, gt9.h(444222105)));
-                        return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e == 2) {
+                long j = this.c - this.b;
+                this.a.require(j);
+                this.e = 6;
+                this.b = this.c;
+                this.c = this.g;
+                this.g = -1L;
+                return j;
+            }
+            throw new ProtocolException("Expected LENGTH_DELIMITED but was " + this.e);
+        }
+        return invokeV.longValue;
+    }
+
+    public long c() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e == 2) {
+                int i = this.d + 1;
+                this.d = i;
+                if (i <= 65) {
+                    long j = this.g;
+                    this.g = -1L;
+                    this.e = 6;
+                    return j;
+                }
+                throw new IOException("Wire recursion limit exceeded");
+            }
+            throw new IllegalStateException("Unexpected call to beginMessage()");
+        }
+        return invokeV.longValue;
+    }
+
+    public void d(long j) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (this.e == 6) {
+                int i = this.d - 1;
+                this.d = i;
+                if (i >= 0 && this.g == -1) {
+                    if (this.b != this.c && i != 0) {
+                        throw new IOException("Expected to end at " + this.c + " but was " + this.b);
                     }
-                case 444111002:
-                    at9Var.onCancel();
+                    this.c = j;
                     return;
-                case 444111003:
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(intent.getStringExtra("resjson"));
-                        if ("1".equals(jSONObject2.optString("appType"))) {
-                            jSONObject2.optString("uid");
-                        } else {
-                            jSONObject2.optString("openid");
+                }
+                throw new IllegalStateException("No corresponding call to beginMessage()");
+            }
+            throw new IllegalStateException("Unexpected call to endMessage()");
+        }
+    }
+
+    public final int e() throws IOException {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            this.b++;
+            byte readByte = this.a.readByte();
+            if (readByte >= 0) {
+                return readByte;
+            }
+            int i2 = readByte & ByteCompanionObject.MAX_VALUE;
+            this.b++;
+            byte readByte2 = this.a.readByte();
+            if (readByte2 >= 0) {
+                i = readByte2 << 7;
+            } else {
+                i2 |= (readByte2 & ByteCompanionObject.MAX_VALUE) << 7;
+                this.b++;
+                byte readByte3 = this.a.readByte();
+                if (readByte3 >= 0) {
+                    i = readByte3 << 14;
+                } else {
+                    i2 |= (readByte3 & ByteCompanionObject.MAX_VALUE) << 14;
+                    this.b++;
+                    byte readByte4 = this.a.readByte();
+                    if (readByte4 < 0) {
+                        int i3 = i2 | ((readByte4 & ByteCompanionObject.MAX_VALUE) << 21);
+                        this.b++;
+                        byte readByte5 = this.a.readByte();
+                        int i4 = i3 | (readByte5 << 28);
+                        if (readByte5 < 0) {
+                            for (int i5 = 0; i5 < 5; i5++) {
+                                this.b++;
+                                if (this.a.readByte() >= 0) {
+                                    return i4;
+                                }
+                            }
+                            throw new ProtocolException("Malformed VARINT");
                         }
-                        at9Var.onComplete(jSONObject2);
-                        return;
-                    } catch (Exception unused2) {
-                        at9Var.onError(new bt9(444222105, gt9.h(444222105)));
-                        return;
+                        return i4;
                     }
-                case 444222000:
-                    at9Var.onError(new bt9(444222000, str));
-                    return;
-                case 444222001:
-                    at9Var.onError(new bt9(444222001, str));
-                    return;
-                case 444222002:
-                    at9Var.onError(new bt9(444222002, str));
-                    return;
-                case 444222003:
-                    at9Var.onError(new bt9(444222003, str));
-                    return;
-                case 444222104:
-                    at9Var.onError(new bt9(444222104, str));
-                    return;
-                case 444222105:
-                    at9Var.onError(new bt9(444222105, str));
-                    return;
-                case 444222106:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        at9Var.onError(new bt9(444222106, str));
-                        return;
-                    } catch (Exception unused3) {
-                        at9Var.onError(new bt9(444222105, gt9.h(444222105)));
-                        return;
+                    i = readByte4 << 21;
+                }
+            }
+            return i2 | i;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.e;
+            if (i == 7) {
+                this.e = 2;
+                return this.f;
+            } else if (i == 6) {
+                while (this.b < this.c && !this.a.exhausted()) {
+                    int e = e();
+                    if (e != 0) {
+                        int i2 = e >> 3;
+                        this.f = i2;
+                        int i3 = e & 7;
+                        if (i3 == 0) {
+                            this.h = FieldEncoding.VARINT;
+                            this.e = 0;
+                            return i2;
+                        } else if (i3 == 1) {
+                            this.h = FieldEncoding.FIXED64;
+                            this.e = 1;
+                            return i2;
+                        } else if (i3 == 2) {
+                            this.h = FieldEncoding.LENGTH_DELIMITED;
+                            this.e = 2;
+                            int e2 = e();
+                            if (e2 >= 0) {
+                                if (this.g == -1) {
+                                    long j = this.c;
+                                    this.g = j;
+                                    long j2 = this.b + e2;
+                                    this.c = j2;
+                                    if (j2 <= j) {
+                                        return this.f;
+                                    }
+                                    throw new EOFException();
+                                }
+                                throw new IllegalStateException();
+                            }
+                            throw new ProtocolException("Negative length: " + e2);
+                        } else if (i3 != 3) {
+                            if (i3 != 4) {
+                                if (i3 == 5) {
+                                    this.h = FieldEncoding.FIXED32;
+                                    this.e = 5;
+                                    return i2;
+                                }
+                                throw new ProtocolException("Unexpected field encoding: " + i3);
+                            }
+                            throw new ProtocolException("Unexpected end group");
+                        } else {
+                            n(i2);
+                        }
+                    } else {
+                        throw new ProtocolException("Unexpected tag 0");
                     }
-                case 444222108:
-                    try {
-                        at9Var.onComplete(new JSONObject(intent.getStringExtra("resjson")));
-                        return;
-                    } catch (Exception unused4) {
-                        at9Var.onError(new bt9(444222105, gt9.h(444222105)));
-                        return;
-                    }
-                case 444222110:
-                    try {
-                        new JSONObject(intent.getStringExtra("resjson"));
-                        at9Var.onError(new bt9(444222110, str));
-                        return;
-                    } catch (Exception unused5) {
-                        at9Var.onError(new bt9(444222105, gt9.h(444222105)));
-                        return;
-                    }
-                default:
-                    Log.e("chenqiang", "default  error");
-                    at9Var.onError(new bt9(i, gt9.h(i)));
-                    return;
+                }
+                return -1;
+            } else {
+                throw new IllegalStateException("Unexpected call to nextTag()");
             }
         }
+        return invokeV.intValue;
     }
 
-    public final void g(bt9 bt9Var, at9 at9Var) {
+    public FieldEncoding g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048580, this, bt9Var, at9Var) == null) || at9Var == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.h : (FieldEncoding) invokeV.objValue;
+    }
+
+    public ByteString h() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a.readByteString(b()) : (ByteString) invokeV.objValue;
+    }
+
+    public int i() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int i = this.e;
+            if (i != 5 && i != 2) {
+                throw new ProtocolException("Expected FIXED32 or LENGTH_DELIMITED but was " + this.e);
+            }
+            this.a.require(4L);
+            this.b += 4;
+            int readIntLe = this.a.readIntLe();
+            a(5);
+            return readIntLe;
         }
-        this.b.postDelayed(new b(this, at9Var, bt9Var), 50L);
+        return invokeV.intValue;
     }
 
-    public final void h(int i, Intent intent, at9 at9Var, long j) {
+    public long j() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), intent, at9Var, Long.valueOf(j)}) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            int i = this.e;
+            if (i != 1 && i != 2) {
+                throw new ProtocolException("Expected FIXED64 or LENGTH_DELIMITED but was " + this.e);
+            }
+            this.a.require(8L);
+            this.b += 8;
+            long readLongLe = this.a.readLongLe();
+            a(1);
+            return readLongLe;
         }
+        return invokeV.longValue;
     }
 
-    public final void i(Activity activity, Intent intent, int i) {
+    public String k() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, intent, i) == null) {
-            intent.putExtra("request_code", i);
-            Intent intent2 = new Intent(activity.getApplicationContext(), BridgeActivity.class);
-            intent2.putExtra(IntentData.KEY, intent);
-            activity.startActivityForResult(intent2, i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.a.readUtf8(b()) : (String) invokeV.objValue;
+    }
+
+    public int l() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i != 2) {
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
+            }
+            int e = e();
+            a(0);
+            return e;
+        }
+        return invokeV.intValue;
+    }
+
+    public long m() throws IOException {
+        InterceptResult invokeV;
+        byte readByte;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            int i = this.e;
+            if (i != 0 && i != 2) {
+                throw new ProtocolException("Expected VARINT or LENGTH_DELIMITED but was " + this.e);
+            }
+            long j = 0;
+            for (int i2 = 0; i2 < 64; i2 += 7) {
+                this.b++;
+                j |= (readByte & ByteCompanionObject.MAX_VALUE) << i2;
+                if ((this.a.readByte() & 128) == 0) {
+                    a(0);
+                    return j;
+                }
+            }
+            throw new ProtocolException("WireInput encountered a malformed varint");
+        }
+        return invokeV.longValue;
+    }
+
+    public final void n(int i) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            while (this.b < this.c && !this.a.exhausted()) {
+                int e = e();
+                if (e == 0) {
+                    throw new ProtocolException("Unexpected tag 0");
+                }
+                int i2 = e >> 3;
+                int i3 = e & 7;
+                if (i3 == 0) {
+                    this.e = 0;
+                    m();
+                } else if (i3 == 1) {
+                    this.e = 1;
+                    j();
+                } else if (i3 == 2) {
+                    long e2 = e();
+                    this.b += e2;
+                    this.a.skip(e2);
+                } else if (i3 == 3) {
+                    n(i2);
+                } else if (i3 == 4) {
+                    if (i2 != i) {
+                        throw new ProtocolException("Unexpected end group");
+                    }
+                    return;
+                } else if (i3 == 5) {
+                    this.e = 5;
+                    i();
+                } else {
+                    throw new ProtocolException("Unexpected field encoding: " + i3);
+                }
+            }
+            throw new EOFException();
         }
     }
 }

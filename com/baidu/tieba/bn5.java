@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
 /* loaded from: classes3.dex */
-public class bn5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bn5 extends hn5<jn5> {
 
-    public static vm5 a(wm5 wm5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wm5Var)) == null) {
-            if (wm5Var != null && (wm5Var.a() instanceof TbPageContext) && (((TbPageContext) wm5Var.a()).getPageActivity() instanceof vm5)) {
-                return (vm5) ((TbPageContext) wm5Var.a()).getPageActivity();
-            }
-            return null;
-        }
-        return (vm5) invokeL.objValue;
+    /* loaded from: classes3.dex */
+    public interface a {
+        void a(jn5 jn5Var, View view2);
+
+        void b(jn5 jn5Var, View view2);
     }
+
+    void a(int i);
+
+    void c(Object obj);
+
+    View getView();
+
+    void h(a aVar);
+
+    void j();
+
+    void l(int i);
 }

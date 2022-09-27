@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.GetRequest;
-import com.baidu.searchbox.http.request.PostByteRequest;
-import com.baidu.swan.pms.PMSConstants;
+import android.content.Context;
+import android.database.DatabaseErrorHandler;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,179 +14,126 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
-import org.json.JSONObject;
-@Deprecated
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class bc4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static CookieManager a;
-    public static String b;
+public class bc4 extends SQLiteOpenHelper {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile bc4 b = null;
+    public static final int c = 12;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public static class a implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ fc4 b;
-
-        public a(Map map, fc4 fc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, fc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = fc4Var;
-        }
-
-        @Override // com.baidu.tieba.bc4.c
-        public void a(Map<String, String> map, byte[] bArr, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
-                PostByteRequest.PostByteRequestBuilder postByteRequest = ca4.g().postByteRequest();
-                ka4.a(postByteRequest, this.a);
-                postByteRequest.url(gc4.j(str, this.a)).content(bArr).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
-                if (map != null) {
-                    postByteRequest.addHeaders(map);
-                }
-                if (!TextUtils.isEmpty(bc4.b)) {
-                    postByteRequest.userAgent(bc4.b);
-                }
-                postByteRequest.cookieManager(bc4.a).enableStat(true).build().executeStat(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ fc4 b;
-
-        public b(Map map, fc4 fc4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, fc4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = fc4Var;
-        }
-
-        @Override // com.baidu.tieba.bc4.c
-        public void a(Map<String, String> map, byte[] bArr, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
-                GetRequest.GetRequestBuilder requestSubFrom = ca4.g().getRequest().url(gc4.j(str, this.a)).requestSubFrom(10);
-                if (!TextUtils.isEmpty(bc4.b)) {
-                    requestSubFrom.userAgent(bc4.b);
-                }
-                if (map != null) {
-                    requestSubFrom.addHeaders(map);
-                }
-                requestSubFrom.cookieManager(bc4.a).enableStat(true).build().executeStat(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public interface c {
-        void a(Map<String, String> map, byte[] bArr, String str);
-    }
+    public ConcurrentHashMap<Class<?>, tb4> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947640150, "Lcom/baidu/tieba/bc4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947640150, "Lcom/baidu/tieba/bc4;");
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947640150, "Lcom/baidu/tieba/bc4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947640150, "Lcom/baidu/tieba/bc4;");
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public bc4() {
+        this("ai_apps_pms.db", c);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((String) objArr[0], ((Integer) objArr[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a = ja4.b().f();
-        p94 b2 = q94.b();
-        if (b2 == null || !ca4.g().c()) {
-            return;
-        }
-        b = b2.getUserAgent();
+        c();
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    @Deprecated
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, fc4<String> fc4Var) {
+    public static bc4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLL(65537, null, str, map, map2, fc4Var) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (bc4.class) {
+                    if (b == null) {
+                        b = new bc4();
+                    }
+                }
+            }
+            return b;
         }
-        if (fc4Var != null) {
-            fc4Var.onStart();
-        }
-        ha4 b2 = ja4.b();
-        if (PMSConstants.a(b2)) {
-            b2.m(gc4.j(str, map), null, new b(map, fc4Var));
-            return;
-        }
-        GetRequest.GetRequestBuilder requestSubFrom = ca4.g().getRequest().url(gc4.j(str, map)).requestSubFrom(10);
-        if (!TextUtils.isEmpty(b)) {
-            requestSubFrom.userAgent(b);
-        }
-        if (map2 != null) {
-            requestSubFrom.addHeaders(map2);
-        }
-        requestSubFrom.cookieManager(a).enableStat(true).build().executeStat(fc4Var);
+        return (bc4) invokeV.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    @Deprecated
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, fc4<String> fc4Var) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLLL(65538, null, str, map, map2, jSONObject, fc4Var) == null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ConcurrentHashMap<Class<?>, tb4> concurrentHashMap = new ConcurrentHashMap<>();
+            this.a = concurrentHashMap;
+            concurrentHashMap.put(kc4.class, new xb4());
+            this.a.put(lc4.class, new yb4());
+            this.a.put(PMSAppInfo.class, new ub4());
+            this.a.put(ic4.class, new wb4());
+            this.a.put(gc4.class, new vb4());
+            this.a.put(mc4.class, new zb4());
+            this.a.put(nc4.class, new ac4());
         }
-        if (fc4Var != null) {
-            fc4Var.onStart();
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b = null;
         }
-        ha4 b2 = ja4.b();
-        if (PMSConstants.a(b2)) {
-            b2.m(gc4.j(str, map), jSONObject.toString(), new a(map, fc4Var));
-            return;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            for (tb4 tb4Var : this.a.values()) {
+                tb4Var.a(sQLiteDatabase);
+            }
         }
-        y94 postStringRequest = ca4.g().postStringRequest();
-        ka4.a(postStringRequest, map);
-        postStringRequest.url(gc4.j(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
-        if (map2 != null) {
-            postStringRequest.addHeaders(map2);
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
+            for (tb4 tb4Var : this.a.values()) {
+                tb4Var.onUpgrade(sQLiteDatabase, i, i2);
+            }
         }
-        if (!TextUtils.isEmpty(b)) {
-            postStringRequest.userAgent(b);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bc4(String str, int i) {
+        super(AppRuntime.getAppContext(), str, null, i, null);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue(), (DatabaseErrorHandler) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        postStringRequest.cookieManager(a).enableStat(true).build().executeStat(fc4Var);
     }
 }

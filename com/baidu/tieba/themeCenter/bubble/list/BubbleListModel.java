@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.dm8;
-import com.baidu.tieba.dt8;
 import com.baidu.tieba.pb;
 import com.baidu.tieba.r9;
+import com.baidu.tieba.sm8;
+import com.baidu.tieba.st8;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListActivity a;
-    public dt8 b;
+    public st8 b;
     public List<DressItemData> c;
     public List<DressItemData> d;
     public c e;
@@ -158,7 +158,7 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, String str, dt8 dt8Var, List<DressItemData> list);
+        void a(int i, String str, st8 st8Var, List<DressItemData> list);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -266,8 +266,8 @@ public class BubbleListModel extends BdBaseModel<BubbleListActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            dm8.h(309031, BubbleListSocketResponseMessage.class, false, false);
-            dm8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
+            sm8.h(309031, BubbleListSocketResponseMessage.class, false, false);
+            sm8.c(309031, CmdConfigHttp.CMD_BUBBLE_LIST, TbConfig.BUBBLE_LIST_PAGE, BubbleListHttpResponseMessage.class, false, false, false, false);
         }
     }
 

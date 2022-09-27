@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ei7;
+import com.baidu.tieba.si7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 public class LocationSearchResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ei7 mLocationData;
+    public si7 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchResponseMessage() {
@@ -48,25 +48,25 @@ public class LocationSearchResponseMessage extends SocketResponsedMessage {
             if (getError() != 0) {
                 return getSuggestionByAddrNameResIdl;
             }
-            ei7 ei7Var = new ei7();
-            this.mLocationData = ei7Var;
-            ei7Var.b(getSuggestionByAddrNameResIdl.data);
+            si7 si7Var = new si7();
+            this.mLocationData = si7Var;
+            si7Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
             return getSuggestionByAddrNameResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public ei7 getLocationData() {
+    public si7 getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLocationData : (ei7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mLocationData : (si7) invokeV.objValue;
     }
 
-    public void setLocationData(ei7 ei7Var) {
+    public void setLocationData(si7 si7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ei7Var) == null) {
-            this.mLocationData = ei7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, si7Var) == null) {
+            this.mLocationData = si7Var;
         }
     }
 }

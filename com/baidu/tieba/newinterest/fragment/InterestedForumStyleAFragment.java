@@ -16,12 +16,12 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.by4;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.es7;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.my4;
 import com.baidu.tieba.newinterest.model.InterestedForumModel;
-import com.baidu.tieba.uu4;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.oy4;
+import com.baidu.tieba.ss7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
     public View k;
     public LinearLayout l;
     public View m;
-    public es7 n;
+    public ss7 n;
 
     public InterestedForumStyleAFragment() {
         Interceptable interceptable = $ic;
@@ -97,22 +97,22 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            uu4 d = uu4.d(this.h);
+            hv4 d = hv4.d(this.h);
             d.v(R.color.CAM_X0105);
             d.z(R.dimen.T_X03);
             d.A(R.string.F_X02);
-            uu4 d2 = uu4.d(this.i);
+            hv4 d2 = hv4.d(this.i);
             d2.v(R.color.CAM_X0108);
             d2.z(R.dimen.T_X07);
             d2.A(R.string.F_X01);
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
-            uu4.d(this.l).f(R.color.CAM_X0201);
-            uu4.d(this.k).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
-            uu4.d(this.m).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
+            hv4.d(this.l).f(R.color.CAM_X0201);
+            hv4.d(this.k).o(new int[]{R.color.CAM_X0201, R.color.CAM_X0612});
+            hv4.d(this.m).o(new int[]{R.color.CAM_X0612, R.color.CAM_X0201});
             this.g.k();
-            es7 es7Var = this.n;
-            if (es7Var != null) {
-                es7Var.k(i);
+            ss7 ss7Var = this.n;
+            if (ss7Var != null) {
+                ss7Var.k(i);
             }
         }
     }
@@ -177,19 +177,19 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
                 textView.setText(strArr[0]);
                 this.i.setText(this.c[2]);
             }
-            zx4 zx4Var = new zx4();
+            my4 my4Var = new my4();
             TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f090f44);
             this.j = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.T_X06);
-            this.j.setConfig(zx4Var);
+            this.j.setConfig(my4Var);
             this.j.setText(getResources().getString(R.string.obfuscated_res_0x7f0f094b));
             this.j.setEnabled(false);
-            by4 by4Var = new by4();
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091e35);
+            oy4 oy4Var = new oy4();
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.e.findViewById(R.id.obfuscated_res_0x7f091e37);
             this.g = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.T_X06);
-            by4Var.r(R.color.CAM_X0105);
-            this.g.setConfig(by4Var);
+            oy4Var.r(R.color.CAM_X0105);
+            this.g.setConfig(oy4Var);
             this.g.setText(getString(R.string.obfuscated_res_0x7f0f0953));
             this.k = this.e.findViewById(R.id.obfuscated_res_0x7f090f45);
             this.l = (LinearLayout) this.e.findViewById(R.id.obfuscated_res_0x7f090f46);
@@ -203,7 +203,7 @@ public class InterestedForumStyleAFragment extends BaseInterestedForumFragment {
             View view2 = new View(this.f.getContext());
             view2.setLayoutParams(new LinearLayout.LayoutParams(-2, u1(R.dimen.tbds78)));
             this.f.s(view2);
-            this.n = new es7(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
+            this.n = new ss7(this, this.f, this.j, this.g, getPageContext(), new InterestedForumModel(getUniqueId()), this.a, this.b);
         }
     }
 }

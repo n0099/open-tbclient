@@ -8,8 +8,8 @@ import com.baidu.adp.base.BdBaseService;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.kf8;
 import com.baidu.tieba.model.ReportUserInfoModel;
-import com.baidu.tieba.ve8;
 import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -102,9 +102,9 @@ public class UpdateInfoService extends BdBaseService {
             if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) && i == 0 && address != null) {
                 float longitude = (float) address.getLongitude();
                 float latitude = (float) address.getLatitude();
-                ve8.e().j(String.valueOf(longitude));
-                ve8.e().i(String.valueOf(latitude));
-                ve8.e().k(System.currentTimeMillis());
+                kf8.e().j(String.valueOf(longitude));
+                kf8.e().i(String.valueOf(latitude));
+                kf8.e().k(System.currentTimeMillis());
                 if (this.a.mModel.A() && TbadkCoreApplication.getInst().getLocationShared() && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                     this.a.mModel.C(1, longitude, latitude);
                     this.a.mModel.D();

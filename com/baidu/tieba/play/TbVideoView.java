@@ -35,26 +35,26 @@ import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ci5;
+import com.baidu.tieba.ab8;
+import com.baidu.tieba.bb8;
+import com.baidu.tieba.db8;
 import com.baidu.tieba.dj;
-import com.baidu.tieba.ga8;
-import com.baidu.tieba.ka8;
+import com.baidu.tieba.eb8;
+import com.baidu.tieba.fb8;
+import com.baidu.tieba.hv8;
+import com.baidu.tieba.jp7;
 import com.baidu.tieba.la8;
 import com.baidu.tieba.lj;
 import com.baidu.tieba.ma8;
+import com.baidu.tieba.mp7;
 import com.baidu.tieba.na8;
-import com.baidu.tieba.pa8;
+import com.baidu.tieba.pi5;
 import com.baidu.tieba.play.OnStatusChangedListener;
 import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.tieba.play.cyberPlayer.TbVideoViewSet;
-import com.baidu.tieba.qa8;
-import com.baidu.tieba.ra8;
-import com.baidu.tieba.su8;
-import com.baidu.tieba.vo7;
-import com.baidu.tieba.x98;
-import com.baidu.tieba.y98;
-import com.baidu.tieba.yo7;
-import com.baidu.tieba.z98;
+import com.baidu.tieba.ua8;
+import com.baidu.tieba.ya8;
+import com.baidu.tieba.za8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,9 +66,9 @@ import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class TbVideoView extends FrameLayout implements y98 {
+public class TbVideoView extends FrameLayout implements ma8 {
     public static /* synthetic */ Interceptable $ic;
-    public static yo7 E;
+    public static mp7 E;
     public transient /* synthetic */ FieldHolder $fh;
     public IVideoPlayerCallback A;
     public OnStatusChangedListener.VideoStatus B;
@@ -83,20 +83,20 @@ public class TbVideoView extends FrameLayout implements y98 {
     public boolean g;
     public boolean h;
     public int i;
-    public z98 j;
+    public na8 j;
     public boolean k;
     public boolean l;
-    public ga8 m;
+    public ua8 m;
     public String n;
-    public pa8 o;
-    public vo7 p;
+    public db8 o;
+    public jp7 p;
     public String q;
     public String r;
     public boolean s;
     public boolean t;
-    public ka8 u;
+    public ya8 u;
     public boolean v;
-    public ra8 w;
+    public fb8 w;
     public TbVideoViewContainer.a x;
     public boolean y;
     public final CustomMessageListener z;
@@ -196,7 +196,7 @@ public class TbVideoView extends FrameLayout implements y98 {
                     this.a.p = null;
                 }
                 this.a.setVideoStatus(OnStatusChangedListener.VideoStatus.VIDEO_COMPLETE);
-                la8.d().e(this.a.b);
+                za8.d().e(this.a.b);
                 if (this.a.o != null) {
                     this.a.o.j();
                 }
@@ -218,7 +218,7 @@ public class TbVideoView extends FrameLayout implements y98 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, str) == null) {
                 if (this.a.getCurrentPosition() > 0 && this.a.F()) {
-                    la8.d().update(this.a.b, this.a.getCurrentPosition());
+                    za8.d().update(this.a.b, this.a.getCurrentPosition());
                 }
                 TbVideoViewSet.c().e(this.a.b);
                 if (this.a.w != null) {
@@ -288,7 +288,7 @@ public class TbVideoView extends FrameLayout implements y98 {
                 if (this.a.w != null) {
                     this.a.w.onPrepared();
                 }
-                if (this.a.a && (c = la8.d().c(this.a.b)) > 0) {
+                if (this.a.a && (c = za8.d().c(this.a.b)) > 0) {
                     this.a.seekTo(c);
                 }
                 if (this.a.c) {
@@ -392,9 +392,9 @@ public class TbVideoView extends FrameLayout implements y98 {
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, yo7.class);
+        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, mp7.class);
         if (runTask != null) {
-            E = (yo7) runTask.getData();
+            E = (mp7) runTask.getData();
         }
     }
 
@@ -420,21 +420,21 @@ public class TbVideoView extends FrameLayout implements y98 {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public vo7 getVideoMonitor() {
+    public jp7 getVideoMonitor() {
         InterceptResult invokeV;
-        yo7 yo7Var;
+        mp7 mp7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, this)) == null) {
-            vo7 vo7Var = this.p;
-            if (vo7Var != null) {
-                return vo7Var;
+            jp7 jp7Var = this.p;
+            if (jp7Var != null) {
+                return jp7Var;
             }
-            if (!StringUtils.isNull(this.b) && (yo7Var = E) != null) {
-                this.p = yo7Var.a(this.n, this.b, null);
+            if (!StringUtils.isNull(this.b) && (mp7Var = E) != null) {
+                this.p = mp7Var.a(this.n, this.b, null);
             }
             return this.p;
         }
-        return (vo7) invokeV.objValue;
+        return (jp7) invokeV.objValue;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -489,11 +489,11 @@ public class TbVideoView extends FrameLayout implements y98 {
             }
             this.f = new WeakReference<>(TbadkCoreApplication.getInst());
             if (UbsABTestHelper.isFeedVideoImmersionTransition() && (TbSingleton.getInstance().getIsNeedReuseVideoPlayer() || TbSingleton.getInstance().getIsOutNeedReuseVideoPlayer())) {
-                this.m = new ga8((Context) null, "video_reuse_player");
+                this.m = new ua8((Context) null, "video_reuse_player");
                 TbSingleton.getInstance().setIsNeedReuseVideoPlayer(false);
                 TbSingleton.getInstance().setIsOutNeedReuseVideoPlayer(false);
             } else {
-                this.m = new ga8(TbadkCoreApplication.getInst(), new BaseKernelLayer(AbsVideoKernel.CYBER_PLAYER));
+                this.m = new ua8(TbadkCoreApplication.getInst(), new BaseKernelLayer(AbsVideoKernel.CYBER_PLAYER));
             }
             this.m.h();
             this.m.attachToContainer(this);
@@ -501,8 +501,8 @@ public class TbVideoView extends FrameLayout implements y98 {
             if (UbsABTestHelper.isFeedVideoImmersionTransition()) {
                 this.m.setLooping(true);
             }
-            this.o = new pa8();
-            this.j = new z98();
+            this.o = new db8();
+            this.j = new na8();
             SkinManager.setBackgroundResource(this, R.color.black_alpha100);
             Context context = getContext();
             if (!(context instanceof LifecycleOwner) || (this.w instanceof FrameLayout)) {
@@ -548,15 +548,15 @@ public class TbVideoView extends FrameLayout implements y98 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, uri) == null) {
             this.m.setOption(CyberPlayerManager.OPT_PCDN_TYPE, "2014");
-            na8 pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
+            bb8 pcdnConfigData = TbSingleton.getInstance().getPcdnConfigData();
             if (pcdnConfigData != null && pcdnConfigData.c()) {
                 if (!pcdnConfigData.a(uri)) {
                     this.i = 2;
                     return;
-                } else if (qa8.e() != 0 && qa8.e() != -1) {
+                } else if (eb8.e() != 0 && eb8.e() != -1) {
                     this.m.setOption(CyberPlayerManager.OPT_ENABLE_PCDN, "1");
                     this.m.setOption(CyberPlayerManager.OPT_ENABLE_P2P, pcdnConfigData.b() ? "1" : "0");
-                    this.m.setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(qa8.e()));
+                    this.m.setOption(CyberPlayerManager.OPT_PCDN_NETHANDLE, String.valueOf(eb8.e()));
                     this.s = true;
                     this.t = pcdnConfigData.b();
                     this.i = 1;
@@ -586,8 +586,8 @@ public class TbVideoView extends FrameLayout implements y98 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ga8 ga8Var = this.m;
-            return ga8Var != null && ga8Var.getDurationMs() >= this.m.getPositionMs();
+            ua8 ua8Var = this.m;
+            return ua8Var != null && ua8Var.getDurationMs() >= this.m.getPositionMs();
         }
         return invokeV.booleanValue;
     }
@@ -596,9 +596,9 @@ public class TbVideoView extends FrameLayout implements y98 {
     public void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            pa8 pa8Var = this.o;
-            if (pa8Var != null) {
-                pa8Var.h();
+            db8 db8Var = this.o;
+            if (db8Var != null) {
+                db8Var.h();
                 this.o.g(getDuration());
                 this.o.f(this);
             }
@@ -631,20 +631,20 @@ public class TbVideoView extends FrameLayout implements y98 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             if (isPlaying() && F()) {
-                la8.d().update(this.b, getCurrentPositionSync());
+                za8.d().update(this.b, getCurrentPositionSync());
             }
             this.c = false;
             this.m.pause();
             N();
             if (TbSingleton.getInstance().getIsOutNeedReuseVideoPlayer()) {
-                pa8 pa8Var = this.o;
-                if (pa8Var != null) {
-                    pa8Var.j();
+                db8 db8Var = this.o;
+                if (db8Var != null) {
+                    db8Var.j();
                 }
             } else {
-                pa8 pa8Var2 = this.o;
-                if (pa8Var2 != null) {
-                    pa8Var2.e();
+                db8 db8Var2 = this.o;
+                if (db8Var2 != null) {
+                    db8Var2.e();
                 }
             }
             try {
@@ -654,9 +654,9 @@ public class TbVideoView extends FrameLayout implements y98 {
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            vo7 vo7Var = this.p;
-            if (vo7Var != null) {
-                vo7Var.f();
+            jp7 jp7Var = this.p;
+            if (jp7Var != null) {
+                jp7Var.f();
             }
         }
     }
@@ -723,9 +723,9 @@ public class TbVideoView extends FrameLayout implements y98 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ga8 ga8Var = this.m;
-            if (ga8Var != null) {
-                return ga8Var.k(new c(this), 1.0f);
+            ua8 ua8Var = this.m;
+            if (ua8Var != null) {
+                return ua8Var.k(new c(this), 1.0f);
             }
             return false;
         }
@@ -764,11 +764,11 @@ public class TbVideoView extends FrameLayout implements y98 {
                 return;
             }
             if (this.b != null && isPlaying()) {
-                ci5.e(this.f, false);
+                pi5.e(this.f, false);
             }
             this.c = false;
             if (isPlaying() && F()) {
-                la8.d().update(this.b, getCurrentPositionSync());
+                za8.d().update(this.b, getCurrentPositionSync());
             }
             try {
                 if (this.e != null && this.e.isHeld()) {
@@ -779,13 +779,13 @@ public class TbVideoView extends FrameLayout implements y98 {
             }
             this.m.pause();
             N();
-            pa8 pa8Var = this.o;
-            if (pa8Var != null) {
-                pa8Var.j();
+            db8 db8Var = this.o;
+            if (db8Var != null) {
+                db8Var.j();
             }
             this.j.n();
-            vo7 vo7Var = this.p;
-            if (vo7Var == null || !vo7Var.d(this.q, this.r)) {
+            jp7 jp7Var = this.p;
+            if (jp7Var == null || !jp7Var.d(this.q, this.r)) {
                 return;
             }
             this.p = null;
@@ -810,14 +810,14 @@ public class TbVideoView extends FrameLayout implements y98 {
         return (OnStatusChangedListener.VideoStatus) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public void a(long j, long j2, long j3) {
-        vo7 vo7Var;
+        jp7 jp7Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (vo7Var = this.p) == null) {
+        if (!(interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) || (jp7Var = this.p) == null) {
             return;
         }
-        vo7Var.a(j, j2, j3);
+        jp7Var.a(j, j2, j3);
     }
 
     @Override // android.widget.MediaController.MediaPlayerControl
@@ -877,16 +877,16 @@ public class TbVideoView extends FrameLayout implements y98 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) ? this.m.getPositionMs() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public int getCurrentPositionSync() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            ga8 ga8Var = this.m;
-            if (ga8Var == null) {
+            ua8 ua8Var = this.m;
+            if (ua8Var == null) {
                 return 0;
             }
-            return ga8Var.getPositionMs();
+            return ua8Var.getPositionMs();
         }
         return invokeV.intValue;
     }
@@ -898,11 +898,11 @@ public class TbVideoView extends FrameLayout implements y98 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) ? this.m.getDurationMs() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.y98
-    public z98 getMediaProgressObserver() {
+    @Override // com.baidu.tieba.ma8
+    public na8 getMediaProgressObserver() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.j : (z98) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.j : (na8) invokeV.objValue;
     }
 
     public String getOriginUrl() {
@@ -911,28 +911,28 @@ public class TbVideoView extends FrameLayout implements y98 {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public int getPcdnState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) ? this.i : invokeV.intValue;
     }
 
-    public x98 getPlayer() {
+    public la8 getPlayer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.m : (x98) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) ? this.m : (la8) invokeV.objValue;
     }
 
     public int getPlayerHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            ga8 ga8Var = this.m;
-            if (ga8Var == null) {
+            ua8 ua8Var = this.m;
+            if (ua8Var == null) {
                 return 0;
             }
-            return ga8Var.getVideoHeight();
+            return ua8Var.getVideoHeight();
         }
         return invokeV.intValue;
     }
@@ -941,11 +941,11 @@ public class TbVideoView extends FrameLayout implements y98 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            ga8 ga8Var = this.m;
-            if (ga8Var == null) {
+            ua8 ua8Var = this.m;
+            if (ua8Var == null) {
                 return 0;
             }
-            return ga8Var.getVideoWidth();
+            return ua8Var.getVideoWidth();
         }
         return invokeV.intValue;
     }
@@ -1009,16 +1009,16 @@ public class TbVideoView extends FrameLayout implements y98 {
     public void pause() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            ci5.e(this.f, false);
+            pi5.e(this.f, false);
             if (isPlaying() && F()) {
-                la8.d().update(this.b, getCurrentPositionSync());
+                za8.d().update(this.b, getCurrentPositionSync());
             }
             this.c = false;
             this.m.pause();
             N();
-            pa8 pa8Var = this.o;
-            if (pa8Var != null) {
-                pa8Var.e();
+            db8 db8Var = this.o;
+            if (db8Var != null) {
+                db8Var.e();
             }
             try {
                 if (this.e != null && this.e.isHeld()) {
@@ -1027,9 +1027,9 @@ public class TbVideoView extends FrameLayout implements y98 {
             } catch (Exception e) {
                 BdLog.e(e);
             }
-            vo7 vo7Var = this.p;
-            if (vo7Var != null) {
-                vo7Var.f();
+            jp7 jp7Var = this.p;
+            if (jp7Var != null) {
+                jp7Var.f();
             }
         }
     }
@@ -1070,7 +1070,7 @@ public class TbVideoView extends FrameLayout implements y98 {
         }
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public void setLooping(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
@@ -1086,7 +1086,7 @@ public class TbVideoView extends FrameLayout implements y98 {
         }
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048623, this, aVar) == null) {
@@ -1094,25 +1094,25 @@ public class TbVideoView extends FrameLayout implements y98 {
         }
     }
 
-    @Override // com.baidu.tieba.y98
-    public void setOperableVideoContainer(ra8 ra8Var) {
+    @Override // com.baidu.tieba.ma8
+    public void setOperableVideoContainer(fb8 fb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048624, this, ra8Var) == null) {
-            this.w = ra8Var;
+        if (interceptable == null || interceptable.invokeL(1048624, this, fb8Var) == null) {
+            this.w = fb8Var;
         }
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public void setPlayMode(String str) {
-        pa8 pa8Var;
+        db8 db8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048625, this, str) == null) || (pa8Var = this.o) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048625, this, str) == null) || (db8Var = this.o) == null) {
             return;
         }
-        pa8Var.l(str);
+        db8Var.l(str);
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public void setStageType(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
@@ -1131,7 +1131,7 @@ public class TbVideoView extends FrameLayout implements y98 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048627, this, threadData) == null) {
             if (this.o == null) {
-                this.o = new pa8();
+                this.o = new db8();
             }
             this.o.m(threadData);
         }
@@ -1144,14 +1144,14 @@ public class TbVideoView extends FrameLayout implements y98 {
         }
     }
 
-    public void setVideoModel(ka8 ka8Var) {
+    public void setVideoModel(ya8 ya8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048629, this, ka8Var) == null) {
-            this.u = ka8Var;
+        if (interceptable == null || interceptable.invokeL(1048629, this, ya8Var) == null) {
+            this.u = ya8Var;
         }
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public void setVideoPath(String str, String str2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeLL(1048631, this, str, str2) == null) || dj.isEmpty(str)) {
@@ -1168,16 +1168,16 @@ public class TbVideoView extends FrameLayout implements y98 {
         }
     }
 
-    @Override // com.baidu.tieba.y98
-    public void setVideoStatData(ma8 ma8Var) {
+    @Override // com.baidu.tieba.ma8
+    public void setVideoStatData(ab8 ab8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048633, this, ma8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048633, this, ab8Var) == null) {
             if (this.o == null) {
-                this.o = new pa8();
+                this.o = new db8();
             }
-            this.o.o(ma8Var);
-            if (ma8Var != null) {
-                this.q = ma8Var.a;
+            this.o.o(ab8Var);
+            if (ab8Var != null) {
+                this.q = ab8Var.a;
             }
         }
     }
@@ -1189,7 +1189,7 @@ public class TbVideoView extends FrameLayout implements y98 {
         }
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public void setVolume(float f, float f2) {
         Interceptable interceptable = $ic;
         if (!(interceptable == null || interceptable.invokeCommon(1048635, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) || this.m == null) {
@@ -1205,7 +1205,7 @@ public class TbVideoView extends FrameLayout implements y98 {
         if (interceptable == null || interceptable.invokeV(1048636, this) == null) {
             PlayerSpeedTracker.beginTrack(lj.c(this.m.getVideoUrl()));
             if (!this.g) {
-                ci5.e(this.f, true);
+                pi5.e(this.f, true);
                 setVolume(1.0f, 1.0f);
             } else {
                 setVolume(0.0f, 0.0f);
@@ -1222,9 +1222,9 @@ public class TbVideoView extends FrameLayout implements y98 {
             if (this.B == OnStatusChangedListener.VideoStatus.INTERNAL_VIDEO_PAUSING_BUFFER) {
                 setVideoStatus(OnStatusChangedListener.VideoStatus.INTERNAL_VIDEO_BUFFERING_BUFFER);
             }
-            pa8 pa8Var = this.o;
-            if (pa8Var != null) {
-                pa8Var.i();
+            db8 db8Var = this.o;
+            if (db8Var != null) {
+                db8Var.i();
             }
             this.j.m();
             try {
@@ -1241,16 +1241,16 @@ public class TbVideoView extends FrameLayout implements y98 {
         }
     }
 
-    @Override // com.baidu.tieba.y98
+    @Override // com.baidu.tieba.ma8
     public void stopPlayback() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048637, this) == null) {
             if (this.b != null && isPlaying()) {
-                ci5.e(this.f, false);
+                pi5.e(this.f, false);
             }
             this.c = false;
             if (isPlaying() && F()) {
-                la8.d().update(this.b, getCurrentPositionSync());
+                za8.d().update(this.b, getCurrentPositionSync());
             }
             try {
                 if (this.e != null && this.e.isHeld()) {
@@ -1261,13 +1261,13 @@ public class TbVideoView extends FrameLayout implements y98 {
             }
             this.m.stop();
             TbVideoViewSet.c().e(this.b);
-            pa8 pa8Var = this.o;
-            if (pa8Var != null) {
-                pa8Var.j();
+            db8 db8Var = this.o;
+            if (db8Var != null) {
+                db8Var.j();
             }
             this.j.n();
-            vo7 vo7Var = this.p;
-            if (vo7Var == null || !vo7Var.d(this.q, this.r)) {
+            jp7 jp7Var = this.p;
+            if (jp7Var == null || !jp7Var.d(this.q, this.r)) {
                 return;
             }
             this.p = null;
@@ -1292,7 +1292,7 @@ public class TbVideoView extends FrameLayout implements y98 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, str)) == null) {
-            if (!dj.isEmpty(str) && su8.c().d()) {
+            if (!dj.isEmpty(str) && hv8.c().d()) {
                 if (str.contains("http://tb-video.bdstatic.com")) {
                     return str.replace("http://tb-video.bdstatic.com", "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv");
                 }
@@ -1383,43 +1383,43 @@ public class TbVideoView extends FrameLayout implements y98 {
         if (UbsABTestHelper.isVideoSetUrlAgainABTest() || !dj.isEquals(this.b, str) || this.m.getStatus() == PlayerStatus.STOP) {
             this.b = str;
             String w = w(str);
-            yo7 yo7Var = E;
-            if (yo7Var != null) {
-                vo7 a2 = yo7Var.a(this.n, this.b, null);
+            mp7 mp7Var = E;
+            if (mp7Var != null) {
+                jp7 a2 = mp7Var.a(this.n, this.b, null);
                 this.p = a2;
                 if (a2 != null) {
                     a2.b(CyberPlayerManager.hasCacheFile(w));
                 }
             }
             this.j.l(this);
-            pa8 pa8Var = this.o;
-            if (pa8Var != null) {
-                pa8Var.h();
+            db8 db8Var = this.o;
+            if (db8Var != null) {
+                db8Var.h();
             }
             C(Uri.parse(w));
-            vo7 vo7Var = this.p;
-            if (vo7Var != null) {
-                vo7Var.j();
+            jp7 jp7Var = this.p;
+            if (jp7Var != null) {
+                jp7Var.j();
             }
             String c2 = lj.c(w);
-            ka8 ka8Var = this.u;
-            if (ka8Var != null) {
-                ka8Var.a = "";
-                ka8Var.b = w;
-                ka8Var.c = c2;
-                this.m.i(ka8Var);
+            ya8 ya8Var = this.u;
+            if (ya8Var != null) {
+                ya8Var.a = "";
+                ya8Var.b = w;
+                ya8Var.c = c2;
+                this.m.i(ya8Var);
             } else {
-                pa8 pa8Var2 = this.o;
-                if (pa8Var2 != null && pa8Var2.c() != null) {
-                    ka8 ka8Var2 = new ka8();
-                    ka8Var2.a = "";
-                    ka8Var2.b = w;
-                    ka8Var2.c = c2;
-                    String b2 = ka8Var2.b(this.o.c().a);
-                    ka8Var2.e = b2;
-                    ka8Var2.d = ka8Var2.a(b2);
-                    ka8Var2.f = ka8Var2.c(this.o.b());
-                    this.m.i(ka8Var2);
+                db8 db8Var2 = this.o;
+                if (db8Var2 != null && db8Var2.c() != null) {
+                    ya8 ya8Var2 = new ya8();
+                    ya8Var2.a = "";
+                    ya8Var2.b = w;
+                    ya8Var2.c = c2;
+                    String b2 = ya8Var2.b(this.o.c().a);
+                    ya8Var2.e = b2;
+                    ya8Var2.d = ya8Var2.a(b2);
+                    ya8Var2.f = ya8Var2.c(this.o.b());
+                    this.m.i(ya8Var2);
                 }
             }
             this.m.setVideoUniqueKey(c2);
@@ -1428,9 +1428,9 @@ public class TbVideoView extends FrameLayout implements y98 {
                 this.v = f;
                 if (f) {
                     u();
-                    pa8 pa8Var3 = this.o;
-                    if (pa8Var3 != null) {
-                        pa8Var3.g(getDuration());
+                    db8 db8Var3 = this.o;
+                    if (db8Var3 != null) {
+                        db8Var3.g(getDuration());
                     }
                 }
                 this.m.setVideoUrl(w, !this.v);

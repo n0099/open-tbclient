@@ -1,131 +1,98 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTDrawFeedAd;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.channel.model.csj.CSJDrawVideoNativeView;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class ul9 extends nl9 {
+public class ul9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Handler a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements TTAdNative.DrawFeedAdListener {
+    public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ul9 a;
 
-        public a(ul9 ul9Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ul9Var};
+                Object[] objArr = {looper};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ul9Var;
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener
-        public void onDrawFeedAdLoad(List<TTDrawFeedAd> list) {
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                LogPrinter.d();
-                if (list == null || list.isEmpty()) {
-                    LogPrinter.e("onFeedAdLoad error: adList is null or empty", new Object[0]);
-                    this.a.onError(0, "NoFill");
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (TTDrawFeedAd tTDrawFeedAd : list) {
-                    arrayList.add(new am9(tTDrawFeedAd));
-                }
-                this.a.onAdLoaded((List) arrayList);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.DrawFeedAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                LogPrinter.e("CSJDrawNative onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 101) {
+                SharedPreferences sharedPreferences = en9.a;
+                sharedPreferences.edit().clear().apply();
+                sharedPreferences.edit().putLong("req_id_update_time", System.currentTimeMillis()).apply();
+                ul9.b.clear();
+                sendEmptyMessageDelayed(101, ul9.a());
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ul9(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.DRAW), pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948214983, "Lcom/baidu/tieba/ul9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948214983, "Lcom/baidu/tieba/ul9;");
                 return;
             }
         }
+        b = new HashSet();
+        a = new a(Looper.getMainLooper());
     }
 
-    @Override // com.baidu.tieba.nl9
-    public void h(FunAdSlot funAdSlot) {
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, funAdSlot) == null) {
-            this.e.loadDrawFeedAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            long timeInMillis = calendar.getTimeInMillis();
+            calendar.add(6, 1);
+            calendar.set(11, 0);
+            calendar.set(12, 0);
+            calendar.set(13, 0);
+            long timeInMillis2 = calendar.getTimeInMillis() - timeInMillis;
+            if (timeInMillis2 < 0) {
+                return 0L;
+            }
+            return timeInMillis2;
         }
-    }
-
-    @Override // com.baidu.tieba.nl9
-    public boolean l(Activity activity, ViewGroup viewGroup, String str, am9 am9Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, viewGroup, str, am9Var)) == null) {
-            onShowStart(am9Var);
-            CSJDrawVideoNativeView cSJDrawVideoNativeView = (CSJDrawVideoNativeView) LayoutInflater.from(activity).inflate(R.layout.fun_csj_ad_draw_video_native, viewGroup, false);
-            viewGroup.removeAllViews();
-            viewGroup.addView(cSJDrawVideoNativeView);
-            cSJDrawVideoNativeView.a((TTNativeAd) am9Var.a);
-            f(activity, am9Var, viewGroup, cSJDrawVideoNativeView, new xl9(this, am9Var));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.nl9, com.fun.ad.sdk.internal.api.BasePidLoader
-    public /* bridge */ /* synthetic */ boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        l(activity, viewGroup, str, (am9) obj);
-        return true;
+        return invokeV.longValue;
     }
 }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gm5;
+import com.baidu.tieba.tm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ public abstract class BaseLegoCardInfo implements ICardInfo {
             if (jSONObject == null) {
                 return;
             }
-            gm5.a().n(jSONObject);
+            tm5.a().n(jSONObject);
         }
     }
 

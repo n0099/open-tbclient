@@ -1,23 +1,15 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface qz4 {
-    void a();
+    void a(View view2);
 
-    boolean b(String str);
+    void b(View.OnClickListener onClickListener);
 
-    int c();
+    void c(boolean z, int i, boolean z2);
 
-    void d();
+    void d(int i);
 
-    void e();
-
-    int f();
-
-    void g();
-
-    boolean isPlaying();
-
-    boolean isPrepared();
-
-    void seek(int i);
+    void e(boolean z, int i);
 }

@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ep6;
+import com.baidu.tieba.sp6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -77,7 +77,7 @@ public class GameCodeListDialog extends FrameLayout {
             if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2921640 || this.a.a == null) {
                 return;
             }
-            this.a.a.b((ep6) customResponsedMessage.getData());
+            this.a.a.b((sp6) customResponsedMessage.getData());
         }
     }
 

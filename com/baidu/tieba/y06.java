@@ -1,212 +1,43 @@
 package com.baidu.tieba;
-
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.view.ClickableHeaderImageView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class y06 extends v06<n66> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public LinearLayout i;
-    public RelativeLayout j;
-    public TbImageView k;
-    public ImageView l;
-    public TextView m;
-    public TextView n;
-    public ClickableHeaderImageView o;
-    public TextView p;
-    public TextView q;
-    public View r;
-    public n66 s;
+public interface y06 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y06(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        r(h());
+    /* loaded from: classes6.dex */
+    public interface a {
+        boolean a(float f);
     }
 
-    @Override // com.baidu.tieba.v06
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0187 : invokeV.intValue;
+    /* loaded from: classes6.dex */
+    public interface b {
+        float getSpeed();
     }
 
-    @Override // com.baidu.tieba.v06
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
-                SkinManager.setBackgroundResource(this.r, R.color.CAM_X0204);
-                SkinManager.setViewTextColor(this.m, R.color.CAM_X0101, 1);
-                wn8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-                if (readThreadHistory != null && readThreadHistory.d(this.s.getThreadData().getId())) {
-                    SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
-                } else {
-                    SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
-                }
-                SkinManager.setViewTextColor(this.p, R.color.CAM_X0109, 1);
-                SkinManager.setViewTextColor(this.q, R.color.CAM_X0109, 1);
-            }
-            this.a = i;
-        }
+    /* loaded from: classes6.dex */
+    public interface c {
+        boolean a();
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048579, this, view2) == null) || e() == null) {
-            return;
-        }
-        e().a(h(), this.s);
-    }
+    boolean a();
 
-    public final void r(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            this.i = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090528);
-            this.j = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090527);
-            this.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f0d);
-            this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090efa);
-            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090530);
-            this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090531);
-            this.o = (ClickableHeaderImageView) view2.findViewById(R.id.obfuscated_res_0x7f09052e);
-            this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090510);
-            this.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09050f);
-            this.r = view2.findViewById(R.id.obfuscated_res_0x7f090508);
-            this.k.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08088f);
-            int dimensionPixelSize = this.c.getResources().getDimensionPixelSize(R.dimen.tbds326);
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.j.getLayoutParams();
-            layoutParams.width = dimensionPixelSize;
-            layoutParams.height = (dimensionPixelSize * 9) / 16;
-            this.j.setLayoutParams(layoutParams);
-            this.o.setDefaultResource(17170445);
-            this.o.setDefaultBgResource(R.color.CAM_X0205);
-            this.o.setIsRound(true);
-            this.o.setDrawBorder(true);
-            this.o.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.o.setBorderWidth(this.c.getResources().getDimensionPixelSize(R.dimen.tbds1));
-            h().setOnClickListener(this);
-        }
-    }
+    boolean b();
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v06
-    /* renamed from: s */
-    public void i(n66 n66Var) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048581, this, n66Var) == null) || n66Var == null || n66Var.getThreadData() == null) {
-            return;
-        }
-        this.s = n66Var;
-        String str = null;
-        if (n66Var.getThreadData().isVideoThreadType()) {
-            this.l.setVisibility(0);
-            this.m.setVisibility(0);
-            if (n66Var.getThreadData().getThreadVideoInfo() != null) {
-                this.m.setText(StringHelper.stringForVideoTime(n66Var.getThreadData().getThreadVideoInfo().video_duration.intValue() * 1000));
-                str = n66Var.getThreadData().getThreadVideoInfo().thumbnail_url;
-            }
-        } else {
-            this.l.setVisibility(8);
-            this.m.setVisibility(8);
-            if (n66Var.getThreadData().getMedias() != null && n66Var.getThreadData().getMedias().size() >= 1) {
-                str = n66Var.getThreadData().getMedias().get(0).origin_pic;
-            }
-        }
-        this.k.K(str, 10, false);
-        this.n.setText(n66Var.getThreadData().getTitle());
-        wn8 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
-        if (readThreadHistory != null && readThreadHistory.d(n66Var.getThreadData().getId())) {
-            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0108);
-        } else {
-            SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0105);
-        }
-        this.o.setData(n66Var.getThreadData(), false);
-        this.q.setText(StringHelper.getFormatTimeShort(n66Var.getThreadData().getAuditTime()));
-        if ("news".equals(n66Var.getThreadData().getGameInformationSource())) {
-            this.o.setVisibility(8);
-            this.p.setText(this.b.getPageActivity().getResources().getString(R.string.obfuscated_res_0x7f0f0e8c, StringHelper.numberUniformFormat(n66Var.getThreadData().getView_num())));
-            return;
-        }
-        this.o.setVisibility(0);
-        x(n66Var.getThreadData());
-    }
+    int getMaxDuration();
 
-    public String t(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) ? StringHelper.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE) : (String) invokeL.objValue;
-    }
+    float getProgress();
 
-    public void u(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(1048583, this, i) == null) || (view2 = this.r) == null) {
-            return;
-        }
-        view2.setVisibility(i);
-    }
+    int getSlideNum();
 
-    public void v(int i, int i2, int i3, int i4) {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeIIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3, i4) == null) || (linearLayout = this.i) == null) {
-            return;
-        }
-        linearLayout.setPadding(i, i2, i3, i4);
-    }
+    boolean pause();
 
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.o.setVisibility(i);
-        }
-    }
+    boolean reset();
 
-    public final void x(ThreadData threadData) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) || (textView = this.p) == null || threadData == null) {
-            return;
-        }
-        textView.setVisibility(0);
-        if (StringUtils.isNull(threadData.getAuthor().getName_show())) {
-            return;
-        }
-        this.p.setText(t(threadData.getAuthor().getName_show()));
-    }
+    boolean setMaxDuration(int i);
+
+    boolean setMinDuration(int i);
+
+    boolean setProgress(long j);
+
+    boolean setShowDeleteLastTip(boolean z);
+
+    boolean start();
 }

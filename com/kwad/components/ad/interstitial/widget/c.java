@@ -535,7 +535,7 @@ public final class c extends b {
                     }
                 }
             });
-            this.ig.a(new a.InterfaceC0542a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.4
+            this.ig.a(new a.InterfaceC0538a(this) { // from class: com.kwad.components.ad.interstitial.widget.c.4
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ c ir;
@@ -558,7 +558,7 @@ public final class c extends b {
                     this.ir = this;
                 }
 
-                @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0542a
+                @Override // com.kwad.components.ad.interstitial.widget.a.InterfaceC0538a
                 public final void dL() {
                     Interceptable interceptable2 = $ic;
                     if (!(interceptable2 == null || interceptable2.invokeV(1048576, this) == null) || this.ir.f1080io) {

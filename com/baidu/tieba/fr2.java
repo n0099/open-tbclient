@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.Uri;
+import java.io.File;
 /* loaded from: classes4.dex */
 public interface fr2 {
-    Bitmap decode(Context context, Uri uri) throws Exception;
+    void a(File file);
+
+    void b(String str);
 }

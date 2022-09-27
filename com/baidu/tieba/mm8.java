@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +11,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mm8 {
+public class mm8 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] c;
-    public static final int[] d;
-    public static final int[] e;
-    public static final int[] f;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseIntArray a;
-    public final int[] b;
+    public boolean a;
+    public String b;
+    public fm8 c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,87 +32,66 @@ public class mm8 {
                 return;
             }
         }
-        c = new int[]{3, 8, 13};
-        d = new int[]{2, 12};
-        e = new int[]{20};
-        f = new int[]{3, 13, 23};
+        d = BdUniqueId.gen();
     }
 
-    public mm8(String str, int[] iArr) {
+    public mm8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, iArr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = iArr;
-        this.a = new SparseIntArray();
     }
 
-    public void a(int i, int i2) {
-        SparseIntArray sparseIntArray;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) || i < 0 || i2 < 0 || (sparseIntArray = this.a) == null) {
-            return;
-        }
-        sparseIntArray.append(i2, i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : (String) invokeV.objValue;
     }
 
-    public int b(int i) {
-        InterceptResult invokeI;
-        SparseIntArray sparseIntArray;
+    public fm8 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 0 && (sparseIntArray = this.a) != null) {
-                return sparseIntArray.get(i, -1);
-            }
-            return -1;
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : (fm8) invokeV.objValue;
     }
 
-    public void c(int i) {
-        SparseIntArray sparseIntArray;
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || (sparseIntArray = this.a) == null) {
-            return;
-        }
-        sparseIntArray.delete(i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? d : (BdUniqueId) invokeV.objValue;
     }
 
-    public void d() {
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            e(0);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : invokeV.booleanValue;
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
         }
     }
 
-    public void e(int i) {
+    public void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            SparseIntArray sparseIntArray = this.a;
-            if (sparseIntArray != null) {
-                sparseIntArray.clear();
-                int[] iArr = this.b;
-                if (iArr != null) {
-                    for (int i2 : iArr) {
-                        if (i2 >= 0) {
-                            this.a.append(i2 + i, i2);
-                        }
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void n(fm8 fm8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fm8Var) == null) {
+            this.c = fm8Var;
         }
     }
 }

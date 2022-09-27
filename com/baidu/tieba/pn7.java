@@ -1,40 +1,59 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.ListAdapter;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class pn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public GridView a;
 
-    public pn7(ViewGroup viewGroup) {
+    public static void a(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeIL(65536, null, i, str) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14870");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            TiebaStatic.log(statisticItem);
         }
-        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09209d);
     }
 
-    public void a(ln7 ln7Var) {
+    public static void b(int i, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ln7Var) == null) {
-            this.a.setAdapter((ListAdapter) ln7Var);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14873");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_locate", j);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void c(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65538, null, i, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14871");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_locate", str2);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void d(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65539, null, i, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14872");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_locate", str2);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

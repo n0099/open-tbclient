@@ -14,7 +14,7 @@ public final class d extends com.kwad.sdk.mvp.a {
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
     public b DG;
-    public b.C0576b DH;
+    public b.C0572b DH;
     public AdTemplate mAdTemplate;
     @Nullable
     public com.kwad.components.core.c.a.c mApkDownloadHelper;

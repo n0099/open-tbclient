@@ -1,174 +1,225 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.diskCache.ImagesInvalidService;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
-import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
+import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.ImageSpan;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupEditText;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class hh5 {
     public static /* synthetic */ Interceptable $ic;
-    public static hh5 g;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public Runnable f;
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hh5 a;
-
-        public a(hh5 hh5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hh5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hh5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HashMap hashMap = new HashMap();
-                hashMap.put("from", String.valueOf(this.a.a));
-                hashMap.put("field_id", this.a.b);
-                hashMap.put("type", Integer.valueOf(this.a.d));
-                hashMap.put("type_name", this.a.e);
-                if (this.a.a == 2) {
-                    hashMap.put("fid", this.a.c);
-                }
-                hashMap.put("animated", Boolean.FALSE);
-                hashMap.put("transparent", Boolean.TRUE);
-                hashMap.put("swipeback", Boolean.FALSE);
-                if (MessageManager.getInstance().findTask(2002015) == null) {
-                    gh.a().postDelayed(this.a.f, 0L);
-                    return;
-                }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkApplication.getInst().getApplicationContext(), "GodInvitePage", hashMap)));
-                bx4.k().x("key_new_god_dialog_showed_time", System.currentTimeMillis());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947823732, "Lcom/baidu/tieba/hh5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947823732, "Lcom/baidu/tieba/hh5;");
-        }
-    }
-
-    public hh5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947823732, "Lcom/baidu/tieba/hh5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947823732, "Lcom/baidu/tieba/hh5;");
                 return;
             }
         }
-        this.f = new a(this);
+        a = Pattern.compile("#([^#(]+)#", 2);
     }
 
-    public static synchronized hh5 g() {
-        InterceptResult invokeV;
-        hh5 hh5Var;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            synchronized (hh5.class) {
-                if (g == null) {
-                    g = new hh5();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return "";
+            }
+            if (str.charAt(0) == '#' && str.charAt(str.length() - 1) == '#') {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str.length() + 2);
+            sb.append("#");
+            sb.append(str);
+            sb.append("#");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean b(TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, tbPageContext)) == null) ? c(tbPageContext, true, true) : invokeL.booleanValue;
+    }
+
+    public static boolean c(TbPageContext<?> tbPageContext, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{tbPageContext, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            StringBuffer stringBuffer = new StringBuffer(TbConfig.TIEBA_ADDRESS + "n/video/opersquare?tab=hot&topic_name=");
+            int length = str.length();
+            if (length > 2 && str.charAt(0) == '#') {
+                int i = length - 1;
+                if (str.charAt(i) == '#') {
+                    str2 = str.substring(1, i);
+                    stringBuffer.append(str2);
+                    return stringBuffer.toString();
                 }
-                hh5Var = g;
             }
-            return hh5Var;
+            str2 = null;
+            stringBuffer.append(str2);
+            return stringBuffer.toString();
         }
-        return (hh5) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final boolean h(int i, NewGodData newGodData) {
-        InterceptResult invokeIL;
+    public static boolean e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, newGodData)) == null) {
-            if (i != 5) {
-                return (((((System.currentTimeMillis() - bx4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) > ImagesInvalidService.FILE_VALID_TIME ? 1 : (((System.currentTimeMillis() - bx4.k().m("key_new_god_dialog_showed_time", 0L)) + 3000) == ImagesInvalidService.FILE_VALID_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) ? str != null && str.startsWith("#") && str.endsWith("#") && "".equals(str.substring(1, str.length() - 1).trim()) : invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? "#".equals(str) : invokeL.booleanValue;
+    }
+
+    public static boolean g(Spannable spannable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, spannable, i)) == null) {
+            if (spannable != null && !StringUtils.isNull(spannable.toString())) {
+                Matcher matcher = a.matcher(spannable.toString());
+                while (matcher.find()) {
+                    int start = matcher.start();
+                    int end = matcher.end();
+                    if (i > start && end > i) {
+                        return true;
+                    }
+                }
             }
-            return true;
+            return false;
         }
-        return invokeIL.booleanValue;
+        return invokeLI.booleanValue;
     }
 
-    public void i() {
+    public static void h(s45 s45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            gh.a().removeCallbacks(this.f);
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || interceptable.invokeL(65544, null, s45Var) == null) {
+            int i = s45Var.b;
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", i != 1 ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? "" : "1" : TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM : "pb" : "frs" : "index"));
         }
     }
 
-    public void k(int i, NewGodData newGodData) {
+    public static SpannableString i(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, newGodData) == null) {
-            l(i, newGodData, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return new SpannableString("");
+            }
+            Matcher matcher = a.matcher(str);
+            SpannableString spannableString = new SpannableString(str);
+            while (matcher.find()) {
+                int start = matcher.start();
+                int end = matcher.end();
+                if (!e(str.substring(start, end))) {
+                    spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+                }
+            }
+            return spannableString;
+        }
+        return (SpannableString) invokeL.objValue;
+    }
+
+    public static void j(Spannable spannable) {
+        ImageSpan[] imageSpanArr;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65546, null, spannable) == null) || spannable == null) {
+            return;
+        }
+        String obj = spannable.toString();
+        if (StringUtils.isNull(obj)) {
+            return;
+        }
+        Matcher matcher = a.matcher(obj);
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                spannable.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
+            }
         }
     }
 
-    public void l(int i, NewGodData newGodData, boolean z) {
+    public static void k(SpanGroupEditText spanGroupEditText) {
+        int i;
+        int i2;
+        ImageSpan[] imageSpanArr;
+        Object[] spans;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), newGodData, Boolean.valueOf(z)}) == null) && h(i, newGodData)) {
-            i();
-            this.a = i;
-            this.b = newGodData.getFieldId();
-            this.d = newGodData.getType();
-            this.e = newGodData.getTypeName();
-            gh.a().postDelayed(this.f, z ? 3000L : 0L);
-            if (i == 5 || i == 1) {
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
+        if (!(interceptable == null || interceptable.invokeL(65547, null, spanGroupEditText) == null) || spanGroupEditText == null || spanGroupEditText.getText() == null || spanGroupEditText.getSpanGroupManager() == null) {
+            return;
+        }
+        SpanGroupManager spanGroupManager = spanGroupEditText.getSpanGroupManager();
+        if (spanGroupManager.I().size() > 0) {
+            nz4 nz4Var = spanGroupManager.I().get(0);
+            i2 = nz4Var.f();
+            i = nz4Var.c();
+        } else {
+            i = 0;
+            i2 = 0;
+        }
+        Editable text = spanGroupEditText.getText();
+        String obj = text.toString();
+        if (StringUtils.isNull(obj)) {
+            return;
+        }
+        Matcher matcher = a.matcher(obj);
+        while (matcher.find()) {
+            int start = matcher.start();
+            int end = matcher.end();
+            if (end > i2 && i > end) {
+                for (Object obj2 : text.getSpans(i2, text.length(), Object.class)) {
+                    if ((obj2 instanceof EMRichTextAnyIconSpan) || (obj2 instanceof ForegroundColorSpan)) {
+                        text.removeSpan(obj2);
+                    }
+                }
+                spanGroupManager.delete(i2, i, true);
+                i = -1;
+                i2 = 0;
+            }
+            if (!e(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) text.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                text.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), start, end, 18);
             }
         }
     }

@@ -1,242 +1,83 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.down.manage.DownloadManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Collection;
 /* loaded from: classes4.dex */
-public class ht3 {
+public class ht3 extends gt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DownloadManager a;
+    public boolean G;
 
-    /* loaded from: classes4.dex */
-    public class a implements DownloadManager.DownloadItemFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(ht3 ht3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ht3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
-        public boolean filter(Download download) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) ? download != null && download.getState() == Download.DownloadState.FINISH && qt3.g(AppRuntime.getAppContext(), download.getKeyByUser()) : invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements DownloadManager.DownloadItemFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public b(ht3 ht3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ht3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
-        public boolean filter(Download download) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) ? download != null && TextUtils.equals(download.getKeyByUser(), this.a) : invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements DownloadManager.DownloadItemFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ ht3 b;
-
-        public c(ht3 ht3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ht3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ht3Var;
-            this.a = str;
-        }
-
-        @Override // com.baidu.down.manage.DownloadManager.DownloadItemFilter
-        public boolean filter(Download download) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, download)) == null) ? (download == null || !TextUtils.equals(download.getKeyByUser(), this.a) || this.b.e(download)) ? false : true : invokeL.booleanValue;
-        }
-    }
-
-    public ht3(DownloadManager downloadManager) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ht3(Context context, AdElementInfo adElementInfo, hs3 hs3Var) {
+        super(context, adElementInfo, hs3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {downloadManager};
+            Object[] objArr = {context, adElementInfo, hs3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (hs3) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = downloadManager;
+        this.G = false;
     }
 
-    public static boolean d(Download download) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gt3
+    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, download)) == null) {
-            if (download == null) {
-                return false;
-            }
-            String realDownloadDir = download.getRealDownloadDir();
-            String fileName = download.getFileName();
-            if (TextUtils.isEmpty(realDownloadDir) || TextUtils.isEmpty(fileName)) {
-                return false;
-            }
-            File file = new File(realDownloadDir + File.separator + fileName);
-            return file.isFile() && file.exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                Collection<Download> downloadListByFilter = this.a.getDownloadListByFilter(new a(this));
-                if (downloadListByFilter == null) {
-                    return;
-                }
-                int size = downloadListByFilter.size() - 30;
-                if (size <= 0) {
-                    return;
-                }
-                int i = 0;
-                for (Download download : downloadListByFilter) {
-                    if (i == size) {
-                        return;
-                    }
-                    if (download != null) {
-                        this.a.cancel(download.getId().longValue());
-                    }
-                    i++;
-                }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
+            int videoWidth = adElementInfo.getVideoWidth();
+            int videoHeight = adElementInfo.getVideoHeight();
+            this.n = ds3.b().k();
+            this.o = ds3.b().j();
+            if (videoWidth < videoHeight) {
+                this.G = true;
+                int i = this.n;
+                int i2 = (int) (((i - videoWidth) / 2) * 0.8d);
+                int i3 = (int) (((i - videoWidth) / 2) * 0.1d);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
+                layoutParams.leftMargin = (this.n - i2) - i3;
+                layoutParams.addRule(15);
+                layoutParams.removeRule(13);
+                layoutParams.removeRule(12);
+                layoutParams.bottomMargin = 0;
+                relativeLayout.setLayoutParams(layoutParams);
+                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f0608b0));
             }
         }
     }
 
-    public void c(String str) {
-        Download g;
+    @Override // com.baidu.tieba.gt3
+    public String q() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) || TextUtils.isEmpty(str) || (g = g(str)) == null) {
-            return;
-        }
-        this.a.cancel(g.getId().longValue());
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.G ? "reward_banner_land_html" : "reward_banner_html" : (String) invokeV.objValue;
     }
 
-    public final boolean e(Download download) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.gt3
+    @SuppressLint({"InflateParams"})
+    public View u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, download)) == null) {
-            if (download == null) {
-                return false;
-            }
-            return (f(download) || (download.getState() == Download.DownloadState.FINISH && !d(download))) && !qt3.g(AppRuntime.getAppContext(), download.getKeyByUser());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean f(Download download) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, download)) == null) ? download != null && (System.currentTimeMillis() - new gt3(download).k()) / 86400000 >= 30 : invokeL.booleanValue;
-    }
-
-    public Download g(String str) {
-        InterceptResult invokeL;
-        Collection<Download> downloadListByFilter;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            Download download = null;
-            if (TextUtils.isEmpty(str) || (downloadListByFilter = this.a.getDownloadListByFilter(new b(this, str))) == null) {
-                return null;
-            }
-            for (Download download2 : downloadListByFilter) {
-                if (download2 != null) {
-                    download = download2;
-                }
-            }
-            return download;
-        }
-        return (Download) invokeL.objValue;
-    }
-
-    public Download h(String str) {
-        InterceptResult invokeL;
-        Collection<Download> downloadListByFilter;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            Download download = null;
-            if (TextUtils.isEmpty(str) || (downloadListByFilter = this.a.getDownloadListByFilter(new c(this, str))) == null) {
-                return null;
-            }
-            for (Download download2 : downloadListByFilter) {
-                if (download2 != null) {
-                    download = download2;
-                }
-            }
-            return download;
-        }
-        return (Download) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d065c, (ViewGroup) null) : (View) invokeV.objValue;
     }
 }

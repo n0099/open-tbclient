@@ -31,14 +31,14 @@ public class PeerConnection {
     public List<RtpTransceiver> transceivers;
 
     /* renamed from: org.webrtc.PeerConnection$1  reason: invalid class name */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static /* synthetic */ class AnonymousClass1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class AdapterType {
         public static final /* synthetic */ AdapterType[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -106,7 +106,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class BundlePolicy {
         public static final /* synthetic */ BundlePolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -168,7 +168,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class CandidateNetworkPolicy {
         public static final /* synthetic */ CandidateNetworkPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -228,7 +228,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class ContinualGatheringPolicy {
         public static final /* synthetic */ ContinualGatheringPolicy[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
@@ -288,7 +288,7 @@ public class PeerConnection {
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class IceConnectionState {
         public static final /* synthetic */ IceConnectionState[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

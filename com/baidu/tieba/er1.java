@@ -1,33 +1,30 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class er1 extends dr1 {
+public class er1 extends SwanAppSimpleH5Widget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public er1(@NonNull zq1 zq1Var) {
-        super(zq1Var);
+    public er1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zq1Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zq1) newInitContext.callArgs[0]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -35,40 +32,10 @@ public class er1 extends dr1 {
         }
     }
 
-    public static boolean y(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean h = SwanAppAllianceLoginHelper.d.h();
-            if (h) {
-                return h;
-            }
-            vm1 h0 = fm2.h0();
-            return h0 instanceof yk1 ? ((yk1) h0).k(context) : h;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.br1
-    public String j() {
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.tp1
+    public String b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BaiduAccountApi" : (String) invokeV.objValue;
-    }
-
-    public yu1 x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#isBaiduAccountSync", false);
-            if (y23.b0() == null) {
-                return new yu1(1001, "swan app is null");
-            }
-            boolean y = y(getContext());
-            JSONObject jSONObject = new JSONObject();
-            yf3.f(jSONObject, "isBaiduAccount", Boolean.valueOf(y));
-            return new yu1(0, jSONObject);
-        }
-        return (yu1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "swan_app_alliance_choose_address_widget" : (String) invokeV.objValue;
     }
 }

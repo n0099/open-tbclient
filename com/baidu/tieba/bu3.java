@@ -1,92 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushManager;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bu3 extends ev3 {
+public class bu3 implements eu3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public yt3 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657417, "Lcom/baidu/tieba/bu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947657417, "Lcom/baidu/tieba/bu3;");
-                return;
-            }
-        }
-        c = ij1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bu3() {
-        super("checkAppInstalled");
+    public bu3(yt3 yt3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yt3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = yt3Var;
     }
 
-    @Override // com.baidu.tieba.ev3
-    public yu1 a(@NonNull JSONObject jSONObject, @NonNull cg2 cg2Var) {
-        InterceptResult invokeLL;
+    private void setResult(fu3 fu3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, cg2Var)) == null) {
-            if (c) {
-                Log.d("checkAppInstalled", "handle: " + jSONObject);
+        if (interceptable == null || interceptable.invokeL(65537, this, fu3Var) == null) {
+            this.a.d.clear();
+            if (fu3Var != null) {
+                this.a.d.putString("functionType", fu3Var.a());
+                this.a.d.putString("resultData", fu3Var.b());
+                this.a.d.putInt("resultStatus", fu3Var.c());
             }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                cg2Var.onFail(31010, "package name is empty");
-                return null;
-            }
-            try {
-                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-                if (c) {
-                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
-                }
-                if (packageInfo != null) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(PushManager.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject3.put(PushManager.APP_VERSION_CODE, packageInfo.versionCode);
-                    jSONObject2.put("data", jSONObject3);
-                    cg2Var.a(jSONObject2);
-                } else {
-                    cg2Var.onFail(31016, "no package info");
-                }
-            } catch (Exception unused) {
-                cg2Var.onFail(31011, "app is not installed");
-            }
-            return null;
+            this.a.c();
         }
-        return (yu1) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.eu3
+    public void a(fu3 fu3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, fu3Var) == null) {
+            setResult(fu3Var);
+        }
     }
 }

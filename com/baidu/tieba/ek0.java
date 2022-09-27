@@ -1,86 +1,96 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes3.dex */
 public class ek0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ek0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final JSONObject a(Map<String, String> map) {
+    public static f01 a(@NonNull lk0 lk0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            map.put("_client_version", mi0.a().u());
-            map.put("uid", mi0.a().r());
-            map.put("cuid", mi0.a().g());
-            if (Build.VERSION.SDK_INT >= 17) {
-                map.put("ua", mi0.e());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, lk0Var)) == null) {
+            f01 f01Var = new f01();
+            f01Var.o(lk0Var.e());
+            f01Var.u(lk0Var.b);
+            f01Var.t(lk0Var.c.status);
+            f01Var.q(lk0Var.d);
+            f01Var.v(lk0Var.g);
+            File file = lk0Var.h;
+            if (file != null) {
+                f01Var.m(file.getAbsolutePath());
+            } else {
+                f01Var.m("");
             }
-            String e = cj0.c().e(false);
-            if (!TextUtils.isEmpty(e)) {
-                map.put("model", e);
+            f01Var.r((int) (lk0Var.i * 1000.0f));
+            f01Var.w((int) (lk0Var.j * 1000.0f));
+            f01Var.s(lk0Var.l);
+            f01Var.n(lk0Var.m);
+            pk0 pk0Var = lk0Var.p;
+            if (pk0Var != null) {
+                f01Var.p(pk0.b(pk0Var));
+            } else {
+                f01Var.p("");
             }
-            map.put(HttpRequest.CLIENT_TYPE, "2");
-            String h = cj0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                map.put("_os_version", h);
+            mk0 mk0Var = lk0Var.q;
+            if (mk0Var != null) {
+                f01Var.k(mk0.b(mk0Var));
+            } else {
+                f01Var.k("");
             }
-            map.put("nt", String.valueOf(new up0().c()));
-            String b = cj0.c().b(false);
-            if (!TextUtils.isEmpty(b)) {
-                map.put("imei", b);
+            ok0 ok0Var = lk0Var.r;
+            if (ok0Var != null) {
+                f01Var.l(ok0.b(ok0Var));
+            } else {
+                f01Var.l("");
             }
-            String a = cj0.c().a(false);
-            if (!TextUtils.isEmpty(a)) {
-                map.put(HttpRequest.ANDROID_ID, a);
-            }
-            map.put("ssl", "1");
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                kz0.f(jSONObject, entry.getKey(), entry.getValue());
-            }
-            return jSONObject;
+            return f01Var;
         }
-        return (JSONObject) invokeL.objValue;
+        return (f01) invokeL.objValue;
     }
 
-    public void b(Map<String, String> map, xp0<fk0> xp0Var) {
+    public static lk0 b(@NonNull f01 f01Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map, xp0Var) == null) {
-            eq0 f = eq0.f(b31.a(a(map).toString().getBytes()));
-            fq0 fq0Var = new fq0();
-            fq0Var.a("Content-Encoding", "gzip");
-            fq0Var.a("Content-Type", "application/json");
-            fq0Var.k("https://afdconf.baidu.com/afd/download");
-            fq0Var.g(3000);
-            fq0Var.i(3000);
-            fq0Var.j(3000);
-            fq0Var.f(f);
-            mp0.b().a().a(fq0Var, xp0Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, f01Var)) == null) {
+            lk0 lk0Var = new lk0();
+            lk0Var.h(f01Var.g());
+            lk0Var.b = f01Var.z();
+            lk0Var.c = AdDownloadStatus.NONE;
+            AdDownloadStatus[] values = AdDownloadStatus.values();
+            int length = values.length;
+            int i = 0;
+            while (true) {
+                if (i >= length) {
+                    break;
+                }
+                AdDownloadStatus adDownloadStatus = values[i];
+                if (adDownloadStatus.status == f01Var.y()) {
+                    lk0Var.c = adDownloadStatus;
+                    break;
+                }
+                i++;
+            }
+            lk0Var.d = f01Var.i();
+            lk0Var.g = f01Var.A();
+            if (!TextUtils.isEmpty(f01Var.e())) {
+                lk0Var.h = new File(f01Var.e());
+            }
+            lk0Var.i = f01Var.j() / 1000.0f;
+            lk0Var.j = f01Var.B() / 1000.0f;
+            lk0Var.l = f01Var.x();
+            lk0Var.m = f01Var.f();
+            lk0Var.p = pk0.a(f01Var.h());
+            lk0Var.q = mk0.a(f01Var.c());
+            lk0Var.r = ok0.a(f01Var.d());
+            return lk0Var;
         }
+        return (lk0) invokeL.objValue;
     }
 }

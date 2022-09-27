@@ -24,12 +24,12 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.lx4;
-import com.baidu.tieba.mx4;
+import com.baidu.tieba.hk8;
 import com.baidu.tieba.q9;
-import com.baidu.tieba.sj8;
 import com.baidu.tieba.square.data.ForumInfoData;
 import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.yx4;
+import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -40,12 +40,12 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public BdListView a;
     public ForumRankModel b;
-    public sj8 c;
+    public hk8 c;
     public NavigationBar d;
     public TbImageView e;
     public LikeModel f;
     public LinearLayout g;
-    public mx4 h;
+    public zx4 h;
     public FrameLayout i;
     public String j;
     public boolean k;
@@ -87,7 +87,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements lx4.g {
+    public class b implements yx4.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumRankActivity a;
@@ -110,7 +110,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             this.a = forumRankActivity;
         }
 
-        @Override // com.baidu.tieba.lx4.g
+        @Override // com.baidu.tieba.yx4.g
         public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.b.loadData()) {
@@ -153,7 +153,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 if (obj == null || !(obj instanceof ForumRankData)) {
                     this.a.a.setVisibility(8);
                     ForumRankActivity forumRankActivity = this.a;
-                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091c81), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fcc), true);
+                    forumRankActivity.showNetRefreshView(forumRankActivity.findViewById(R.id.obfuscated_res_0x7f091c83), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fcc), true);
                     this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
                     this.a.showToast(R.string.obfuscated_res_0x7f0f0c59);
                     return;
@@ -192,7 +192,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 }
                 this.a.a.setVisibility(8);
                 ForumRankActivity forumRankActivity2 = this.a;
-                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091c81), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fcc), true);
+                forumRankActivity2.showNetRefreshView(forumRankActivity2.findViewById(R.id.obfuscated_res_0x7f091c83), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0fcc), true);
                 this.a.setNetRefreshLayoutMarginTopWhenIsNoNetworkViewDismiss(false);
                 NewErrorData newErrorData = forumRankData.error;
                 if (newErrorData != null) {
@@ -266,9 +266,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             }
             this.k = true;
             this.b.setLoadDataCallBack(this.l);
-            sj8 sj8Var = new sj8(getPageContext(), 0);
-            this.c = sj8Var;
-            sj8Var.e(100);
+            hk8 hk8Var = new hk8(getPageContext(), 0);
+            this.c = hk8Var;
+            hk8Var.e(100);
             this.c.h(Boolean.TRUE);
             this.c.g(ForumDetailActivityConfig.FromType.BAR_RANK);
             this.a.setAdapter((ListAdapter) this.c);
@@ -289,7 +289,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             TbImageView tbImageView = new TbImageView(getPageContext().getPageActivity());
             this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c2);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0925c4);
             this.d = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.d.setTitleText("");
@@ -299,9 +299,9 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d02b6, (ViewGroup) null);
             this.g = linearLayout;
             linearLayout.setOnClickListener(new a(this));
-            mx4 mx4Var = new mx4(getPageContext());
-            this.h = mx4Var;
-            this.a.setPullRefresh(mx4Var);
+            zx4 zx4Var = new zx4(getPageContext());
+            this.h = zx4Var;
+            this.a.setPullRefresh(zx4Var);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ej.f(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
             this.a.x(textView, 0);
@@ -338,7 +338,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
                 this.a.setBackgroundColor(getResources().getColor(R.color.common_color_10150));
                 this.c.d(true);
             }
-            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091c81), i);
+            SkinManager.setFrsPBBgColor(findViewById(R.id.obfuscated_res_0x7f091c83), i);
             this.h.H(i);
             this.c.i(R.drawable.btn_add_end, R.drawable.btn_add);
             SkinManager.setBackgroundResource(this.g, R.drawable.bg_black_banner_down);
@@ -363,7 +363,7 @@ public class ForumRankActivity extends BaseActivity<ForumRankActivity> {
             return;
         }
         forumRankModel.loadData();
-        hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091c81));
+        hideNetRefreshView(findViewById(R.id.obfuscated_res_0x7f091c83));
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity

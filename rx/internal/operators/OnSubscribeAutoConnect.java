@@ -1,30 +1,30 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ex9;
-import com.baidu.tieba.o0a;
-import com.baidu.tieba.qw9;
-import com.baidu.tieba.u0a;
-import com.baidu.tieba.ww9;
-import com.baidu.tieba.xw9;
+import com.baidu.tieba.d1a;
+import com.baidu.tieba.fx9;
+import com.baidu.tieba.j1a;
+import com.baidu.tieba.lx9;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.tx9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements qw9.a<T> {
+public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements fx9.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ex9<? super xw9> connection;
+    public final tx9<? super mx9> connection;
     public final int numberOfSubscribers;
-    public final o0a<? extends T> source;
+    public final d1a<? extends T> source;
 
-    public OnSubscribeAutoConnect(o0a<? extends T> o0aVar, int i, ex9<? super xw9> ex9Var) {
+    public OnSubscribeAutoConnect(d1a<? extends T> d1aVar, int i, tx9<? super mx9> tx9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {o0aVar, Integer.valueOf(i), ex9Var};
+            Object[] objArr = {d1aVar, Integer.valueOf(i), tx9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -35,23 +35,23 @@ public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements qw
             }
         }
         if (i > 0) {
-            this.source = o0aVar;
+            this.source = d1aVar;
             this.numberOfSubscribers = i;
-            this.connection = ex9Var;
+            this.connection = tx9Var;
             return;
         }
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    @Override // com.baidu.tieba.qw9.a, com.baidu.tieba.ex9
+    @Override // com.baidu.tieba.fx9.a, com.baidu.tieba.tx9
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((ww9) ((ww9) obj));
+        call((lx9) ((lx9) obj));
     }
 
-    public void call(ww9<? super T> ww9Var) {
+    public void call(lx9<? super T> lx9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ww9Var) == null) {
-            this.source.B(u0a.c(ww9Var));
+        if (interceptable == null || interceptable.invokeL(1048576, this, lx9Var) == null) {
+            this.source.B(j1a.c(lx9Var));
             if (incrementAndGet() == this.numberOfSubscribers) {
                 this.source.C(this.connection);
             }

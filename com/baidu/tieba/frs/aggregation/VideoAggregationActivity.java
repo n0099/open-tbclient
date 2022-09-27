@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dh;
-import com.baidu.tieba.kc5;
+import com.baidu.tieba.xc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.hc5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.uc5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -46,17 +46,17 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public kc5 getPageStayDurationItem() {
+    public xc5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            kc5 pageStayDurationItem = super.getPageStayDurationItem();
+            xc5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.b) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.c)) {
                 pageStayDurationItem.C(dh.g(this.b, 0L));
             }
             return pageStayDurationItem;
         }
-        return (kc5) invokeV.objValue;
+        return (xc5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity

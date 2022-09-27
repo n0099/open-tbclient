@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aw8;
-import com.baidu.tieba.bw8;
+import com.baidu.tieba.jv8;
+import com.baidu.tieba.pw8;
+import com.baidu.tieba.qw8;
 import com.baidu.tieba.r9;
-import com.baidu.tieba.uu8;
 import com.baidu.tieba.video.editvideo.data.MusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -34,7 +34,7 @@ import org.json.JSONObject;
 public class SelectMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uu8 a;
+    public jv8 a;
     public TbPageContext b;
     public final HttpMessageListener c;
 
@@ -93,7 +93,7 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends BdAsyncTask<Void, Integer, bw8> {
+    public class a extends BdAsyncTask<Void, Integer, qw8> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -127,27 +127,27 @@ public class SelectMusicModel extends BdBaseModel {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public bw8 doInBackground(Void... voidArr) {
+        public qw8 doInBackground(Void... voidArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
                 if (TextUtils.isEmpty(this.a) && !this.b) {
-                    return aw8.e().g(this.c, this.d);
+                    return pw8.e().g(this.c, this.d);
                 }
-                return aw8.e().h(this.c, this.a, this.d, this.b);
+                return pw8.e().h(this.c, this.a, this.d, this.b);
             }
-            return (bw8) invokeL.objValue;
+            return (qw8) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(bw8 bw8Var) {
+        public void onPostExecute(qw8 qw8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bw8Var) == null) {
-                super.onPostExecute(bw8Var);
-                if (bw8Var == null || bw8Var.a != 0) {
-                    this.e.a.q1(null, bw8Var.a, bw8Var.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qw8Var) == null) {
+                super.onPostExecute(qw8Var);
+                if (qw8Var == null || qw8Var.a != 0) {
+                    this.e.a.q1(null, qw8Var.a, qw8Var.b);
                 } else {
                     this.e.a.q1(this.d, -4399, "");
                 }
@@ -197,13 +197,13 @@ public class SelectMusicModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectMusicModel(TbPageContext tbPageContext, uu8 uu8Var) {
+    public SelectMusicModel(TbPageContext tbPageContext, jv8 jv8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, uu8Var};
+            Object[] objArr = {tbPageContext, jv8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -216,7 +216,7 @@ public class SelectMusicModel extends BdBaseModel {
         }
         this.c = new b(this, CmdConfigHttp.CMD_VIDEO_SUG_MUSIC);
         this.b = tbPageContext;
-        this.a = uu8Var;
+        this.a = jv8Var;
         B();
         this.c.setTag(getUniqueId());
         this.c.setSelfListener(true);

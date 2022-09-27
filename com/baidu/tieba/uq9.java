@@ -1,9 +1,5 @@
 package com.baidu.tieba;
 
-import android.os.IInterface;
-import android.os.Parcel;
-import android.os.Parcelable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +7,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class uq9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
+    public static long b;
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public long b;
+        public long c;
+        public long d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            new HashMap();
+            new HashMap();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,55 +56,6 @@ public class uq9 {
                 return;
             }
         }
-        uq9.class.getClassLoader();
-    }
-
-    public uq9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static <T extends Parcelable> T a(Parcel parcel, Parcelable.Creator<T> creator) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, parcel, creator)) == null) {
-            if (parcel.readInt() == 0) {
-                return null;
-            }
-            return creator.createFromParcel(parcel);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static void b(Parcel parcel, IInterface iInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, parcel, iInterface) == null) {
-            if (iInterface == null) {
-                parcel.writeStrongBinder(null);
-            } else {
-                parcel.writeStrongBinder(iInterface.asBinder());
-            }
-        }
-    }
-
-    public static void c(Parcel parcel, Parcelable parcelable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, parcel, parcelable) == null) {
-            if (parcelable == null) {
-                parcel.writeInt(0);
-                return;
-            }
-            parcel.writeInt(1);
-            parcelable.writeToParcel(parcel, 0);
-        }
+        a = new a();
     }
 }

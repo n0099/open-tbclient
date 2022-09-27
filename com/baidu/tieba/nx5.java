@@ -1,71 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.widget.IndicatorView;
-import com.baidu.adp.widget.SwipeBackLayout;
-import com.baidu.ala.view.ForbidParentSwipeBackRelativeLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.ala.view.card.AlaCardBottomUserInfoLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import com.baidu.tbadk.ala.AlaLiveInfoListCoreData;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AlaInfoData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.livecard.adapters.FrsAlaStageLiveViewItemAdapter;
-import com.baidu.tieba.ala.livecard.vc.FrsAlaStageLiveViewPager;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.horizonalList.widget.AbsHListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class nx5 extends v06<el8> implements t16 {
+public class nx5 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForbidParentSwipeBackRelativeLayout i;
-    public FrsAlaStageLiveViewPager j;
-    public FrsAlaStageLiveViewItemAdapter k;
-    public LinearLayout l;
-    public IndicatorView m;
-    public View n;
-    public View o;
-    public String p;
-    public el8 q;
-    public int r;
-    public hx5 s;
-    public ix5 t;
-    public boolean u;
-    public int v;
-    public boolean w;
-    public int x;
-    public ViewPager.OnPageChangeListener y;
-    public jx5 z;
+    public TbPageContext<?> a;
+    public List<ThreadData> b;
 
     /* loaded from: classes5.dex */
-    public class a implements SwipeBackLayout.c {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nx5 a;
+        public View a;
+        public TbImageView b;
+        public AlaCardBottomUserInfoLayout c;
+        public RelativeLayout d;
+        public TextView e;
 
-        public a(nx5 nx5Var) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nx5Var};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,146 +55,15 @@ public class nx5 extends v06<el8> implements t16 {
                     return;
                 }
             }
-            this.a = nx5Var;
-        }
-
-        @Override // com.baidu.adp.widget.SwipeBackLayout.c
-        public void H0() {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.q == null || ListUtils.isEmpty(this.a.q.a) || this.a.q.a.size() <= 1) {
-                return;
-            }
-            if (this.a.b.getOrignalPage() instanceof BaseActivity) {
-                ((BaseActivity) this.a.b.getOrignalPage()).setSwipeBackEnabled(false);
-            } else if (this.a.b.getOrignalPage() instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) this.a.b.getOrignalPage()).setSwipeBackEnabled(false);
-            }
-        }
-
-        @Override // com.baidu.adp.widget.SwipeBackLayout.c
-        public void b0() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                if (this.a.b.getOrignalPage() instanceof BaseActivity) {
-                    ((BaseActivity) this.a.b.getOrignalPage()).setSwipeBackEnabled(this.a.w);
-                } else if (this.a.b.getOrignalPage() instanceof BaseFragmentActivity) {
-                    ((BaseFragmentActivity) this.a.b.getOrignalPage()).setSwipeBackEnabled(this.a.w);
-                }
-            }
+            this.a = view2;
+            this.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f0d);
+            this.c = (AlaCardBottomUserInfoLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c7);
+            this.d = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0901c9);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0901c8);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements ViewPager.OnPageChangeListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nx5 a;
-
-        public b(nx5 nx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nx5Var;
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrollStateChanged(int i) {
-            int count;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(1048576, this, i) == null) || i == 1 || i != 0 || (count = this.a.k.getCount()) < 2) {
-                return;
-            }
-            int currentItem = this.a.j.getCurrentItem();
-            int i2 = count - 2;
-            if (currentItem < 1) {
-                this.a.j.setCurrentItem(i2, false);
-            } else if (currentItem > i2) {
-                this.a.j.setCurrentItem(1, false);
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageScrolled(int i, float f, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) {
-            }
-        }
-
-        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
-        public void onPageSelected(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                this.a.r = i;
-                if (this.a.t == null) {
-                    return;
-                }
-                int a = this.a.t.a(i + 1);
-                this.a.r = a;
-                if (this.a.m != null) {
-                    this.a.m.setPosition(this.a.t.c(a));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements jx5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nx5 a;
-
-        public c(nx5 nx5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nx5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nx5Var;
-        }
-
-        @Override // com.baidu.tieba.jx5
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, threadData) == null) {
-                this.a.C(view2, threadData);
-                this.a.A(threadData);
-                nx5 nx5Var = this.a;
-                nx5Var.D(nx5Var.b, threadData);
-            }
-        }
-
-        @Override // com.baidu.tieba.jx5
-        public void b(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                this.a.C(view2, threadData);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public nx5(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -224,208 +73,98 @@ public class nx5 extends v06<el8> implements t16 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.r = 1;
-        this.u = false;
-        this.v = 5;
-        this.w = true;
-        this.y = new b(this);
-        this.z = new c(this);
-        this.i = (ForbidParentSwipeBackRelativeLayout) h().findViewById(R.id.obfuscated_res_0x7f0912a7);
-        this.n = h().findViewById(R.id.divider_line);
-        this.o = h().findViewById(R.id.obfuscated_res_0x7f090818);
-        this.j = (FrsAlaStageLiveViewPager) h().findViewById(R.id.obfuscated_res_0x7f090c00);
-        this.l = (LinearLayout) h().findViewById(R.id.obfuscated_res_0x7f090bff);
-        this.m = (IndicatorView) h().findViewById(R.id.obfuscated_res_0x7f090bfe);
-        hx5 hx5Var = new hx5(tbPageContext, this.i);
-        this.s = hx5Var;
-        hx5Var.d(f());
-        this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f08123c);
-        this.j.setOnPageChangeListener(this.y);
-        FrsAlaStageLiveViewItemAdapter frsAlaStageLiveViewItemAdapter = new FrsAlaStageLiveViewItemAdapter(this.b, f());
-        this.k = frsAlaStageLiveViewItemAdapter;
-        this.j.setAdapter(frsAlaStageLiveViewItemAdapter);
-        if (this.b.getOrignalPage() instanceof BaseActivity) {
-            this.w = ((BaseActivity) this.b.getOrignalPage()).isSwipeBackEnabled();
-        } else if (this.b.getOrignalPage() instanceof BaseFragmentActivity) {
-            this.w = ((BaseFragmentActivity) this.b.getOrignalPage()).isSwipeBackEnabled();
-        }
-        this.i.setSwipeControlInterface(new a(this));
-    }
-
-    public final void A(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) || threadData.getThreadAlaInfo() == null || threadData.getThreadAlaInfo().user_info == null || threadData.getThreadAlaInfo().user_info.is_official != 2) {
-            return;
-        }
-        TiebaStatic.log(new StatisticItem("c12805").param("tid", threadData.getId()));
-    }
-
-    public final void B() {
-        el8 el8Var;
-        int c2;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || (el8Var = this.q) == null || !ListUtils.isEmpty(el8Var.a) || (c2 = this.t.c(this.r)) >= this.q.a.size() || c2 < 0) {
-            return;
-        }
-        CustomMessage customMessage = new CustomMessage(2921017);
-        List<ThreadData> list = this.q.a;
-        if (list != null && list.get(c2) != null) {
-            this.q.a.get(c2).statFloor = this.x;
-        }
-        customMessage.setData(this.q.a.get(c2));
-        MessageManager.getInstance().sendMessage(customMessage);
-        if (this.q.a.get(c2) != null) {
-            TiebaStatic.log(new StatisticItem("c12804").param("tid", this.q.a.get(c2).getId()));
-        }
-    }
-
-    public final void C(View view2, ThreadData threadData) {
-        CustomMessage customMessage;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, threadData) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f0912a7) {
-                customMessage = new CustomMessage(2921018);
-            } else if (view2.getId() != R.id.obfuscated_res_0x7f09054e && view2.getId() != R.id.obfuscated_res_0x7f09054a) {
-                customMessage = view2.getId() == R.id.obfuscated_res_0x7f092513 ? new CustomMessage(2921019) : null;
-            } else {
-                customMessage = new CustomMessage(2921016);
-            }
-            if (customMessage == null || this.b == null) {
-                return;
-            }
-            customMessage.setData(threadData);
-            MessageManager.getInstance().sendMessage(customMessage);
-        }
-    }
-
-    public void D(TbPageContext<?> tbPageContext, ThreadData threadData) {
-        String str;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, threadData) == null) || tbPageContext == null || threadData == null || threadData.getAuthor() == null || threadData.getThreadAlaInfo() == null) {
-            return;
-        }
-        if (TbadkCoreApplication.getCurrentAccount() != null) {
-            String userId = threadData.getAuthor().getUserId();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            z = TextUtils.equals(userId, currentAccount);
-            str = currentAccount;
-        } else {
-            str = "";
-            z = false;
-        }
-        AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
-        if (threadData.getThreadAlaInfo() != null && threadData.getThreadAlaInfo().user_info != null) {
-            alaLiveInfoCoreData.userName = threadData.getThreadAlaInfo().user_info.user_name;
-        }
-        AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
-        alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-        el8 el8Var = this.q;
-        if (el8Var != null && !ListUtils.isEmpty(el8Var.a)) {
-            for (ThreadData threadData2 : this.q.a) {
-                alaLiveInfoListCoreData.mLiveInfoList.add(F(threadData2));
-            }
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_LIVE_FRS_INSERT_LIVE, str, z, null, null, this.p)));
+        this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v06
-    /* renamed from: E */
-    public void i(el8 el8Var) {
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public ThreadData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048580, this, el8Var) == null) || el8Var == null || el8Var.a == null) {
-            return;
-        }
-        this.q = el8Var;
-        q(0);
-        if (this.t == null) {
-            ix5 ix5Var = new ix5(el8Var.a, this.u, this.v);
-            this.t = ix5Var;
-            ix5Var.i(2);
-            this.t.h(6);
-            this.t.g(1);
-        }
-        this.t.j(el8Var.a);
-        this.k.d(this.p);
-        this.k.c(this.t.e(), this.z);
-        this.j.setCurrentItem(this.t.d(), false);
-        if (el8Var.a.size() >= 2) {
-            this.l.setVisibility(0);
-            if (this.m.getCount() != this.t.b()) {
-                this.m.setCount(this.t.b());
-                this.r = this.t.d();
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<ThreadData> list = this.b;
+            if (list != null && i >= 0 && i <= list.size()) {
+                return this.b.get(i);
             }
-            this.m.setPosition(this.t.c(this.r));
-        } else {
-            this.l.setVisibility(8);
+            return null;
         }
-        if (el8Var.a.size() > 0) {
-            this.s.b(el8Var.a.get(0), "ala_frs_stage_live_feed_back_type");
-        }
-        B();
-        j(g(), TbadkCoreApplication.getInst().getSkinType());
+        return (ThreadData) invokeI.objValue;
     }
 
-    public final AlaLiveInfoCoreData F(ThreadData threadData) {
-        InterceptResult invokeL;
+    public void b(List<ThreadData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, threadData)) == null) {
-            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(threadData.getThreadAlaInfo());
-            alaLiveInfoCoreData.userName = threadData.getAuthor().getUserName();
-            return alaLiveInfoCoreData;
-        }
-        return (AlaLiveInfoCoreData) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.t16
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.p = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+            notifyDataSetChanged();
         }
     }
 
-    @Override // com.baidu.tieba.v06
-    public int d() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.layout.obfuscated_res_0x7f0d02f9 : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.v06
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, tbPageContext, i) == null) {
-            if (this.a != i) {
-                SkinManager.setBackgroundResource(this.i, R.drawable.addresslist_item_bg);
-                SkinManager.setBackgroundColor(this.n, R.color.CAM_X0204);
-                SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204);
-                this.a = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (ListUtils.isEmpty(this.b)) {
+                return 0;
             }
-            this.s.c();
+            return this.b.size();
         }
+        return invokeV.intValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    @Override // com.baidu.tieba.t16
-    public void p(int i) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        AlaInfoData threadAlaInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d00ea, (ViewGroup) null);
+                aVar = new a(view2);
+                aVar.b.setIsRound(true);
+                aVar.b.setDrawBorder(false);
+                aVar.b.setAutoChangeStyle(true);
+                aVar.b.setGifIconSupport(false);
+                int k = (ej.k(this.a.getPageActivity()) - this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07019a)) / 3;
+                int i2 = (k * 16) / 9;
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.d.getLayoutParams();
+                layoutParams.height = k;
+                layoutParams.width = i2;
+                aVar.d.setLayoutParams(layoutParams);
+                AbsHListView.LayoutParams layoutParams2 = new AbsHListView.LayoutParams(-1, -1);
+                ((ViewGroup.LayoutParams) layoutParams2).width = i2;
+                view2.setLayoutParams(layoutParams2);
+                view2.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
+            }
+            ThreadData item = getItem(i);
+            if (item == null || (threadAlaInfo = item.getThreadAlaInfo()) == null) {
+                return null;
+            }
+            aVar.b.K(threadAlaInfo.cover, 10, false);
+            aVar.c.setData(item);
+            aVar.c.setUserHeadImgVisible(8);
+            aVar.e.setText(item.getTitle());
+            aVar.c.onChangeSkinType(this.a);
+            SkinManager.setViewTextColor(aVar.e, R.color.CAM_X0105, TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

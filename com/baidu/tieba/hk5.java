@@ -1,66 +1,36 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.qn5;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.io.File;
 /* loaded from: classes4.dex */
-public class hk5 {
+public class hk5 extends BdAsyncTask<Void, Void, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qn5 a;
-    public xj5 b;
-    public TbPageContext c;
+    public String a;
+    public String b;
+    public NetWork c;
+    public a d;
 
     /* loaded from: classes4.dex */
-    public class a implements qn5.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hk5 a;
-
-        public a(hk5 hk5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hk5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hk5Var;
-        }
-
-        @Override // com.baidu.tieba.qn5.h
-        public void a(JSONArray jSONArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-                String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
-                if (this.a.b != null) {
-                    this.a.b.g(JsonArrayToString);
-                    this.a.b.e();
-                }
-            }
-        }
+    public interface a {
+        void a(boolean z, String str);
     }
 
-    public hk5(TbPageContext tbPageContext, xj5 xj5Var) {
+    public hk5(String str, String str2, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, xj5Var};
+            Object[] objArr = {str, str2, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,42 +40,106 @@ public class hk5 {
                 return;
             }
         }
-        this.b = xj5Var;
-        this.c = tbPageContext;
+        this.a = str;
+        this.b = str2;
+        this.d = aVar;
     }
 
-    public void b() {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            qn5 qn5Var = this.a;
-            if (qn5Var != null) {
-                qn5Var.u();
-                this.a.v();
-                this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists()) {
+                return true;
             }
-            this.b = null;
-            this.c = null;
+            try {
+                return file.mkdirs();
+            } catch (Exception e) {
+                TiebaStatic.file(e, dj.join("FileHelper", ".", "CheckTempDir", " ", str));
+                return false;
+            }
         }
+        return invokeL.booleanValue;
     }
 
-    public void c(int i) {
-        xj5 xj5Var;
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || (xj5Var = this.b) == null || xj5Var.b() == null || this.c == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || dj.isEmpty(str)) {
             return;
         }
-        pn5 pn5Var = new pn5(this.b.b().f(), this.b.b().e(), this.b.b().d());
-        pn5Var.i(this.b.b().b(), this.b.b().c());
-        pn5Var.h(this.b.b().a());
-        pn5Var.j(this.b.b().j());
-        UserData i2 = this.b.b().i();
-        TbPageContext tbPageContext = this.c;
-        this.a = new qn5(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), pn5Var, i2);
-        is4 is4Var = new is4();
-        is4Var.j(this.b.b().h());
-        this.a.E(new String[]{this.c.getString(R.string.obfuscated_res_0x7f0f04c4), this.c.getString(R.string.obfuscated_res_0x7f0f04c5), this.c.getString(R.string.obfuscated_res_0x7f0f04c6), this.c.getString(R.string.obfuscated_res_0x7f0f04c7), this.c.getString(R.string.obfuscated_res_0x7f0f04c8)});
-        this.a.D(is4Var);
-        this.a.F(new a(this));
-        this.a.G((i == 2 || i == 1) ? "5" : i == 3 ? "6" : "0");
+        FileHelper.deleteFileOrDir(new File(str));
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public String doInBackground(Void... voidArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+            if (dj.isEmpty(this.a) || dj.isEmpty(this.b) || !b(this.a)) {
+                return null;
+            }
+            String c = lj.c(this.b);
+            String str = this.a + c + "/";
+            if (e(str)) {
+                return c;
+            }
+            NetWork netWork = new NetWork();
+            this.c = netWork;
+            netWork.setUrl(this.b);
+            String str2 = this.a + c + ".zip";
+            if (this.c.downloadFile(str2, null, 0, 3, 0, true) && f(str2, str)) {
+                c(str2);
+                return c;
+            }
+            c(str2);
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (dj.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str);
+            if (!file.exists() || !file.isDirectory() || file.list() == null || file.list().length <= 0) {
+                file.delete();
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (dj.isEmpty(str) || dj.isEmpty(str2)) {
+                return false;
+            }
+            return tw4.b(str, str2);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048582, this, str) == null) || this.d == null) {
+            return;
+        }
+        if (!dj.isEmpty(str)) {
+            this.d.a(true, str);
+        } else {
+            this.d.a(false, null);
+        }
     }
 }

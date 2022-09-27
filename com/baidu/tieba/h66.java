@@ -1,24 +1,32 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.danmu.layout.retainer.AkTopRetainer;
+import com.baidu.tieba.l66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class h66 {
+public final class h66 extends c66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T extends Comparable<? super T>> f66<T> a(T initial, Function1<? super T, Unit> change) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h66() {
+        super(new AkTopRetainer(0.0f, 0.0f, 3, null), new k66());
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, initial, change)) == null) {
-            Intrinsics.checkNotNullParameter(initial, "initial");
-            Intrinsics.checkNotNullParameter(change, "change");
-            return new f66<>(initial, change);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((l66) objArr[0], (l66.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (f66) invokeLL.objValue;
     }
 }

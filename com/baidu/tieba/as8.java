@@ -1,30 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class as8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 0;
-    public static int b = 1;
-    public static int c = 235004;
+public class as8 extends CustomMessageListener {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final lq8 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947625859, "Lcom/baidu/tieba/as8;")) == null) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public as8(MainTabActivity mainTabActivity) {
+        super(2921725);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = mainTabActivity.e;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        lq8 lq8Var;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) || customResponsedMessage == null || (lq8Var = this.a) == null || lq8Var.g() == null || !(customResponsedMessage.getData() instanceof Boolean)) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+            Runnable runnable = this.a.g().c;
+            gh.a().removeCallbacks(runnable);
+            gh.a().post(runnable);
+            return;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947625859, "Lcom/baidu/tieba/as8;");
-        }
+        gh.a().removeCallbacks(this.a.g().c);
     }
 }

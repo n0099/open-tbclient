@@ -203,15 +203,15 @@ public final class f {
                         }
                         bVar.a = jSONObject.optLong(TiebaStatic.LogFields.RESULT);
                         bVar.b = jSONObject.optString("errorMsg");
-                        a.C0601a c0601a = new a.C0601a();
-                        bVar.Sg = c0601a;
+                        a.C0597a c0597a = new a.C0597a();
+                        bVar.Sg = c0597a;
                         JSONObject optJSONObject = jSONObject.optJSONObject("data");
                         if (optJSONObject != null) {
-                            c0601a.a = optJSONObject.optInt("dynamicType");
-                            c0601a.b = optJSONObject.optString("dynamicUrl");
-                            c0601a.c = optJSONObject.optString(PackageTable.MD5);
-                            c0601a.Se = optJSONObject.optLong("interval");
-                            c0601a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
+                            c0597a.a = optJSONObject.optInt("dynamicType");
+                            c0597a.b = optJSONObject.optString("dynamicUrl");
+                            c0597a.c = optJSONObject.optString(PackageTable.MD5);
+                            c0597a.Se = optJSONObject.optLong("interval");
+                            c0597a.e = optJSONObject.optString(CommandMessage.SDK_VERSION);
                         }
                         aVar.a(bVar);
                     } else if (responseCode / 100 != 3) {

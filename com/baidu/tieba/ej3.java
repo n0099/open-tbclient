@@ -1,41 +1,157 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.annotation.SuppressLint;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import androidx.room.RoomMasterTable;
+import com.baidu.tieba.y22;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ej3 extends ProviderDelegation {
+public class ej3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ej3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947736219, "Lcom/baidu/tieba/ej3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947736219, "Lcom/baidu/tieba/ej3;");
+                return;
             }
         }
+        a = vj1.a;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            bundle2.putString(TiebaStatic.LogFields.RESULT, zi3.q(getAgent().getContext()));
-            return bundle2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String n = k33.K().q().W().n("mPage");
+            if (TextUtils.isEmpty(n)) {
+                return str;
+            }
+            try {
+                List<String> c = dh3.c(new URI(n).getRawQuery());
+                if (c.size() > 0) {
+                    for (int i = 0; i < c.size(); i++) {
+                        String str2 = c.get(i);
+                        if (!TextUtils.isEmpty(str2)) {
+                            String[] split = str2.split("=");
+                            if (split.length > 1) {
+                                str = dh3.a(str, split[0], split[1]);
+                            }
+                        }
+                    }
+                }
+                return str;
+            } catch (URISyntaxException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                l02.i("SwanWebModeUtils", "appendWebUrlQuery: " + e.getMessage());
+                return str;
+            }
         }
-        return (Bundle) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @SuppressLint({"BDOfflineUrl"})
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (y22.b.a()) {
+                str = d() + "?appKey=" + k33.K().q().getAppId();
+            }
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String e = e();
+            String valueOf = String.valueOf(dj3.c().g());
+            String a2 = a(str);
+            String c = c();
+            l02.i("SwanWebModeUtils", "appendWebUrlQuery: launchUrl : " + a2 + " rawPath : " + c);
+            return Uri.parse(a2).buildUpon().path(c).appendQueryParameter("_swebfr", e).appendQueryParameter("_swebcode", valueOf).appendQueryParameter("_swebHost", sm2.n().a()).build().toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String n = k33.K().q().W().n("mPage");
+            if (TextUtils.isEmpty(n)) {
+                return "";
+            }
+            try {
+                return new URI(n).getPath();
+            } catch (URISyntaxException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String string = zb3.a().getString("web_mode_host_key", "");
+            return TextUtils.isEmpty(string) ? "http://radar.bcc-szth.baidu.com:8312" : string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? fh3.G() ? "41" : RoomMasterTable.DEFAULT_ID : (String) invokeV.objValue;
+    }
+
+    public static boolean f(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
+            String optString = jSONObject.optString("invokeFrom");
+            return !TextUtils.isEmpty(optString) && TextUtils.equals(optString, "swanWeb");
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(ef3 ef3Var, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, ef3Var, i)) == null) {
+            if (i == 6) {
+                return true;
+            }
+            if (ef3Var == null) {
+                return false;
+            }
+            return ef3Var.h() == 1013 || ef3Var.h() == 1015;
+        }
+        return invokeLI.booleanValue;
     }
 }

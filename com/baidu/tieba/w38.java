@@ -4,74 +4,82 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.person.holder.PersonInfoUserPicViewHolder;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w38 extends qn<h45, PersonInfoUserPicViewHolder> {
+public class w38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public View.OnClickListener b;
+    public View a;
+    public HeadImageView b;
+    public TextView c;
+    public TextView d;
+    public ImageView e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w38(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public w38(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0943, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0926f9);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0926fb);
+        this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0926fc);
+        ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0926fa);
+        this.e = imageView;
+        imageView.setVisibility(0);
+        this.a.setTag(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public PersonInfoUserPicViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static w38 b(Context context, View view2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) ? new PersonInfoUserPicViewHolder(LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d08be, (ViewGroup) null)) : (PersonInfoUserPicViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h45 h45Var, PersonInfoUserPicViewHolder personInfoUserPicViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h45Var, personInfoUserPicViewHolder})) == null) {
-            if (personInfoUserPicViewHolder == null || h45Var == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, view2)) == null) {
+            if (view2 != null && view2.getTag() != null && (view2.getTag() instanceof w38)) {
+                return (w38) view2.getTag();
             }
-            personInfoUserPicViewHolder.d(this.b);
-            personInfoUserPicViewHolder.a(h45Var);
-            return personInfoUserPicViewHolder.getView();
+            return new w38(context);
         }
-        return (View) invokeCommon.objValue;
+        return (w38) invokeLL.objValue;
     }
 
-    public void u(View.OnClickListener onClickListener) {
+    public View a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
-            this.b = onClickListener;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (View) invokeV.objValue;
+    }
+
+    public void c(String str, String str2, long j, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
+            this.c.setText(str);
+            this.b.setImageDrawable(null);
+            this.d.setText(StringHelper.getFormatTime(j));
+            this.b.K(str2, 28, false);
         }
     }
 }

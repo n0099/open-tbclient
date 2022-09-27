@@ -1,54 +1,163 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.tbadk.data.IconPopData;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.zk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: HeaderViewLogic.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class vq6 {
+public class vq6 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsActivity m;
+    public FrsFragment n;
+    public boolean o;
 
-    @NonNull
-    public static wq6 a() {
+    /* loaded from: classes6.dex */
+    public class a implements zk8.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vq6 a;
+
+        public a(vq6 vq6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vq6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vq6Var;
+        }
+
+        @Override // com.baidu.tieba.zk8.d
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.u();
+            }
+        }
+
+        @Override // com.baidu.tieba.zk8.d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.u();
+            }
+        }
+
+        @Override // com.baidu.tieba.zk8.d
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.a.u();
+            }
+        }
+    }
+
+    public vq6(FrsActivity frsActivity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.o = false;
+        this.m = frsActivity;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (PollingModel.O()) {
+                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+                zk8 zk8Var = new zk8();
+                zk8Var.i(iconPopData);
+                zk8Var.k(new a(this));
+                if (this.o) {
+                    return;
+                }
+                this.n.z4(true);
+                return;
+            }
+            u();
+        }
+    }
+
+    public void H(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.o = z;
+        }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new xq6() : (wq6) invokeV.objValue;
-    }
-
-    public static View b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) ? view2.findViewById(R.id.obfuscated_res_0x7f090b65) : (View) invokeL.objValue;
-    }
-
-    @NonNull
-    public static TextView c(@NonNull View view2, boolean z) {
-        InterceptResult invokeLZ;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, view2, z)) == null) {
-            if (z) {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d27);
-            } else {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d28);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.o) {
+                return true;
             }
-            textView.bringToFront();
-            uu4.d(textView).v(R.color.CAM_X0619);
-            return textView;
+            FrsFragment frsFragment = this.n;
+            return (frsFragment == null || frsFragment.u3()) ? false : true;
         }
-        return (TextView) invokeLZ.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static void d(@NonNull View view2, @NonNull View view3) {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
-            uu4 d = uu4.d(view2);
-            d.n(R.string.J_X11);
-            d.s(R.array.Mask_X005);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
+            return PollingModel.O() && iconPopData.getPic160() != null && iconPopData.getTitle() != null && this.m.U0() && iconPopData.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId();
         }
+        return invokeV.booleanValue;
+    }
+
+    public vq6(FrsActivity frsActivity, FrsFragment frsFragment) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.o = false;
+        this.m = frsActivity;
+        this.n = frsFragment;
     }
 }

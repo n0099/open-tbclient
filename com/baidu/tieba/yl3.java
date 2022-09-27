@@ -1,201 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdtls.AES;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class yl3 {
+public class yl3 extends xl3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yl3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public yl3() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948333961, "Lcom/baidu/tieba/yl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948333961, "Lcom/baidu/tieba/yl3;");
+                return;
+            }
+        }
+        boolean z = vj1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yl3(i43 i43Var) {
+        super(i43Var, "/swanAPI/recommendProducts");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {i43Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((i43) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static int a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr != null) {
-                int i = 0;
-                for (byte b : bArr) {
-                    i = (i << 8) | (b & 255);
-                }
-                return i;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: char */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < bArr.length; i++) {
-                sb.append(bArr[i] > 0 ? bArr[i] : bArr[i] & 255);
-                sb.append(",");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static yl3 f() {
+    @Override // com.baidu.tieba.xl3
+    @NonNull
+    public String r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (yl3.class) {
-                    if (a == null) {
-                        a = new yl3();
-                    }
-                }
-            }
-            return a;
-        }
-        return (yl3) invokeV.objValue;
-    }
-
-    public static byte[] g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)} : (byte[]) invokeI.objValue;
-    }
-
-    public byte[] b(jm3 jm3Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jm3Var, str)) == null) {
-            if (jm3Var == null) {
-                return null;
-            }
-            try {
-                hm3 a2 = hm3.j.a();
-                a2.r((byte) 23);
-                byte[] i = jm3Var.i();
-                if (i != null && i.length > 0 && i.length <= 32767) {
-                    a2.q((short) i.length);
-                    a2.o(i);
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    byte[] aesEncrypt = AES.aesEncrypt(str, jm3Var.c());
-                    a2.k(aesEncrypt.length);
-                    a2.j(aesEncrypt);
-                }
-                a2.l(nf4.e().d().longValue());
-                return lm3.b(a2);
-            } catch (Exception e) {
-                if (ul3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public im3 c(jm3 jm3Var, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jm3Var, bArr)) == null) {
-            im3 im3Var = new im3();
-            try {
-                hm3 a2 = lm3.a(bArr);
-                byte i = a2.i();
-                if (i == 21) {
-                    Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.f());
-                    if (parseFrom != null) {
-                        String str = new String(parseFrom.getDescription().toByteArray());
-                        if (ul3.a) {
-                            Log.d("BDTLS", "bdtls ubc application alert : " + str);
-                        }
-                        zl3.b(jm3Var, parseFrom);
-                        if (1 == parseFrom.getLevel()) {
-                            im3Var.d(-2);
-                        } else if (TextUtils.equals(str, "down grade")) {
-                            im3Var.d(2);
-                        } else {
-                            im3Var.d(-1);
-                        }
-                        if (ul3.a) {
-                            if (parseFrom.getDescription() != null) {
-                                if (ul3.a) {
-                                    Log.d("BDTLS", "BdtlsPostRequest response alert message=" + str);
-                                }
-                            } else if (ul3.a) {
-                                Log.d("BDTLS", "BdtlsPostRequest response alert messag=null");
-                            }
-                        }
-                    } else {
-                        im3Var.d(-1);
-                    }
-                } else if (i == 23) {
-                    im3Var.c(new String(AES.aesDecrypt(a2.a(), jm3Var.c())));
-                    im3Var.d(1);
-                }
-            } catch (Exception e) {
-                if (ul3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                }
-                im3Var.d(-1);
-            }
-            return im3Var;
-        }
-        return (im3) invokeLL.objValue;
-    }
-
-    public byte[] e(jm3 jm3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jm3Var)) == null) {
-            if (jm3Var == null) {
-                return null;
-            }
-            try {
-                byte[] b = km3.b(jm3Var, new gm3());
-                if (b == null) {
-                    return null;
-                }
-                hm3 a2 = hm3.j.a();
-                a2.r((byte) 22);
-                a2.q((short) b.length);
-                a2.l(nf4.e().d().longValue());
-                a2.o(b);
-                return lm3.b(a2);
-            } catch (Exception e) {
-                if (ul3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                }
-                return null;
-            }
-        }
-        return (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? lj3.a() : (String) invokeV.objValue;
     }
 }

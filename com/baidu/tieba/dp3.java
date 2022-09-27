@@ -1,27 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class dp3 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile cp3 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dp3 {
+    void a(i43 i43Var);
 
-    public static synchronized cp3 a() {
-        InterceptResult invokeV;
-        cp3 cp3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (dp3.class) {
-                if (a == null) {
-                    a = new cp3();
-                }
-                cp3Var = a;
-            }
-            return cp3Var;
-        }
-        return (cp3) invokeV.objValue;
-    }
+    @Nullable
+    Map<String, Object> b(@NonNull mr1 mr1Var);
+
+    @Nullable
+    Map<String, Object> c(@NonNull mr1 mr1Var);
 }

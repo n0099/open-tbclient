@@ -3,7 +3,7 @@ package com.baidu.tbadk.BdToken;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.il4;
+import com.baidu.tieba.vl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.DecryptCode.DecryptCodeResIdl;
 public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public il4 decryptData;
+    public vl4 decryptData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecryptCodeHttpRespMsg(int i) {
@@ -37,10 +37,10 @@ public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
         }
     }
 
-    public il4 getDecryptData() {
+    public vl4 getDecryptData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.decryptData : (il4) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.decryptData : (vl4) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,9 +51,9 @@ public class DecryptCodeHttpRespMsg extends HttpResponsedMessage {
             try {
                 DecryptCodeResIdl decryptCodeResIdl = (DecryptCodeResIdl) new Wire(new Class[0]).parseFrom(bArr, DecryptCodeResIdl.class);
                 if (decryptCodeResIdl != null) {
-                    il4 il4Var = new il4();
-                    this.decryptData = il4Var;
-                    il4Var.h(decryptCodeResIdl.data);
+                    vl4 vl4Var = new vl4();
+                    this.decryptData = vl4Var;
+                    vl4Var.h(decryptCodeResIdl.data);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

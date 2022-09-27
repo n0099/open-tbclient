@@ -1,5 +1,22 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
 /* loaded from: classes5.dex */
-public interface rl0 {
-    <T extends pl0> void a(ul0 ul0Var, sl0<T> sl0Var, T t);
+public class rl0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static File a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            File externalCacheDir = context.getExternalCacheDir();
+            return externalCacheDir == null ? context.getCacheDir() : externalCacheDir;
+        }
+        return (File) invokeL.objValue;
+    }
 }

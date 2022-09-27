@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be8;
+import com.baidu.tieba.qe8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class AppDownloadView extends LinearLayout {
     public static int getStatus(DownloadData downloadData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? be8.p(downloadData) : invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, downloadData)) == null) ? qe8.p(downloadData) : invokeL.intValue;
     }
 
     public final void a(Context context) {
@@ -65,9 +65,9 @@ public class AppDownloadView extends LinearLayout {
             setGravity(16);
             View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0121, (ViewGroup) this, true);
             this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0902a5);
-            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090af5);
-            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090af3);
-            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090af4);
+            this.b = (ProgressBar) inflate.findViewById(R.id.obfuscated_res_0x7f090af4);
+            this.c = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090af2);
+            this.d = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090af3);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -91,7 +91,7 @@ public class AppDownloadView extends LinearLayout {
             setVisibility(0);
             SkinManager.setImageResource(this.c, R.drawable.icon_download_play);
         }
-        int j = be8.n().j(downloadData.getId(), downloadData.getName());
+        int j = qe8.n().j(downloadData.getId(), downloadData.getName());
         if (j >= 0) {
             c(j);
         } else {

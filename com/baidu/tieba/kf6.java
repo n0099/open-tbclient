@@ -1,69 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class kf6 {
+public class kf6 implements Cdo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdTypeRecyclerView b;
-    public lf6 c;
-    public lo d;
-    public List<qn> e;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
 
-    public kf6(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947911214, "Lcom/baidu/tieba/kf6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947911214, "Lcom/baidu/tieba/kf6;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
+
+    public kf6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new LinkedList();
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        a();
+        this.a = -1;
+        this.b = -1;
     }
 
-    public final void a() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            lf6 lf6Var = new lf6(this.a);
-            this.c = lf6Var;
-            this.e.add(lf6Var);
-            lo loVar = new lo(this.a);
-            this.d = loVar;
-            this.e.add(loVar);
-            this.b.a(this.e);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? StringUtils.isNull(this.c) || StringUtils.isNull(this.d) || this.a < 0 || this.b < 0 : invokeV.booleanValue;
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public void b() {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public void c(List<Cdo> list) {
+    @Override // com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setData(list);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? e : (BdUniqueId) invokeV.objValue;
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.a = i;
         }
     }
 }

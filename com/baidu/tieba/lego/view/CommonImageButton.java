@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jg7;
-import com.baidu.tieba.uf7;
+import com.baidu.tieba.ig7;
+import com.baidu.tieba.xg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -58,26 +58,26 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public void b(jg7 jg7Var) {
+    public void b(xg7 xg7Var) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jg7Var) == null) || jg7Var == null) {
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xg7Var) == null) || xg7Var == null) {
             return;
         }
-        if (!jg7Var.j()) {
-            uf7.a().d(jg7Var, jg7Var.h());
+        if (!xg7Var.j()) {
+            ig7.a().d(xg7Var, xg7Var.h());
         }
-        if (jg7Var.a()) {
-            c(jg7Var);
+        if (xg7Var.a()) {
+            c(xg7Var);
         } else {
-            d(jg7Var);
+            d(xg7Var);
         }
     }
 
-    public final void c(jg7 jg7Var) {
+    public final void c(xg7 xg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jg7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xg7Var) == null) {
             this.d.setVisibility(8);
-            int f = jg7Var.f();
+            int f = xg7Var.f();
             if (f != 0) {
                 this.c.setVisibility(0);
                 SkinManager.setBackgroundResource(this.c, f);
@@ -87,12 +87,12 @@ public class CommonImageButton extends FrameLayout {
         }
     }
 
-    public final void d(jg7 jg7Var) {
+    public final void d(xg7 xg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jg7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, xg7Var) == null) {
             this.c.setVisibility(8);
             this.d.setVisibility(0);
-            this.d.K(1 == TbadkCoreApplication.getInst().getSkinType() ? jg7Var.e() : jg7Var.d(), 10, false);
+            this.d.K(1 == TbadkCoreApplication.getInst().getSkinType() ? xg7Var.e() : xg7Var.d(), 10, false);
         }
     }
 

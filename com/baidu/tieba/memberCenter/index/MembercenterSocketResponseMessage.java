@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.an7;
 import com.baidu.tieba.jf;
-import com.baidu.tieba.mm7;
-import com.baidu.tieba.zt4;
+import com.baidu.tieba.mu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mm7 mMembercenter;
+    public an7 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterSocketResponseMessage() {
@@ -58,12 +58,12 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
             }
             DataRes dataRes = getVipInfoResIdl.data;
             if (dataRes != null) {
-                this.mMembercenter = new mm7(dataRes);
+                this.mMembercenter = new an7(dataRes);
             }
             if (getError() == 0) {
                 String currentAccount = TbadkCoreApplication.isLogin() ? TbadkCoreApplication.getCurrentAccount() : SevenZipUtils.FILE_NAME_TEMP;
-                zt4.f();
-                jf<byte[]> e = zt4.e("tb_member_center", currentAccount);
+                mu4.f();
+                jf<byte[]> e = mu4.e("tb_member_center", currentAccount);
                 if (e != null && bArr != null) {
                     e.g("member_center_cache_key", bArr);
                 }
@@ -73,9 +73,9 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public mm7 getMembercenterData() {
+    public an7 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMembercenter : (mm7) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mMembercenter : (an7) invokeV.objValue;
     }
 }

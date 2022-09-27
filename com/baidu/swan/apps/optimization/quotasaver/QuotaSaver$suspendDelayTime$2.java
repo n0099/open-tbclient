@@ -59,8 +59,8 @@ public final class QuotaSaver$suspendDelayTime$2 extends Lambda implements Funct
     }
 
     /* JADX DEBUG: Return type fixed from 'long' to match base method */
-    /* JADX WARN: Type inference failed for: r0v4, types: [long, java.lang.Long] */
-    /* JADX WARN: Type inference failed for: r1v0, types: [long, java.lang.Long] */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.lang.Long, long] */
+    /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.Long, long] */
     @Override // kotlin.jvm.functions.Function0
     public final Long invoke() {
         InterceptResult invokeV;

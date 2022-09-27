@@ -1,54 +1,33 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.GridView;
-import android.widget.ListAdapter;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
-import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.PostPrefixData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.c39;
-import com.baidu.tieba.write.write.WriteImageGridView;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class d39 {
+public class d39 implements c39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public WriteImageGridView b;
-    public WriteImagesInfo c;
-    public c39 d;
-    public x75 e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public PostPrefixData k;
-    public int l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public b p;
-    public c39.f q;
+    @NonNull
+    public final NewVcodeView a;
+    @NonNull
+    public final NewWriteModel b;
+    public final NewWriteModel.d c;
 
     /* loaded from: classes3.dex */
-    public class a implements c39.f {
+    public class a implements NewWriteModel.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ d39 a;
@@ -71,79 +50,37 @@ public class d39 {
             this.a = d39Var;
         }
 
-        @Override // com.baidu.tieba.c39.f
-        public void a() {
+        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, y15 y15Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.a.c == null) {
-                return;
-            }
-            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(this.a.a.getPageActivity(), this.a.c.toJsonString(), true, true);
-            albumFloatActivityConfig.getIntent().putExtra("forum_id", this.a.g);
-            albumFloatActivityConfig.getIntent().putExtra("from", this.a.f);
-            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
-            albumFloatActivityConfig.setCanSelectVideo(false);
-            albumFloatActivityConfig.setCanSelectOnlyVideo(false);
-            albumFloatActivityConfig.setCanEditImage(false);
-            AntiData antiData = new AntiData();
-            antiData.voice_message = this.a.h;
-            antiData.setIfVoice(this.a.m);
-            albumFloatActivityConfig.setStatisticFrom(this.a.l);
-            albumFloatActivityConfig.setExtraData(antiData, this.a.k, this.a.i, this.a.j);
-            albumFloatActivityConfig.setFromWrite(3);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
-        }
-
-        @Override // com.baidu.tieba.c39.f
-        public void b(int i) {
-            int count;
-            ImageFileInfo imageInfoAt;
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) || this.a.c == null || (count = ListUtils.getCount(this.a.c.getChosedFiles())) == 0 || i < 0 || i >= count || (imageInfoAt = this.a.c.getImageInfoAt(i)) == null || imageInfoAt.getImageType() == 1) {
-                return;
-            }
-            this.a.a.sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.a.getPageActivity(), 12012, this.a.c, i)));
-        }
-
-        @Override // com.baidu.tieba.c39.f
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) || this.a.c == null || this.a.c.getChosedFiles() == null || i < 0 || i >= this.a.c.getChosedFiles().size()) {
-                return;
-            }
-            ImageFileInfo remove = this.a.c.getChosedFiles().remove(i);
-            if (remove.isTempFile()) {
-                kc.f().a(new DiskFileOperate(remove.getFilePath(), null, DiskFileOperate.Action.DELETE));
-            }
-            d39 d39Var = this.a;
-            d39Var.d.g(d39Var.c);
-            this.a.d.notifyDataSetChanged();
-            if (ListUtils.isEmpty(this.a.c.getChosedFiles()) && this.a.a.getOrignalPage() != null) {
-                if (this.a.p != null) {
-                    this.a.p.b();
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, y15Var, writeData, antiData}) == null) {
+                this.a.a.showPostThreadLoadingView(false);
+                if (z) {
+                    Intent intent = new Intent();
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("post_write_callback_data", postWriteCallBackData);
+                    intent.putExtras(bundle);
+                    np8.a(writeData, postWriteCallBackData.getThreadId());
+                    this.a.a.getContext().setResult(-1, intent);
+                    this.a.a.getContext().finish();
+                } else if (y15Var == null || TextUtils.isEmpty(y15Var.c())) {
+                    if (postWriteCallBackData != null) {
+                        this.a.a.showToast(false, postWriteCallBackData.getErrorString());
+                    }
+                    this.a.a.getContext().finish();
+                } else if (this.a.a.getWebView() != null) {
+                    this.a.a.getWebView().loadUrl(y15Var.c());
                 }
-                if (!this.a.n) {
-                    this.a.b.setVisibility(8);
-                }
-            }
-            if (this.a.p != null) {
-                this.a.p.a();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a();
-
-        void b();
-    }
-
-    public d39(TbPageContext<?> tbPageContext, View view2) {
+    public d39(@NonNull NewVcodeView newVcodeView, @NonNull NewWriteModel newWriteModel) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2};
+            Object[] objArr = {newVcodeView, newWriteModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -153,104 +90,103 @@ public class d39 {
                 return;
             }
         }
-        this.e = new x75();
-        this.f = AlbumActivityConfig.FROM_WRITE;
-        this.g = "";
-        this.h = null;
-        this.n = false;
-        this.q = new a(this);
-        this.a = tbPageContext;
-        this.b = (WriteImageGridView) view2.findViewById(R.id.obfuscated_res_0x7f0926b2);
-        c39 c39Var = new c39(view2.getContext(), this.e, null, this.q);
-        this.d = c39Var;
-        this.b.setAdapter((ListAdapter) c39Var);
+        a aVar = new a(this);
+        this.c = aVar;
+        this.a = newVcodeView;
+        this.b = newWriteModel;
+        newWriteModel.b0(aVar);
     }
 
-    public void n() {
+    @Override // com.baidu.tieba.c39
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.b();
-        }
-    }
-
-    public GridView o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (GridView) invokeV.objValue;
-    }
-
-    public void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.n = z;
-            this.d.f(z);
-        }
-    }
-
-    public void q(String str, String str2, String str3, PostPrefixData postPrefixData, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, str3, postPrefixData, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.h = str;
-            this.i = str2;
-            this.j = str3;
-            this.k = postPrefixData;
-            this.l = i;
-            this.m = z;
-        }
-    }
-
-    public void r(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.p = bVar;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.o = z;
-            w();
-        }
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.d.h(z);
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.d.i(z);
-        }
-    }
-
-    public void v(WriteImagesInfo writeImagesInfo, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, writeImagesInfo, str, str2) == null) {
-            this.f = str;
-            this.g = str2;
-            this.c = writeImagesInfo;
-            this.d.g(writeImagesInfo);
-            this.d.notifyDataSetChanged();
-            w();
-        }
-    }
-
-    public final void w() {
-        WriteImagesInfo writeImagesInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            if (this.n) {
-                this.b.setVisibility(0);
-            } else if (!this.o && (writeImagesInfo = this.c) != null && writeImagesInfo.getChosedFiles() != null) {
-                this.b.setVisibility(0);
-            } else {
-                this.b.setVisibility(8);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.a.showWebView(false);
+            if (this.b.S() == null) {
+                return;
             }
+            String vcodeUrl = this.b.S().getVcodeUrl();
+            if (TextUtils.isEmpty(vcodeUrl) || this.a.getWebView() == null) {
+                return;
+            }
+            this.a.getWebView().loadUrl(vcodeUrl);
+        }
+    }
+
+    @Override // com.baidu.tieba.c39
+    public boolean b(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
+            if (!TextUtils.isEmpty(str) && str.contains("objc:jsAiCodeBack")) {
+                String a2 = vi5.a(str);
+                if (!TextUtils.isEmpty(a2) && !"0".equals(a2)) {
+                    g(a2);
+                    return true;
+                }
+                this.a.getContext().finish();
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.c39
+    public void c(NewWriteModel.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.c39
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.showPostThreadLoadingView(false);
+            this.b.cancelLoadData();
+        }
+    }
+
+    @Override // com.baidu.tieba.c39
+    public void e(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
+        }
+    }
+
+    public final void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            if (!ej.D()) {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c59);
+                this.a.getContext().finish();
+            } else if (!TextUtils.isEmpty(str)) {
+                this.a.showPostThreadLoadingView(true);
+                if (this.b.S() != null) {
+                    this.b.S().setVcode(str);
+                    this.b.S().setVcodeType("6");
+                }
+                this.b.e0();
+            } else {
+                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0c59);
+                this.a.getContext().finish();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.c39
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.c39
+    public void onPageFinished(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) {
+            this.a.showWebViewDelay(500);
         }
     }
 }

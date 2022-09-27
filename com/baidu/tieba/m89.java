@@ -1,58 +1,85 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class m89 {
+public final class m89 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public t89 a;
-    public HashSet<String> b;
-    public HashSet<String> c;
-    public HashSet<String> d;
-    public HashSet<String> e;
-    public HashSet<String> f;
-    public HashSet<String> g;
-    public HashMap<String, Integer> h;
-    public HashMap<String, String> i;
-    public HashMap<String, s89> j;
-    public HashSet<String> k;
-    public HashSet<String> l;
-    public HashMap<String, Integer> m;
-    public HashMap<String, Integer> n;
-    public HashMap<String, Integer> o;
 
-    public m89() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926683, "Lcom/baidu/tieba/m89;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926683, "Lcom/baidu/tieba/m89;");
                 return;
             }
         }
-        this.a = new t89();
-        this.b = new HashSet<>();
-        this.c = new HashSet<>();
-        this.d = new HashSet<>();
-        this.e = new HashSet<>();
-        this.f = new HashSet<>();
-        this.g = new HashSet<>();
-        this.h = new HashMap<>();
-        this.i = new HashMap<>();
-        this.j = new HashMap<>();
-        this.k = new HashSet<>();
-        this.l = new HashSet<>();
-        this.m = new HashMap<>();
-        this.n = new HashMap<>();
-        this.o = new HashMap<>();
+        a = new Object();
+    }
+
+    public static String a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(context.getPackageName());
+            sb.append(WebvttCueParser.CHAR_SLASH);
+            sb.append(b(context));
+            sb.append(" (Linux; U; Android ");
+            sb.append(Build.VERSION.RELEASE);
+            sb.append("; ");
+            sb.append(Locale.getDefault().toString());
+            String str = Build.MODEL;
+            if (str.length() > 0) {
+                sb.append("; ");
+                sb.append(str);
+            }
+            String str2 = Build.ID;
+            if (str2.length() > 0) {
+                sb.append("; Build/");
+                sb.append(str2);
+            }
+            sb.append("; TurboNet/");
+            sb.append("53.0.2785.116");
+            sb.append(')');
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(Context context) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (a) {
+                if (b == 0) {
+                    try {
+                        b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+                    } catch (PackageManager.NameNotFoundException unused) {
+                        throw new IllegalStateException("Cannot determine package version");
+                    }
+                }
+                i = b;
+            }
+            return i;
+        }
+        return invokeL.intValue;
     }
 }

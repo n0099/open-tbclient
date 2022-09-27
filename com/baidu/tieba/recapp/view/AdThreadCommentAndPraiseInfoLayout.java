@@ -29,13 +29,13 @@ import com.baidu.tbadk.core.view.ThreadCardBottomOpSegmentWeightLayout;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.e35;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.ge8;
+import com.baidu.tieba.h01;
 import com.baidu.tieba.imMessageCenter.mention.FeedData;
-import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.ui;
-import com.baidu.tieba.uz0;
+import com.baidu.tieba.ve8;
 import com.baidu.tieba.wi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -55,7 +55,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
     public int r0;
     public int s0;
     public int t0;
-    public ge8 u0;
+    public ve8 u0;
 
     static {
         InterceptResult invokeClinit;
@@ -99,12 +99,12 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void C(View view2) {
-        ge8 ge8Var;
+        ve8 ve8Var;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.B == null || this.C == null || (ge8Var = this.u0) == null) {
+        if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || this.B == null || this.C == null || (ve8Var = this.u0) == null) {
             return;
         }
-        k0(ge8Var.getThreadData(), "share", 0);
+        k0(ve8Var.getThreadData(), "share", 0);
         l0(this.u0.getThreadData(), "2", "1");
         if (ShareSwitch.isOn() || ViewHelper.checkUpIsLogin(this.C)) {
             ShareItem shareItem = new ShareItem();
@@ -150,7 +150,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
                         ShareItem shareItem2 = this.a;
-                        shareItem2.x = r25.u(shareItem2.x, shareItem2.O, UtilHelper.isVideoThread(shareItem2.Q));
+                        shareItem2.x = e35.u(shareItem2.x, shareItem2.O, UtilHelper.isVideoThread(shareItem2.Q));
                         ui.a(this.a.x);
                         ej.N(this.b.C, view3.getResources().getString(R.string.obfuscated_res_0x7f0f0455));
                     }
@@ -429,7 +429,7 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
                 i = -1;
             }
             q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
-            uz0.b(clogBuilder);
+            h01.b(clogBuilder);
         }
     }
 
@@ -534,11 +534,11 @@ public class AdThreadCommentAndPraiseInfoLayout extends ThreadCardBottomOpSegmen
         }
     }
 
-    public void setShareData(ge8 ge8Var) {
+    public void setShareData(ve8 ve8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, ge8Var) == null) {
-            this.u0 = ge8Var;
-            setData(ge8Var.getThreadData());
+        if (interceptable == null || interceptable.invokeL(1048594, this, ve8Var) == null) {
+            this.u0 = ve8Var;
+            setData(ve8Var.getThreadData());
         }
     }
 

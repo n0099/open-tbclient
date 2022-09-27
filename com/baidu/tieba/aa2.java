@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,44 +9,45 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
 public class aa2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947608375, "Lcom/baidu/tieba/aa2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947608375, "Lcom/baidu/tieba/aa2;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947608375, "Lcom/baidu/tieba/aa2;")) == null) {
+            return;
         }
-        a = "content://" + x92.b + "/history_with_app";
-        b = "content://" + x92.b + "/history";
-        c = "content://" + x92.b + "/history_with_aps_pms";
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947608375, "Lcom/baidu/tieba/aa2;");
+        }
     }
 
-    public static Uri a() {
-        InterceptResult invokeV;
+    public static int a(@NonNull io2 io2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Uri.parse(b) : (Uri) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, io2Var)) == null) {
+            int i = a;
+            return i != 0 ? i : io2Var.j("preAppReadyState", 0);
+        }
+        return invokeL.intValue;
     }
 
-    public static Uri b() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? Uri.parse(a) : (Uri) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = 0;
+        }
     }
 
-    public static Uri c() {
-        InterceptResult invokeV;
+    public static void c(int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? Uri.parse(c) : (Uri) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            a = i;
+        }
     }
 }

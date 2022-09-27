@@ -3,8 +3,8 @@ package com.baidu.swan.bdtls.impl.model;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
-import com.baidu.tieba.cm3;
-import com.baidu.tieba.dm3;
+import com.baidu.tieba.pm3;
+import com.baidu.tieba.qm3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -280,7 +280,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (cm3) null);
+                Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (pm3) null);
                 int i = this.a;
                 int i2 = (i & 1) != 1 ? 0 : 1;
                 bdtls$ServerHello.random_ = this.b;
@@ -469,7 +469,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         bdtls$ServerHello.initFields();
     }
 
-    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, cm3 cm3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, pm3 pm3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -533,13 +533,13 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
     }
 
-    public dm3 getExtensionsOrBuilder(int i) {
+    public qm3 getExtensionsOrBuilder(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.extensions_.get(i) : (dm3) invokeI.objValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? this.extensions_.get(i) : (qm3) invokeI.objValue;
     }
 
-    public List<? extends dm3> getExtensionsOrBuilderList() {
+    public List<? extends qm3> getExtensionsOrBuilderList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.extensions_ : (List) invokeV.objValue;
@@ -689,7 +689,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, cm3 cm3Var) {
+    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, pm3 pm3Var) {
         this(builder);
     }
 

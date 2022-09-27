@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,13 +9,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class oh6 {
+public class oh6 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final oh6 b;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LongSparseArray<LinkedList<String>> a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +28,7 @@ public class oh6 {
                 return;
             }
         }
-        b = new oh6();
+        a = BdUniqueId.gen();
     }
 
     public oh6() {
@@ -42,24 +41,14 @@ public class oh6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new LongSparseArray<>();
     }
 
-    public static oh6 a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? b : (oh6) invokeV.objValue;
-    }
-
-    public void b(long j) {
-        LinkedList<String> linkedList;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeJ(1048576, this, j) == null) || (linkedList = this.a.get(j)) == null) {
-            return;
-        }
-        linkedList.clear();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? a : (BdUniqueId) invokeV.objValue;
     }
 }

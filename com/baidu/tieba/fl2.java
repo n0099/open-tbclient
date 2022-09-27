@@ -1,97 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes4.dex */
-public class fl2 extends el2 {
-    public static /* synthetic */ Interceptable $ic;
+public class fl2 extends fh2<wl2> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String b = "release";
     public transient /* synthetic */ FieldHolder $fh;
-    public String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fl2(String str) {
-        super(str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947767901, "Lcom/baidu/tieba/fl2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947767901, "Lcom/baidu/tieba/fl2;");
+        }
+    }
+
+    public fl2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.il2, com.baidu.tieba.hl2
-    public void a(String str, String str2) {
+    @Override // com.baidu.tieba.fh2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) && e(str)) {
-            boolean equals = TextUtils.equals(str2, "auto");
-            boolean equals2 = TextUtils.equals(str2, "api");
-            this.a.g("autoPlay", equals ? "1" : "0");
-            this.a.g("playMethod", equals2 ? "1" : "0");
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.el2, com.baidu.tieba.il2, com.baidu.tieba.hl2
-    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.fh2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull wl2 wl2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, hybridUbcFlow) == null) {
-            UbcFlowEvent g = hybridUbcFlow.g("fe_slave_dispatch_start");
-            UbcFlowEvent g2 = hybridUbcFlow.g("fe_master_page_oninit_start");
-            UbcFlowEvent g3 = hybridUbcFlow.g("master_page_onload_start");
-            UbcFlowEvent g4 = hybridUbcFlow.g("video_fe_init");
-            UbcFlowEvent g5 = hybridUbcFlow.g("video_fe_init_end");
-            if (g != null) {
-                this.a.i("fe_slave_dispatch_start", z ? g.g() : 0L);
-            }
-            if (g2 != null) {
-                this.a.i("fe_master_page_oninit_start", z ? g2.g() : 0L);
-            }
-            if (g3 != null) {
-                this.a.i("master_page_onload_start", z ? g3.g() : 0L);
-            }
-            if (g4 != null) {
-                this.a.i("video_fe_init", z ? g4.g() : 0L);
-            }
-            if (g5 != null) {
-                this.a.i("video_fe_init_end", z ? g5.g() : 0L);
-            }
-            this.a.g("fmpArrived", z ? "1" : "0");
-            if (this.a.f()) {
-                this.a.k();
-                dl2.e();
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wl2Var) == null) {
+            wl2Var.release();
+            cu1.e().o(wl2Var);
+            d(wl2Var, command.what, null, false);
         }
-    }
-
-    @Override // com.baidu.tieba.il2, com.baidu.tieba.hl2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.a.d("video_will_play")) {
-                this.a.h("video_play_cancel");
-            }
-            d();
-        }
-    }
-
-    public final boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) ? TextUtils.equals(this.b, str) : invokeL.booleanValue;
     }
 }

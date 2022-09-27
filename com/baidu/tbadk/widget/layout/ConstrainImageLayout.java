@@ -27,13 +27,13 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dk5;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.h85;
+import com.baidu.tieba.iv4;
 import com.baidu.tieba.mn;
 import com.baidu.tieba.on;
-import com.baidu.tieba.qj5;
-import com.baidu.tieba.su4;
-import com.baidu.tieba.u75;
 import com.baidu.tieba.ug;
-import com.baidu.tieba.vu4;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,7 +50,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public int c;
     public int d;
     public boolean e;
-    public qj5 f;
+    public dk5 f;
     public String g;
     public Paint h;
     public Paint i;
@@ -157,7 +157,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) || tbImageView == null || tbImageView.getImageMatrix() == null) {
                 return;
             }
-            on m = u75.k().m(zg.h().g(tbImageView.getUrl(), this.a.e ? 13 : 14));
+            on m = h85.k().m(zg.h().g(tbImageView.getUrl(), this.a.e ? 13 : 14));
             int i2 = 0;
             if (m != null) {
                 i2 = m.r();
@@ -361,14 +361,14 @@ public class ConstrainImageLayout extends ViewGroup {
                 i2 = Integer.MIN_VALUE;
             }
             this.i.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, f, i, i2, Shader.TileMode.CLAMP));
-            canvas2.drawPath(vu4.a(rectF2, fArr), this.i);
+            canvas2.drawPath(iv4.a(rectF2, fArr), this.i);
         }
         canvas.drawBitmap(this.o, rectF.left, rectF.top, this.h);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
         int i5 = ((int) rectF.bottom) - dimenPixelSize;
         int measureText = (((int) rectF.right) - dimenPixelSize2) - ((int) this.j.measureText(this.g));
-        float[] B = su4.B(R.array.S_O_X001);
+        float[] B = fv4.B(R.array.S_O_X001);
         this.j.setShadowLayer(B[1], B[2], B[3], (int) B[0]);
         canvas.drawText(this.g, measureText, i5, this.j);
     }
@@ -399,7 +399,7 @@ public class ConstrainImageLayout extends ViewGroup {
             if (e == null) {
                 return;
             }
-            d(canvas, e, su4.y(R.string.J_X11));
+            d(canvas, e, fv4.y(R.string.J_X11));
         }
     }
 
@@ -711,13 +711,13 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setImageClickListener(qj5 qj5Var) {
+    public void setImageClickListener(dk5 dk5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, qj5Var) == null) {
-            if (qj5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, dk5Var) == null) {
+            if (dk5Var == null) {
                 setClickable(false);
             } else {
-                this.f = qj5Var;
+                this.f = dk5Var;
             }
         }
     }

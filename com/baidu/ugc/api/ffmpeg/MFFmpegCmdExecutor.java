@@ -4,9 +4,9 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.media.transcoder.FFmpegCmdExecutor;
-import com.baidu.tieba.ec9;
-import com.baidu.tieba.xd0;
-import com.baidu.tieba.yf9;
+import com.baidu.tieba.ke0;
+import com.baidu.tieba.ng9;
+import com.baidu.tieba.tc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,20 +14,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class MFFmpegCmdExecutor implements yf9 {
+public class MFFmpegCmdExecutor implements ng9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MFFmpegCmdExecutor_tag";
     public transient /* synthetic */ FieldHolder $fh;
     public FFmpegCmdExecutor mFFmpegCmdExecutor;
-    public yf9.a mFFmpegCmdListener;
+    public ng9.a mFFmpegCmdListener;
 
     /* loaded from: classes6.dex */
     public class a implements FFmpegCmdExecutor.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yf9.a a;
+        public final /* synthetic */ ng9.a a;
 
-        public a(MFFmpegCmdExecutor mFFmpegCmdExecutor, yf9.a aVar) {
+        public a(MFFmpegCmdExecutor mFFmpegCmdExecutor, ng9.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,7 +47,7 @@ public class MFFmpegCmdExecutor implements yf9 {
 
         @Override // com.baidu.media.transcoder.FFmpegCmdExecutor.b
         public void onCompletion() {
-            yf9.a aVar;
+            ng9.a aVar;
             Interceptable interceptable = $ic;
             if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || (aVar = this.a) == null) {
                 return;
@@ -60,7 +60,7 @@ public class MFFmpegCmdExecutor implements yf9 {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj)) == null) {
-                yf9.a aVar = this.a;
+                ng9.a aVar = this.a;
                 if (aVar != null) {
                     return aVar.onError(i, i2, obj);
                 }
@@ -74,7 +74,7 @@ public class MFFmpegCmdExecutor implements yf9 {
             InterceptResult invokeIIL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
-                yf9.a aVar = this.a;
+                ng9.a aVar = this.a;
                 if (aVar != null) {
                     return aVar.onInfo(i, i2, obj);
                 }
@@ -97,12 +97,12 @@ public class MFFmpegCmdExecutor implements yf9 {
                 return;
             }
         }
-        if (xd0.a() == null || TextUtils.isEmpty(xd0.b())) {
-            Context context = ec9.c().getContext() != null ? ec9.c().getContext() : null;
-            String b = !TextUtils.isEmpty(ec9.c().b()) ? ec9.c().b() : "quanmin_unknow";
+        if (ke0.a() == null || TextUtils.isEmpty(ke0.b())) {
+            Context context = tc9.c().getContext() != null ? tc9.c().getContext() : null;
+            String b = !TextUtils.isEmpty(tc9.c().b()) ? tc9.c().b() : "quanmin_unknow";
             if (context != null) {
                 try {
-                    xd0.d(context, b);
+                    ke0.d(context, b);
                 } catch (Exception unused) {
                 }
             }
@@ -110,7 +110,7 @@ public class MFFmpegCmdExecutor implements yf9 {
         this.mFFmpegCmdExecutor = new FFmpegCmdExecutor();
     }
 
-    @Override // com.baidu.tieba.yf9
+    @Override // com.baidu.tieba.ng9
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -118,8 +118,8 @@ public class MFFmpegCmdExecutor implements yf9 {
         }
     }
 
-    @Override // com.baidu.tieba.yf9
-    public synchronized void setListener(yf9.a aVar) {
+    @Override // com.baidu.tieba.ng9
+    public synchronized void setListener(ng9.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
             synchronized (this) {
@@ -129,7 +129,7 @@ public class MFFmpegCmdExecutor implements yf9 {
         }
     }
 
-    @Override // com.baidu.tieba.yf9
+    @Override // com.baidu.tieba.ng9
     public void setSource(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
@@ -137,15 +137,15 @@ public class MFFmpegCmdExecutor implements yf9 {
         }
     }
 
-    @Override // com.baidu.tieba.yf9
+    @Override // com.baidu.tieba.ng9
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (xd0.a() != null && !TextUtils.isEmpty(xd0.b())) {
+            if (ke0.a() != null && !TextUtils.isEmpty(ke0.b())) {
                 this.mFFmpegCmdExecutor.j();
                 return;
             }
-            yf9.a aVar = this.mFFmpegCmdListener;
+            ng9.a aVar = this.mFFmpegCmdListener;
             if (aVar != null) {
                 aVar.onError(-9527, -9527, "TranscoderManager install error");
             }

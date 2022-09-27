@@ -1,221 +1,898 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.ImageFormat;
+import android.graphics.Rect;
+import android.graphics.SurfaceTexture;
+import android.graphics.YuvImage;
+import android.hardware.Camera;
+import android.view.TextureView;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.FrameLayout;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.r06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
+import kotlinx.coroutines.DebugKt;
 /* loaded from: classes5.dex */
-public class p06 implements o06, View.OnClickListener {
+public class p06 implements r06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public TbPageContext b;
-    public LinearLayout c;
-    public ImageView d;
-    public ImageView e;
-    public ImageView f;
-    public ImageView g;
-    public ImageView h;
-    public RelativeLayout i;
-    public RelativeLayout j;
-    public RelativeLayout k;
-    public RelativeLayout l;
-    public RelativeLayout m;
-    public n06 n;
-    public float o;
-    public float p;
+    public int a;
+    public int b;
+    public int c;
+    public AtomicBoolean d;
+    public AtomicBoolean e;
+    public Context f;
+    public Camera g;
+    public Camera.Parameters h;
+    public s06 i;
+    public Rect j;
+    public f k;
+    public View l;
+    public int m;
+    public r06.a n;
+    public int o;
+    public Camera.Size p;
+    public int q;
+    public SurfaceTexture r;
+    public byte[] s;
+    public Camera.PreviewCallback t;
+    public TextureView.SurfaceTextureListener u;
+    public Comparator<Camera.Size> v;
 
-    public p06(TbPageContext tbPageContext, int i, int i2, n06 n06Var) {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r06.b a;
+        public final /* synthetic */ p06 b;
+
+        /* renamed from: com.baidu.tieba.p06$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0362a implements Camera.PictureCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0362a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.hardware.Camera.PictureCallback
+            public void onPictureTaken(byte[] bArr, Camera camera) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) {
+                    this.a.b.J(false);
+                    this.a.b.d.set(false);
+                    r06.b bVar = this.a.a;
+                    if (bVar != null) {
+                        bVar.a(bArr);
+                    }
+                }
+            }
+        }
+
+        public a(p06 p06Var, r06.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p06Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = p06Var;
+            this.a = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.b.g.takePicture(null, null, new C0362a(this));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    this.b.J(false);
+                    this.b.d.set(false);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Camera.PreviewCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p06 a;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ byte[] a;
+            public final /* synthetic */ b b;
+
+            public a(b bVar, byte[] bArr) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, bArr};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = bArr;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.b.a.D(this.a);
+                }
+            }
+        }
+
+        public b(p06 p06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p06Var;
+        }
+
+        @Override // android.hardware.Camera.PreviewCallback
+        public void onPreviewFrame(byte[] bArr, Camera camera) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bArr, camera) == null) && !this.a.e.get() && p06.s(this.a) % 5 == 0 && bArr.length == this.a.h.getPreviewSize().width * this.a.h.getPreviewSize().height * 1.5d) {
+                camera.addCallbackBuffer(this.a.s);
+                q06.c(new a(this, bArr));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements TextureView.SurfaceTextureListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p06 a;
+
+        public c(p06 p06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p06Var;
+        }
+
+        @Override // android.view.TextureView.SurfaceTextureListener
+        public void onSurfaceTextureAvailable(SurfaceTexture surfaceTexture, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, surfaceTexture, i, i2) == null) {
+                this.a.r = surfaceTexture;
+                this.a.C();
+            }
+        }
+
+        @Override // android.view.TextureView.SurfaceTextureListener
+        public boolean onSurfaceTextureDestroyed(SurfaceTexture surfaceTexture) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, surfaceTexture)) == null) {
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // android.view.TextureView.SurfaceTextureListener
+        public void onSurfaceTextureSizeChanged(SurfaceTexture surfaceTexture, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, surfaceTexture, i, i2) == null) {
+                p06 p06Var = this.a;
+                p06Var.E(p06Var.k.getWidth(), this.a.k.getHeight());
+                this.a.J(false);
+                this.a.G();
+            }
+        }
+
+        @Override // android.view.TextureView.SurfaceTextureListener
+        public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, surfaceTexture) == null) {
+                this.a.G();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p06 a;
+
+        /* loaded from: classes5.dex */
+        public class a implements Camera.AutoFocusCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public a(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // android.hardware.Camera.AutoFocusCallback
+            public void onAutoFocus(boolean z, Camera camera) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeZL(1048576, this, z, camera) == null) {
+                }
+            }
+        }
+
+        public d(p06 p06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p06Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this.a) {
+                    if (this.a.g != null && !this.a.d.get()) {
+                        try {
+                            this.a.g.autoFocus(new a(this));
+                        } catch (Throwable unused) {
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements Comparator<Camera.Size> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e(p06 p06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Camera.Size size, Camera.Size size2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, size, size2)) == null) ? Long.signum((size.width * size.height) - (size2.width * size2.height)) : invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f extends FrameLayout {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextureView a;
+        public float b;
+        public final /* synthetic */ p06 c;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f(p06 p06Var, Context context) {
+            super(context);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p06Var, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = p06Var;
+            this.b = 0.75f;
+        }
+
+        public final void d(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                if (i < i2) {
+                    i2 = (int) (i * this.b);
+                } else {
+                    i = (int) (i2 * this.b);
+                }
+                int width = (getWidth() - i) / 2;
+                int height = (getHeight() - i2) / 2;
+                this.c.j.left = width;
+                this.c.j.top = height;
+                this.c.j.right = width + i;
+                this.c.j.bottom = height + i2;
+            }
+        }
+
+        public void e(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+                this.b = f;
+                requestLayout();
+                d(getWidth(), getHeight());
+            }
+        }
+
+        public void f(TextureView textureView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, textureView) == null) {
+                this.a = textureView;
+                removeAllViews();
+                addView(textureView);
+            }
+        }
+
+        @Override // android.widget.FrameLayout, android.view.ViewGroup, android.view.View
+        public void onLayout(boolean z, int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+                super.onLayout(z, i, i2, i3, i4);
+                this.a.layout(this.c.j.left, this.c.j.top, this.c.j.right, this.c.j.bottom);
+            }
+        }
+
+        @Override // android.view.View
+        public void onSizeChanged(int i, int i2, int i3, int i4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIII(1048580, this, i, i2, i3, i4) == null) {
+                super.onSizeChanged(i, i2, i3, i4);
+                d(i, i2);
+            }
+        }
+    }
+
+    public p06(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), Integer.valueOf(i2), n06Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.n = n06Var;
-        float f = (i * 1.0f) / i2;
-        this.a = f;
-        this.o = f;
-        this.p = 0.0f;
-        e();
+        this.a = 0;
+        this.b = 0;
+        this.d = new AtomicBoolean(false);
+        this.e = new AtomicBoolean(false);
+        this.j = new Rect();
+        this.m = 0;
+        this.o = 0;
+        this.q = 0;
+        this.s = null;
+        this.t = new b(this);
+        this.u = new c(this);
+        this.v = new e(this);
+        this.f = context;
+        this.k = new f(this, context);
+        F();
     }
 
-    @Override // com.baidu.tieba.o06
-    public int a() {
+    public static /* synthetic */ int s(p06 p06Var) {
+        int i = p06Var.o;
+        p06Var.o = i + 1;
+        return i;
+    }
+
+    public final Camera.Size A(List<Camera.Size> list) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            int width = this.k.a.getWidth();
+            int height = this.k.a.getHeight();
+            float f2 = this.k.b;
+            Camera.Size size = list.get(0);
+            ArrayList arrayList = new ArrayList();
+            for (Camera.Size size2 : list) {
+                int i3 = size2.width;
+                if (i3 >= width && (i2 = size2.height) >= height && i3 * height == i2 * width) {
+                    arrayList.add(size2);
+                } else {
+                    int i4 = size2.height;
+                    if (i4 >= width && (i = size2.width) >= height && i * width == i4 * height) {
+                        arrayList.add(size2);
+                    }
+                }
+            }
+            if (!arrayList.isEmpty()) {
+                return (Camera.Size) Collections.min(arrayList, this.v);
+            }
+            float f3 = f2;
+            for (Camera.Size size3 : list) {
+                if (size3 != null) {
+                    float abs = Math.abs(f2 - ((size3.width * 1.0f) / size3.height));
+                    if (abs < f3) {
+                        size = size3;
+                        f3 = abs;
+                    }
+                }
+            }
+            return size;
+        }
+        return (Camera.Size) invokeL.objValue;
+    }
+
+    public final int B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c.getVisibility() : invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.o06
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.c.setVisibility(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.a;
+            if (i != 90) {
+                return i != 270 ? 90 : 180;
+            }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.o06
-    public void c(int i) {
+    public final void C() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.i.setVisibility(i);
-            if (i == 8) {
-                this.p = 1.7777778f;
-                f(1.7777778f);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                if (this.g == null) {
+                    Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                    for (int i = 0; i < Camera.getNumberOfCameras(); i++) {
+                        Camera.getCameraInfo(i, cameraInfo);
+                        if (cameraInfo.facing == 0) {
+                            this.b = i;
+                        }
+                    }
+                    this.g = Camera.open(this.b);
+                }
+                if (this.h == null) {
+                    Camera.Parameters parameters = this.g.getParameters();
+                    this.h = parameters;
+                    parameters.setPreviewFormat(17);
+                }
+                E(this.k.getWidth(), this.k.getHeight());
+                this.g.setPreviewTexture(this.r);
+                G();
+                J(false);
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
         }
     }
 
-    @Override // com.baidu.tieba.o06
-    public float d() {
-        InterceptResult invokeV;
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:31:0x0068 -> B:37:0x006b). Please submit an issue!!! */
+    public final void D(byte[] bArr) {
+        ByteArrayOutputStream byteArrayOutputStream;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.p : invokeV.floatValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinearLayout linearLayout = (LinearLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f0904b5);
-            this.c = linearLayout;
-            uu4 d = uu4.d(linearLayout);
-            d.n(R.string.J_X05);
-            d.f(R.color.CAM_X0214);
-            this.d = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b5c);
-            this.i = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b5d);
-            this.g = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b5a);
-            this.l = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b5b);
-            this.f = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b58);
-            this.k = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b59);
-            this.e = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b54);
-            this.j = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b55);
-            this.h = (ImageView) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b56);
-            this.m = (RelativeLayout) this.b.getPageActivity().findViewById(R.id.obfuscated_res_0x7f091b57);
-            g();
-            this.i.setOnClickListener(this);
-            this.l.setOnClickListener(this);
-            this.k.setOnClickListener(this);
-            this.j.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            return true;
+        if (!(interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) || this.g == null || bArr == null || this.p == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void f(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
-            this.o = f;
-            n06 n06Var = this.n;
-            if (n06Var != null) {
-                n06Var.a(f);
+        Camera.Size size = this.p;
+        YuvImage yuvImage = new YuvImage(bArr, 17, size.width, size.height, null);
+        ByteArrayOutputStream byteArrayOutputStream2 = null;
+        try {
+            try {
+                byteArrayOutputStream = new ByteArrayOutputStream(bArr.length);
+            } catch (IOException e2) {
+                e2.printStackTrace();
             }
-            g();
+            try {
+                yuvImage.compressToJpeg(new Rect(0, 0, this.p.width, this.p.height), 80, byteArrayOutputStream);
+                if (this.n.a(byteArrayOutputStream.toByteArray(), z()) == 0) {
+                    y();
+                }
+                byteArrayOutputStream.close();
+            } catch (OutOfMemoryError unused) {
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    byteArrayOutputStream2.close();
+                }
+            } catch (Throwable th) {
+                th = th;
+                byteArrayOutputStream2 = byteArrayOutputStream;
+                if (byteArrayOutputStream2 != null) {
+                    try {
+                        byteArrayOutputStream2.close();
+                    } catch (IOException e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        } catch (OutOfMemoryError unused2) {
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 
-    public void g() {
+    public final void E(int i, int i2) {
+        Camera camera;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) || this.h == null || (camera = this.g) == null || i <= 0) {
+            return;
+        }
+        try {
+            Camera.Size A = A(camera.getParameters().getSupportedPreviewSizes());
+            this.p = A;
+            this.h.setPreviewSize(A.width, A.height);
+            this.k.e((this.p.width * 1.0f) / this.p.height);
+            this.g.setDisplayOrientation(B());
+            K();
+            this.g.setParameters(this.h);
+        } catch (Exception e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public final void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            H();
+        }
+    }
+
+    public final void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.d.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809d8));
-            this.g.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809d7));
-            this.f.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809d6));
-            this.e.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809d4));
-            this.h.setImageDrawable(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0809d5));
-            float f = this.p;
-            if (f == 0.0f) {
-                this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d8, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 1.7777778f) {
-                this.g.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d7, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 1.3333334f) {
-                this.f.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d6, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 0.5625f) {
-                this.e.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d4, this.b.getResources().getColor(R.color.CAM_X0302), null));
-            } else if (f == 1.0f) {
-                this.h.setImageDrawable(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809d5, this.b.getResources().getColor(R.color.CAM_X0302), null));
+            if (this.s == null) {
+                this.s = new byte[((this.l.getWidth() * this.l.getHeight()) * ImageFormat.getBitsPerPixel(17)) / 8];
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.o06
-    public float getRatio() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.o : invokeV.floatValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f091b5d) {
-                this.p = 0.0f;
-                f(this.a);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b5b) {
-                this.p = 1.7777778f;
-                f(1.7777778f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b59) {
-                this.p = 1.3333334f;
-                f(1.3333334f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b55) {
-                this.p = 0.5625f;
-                f(0.5625f);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091b57) {
-                this.p = 1.0f;
-                f(1.0f);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.o06
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.p = 0.0f;
-            f(this.a);
-        }
-    }
-
-    public p06(TbPageContext tbPageContext, n06 n06Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, n06Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+            Camera camera = this.g;
+            if (camera == null || this.q != 1) {
                 return;
             }
+            camera.addCallbackBuffer(this.s);
+            this.g.setPreviewCallback(this.t);
         }
-        this.b = tbPageContext;
-        this.n = n06Var;
-        this.a = 1.7777778f;
-        this.o = 1.7777778f;
-        this.p = 0.0f;
-        e();
+    }
+
+    public final void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            TextureView textureView = new TextureView(this.f);
+            this.k.a = textureView;
+            this.k.f(textureView);
+            this.l = this.k;
+            textureView.setSurfaceTextureListener(this.u);
+        }
+    }
+
+    public final void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            q06.b(new d(this));
+        }
+    }
+
+    public final void J(boolean z) {
+        s06 s06Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            if (ContextCompat.checkSelfPermission(this.f, PermissionRequest.RESOURCE_VIDEO_CAPTURE) != 0) {
+                if (!z || (s06Var = this.i) == null) {
+                    return;
+                }
+                s06Var.a();
+                return;
+            }
+            Camera camera = this.g;
+            if (camera == null) {
+                C();
+                return;
+            }
+            camera.startPreview();
+            I();
+        }
+    }
+
+    public final void K() {
+        Camera camera;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048586, this) == null) || (camera = this.g) == null) {
+            return;
+        }
+        camera.stopPreview();
+    }
+
+    public final void L(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            if (i == 0) {
+                this.h.setFlashMode(DebugKt.DEBUG_PROPERTY_VALUE_OFF);
+            } else if (i == 1) {
+                this.h.setFlashMode("torch");
+            } else if (i != 2) {
+                this.h.setFlashMode("auto");
+            } else {
+                this.h.setFlashMode("auto");
+            }
+            this.g.setParameters(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.r06
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this.l : (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void b(r06.b bVar) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(1048589, this, bVar) == null) || this.d.get()) {
+            return;
+        }
+        int i = this.a;
+        if (i == 0) {
+            this.h.setRotation(90);
+        } else if (i == 90) {
+            this.h.setRotation(0);
+        } else if (i == 270) {
+            this.h.setRotation(180);
+        }
+        try {
+            Camera.Size A = A(this.g.getParameters().getSupportedPictureSizes());
+            this.h.setPictureSize(A.width, A.height);
+            this.g.setParameters(this.h);
+            this.d.set(true);
+            x();
+            q06.c(new a(this, bVar));
+        } catch (RuntimeException e2) {
+            e2.printStackTrace();
+            J(false);
+            this.d.set(false);
+        }
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.a = i;
+            if (i == 0) {
+                this.m = 90;
+            } else if (i == 90) {
+                this.m = 0;
+            } else if (i != 270) {
+                this.m = 0;
+            } else {
+                this.m = 180;
+            }
+            this.k.requestLayout();
+        }
+    }
+
+    @Override // com.baidu.tieba.r06
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.d.set(false);
+        }
+    }
+
+    @Override // com.baidu.tieba.r06
+    public Rect f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) ? this.j : (Rect) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            J(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048595, this, i) == null) || this.c == i) {
+            return;
+        }
+        this.c = i;
+        L(i);
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void i(s06 s06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, s06Var) == null) {
+            this.i = s06Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            if (this.g != null) {
+                K();
+            }
+            h(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void resume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.d.set(false);
+            if (this.g != null) {
+                this.k.a.setSurfaceTextureListener(this.u);
+                if (this.k.a.isAvailable()) {
+                    J(false);
+                    return;
+                }
+                return;
+            }
+            F();
+        }
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            J(false);
+        }
+    }
+
+    @Override // com.baidu.tieba.r06
+    public void stop() {
+        Camera camera;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048600, this) == null) || (camera = this.g) == null) {
+            return;
+        }
+        camera.setPreviewCallback(null);
+        K();
+        Camera camera2 = this.g;
+        this.g = null;
+        camera2.release();
+        this.g = null;
+        this.s = null;
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            this.g.cancelAutoFocus();
+            q06.a();
+        }
+    }
+
+    public final void y() {
+        Camera camera;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (camera = this.g) != null && this.q == 1) {
+            camera.setPreviewCallback(null);
+            K();
+        }
+    }
+
+    public int z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? this.m : invokeV.intValue;
     }
 }

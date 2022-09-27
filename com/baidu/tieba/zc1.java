@@ -1,45 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.content.res.ColorStateList;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.auth.NTLMEngineImpl;
 /* loaded from: classes6.dex */
-public interface zc1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "splash.host");
-    public static final zc1 b = new a();
+public class zc1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements zc1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public static ColorStateList a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            int i2 = i - (-805306368);
+            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842912, 16842919}, new int[]{-16842912, 16842919}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-520093696), LaunchTaskConstants.OTHER_PROCESS, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH});
         }
-
-        @Override // com.baidu.tieba.zc1
-        public boolean a(String str, td1 td1Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, td1Var)) == null) {
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
+        return (ColorStateList) invokeI.objValue;
     }
 
-    boolean a(String str, td1 td1Var);
+    public static ColorStateList b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = i - (-1728053248);
+            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842919, -16842912}, new int[]{16842919, 16842912}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-1442840576), -4539718, i2, i2, i | (-16777216), -1118482});
+        }
+        return (ColorStateList) invokeI.objValue;
+    }
 }

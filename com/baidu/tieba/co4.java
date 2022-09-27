@@ -1,104 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.live.interfaces.service.bd.IFavorStateServiceKt;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.tbadk.core.data.AlaUserInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public abstract class co4<T> {
+public class co4 {
     public static /* synthetic */ Interceptable $ic;
+    public static View.OnClickListener a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static final class a<T> extends co4<T> {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final T b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String msg, T t) {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {msg, t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            this.a = msg;
-            this.b = t;
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                if (obj instanceof a) {
-                    a aVar = (a) obj;
-                    return Intrinsics.areEqual(this.a, aVar.a) && Intrinsics.areEqual(this.b, aVar.b);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int hashCode = this.a.hashCode() * 31;
-                T t = this.b;
-                return hashCode + (t == null ? 0 : t.hashCode());
-            }
-            return invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "Error(msg=" + this.a + ", data=" + this.b + ')';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public /* synthetic */ a(String str, Object obj, int i, DefaultConstructorMarker defaultConstructorMarker) {
-            this(str, (i & 2) != 0 ? null : obj);
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static final class b<T> extends co4<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final T a;
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public b() {
-            this(null, 1, null);
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -106,158 +43,95 @@ public abstract class co4<T> {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr = newInitContext.callArgs;
-                    this(objArr[0], ((Integer) objArr[1]).intValue(), (DefaultConstructorMarker) objArr[2]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, view2) == null) || view2 == null || view2.getTag() == null || !(view2.getTag() instanceof ao4)) {
+                return;
+            }
+            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                ej.M(view2.getContext(), R.string.obfuscated_res_0x7f0f0c92);
+                return;
+            }
+            ao4 ao4Var = (ao4) view2.getTag();
+            AlaUserInfoData alaUserInfoData = ao4Var.a;
+            if (alaUserInfoData == null) {
+                return;
+            }
+            AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
+            long j = alaUserInfoData.anchor_live;
+            if (j != 0) {
+                alaLiveInfoCoreData.liveID = j;
+            } else {
+                long j2 = alaUserInfoData.enter_live;
+                if (j2 != 0) {
+                    alaLiveInfoCoreData.liveID = j2;
+                } else {
+                    long j3 = alaUserInfoData.live_id;
+                    if (j3 == 0) {
+                        return;
+                    }
+                    alaLiveInfoCoreData.liveID = j3;
+                }
+            }
+            int i = ao4Var.b;
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (i == 1) {
+                TiebaStatic.log(new StatisticItem("c11850").param("uid", currentAccount));
+            } else if (i == 2 || i == 3 || i == 4) {
+                TiebaStatic.log(new StatisticItem("c11851").param("uid", currentAccount));
+            } else if (i == 5) {
+                TiebaStatic.log(new StatisticItem("c11852").param("uid", currentAccount));
+            } else if (i == 7) {
+                if (alaUserInfoData.ala_id != 0) {
+                    TiebaStatic.log(new StatisticItem("c11855").param("uid", currentAccount).param("click_uid", alaUserInfoData.ala_id).param(IFavorStateServiceKt.KEY_FAVOR_LIVE_STATUS, alaUserInfoData.live_status));
+                }
+                TiebaStatic.log(new StatisticItem("c12542"));
+                if (ao4Var.c && !StringUtils.isNull(alaUserInfoData.sex)) {
+                    BdToast b = BdToast.b(view2.getContext(), String.format(view2.getContext().getString(R.string.obfuscated_res_0x7f0f0e83), alaUserInfoData.sex));
+                    b.f(BdToast.ToastIcon.FAILURE);
+                    b.i();
                     return;
                 }
             }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(T t) {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.a = t;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                return (obj instanceof b) && Intrinsics.areEqual(this.a, ((b) obj).a);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                T t = this.a;
-                if (t == null) {
-                    return 0;
-                }
-                return t.hashCode();
-            }
-            return invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return "Loading(data=" + this.a + ')';
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public /* synthetic */ b(Object obj, int i, DefaultConstructorMarker defaultConstructorMarker) {
-            this((i & 1) != 0 ? null : obj);
+            int i2 = ao4Var.b;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2911003, new AlaLiveRoomActivityConfig(view2.getContext(), alaLiveInfoCoreData, i2 == 5 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_ATTENTION : i2 == 7 ? AlaLiveRoomActivityConfig.FROM_TYPE_PERSON_PLAY : AlaLiveRoomActivityConfig.FROM_TYPE_TAIL_LIGHT, null, false, "")));
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static final class c<T> extends co4<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final T a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(T t) {
-            super(null);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947681473, "Lcom/baidu/tieba/co4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((DefaultConstructorMarker) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = t;
-        }
-
-        public final T a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (T) invokeV.objValue;
-        }
-
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                if (this == obj) {
-                    return true;
-                }
-                return (obj instanceof c) && Intrinsics.areEqual(this.a, ((c) obj).a);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947681473, "Lcom/baidu/tieba/co4;");
+                return;
             }
-            return invokeL.booleanValue;
         }
-
-        public int hashCode() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                T t = this.a;
-                if (t == null) {
-                    return 0;
-                }
-                return t.hashCode();
-            }
-            return invokeV.intValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return "Success(data=" + this.a + ')';
-            }
-            return (String) invokeV.objValue;
-        }
+        a = new a();
     }
 
-    public co4() {
+    public static TextView a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (context == null || MessageManager.getInstance().findTask(2911003) == null) {
+                return null;
             }
+            TextView textView = (TextView) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0111, (ViewGroup) null);
+            textView.setOnClickListener(a);
+            return textView;
         }
-    }
-
-    public /* synthetic */ co4(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
+        return (TextView) invokeL.objValue;
     }
 }

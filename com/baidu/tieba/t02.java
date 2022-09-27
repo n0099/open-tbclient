@@ -1,73 +1,109 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class t02 implements a02 {
+public class t02 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public JSONArray c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public long h;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948127315, "Lcom/baidu/tieba/t02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948127315, "Lcom/baidu/tieba/t02;");
+                return;
+            }
+        }
+        i = vj1.a;
+    }
 
     public t02() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void d() {
-        y23 M;
+    @NonNull
+    public static t02 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(65537, null) == null) || (M = y23.M()) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            t02 t02Var = new t02();
+            try {
+                t02Var.c = jSONObject.getJSONArray("host");
+                t02Var.b = jSONObject.getString("appKey");
+                t02Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                t02Var.d = jSONObject.getString("serverPort");
+                t02Var.f = jSONObject.getString("wsServerPort");
+                Uri.decode(jSONObject.optString("url"));
+                t02Var.g = jSONObject.optString("notInHistory", "1");
+                t02Var.h = jSONObject.optLong("coreVersion");
+            } catch (JSONException unused) {
+                if (i) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
+                }
+            }
+            return t02Var;
         }
-        hf3.j(M.getActivity());
-        System.exit(0);
+        return (t02) invokeL.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public String a(int i2) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? a : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a02
-    public void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            a = xf3.i(bundle, "extraWSUrl");
-            b02.i(xf3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
-            b02.j(xf3.i(bundle, "slavePreload"));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
+            JSONArray jSONArray = this.c;
+            return jSONArray == null ? "" : jSONArray.optString(i2);
         }
+        return (String) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.a02
-    public void b(Bundle bundle) {
+    public String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("extraWSUrl", a);
-            bundle.putString("slavePreload", b02.c());
-            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, b02.a());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return "http://" + str + ":" + this.d + "/app.zip";
         }
-    }
-
-    @Override // com.baidu.tieba.a02
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? r02.e().getPath() : (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

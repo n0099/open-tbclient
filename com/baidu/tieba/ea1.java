@@ -1,76 +1,148 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PolyActivity;
+import com.baidu.poly.widget.WechatSignAutoRenewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class ea1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int[] MaxHeightScrollView;
-    public static final int MaxHeightScrollView_maxHeight = 0;
-    public static final int MaxHeightScrollView_maxHeightRatio = 1;
-    public static final int MaxHeightScrollView_minHeightRatio = 2;
-    public static final int[] PolyVerificationCodeView;
-    public static final int PolyVerificationCodeView_vcv_et_bg = 0;
-    public static final int PolyVerificationCodeView_vcv_et_cursor = 1;
-    public static final int PolyVerificationCodeView_vcv_et_cursor_visible = 2;
-    public static final int PolyVerificationCodeView_vcv_et_number = 3;
-    public static final int PolyVerificationCodeView_vcv_et_spacing = 4;
-    public static final int PolyVerificationCodeView_vcv_et_text_color = 5;
-    public static final int PolyVerificationCodeView_vcv_et_text_size = 6;
-    public static final int PolyVerificationCodeView_vcv_et_width = 7;
-    public static final int[] PopupWindow;
-    public static final int PopupWindow_android_popupAnimationStyle = 1;
-    public static final int PopupWindow_android_popupBackground = 0;
-    public static final int PopupWindow_overlapAnchor = 2;
-    public static final int PopupWindow_popupAnimationStyle = 3;
-    public static final int PopupWindow_popupBackground = 4;
-    public static final int[] ProgressButton;
-    public static final int ProgressButton_textColor = 0;
-    public static final int[] SwitchButton;
-    public static final int SwitchButton_kswAnimationDuration = 0;
-    public static final int SwitchButton_kswBackColor = 1;
-    public static final int SwitchButton_kswBackDrawable = 2;
-    public static final int SwitchButton_kswBackRadius = 3;
-    public static final int SwitchButton_kswFadeBack = 4;
-    public static final int SwitchButton_kswTextAdjust = 5;
-    public static final int SwitchButton_kswTextExtra = 6;
-    public static final int SwitchButton_kswTextOff = 7;
-    public static final int SwitchButton_kswTextOn = 8;
-    public static final int SwitchButton_kswTextThumbInset = 9;
-    public static final int SwitchButton_kswThumbColor = 10;
-    public static final int SwitchButton_kswThumbDrawable = 11;
-    public static final int SwitchButton_kswThumbHeight = 12;
-    public static final int SwitchButton_kswThumbMargin = 13;
-    public static final int SwitchButton_kswThumbMarginBottom = 14;
-    public static final int SwitchButton_kswThumbMarginLeft = 15;
-    public static final int SwitchButton_kswThumbMarginRight = 16;
-    public static final int SwitchButton_kswThumbMarginTop = 17;
-    public static final int SwitchButton_kswThumbRadius = 18;
-    public static final int SwitchButton_kswThumbRangeRatio = 19;
-    public static final int SwitchButton_kswThumbWidth = 20;
-    public static final int SwitchButton_kswTintColor = 21;
+public class ea1 implements yc1 {
+    public static /* synthetic */ Interceptable $ic;
+    public static ea1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947727508, "Lcom/baidu/tieba/ea1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes3.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ea1 this$0;
+
+        public b(ea1 ea1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ea1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947727508, "Lcom/baidu/tieba/ea1;");
+            this.this$0 = ea1Var;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
+                this.this$0.b = false;
+                try {
+                    int intExtra = intent.getIntExtra("code", 0);
+                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
+                    intent2.putExtra("code", intExtra);
+                    PolyActivity.g.startActivity(intent2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        public /* synthetic */ b(ea1 ea1Var, a aVar) {
+            this(ea1Var);
+        }
+    }
+
+    public ea1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        MaxHeightScrollView = new int[]{R.attr.obfuscated_res_0x7f0404bf, R.attr.obfuscated_res_0x7f0404c0, R.attr.obfuscated_res_0x7f0404d0};
-        PolyVerificationCodeView = new int[]{R.attr.obfuscated_res_0x7f040762, R.attr.obfuscated_res_0x7f040763, R.attr.obfuscated_res_0x7f040764, R.attr.obfuscated_res_0x7f040765, R.attr.obfuscated_res_0x7f040766, R.attr.obfuscated_res_0x7f040767, R.attr.obfuscated_res_0x7f040768, R.attr.obfuscated_res_0x7f040769};
-        PopupWindow = new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040514, R.attr.popupAnimationStyle, R.attr.popupBackground};
-        ProgressButton = new int[]{R.attr.obfuscated_res_0x7f0406e4};
-        SwitchButton = new int[]{R.attr.obfuscated_res_0x7f0403e0, R.attr.obfuscated_res_0x7f0403e1, R.attr.obfuscated_res_0x7f0403e2, R.attr.obfuscated_res_0x7f0403e3, R.attr.obfuscated_res_0x7f0403e4, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403e6, R.attr.obfuscated_res_0x7f0403e7, R.attr.obfuscated_res_0x7f0403e8, R.attr.obfuscated_res_0x7f0403e9, R.attr.obfuscated_res_0x7f0403ea, R.attr.obfuscated_res_0x7f0403eb, R.attr.obfuscated_res_0x7f0403ec, R.attr.obfuscated_res_0x7f0403ed, R.attr.obfuscated_res_0x7f0403ee, R.attr.obfuscated_res_0x7f0403ef, R.attr.obfuscated_res_0x7f0403f0, R.attr.obfuscated_res_0x7f0403f1, R.attr.obfuscated_res_0x7f0403f2, R.attr.obfuscated_res_0x7f0403f3, R.attr.obfuscated_res_0x7f0403f4, R.attr.obfuscated_res_0x7f0403f5};
+        this.b = false;
+    }
+
+    public static ea1 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (ea1.class) {
+                    if (c == null) {
+                        c = new ea1();
+                    }
+                }
+            }
+            return c;
+        }
+        return (ea1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.yc1
+    public void a(Activity activity, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
+            kc1.b("WECHAT signWechatAutoRenew appId=" + str);
+            la1 a2 = ba1.a();
+            if (a2 == null) {
+                return;
+            }
+            if (!a2.b(activity)) {
+                id1.f(activity, "您没有安装微信，请选择其他支付方式");
+                activity.finish();
+                return;
+            }
+            this.b = true;
+            f();
+            e();
+            a2.a(activity, str, str2);
+            activity.finish();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new b(this, null);
+            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) || this.a == null) {
+            return;
+        }
+        try {
+            PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

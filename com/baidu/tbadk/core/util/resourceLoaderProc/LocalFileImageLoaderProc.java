@@ -8,9 +8,9 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.img.effect.ImageOperation;
 import com.baidu.tieba.ah;
 import com.baidu.tieba.ej;
-import com.baidu.tieba.g85;
+import com.baidu.tieba.h85;
 import com.baidu.tieba.on;
-import com.baidu.tieba.u75;
+import com.baidu.tieba.t85;
 import com.baidu.tieba.xg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -129,7 +129,7 @@ public class LocalFileImageLoaderProc implements ah<on> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ImageOperation g = g85.g(this.width, this.height);
+            ImageOperation g = t85.g(this.width, this.height);
             return "image_" + str + ':' + g.actionName + '=' + g.actionParam;
         }
         return (String) invokeL.objValue;
@@ -143,7 +143,7 @@ public class LocalFileImageLoaderProc implements ah<on> {
             if (onVar.u()) {
                 onVar.A(i);
                 onVar.z(i2);
-                u75.k().d(toCacheKey(str), onVar);
+                h85.k().d(toCacheKey(str), onVar);
             }
         }
     }
@@ -170,7 +170,7 @@ public class LocalFileImageLoaderProc implements ah<on> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            on checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), u75.k().m(toCacheKey(str)), i, i2);
+            on checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), h85.k().m(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache == null || checkIsValidPicMemoryCache.p() == null || checkIsValidPicMemoryCache.p().isRecycled()) {
                 return null;
             }
